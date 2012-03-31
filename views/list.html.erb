@@ -1,18 +1,52 @@
 <section id="list" class="page">
   <nav class="toolbar">
-    <a href="#" class="back">Back</a>
+    <a href="/" class="back"><i class="icon-chevron-left"></i> Back</a>
     <h1>List page</h1>
   </nav>
-  
-  <ul class="list-page scrollable vertical">
-    <li>
-      <img src="flickr://women fashion" width="150" height="150">
-      Cover page - Table of content shows a grid of channels provides a visual summery of primary categories</li>
-    
-    <li>List page - Shows magazine like grid</li>
-    
-    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</li>
-    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</li>
-    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</li>
+  <ul class="listview scrollable vertical">
   </ul>
 </section>
+
+<script id="list-item-tpl" type="text/html">
+  <li>
+    <a class="js-pjax" href="/detail?id={{ id }}">
+    <div class="thumb">
+      <img src="{{ image }}">
+    </div>
+    <h3>{{ title }}</h3>
+    <p>{{{ description }}}</p>
+    </a>
+  </li>
+</script>
+
+<script>
+
+//  HTML5 Photo prototype
+// Key:
+// 95193fbee25c5b7db37e1d912f0313b8
+// 
+// Secret:
+// fe2f18ae40f4c33d
+  var feed = "http://api.flickr.com/services/feeds/photos_public.gne?tags=vintage,fashion&format=json&jsoncallback=?";
+  var template = $('#list-item-tpl').html()
+  var list = $('ul.listview');
+  
+  $.getJSON(feed, function(dd) {
+    $.each(dd.items, function(index, item) {
+      var parts = item.link.split('/')
+      var html = Milk.render(template, {
+        id: parts[parts.length - 2],
+        title: item.title,
+        user: item.author,
+        link: item.link,
+        description: $(item.description).text(),
+        image: item.media.m,
+        tags: item.tags.split(' '),
+        created_at: item.published
+      });
+      
+      console.log(html)
+      list.append(html)
+    })
+  })
+</script>

@@ -1,5 +1,6 @@
 @import 'frameless';
 @import 'compass/css3';
+@import 'font-awesome';
 
 $highlight: rgb(232,232,232);
 $emphasis: rgb(23,23,23);
@@ -23,6 +24,72 @@ body {
 }
 
 
+a {
+  text-decoration: none;
+  color: #373737;
+  &:visited {
+    color: black;
+  }
+  
+  &:hover, &:focus, &:active {
+    color: #DF5454;
+  }
+
+}
+
+section.page {
+  clear: both;
+  margin: 0 auto;
+//  @include width(4.2);
+
+  h1 {
+    font-size: 1.17em;
+  }
+}
+
+// Toolbar
+nav.toolbar {
+  position: relative;
+  height: 40px;
+  text-align: center;
+  padding: 5px 0;
+  box-sizing: border-box;
+  background: #F4F8F9;
+  
+  i {
+    font-size: 32px;
+    vertical-align: middle;
+  }
+  
+  .back {
+    position: absolute;
+    left: 6px;
+
+    max-width: 65px;
+    padding: 0px;
+    right: auto;
+  }
+  
+  .action, .group {
+    position: absolute;
+    right: 5px;
+    top: 3px;
+    display: inline-block;
+  }
+  
+  .group .action {//
+      width: 32px;
+      margin-right: 10px;
+      position: relative;
+  }
+  
+}
+
+.flickrbombContainer {
+  display: inline-block;
+  vertical-align: center;
+}
+
 #logo {
   margin: 12px 6px;
   
@@ -34,24 +101,49 @@ body {
   }
 }
 
-.list-page {
+
+.listview {
   list-style: none;
   
   &> li {
     position: relative;
+    box-sizing: border-box;
+    
+    clear: left;
     top: -1px;
     border-top: 1px solid #ccc;
     padding: 9px 12px;
     font: 18px;
     background: #fff;
     
+    min-height: 60px;
+    
     &:last-child {
       border-bottom: 1px solid #ccc; 
+    }
+    
+    .thumb {
+      height: 100px;
+      width: 100px;
+      float: left;
+      margin: 0 20px 0 0;
+      text-align: center;
+      overflow: hidden;
+      border-radius: 3px;
+    }
+    
+    img {
+      max-width: 100px;
     }
   }
 }
 
-
+article {
+  img.image {
+    width: 100%;
+    max-width: 1024px;
+  }
+}
 //.bar {
 //    position: absolute;
 //    background: #222;
@@ -77,31 +169,8 @@ body {
 //    bottom: 0;
 //}
 
-// Toolbar
-nav.toolbar {
-  position: relative;
-  height: 40px;
-  text-align: center;
-  padding: 5px 0;
-  box-sizing: border-box;
-
-  .back {
-    position: absolute;
-    border-width: 0px 8px 0px 14px;
-    left: 6px;
-    max-width: 55px;
-    padding: 0px;
-    right: auto;
-  }
-}
 
 // 320+
-section.page {
-  clear: both;
-  margin: 0 auto;
-//  @include width(4.2);
-  
-}
 
 section.toc {
   
