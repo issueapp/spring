@@ -1,0 +1,143 @@
+<h1 id="html5_mobile_prototype">HTML5 Mobile prototype</h1>
+
+<p>Simple HTML5 written with HTML, Javascript</p>
+
+<ul>
+<li>zepto</li>
+<li>pjax</li>
+<li>scrollability</li>
+<li>hammer.js (multi touch)</li>
+</ul>
+
+<h2 id="grid_system">Grid system</h2>
+
+<p>This is using a <a href="http://elliotjaystocks.com/blog/a-better-photoshop-grid-for-responsive-web-design/">1000px grid system</a> for layout. It makes percentage/pixel based conversation very simple.</p>
+
+<p><img src="http://elliotjaystocks.com/assets/4f199548dabe9d54ad00d558/articleresponsivegrid01.jpg" alt="1000px grid" title="" /></p>
+
+<h2 id="layout_rendering">Layout &amp; Rendering</h2>
+
+<p>Basic part of the rendering engine is based on the grid system listed above with 3 primary item layouts </p>
+
+<p>CSS classes, combination of these should be able to build rather complex layout for different devices.</p>
+
+<ul>
+<li>Width: full, half, third, third-2 (two third)</li>
+<li>Height: v-half, v-third, v-third2 (two third)</li>
+<li>Columns: col, col.half, col.third, col.third-2</li>
+</ul>
+
+<p>Row</p>
+
+<p>Column</p>
+
+<h3 id="web_layout">Web layout</h3>
+
+<p><img src="http://cl.ly/3N223u3F0G380U1j322U/web-layout.png" alt="web layout" title="" /></p>
+
+<p>Example</p>
+
+<pre><code>.row
+  .col.half
+    .item.v-half
+    .item.v-half
+
+  .col.half
+    .item
+</code></pre>
+
+<h3 id="ipad">Ipad</h3>
+
+<p>Landscape view has similar dimension like a web view, except the primary rendering type should be split view, combining with couple of variations.</p>
+
+<p><img src="http://cl.ly/273z072q0Y32001b0f17/ipad-landscape.png" alt="ipad layout" title="" /></p>
+
+<p>Example</p>
+
+<pre><code>.row
+  .col.half
+    .item.v-third
+
+  .col.half
+    .item.v-third-2
+</code></pre>
+
+<p>Combining different width/height classes on col to achieve a more complex layout</p>
+
+<p><img src="http://cl.ly/033G0u0D0c1W2Q360G21/ipad-landscape-2.png" alt="ipad layout" title="" /></p>
+
+<p>Portrait view has mostly vertically split views</p>
+
+<p><img src="http://cl.ly/2L301w1j3D442L272u3m/Ipad%20portraite.png" alt="ipad layout" title="" /></p>
+
+<pre><code>.row.v-half
+  .item.v-third
+
+.row.v-half
+  .col.half
+    .item
+
+  .col.half
+    .item.v-half
+    .item.v-half
+</code></pre>
+
+<h2 id="dynamic_paging">Dynamic paging</h2>
+
+<p>In order to create dynamic paging that is response and support horizontal scrolling, we need to create pages</p>
+
+<ul>
+<li>Load 10 products per page load</li>
+<li>Push into a local buffer</li>
+<li>Lazy load additional page via ajax</li>
+</ul>
+
+<h2 id="scrolling">Scrolling</h2>
+
+<h2 id="pagination">Pagination</h2>
+
+<p>Speed, simplicity, responsive</p>
+
+<p>Unlike treesaver which will cut off contents, This pagination will put items into pages.</p>
+
+<pre><code>.pages
+
+  .row
+    .item.full
+
+  .row
+    .item.half
+    .item.half
+
+  .row
+    .item.third
+    .item.third
+    .item.third
+
+  .row
+    .col.half
+      .item-1
+      .item-2
+      .item-3
+
+    .col.half
+      .item
+
+    .item
+  .row
+
+page count
+pagination bar
+</code></pre>
+
+<h2 id="welcome">Welcome</h2>
+
+<pre><code>section#welcome.page.toc
+  figure
+    a
+      img
+      h3
+    figcaption
+</code></pre>
+
+<h2 id="list">List</h2>
