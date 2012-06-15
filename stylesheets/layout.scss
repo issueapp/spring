@@ -1,0 +1,141 @@
+/*
+
+    Default style for 320px
+    
+    
+*/
+
+@import 'style';
+@import 'compass';
+
+body {
+  min-width: 320px;
+}
+
+div.container {
+  background: #ffc; margin:0 auto; overflow:hidden; width:96%;
+}
+
+/*
+        Item
+*/
+.item {
+  background:#000; float:left; margin:0 2% 2% 0; overflow:hidden;
+  color: white;
+  
+  width: 100%;
+  padding: 20px;
+  
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.col {
+
+  float:left; margin:0 2% 0 0; overflow:hidden;
+//  height: 200px;
+  
+  .item {
+    height: 100%;
+  }
+  
+  .item:last-child {
+    margin-bottom: 0;
+  }
+  
+  /* Backgorund hinting mode */
+  .hint & {
+    background: #cff;
+  }
+}
+
+.row {
+  background: red;
+  
+  @include clearfix;
+  width: 100%;
+
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+
+	&.v-full { height: 100% }
+	&.v-half { 
+	  height: 49.01%;
+	  margin-bottom: 2%;
+	}
+	
+	&.v-third { 
+	  height: 32.03%;
+	  margin-bottom: 1%;
+	}
+	&.v-third-2 { height: 64% }
+
+
+  
+  .page > & > .item {
+    height: 100%;
+  }
+
+}
+
+.page {
+  .row:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.col, .item {
+  
+	&.full { width: 100% }  
+	&.half { width: 49.01% }
+	&.third { width: 32.025% }
+	&.third-2 { width: 64% }
+	
+	&.sixth { width: 15.02% }
+
+	&.fourty { width: 39% }
+	&.sixty { width: 59% }
+
+	&.v-full { height: 100% }
+	&.v-half { height: 49.01% }
+	&.v-third { height: 32.03% }
+	&.v-third-2 { height: 64% }
+	
+	&:last-child {
+	  margin-right: 0;
+	}
+}
+
+
+
+/*
+    Utility
+*/
+
+
+.ipad {
+  
+  height: 1024px;
+  width: 768px;
+  
+  &.landscape {
+    width: 1024px;
+    height: 768px;
+  }
+}
+
+.iphone {
+  width: 320px;
+  height: 480px;
+  
+  &.landscape {
+    height: 480px;
+    weight: 320px;
+  }
+}
+
+.grid-item .item {
+  height: 40px;
+}
