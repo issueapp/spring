@@ -1,12 +1,22 @@
+@charset "UTF-8";
+
 /*
+    Layout and rendering
+    ---
+    No style or presentation code should be in this stylesheet
 
     Default style for 320px
     
-    
+    Grid system
 */
-
-@import 'style';
+@import 'h5bp';
 @import 'compass';
+@import 'site';
+
+
+html{
+  -webkit-font-smoothing: antialiased;
+}
 
 body {
   min-width: 320px;
@@ -17,22 +27,41 @@ div.container {
 }
 
 /*
-        Item
+    Item
+    
+    define layout and positioning of a rendering unit
+        
 */
 .item {
-  background:#000; float:left; margin:0 2% 2% 0; overflow:hidden;
-  color: white;
+  position: relative;
   
+  background:#fff; 
+//  border: 1px solid #ccc;
+  
+  float:left; margin:0 2% 2% 0; overflow:hidden;
   width: 100%;
-  padding: 20px;
   
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
+//  padding: 20px;
+  padding: 0;
+  
+  @include box-sizing(border-box);
+	
+//  @include box-shadow(#ccc, 1px 1px 2px);
+	border: 1px solid #eee;
+	border-width: 0 1px 1px 0;
+	
+	.info {
+	  @include box-sizing(border-box);
+	  
+	  position: absolute;
+    bottom: 0;
+    
+	  display: inline-block;
+	}
+  
 }
 
 .col {
-
   float:left; margin:0 2% 0 0; overflow:hidden;
 //  height: 200px;
   
@@ -51,14 +80,16 @@ div.container {
 }
 
 .row {
-  background: red;
+  position: relative;
   
   @include clearfix;
   width: 100%;
+  
+  @include box-sizing(border-box);
 
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
+  &:last-child {
+    background: none;
+  }
 
 	&.v-full { height: 100% }
 	&.v-half { 
@@ -70,10 +101,13 @@ div.container {
 	  height: 32.03%;
 	  margin-bottom: 1%;
 	}
-	&.v-third-2 { height: 64% }
+	&.v-third-2 { height: 66% }
 
 
-  
+  & > .item {
+//    max-height: 25em;
+  }
+
   .page > & > .item {
     height: 100%;
   }
@@ -81,6 +115,8 @@ div.container {
 }
 
 .page {
+  max-height: 100%;
+  
   .row:last-child {
     margin-bottom: 0;
   }
@@ -99,8 +135,8 @@ div.container {
 	&.sixty { width: 59% }
 
 	&.v-full { height: 100% }
-	&.v-half { height: 49.01% }
-	&.v-third { height: 32.03% }
+	&.v-half { height: 48.00% }
+	&.v-third { height: 33.03% }
 	&.v-third-2 { height: 64% }
 	
 	&:last-child {
@@ -109,6 +145,20 @@ div.container {
 }
 
 
+// 768px
+@media only screen and (min-width: 768px) {
+  @import "768";
+}
+
+// 992px
+@media only screen and (min-width: 992px) {
+  @import "992";
+}
+
+// 1382px
+@media only screen and (min-width: 1382px) {
+  @import "1382";
+}
 
 /*
     Utility
@@ -139,3 +189,9 @@ div.container {
 .grid-item .item {
   height: 40px;
 }
+
+
+/*
+*/
+
+

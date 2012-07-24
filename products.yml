@@ -1,0 +1,71 @@
+# Landscape product
+- title: Carly Paiker Skull Cuff - Jade.
+  price: 149
+  origin_url: http://shop2.com/carmenhamilton/products/skull-cuff-jade-and-gold
+  image_url: http://deyf8doogqx67.cloudfront.net/images/BAhbB1sHOgZmSSIlMjAxMi8wNi8yMS8wMC8zOS8zMS81NDUvMTFjcC5qcGcGOgZFVFsIOgZwOgp0aHVtYkkiCjQ5Mng+BjsGVA.png
+  image_width: 492
+  image_height: 351
+
+# Portrait offset - close to bottom
+- title: A Night to Remember Flat in Stripes
+  price: 44.99
+  origin_url: http://shop2.com/speedmax/stream/a-night-to-remember-flat-in-stripes-11
+  image_url: http://deyf8doogqx67.cloudfront.net/images/BAhbB1sHOgZmSSJBMjAxMi8wNi8xNy8xMC8xMi8zMS8yMzQvZTE5YzhhNTllNjY1MTkyNmQyNjc4YWFhZWZlYWRkZGIuanBnBjoGRVRbCDoGcDoKdGh1bWJJIgozNTB4PgY7BkY.png
+  image_width: 350
+  image_height: 500
+
+# Portrait
+- title: Sun-thing to Love Glasses Case
+  price: 24.99
+  origin_url: http://shop2.com/speedmax/stream/sun-thing-to-love-glasses-case
+  image_url: http://deyf8doogqx67.cloudfront.net/images/BAhbB1sHOgZmSSIrMjAxMi8wNi8xOC8xNS8zNS8wNC8xNjUvMTg1NDM5MzRfMDIwX2IGOgZFVFsIOgZwOgp0aHVtYkkiCjI5MXg+BjsGRg.png
+  image_width: 350
+  image_height: 500
+
+# Portrait
+- title: London Calling Tea-for-One Set - Red - One Size
+  price: 20
+  image_url: http://deyf8doogqx67.cloudfront.net/images/BAhbB1sHOgZmSSIrMjAxMi8wNi8xOC8xNS8zNS8wMS8zODEvMjM2NDIzMDlfMDYwX2IGOgZFVFsIOgZwOgp0aHVtYkkiCjI5MXg+BjsGRg.png
+  origin_url: http://shop2.com/stores/urbanoutfitters/products/london-calling-tea-for-one-set-red-one-size
+  image_width: 291
+  image_height: 431
+
+# Portrait  
+- title: Tracks Mic Headphones
+  price: 85
+  image_url: http://deyf8doogqx67.cloudfront.net/images/BAhbB1sHOgZmSSIsMjAxMi8wNi8xOC8xNS8zNS8wMC84NjcvMjU1NzkxNzhhXzAwNF9iBjoGRVRbCDoGcDoKdGh1bWJJIgoyOTF4PgY7BkY.png
+  origin_url: http://shop2.com/stores/urbanoutfitters/products/tracks-mic-headphones-grey-grey-one-size
+  image_width: 291
+  image_height: 431
+
+# Landscape
+- title: James Perse Suede Lace Up Court Shoe
+  price: 175.00
+  origin_url: http://shop2.com/stores/jamesperse/products/james-perse-suede-lace-up-court-shoe-1
+  image_url: http://deyf8doogqx67.cloudfront.net/images/BAhbB1sHOgZmSSIxMjAxMi8wNi8xMC8wNy8xNy8yMC85OTAvU1BUODAwOV9TTFRfTDJBMS5qcGcGOgZFVFsIOgZwOgp0aHVtYkkiCjQ5Mng+BjsGVA.png
+  image_width: 492
+  image_height: 381
+
+# Portrait
+- title: OBEY Printed 5-Panel Hat - Navy - One Size
+  price: 36
+  image_url: http://deyf8doogqx67.cloudfront.net/images/BAhbB1sHOgZmSSIsMjAxMi8wNi8xOC8xNS8zNC81OS8zNDYvMjQyOTA1MzhhXzA0MV9iBjoGRVRbCDoGcDoKdGh1bWJJIgoyOTF4PgY7BkY.png
+  origin_url: http://shop2.com/stores/urbanoutfitters/products/obey-printed-5-panel-hat-navy-one-size
+  image_width: 291 
+  image_height: 431
+
+# Portrait
+- title: Garrett Leight The Kinney Reader In Exp espresso
+  price: 260
+  origin_url: http://shop2.com/speedmax/products/garrett-leight-the-kinney-reader-in-exp-espresso
+  image_url: http://deyf8doogqx67.cloudfront.net/images/BAhbB1sHOgZmSSI0MjAxMi8wNi8wNS8wMC8wMy8yNC8yNDMvMTAwN180OV90aGVraW5uZXlfNC5qcGcGOgZFVFsIOgZwOgp0aHVtYkkiCjQ5Mng+BjsGVA.png
+  image_width: 492
+  image_height: 615
+  
+# Sqaure
+- title: Heart umbrella
+  price: 40
+  origin_url: http://shop2.com/speedmax/products/heart-umbrella
+  image_url: http://deyf8doogqx67.cloudfront.net/images/BAhbB1sHOgZmSSIpMjAxMi8wNC8wMy8yMy8yNy80My85MDcvaG1pdHl6dzguanBnBjoGRVRbCDoGcDoKdGh1bWJJIgo0OTJ4PgY7BlQ.png
+  image_width: 492
+  image_height: 492

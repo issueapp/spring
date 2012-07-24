@@ -1,0 +1,46 @@
+/*
+Syntax error: Invalid US-ASCII character "\xE2"
+        on line 2 of ./stylesheets/h5bp.scss
+
+1: /*
+2:  * HTML5 ✰ Boilerplate
+3:  *
+4:  * What follows is the result of much research on cross-browser styling.
+5:  * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+6:  * Kroc Camen, and the H5BP dev community and team.
+7:  *
+
+Backtrace:
+./stylesheets/h5bp.scss:2
+/usr/local/rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.1.15/lib/sass/engine.rb:357:in `block in check_encoding!'
+/usr/local/rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.1.15/lib/sass/util.rb:451:in `rescue in block in check_encoding'
+/usr/local/rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.1.15/lib/sass/util.rb:448:in `block in check_encoding'
+/usr/local/rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.1.15/lib/sass/util.rb:447:in `each'
+/usr/local/rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.1.15/lib/sass/util.rb:447:in `each_with_index'
+/usr/local/rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.1.15/lib/sass/util.rb:447:in `check_encoding'
+/usr/local/rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.1.15/lib/sass/util.rb:501:in `check_sass_encoding'
+/usr/local/rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.1.15/lib/sass/engine.rb:356:in `check_encoding!'
+/usr/local/rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.1.15/lib/sass/engine.rb:323:in `_to_tree'
+/usr/local/rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.1.15/lib/sass/engine.rb:299:in `_render'
+/usr/local/rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.1.15/lib/sass/engine.rb:246:in `render'
+/usr/local/rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.1.15/lib/sass/plugin/compiler.rb:339:in `update_stylesheet'
+/usr/local/rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.1.15/lib/sass/plugin/compiler.rb:202:in `block in update_stylesheets'
+/usr/local/rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.1.15/lib/sass/plugin/compiler.rb:200:in `each'
+/usr/local/rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.1.15/lib/sass/plugin/compiler.rb:200:in `update_stylesheets'
+/usr/local/rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.1.15/lib/sass/plugin.rb:81:in `update_stylesheets'
+/usr/local/rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.1.15/lib/sass/plugin.rb:54:in `check_for_updates'
+/usr/local/rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.1.15/lib/sass/plugin/rack.rb:51:in `call'
+/Users/taylorluk/Library/Application Support/Pow/Versions/0.3.2/node_modules/nack/lib/nack/server.rb:146:in `handle'
+/Users/taylorluk/Library/Application Support/Pow/Versions/0.3.2/node_modules/nack/lib/nack/server.rb:99:in `rescue in block (2 levels) in start'
+/Users/taylorluk/Library/Application Support/Pow/Versions/0.3.2/node_modules/nack/lib/nack/server.rb:96:in `block (2 levels) in start'
+/Users/taylorluk/Library/Application Support/Pow/Versions/0.3.2/node_modules/nack/lib/nack/server.rb:86:in `each'
+/Users/taylorluk/Library/Application Support/Pow/Versions/0.3.2/node_modules/nack/lib/nack/server.rb:86:in `block in start'
+/Users/taylorluk/Library/Application Support/Pow/Versions/0.3.2/node_modules/nack/lib/nack/server.rb:66:in `loop'
+/Users/taylorluk/Library/Application Support/Pow/Versions/0.3.2/node_modules/nack/lib/nack/server.rb:66:in `start'
+/Users/taylorluk/Library/Application Support/Pow/Versions/0.3.2/node_modules/nack/lib/nack/server.rb:13:in `run'
+/Users/taylorluk/Library/Application Support/Pow/Versions/0.3.2/node_modules/nack/bin/nack_worker:4:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: Invalid US-ASCII character \"\xE2\"\A         on line 2 of ./stylesheets/h5bp.scss\A \A 1: /*\A 2:  * HTML5 ✰ Boilerplate\A 3:  *\A 4:  * What follows is the result of much research on cross-browser styling.\A 5:  * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,\A 6:  * Kroc Camen, and the H5BP dev community and team.\A 7:  *"; }
