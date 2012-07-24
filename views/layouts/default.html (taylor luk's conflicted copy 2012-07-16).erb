@@ -14,10 +14,8 @@
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="http://shop2.com/assets/components/_button.css">
 
   <link rel="stylesheet" href="/stylesheets/layout.css"/>
-  <link rel="stylesheet" href="/stylesheets/font-awesome.css"/>
 
   <!-- For iPhone 4 -->
   <!-- <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/h/apple-touch-icon.png"> -->
@@ -41,72 +39,21 @@
   <!--Microsoft -->
 
   <!-- Prevents links from opening in mobile Safari -->
-  <script>(function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")</script>
-  
+  <!-- <script>(function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")</script> -->
   <meta http-equiv="cleartype" content="on">
 </head>
 
 <body class="hint">
   
   <nav class="toolbar" role="navigation">
-    <% if toolbar = yield(:toolbar) %>
-      <%= toolbar %>
-    <% else %>
-      <a class="menu button" ontouchstart="$('#menu-select')[0].open(); return false">
-        <big class="icon-reorder"></big>
-      </a>
-      <h1>Shop2</h1>
-      <a class="button blue" href="">Sign in</a>
-    <% end %>
-    <!-- <ul class="nav">
+    <ul class="nav">
       <li><h1 class="logo">Shop2</h1></li>
       <li><a href="/">Layout</a></li>
       <li><a href="/items">Items</a></li>
       <li><a href="/items">Users</a></li>
-      <li><span class="icon-bar-chart"><small id="scale"></small></span></li>
-    </ul> -->
-    <!-- <span class="icon-bar-chart"><small id="scale"></small></span> -->
+    </ul>
   </nav>
   
-  <div role="main">
-    
-    <%= yield %>
-  
-  </div>
-
-  <script src="http://zeptojs.com/zepto.min.js"></script>
-  <script src="/javascripts/application.js"></script>
-  <script src="/javascripts/views.js"></script>
-  <script src="/javascripts/scrollability.min.js"></script>
-  <script src="https://raw.github.com/h5bp/mobile-boilerplate/master/js/helper.js" type="text/javascript" charset="utf-8"></script>
-  <script>
-    MBP.scaleFix();
-    MBP.hideUrlBarOnLoad();
-    
-    var $body = $('body'); //Cache this for performance
-
-    var setBodyScale = function() {
-        var scaleSource = $body.width() > 320 ? $body.width() - 320 : 0,
-            scaleFactor = 0.20,                     
-            maxScale = 140,
-            minScale = 120; //Tweak these values to taste
-
-        var fontSize = scaleSource * scaleFactor; //Multiply the width of the body by the scaling factor:
-
-        if (fontSize > maxScale) fontSize = maxScale;
-        if (fontSize < minScale) fontSize = minScale; //Enforce the minimum and maximums
-        
-        $('#scale').html(parseInt(fontSize) + '%' + ' ' + (fontSize/100 * '13') + 'px')
-        
-        $('.row').css('font-size', fontSize + '%');
-    }
-
-    $(window).resize(function(){
-        setBodyScale();
-    });
-
-    //Fire it when the page first loads:
-    setBodyScale();
-  </script>
+  <%= yield %>
 </body>
 </html>

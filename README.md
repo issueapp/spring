@@ -86,6 +86,25 @@ Portrait view has mostly vertically split views
         .item.v-half
         .item.v-half
 
+Item Style
+---
+
+Scaling upon screen size
+
+demo: http://www.spookandpuff.com/examples/dynamicTextSize.html
+Stackoverflow: http://stackoverflow.com/questions/5358183/is-it-possible-to-dynamically-scale-text-size-based-on-browser-width
+
+Image centering
+
+Stackoverflow: http://stackoverflow.com/questions/489340/how-do-i-vertically-align-text-next-to-an-image-with-css
+Demo: http://jsfiddle.net/458BN/23/
+
+
+EM and PX conversion in SASS
+https://forrst.com/posts/SASS_px_to_em_and_em_to_px-JAd
+
+Split
+
 Dynamic paging
 ---
 

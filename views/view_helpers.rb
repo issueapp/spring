@@ -4,6 +4,48 @@
 # views pristine.
 #
 module ViewHelpers
+  require 'hashie/mash'
+  
+  def px2em(pixel)
+    pixel.to_f / 13
+  end
+  
+  def size(width, height, base = 390)
+    scale = base.to_f/width
+    
+    orientation = case
+    when width > height then 'landscape'
+    when width < height then 'portrait'
+    else
+      'square'
+    end
+    
+    Hashie::Mash.new(
+      scale: scale.round(2),
+      width: px2em( scale < 1 ? base : width  ).round(2),
+      height: px2em( scale < 1 ? height * scale : height  ).round(2),
+      orientation: orientation
+    )
+  end
+  
+  def sample_products(options = {})
+    YAML.load_file('products.yml').map do |p|
+      Hashie::Mash.new(p)
+    end
+    
+  end
+  
+  
+  def render_product(product, options = {})
+    if product.is_a? Hash
+      p = Hashie::Mash.new(product)
+    else
+      p = product
+    end
+    p.dimension = size(p.image_width, p.image_height) if p.image_width && !p.dimension
+          
+    render 'product', locals: { product: p, dimension: p.dimension}.merge(options)
+  end
   
   # Calculate the years for a copyright
   def copyright_years(start_year)
