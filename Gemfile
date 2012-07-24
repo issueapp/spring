@@ -7,6 +7,8 @@ gem 'serve', '1.5.1'
 
 # Use Compass and Sass
 gem 'compass'
+gem "hashie"
+gem 'rack-coffee' 
 
 # Markdown and Textile
 # gem 'rdiscount' # Markdown
@@ -19,8 +21,18 @@ gem 'compass'
 # gem 'radius'
 # gem 'less'
 
-# Coffee Script
-# gem 'coffee-script'
+group :assets do
+  gem 'coffee-script'
+end
 
-# Use mongrel for the Web server
-# gem 'mongrel'
+group :development, :test do
+  gem 'actionpack', '~> 3.2'
+  gem 'railties',   '~> 3.2'
+  gem 'tzinfo'
+
+  gem 'thin'
+
+  gem 'jasminerice'
+  gem 'jquery-rails'
+  gem 'guard-jasmine'
+end
