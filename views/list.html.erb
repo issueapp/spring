@@ -41,6 +41,16 @@
     min-height: 50%;
   }
   
+  
+  .scale {
+    position: relative;
+    text-align: center;
+  }
+  
+  .scale img {
+    height: 100%;
+  }
+  
   .split .image {
     height: 100%;
   }
@@ -51,6 +61,20 @@
   .item.third .cover {
     top: -55%;
   }
+  
+  
+  .item.third .info {
+    height: 2em;
+  }
+  
+  .item.third .title {
+    font-size: 0.75em;
+  }
+  
+  .item.third p.description {
+    display: none;
+  }
+  
 </style>
 
 <div id="hero">
@@ -66,18 +90,18 @@
 </div>
 
 <div class="row">
-  <%= render_product(sample_products.sample, type: "split") %>
+  <%= render_product(sample_products.first, type: "split") %>
 </div>
 
 <div class="row">
-  <%= render_product sample_products.sample, class_name: "half" %>
-  <%= render_product sample_products.sample, class_name: "half" %>
+  <%= render_product sample_products[1], type: "half" %>
+  <%= render_product sample_products[2], type: "half" %>
 </div>
 
 <div class="row">
-  <%= render_product sample_products.sample, class_name: "third" %>
-  <%= render_product sample_products.sample, class_name: "third" %>
-  <%= render_product sample_products.sample, class_name: "third" %>
+  <%= render_product sample_products.sample, type: "third" %>
+  <%= render_product sample_products.sample, type: "third" %>
+  <%= render_product sample_products.sample, type: "third" %>
 </div>
 
 <div id="trending">

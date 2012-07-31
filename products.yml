@@ -1,3 +1,20 @@
+
+# Landscape 
+- title: Canon EOS M Camera
+  description: "Blurring the lines between a DSLR and a point-and-shoot, the Canon EOS M Camera ($800) is the company's first foray into mirrorless cameras. At its heart is an 18-megapixel APS-C CMOS image sensor that provides ISO ranges of 100-6400 in video mode and 100-12,800 in still mode, and is complemented by a DIGIC 5 image processor, a 3-inch multi-touch LCD monitor"
+  price: 800
+  image_url: http://uncrate.com/p/2012/07/canon-eos-m.jpg
+  image_width: 441
+  image_height: 294
+  
+# Portrait 
+- title: Alex Cherry Flying Whales Wall Mural
+  price: 149
+  origin_url: http://www.urbanoutfitters.com/urban/catalog/productdetail.jsp?id=25760117
+  image_url: http://deyf8doogqx67.cloudfront.net/images/BAhbB1sHOgZmSSIrMjAxMi8wNy8yMi8wMC8xOS8zOC80MjcvMjU3NjAxMTdfMDk1X2IGOgZFVFsIOgZwOgp0aHVtYkkiCjMzOHg+BjsGRg.png
+  image_width: 338
+  image_height: 507
+
 # Landscape product
 - title: Carly Paiker Skull Cuff - Jade.
   price: 149
