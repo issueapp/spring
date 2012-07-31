@@ -181,6 +181,7 @@ input[type=text], input[type=password], textarea {
   .info p {
     margin: 0 0 0 0;
     font-size: 0.75em;
+    color: #666;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -215,10 +216,15 @@ input[type=text], input[type=password], textarea {
   }
   
   .info {
-    margin-left: 4%;
-    width: 45%;
+    margin: 0 3% 0 4%;
+    width: 42%;
+
     padding: 0;
     position: relative;
+    
+    & > p {
+      white-space: normal;
+    }
   }
 }
 
@@ -251,7 +257,11 @@ input[type=text], input[type=password], textarea {
     Homepage
 */
 #hero {
+  @include box-sizing(border-box);
+  margin: 20px 0;
+  padding: 20px 20px;
   text-align: center;
+  background: #fff;
 }
 
 #trending {

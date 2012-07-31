@@ -1,58 +1,27 @@
-<figure class="product item <%= "split" if defined?(type) && type == 'split' %> <%= defined?(class_name) && class_name %>" style="height: <%=  ( defined?(class_name) && class_name.include?('half') ? "#{dimension.height/1}em" : ( defined?(class_name) && class_name.include?('third') ? "#{15}em" : "#{dimension.height/1.2}em" )) %>">
+<% 
+type ||= nil
+class_name ||= ""
+image_class = type.match(/half|third/) ? "scale" : "cover"
+%>
+
+<figure class="product item <%= type %> <%= class_name %>" style="height: <%= ( type == 'half' ) ? "#{dimension.height/1}em" : ( type == 'third' ? "#{15}em" : "#{dimension.height/1.2}em" ) %>">
+
   <div class="counters">
-    <!-- <a href="/loves/product:4fd0d10e1be06b35d70001c5" class="button small love entice" ref="nofollow" original-title="">
-      <i class="icon-heart"></i>
-      <span>2</span>
-    </a>
+  </div>
+
+  <% if type == 'split' %>
+    <div class="image" style="background-image: url(<%= product.image_url %>); background-size: cover; background-position: center center">
+    </div>
     
-    <div class="button-group">
-      <button class="button small compound-collect entice" original-title="">Collect</button>
-      <button class="button small dropdown">
-        <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu entice" original-title="" >
-        <li><a href="/stream/get-the-hint-stickies-exclamation-one-size#comment-product">Leave a Comment</a></li>
-        <li><a href="/products/get-the-hint-stickies-exclamation-one-size/hide" data-method="POST" data-remote="true" rel="nofollow">Hide this item</a></li>
-
-      </ul>
-    </div> -->
-  </div>
-
-  <!-- <a class="link" href="<%= product.origin_url %>"> -->
-    <% if defined?(type) && type == 'split' %>    
-      <!-- <div class="image" style="height: <%= dimension.height %>em; position: relative" >
-        <img src="<%= product.image_url %>" style="position: relative; width: <%= dimension.width %>em; height: <%= dimension.height %>em; ">
-      </div> -->
-      
-      <div class="image">
-        <div class="cover"><img src="<%= product.image_url %>"></div>
-      </div>
-    <% else %>
-      <div class="image cover"><img src="<%= product.image_url %>"></div>
-      <!-- <div class="image" style="height: <%= dimension.height + 2 %>em; position: relative" >
-        <img src="<%= product.image_url %>" style="position: relative; width: <%= dimension.width %>em; height: <%= dimension.height %>em; top: 50%; margin-top: -<%= dimension.height/2 + 1 %>em ; left: 50%; margin-left: -<%= dimension.width/2 %>em">
-      </div> -->
-    <% end %>
-    <div class="info">
-      <h3 class="title"><%= product.title %></h3>
-      <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <% else %>
+    <div class="image <%= image_class %>">
+      <img src="<%= product.image_url %>">
     </div>
-</figure>
+    
+  <% end %>
 
-<!-- <figure class="product item split" style="height: 23%">
-  <div class="counters">
-    <span class="icon-heart"> 203</span>
-    <span class="icon-plus-sign"> 2323</span>
-  </div>
-  
-  <div class="image" style="height:100%">
-    <div class="cover">
-      <img src="http://deyf8doogqx67.cloudfront.net/images/BAhbB1sHOgZmSSIrMjAxMi8wNi8wNS8xMi8zNy8yNi8xNzUvMjM5MDU3MTRfMDAxX2IGOgZFVFsIOgZwOgp0aHVtYkkiCjI5MXg+BjsGRg.png">
-    </div>
-  </div>
-  
   <div class="info">
-    <h3 class="title">Native Union Pop Phone Handset</h3>
-    <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <h3 class="title"><%= product.title %></h3>
+    <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
   </div>
-</figure> -->
+</figure>
