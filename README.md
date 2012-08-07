@@ -1,7 +1,6 @@
-HTML5 Mobile prototype
+Spring - HTML5 Publishing
 =============
-
-Simple HTML5 written with HTML, Javascript
+A minimalistic framework for HTML5 based publishing, Simple HTML5 written with HTML, Javascript.
 
  - zepto
  - pjax
@@ -32,8 +31,6 @@ CSS classes, combination of these should be able to build rather complex layout 
  - Columns: col, col.half, col.third, col.third-2
 
 Row
-
-   
 
 Column
 
