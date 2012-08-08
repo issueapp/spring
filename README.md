@@ -2,11 +2,25 @@ Spring - HTML5 Publishing
 =============
 A minimalistic framework for HTML5 based publishing, Simple HTML5 written with HTML, Javascript.
 
- - zepto
- - pjax
- - scrollability
- - hammer.js (multi touch)
+Features
+---
 
+  - Responsive layout that scales automatically for iPhone, iPad depends on resolution and orientation
+  - Pagination
+
+Dependencies
+---
+
+  - zepto
+  - pjax
+  - scrollability
+  - hammer.js (multi touch)
+
+Structure
+---
+
+  - toolbar header
+  - page
 
 Grid system
 ---
