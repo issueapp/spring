@@ -7,6 +7,8 @@ Features
 
   - Responsive layout that scales automatically for iPhone, iPad depends on resolution and orientation
   - Pagination
+  - Menu for navigation
+  
 
 Dependencies
 ---
