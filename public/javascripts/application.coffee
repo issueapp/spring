@@ -6,9 +6,11 @@ if $('.pagination').length
       $('.pagination').text("Fetching more products...")
       $.get(url, (data)->
         doc = $(data)
-        $('#products').append( doc.find('#products').html() );
-        $('.pagination').html( doc.find('.pagination').html() );
+        $('#products').append( doc.find('#products').html() )
+        $('.pagination').html( doc.find('.pagination').html() )
       )
       
-# multiline ellipsis by using Clamp.js
-$clamp($('.split .info p')[0], {clamp: 7});
+# ellipsis 7 lines by using Clamp.js
+# https://github.com/josephschmitt/Clamp.js
+$('.split .info p').each ->
+  $clamp(this, {clamp: 7})
