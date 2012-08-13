@@ -19,7 +19,7 @@ html{
 }
 
 body {
-  min-width: 320px;
+//  min-width: 320px;
 }
 
 div.container {
@@ -35,10 +35,12 @@ div.container {
 .item {
   position: relative;
   
-  background:#fff; 
+  background:#fff;
 //  border: 1px solid #ccc;
   
-  float:left; margin:0 2% 2% 0; overflow:hidden;
+  float:left; 
+  margin:0 1% 2% 0; 
+  overflow:hidden;
   width: 100%;
   
 //  padding: 20px;
@@ -47,8 +49,8 @@ div.container {
   @include box-sizing(border-box);
 	
 //  @include box-shadow(#ccc, 1px 1px 2px);
-	border: 1px solid #eee;
-	border-width: 0 1px 1px 0;
+//  border: 1px solid #eee;
+//  border-width: 0 1px 1px 0;
 	
 	.info {
 	  @include box-sizing(border-box);
@@ -62,7 +64,9 @@ div.container {
 }
 
 .col {
-  float:left; margin:0 2% 0 0; overflow:hidden;
+  float:left; 
+  margin:0 1% 0 0;
+  overflow:hidden;
 //  height: 200px;
   
   .item {
@@ -75,15 +79,17 @@ div.container {
   
   /* Backgorund hinting mode */
   .hint & {
-    background: #cff;
+//    background: #cff;
   }
 }
 
 .row {
   position: relative;
+  font-size: 120%;
   
   @include clearfix;
   width: 100%;
+  height: 91%;
   
   @include box-sizing(border-box);
 
@@ -93,8 +99,8 @@ div.container {
 
 	&.v-full { height: 100% }
 	&.v-half { 
-	  height: 49.01%;
-	  margin-bottom: 2%;
+    height: 45%;
+    margin-bottom: 1%;
 	}
 	
 	&.v-third { 
@@ -115,6 +121,7 @@ div.container {
 }
 
 .page {
+  margin: 55px 1% 0px 1%;
   max-height: 100%;
   
   .row:last-child {
@@ -125,8 +132,8 @@ div.container {
 .col, .item {
   
 	&.full { width: 100% }  
-	&.half { width: 49.01% }
-	&.third { width: 32.025% }
+	&.half { width: 49.5%; }
+	&.third { width: 32.65% }
 	&.third-2 { width: 64% }
 	
 	&.sixth { width: 15.02% }
@@ -135,8 +142,8 @@ div.container {
 	&.sixty { width: 59% }
 
 	&.v-full { height: 100% }
-	&.v-half { height: 48.00% }
-	&.v-third { height: 33.03% }
+	&.v-half { height: 49.40% }
+	&.v-third { height: 35.03% }
 	&.v-third-2 { height: 64% }
 	
 	&:last-child {
@@ -160,13 +167,33 @@ div.container {
   @import "1382";
 }
 
+/* iPads (landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : landscape) {
+  @import "landscape"
+}
+
+/* iPads (portrait) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : portrait) {
+  @import "portrait"
+}
+
+// Alternatives
+//@media all and (orientation:portrait) {}
+//
+//@media all and (orientation:landscape) {}
+
+
 /*
     Utility
 */
 
-
 .ipad {
-  
   height: 1024px;
   width: 768px;
   
@@ -190,8 +217,5 @@ div.container {
   height: 40px;
 }
 
-
-/*
-*/
 
 

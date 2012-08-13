@@ -51,7 +51,7 @@ nav[role=navigation] {
   a:first-child {
     position: absolute;
     top: 7px;
-    left: 5px;
+    left: 9px;
   }
   
   & > h1 {
@@ -70,7 +70,19 @@ nav[role=navigation] {
     font-family: "Helvetica";
     position: absolute;
     top: 7px;
-    right: 5px;
+    right: 9px;
+  }
+  
+  div.actions {
+    position: absolute;
+    top: 11px;
+    right: 20px;
+    font-size: 21px;
+    letter-spacing: 0.2em;
+  }
+  
+  .icon-reorder {
+    line-height: 31px;
   }
 }
 
@@ -134,16 +146,13 @@ input[type=text], input[type=password], textarea {
 
 */
 .product {
-  .image {
-    overflow: none;
-//    text-align: center;
-    
-    
-    & > img {
-//      position: relative;
-//      top: -50%;
-    }
-  }
+//  .image {
+//    position:relative;
+//    height: 100%; 
+//    width: initial;
+//    top: initial;
+//    left: initial;
+//  }
   
   .link {
     @include box-sizing(border-box);
@@ -159,7 +168,7 @@ input[type=text], input[type=password], textarea {
   .info {
     @include box-sizing(border-box);
     width: 100%;
-    height: 4em;
+    vertical-align: top;
     background: white;
     padding: 0.5em 3% 0.5em;
   }
@@ -188,16 +197,13 @@ input[type=text], input[type=password], textarea {
   }
 
   .counters {
-    color: #aaa;
+    color: #DF5454;
     font-size: 14px;
     position: absolute;
-    top: 3px;
-    right: 5px;
+    top: 2%;
+    right: 6%;
     z-index: 1;
     line-height: 12px;
-//    @include border-radius(5px);
-//    padding: 3px 3px 1px 3px;
-//    background: rgba(255,255,255, 0.7);
   }
 }
 
@@ -209,31 +215,28 @@ input[type=text], input[type=password], textarea {
   
   .image {
     display: inline-block;
-    text-align: right;
     width: 50%;
-    overflow: hidden;
+    left: -1%;
     vertical-align: middle;
+    img {
+      width: 100%;
+    }
   }
   
   .info {
-    margin: 0 3% 0 4%;
-    width: 42%;
-
-    padding: 0;
+    margin: 0;
+    width: 49%;
+    height: 100%;
+    
+    padding: 10% 1% 10%;
     position: relative;
     
     & > p {
       white-space: normal;
+      text-overflow: ellipsis;
     }
   }
 }
-
-
-
-.product.third {
-  
-}
-
 
 .stream-header {
   border-bottom: 1px solid #ddd;
@@ -249,7 +252,7 @@ input[type=text], input[type=password], textarea {
     padding: 10px;
     height: 14px;
     display: inline-block;
-    background: $bg_color;
+    background: white;
   }
 }
 
@@ -280,6 +283,7 @@ input.email {
 form.signup {
   margin: 0 auto;
   max-width: 420px;
+  text-align: center;
   
   .full {
     @include box-sizing(border-box);
@@ -297,4 +301,27 @@ form.signup {
 // Pagination
 .pagination {
   display: none;
+}
+
+/*
+  Product Detail Page
+*/
+
+article.page {
+  .info {
+    top: 0px;
+    
+    p {
+      white-space: initial;
+      text-overflow: initial;
+    }
+    
+    .price {
+      font-size: 1.5em;
+    }
+    
+    .button {
+      margin: 1em 0em 2em 0em;
+    }
+  }
 }

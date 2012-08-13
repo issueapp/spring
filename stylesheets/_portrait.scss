@@ -1,0 +1,47 @@
+/* 768 =================================================== */
+
+// 1. ROOT 					==============================
+// 2. TYPOGRAPHY 			==============================
+// 3. COLOUR 				==============================
+// 4. TEXTURE 				==============================
+// 5. ELEMENTS 				==============================
+// 6. LAYOUT 				==============================
+// 7. VENDOR-SPECIFIC 		==============================
+// 8. MODERNIZR 			==============================
+// 9. TEMPLATE SPECIFICS 	==============================
+
+.row {
+  height: 93.5%;
+}
+
+.col, .item {
+  &.v-half { height: 49.66% }
+}
+
+// Detail Page
+article.page {
+  .row {
+    height: 95.5%;
+  }
+  
+  .col, .item {
+  	&.half { 
+  	  height: 49%;
+      width: 100%;
+    }
+  }
+  
+  .image.cover {
+    position: relative;
+    height: 100%;
+    width: initial;
+    top: initial;
+    left: initial;
+  }
+  
+  .info {
+    .title, .price, .store {
+      text-align: center;
+    }
+  }
+}
