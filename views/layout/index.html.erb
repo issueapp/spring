@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en"> 
+<head> 
+<title>Scrollability</title> 
+<meta charset="utf-8"/> 
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0" /> 
+<meta name="apple-mobile-web-app-capable" content="yes" /> 
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<link rel="stylesheet" href="/stylesheets/layout.css">
+<style type="text/css"> 
+
+html, body {
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+ 
+#container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    white-space: nowrap;
+}
+ 
+ .scrollable {
+    position: absolute;
+    left: 0;
+    top: 50px;
+    height: 100%;
+    font-size: 0;
+    
+ }
+
+.page {
+    display: inline-block;
+    height: 600px;
+    color: #fff;
+    font: 40px Helvetica;
+    margin: 0;
+    padding: 10px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    white-space: normal;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    border: 1px solid #fff;
+}
+
+</style> 
+
+<script type="text/mustache" id="section1_tpl" class="section_tpl" data-count="3" data-type="v-split">
+<div class="page section v-split-1">
+  <div class="row">
+    <div class="col half">
+      <div class="item"></div>
+    </div>
+    <div class="col half">
+      <div class="item v-half"></div>
+      <div class="item v-half"></div>
+    </div>
+  </div>
+</div>
+</script>
+
+<script type="text/mustache" id="section2_tpl" class="section_tpl" data-count="4" data-type="v-split">
+<div class="page">
+  <div class="row">
+    <div class="col half">
+      <div class="item v-half"></div>
+      <div class="item v-half"></div>
+    </div>
+    <div class="col half">
+      <div class="item v-half"></div>
+      <div class="item v-half"></div>
+    </div>
+  </div>
+</div>
+</script>
+
+<script type="text/mustache" id="section4_tpl" class="section_tpl" data-count="5" data-type="v-split">
+<div class="page">
+  <div class="row v-half">
+    <div class="item half"></div>
+    <div class="item half split"></div>
+  </div>
+  <div class="row v-half">
+    <div class="item third"></div>
+    <div class="item third"></div>
+    <div class="item third"></div>
+  </div>
+</div>
+</script>
+
+<script language="javascript">
+  var random_img = function(width, height) {
+    var kw = ["fashion", "timeless", "intense,look", "lookbook", "vintage", "street,fashion", "paris,fashion", "old,clock", "cat,women", "sexy,fashion"]
+    var randno = Math.floor ( Math.random() * kw.length );
+    width = width || "1024"
+    height = height || "600"
+  
+    return "http://flickholdr.com/" +width+ "/"+height+"/"+kw[randno]+"/bw";
+  }
+
+window.onload = function() {
+  var template = $('#product_template').text();
+  var container = document.querySelector('.scrollable.horizontal');
+
+
+
+  // items.forEach(function(item) {
+  //   $(container).append( Milk.render(template, item) );
+  //   $(container).children().last()[0].style.width = window.innerWidth + 'px';    
+  // })
+
+    // Product 
+    // Stream.toc
+    // 
+    
+    // Skip to second page
+    window.Stream = {
+      buffer: 10,
+      
+      init: function () {
+        this.container = document.querySelector('.scrollable.horizontal');
+        this.scroller = directions.horizontal(this.container);
+        // this.current = document.querySelector('.scrollable .page:nth-child(3)');
+        // $(this.current).addClass('current')
+        // 
+        // this.pagePos = this.current.getBoundingClientRect();
+        // 
+        // // Move to page 2
+        // this.update(-this.pagePos.left);
+        // 
+        // this.pos = this.container.getBoundingClientRect();
+
+        // this.container.addEventListener("scrollability-end", Stream.onScrollEnd);
+        this.container.addEventListener("scrollability-page", function (e) {
+          
+          console.log('shit yeah', this, e.page)
+          
+          // Stream.pos = container.getBoundingClientRect();
+          $(container).append( Milk.render(template, {
+            id: 104,
+            title: "Page more title " + new Date,
+            url: "/something",
+            thumb: random_img()
+          }) );
+          $(container).children().last()[0].style.width = window.innerWidth + 'px'
+          
+        });
+      },
+      
+      update: function (offset) {
+        this.container.style.webkitTransform = this.scroller.update(offset);
+      },
+      // 
+      // slideTo: function (where) {
+      //   var current = document.querySelector('.page.current');
+      //   
+      //   if (where == 'next') {
+      //     
+      //     Stream.update()
+      //   }
+      // },
+      // 
+      // renderItem: function(product) {
+      //   var template = $('#product_template').text(), element;
+      // 
+      //   $(this.container).append( Milk.render(template, product) );
+      //   element = $(this.container).children().last()[0];
+      //   element.style.width = window.innerWidth + 'px';
+      //   
+      //   return element;
+      // },
+      // 
+      // onScrollEnd: function () {
+      //   var direction, 
+      //       container = Stream.container,
+      //       pos = container.getBoundingClientRect(), 
+      //       delta = pos.left - (Stream.pos.left || 0),
+      //       slideWidth = Stream.pagePos.width + 20;
+      // 
+      //   var last = container.children[container.children.length - 1];
+      //   var first = container.children[0];
+      //   var target, current = document.querySelector('.page.current');
+      //   
+      //   // swipe Right
+      //   if (delta > 0) {
+      //     direction = 'right';
+      // 
+      //     container.insertBefore(Stream.renderItem({title: "i am not sure"}), first);
+      // 
+      //     // added child in front of queue, skip left
+      //     Stream.update(pos.left - slideWidth);
+      // 
+      //     if (container.children.length > Stream.buffer) {
+      //       container.removeChild(last);          
+      //     }
+      //     
+      //     target = current.previousSibling;
+      //   }
+      // 
+      //   // Swipe left
+      //   else if (delta < 0) {
+      //     direction = 'left';
+      // 
+      //     container.appendChild(Stream.renderItem({title: "Damn"}));
+      // 
+      //     if (container.children.length > Stream.buffer) {
+      //       container.removeChild(first);
+      // 
+      //       // first child get removed so position left needs to be padded
+      //       Stream.update(pos.left + slideWidth);
+      //     }
+      //     
+      //     target = current.nextSibling;
+      //   }
+      // 
+      //   $(current).removeClass('current');
+      //   $(target).toggleClass('current');
+      //   
+      //   console.log(direction, delta)
+      //   Stream.pos = container.getBoundingClientRect();
+      // }
+    }
+    Stream.init();
+};
+
+//window.onclick = function() { location.reload(true) }
+</script>
+</head> 
+<body>
+  <nav class="toolbar" role="navigation">
+    <a href="">Action</a>
+  </nav>
+  
+  <div role="main">
+    <div id="pages"></div>
+  </div>
+  
+  <div class="scrollable horizontal paginated"></div>
+  
+  <script src="http://zeptojs.com/zepto.js"></script>
+  <script src="http://documentcloud.github.com/underscore/underscore-min.js"></script>
+
+  <script src="http://backbonejs.org/backbone-min.js"></script>
+  <script src="http://scrollability.com/scrollability-1.0b1.min.js"></script>
+  <script src="https://raw.github.com/pvande/Milk/master/dist/v1.2.0/milk.js"></script>
+  <script src="/javascripts/views.js"></script>
+
+  </body>
+</html>
