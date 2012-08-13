@@ -11,4 +11,4 @@ if $('.pagination').length
       )
       
 # multiline ellipsis by using Clamp.js
-$clamp($('.split .info p')[0], {clamp: 10});
+$clamp($('.split .info p')[0], {clamp: 7});
