@@ -29,3 +29,15 @@ article.page {
     clear: both;
   }
 }
+
+.product.split {
+  .image {
+    left: -1%;
+    width: 49%;
+    
+    img {
+      width: 100%;
+      height: initial;
+    }
+  }
+}
