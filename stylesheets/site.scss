@@ -215,11 +215,15 @@ input[type=text], input[type=password], textarea {
   
   .image {
     display: inline-block;
-    width: 50%;
-    left: -1%;
+    width: 49%;
+    left: -10%;
+    height: 100%;
+    top: initial;
     vertical-align: middle;
     img {
-      width: 100%;
+      right: initial;
+      bottom: initial;
+      height: 100%;
     }
   }
   
@@ -228,7 +232,7 @@ input[type=text], input[type=password], textarea {
     width: 49%;
     height: 100%;
     
-    padding: 10% 1% 10%;
+    padding: 10% 2% 10%;
     position: relative;
     
     & > p {
