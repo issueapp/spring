@@ -15,11 +15,12 @@
   }
   
   .image {
-/*    text-align: center;*/
+    text-align: center;
   }
   
   .image img {
-/*    min-height: 100%;*/
+    max-width: 300px;
+    height: auto;
   }
   
  .cover {
@@ -55,7 +56,7 @@
 
 <% content_for :toolbar do %>
   <h1>Welcome</h1>
-  <a class="button blue">Signup</a>
+  <a href="/signup" class="button blue">Signup</a>
 <% end %>
 
 <div id="hero">
@@ -72,12 +73,13 @@
 
 <div id="products" role="main">
 <%
-  total_counts = sample_products.count
-  per_page = 2
-  total_pages = (total_counts/per_page.to_f).ceil
-  current_page = params[:page].to_i + 1
-  limit = per_page * current_page  
-  products = sample_products[[limit - per_page, 0].max, per_page]
+  # total_counts = sample_products.count
+  # per_page = 2
+  # total_pages = (total_counts/per_page.to_f).ceil
+  # current_page = params[:page].to_i + 1
+  # limit = per_page * current_page  
+  # products = sample_products[[limit - per_page, 0].max, per_page]
+  products = sample_products
 %>
 
 <% products && products.each_with_index do |product, index| %>
@@ -89,17 +91,17 @@
 
 </div>
 
-
-<div class="pagination">
-  <% (1..total_pages).each do |page_num| %>
-    <div class="page"><%= page_num %></div>
-  <% end %>
+<!-- <div class="pagination">
+  <%# (1..total_pages).each do |page_num| %>
+    <div class="page"><%#= page_num %></div>
+  <%# end %>
   
-  <%= link_to "next", "/iphone?page=#{current_page}", :class => "#{"next_page" if total_pages.to_i >= params[:page].to_i }" %>
-</div>
+  <%#= link_to "next", "/iphone?page=#{current_page}", :class => "#{"next_page" if total_pages.to_i >= params[:page].to_i }" %>
+</div> -->
 
-<a href="" class="button large">Show more</a>
+<!-- <a href="" class="button large">Show more</a> -->
 
 <script>
+  console.log(sample_products)
   var products = <%= sample_products.to_json %>
 </script>

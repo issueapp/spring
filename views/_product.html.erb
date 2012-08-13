@@ -1,7 +1,7 @@
 <% 
 type ||= nil
 class_name ||= ""
-image_class = type.match(/half|third/) ? "scale" : "cover"
+image_class = type.match(/half|third/) ? "scale" : ""
 %>
 
 <figure class="product item <%= type %> <%= class_name %>" style="height: <%= ( type == 'half' ) ? "#{dimension.height/1}em" : ( type == 'third' ? "#{15}em" : "#{dimension.height/1.2}em" ) %>">
