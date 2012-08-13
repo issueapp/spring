@@ -1,13 +1,28 @@
-HTML5 Mobile prototype
+Spring - HTML5 Publishing
 =============
+A minimalistic framework for HTML5 based publishing, Simple HTML5 written with HTML, Javascript.
 
-Simple HTML5 written with HTML, Javascript
+Features
+---
 
- - zepto
- - pjax
- - scrollability
- - hammer.js (multi touch)
+  - Responsive layout that scales automatically for iPhone, iPad depends on resolution and orientation
+  - Pagination
+  - Menu for navigation
+  
 
+Dependencies
+---
+
+  - zepto
+  - pjax
+  - scrollability
+  - hammer.js (multi touch)
+
+Structure
+---
+
+  - toolbar header
+  - page
 
 Grid system
 ---
@@ -32,8 +47,6 @@ CSS classes, combination of these should be able to build rather complex layout 
  - Columns: col, col.half, col.third, col.third-2
 
 Row
-
-   
 
 Column
 
