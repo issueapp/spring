@@ -188,6 +188,7 @@ input[type=text], input[type=password], textarea {
   }
 
   .info p {
+    visibility: hidden;
     margin: 0 0 0 0;
     font-size: 0.75em;
     color: #666;
