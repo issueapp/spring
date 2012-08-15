@@ -23,6 +23,10 @@ html, body {
     height: 100%;
     white-space: nowrap;
 }
+
+h3 {
+  font-size: 11px;
+}
  
  .scrollable {
     position: absolute;
@@ -36,7 +40,6 @@ html, body {
 .page {
     display: inline-block;
     height: 600px;
-    color: #fff;
     font: 40px Helvetica;
     margin: 0;
     padding: 10px;
@@ -49,50 +52,15 @@ html, body {
     border: 1px solid #fff;
 }
 
+.item {
+  position: relative;
+}
+.item img {
+  width: 100%;
+}
+
 </style> 
 
-<script type="text/mustache" id="section1_tpl" class="section_tpl" data-count="3" data-type="v-split">
-<div class="page section v-split-1">
-  <div class="row">
-    <div class="col half">
-      <div class="item"></div>
-    </div>
-    <div class="col half">
-      <div class="item v-half"></div>
-      <div class="item v-half"></div>
-    </div>
-  </div>
-</div>
-</script>
-
-<script type="text/mustache" id="section2_tpl" class="section_tpl" data-count="4" data-type="v-split">
-<div class="page">
-  <div class="row">
-    <div class="col half">
-      <div class="item v-half"></div>
-      <div class="item v-half"></div>
-    </div>
-    <div class="col half">
-      <div class="item v-half"></div>
-      <div class="item v-half"></div>
-    </div>
-  </div>
-</div>
-</script>
-
-<script type="text/mustache" id="section4_tpl" class="section_tpl" data-count="5" data-type="v-split">
-<div class="page">
-  <div class="row v-half">
-    <div class="item half"></div>
-    <div class="item half split"></div>
-  </div>
-  <div class="row v-half">
-    <div class="item third"></div>
-    <div class="item third"></div>
-    <div class="item third"></div>
-  </div>
-</div>
-</script>
 
 <script language="javascript">
   var random_img = function(width, height) {

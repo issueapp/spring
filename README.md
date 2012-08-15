@@ -5,10 +5,22 @@ A minimalistic framework for HTML5 based publishing, Simple HTML5 written with H
 Features
 ---
 
-  - Responsive layout that scales automatically for iPhone, iPad depends on resolution and orientation
+
+  - Cover screen
+  - Section page 
+  - Toolbar
+  - Swipe view where user can flick through different sections pages with swipe to view a continuously
   - Pagination
+  
+  - Responsive layout that scales automatically for iPhone, iPad depends on resolution and orientation
   - Menu for navigation
   
+UI Design
+
+ - Icon, startup screen
+ - buttons
+ - pop over dialog view for collect product and share
+ - modal view  
 
 Dependencies
 ---
