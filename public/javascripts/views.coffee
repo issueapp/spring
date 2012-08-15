@@ -10,7 +10,7 @@ random_img = (width, height) ->
   "http://flickholdr.com/#{width}/#{height}/#{kw[randno]}/bw";
 
 root.items =[]
-for i in [0 ... 100]
+for i in [0 ... 10]
   root.items.push(
     id: i
     title: "Page " + i + " title" + new Date
@@ -40,7 +40,6 @@ for i in [0 ... 100]
       div.row [ 3 ]
 ###
 class root.PageView extends Backbone.View
-
   # Page.plan([1,2,3,4,5])
   # => [ <Page 1,2,3>, <Page 4,5> ]
   # 
@@ -61,37 +60,86 @@ class root.PageView extends Backbone.View
   # fill: (products)->
   # 
   # render: ->
-
-  initialize:
+  initialize: ->
     section_tpl = $('script.section_tpl')
-    source = section_tpl.eq(Math.floor(Math.random() * section_tpl.length) + 1).html()
-    @template = $(template)
+    index = Math.floor(Math.random() * section_tpl.length)
+    source = section_tpl.eq(index).html()
+    
+    console.log(section_tpl, source, index)
+    
+    @items = []
+    @template = $(source)
     @limit = @template.find('.item').length
 
+  addItem: (item)->
+    @items.push(item) 
+
+  isFull: ->
+    
+    console.log('PageView#isFull', @limit, @items.length >= @limit)
+    @items.length >= @limit
+  
+  render: ->
+    @items.forEach (item, index)=>
+      node = @template.find(".item").eq(index)
+      
+      tpl = Milk.render('<div class="image cover"><img src="{{ thumb }}"></div><div class="info"><h3 class="title">{{ title }}</h3></div>', item)
+      
+      # console.log(node, tpl)
+      
+      node.html(tpl)
+    
+    @template
+  
 ###
-  Stream View that manages slide
+  Stream View that many sliding pages
+  
+  
+  - Section page templates with 3 styles
+  - Randomly select a style, it workout number of slots
+  - 
+  
 ###
 
 class root.StreamView extends Backbone.View
-  pages: []
-  current_page: null
-  
+  initialize: (data)->
+    pages = []
+    current_page: null
+    @items = data.items
+    
+    
   renderItem: (item)->
     
-    if @pages.length == 0
-      new PageView
-      
-    item
-
+    new PageView
+    
 # Domready
 $ ->
   container = $('[role=main]')
-  _(items).each (item)->
-    console.log(item)
+  
+  # stream = new StreamView
+  # console.log(stream.renderItem(items[0]))
+  
+  pages = []
+  page = null
+  
+  items.forEach (item, index) ->
+    
+    console.log(page.isFull(), page.limit, page.items.length) if page
+    
+    if not page? or page.isFull()
+      page = new PageView
+      pages.push(page)
+    
+    page.addItem(item)
     
 
-    
-    $(template).find('.item').each (e)->
-      
-    console.log(section_tpl, template)
-    $(container).append( Milk.render(template, item) );
+  pages.forEach (p)-> container.append(p.render())
+  
+  console.log(pages)
+  # _(items).each (item)->
+  #   console.log(item)
+  #   
+  #   $(template).find('.item').each (e)->
+  #     
+  #   console.log(section_tpl, template)
+  #   $(container).append( Milk.render(template, item) );
