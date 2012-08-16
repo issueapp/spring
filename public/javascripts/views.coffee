@@ -10,15 +10,13 @@ random_img = (width, height) ->
   "http://flickholdr.com/#{width}/#{height}/#{kw[randno]}/bw";
 
 root.items =[]
-for i in [0 ... 10]
+for i in [0 ... 50]
   root.items.push(
     id: i
-    title: "Page " + i + " title" + new Date
+    title: "Page " + i 
     url: "/products/" + i
     thumb: random_img()
   )
-
-
 
 ###
  Page contain multiple rows
@@ -106,8 +104,11 @@ class root.StreamView extends Backbone.View
   initialize: (data)->
     @current_page = null
     @pages = []
-    @items = data.items
-
+    @items = data.items || []
+    
+    @container = document.querySelector('.scrollable.horizontal');
+    @scroller = directions.horizontal(@container);
+    
   # prepare data into seperate pages    
   prepare: ->
     page = null
@@ -119,6 +120,9 @@ class root.StreamView extends Backbone.View
       page.addItem(item)
   
   render: ->
-    this.prepare();
-    console.log("Element >>>", @el)
-    @pages.forEach(page, i) => @el.append( page.render() )
+    this.prepare()
+    @pages.forEach (page, i)=>
+      node = page.render()
+      console.log("aaa", node)
+      $(@el).append( node )
+      
