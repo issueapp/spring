@@ -12,5 +12,8 @@ if $('.pagination').length
       
 # ellipsis 7 lines by using Clamp.js
 # https://github.com/josephschmitt/Clamp.js
-$('.split .info p').each ->
-  $clamp(this, {clamp: 7})
+$('.row.v-half figure.half:nth-child(2) .info p').each ->
+  $clamp(this, {clamp: 10})
+
+$('.col.half .v-third .info p').each ->
+  $clamp(this, {clamp: 4})
