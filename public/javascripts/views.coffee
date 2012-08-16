@@ -401,7 +401,6 @@ class App.StreamView extends Backbone.View
     
     $(this.firstPage().el).addClass('current')
 
-
   renderInfo: ->
     # <dt>currentIndex</dt><dd id="stat-stream-index"></dd>
     # <dt>Pages</dt><dd id="stat-pages"></dd>
@@ -419,4 +418,3 @@ class App.StreamView extends Backbone.View
       div.css( width: 150, display: "inline-block")
       div.css( border: "1px solid red") if $(p.el).is('.current')
     
-    console.log(pages)

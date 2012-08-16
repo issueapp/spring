@@ -30,14 +30,32 @@ article.page {
   }
 }
 
-.product.split {
+
+.row.v-half figure.product.half:nth-child(2), .col.half .v-third {
+  position: relative;
+
   .image {
+    overflow: hidden;
+    display: inline-block;
+    width: 50%;
     left: -1%;
-    width: 49%;
-    
+    height: 100%;
+    top: initial;
+    vertical-align: middle;
     img {
       width: 100%;
-      height: initial;
+    }
+  }
+
+  .info {
+    margin: 0;
+    width: 49%;
+    position: relative;
+    vertical-align: middle;
+
+    & > p {
+      white-space: normal;
+      text-overflow: ellipsis;
     }
   }
 }
