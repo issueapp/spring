@@ -3,7 +3,7 @@
 <head> 
 <title>Scrollability</title> 
 <meta charset="utf-8"/> 
-<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0" /> 
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0" />
 <meta name="apple-mobile-web-app-capable" content="yes" /> 
 <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 <link rel="stylesheet" href="/stylesheets/layout.css">
@@ -12,34 +12,26 @@
 html, body {
     padding: 0;
     margin: 0;
+    background: #000;
     overflow: hidden;
 }
  
 #container {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
     white-space: nowrap;
-}
-
-h3 {
-  font-size: 11px;
+    overflow: hidden
 }
  
  .scrollable {
-    position: absolute;
-    left: 0;
-    top: 50px;
-    height: 100%;
-    font-size: 0;
-    
+   display: inline-block;
+   overflow: hidden;
  }
 
 .page {
+    position: relative;
     display: inline-block;
-    height: 600px;
+    width: 1024px;
+    height: 700px;
+    color: #fff;
     font: 40px Helvetica;
     margin: 0;
     padding: 10px;
@@ -52,15 +44,17 @@ h3 {
     border: 1px solid #fff;
 }
 
+
 .item {
   position: relative;
 }
 .item img {
-  width: 100%;
+  height: 100%;
 }
 
 </style> 
 
+<%= render 'templates' %>
 
 <script language="javascript">
   var random_img = function(width, height) {
@@ -73,10 +67,12 @@ h3 {
   }
 
 window.onload = function() {
-  var template = $('#product_template').text();
-  var container = document.querySelector('.scrollable.horizontal');
+  // var template = $('#product_template').text();
+  // var container = document.querySelector('.scrollable.horizontal');
+  // 
 
-
+  var stream = new StreamView({ el: '#pages', items: items })
+  stream.render()
 
   // items.forEach(function(item) {
   //   $(container).append( Milk.render(template, item) );
@@ -120,7 +116,6 @@ window.onload = function() {
           
         });
       },
-      
       update: function (offset) {
         this.container.style.webkitTransform = this.scroller.update(offset);
       },
@@ -205,18 +200,19 @@ window.onload = function() {
     <a href="">Action</a>
   </nav>
   
-  <div role="main">
-    <div id="pages"></div>
+  <div id="container" class="scrollable horizontal paginated" role="main">
+    <div id="pages" ></div>
   </div>
   
-  <div class="scrollable horizontal paginated"></div>
+  <script src="/javascripts/zepto.js"></script>  
+  <script src="/javascripts/underscore.js"></script>  
+  <script src="/javascripts/backbone.js"></script>  
+  <script src="/javascripts/milk.js"></script>  
   
-  <script src="http://zeptojs.com/zepto.js"></script>
-  <script src="http://documentcloud.github.com/underscore/underscore-min.js"></script>
-
-  <script src="http://backbonejs.org/backbone-min.js"></script>
   <script src="http://scrollability.com/scrollability-1.0b1.min.js"></script>
-  <script src="https://raw.github.com/pvande/Milk/master/dist/v1.2.0/milk.js"></script>
+
+
+
   <script src="/javascripts/views.js"></script>
 
   </body>
