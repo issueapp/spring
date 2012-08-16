@@ -1,15 +1,29 @@
-<!doctype html>
-<html lang="en"> 
+<!-- HTML5 Mobile Boilerplate -->
+<!--[if IEMobile 7]><html class="no-js iem7"><![endif]-->
+<!--[if (gt IEMobile 7)|!(IEMobile)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+
+<!-- HTML5 Boilerplate -->
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head> 
 <title>Scrollability</title> 
 <meta charset="utf-8"/> 
 <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0" />
 <meta name="apple-mobile-web-app-capable" content="yes" /> 
 <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-<link rel="stylesheet" href="/stylesheets/layout.css">
-<style type="text/css"> 
 
-html, body {
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+
+<link rel="stylesheet" href="/stylesheets/layout.css">
+<link rel="stylesheet" href="/stylesheets/site.css">
+<link rel="stylesheet" href="http://shop2.com/assets/components/_button.css">
+<link rel="stylesheet" href="/stylesheets/font-awesome.css"/>
+
+
+<!-- html, body {
     padding: 0;
     margin: 0;
     background: #000;
@@ -79,9 +93,34 @@ footer dt, footer dd {
   position: relative;
 }
 .item img {
-  height: 100%;
+  height: 100%; -->
+
+<style type="text/css"> 
+nav[role=navigation] {
+  position: absolute;
+  top:0;
+  left:0;
+  width:100%;
 }
 
+.cover {
+  position:relative;
+  height: 200%; 
+  width: 200%;
+  top: -50%;
+  left: -50%;
+}
+
+.cover img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  min-width: 51%;
+  min-height: 50%;
+}
 </style> 
 
 <%= render 'templates' %>
@@ -275,6 +314,110 @@ window.onload = function() {
 
 //window.onclick = function() { location.reload(true) }
 </script>
+<<<<<<< HEAD
+=======
 
+<script type="text/mustache" id="section1_tpl" class="" data-count="3" data-type="v-split">
+<div class="page">
+  <div class="row">
+    <div class="col half">
+      <figure class="product item"></figure>
+    </div>
+    <div class="col half">
+      <figure class="product item v-half"></figure>
+      <figure class="product item v-half"></figure>
+    </div>
+  </div>
+</div>
+</script>
+
+<script type="text/mustache" id="section2_tpl" class="" data-count="4" data-type="v-split">
+<div class="page">
+  <div class="row">
+    <div class="col half">
+      <figure class="product item v-half"></figure>
+      <figure class="product item v-half"></figure>
+    </div>
+    <div class="col half">
+      <figure class="product item v-half"></figure>
+      <figure class="product item v-half"></figure>
+    </div>
+  </div>
+</div>
+</script>
+
+<script type="text/mustache" id="section4_tpl" class="section_tpl" data-count="5" data-type="v-split">
+<div class="page">
+  <div class="row v-half">
+    <figure class="product item half"></figure>
+    <figure class="product item half split"></figure>
+  </div>
+  <div class="row v-half">
+    <figure class="product item third"></figure>
+    <figure class="product item third"></figure>
+    <figure class="product item third"></figure>
+  </div>
+</div>
+</script>
+</head>
+<body>
+  <nav class="toolbar" role="navigation">
+    <a class="menu button" ontouchstart="$('#menu-select')[0].open(); return false">
+      <big class="icon-reorder"></big>
+    </a>
+    <h1>Shop2</h1>
+    <a class="button blue" href="">Sign in</a>
+  </nav>
+  
+  <div role="main">
+    <div id="pages"></div>
+  </div>
+  
+  <div class="scrollable horizontal paginated"></div>
+  
+  <script src="http://zeptojs.com/zepto.js"></script>
+  <script src="/javascripts/clamp.js"></script>
+
+  <script src="http://documentcloud.github.com/underscore/underscore-min.js"></script>
+  <script src="http://backbonejs.org/backbone-min.js"></script>
+  
+  <script src="/javascripts/scrollability.min.js"></script>
+  <script src="https://raw.github.com/pvande/Milk/master/dist/v1.2.0/milk.js"></script>
+  
+  <script src="/javascripts/views.js"></script>
+  <script src="/javascripts/application.js"></script>
+
+  <script src="https://raw.github.com/h5bp/mobile-boilerplate/master/js/helper.js" type="text/javascript" charset="utf-8"></script>
+
+  <script>
+    MBP.scaleFix();
+    MBP.hideUrlBarOnLoad();
+
+    var $body = $('body'); //Cache this for performance
+
+    var setBodyScale = function() {
+      var scaleSource = $body.width() > 320 ? $body.width() - 320 : 0,
+      scaleFactor = 0.20,                     
+      maxScale = 140,
+      minScale = 120; //Tweak these values to taste
+
+      var fontSize = scaleSource * scaleFactor; //Multiply the width of the body by the scaling factor:
+
+      if (fontSize > maxScale) fontSize = maxScale;
+      if (fontSize < minScale) fontSize = minScale; //Enforce the minimum and maximums
+
+      $('#scale').html(parseInt(fontSize) + '%' + ' ' + (fontSize/100 * '13') + 'px')
+
+      // $('.row').css('font-size', fontSize + '%');
+    }
+
+    $(window).resize(function(){
+      setBodyScale();
+    });
+>>>>>>> - update split view
+
+    //Fire it when the page first loads:
+    setBodyScale();
+  </script>
   </body>
 </html>
