@@ -102,44 +102,23 @@ class root.PageView extends Backbone.View
 ###
 
 class root.StreamView extends Backbone.View
+  
   initialize: (data)->
-    pages = []
-    current_page: null
+    @current_page = null
+    @pages = []
     @items = data.items
-    
-    
-  renderItem: (item)->
-    
-    new PageView
-    
-# Domready
-$ ->
-  container = $('[role=main]')
-  
-  # stream = new StreamView
-  # console.log(stream.renderItem(items[0]))
-  
-  pages = []
-  page = null
-  
-  items.forEach (item, index) ->
-    
-    console.log(page.isFull(), page.limit, page.items.length) if page
-    
-    if not page? or page.isFull()
-      page = new PageView
-      pages.push(page)
-    
-    page.addItem(item)
-    
 
-  pages.forEach (p)-> container.append(p.render())
+  # prepare data into seperate pages    
+  prepare: ->
+    page = null
+    @items.forEach (item, index) =>
+      if not page? or page.isFull()
+        page = new PageView
+        @pages.push(page)
+      
+      page.addItem(item)
   
-  console.log(pages)
-  # _(items).each (item)->
-  #   console.log(item)
-  #   
-  #   $(template).find('.item').each (e)->
-  #     
-  #   console.log(section_tpl, template)
-  #   $(container).append( Milk.render(template, item) );
+  render: ->
+    this.prepare();
+    console.log("Element >>>", @el)
+    @pages.forEach(page, i) => @el.append( page.render() )
