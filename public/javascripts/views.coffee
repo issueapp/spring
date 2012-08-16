@@ -55,8 +55,6 @@ class App.PageView extends Backbone.View
       # Temporary item template
       tpl = Milk.render('<div class="image cover"><img src="{{ thumb }}"></div><div class="info"><h3 class="title">{{ title }}</h3></div>', item)
       
-      # console.log(node, tpl)
-      
       node.html(tpl)
     
     this.setElement(@template)
@@ -337,7 +335,6 @@ class App.StreamView extends Backbone.View
       this.renderPage(page, 'append', false)
     
     $(this.firstPage().el).addClass('current')
-
 
   renderInfo: ->
     # <dt>currentIndex</dt><dd id="stat-stream-index"></dd>
