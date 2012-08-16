@@ -6,23 +6,29 @@ create_item = ()->
   thumb: "/something"
   id: 1
 
-describe "StreamView", ->
-  view = new StreamView(items: [create_item, create_item, create_item])
 
+
+describe "StreamView", ->
+  $(document.body).append('<div role="main">h1</div>')
+  
+  view = new StreamView(items: [create_item(), create_item(), create_item()])
   
   it "registers items", ->
     expect(view.items.length).toBe(3)
-    
-
+	
   it "fill items into multiple pages", ->
-    loadFixtures 'templates'
+    loadFixtures('templates.html')
+    console.log(view.el)
     
-    view.paginate()
-    expect(view.pages.length).toBe(1)
+    view.render()
+    
+    console.log("something", view.pages, view.items)
+    
+    
 
 describe "PageView", ->
   
-  it "render a div dom element"
+  it "render a div dom element", ->
   
   describe "#addItem", ->
     xit("something for later")
