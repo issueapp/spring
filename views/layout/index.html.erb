@@ -56,144 +56,7 @@ html, body {
 
 <%= render 'templates' %>
 
-<script language="javascript">
-  var random_img = function(width, height) {
-    var kw = ["fashion", "timeless", "intense,look", "lookbook", "vintage", "street,fashion", "paris,fashion", "old,clock", "cat,women", "sexy,fashion"]
-    var randno = Math.floor ( Math.random() * kw.length );
-    width = width || "1024"
-    height = height || "600"
-  
-    return "http://flickholdr.com/" +width+ "/"+height+"/"+kw[randno]+"/bw";
-  }
 
-window.onload = function() {
-  // var template = $('#product_template').text();
-  // var container = document.querySelector('.scrollable.horizontal');
-  // 
-
-  var stream = new StreamView({ el: '#pages', items: items })
-  stream.render()
-
-  // items.forEach(function(item) {
-  //   $(container).append( Milk.render(template, item) );
-  //   $(container).children().last()[0].style.width = window.innerWidth + 'px';    
-  // })
-
-    // Product 
-    // Stream.toc
-    // 
-    
-    // Skip to second page
-    window.Stream = {
-      buffer: 10,
-      
-      init: function () {
-        this.container = document.querySelector('.scrollable.horizontal');
-        this.scroller = directions.horizontal(this.container);
-        // this.current = document.querySelector('.scrollable .page:nth-child(3)');
-        // $(this.current).addClass('current')
-        // 
-        // this.pagePos = this.current.getBoundingClientRect();
-        // 
-        // // Move to page 2
-        // this.update(-this.pagePos.left);
-        // 
-        // this.pos = this.container.getBoundingClientRect();
-
-        // this.container.addEventListener("scrollability-end", Stream.onScrollEnd);
-        this.container.addEventListener("scrollability-page", function (e) {
-          
-          console.log('shit yeah', this, e.page)
-          
-          // Stream.pos = container.getBoundingClientRect();
-          $(container).append( Milk.render(template, {
-            id: 104,
-            title: "Page more title " + new Date,
-            url: "/something",
-            thumb: random_img()
-          }) );
-          $(container).children().last()[0].style.width = window.innerWidth + 'px'
-          
-        });
-      },
-      update: function (offset) {
-        this.container.style.webkitTransform = this.scroller.update(offset);
-      },
-      // 
-      // slideTo: function (where) {
-      //   var current = document.querySelector('.page.current');
-      //   
-      //   if (where == 'next') {
-      //     
-      //     Stream.update()
-      //   }
-      // },
-      // 
-      // renderItem: function(product) {
-      //   var template = $('#product_template').text(), element;
-      // 
-      //   $(this.container).append( Milk.render(template, product) );
-      //   element = $(this.container).children().last()[0];
-      //   element.style.width = window.innerWidth + 'px';
-      //   
-      //   return element;
-      // },
-      // 
-      // onScrollEnd: function () {
-      //   var direction, 
-      //       container = Stream.container,
-      //       pos = container.getBoundingClientRect(), 
-      //       delta = pos.left - (Stream.pos.left || 0),
-      //       slideWidth = Stream.pagePos.width + 20;
-      // 
-      //   var last = container.children[container.children.length - 1];
-      //   var first = container.children[0];
-      //   var target, current = document.querySelector('.page.current');
-      //   
-      //   // swipe Right
-      //   if (delta > 0) {
-      //     direction = 'right';
-      // 
-      //     container.insertBefore(Stream.renderItem({title: "i am not sure"}), first);
-      // 
-      //     // added child in front of queue, skip left
-      //     Stream.update(pos.left - slideWidth);
-      // 
-      //     if (container.children.length > Stream.buffer) {
-      //       container.removeChild(last);          
-      //     }
-      //     
-      //     target = current.previousSibling;
-      //   }
-      // 
-      //   // Swipe left
-      //   else if (delta < 0) {
-      //     direction = 'left';
-      // 
-      //     container.appendChild(Stream.renderItem({title: "Damn"}));
-      // 
-      //     if (container.children.length > Stream.buffer) {
-      //       container.removeChild(first);
-      // 
-      //       // first child get removed so position left needs to be padded
-      //       Stream.update(pos.left + slideWidth);
-      //     }
-      //     
-      //     target = current.nextSibling;
-      //   }
-      // 
-      //   $(current).removeClass('current');
-      //   $(target).toggleClass('current');
-      //   
-      //   console.log(direction, delta)
-      //   Stream.pos = container.getBoundingClientRect();
-      // }
-    }
-    Stream.init();
-};
-
-//window.onclick = function() { location.reload(true) }
-</script>
 </head> 
 <body>
   <nav class="toolbar" role="navigation">
@@ -211,9 +74,160 @@ window.onload = function() {
   
   <script src="http://scrollability.com/scrollability-1.0b1.min.js"></script>
 
-
-
   <script src="/javascripts/views.js"></script>
+
+<script language="javascript">
+var i, random_img, _i;
+
+random_img = function(width, height) {
+  var kw, randno;
+  kw = ["fashion", "timeless", "intense,look", "lookbook", "vintage", "street,fashion", "paris,fashion", "old,clock", "cat,women", "sexy,fashion"];
+  randno = Math.floor(Math.random() * kw.length);
+  width || (width = "1024");
+  height || (height = "600");
+  return "http://flickholdr.com/" + width + "/" + height + "/" + kw[randno] + "/bw";
+};
+
+this.items = [];
+
+for (i = _i = 0; _i < 50; i = ++_i) {
+  this.items.push({
+    id: i,
+    title: "Page " + i,
+    url: "/products/" + i,
+    thumb: random_img()
+  });
+}
+
+window.onload = function() {
+  // var template = $('#product_template').text();
+  // var container = document.querySelector('.scrollable.horizontal');
+  // 
+
+  collection = new App.StreamCollection(items)
+  stream = new App.StreamView({ el: '#pages', collection: collection })
+  collection.trigger('refresh')
+  
+  // items.forEach(function(item) {
+  //   $(container).append( Milk.render(template, item) );
+  //   $(container).children().last()[0].style.width = window.innerWidth + 'px';    
+  // })
+
+    // Product 
+    // Stream.toc
+    // 
+
+    // Skip to second page
+    // window.Stream = {
+    //   buffer: 10,
+    // 
+    //   init: function () {
+    //     this.container = document.querySelector('.scrollable.horizontal');
+    //     this.scroller = directions.horizontal(this.container);
+    //     // this.current = document.querySelector('.scrollable .page:nth-child(3)');
+    //     // $(this.current).addClass('current')
+    //     // 
+    //     // this.pagePos = this.current.getBoundingClientRect();
+    //     // 
+    //     // // Move to page 2
+    //     // this.update(-this.pagePos.left);
+    //     // 
+    //     // this.pos = this.container.getBoundingClientRect();
+    // 
+    //     // this.container.addEventListener("scrollability-end", Stream.onScrollEnd);
+    //     this.container.addEventListener("scrollability-page", function (e) {
+    // 
+    //       console.log('shit yeah', this, e.page)
+    // 
+    //       // Stream.pos = container.getBoundingClientRect();
+    //       $(container).append( Milk.render(template, {
+    //         id: 104,
+    //         title: "Page more title " + new Date,
+    //         url: "/something",
+    //         thumb: random_img()
+    //       }) );
+    //       $(container).children().last()[0].style.width = window.innerWidth + 'px'
+    // 
+    //     });
+    //   },
+    //   update: function (offset) {
+    //     this.container.style.webkitTransform = this.scroller.update(offset);
+    //   },
+    //   // 
+    //   // slideTo: function (where) {
+    //   //   var current = document.querySelector('.page.current');
+    //   //   
+    //   //   if (where == 'next') {
+    //   //     
+    //   //     Stream.update()
+    //   //   }
+    //   // },
+    //   // 
+    //   // renderItem: function(product) {
+    //   //   var template = $('#product_template').text(), element;
+    //   // 
+    //   //   $(this.container).append( Milk.render(template, product) );
+    //   //   element = $(this.container).children().last()[0];
+    //   //   element.style.width = window.innerWidth + 'px';
+    //   //   
+    //   //   return element;
+    //   // },
+    //   // 
+    //   // onScrollEnd: function () {
+    //   //   var direction, 
+    //   //       container = Stream.container,
+    //   //       pos = container.getBoundingClientRect(), 
+    //   //       delta = pos.left - (Stream.pos.left || 0),
+    //   //       slideWidth = Stream.pagePos.width + 20;
+    //   // 
+    //   //   var last = container.children[container.children.length - 1];
+    //   //   var first = container.children[0];
+    //   //   var target, current = document.querySelector('.page.current');
+    //   //   
+    //   //   // swipe Right
+    //   //   if (delta > 0) {
+    //   //     direction = 'right';
+    //   // 
+    //   //     container.insertBefore(Stream.renderItem({title: "i am not sure"}), first);
+    //   // 
+    //   //     // added child in front of queue, skip left
+    //   //     Stream.update(pos.left - slideWidth);
+    //   // 
+    //   //     if (container.children.length > Stream.buffer) {
+    //   //       container.removeChild(last);          
+    //   //     }
+    //   //     
+    //   //     target = current.previousSibling;
+    //   //   }
+    //   // 
+    //   //   // Swipe left
+    //   //   else if (delta < 0) {
+    //   //     direction = 'left';
+    //   // 
+    //   //     container.appendChild(Stream.renderItem({title: "Damn"}));
+    //   // 
+    //   //     if (container.children.length > Stream.buffer) {
+    //   //       container.removeChild(first);
+    //   // 
+    //   //       // first child get removed so position left needs to be padded
+    //   //       Stream.update(pos.left + slideWidth);
+    //   //     }
+    //   //     
+    //   //     target = current.nextSibling;
+    //   //   }
+    //   // 
+    //   //   $(current).removeClass('current');
+    //   //   $(target).toggleClass('current');
+    //   //   
+    //   //   console.log(direction, delta)
+    //   //   Stream.pos = container.getBoundingClientRect();
+    //   // }
+    // }
+    // Stream.init();
+};
+
+//window.onclick = function() { location.reload(true) }
+</script>
 
   </body>
 </html>
