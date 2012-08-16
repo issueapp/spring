@@ -1,22 +1,5 @@
-root = exports ? this
+this.App ||= {}
 
-
-random_img = (width, height) ->
-  kw = ["fashion", "timeless", "intense,look", "lookbook", "vintage", "street,fashion", "paris,fashion", "old,clock", "cat,women", "sexy,fashion"]
-  randno = Math.floor ( Math.random() * kw.length )
-  width ||=  "1024"
-  height ||= "600"
-
-  "http://flickholdr.com/#{width}/#{height}/#{kw[randno]}/bw";
-
-root.items =[]
-for i in [0 ... 50]
-  root.items.push(
-    id: i
-    title: "Page " + i 
-    url: "/products/" + i
-    thumb: random_img()
-  )
 
 ###
  Page contain multiple rows
@@ -37,7 +20,7 @@ for i in [0 ... 50]
       div.row [ 2 ]
       div.row [ 3 ]
 ###
-class root.PageView extends Backbone.View
+class App.PageView extends Backbone.View
   # Page.plan([1,2,3,4,5])
   # => [ <Page 1,2,3>, <Page 4,5> ]
   # 
@@ -62,9 +45,7 @@ class root.PageView extends Backbone.View
     section_tpl = $('script.section_tpl')
     index = Math.floor(Math.random() * section_tpl.length)
     source = section_tpl.eq(index).html()
-    
-    console.log(section_tpl, source, index)
-    
+        
     @items = []
     @template = $(source)
     @limit = @template.find('.item').length
@@ -73,10 +54,8 @@ class root.PageView extends Backbone.View
     @items.push(item) 
 
   isFull: ->
-    
-    console.log('PageView#isFull', @limit, @items.length >= @limit)
     @items.length >= @limit
-  
+    
   render: ->
     @items.forEach (item, index)=>
       node = @template.find(".item").eq(index)
@@ -88,41 +67,120 @@ class root.PageView extends Backbone.View
       node.html(tpl)
     
     @template
+
+class App.StreamCollection extends Backbone.Collection
   
+  initialize: ->
+    @offset ||= 0
+    
+    @perPage ||= 10
+    @page ||= 1
+    
+  # End of stream
+  eos: ->
+    @offset == @length - 1
+
+  fill: (page)->
+    current = null
+    page.items ||= []
+    
+    #     |   |
+    # [a,b,c,d,e]
+    #    ^
+    
+    this.forEach (item, index) =>
+      
+      if @offset > 0
+        #  index : 2
+        lowerBound = index > @offset
+        upperBound = index <= page.limit + @offset
+        
+      else if @offset == 0
+        lowerBound = index >= @offset
+        upperBound = index < page.limit + @offset
+        
+      # lowerBound = index >= @offset + 1
+      # upperBound = index < page.limit + @offset
+      
+      
+      if lowerBound and upperBound
+        page.addItem( item.toJSON() )
+        current = index
+        
+    @offset = current
+
+  pageInfo: ->
+    info = {
+      total: @total
+      page: @page
+      perPage: @perPage
+      pages: Math.ceil(@total / @perPage)
+      prev: false
+      next: false
+    }
+
+  nextPage: ->
+
 ###
   Stream View that many sliding pages
   
-  
   - Section page templates with 3 styles
   - Randomly select a style, it workout number of slots
-  - 
   
 ###
-
-class root.StreamView extends Backbone.View
+class App.StreamView extends Backbone.View
   
   initialize: (data)->
-    @current_page = null
+    @currentIndex = null
     @pages = []
-    @items = data.items || []
+    @limit = 30
     
-    @container = document.querySelector('.scrollable.horizontal');
-    @scroller = directions.horizontal(@container);
+    # @container = document.querySelector('.scrollable.horizontal');
+    # if directions
+    #   @scroller = directions.horizontal(@el)
+    # 
+    @collection.on("refresh", this.render)
+    
+    console.log(@el)
+    $(@el).parent().on "scrollability-end", (event)->
+      console.log(event.page)
+      
     
   # prepare data into seperate pages    
   prepare: ->
-    page = null
-    @items.forEach (item, index) =>
-      if not page? or page.isFull()
-        page = new PageView
-        @pages.push(page)
+    # [1,2,3,4,5,6,7,8,9,10,11,12,14]
+    #       |       |      |
+    
+    until @pages.length == @limit
+    
+      page = new App.PageView
+      @collection.fill(page)
+    
+      @pages.push(page)
+    
+    # 
+    # if @pages.length > @limit
+    #   @pages
+    # 
+        
       
-      page.addItem(item)
+    
+        # 
+        # 
+        # if @collection.
+        # page = null
+        # 
+        # @collection.each (item, index) =>
+        #   if not page? or page.isFull()
+        #     page = new App.PageView
+        #     @pages.push(page)
+        #   
+        #   page.addItem(item.toJSON())
   
-  render: ->
+  render: =>
     this.prepare()
+
     @pages.forEach (page, i)=>
       node = page.render()
-      console.log("aaa", node)
       $(@el).append( node )
       
