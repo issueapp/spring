@@ -31,9 +31,8 @@ article.page {
 }
 
 
-.row.v-half figure.product.half:nth-child(2), .col.half .v-third {
-  position: relative;
-
+.row.v-half figure.product.half:nth-child(2),
+.col.half .v-third {
   .image {
     overflow: hidden;
     display: inline-block;
@@ -52,10 +51,19 @@ article.page {
     width: 49%;
     position: relative;
     vertical-align: middle;
-
-    & > p {
+    p {
       white-space: normal;
-      text-overflow: ellipsis;
     }
+  }
+}
+
+.row.v-half .third .image.cover,
+.col.half .v-half .image.cover {
+  top: -20%;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  img {
+    width: 100%;
   }
 }
