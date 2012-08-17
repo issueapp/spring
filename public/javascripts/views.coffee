@@ -66,6 +66,8 @@ class App.PageView extends Backbone.View
       
       node.html(tpl)
     
+    this.setElement(@template)
+    
     @template
 
 class App.StreamCollection extends Backbone.Collection
@@ -80,18 +82,18 @@ class App.StreamCollection extends Backbone.Collection
   eos: ->
     @offset == @length - 1
 
+    
+  #     |   |
+  # [a,b,c,d,e]
+  #    ^
+  # [1,2,3,4,5,6,7,8,9,10,11,12,14]
+  #       |       |      |
   fill: (page)->
     current = null
     page.items ||= []
-    
-    #     |   |
-    # [a,b,c,d,e]
-    #    ^
-    
+
     this.forEach (item, index) =>
-      
       if @offset > 0
-        #  index : 2
         lowerBound = index > @offset
         upperBound = index <= page.limit + @offset
         
@@ -99,14 +101,9 @@ class App.StreamCollection extends Backbone.Collection
         lowerBound = index >= @offset
         upperBound = index < page.limit + @offset
         
-      # lowerBound = index >= @offset + 1
-      # upperBound = index < page.limit + @offset
-      
-      
       if lowerBound and upperBound
         page.addItem( item.toJSON() )
         current = index
-        
     @offset = current
 
   pageInfo: ->
@@ -131,52 +128,124 @@ class App.StreamCollection extends Backbone.Collection
 class App.StreamView extends Backbone.View
   
   initialize: (data)->
-    @currentIndex = null
+    @currentIndex ||= 0
+    @pageEvent = null
+    @direction
     @pages = []
-    @limit = 30
+    @limit = 3
+    @container = $(@el).parent()[0]
     
     # @container = document.querySelector('.scrollable.horizontal');
-    # if directions
-    #   @scroller = directions.horizontal(@el)
+    if directions
+      @scroller = this.getScroller()
     # 
     @collection.on("refresh", this.render)
     
-    console.log(@el)
-    $(@el).parent().on "scrollability-end", (event)->
-      console.log(event.page)
+    $(@container).on "scrollability-page", (event, a, b)=>
+
+      @pageEvent = event
+
       
+    $(@container).on "scrollability-end", (event)=>
+      
+      delta = @pageEvent.page - @currentIndex
+      
+  
+      
+      if delta > 0
+        @direction = 'right'
+        this.next(@pageEvent)
+        
+      else if delta < 0
+        @direction = 'left'
+        this.prev(@pageEvent)
+      
+      target = @pages[@pageEvent.page]
+      
+      console.log("scrollability-end", delta, target)
+      
+      
+      @currentIndex = @pageEvent.page
+
+      
+      $(@el).find('.page').removeClass('current')
+      $(target.el).addClass('current')
+      
+  
+  getScroller: ->
+    directions.horizontal(@container)
+  
+  next: (event)->
+    
+    console.log(@direction, event)
+    
+    # has far next
+    unless @pages[event.page + 1]
+      
+      page = this.buildPage()
+      this.insert( page )
+      
+      console.log('event: far next empty', @pages.length)
+
+      # pop the front
+      # 
+      # mostLeft.remove()
+      # @currentIndex = @currentIndex - 1
+    else
+      page = @pages[event.page]
+    page
+    
+  prev: (event)->
+    target = @pages[event.page]
+    
+    # has far next
+    unless @pages[event.page - 1]
+      console.log('event: far left empty')
+      
+      
+  buildPage: ->
+    page = new App.PageView
+    @collection.fill(page)
+    @pages.push(page)
+    
+    page
+    
     
   # prepare data into seperate pages    
   prepare: ->
-    # [1,2,3,4,5,6,7,8,9,10,11,12,14]
-    #       |       |      |
-    
     until @pages.length == @limit
+      this.buildPage()
+
+  updatePos: (offset)->
+    scroller = this.getScroller()
+    pos = scroller.position
+
+    animation = scroller.node.style.webKitAnimation 
+    scroller.node.style.removeProperty('-webkit-animation')
+    # scroller.node.style.webKitAnimation = ''
+    # scroller.node.style.webkitAnimationPlayState  =''
+    scroller.node.style.webkitTransform = scroller.update(pos + offset)
     
-      page = new App.PageView
-      @collection.fill(page)
+    scroller.node.style.webKitAnimation = animation
     
-      @pages.push(page)
-    
-    # 
-    # if @pages.length > @limit
-    #   @pages
-    # 
-        
+    console.log(pos, scroller.update(pos + offset))
+
+  insert: (page)->
+    scroller = this.getScroller()
+    console.log('insert', page)
+
+    if @direction == 'right'
+      $(@el).append( page.render() )
       
-    
-        # 
-        # 
-        # if @collection.
-        # page = null
-        # 
-        # @collection.each (item, index) =>
-        #   if not page? or page.isFull()
-        #     page = new App.PageView
-        #     @pages.push(page)
-        #   
-        #   page.addItem(item.toJSON())
-  
+      page = @pages.shift()
+      page.remove()
+      
+      @currentIndex = @currentIndex - 1
+      
+      this.updatePos(1024)
+      
+      console.log(page)
+      
   render: =>
     this.prepare()
 
@@ -184,3 +253,4 @@ class App.StreamView extends Backbone.View
       node = page.render()
       $(@el).append( node )
       
+    $(@pages[0].el).addClass('current')
