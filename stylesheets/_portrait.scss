@@ -11,33 +11,16 @@
 // 9. TEMPLATE SPECIFICS 	==============================
 
 .row {
-  height: 93.5%;
-
-  .product.split .image.cover {
-    width: 200%;
-    height: 50%;
-    top: 0;
-    left: -50%;
-  }
-    
-  .product.split .info {
-    width: 100%;
-    height: 50%;
-    padding: 5% 2% 0;
-  }
+  height: 93.8%;
   
-  .product.split .image img {
-    right: 0;
-    bottom: 0;
+  &.v-half {
+    height: 46.4%;
   }
 }
 
-.row.v-half {
-  height: 46.4%;
-}
-
-.col, .item {
-  &.v-half { height: 49.66% }
+.col {
+  height: 93.8%;
+	.v-third { height: 32.68% }
 }
 
 // Detail Page
