@@ -55,8 +55,6 @@ class App.PageView extends Backbone.View
       # Temporary item template
       tpl = Milk.render('<div class="image cover"><img src="{{ thumb }}"></div><div class="info"><h3 class="title">{{ title }}</h3></div>', item)
       
-      # console.log(node, tpl)
-      
       node.html(tpl)
     
     this.setElement(@template)
@@ -104,8 +102,6 @@ class App.StreamCollection extends Backbone.Collection
       lowerBound = index >= offset
       upperBound = index < offset + page.limit
       
-      console.log("Reverse: ", index, offset, page.limit) if reverse
-      
       if lowerBound and upperBound
         
         page.addItem( item.toJSON() )
@@ -114,6 +110,8 @@ class App.StreamCollection extends Backbone.Collection
           current =  Math.max(offset, 0)
         else
           current = index + 1
+          
+    console.log("Reverse: #{reverse}", offset, current, page.items.map (i)-> i.id )
     
     @offset = page.offset = current
 
@@ -169,14 +167,7 @@ class App.StreamView extends Backbone.View
     @container = $(@el)[0]
     @scroller = this.getScroller()
     
-    # @container = document.querySelector('.scrollable.horizontal');
-    # if directions?
-    #   
-    # # 
     @collection.on("refresh", this.render)
-    
-    console.log @currentIndex
-    
     $(@container).on "swipeLeft", => @direction = "right"
     $(@container).on "swipeRight", => @direction = "left"
     
@@ -196,11 +187,9 @@ class App.StreamView extends Backbone.View
         
       else if @direction == "left"
         this.prev(@pageEvent)
-      
-
+        
       target = @pages[@currentIndex]
-      console.log('Current', @direction,  @currentIndex, @pages[@currentIndex])
-            
+
       # Add current class
       $(@el).find('.page').removeClass('current')
       $(target.el).addClass('current')
@@ -227,24 +216,21 @@ class App.StreamView extends Backbone.View
   
   # Navigation
   next: (event)->
-    unless @pages[@currentIndex + 2]
-      console.log "Before append page:", @currentIndex
-      @currentIndex +=1
+    @currentIndex +=1
+    
+    unless @pages[@currentIndex + 1]
       this.appendPage()
-      console.log "After append page:", @currentIndex
-      
     else
-      @currentIndex += 1
       @pages[@currentIndex + 1]
-  
+
   # 
   # Load previous for page 2 +
   prev: (event)->
-    unless @currentIndex != 0 and @pages[@currentIndex - 2]
-      @currentIndex -= 1
+    @currentIndex -= 1
+    
+    unless @pages[@currentIndex - 1]
       this.prependPage()
     else
-      @currentIndex -= 1
       @pages[@currentIndex - 1]
 
   # When we insert and remove pages, the rendering offset 
@@ -267,7 +253,9 @@ class App.StreamView extends Backbone.View
     
     @collection.fill(page, offset, true)
     
-    console.warn('prepend', page, offset)
+    return if page.items.length == 0
+    
+    console.warn('Prepend', page, offset, page.items.map (i)-> i.id )
     
     # push and pop
     @pages.unshift(page)
@@ -287,6 +275,8 @@ class App.StreamView extends Backbone.View
     page = new App.PageView
     
     @collection.fill(page, offset)
+    
+    return if page.items.length == 0
     
     # push and pop
     @pages.push(page)
@@ -326,6 +316,8 @@ class App.StreamView extends Backbone.View
     
     this.updatePos(pos) if reposition
     
+    $(node).attr('data-offset', page.offset)
+    
     node
   
   render: =>
@@ -334,7 +326,10 @@ class App.StreamView extends Backbone.View
     #   page = this.appendPage(false)
     #   this.renderPage(page, 'append', false)
       page = this.appendPage(false)
+      # page.offset = page.limit if page.offset == 0
       this.renderPage(page, 'append', false)
+    
+    this.firstPage().offset = this.firstPage().limit
     
     $(this.firstPage().el).addClass('current')
 
@@ -345,7 +340,7 @@ class App.StreamView extends Backbone.View
     # <dt>Page offset</dt><dd id="stat-page-offset"></dd>
     # 
     # <dt>Collection index</dt><dd id="stat-collection-index"></dd>
-    
+    $('#stat-collection-index').html(@collection.offset)
     $('#stat-stream-index').html(@currentIndex)
     $('#stat-page-offset').html(this.currentPage().offset )
   

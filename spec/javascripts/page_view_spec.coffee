@@ -13,12 +13,14 @@ describe "StreamCollection", ->
   beforeEach ->
     items = [
           #0               #1
-      createItem(1), createItem(2), # page 1
+      createItem(1), createItem(2) # page 1
           #2
-      createItem(3), createItem(4), # page 2
+      createItem(3), createItem(4)  # page 2
           #4                #
       createItem(5), createItem(6)  # page 3
           #6 end of s
+      createItem(7), createItem(8)  # page 3
+          #8
     ]
     page = (id)->
       id: id
@@ -28,7 +30,7 @@ describe "StreamCollection", ->
     stream = new App.StreamCollection(items)
   
   it "has a length", ->
-    expect(stream.length).toBe(6)
+    expect(stream.length).toBe(8)
   
   it "has a offset as a current pointer (default: 0)", ->  
     expect(stream.offset).toBe(0)
@@ -51,14 +53,14 @@ describe "StreamCollection", ->
       expect(stream.offset).toBe(4)
   
     it "fills up to the end", ->
-      stream.offset = 4
+      stream.offset = stream.length - 2
     
       stream.fill p = page()
     
       expect( stream.eos() ).toBe(true)
       expect( p.items.length ).toBe(2)
     
-      stream.offset = 5
+      stream.offset = stream.length - 1
     
       stream.fill p = page()
 
@@ -66,6 +68,17 @@ describe "StreamCollection", ->
       expect( p.items.length ).toBe(1)
     
   describe "reverse mode", ->
+    
+    it "reads forward for 3 pages then sudden reverse", -> 
+      stream.fill page(), 0
+      
+      stream.fill page(), 2
+      
+      stream.fill page(), 4
+    
+      expect( stream.offset ).toBe(6)
+      
+      stream.fill page(), 6, true
     
     it "fills up Pageview in reverse", ->
       stream.fill(page(), 4, true)
@@ -124,6 +137,7 @@ describe "StreamView", ->
     loadFixtures('templates.html')
 
   describe "Initial render", ->
+    
     it "builds pages in rendering window using a set limit (default: 3)", ->
       view.render()
       expect(view.pages.length).toBe(3)
