@@ -93,7 +93,7 @@ describe "StreamCollection", ->
       expect(stream.offset).toBe(0)
       expect(p.items.length).toBe(2)
 
-    it "shoudl not fill any item in reverse mode when it's at beginning of stream", ->
+    it "should not fill any item in reverse mode when it's at beginning of stream", ->
       p = page()
       stream.fill(p, 1, true)
   
@@ -105,6 +105,8 @@ describe "StreamCollection", ->
       
       expect(stream.offset).toBe(0)
       expect(p.items.length).toBe(0)
+      
+    it "step forward for 3 windows than back"
       
     # describe "Page index", ->
     #   

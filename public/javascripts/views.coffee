@@ -31,15 +31,39 @@ class App.PageView extends Backbone.View
   # fill: (products)->
   # 
   # render: ->
-  initialize: ->
-    section_tpl = $('script.section_tpl')
-    index = Math.floor(Math.random() * section_tpl.length)
-    source = section_tpl.eq(index).html()
     
+  @templateIndex = -1
+  @order = []
+  until @order.length == 10
+    @order.push Math.floor(Math.random() * $('script.section_tpl').length)
+  
+  @getTemplate = (data)=>
+    section_tpl = $('script.section_tpl')
+    
+    if data.method == 'append'
+      if data.stream.changedDir
+        @templateIndex += 2 
+        
+      @templateIndex += 1
+      @templateIndex = 0 if @templateIndex > 9
+      
+    else
+      if data.stream.changedDir
+        @templateIndex -= 2 
+        
+      @templateIndex -= 1
+      @templateIndex = 9 if @templateIndex < 0
+
+    index = @order[@templateIndex]
+    section_tpl.eq(index).html()
+  
+  initialize: (data)->
+    # 1 , 2 ,3
+
     @offset = null
     
     @items = []
-    @template = $(source)
+    @template = $(App.PageView.getTemplate(data))
     @limit = @template.find('.item').length
 
   addItem: (item)->
@@ -65,7 +89,6 @@ class App.StreamCollection extends Backbone.Collection
   
   initialize: ->
     @offset ||= 0
-    
     @perPage ||= 10
     @page ||= 1
     
@@ -94,7 +117,9 @@ class App.StreamCollection extends Backbone.Collection
     # return 0 if reverse && offset == 0
     
     if reverse
+      console.log("Reverse before: ", offset - page.limit)
       offset = offset - page.limit
+      
     else
       offset = offset
     
@@ -107,10 +132,10 @@ class App.StreamCollection extends Backbone.Collection
         page.addItem( item.toJSON() )
         
         if reverse
-          current =  Math.max(offset, 0)
+          current =  Math.max(offset + page.limit, 0)
         else
           current = index + 1
-          
+    
     console.log("Reverse: #{reverse}", offset, current, page.items.map (i)-> i.id )
     
     @offset = page.offset = current
@@ -156,46 +181,67 @@ class App.StreamView extends Backbone.View
   # events:
   #   'scrollability-page': 'onPageChange'
   #   'scrollability-end': 'onScrollEnd'
-
+  
   initialize: (data)->
     @currentIndex ||= 0
     @pageEvent = null
-    @direction
-    @pos
+    @direction ||= "right"
     @pages = []
     @limit = 3
     @container = $(@el)[0]
     @scroller = this.getScroller()
+    @padding = $('<div class="page padding" style="visibility:hidden;width:0;padding:0;width: 0px; border:0;font-size:0">').appendTo(@el)
     
     @collection.on("refresh", this.render)
-    $(@container).on "swipeLeft", => @direction = "right"
-    $(@container).on "swipeRight", => @direction = "left"
+    
+    $(@container).on "swipeLeft", =>
+      @changedDir = @direction != "right"
+      @direction = "right"
+    
+    $(@container).on "swipeRight", =>
+      @changedDir = @direction != "left"
+      @direction = "left"
     
     # Switched page
     #  event.page = non zero page index
     $(@container).on "scrollability-page", (event, a, b)=>
-      console.log("Switched Page", event.page, @currentIndex)
-      @pageEvent = event
-    
-    # When scroll finish
-    $(@container).on "scrollability-end", (event)=>
-      return unless @pageEvent
+      console.warn("Switched Page", @changedDir, event.page, @currentIndex)
 
       # Start page change
       if @direction == "right"
-        this.next(@pageEvent)
+        target = this.next()
         
       else if @direction == "left"
-        this.prev(@pageEvent)
-        
-      target = @pages[@currentIndex]
-
-      # Add current class
-      $(@el).find('.page').removeClass('current')
-      $(target.el).addClass('current')
+        target = this.prev()
+        console.log(target)
       
+      if target = @pages[@currentIndex]
+        # Add current class
+        $(@el).find('.page').removeClass('current')
+        $(target.el).addClass('current')
+    
       this.renderInfo()
-      @pageEvent = false
+
+    
+    
+    $(document).on 'keydown', (e)=>
+      key = e.which || e.keyCode
+      pos = 1024
+      
+      if key == 39 
+        target = this.next()
+        pos = -pos
+      else if key == 37
+        target = this.prev()
+      # Add current class
+        
+      if target
+        this.updatePos(pos)
+        
+        $(@el).find('.page').removeClass('current')
+        $(target.el).addClass('current')
+
+      this.renderInfo()
   # 
   # onPageChange: (event) =>
   #   console.log("Switched Page: #{event.page}")
@@ -215,23 +261,36 @@ class App.StreamView extends Backbone.View
   currentPage: -> @pages[@currentIndex]
   
   # Navigation
-  next: (event)->
-    @currentIndex +=1
-    
-    unless @pages[@currentIndex + 1]
-      this.appendPage()
-    else
-      @pages[@currentIndex + 1]
+  next: (step)->
+    if page = @pages[@currentIndex + 1]
+      # Immediate next
+        @currentIndex += 1
+        
+      # Far next
+      unless @pages[@currentIndex + 1]
+        farNext = this.appendPage()
+        this.clearPage('append')
+      else
+        farNext = @pages[@currentIndex + 1]
 
+    page
+    
   # 
   # Load previous for page 2 +
-  prev: (event)->
-    @currentIndex -= 1
-    
-    unless @pages[@currentIndex - 1]
-      this.prependPage()
-    else
-      @pages[@currentIndex - 1]
+  prev: ()->
+    if page = @pages[@currentIndex - 1]
+      @currentIndex -= 1
+      
+      # Far prev
+      unless @pages[@currentIndex - 1]
+        # alert 'prepend'
+        farPrev = this.prependPage()
+        this.clearPage('prepend')
+  
+      else
+        farPrev = @pages[@currentIndex - 1]
+      
+    page
 
   # When we insert and remove pages, the rendering offset 
   updatePos: (offset)->
@@ -249,17 +308,19 @@ class App.StreamView extends Backbone.View
     render ?= true
     first = this.firstPage()
     offset = first && first.offset || 0
-    page = new App.PageView
+    page = new App.PageView(method: 'prepend', stream: this)
     
-    @collection.fill(page, offset, true)
+    
+    offset = offset - this.currentPage().limit
+    
+    @collection.fill(page, offset, true) if offset > 0
     
     return if page.items.length == 0
     
-    console.warn('Prepend', page, offset, page.items.map (i)-> i.id )
+    # console.warn('Prepend', page, offset, page.items.map (i)-> i.id )
     
     # push and pop
     @pages.unshift(page)
-    this.clearPage('prepend')
     
     # maintain index
     if render== true
@@ -272,15 +333,14 @@ class App.StreamView extends Backbone.View
     render ?= true
     target = this.lastPage()
     offset = target && target.offset || 0
-    page = new App.PageView
-    
+    page = new App.PageView(method: 'append', stream: this)
+
     @collection.fill(page, offset)
     
     return if page.items.length == 0
-    
+
     # push and pop
     @pages.push(page)
-    this.clearPage('append')
 
     if render == true
       # Render
@@ -292,14 +352,20 @@ class App.StreamView extends Backbone.View
   
   clearPage: (method)->
     return if @pages.length <= @limit
+    scroller = this.getScroller()
     
     if method == 'append'
       page = @pages.shift()
+      page.remove()
+      @padding.width( @padding.width() + scroller.viewport )
+      
     else
       page = @pages.pop()
+      page.remove()
+      @padding.width( @padding.width() - scroller.viewport )
       
-    page.remove()
-        
+    
+    
   renderPage: (page, method, reposition)->
     reposition ?= true
     method ?= 'append'
@@ -309,12 +375,14 @@ class App.StreamView extends Backbone.View
     node = page.render()
     
     if method == 'prepend'
-      $(@el).prepend( node )
+      # $(@el).prepend( node )
+      
+      @padding.after(node)
       pos = -pos
     else
       $(@el).append( node )
     
-    this.updatePos(pos) if reposition
+    # this.updatePos(pos) if reposition
     
     $(node).attr('data-offset', page.offset)
     
@@ -343,4 +411,12 @@ class App.StreamView extends Backbone.View
     $('#stat-collection-index').html(@collection.offset)
     $('#stat-stream-index').html(@currentIndex)
     $('#stat-page-offset').html(this.currentPage().offset )
-  
+    
+    $('#stat-items').html('')
+    pages = @pages.map (p)-> 
+      ids = p.items.map (i)-> i.id
+      div = $('<div>').html( p.offset + " => " + ids.join(", ")).appendTo($('#stat-items'))
+      div.css( width: 150, display: "inline-block")
+      div.css( border: "1px solid red") if $(p.el).is('.current')
+    
+    console.log(pages)
