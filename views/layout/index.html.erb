@@ -71,6 +71,10 @@ footer dt, footer dd {
   border: 1px solid red;
 }
 
+.page.padding {
+  width: 0;
+}
+
 .item {
   position: relative;
 }
@@ -99,6 +103,8 @@ footer dt, footer dd {
       <dt>Index</dt><dd id="stat-stream-index"></dd>
       <dt>Pages</dt><dd id="stat-pages"></dd>
       <dt>Collection index</dt><dd id="stat-collection-index"></dd>
+      <dt>Data</dt><dd id="stat-items"></dd>
+
     </dl>
   </footer>
   
@@ -133,12 +139,16 @@ for (i = _i = 0; _i < 50; i = ++_i) {
     thumb: random_img()
   });
 }
-
+  // $(document).bind('keydown', function() {e});
 window.onload = function() {
   // var template = $('#product_template').text();
   // var container = document.querySelector('.scrollable.horizontal');
-  // 
+  //
+  
 
+  // $(@el).on 'keypress', (e)=>
+  //   console.log(e)
+    
   collection = new App.StreamCollection(items)
   
   
