@@ -1,7 +1,7 @@
 <style>
-html, body {
+  html, body {
     overflow: hidden;
-}
+  }
 
   nav[role=navigation] {
     position: absolute;
@@ -9,15 +9,15 @@ html, body {
     left:0;
     width:100%;
   }
-  
- .cover {
+
+  .cover {
     position:relative;
     height: 200%; 
     width: 200%;
     top: -50%;
     left: -50%;
   }
-  
+
   .cover img {
     position: absolute;
     top: 0;
@@ -28,33 +28,33 @@ html, body {
     min-width: 51%;
     min-height: 50%;
   }
-  
+
   #pages {
-      white-space: nowrap;
-      overflow: hidden
+    white-space: nowrap;
+    overflow: hidden;
+    
   }
 
   .scrollable {
-   display: inline-block;
-   overflow: hidden;
+    display: inline-block;
+    overflow: hidden;
   }
 
   .page {
-      position: relative;
-      display: inline-block;
-      width: 1024px;
-      height: 730px;
-      margin: 0;
-      padding: 55px 1% 0 1%;
-      -webkit-box-sizing: border-box;
-      box-sizing: border-box;
-      white-space: normal;
-      overflow: hidden;
-      background-size: cover;
-      background-position: center;
-      border: 1px solid #fff;
+    position: relative;
+    display: inline-block;
+    width: 1024px;
+    height: 730px;
+    margin: 0;
+    padding: 55px 1% 0 1%;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    white-space: normal;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    border: 1px solid #fff;
   }
-
 
   .page.current {
     border: 1px solid red;
@@ -64,6 +64,8 @@ html, body {
     width: 0;
   }
 </style>
+<%= render '/section/templates' %>
+
 
 <div id="hero" style="display:none;">
   <h1>Start your personalised shopping catalogue</h1>
@@ -76,23 +78,15 @@ html, body {
 <div id="pages" class="scrollable horizontal paginated">
 </div>
 
-
 <% content_for :js do %>
-  <%= render '/section/templates' %>
 <script>
 
-  $.getJSON("http://shop2.dev/products.json?callback=?", function(data) {
-    
-    console.log(data)
-  })
-  
-  $(function () {
-    
-    var items = <%= sample_products.to_json %>
-    collection = new App.StreamCollection(items)
+  $.getJSON("http://<%= ENV['RACK_ENV'] == 'production' ? "shop2.com" : "shop2.dev" %>/products.json?callback=?", function(products) {
+    collection = new App.StreamCollection(products)
     stream = new App.StreamView({ el: '#pages', collection: collection })
     collection.trigger('refresh')
   })
+
 </script>
 <% end %>
 
