@@ -81,7 +81,7 @@ class App.PageView extends Backbone.View
       node = @page.find(".item").eq(index)
       
       # Temporary item template
-      tpl = Milk.render('<div class="image cover"><img src="{{ image_url }}"></div><div class="info"><h3 class="title">{{ title }}</h3></div>', item)
+      tpl = Milk.render('<div class="image cover"><img height="{{ image_height }}" width="{{ image_width }}" src="{{ image_url }}"></div><div class="info"><h3 class="title">{{ title }}</h3></div>', item)
       
       node.html(tpl)
     
