@@ -31,7 +31,9 @@ class App.PageView extends Backbone.View
   # fill: (products)->
   # 
   # render: ->
-    
+  events:
+    'orientationchange': 'flipClass'
+
   @templateIndex = -1
   @order = []
   until @order.length == 10
@@ -56,16 +58,18 @@ class App.PageView extends Backbone.View
 
     index = @order[@templateIndex]
     section_tpl.eq(index).html()
-  
+
   initialize: (data)->
     # 1 , 2 ,3
-
     @offset = null
     
     @items = []
-    @template = $(App.PageView.getTemplate(data))
-    @limit = @template.find('.item').length
-
+    @page = $(App.PageView.getTemplate(data))
+    @limit = @page.find('.item').length
+    
+    if window.orientation == 0 or window.orientation == 180
+      this.flipClass()
+  
   addItem: (item)->
     @items.push(item) 
 
@@ -74,17 +78,47 @@ class App.PageView extends Backbone.View
     
   render: ->
     @items.forEach (item, index)=>
-      node = @template.find(".item").eq(index)
+      node = @page.find(".item").eq(index)
       
       # Temporary item template
       tpl = Milk.render('<div class="image cover"><img src="{{ thumb }}"></div><div class="info"><h3 class="title">{{ title }}</h3></div>', item)
       
       node.html(tpl)
     
-    this.setElement(@template)
+    this.setElement(@page)
     
-    @template
+    @page
+    
+  flipClass: ->
+    @page ||= $('.rotatable')
+    
+    if @page.find('.v-half') && !@page.find('.v-half').hasClass('row')
+      this.doFlipClass(
+        @page,
+        ['.v-half.nosplit', '.v-half', '.v-third-2', '.v-third.split', '.v-third'],
+        ['v-half nosplit', 'v-half', 'v-third-2', 'v-third split', 'v-third'],
+        ['half split', 'half', 'third-2', 'third nosplit', 'third']
+      )
+    else
+      this.doFlipClass(
+        @page,
+        ['.half.split', '.half', '.third-2', '.third.nosplit', '.third'],
+        ['half split', 'half', 'third-2', 'third nosplit', 'third'],
+        ['v-half nosplit', 'v-half', 'v-third-2', 'v-third split', 'v-third']
+      )
 
+    if @page.find('.row.v-half').length > 0
+      this.doFlipClass(@page, ['.row.v-half'], ['row v-half'], ['col half'])
+    else
+      this.doFlipClass(@page, ['.col.half'], ['col half'], ['row v-half'])
+      
+    @page
+
+  doFlipClass: (page, classNames, oldNames, newNames)->
+    classNames.forEach (className, index)->
+      page.find(className).forEach (element)->
+        $(element).removeClass(oldNames[index]).addClass(newNames[index])
+    
 class App.StreamCollection extends Backbone.Collection
   
   initialize: ->
@@ -251,6 +285,7 @@ class App.StreamView extends Backbone.View
   getScroller: ->
     if directions == undefined
       directions = scrollability && scrollability.directions
+      
       
     directions && directions.horizontal(@container)
 
