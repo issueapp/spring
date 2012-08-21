@@ -1,4 +1,8 @@
 <style>
+html, body {
+    overflow: hidden;
+}
+
   nav[role=navigation] {
     position: absolute;
     top:0;
@@ -24,6 +28,41 @@
     min-width: 51%;
     min-height: 50%;
   }
+  
+  #pages {
+      white-space: nowrap;
+      overflow: hidden
+  }
+
+  .scrollable {
+   display: inline-block;
+   overflow: hidden;
+  }
+
+  .page {
+      position: relative;
+      display: inline-block;
+      width: 1024px;
+      height: 730px;
+      margin: 0;
+      padding: 55px 1% 0 1%;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      white-space: normal;
+      overflow: hidden;
+      background-size: cover;
+      background-position: center;
+      border: 1px solid #fff;
+  }
+
+
+  .page.current {
+    border: 1px solid red;
+  }
+
+  .page.padding {
+    width: 0;
+  }
 </style>
 
 <div id="hero" style="display:none;">
@@ -34,8 +73,31 @@
   </div>
 </div>
 
+<div id="pages" class="scrollable horizontal paginated">
+</div>
+
+
+<% content_for :js do %>
+  <%= render '/section/templates' %>
+<script>
+
+  $.getJSON("http://shop2.dev/products.json?callback=?", function(data) {
+    
+    console.log(data)
+  })
+  
+  $(function () {
+    
+    var items = <%= sample_products.to_json %>
+    collection = new App.StreamCollection(items)
+    stream = new App.StreamView({ el: '#pages', collection: collection })
+    collection.trigger('refresh')
+  })
+</script>
+<% end %>
+
 <% if params[:version] %>
-  <%= render "section/#{params[:version]}" %>
+  <%#= render "section/#{params[:version]}" %>
 <% else %>
-  <%= render "section/v1" %>
+  <%#= render "section/v1" %>
 <% end %>

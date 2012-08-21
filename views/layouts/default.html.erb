@@ -70,52 +70,56 @@
   </nav>
   
   <div role="main">
-    
     <%= yield %>
-  
   </div>
-
-  <script src="http://zeptojs.com/zepto.min.js"></script>
+  
+  <script src="/javascripts/zepto.js"></script>  
+  <script src="/javascripts/underscore.js"></script>  
+  <script src="/javascripts/backbone.js"></script>  
+  <script src="/javascripts/milk.js"></script>  
   <script src="/javascripts/clamp.js"></script>
-  <script src="/javascripts/application.js"></script>
-  <script>
-    $('.info p').css({'visibility' : 'visible'});
-  </script>
-  <script src="http://documentcloud.github.com/underscore/underscore-min.js"></script>
-  <script src="http://backbonejs.org/backbone-min.js"></script>
-  <script src="https://raw.github.com/pvande/Milk/master/dist/v1.2.0/milk.js"></script>
+  <script src="/javascripts/scrollability2.js"></script>
+    
   <script src="/javascripts/views.js"></script>
-  <script src="/javascripts/scrollability.min.js"></script>
-  <script src="https://raw.github.com/h5bp/mobile-boilerplate/master/js/helper.js" type="text/javascript" charset="utf-8"></script>
+  <script src="/javascripts/application.js"></script>
+
+  <script src="https://raw.github.com/h5bp/mobile-boilerplate/master/js/helper.js"></script>
+  
+  
   <script>
+  
+    $('.info p').css({'visibility' : 'visible'});
+  
     MBP.scaleFix();
     MBP.hideUrlBarOnLoad();
     
-    var $body = $('body'); //Cache this for performance
-
-    var setBodyScale = function() {
-        var scaleSource = $body.width() > 320 ? $body.width() - 320 : 0,
-            scaleFactor = 0.20,                     
-            maxScale = 140,
-            minScale = 120; //Tweak these values to taste
-
-        var fontSize = scaleSource * scaleFactor; //Multiply the width of the body by the scaling factor:
-
-        if (fontSize > maxScale) fontSize = maxScale;
-        if (fontSize < minScale) fontSize = minScale; //Enforce the minimum and maximums
-        
-        $('#scale').html(parseInt(fontSize) + '%' + ' ' + (fontSize/100 * '13') + 'px')
-        
-        // $('.row').css('font-size', fontSize + '%');
-    }
-
-    $(window).resize(function(){
-        setBodyScale();
-    });
-
-    //Fire it when the page first loads:
-    setBodyScale();
+    // var $body = $('body'); //Cache this for performance
+    // 
+    // var setBodyScale = function() {
+    //     var scaleSource = $body.width() > 320 ? $body.width() - 320 : 0,
+    //         scaleFactor = 0.20,                     
+    //         maxScale = 140,
+    //         minScale = 120; //Tweak these values to taste
+    // 
+    //     var fontSize = scaleSource * scaleFactor; //Multiply the width of the body by the scaling factor:
+    // 
+    //     if (fontSize > maxScale) fontSize = maxScale;
+    //     if (fontSize < minScale) fontSize = minScale; //Enforce the minimum and maximums
+    //     
+    //     $('#scale').html(parseInt(fontSize) + '%' + ' ' + (fontSize/100 * '13') + 'px')
+    //     
+    //     // $('.row').css('font-size', fontSize + '%');
+    // }
+    // 
+    // $(window).resize(function(){
+    //     setBodyScale();
+    // });
+    // 
+    // //Fire it when the page first loads:
+    // setBodyScale();
   </script>
+  
+  <%= yield :js %>
 
 </body>
 </html>

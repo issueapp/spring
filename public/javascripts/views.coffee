@@ -81,7 +81,7 @@ class App.PageView extends Backbone.View
       node = @page.find(".item").eq(index)
       
       # Temporary item template
-      tpl = Milk.render('<div class="image cover"><img src="{{ thumb }}"></div><div class="info"><h3 class="title">{{ title }}</h3></div>', item)
+      tpl = Milk.render('<div class="image cover"><img src="{{ image_url }}"></div><div class="info"><h3 class="title">{{ title }}</h3></div>', item)
       
       node.html(tpl)
     
@@ -151,18 +151,19 @@ class App.StreamCollection extends Backbone.Collection
     # return 0 if reverse && offset == 0
     
     if reverse
-      console.log("Reverse before: ", offset - page.limit)
       offset = offset - page.limit
       
     else
       offset = offset
     
     this.forEach (item, index) =>
+      
       lowerBound = index >= offset
       upperBound = index < offset + page.limit
       
       if lowerBound and upperBound
-        
+        console.log(" before: ", item, index)
+
         page.addItem( item.toJSON() )
         
         if reverse
@@ -255,17 +256,21 @@ class App.StreamView extends Backbone.View
         $(target.el).addClass('current')
     
       this.renderInfo()
-
-    
     
     $(document).on 'keydown', (e)=>
       key = e.which || e.keyCode
       pos = 1024
       
       if key == 39 
+        @changedDir = @direction != "right"
+        @direction = "right"
+        
         target = this.next()
         pos = -pos
       else if key == 37
+        @changedDir = @direction != "left"
+        @direction = "left"
+      
         target = this.prev()
       # Add current class
         
@@ -369,8 +374,9 @@ class App.StreamView extends Backbone.View
     target = this.lastPage()
     offset = target && target.offset || 0
     page = new App.PageView(method: 'append', stream: this)
-
+    
     @collection.fill(page, offset)
+    console.log(page, offset)
     
     return if page.items.length == 0
 
@@ -424,7 +430,6 @@ class App.StreamView extends Backbone.View
     node
   
   render: =>
-    
     until @pages.length == @limit
     #   page = this.appendPage(false)
     #   this.renderPage(page, 'append', false)

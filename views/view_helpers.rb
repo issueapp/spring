@@ -29,7 +29,9 @@ module ViewHelpers
   end
   
   def sample_products(options = {})
+    i = 0
     YAML.load_file('products.yml').map do |p|
+      p["id"] = i += 1
       Hashie::Mash.new(p)
     end
     
