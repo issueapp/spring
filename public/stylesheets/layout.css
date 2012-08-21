@@ -569,305 +569,9 @@ textarea[contenteditable] {
     page-break-after: avoid;
   }
 }
-/* line 2, ../../stylesheets/site.scss */
-.button.large [class^="icon-"],
-.button.large [class*=" icon-"] {
-  height: 40px;
-  line-height: 40px;
-}
-
-/*
-
-  All Style for mobile site.
-  --------------------------------------------------
-*/
-/* line 15, ../../stylesheets/site.scss */
-body {
-  background: #f8fafa;
-  color: #333333;
-}
-
-/* line 20, ../../stylesheets/site.scss */
-a {
-  color: #4a90a6;
-  text-decoration: none;
-}
-/* line 24, ../../stylesheets/site.scss */
-a:visited {
-  color: #333333;
-}
-
-/* line 29, ../../stylesheets/site.scss */
-.logo {
-  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADYAAAAyCAYAAAAX1CjLAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDowMTgwMTE3NDA3MjA2ODExODBDMEJFMTc2QjBGRkY5NSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo1MDVFNzkxN0FFREYxMUUxQTRDRDhCN0NCODE1RjM5QiIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo1MDVFNzkxNkFFREYxMUUxQTRDRDhCN0NCODE1RjM5QiIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjA0ODAxMTc0MDcyMDY4MTE4MEMwQkUxNzZCMEZGRjk1IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjAxODAxMTc0MDcyMDY4MTE4MEMwQkUxNzZCMEZGRjk1Ii8+IDwvcmRmOkRlc2NyaXB0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') 10px 4px no-repeat;
-  margin: 0 0 0 0px;
-  padding: 0;
-  padding-left: 65px;
-  font-family: "HelveticaNeue-CondensedBold";
-  width: 80px;
-  height: 50px;
-  line-height: 50px;
-}
-
-/* line 41, ../../stylesheets/site.scss */
-nav[role=navigation] {
-  position: relative;
-  height: 44px;
-  background: #F4F8F9;
-  border-bottom: none;
-  border-top: 2px solid black;
-  z-index: 2;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 3px;
-  -moz-box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 3px;
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 3px;
-}
-/* line 51, ../../stylesheets/site.scss */
-nav[role=navigation] a:first-child {
-  position: absolute;
-  top: 7px;
-  left: 5px;
-}
-/* line 57, ../../stylesheets/site.scss */
-nav[role=navigation] > h1 {
-  text-align: center;
-  vertical-align: middle;
-  line-height: 44px;
-  font-family: "HelveticaNeue-CondensedBold", "HelveticaNeue Neue";
-  font-size: 20px;
-  letter-spacing: 0.7px;
-  text-transform: uppercase;
-  padding: 0;
-  margin: 0;
-}
-/* line 69, ../../stylesheets/site.scss */
-nav[role=navigation] a:last-child {
-  font-family: "Helvetica";
-  position: absolute;
-  top: 7px;
-  right: 5px;
-}
-
-/*
-    Navigation list
-*/
-/* line 80, ../../stylesheets/site.scss */
-.nav {
-  list-style: none;
-}
-/* line 83, ../../stylesheets/site.scss */
-.nav > li {
-  display: block;
-  float: left;
-  font-size: 12px;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: .1em;
-}
-/* line 94, ../../stylesheets/site.scss */
-.nav > li > a {
-  display: block;
-  float: none;
-  padding: 11px 10px 12px;
-  line-height: 21px;
-  color: #222;
-  text-decoration: none;
-}
-
-/*
-      Content
-*/
-/* line 109, ../../stylesheets/site.scss */
-.content {
-  padding: 10px;
-}
-
-/*
-      Form
-*/
-/* line 118, ../../stylesheets/site.scss */
-input[type=text], input[type=password], textarea {
-  border: 1px solid #c6d2d2;
-  border-radius: 5px;
-  padding: 0px 10px;
-  box-shadow: #eee 1px 1px 5px 0px inset;
-  font-size: 14px;
-  line-height: 19px;
-}
-/* line 126, ../../stylesheets/site.scss */
-input[type=text]:focus, input[type=password]:focus, textarea:focus {
-  box-shadow: #39f 0px 0px 10px 0px;
-}
-
-/*  
-
-      Product Styles    
-
-*/
-/* line 137, ../../stylesheets/site.scss */
-.product .image {
-  overflow: none;
-}
-/* line 148, ../../stylesheets/site.scss */
-.product .link {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  cursor: pointer;
-  color: #222;
-  display: block;
-}
-/* line 154, ../../stylesheets/site.scss */
-.product .link:hover {
-  opacity: 0.5;
-}
-/* line 159, ../../stylesheets/site.scss */
-.product .info {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  width: 100%;
-  height: 4em;
-  background: white;
-  padding: 0.5em 3% 0.5em;
-}
-/* line 167, ../../stylesheets/site.scss */
-.product .title {
-  position: relative;
-  font-family: "Helvetica Neue";
-  letter-spacing: -1px;
-  font-size: 1.2em;
-  margin: 0 0 0.5em;
-  white-space: nowrap;
-  width: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-/* line 181, ../../stylesheets/site.scss */
-.product .info p {
-  margin: 0 0 0 0;
-  font-size: 0.75em;
-  color: #666;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-/* line 190, ../../stylesheets/site.scss */
-.product .counters {
-  color: #aaa;
-  font-size: 14px;
-  position: absolute;
-  top: 3px;
-  right: 5px;
-  z-index: 1;
-  line-height: 12px;
-}
-
-/*
-    Product split view
-*/
-/* line 207, ../../stylesheets/site.scss */
-.product.split {
-  position: relative;
-}
-/* line 210, ../../stylesheets/site.scss */
-.product.split .image {
-  display: inline-block;
-  text-align: right;
-  width: 50%;
-  overflow: hidden;
-  vertical-align: middle;
-}
-/* line 218, ../../stylesheets/site.scss */
-.product.split .info {
-  margin: 0 3% 0 4%;
-  width: 42%;
-  padding: 0;
-  position: relative;
-}
-/* line 225, ../../stylesheets/site.scss */
-.product.split .info > p {
-  white-space: normal;
-}
-
-/* line 238, ../../stylesheets/site.scss */
-.stream-header {
-  border-bottom: 1px solid #ddd;
-  text-align: center;
-  margin: 20px 10px;
-  height: 0px;
-}
-/* line 243, ../../stylesheets/site.scss */
-.stream-header > span {
-  position: relative;
-  font-family: serif;
-  font-style: italic;
-  font-size: 14px;
-  top: -18px;
-  padding: 10px;
-  height: 14px;
-  display: inline-block;
-  background: #f8fafa;
-}
-
-/*
-    Homepage
-*/
-/* line 259, ../../stylesheets/site.scss */
-#hero {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  margin: 20px 0;
-  padding: 20px 20px;
-  text-align: center;
-  background: #fff;
-}
-
-/* line 267, ../../stylesheets/site.scss */
-#trending {
-  margin-top: 30px;
-}
-
-/*
-    Signup Page
-*/
-/* line 276, ../../stylesheets/site.scss */
-input.email {
-  width: 220px;
-}
-
-/* line 280, ../../stylesheets/site.scss */
-form.signup {
-  margin: 0 auto;
-  max-width: 420px;
-}
-/* line 284, ../../stylesheets/site.scss */
-form.signup .full {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  width: 100%;
-}
-/* line 289, ../../stylesheets/site.scss */
-form.signup input[type=text] {
-  padding: 0.5em;
-  margin-bottom: 10px;
-  width: 100%;
-}
-
-/* line 298, ../../stylesheets/site.scss */
-.pagination {
-  display: none;
-}
-
 /* line 17, ../../stylesheets/layout.scss */
 html {
   -webkit-font-smoothing: antialiased;
-}
-
-/* line 21, ../../stylesheets/layout.scss */
-body {
-  min-width: 320px;
 }
 
 /* line 25, ../../stylesheets/layout.scss */
@@ -889,17 +593,15 @@ div.container {
   position: relative;
   background: #fff;
   float: left;
-  margin: 0 2% 2% 0;
+  margin: 0 1% 2% 0;
   overflow: hidden;
   width: 100%;
   padding: 0;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  border: 1px solid #eee;
-  border-width: 0 1px 1px 0;
 }
-/* line 53, ../../stylesheets/layout.scss */
+/* line 55, ../../stylesheets/layout.scss */
 .item .info {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -909,117 +611,123 @@ div.container {
   display: inline-block;
 }
 
-/* line 64, ../../stylesheets/layout.scss */
+/* line 65, ../../stylesheets/layout.scss */
 .col {
+  position: relative;
+  font-size: 120%;
+  width: 100%;
+  height: 91%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   float: left;
-  margin: 0 2% 0 0;
+  margin: 0 1% 0 0;
   overflow: hidden;
   /* Backgorund hinting mode */
 }
-/* line 68, ../../stylesheets/layout.scss */
+/* line 77, ../../stylesheets/layout.scss */
 .col .item {
   height: 100%;
 }
-/* line 72, ../../stylesheets/layout.scss */
+/* line 81, ../../stylesheets/layout.scss */
 .col .item:last-child {
   margin-bottom: 0;
 }
-/* line 77, ../../stylesheets/layout.scss */
-.hint .col {
-  background: #cff;
-}
 
-/* line 82, ../../stylesheets/layout.scss */
+/* line 91, ../../stylesheets/layout.scss */
 .row {
   position: relative;
+  font-size: 120%;
   overflow: hidden;
   *zoom: 1;
   width: 100%;
+  height: 91%;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-/* line 90, ../../stylesheets/layout.scss */
+/* line 101, ../../stylesheets/layout.scss */
 .row:last-child {
   background: none;
 }
-/* line 94, ../../stylesheets/layout.scss */
+/* line 105, ../../stylesheets/layout.scss */
 .row.v-full {
   height: 100%;
 }
-/* line 95, ../../stylesheets/layout.scss */
+/* line 106, ../../stylesheets/layout.scss */
 .row.v-half {
-  height: 49.01%;
-  margin-bottom: 2%;
+  height: 45%;
+  margin-bottom: 1%;
 }
-/* line 100, ../../stylesheets/layout.scss */
+/* line 111, ../../stylesheets/layout.scss */
 .row.v-third {
   height: 32.03%;
   margin-bottom: 1%;
 }
-/* line 104, ../../stylesheets/layout.scss */
+/* line 115, ../../stylesheets/layout.scss */
 .row.v-third-2 {
   height: 66%;
 }
-/* line 111, ../../stylesheets/layout.scss */
-.page > .row > .item {
+/* line 122, ../../stylesheets/layout.scss */
+.page .row > .item {
   height: 100%;
 }
 
-/* line 117, ../../stylesheets/layout.scss */
+/* line 128, ../../stylesheets/layout.scss */
 .page {
+  margin: 55px 1% 0px 1%;
   max-height: 100%;
 }
-/* line 120, ../../stylesheets/layout.scss */
+/* line 132, ../../stylesheets/layout.scss */
 .page .row:last-child {
   margin-bottom: 0;
 }
 
-/* line 127, ../../stylesheets/layout.scss */
+/* line 139, ../../stylesheets/layout.scss */
 .col.full, .item.full {
   width: 100%;
 }
-/* line 128, ../../stylesheets/layout.scss */
+/* line 140, ../../stylesheets/layout.scss */
 .col.half, .item.half {
-  width: 49.01%;
+  width: 49.5%;
 }
-/* line 129, ../../stylesheets/layout.scss */
+/* line 141, ../../stylesheets/layout.scss */
 .col.third, .item.third {
-  width: 32.025%;
+  width: 32.65%;
 }
-/* line 130, ../../stylesheets/layout.scss */
+/* line 142, ../../stylesheets/layout.scss */
 .col.third-2, .item.third-2 {
   width: 64%;
 }
-/* line 132, ../../stylesheets/layout.scss */
+/* line 144, ../../stylesheets/layout.scss */
 .col.sixth, .item.sixth {
   width: 15.02%;
 }
-/* line 134, ../../stylesheets/layout.scss */
+/* line 146, ../../stylesheets/layout.scss */
 .col.fourty, .item.fourty {
   width: 39%;
 }
-/* line 135, ../../stylesheets/layout.scss */
+/* line 147, ../../stylesheets/layout.scss */
 .col.sixty, .item.sixty {
   width: 59%;
 }
-/* line 137, ../../stylesheets/layout.scss */
+/* line 149, ../../stylesheets/layout.scss */
 .col.v-full, .item.v-full {
   height: 100%;
 }
-/* line 138, ../../stylesheets/layout.scss */
+/* line 150, ../../stylesheets/layout.scss */
 .col.v-half, .item.v-half {
-  height: 48.00%;
+  height: 49.40%;
 }
-/* line 139, ../../stylesheets/layout.scss */
+/* line 151, ../../stylesheets/layout.scss */
 .col.v-third, .item.v-third {
-  height: 33.03%;
+  height: 35.03%;
 }
-/* line 140, ../../stylesheets/layout.scss */
+/* line 152, ../../stylesheets/layout.scss */
 .col.v-third-2, .item.v-third-2 {
   height: 64%;
 }
-/* line 142, ../../stylesheets/layout.scss */
+/* line 154, ../../stylesheets/layout.scss */
 .col:last-child, .item:last-child {
   margin-right: 0;
 }
@@ -1032,41 +740,159 @@ div.container {
   /* line 14, ../../stylesheets/_992.scss */
   [role=main] {
     margin: 0 auto;
-    max-width: 70em;
   }
 }
 @media only screen and (min-width: 1382px) {
   /* 1382 =================================================== */
 }
+/* iPads (landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : landscape) {
+  /* line 2, ../../stylesheets/_landscape.scss */
+  article.page .image.cover {
+    position: relative;
+    height: 200%;
+    width: 200%;
+    top: -50%;
+    left: -50%;
+  }
+  /* line 10, ../../stylesheets/_landscape.scss */
+  article.page .price, article.page .store {
+    display: inline-block;
+  }
+  /* line 14, ../../stylesheets/_landscape.scss */
+  article.page .price {
+    float: left;
+    line-height: 37px;
+  }
+  /* line 19, ../../stylesheets/_landscape.scss */
+  article.page .store {
+    margin-bottom: 1em;
+    float: right;
+  }
+  /* line 22, ../../stylesheets/_landscape.scss */
+  article.page .store .button {
+    margin: 0;
+  }
+  /* line 27, ../../stylesheets/_landscape.scss */
+  article.page .description {
+    display: block;
+    clear: both;
+  }
+
+  /* line 36, ../../stylesheets/_landscape.scss */
+  .row.v-half figure.product.half:nth-child(2) .image,
+  .col.half .v-third .image {
+    width: 50%;
+    left: -1%;
+  }
+  /* line 44, ../../stylesheets/_landscape.scss */
+  .row.v-half figure.product.half:nth-child(2) .image img,
+  .col.half .v-third .image img {
+    width: 100%;
+  }
+  /* line 49, ../../stylesheets/_landscape.scss */
+  .row.v-half figure.product.half:nth-child(2) .info,
+  .col.half .v-third .info {
+    margin: 0;
+    width: 49%;
+    position: relative;
+    vertical-align: middle;
+  }
+  /* line 54, ../../stylesheets/_landscape.scss */
+  .row.v-half figure.product.half:nth-child(2) .info p,
+  .col.half .v-third .info p {
+    white-space: normal;
+  }
+
+  /* line 61, ../../stylesheets/_landscape.scss */
+  .row.v-half .third .image.cover,
+  .col.half .v-half .image.cover {
+    top: -20%;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+  /* line 66, ../../stylesheets/_landscape.scss */
+  .row.v-half .third .image.cover img,
+  .col.half .v-half .image.cover img {
+    width: 100%;
+  }
+}
+/* iPads (portrait) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : portrait) {
+  /* 768 =================================================== */
+  /* line 13, ../../stylesheets/_portrait.scss */
+  .row {
+    height: 93.8%;
+  }
+  /* line 16, ../../stylesheets/_portrait.scss */
+  .row.v-half {
+    height: 46.4%;
+  }
+
+  /* line 21, ../../stylesheets/_portrait.scss */
+  .col {
+    height: 93.8%;
+  }
+  /* line 23, ../../stylesheets/_portrait.scss */
+  .col .v-third {
+    height: 32.68%;
+  }
+
+  /* line 28, ../../stylesheets/_portrait.scss */
+  article.page .row {
+    height: 95.5%;
+  }
+  /* line 33, ../../stylesheets/_portrait.scss */
+  article.page .col.half, article.page .item.half {
+    height: 49%;
+    width: 100%;
+  }
+  /* line 39, ../../stylesheets/_portrait.scss */
+  article.page .image.cover {
+    position: relative;
+    height: 100%;
+    width: initial;
+    top: initial;
+    left: initial;
+  }
+  /* line 48, ../../stylesheets/_portrait.scss */
+  article.page .info .title, article.page .info .price, article.page .info .store {
+    text-align: center;
+  }
+}
 /*
     Utility
 */
-/* line 168, ../../stylesheets/layout.scss */
+/* line 201, ../../stylesheets/layout.scss */
 .ipad {
   height: 1024px;
   width: 768px;
 }
-/* line 173, ../../stylesheets/layout.scss */
+/* line 205, ../../stylesheets/layout.scss */
 .ipad.landscape {
   width: 1024px;
   height: 768px;
 }
 
-/* line 179, ../../stylesheets/layout.scss */
+/* line 211, ../../stylesheets/layout.scss */
 .iphone {
   width: 320px;
   height: 480px;
 }
-/* line 183, ../../stylesheets/layout.scss */
+/* line 215, ../../stylesheets/layout.scss */
 .iphone.landscape {
   height: 480px;
   weight: 320px;
 }
 
-/* line 189, ../../stylesheets/layout.scss */
+/* line 221, ../../stylesheets/layout.scss */
 .grid-item .item {
   height: 40px;
 }
-
-/*
-*/
