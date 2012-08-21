@@ -125,7 +125,7 @@ footer dt, footer dd {
 }*/
 </style> 
 
-<%= render 'templates' %>
+<%= render '/section/templates' %>
 
 
 </head>
@@ -191,8 +191,6 @@ window.onload = function() {
   //   console.log(e)
     
   collection = new App.StreamCollection(items)
-  
-  
   stream = new App.StreamView({ el: '#container', collection: collection })
   collection.trigger('refresh')
   
