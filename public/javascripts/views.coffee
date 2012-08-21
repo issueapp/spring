@@ -31,17 +31,24 @@ class App.PageView extends Backbone.View
   # fill: (products)->
   # 
   # render: ->
+  events:
+    'orientationchange': 'flipClass'
+  
   initialize: ->
     section_tpl = $('script.section_tpl')
     index = Math.floor(Math.random() * section_tpl.length)
     source = section_tpl.eq(index).html()
     
+    if window.orientation == 0 or window.orientation == 180
+      @page = $(source)
+      source = this.flipClass()
+      
     @offset = null
     
     @items = []
     @template = $(source)
     @limit = @template.find('.item').length
-
+    
   addItem: (item)->
     @items.push(item) 
 
@@ -60,7 +67,37 @@ class App.PageView extends Backbone.View
     this.setElement(@template)
     
     @template
+    
+  flipClass: ->
+    @page ||= $('.rotatable')
+    
+    if @page.find('.v-half') && !@page.find('.v-half').hasClass('row')
+      this.doFlipClass(
+        @page,
+        ['.v-half.nosplit', '.v-half', '.v-third-2', '.v-third.split', '.v-third'],
+        ['v-half nosplit', 'v-half', 'v-third-2', 'v-third split', 'v-third'],
+        ['half split', 'half', 'third-2', 'third nosplit', 'third']
+      )
+    else
+      this.doFlipClass(
+        @page,
+        ['.half.split', '.half', '.third-2', '.third.nosplit', '.third'],
+        ['half split', 'half', 'third-2', 'third nosplit', 'third'],
+        ['v-half nosplit', 'v-half', 'v-third-2', 'v-third split', 'v-third']
+      )
 
+    if @page.find('.row.v-half').length > 0
+      this.doFlipClass(@page, ['.row.v-half'], ['row v-half'], ['col half'])
+    else
+      this.doFlipClass(@page, ['.col.half'], ['col half'], ['row v-half'])
+      
+    @page
+
+  doFlipClass: (page, classNames, oldNames, newNames)->
+    classNames.forEach (className, index)->
+      page.find(className).forEach (element)->
+        $(element).removeClass(oldNames[index]).addClass(newNames[index])
+    
 class App.StreamCollection extends Backbone.Collection
   
   initialize: ->
@@ -214,6 +251,7 @@ class App.StreamView extends Backbone.View
   getScroller: ->
     if directions == undefined
       directions = scrollability && scrollability.directions
+      
       
     directions && directions.horizontal(@container)
 

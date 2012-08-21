@@ -22,8 +22,8 @@
 <link rel="stylesheet" href="http://shop2.com/assets/components/_button.css">
 <link rel="stylesheet" href="/stylesheets/font-awesome.css"/>
 
-
-<!-- html, body {
+<style type="text/css"> 
+html, body {
     padding: 0;
     margin: 0;
     background: #000;
@@ -43,6 +43,7 @@ footer {
 footer dl {
   margin:0; padding: 0;
 }
+
 footer dt, footer dd {
   display: inline-block;
 }
@@ -52,10 +53,10 @@ footer dt, footer dd {
     overflow: hidden
 }
  
- .scrollable {
-   display: inline-block;
-   overflow: hidden;
- }
+.scrollable {
+ display: inline-block;
+ overflow: hidden;
+}
 
 .page {
     position: relative;
@@ -88,18 +89,19 @@ footer dt, footer dd {
 .item {
   position: relative;
 }
-.item img {
-  height: 100%; -->
 
-<style type="text/css"> 
-nav[role=navigation] {
+.item img {
+  height: 100%;
+}
+
+/*nav[role=navigation] {
   position: absolute;
   top:0;
   left:0;
   width:100%;
-}
+}*/
 
-.cover {
+/*.cover {
   position:relative;
   height: 200%; 
   width: 200%;
@@ -116,13 +118,13 @@ nav[role=navigation] {
   margin: auto;
   min-width: 51%;
   min-height: 50%;
-}
+}*/
 </style> 
 
 <%= render 'templates' %>
 
 
-</head> 
+</head>
 <body>
   <nav class="toolbar" role="navigation">
     <a href="">Action</a>
