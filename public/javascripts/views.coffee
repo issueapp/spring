@@ -32,7 +32,7 @@ class App.PageView extends Backbone.View
   # 
   # render: ->
   events:
-    'orientationchange': 'flipClass'
+    'orientationchange': 'changeOrientation'
 
   @templateIndex = -1
   @order = []
@@ -68,7 +68,7 @@ class App.PageView extends Backbone.View
     @limit = @page.find('.item').length
     
     if window.orientation == 0 or window.orientation == 180
-      this.flipClass()
+      this.changeOrientation()
   
   addItem: (item)->
     @items.push(item) 
@@ -81,7 +81,7 @@ class App.PageView extends Backbone.View
       node = @page.find(".item").eq(index)
       
       # Temporary item template
-      tpl = Milk.render('<div class="image cover"><img height="{{ image_height }}" width="{{ image_width }}" src="{{ image_url }}"></div><div class="info"><h3 class="title">{{ title }}</h3></div>', item)
+      tpl = Milk.render('<div class="image cover"><img src="{{ image_url }}"></div><div class="info"><h3 class="title">{{ title }}</h3></div>', item)
       
       node.html(tpl)
     
@@ -89,7 +89,7 @@ class App.PageView extends Backbone.View
     
     @page
     
-  flipClass: ->
+  changeOrientation: ->
     @page ||= $('.rotatable')
     
     if @page.find('.v-half') && !@page.find('.v-half').hasClass('row')
@@ -216,13 +216,15 @@ class App.StreamView extends Backbone.View
   # events:
   #   'scrollability-page': 'onPageChange'
   #   'scrollability-end': 'onScrollEnd'
-  
+  events:
+    'orientationchange': 'changeOrientation'
+    
   initialize: (data)->
     @currentIndex ||= 0
     @pageEvent = null
     @direction ||= "right"
     @pages = []
-    @limit = 3
+    @limit = 5
     @container = $(@el)[0]
     @scroller = this.getScroller()
     @padding = $('<div class="page padding" style="visibility:hidden;width:0;padding:0;width: 0px; border:0;font-size:0">').appendTo(@el)
@@ -281,7 +283,10 @@ class App.StreamView extends Backbone.View
         $(target.el).addClass('current')
 
       this.renderInfo()
-  # 
+
+  changeOrientation: (e)->
+    @padding.width()
+
   # onPageChange: (event) =>
   #   console.log("Switched Page: #{event.page}")
   #   @pageEvent = event
@@ -394,18 +399,21 @@ class App.StreamView extends Backbone.View
   clearPage: (method)->
     return if @pages.length <= @limit
     scroller = this.getScroller()
+    paddingPages = parseInt(@padding.data('pages')) || 0
     
     if method == 'append'
       page = @pages.shift()
       page.remove()
-      @padding.width( @padding.width() + scroller.viewport )
-      
+      paddingPages += 1
     else
       page = @pages.pop()
       page.remove()
-      @padding.width( @padding.width() - scroller.viewport )
-      
+      paddingPages -= 1
+  
+    @padding.data('pages', paddingPages)
     
+    @padding.width( paddingPages * scroller.viewport )
+    # @padding.width( @padding.width() + scroller.viewport )    
     
   renderPage: (page, method, reposition)->
     reposition ?= true
