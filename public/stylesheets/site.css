@@ -166,7 +166,7 @@ input[type=text]:focus, input[type=password]:focus, textarea:focus {
   vertical-align: top;
   background: white;
   padding: 0.5em 3% 0.5em;
-  min-height: 62px;
+  height: 35px;
 }
 /* line 171, ../../stylesheets/site.scss */
 .product .title {
@@ -222,24 +222,25 @@ input[type=text]:focus, input[type=password]:focus, textarea:focus {
 .product.split .info {
   margin: 0;
   width: 49%;
-  height: 100%;
+  height: auto;
+  vertical-align: middle;
   padding: 10% 2% 10%;
   position: relative;
 }
-/* line 230, ../../stylesheets/site.scss */
+/* line 232, ../../stylesheets/site.scss */
 .product.split .info > p {
   white-space: normal;
   text-overflow: ellipsis;
 }
 
-/* line 237, ../../stylesheets/site.scss */
+/* line 239, ../../stylesheets/site.scss */
 .stream-header {
   border-bottom: 1px solid #ddd;
   text-align: center;
   margin: 20px 10px;
   height: 0px;
 }
-/* line 242, ../../stylesheets/site.scss */
+/* line 244, ../../stylesheets/site.scss */
 .stream-header > span {
   position: relative;
   font-family: serif;
@@ -255,7 +256,7 @@ input[type=text]:focus, input[type=password]:focus, textarea:focus {
 /*
     Homepage
 */
-/* line 258, ../../stylesheets/site.scss */
+/* line 260, ../../stylesheets/site.scss */
 #hero {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -266,7 +267,7 @@ input[type=text]:focus, input[type=password]:focus, textarea:focus {
   background: #fff;
 }
 
-/* line 266, ../../stylesheets/site.scss */
+/* line 268, ../../stylesheets/site.scss */
 #trending {
   margin-top: 30px;
 }
@@ -274,32 +275,32 @@ input[type=text]:focus, input[type=password]:focus, textarea:focus {
 /*
     Signup Page
 */
-/* line 275, ../../stylesheets/site.scss */
+/* line 277, ../../stylesheets/site.scss */
 input.email {
   width: 220px;
 }
 
-/* line 279, ../../stylesheets/site.scss */
+/* line 281, ../../stylesheets/site.scss */
 form.signup {
   margin: 0 auto;
   max-width: 420px;
   text-align: center;
 }
-/* line 284, ../../stylesheets/site.scss */
+/* line 286, ../../stylesheets/site.scss */
 form.signup .full {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   width: 100%;
 }
-/* line 289, ../../stylesheets/site.scss */
+/* line 291, ../../stylesheets/site.scss */
 form.signup input[type=text] {
   padding: 0.5em;
   margin-bottom: 10px;
   width: 100%;
 }
 
-/* line 298, ../../stylesheets/site.scss */
+/* line 300, ../../stylesheets/site.scss */
 .pagination {
   display: none;
 }
@@ -307,20 +308,20 @@ form.signup input[type=text] {
 /*
   Product Detail Page
 */
-/* line 307, ../../stylesheets/site.scss */
+/* line 309, ../../stylesheets/site.scss */
 article.page .info {
   top: 0px;
 }
-/* line 310, ../../stylesheets/site.scss */
+/* line 312, ../../stylesheets/site.scss */
 article.page .info p {
   white-space: initial;
   text-overflow: initial;
 }
-/* line 315, ../../stylesheets/site.scss */
+/* line 317, ../../stylesheets/site.scss */
 article.page .info .price {
   font-size: 1.5em;
 }
-/* line 319, ../../stylesheets/site.scss */
+/* line 321, ../../stylesheets/site.scss */
 article.page .info .button {
   margin: 1em 0em 2em 0em;
 }

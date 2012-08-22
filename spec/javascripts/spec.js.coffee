@@ -1,7 +1,9 @@
 #= require jquery
-#= require underscore
-#= require backbone
-#= require milk
-#= require scrollability2
+#= require vendor/underscore
+#= require vendor/backbone
+#= require vendor/milk
+#= require vendor/scrollability2
+#= require app
+#= require models
 
 #= require_tree .

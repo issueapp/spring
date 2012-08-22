@@ -34,7 +34,6 @@ end
 use Rack::ShowStatus      # Nice looking 404s and other messages
 use Rack::ShowExceptions  # Nice looking errors
 
-
 require 'rack/coffee'
 
 use Rack::Coffee, { 
