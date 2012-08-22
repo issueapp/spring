@@ -782,43 +782,17 @@ and (orientation : landscape) {
     clear: both;
   }
 
-  /* line 36, ../../stylesheets/_landscape.scss */
-  .row.v-half figure.product.half:nth-child(2) .image,
-  .col.half .v-third .image {
+  /* line 38, ../../stylesheets/_landscape.scss */
+  .split .image {
     width: 50%;
     left: -1%;
-  }
-  /* line 44, ../../stylesheets/_landscape.scss */
-  .row.v-half figure.product.half:nth-child(2) .image img,
-  .col.half .v-third .image img {
-    width: 100%;
-  }
-  /* line 49, ../../stylesheets/_landscape.scss */
-  .row.v-half figure.product.half:nth-child(2) .info,
-  .col.half .v-third .info {
-    margin: 0;
-    width: 49%;
-    position: relative;
-    vertical-align: middle;
-  }
-  /* line 54, ../../stylesheets/_landscape.scss */
-  .row.v-half figure.product.half:nth-child(2) .info p,
-  .col.half .v-third .info p {
-    white-space: normal;
-  }
-
-  /* line 61, ../../stylesheets/_landscape.scss */
-  .row.v-half .third .image.cover,
-  .col.half .v-half .image.cover {
-    top: -20%;
-    left: 0;
     height: 100%;
-    width: 100%;
   }
-  /* line 66, ../../stylesheets/_landscape.scss */
-  .row.v-half .third .image.cover img,
-  .col.half .v-half .image.cover img {
+  /* line 43, ../../stylesheets/_landscape.scss */
+  .split .image img {
     width: 100%;
+    max-height: initial;
+    max-width: initial;
   }
 }
 /* iPads (portrait) ----------- */
@@ -828,33 +802,39 @@ and (max-device-width : 1024px)
 and (orientation : portrait) {
   /* 768 =================================================== */
   /* line 13, ../../stylesheets/_portrait.scss */
+  .page {
+    width: 768px !important;
+    height: 946px !important;
+  }
+
+  /* line 19, ../../stylesheets/_portrait.scss */
   .row {
     height: 93.8%;
   }
-  /* line 16, ../../stylesheets/_portrait.scss */
+  /* line 22, ../../stylesheets/_portrait.scss */
   .row.v-half {
     height: 46.4%;
   }
 
-  /* line 21, ../../stylesheets/_portrait.scss */
+  /* line 27, ../../stylesheets/_portrait.scss */
   .col {
     height: 93.8%;
   }
-  /* line 23, ../../stylesheets/_portrait.scss */
+  /* line 29, ../../stylesheets/_portrait.scss */
   .col .v-third {
     height: 32.68%;
   }
 
-  /* line 28, ../../stylesheets/_portrait.scss */
+  /* line 34, ../../stylesheets/_portrait.scss */
   article.page .row {
     height: 95.5%;
   }
-  /* line 33, ../../stylesheets/_portrait.scss */
+  /* line 39, ../../stylesheets/_portrait.scss */
   article.page .col.half, article.page .item.half {
     height: 49%;
     width: 100%;
   }
-  /* line 39, ../../stylesheets/_portrait.scss */
+  /* line 45, ../../stylesheets/_portrait.scss */
   article.page .image.cover {
     position: relative;
     height: 100%;
@@ -862,7 +842,7 @@ and (orientation : portrait) {
     top: initial;
     left: initial;
   }
-  /* line 48, ../../stylesheets/_portrait.scss */
+  /* line 54, ../../stylesheets/_portrait.scss */
   article.page .info .title, article.page .info .price, article.page .info .store {
     text-align: center;
   }

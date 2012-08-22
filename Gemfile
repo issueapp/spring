@@ -9,6 +9,9 @@ gem 'serve', '1.5.1'
 gem 'compass'
 gem "hashie"
 gem 'rack-coffee' 
+gem 'actionpack', '~> 3.2'
+gem 'railties',   '~> 3.2'
+gem 'tzinfo'
 
 # Markdown and Textile
 # gem 'rdiscount' # Markdown
@@ -25,14 +28,9 @@ group :assets do
   gem 'coffee-script'
 end
 
-# group :development, :test do
-#   gem 'actionpack', '~> 3.2'
-#   gem 'railties',   '~> 3.2'
-#   gem 'tzinfo'
-# 
-#   gem 'thin'
-# 
-#   gem 'jasminerice'
-#   gem 'jquery-rails'
-#   gem 'guard-jasmine'
-# end
+group :development, :test do
+
+  gem 'jasminerice'
+  gem 'jquery-rails'
+  gem 'guard-jasmine'
+end
