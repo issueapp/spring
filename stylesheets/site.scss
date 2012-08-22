@@ -165,7 +165,7 @@ input[type=text], input[type=password], textarea {
     vertical-align: top;
     background: white;
     padding: 0.5em 3% 0.5em;
-    min-height: 62px;
+    height: 30px;
   }
   
   .title {
@@ -222,10 +222,12 @@ input[type=text], input[type=password], textarea {
   .info {
     margin: 0;
     width: 49%;
-    height: 100%;
+    height: auto;
+    vertical-align: middle;
     
     padding: 10% 2% 10%;
     position: relative;
+    
     
     & > p {
       white-space: normal;
