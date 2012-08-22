@@ -254,9 +254,13 @@ class App.StreamView extends Backbone.View
       
       if target = @pages[@currentIndex]
         # Add current class
-        $(@el).find('.page').removeClass('current')
+        $(@el).find('.page').removeClass('current').removeClass('prev').removeClass('next')
+        
         $(target.el).addClass('current')
-    
+        
+        $(target.el).prev().addClass('prev') if $(target.el).prev()
+        $(target.el).next().addClass('next') if $(target.el).next()
+        
       this.renderInfo()
     
     $(document).on 'keydown', (e)=>
@@ -309,15 +313,16 @@ class App.StreamView extends Backbone.View
   next: (step)->
     if page = @pages[@currentIndex + 1]
       # Immediate next
-        @currentIndex += 1
-        
+      @currentIndex += 1
+      step = parseInt(@limit/2)
+      
       # Far next
-      unless @pages[@currentIndex + 1]
+      unless @pages[@currentIndex + step]
         farNext = this.appendPage()
         this.clearPage('append')
       else
-        farNext = @pages[@currentIndex + 1]
-
+        farNext = @pages[@currentIndex + step]
+        
     page
     
   # 
@@ -326,15 +331,17 @@ class App.StreamView extends Backbone.View
     if page = @pages[@currentIndex - 1]
       @currentIndex -= 1
       
+      step = parseInt(@limit/2)
+      
       # Far prev
-      unless @pages[@currentIndex - 1]
+      unless @pages[@currentIndex - step]
         # alert 'prepend'
         farPrev = this.prependPage()
         this.clearPage('prepend')
   
       else
-        farPrev = @pages[@currentIndex - 1]
-      
+        farPrev = @pages[@currentIndex - step]
+        
     page
 
   # When we insert and remove pages, the rendering offset 
@@ -354,7 +361,6 @@ class App.StreamView extends Backbone.View
     first = this.firstPage()
     offset = first && first.offset || 0
     page = new App.PageView(method: 'prepend', stream: this)
-    
     
     offset = offset - this.currentPage().limit
     
@@ -448,6 +454,8 @@ class App.StreamView extends Backbone.View
     this.firstPage().offset = this.firstPage().limit
     
     $(this.firstPage().el).addClass('current')
+    $(@pages[1].el).addClass('next')
+    
 
   renderInfo: ->
     # <dt>currentIndex</dt><dd id="stat-stream-index"></dd>

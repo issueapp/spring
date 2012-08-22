@@ -64,11 +64,15 @@
   .page {
     visibility: hidden;
   }
-  
-  .page.current {
+
+  .page.prev, .page.next {
     visibility: visible;
   }
-
+  .page.current {
+    -webkit-transition: 1s ease all;
+    visibility: visible;
+  }
+  
   .page.padding {
     width: 0;
   }
