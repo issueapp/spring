@@ -30,7 +30,7 @@ describe "StreamCollection", ->
     collection = new App.StreamCollection(items)
   
   it "has a length", ->
-    expect(collection.length).toBe(8)
+    expect(stream.length).toBe(8)
   
   it "has a offset as a current pointer (default: 0)", ->  
     expect(collection.offset).toBe(0)
@@ -50,6 +50,10 @@ describe "StreamCollection", ->
       expect(collection.offset).toBe(1)
       
     it "fills up Page with items (page.limit) from beginning", ->
+      # 
+      offset = firstPage.offset - currentPage.limit
+      
+      collection.read( - page.limit, offset)
       
       collection.offset
       
@@ -98,6 +102,8 @@ describe "StreamCollection", ->
     
     
     it "fills up Page in reverse up to beginging of stream", ->
+      stream.read(-3, 0)
+      
       p = page()
       stream.fill(p, 2, true)
     
