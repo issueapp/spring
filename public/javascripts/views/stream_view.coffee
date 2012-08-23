@@ -43,7 +43,8 @@ class App.StreamView extends Backbone.View
     @scroller = this.getScroller()
     @padding = $('<div class="page padding" style="visibility:hidden;width:0;padding:0;width: 0px; border:0;font-size:0">').appendTo(@el)
     
-    @collection.on("refresh", this.render)
+    # Render stream once data is loaded
+    @collection.on("reset", this.render)
     
     $(@container).on "swipeLeft", =>
       @changedDir = @direction != "right"

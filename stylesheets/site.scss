@@ -2,6 +2,16 @@
 @import "compass/css3/box-sizing";
   
 
+/*
+
+  Application
+  
+  Items
+  
+  Images
+
+*/
+
 .button.large [class^="icon-"],
 .button.large [class*=" icon-"] {
   height: 40px;
@@ -150,13 +160,13 @@ input[type=text], input[type=password], textarea {
 .product {
   .link {
     @include box-sizing(border-box);
-
+    
     cursor: pointer;
     color: #222;
     display: block;
-    &:hover {
-      opacity: 0.5;
-    }
+//    &:hover {
+//      opacity: 0.5;
+//    }
   }
   
   .info {
@@ -305,9 +315,10 @@ form.signup {
   Product Detail Page
 */
 
-article.page {
+article.product {
   .info {
     top: 0px;
+    height: 100%;
     
     p {
       white-space: initial;
