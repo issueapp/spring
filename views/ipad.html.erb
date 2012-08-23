@@ -6,6 +6,7 @@
 
   [role=main] {
     position: relative;
+    margin-top: 50px;
   }
   
   nav[role=navigation] {
@@ -13,7 +14,6 @@
     top:0;
     left:0;
     width:100%;
-    display: none;
   }
 
   .cover {
@@ -62,8 +62,7 @@
     width: 1024px;
     height: 748px;
     margin: 0;
-/*    padding: 55px 1% 0 1%;*/
-    padding: 5px 5px 5px 5px;
+    padding: 5px;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     white-space: normal;
@@ -109,17 +108,9 @@
 <div id="content">
 </div>
 
-<% content_for :toolbar do %>
-  <!-- <dt>Page offset</dt><dd id="stat-page-offset"></dd>
-  
-  <dt>Index</dt><dd id="stat-stream-index"></dd>
-  <dt>Pages</dt><dd id="stat-pages"></dd>
-  <dt>Collection index</dt><dd id="stat-collection-index"></dd>
-  <dt>Data</dt><dd id="stat-items"></dd> -->
-  <dl>
-  <dt>pixel</dt><dd id="stat-pixels"></dd>
-  </dl>
-<% end %>
+<%# content_for :toolbar do %>
+
+<%# end %>
 
 <% content_for :js do %>
 <script>
