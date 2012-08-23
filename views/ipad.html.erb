@@ -1,13 +1,19 @@
 <style>
+
   html, body {
     overflow: hidden;
   }
 
+  [role=main] {
+    position: relative;
+  }
+  
   nav[role=navigation] {
     position: absolute;
     top:0;
     left:0;
     width:100%;
+    display: none;
   }
 
   .cover {
@@ -29,10 +35,20 @@
     min-height: 50%;
   }
 
+  .cover.bottom {
+    top: -90%;
+  }
+
   #pages {
+    position: absolute;
     white-space: nowrap;
     overflow: hidden;
-    
+    /* margin-top: 55px; */
+  }
+  
+  #content {
+    position: absolute;
+    white-space: nowrap;
   }
 
   .scrollable {
@@ -44,10 +60,10 @@
     position: relative;
     display: inline-block;
     width: 1024px;
-    height: 725px;
+    height: 748px;
     margin: 0;
 /*    padding: 55px 1% 0 1%;*/
-    padding: 55px 5px 0 5px;
+    padding: 5px 5px 5px 5px;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     white-space: normal;
@@ -90,6 +106,8 @@
 
 <div id="pages" class="scrollable horizontal paginated">
 </div>
+<div id="content">
+</div>
 
 <% content_for :toolbar do %>
   <!-- <dt>Page offset</dt><dd id="stat-page-offset"></dd>
@@ -105,13 +123,14 @@
 
 <% content_for :js do %>
 <script>
-
-  $.getJSON("/products.json", function(products) {
-    collection = new App.StreamCollection(products)
-    stream = new App.StreamView({ el: '#pages', collection: collection })
-    collection.trigger('refresh')
-  })
-
+  App.init()
+  // 
+  // home & section
+  // product(url)
+  
+  // ProductStream.get
+  // Product
+  
 </script>
 <% end %>
 
