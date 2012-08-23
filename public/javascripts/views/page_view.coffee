@@ -29,9 +29,22 @@ class App.PageView extends Backbone.View
   # 
   # render: ->
   events:
+    'click .item a.link': 'viewContent'
     'orientationchange': 'changeOrientation'
 
-  itemTemplate: Mustache.compile('<div class="image cover"><img width="{{ image_width }}" height="{{ image_height }}" src="{{ image_url }}"></div><div class="info"><h3 class="title">{{ title }}</h3></div>')
+  itemTemplate: Mustache.compile('
+    <div class="image cover">
+      <a class="link" href="/products/{{ handle }}">
+      <img src="{{ image_url }}">
+      </a>
+    </div>
+    <div class="info">
+      <a class="link" href="/products/{{ handle }}">
+        <h3 class="title">{{ title }}</h3>
+      </a>
+    </div>
+
+  ')
   
   @templateIndex = -1
   @order = []
@@ -71,6 +84,11 @@ class App.PageView extends Backbone.View
     
     # @template = Mustache.compile('<div class="image cover"><img width="{{ image_width }}" height="{{ image_height }}" src="{{ image_url }}"></div><div class="info"><h3 class="title">{{ title }}</h3></div>')
   
+  viewContent: (e)->
+    link = $(e.currentTarget).attr('href')
+    App.router.navigate(link, { trigger: true })
+    false
+  
   addItem: (item)->
     @items.push(item) 
 
@@ -82,6 +100,12 @@ class App.PageView extends Backbone.View
       node = @page.find(".item").eq(index)
       
       node.append(@itemTemplate(item))
+      
+      ##### HACK HACK HACK
+      
+      console.log(item.tags_array.join(','))
+      if item.tags_array.join(',').match(/shoe/i) && node.parent().not('.col.half')
+        node.find('.image.cover').addClass('bottom')
       # Temporary item template
       # tpl = Milk.render('<div class="image cover"><img width="{{ image_width }}" height="{{ image_height }}" src="{{ image_url }}"></div><div class="info"><h3 class="title">{{ title }}</h3></div>', item)
       # node.html(tpl)
