@@ -58,9 +58,9 @@ class App.StreamView extends Backbone.View
     # Switched page
     #  event.page = non zero page index
     $(@container).on "scrollability-page", (event, a, b)=>
-      console.warn("Switched Page", @changedDir, event.page, @currentIndex)
+      # console.warn("Switched Page", @changedDir, event.page, @currentIndex)
       
-      return if loading
+      # return if loading
       # Start page change
       if @direction == "right"
         loading = true
@@ -69,32 +69,31 @@ class App.StreamView extends Backbone.View
       else if @direction == "left"
         loading = true
         target = this.prev()
-        console.log(target)
+        # console.log(target)
       
-      if loading && target = @pages[@currentIndex]
+      if target = @pages[@currentIndex]
         # Add current class
         $(@el).find('.page').removeClass('current').removeClass('prev').removeClass('next')
         
         $(target.el).addClass('current')
-        $(target.el).prev().addClass('prev') if $(target.el).prev()
         $(target.el).next().addClass('next') if $(target.el).next()
         
         loading = false
         
       this.renderInfo()
     
-    $(@container).on "scrollability-end", (event) =>
-      console.warn('scrollability-end', @fetchPage)
-      
-      if @fetchPage == 'append'
-        farNext = this.appendPage()
-        this.clearPage('append')
-        @fetchPage = false
-        
-      else if @fetchPage == 'prepend'
-        prevNext = this.prependPage()
-        this.clearPage('prepend')
-        @fetchPage = false
+    # $(@container).on "scrollability-end", (event) =>
+    #   console.warn('scrollability-end', @fetchPage)
+    #   
+    #   if @fetchPage == 'append'
+    #     farNext = this.appendPage()
+    #     this.clearPage('append')
+    #     @fetchPage = false
+    #     
+    #   else if @fetchPage == 'prepend'
+    #     prevNext = this.prependPage()
+    #     this.clearPage('prepend')
+    #     @fetchPage = false
  
     $(document).on 'keydown', (e)=>
       key = e.which || e.keyCode
@@ -151,9 +150,9 @@ class App.StreamView extends Backbone.View
       
       # Far next
       unless @pages[@currentIndex + step]
-        # farNext = this.appendPage()
-        # this.clearPage('append')
-        @fetchPage = 'append'
+        farNext = this.appendPage()
+        this.clearPage('append')
+        # @fetchPage = 'append'
       else
         farNext = @pages[@currentIndex + step]
         
@@ -169,9 +168,9 @@ class App.StreamView extends Backbone.View
       
       # Far prev
       unless @pages[@currentIndex - step]
-        @fetchPage = 'prepend'
-        # farNext = this.prependPage()
-        # this.clearPage('prepend')
+        # @fetchPage = 'prepend'
+        farNext = this.prependPage()
+        this.clearPage('prepend')
         
       else
         farPrev = @pages[@currentIndex - step]
@@ -221,8 +220,7 @@ class App.StreamView extends Backbone.View
     page = new App.PageView(method: 'append', stream: this)
     
     @collection.fill(page, offset)
-    console.log(page, offset)
-    
+        
     return if page.items.length == 0
 
     # push and pop
@@ -238,7 +236,6 @@ class App.StreamView extends Backbone.View
   
   clearPage: (method)->
     return if @pages.length <= @limit
-    scroller = this.getScroller()
     paddingPages = parseInt(@padding.data('pages')) || 0
     
     if method == 'append'
@@ -252,7 +249,7 @@ class App.StreamView extends Backbone.View
   
     @padding.data('pages', paddingPages)
     
-    @padding.width( paddingPages * scroller.viewport )
+    @padding.width( paddingPages * @scroller.viewport )
     # @padding.width( @padding.width() + scroller.viewport )    
     
   renderPage: (page, method, reposition)->
@@ -278,6 +275,8 @@ class App.StreamView extends Backbone.View
     node
   
   render: =>
+    @scroller ||= this.getScroller()
+    
     until @pages.length == @limit
     #   page = this.appendPage(false)
     #   this.renderPage(page, 'append', false)
@@ -297,13 +296,15 @@ class App.StreamView extends Backbone.View
     # <dt>Page offset</dt><dd id="stat-page-offset"></dd>
     # 
     # <dt>Collection index</dt><dd id="stat-collection-index"></dd>
-    $('#stat-collection-index').html(@collection.offset)
-    $('#stat-stream-index').html(@currentIndex)
-    $('#stat-page-offset').html(this.currentPage().offset )
-    
-    $('#stat-items').html('')
-    pages = @pages.map (p)-> 
-      ids = p.items.map (i)-> i.id
-      div = $('<div>').html( p.offset + " => " + ids.join(", ")).appendTo($('#stat-items'))
-      div.css( width: 150, display: "inline-block")
-      div.css( border: "1px solid red") if $(p.el).is('.current')
+    # $('#stat-collection-index').html(@collection.offset)
+    # $('#stat-stream-index').html(@currentIndex)
+    # $('#stat-page-offset').html(this.currentPage().offset )
+    # 
+    # $('')
+    # 
+    # $('#stat-items').html('')
+    # pages = @pages.map (p)-> 
+    #   ids = p.items.map (i)-> i.id
+    #   div = $('<div>').html( p.offset + " => " + ids.join(", ")).appendTo($('#stat-items'))
+    #   div.css( width: 150, display: "inline-block")
+    #   div.css( border: "1px solid red") if $(p.el).is('.current')

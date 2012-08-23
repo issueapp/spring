@@ -35,14 +35,13 @@ class App.StreamCollection extends Backbone.Collection
     else
       offset = offset
     
-    this.forEach (item, index) =>
-      
+    this.each (item, index) =>
       lowerBound = index >= offset
       upperBound = index < offset + page.limit
       
+      return false if !upperBound
+      
       if lowerBound and upperBound
-        console.log(" before: ", item, index)
-
         page.addItem( item.toJSON() )
         
         if reverse

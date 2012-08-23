@@ -31,13 +31,15 @@ class App.PageView extends Backbone.View
   events:
     'orientationchange': 'changeOrientation'
 
+  itemTemplate: Mustache.compile('<div class="image cover"><img width="{{ image_width }}" height="{{ image_height }}" src="{{ image_url }}"></div><div class="info"><h3 class="title">{{ title }}</h3></div>')
+  
   @templateIndex = -1
   @order = []
   until @order.length == 10
     @order.push Math.floor(Math.random() * $('script.section_tpl').length)
   
   @getTemplate = (data)=>
-    section_tpl = $('script.section_tpl')
+    @section_tpl ||= $('script.section_tpl')
     
     if data.method == 'append'
       if data.stream.changedDir
@@ -54,7 +56,7 @@ class App.PageView extends Backbone.View
       @templateIndex = 9 if @templateIndex < 0
 
     index = @order[@templateIndex]
-    section_tpl.eq(index).html()
+    @section_tpl.eq(index).html()
 
   initialize: (data)->
     # 1 , 2 ,3
@@ -66,6 +68,8 @@ class App.PageView extends Backbone.View
     
     if window.orientation == 0 or window.orientation == 180
       this.changeOrientation()
+    
+    # @template = Mustache.compile('<div class="image cover"><img width="{{ image_width }}" height="{{ image_height }}" src="{{ image_url }}"></div><div class="info"><h3 class="title">{{ title }}</h3></div>')
   
   addItem: (item)->
     @items.push(item) 
@@ -77,10 +81,10 @@ class App.PageView extends Backbone.View
     @items.forEach (item, index)=>
       node = @page.find(".item").eq(index)
       
+      node.append(@itemTemplate(item))
       # Temporary item template
-      tpl = Milk.render('<div class="image cover"><img src="{{ image_url }}"></div><div class="info"><h3 class="title">{{ title }}</h3></div>', item)
-      
-      node.html(tpl)
+      # tpl = Milk.render('<div class="image cover"><img width="{{ image_width }}" height="{{ image_height }}" src="{{ image_url }}"></div><div class="info"><h3 class="title">{{ title }}</h3></div>', item)
+      # node.html(tpl)
     
     this.setElement(@page)
     

@@ -1,7 +1,7 @@
 #= require jquery
 #= require vendor/underscore
 #= require vendor/backbone
-#= require vendor/milk
+#= require vendor/mustache
 #= require vendor/scrollability2
 #= require app
 #= require models

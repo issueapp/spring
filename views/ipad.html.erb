@@ -61,6 +61,7 @@
     border: 1px solid red;
   }
   
+  /*
   .page {
     visibility: hidden;
   }
@@ -69,10 +70,9 @@
     visibility: visible;
   }
   .page.current {
-    -webkit-transition: 1s ease all;
     visibility: visible;
   }
-  
+  */
   .page.padding {
     width: 0;
   }
@@ -91,13 +91,16 @@
 <div id="pages" class="scrollable horizontal paginated">
 </div>
 
-<% content_for :ipad do %>
-  <dt>Page offset</dt><dd id="stat-page-offset"></dd>
+<% content_for :toolbar do %>
+  <!-- <dt>Page offset</dt><dd id="stat-page-offset"></dd>
   
   <dt>Index</dt><dd id="stat-stream-index"></dd>
   <dt>Pages</dt><dd id="stat-pages"></dd>
   <dt>Collection index</dt><dd id="stat-collection-index"></dd>
-  <dt>Data</dt><dd id="stat-items"></dd>
+  <dt>Data</dt><dd id="stat-items"></dd> -->
+  <dl>
+  <dt>pixel</dt><dd id="stat-pixels"></dd>
+  </dl>
 <% end %>
 
 <% content_for :js do %>
