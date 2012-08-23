@@ -21,10 +21,11 @@ class App.Router extends Backbone.Router
       $('#content').html('')
     
     if App.stream.length == 0
-      App.stream.fetch({ 
-        url: "http://shop2.com/taylorluk/products.json?highres=true",
-        dataType: "jsonp"
-      })
+      App.stream.url = "http://shop2.com/taylorluk/products.json?highres=true"
+      
+      App.stream.fetch({ dataType: "jsonp" })
+    else
+      App.streamView.render()
     
   content: (handle) ->
     $(App.streamView.el).css('visibility', 'hidden')

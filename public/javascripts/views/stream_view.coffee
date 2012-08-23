@@ -34,23 +34,25 @@ class App.StreamView extends Backbone.View
     'orientationchange': 'changeOrientation'
     
   initialize: (data)->
+    @title = "TOP CONTENT"
     @currentIndex ||= 0
     @pageEvent = null
     @direction ||= "right"
     @pages = []
     @limit = 3
-    @container = $(@el)[0]
-    @scroller = this.getScroller()
+    # @container = $(@el)[0]
+    # @scroller = this.getScroller()
     @padding = $('<div class="page padding" style="visibility:hidden;width:0;padding:0;width: 0px; border:0;font-size:0">').appendTo(@el)
+    @toolbar = new App.Toolbar
     
     # Render stream once data is loaded
     @collection.on("reset", this.render)
     
-    $(@container).on "swipeLeft", =>
+    $(@el).on "swipeLeft", =>
       @changedDir = @direction != "right"
       @direction = "right"
     
-    $(@container).on "swipeRight", =>
+    $(@el).on "swipeRight", =>
       @changedDir = @direction != "left"
       @direction = "left"
 
@@ -58,7 +60,7 @@ class App.StreamView extends Backbone.View
     
     # Switched page
     #  event.page = non zero page index
-    $(@container).on "scrollability-page", (event, a, b)=>
+    $(@el).on "scrollability-page", (event, a, b)=>
       # console.warn("Switched Page", @changedDir, event.page, @currentIndex)
       
       # return if loading
@@ -134,7 +136,7 @@ class App.StreamView extends Backbone.View
       directions = scrollability && scrollability.directions
       
       
-    directions && directions.horizontal(@container)
+    directions && directions.horizontal(@el)
 
   firstPage: -> @pages[0]
 
@@ -276,6 +278,9 @@ class App.StreamView extends Backbone.View
     node
   
   render: =>
+    firstRender = @pages.length == 0
+
+    
     @scroller ||= this.getScroller()
     
     until @pages.length == @limit
@@ -285,11 +290,17 @@ class App.StreamView extends Backbone.View
       # page.offset = page.limit if page.offset == 0
       this.renderPage(page, 'append', false)
     
-    this.firstPage().offset = this.firstPage().limit
+    if firstRender
+      this.firstPage().offset = this.firstPage().limit
+  
+      $(this.firstPage().el).addClass('current')
+      $(@pages[1].el).addClass('next')
     
-    $(this.firstPage().el).addClass('current')
-    $(@pages[1].el).addClass('next')
-    
+    @toolbar.title = this.title
+    @toolbar.backBtn = false
+    @toolbar.$('.actions').remove()
+
+    @toolbar.render()
 
   renderInfo: ->
     # <dt>currentIndex</dt><dd id="stat-stream-index"></dd>
