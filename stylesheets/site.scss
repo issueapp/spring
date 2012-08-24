@@ -76,7 +76,7 @@ nav[role=navigation] {
     letter-spacing: 0.7px;
     text-transform: uppercase;
     padding: 0;
-    margin: 0 180px 0 230px;
+    margin: 0 180px;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
@@ -166,9 +166,6 @@ input[type=text], input[type=password], textarea {
     cursor: pointer;
     color: #222;
     display: block;
-//    &:hover {
-//      opacity: 0.5;
-//    }
   }
   
   .info {
@@ -222,13 +219,8 @@ input[type=text], input[type=password], textarea {
   position: relative;
   
   .image {
-    overflow: hidden;
-    display: inline-block;
+    float: left;
     width: 49%;
-    left: 0;
-    height: 100%;
-    top: initial;
-    vertical-align: middle;
   }
   
   .info {
@@ -236,8 +228,7 @@ input[type=text], input[type=password], textarea {
     width: 49%;
     height: auto;
     vertical-align: middle;
-    
-    padding: 10% 2% 10%;
+    padding: 15% 2% 0;
     position: relative;
     
     & > p {

@@ -224,7 +224,7 @@ class App.StreamView extends Backbone.View
     page = new App.PageView(method: 'append', stream: this)
     
     @collection.fill(page, offset)
-        
+    
     return if page.items.length == 0
 
     # push and pop
@@ -263,6 +263,7 @@ class App.StreamView extends Backbone.View
     
     # Render
     node = page.render()
+    # node.css('visibility', 'hidden')
     
     if method == 'prepend'
       # $(@el).prepend( node )
@@ -271,6 +272,10 @@ class App.StreamView extends Backbone.View
       pos = -pos
     else
       $(@el).append( node )
+    
+    # setTimeout =>
+    #   node.css('visibility', 'visible')
+    # , 500
     
     # this.updatePos(pos) if reposition
     
@@ -299,6 +304,7 @@ class App.StreamView extends Backbone.View
     
     @toolbar.title = this.title
     @toolbar.backBtn = false
+    @toolbar.signupButton = true
     @toolbar.$('.actions').remove()
 
     @toolbar.render()

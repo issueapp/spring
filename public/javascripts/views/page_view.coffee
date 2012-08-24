@@ -34,11 +34,10 @@ class App.PageView extends Backbone.View
     'orientationchange': 'changeOrientation'
 
   itemTemplate: Mustache.compile('
-    <div class="image cover">
-      <a class="link" href="/products/{{ handle }}">
-      <img src="http://deyf8doogqx67.cloudfront.net{{ cdn_image_url }}">
-      </a>
-    </div>
+    <a class="link" href="/products/{{ handle }}">
+    <div class="image" style="background-image: url(http://deyf8doogqx67.cloudfront.net{{ cdn_image_url }}); background-size: cover; background-position: center; height: 100%;"></div>
+    </a>
+    
     <div class="info">
       <a class="link" href="/products/{{ handle }}">
         <h3 class="title">{{ title }}</h3>
@@ -81,9 +80,10 @@ class App.PageView extends Backbone.View
     @page = $(App.PageView.getTemplate(data))
     @limit = @page.find('.item').length
     
+    
     if window.orientation == 0 or window.orientation == 180
       this.changeOrientation()
-  
+    
   # Development debug only
   silent: (e)->
     @silentClick = true
@@ -116,7 +116,8 @@ class App.PageView extends Backbone.View
         
       ##### HACK HACK HACK
       if item.tags_array.join(',').match(/shoe/i) && node.parent().not('.col.half')
-        node.find('.image.cover').addClass('bottom')
+        # node.find('.image.cover').addClass('bottom')
+        node.find('.image').addClass('bottom')
       # Temporary item template
       # tpl = Milk.render('<div class="image cover"><img width="{{ image_width }}" height="{{ image_height }}" src="{{ image_url }}"></div><div class="info"><h3 class="title">{{ title }}</h3></div>', item)
       # node.html(tpl)
@@ -161,8 +162,10 @@ class App.PageView extends Backbone.View
     #COMPLETELY UNBIND THE VIEW
     
     # Free up memory from images
-    this.$('img').each ->
-      $(this).attr('src', '/images/blank.gif')
+    # this.$('img').each ->
+    #   $(this).attr('src', '/images/blank.gif')
+    this.$('.image').each ->
+      $(this).css('background-image', 'none')
       
     this.undelegateEvents()
 
