@@ -10,49 +10,35 @@
 // 8. MODERNIZR 			==============================
 // 9. TEMPLATE SPECIFICS 	==============================
 
-.page {
-  width: 768px !important;
-  height: 946px !important;
-}
-
-
-.row {
-  height: 93.8%;
-  
-  &.v-half {
-    height: 46.4%;
-  }
-}
-
-.col {
-  height: 93.8%;
-	.v-third { height: 32.68% }
-}
-
 // Detail Page
 article.page {
-  .row {
-    height: 95.5%;
-  }
-  
-  .col, .item {
+  .col {
   	&.half { 
   	  height: 49%;
       width: 100%;
-    }
-  }
-  
-  .image.cover {
-    position: relative;
-    height: 100%;
-    width: initial;
-    top: initial;
-    left: initial;
-  }
-  
-  .info {
-    .title, .price, .store {
-      text-align: center;
+      background: white;
+      
+      .image {
+        left: 25%;
+        position: relative;
+        width: 50%;
+      }
+      
+      .info {
+        text-align: center;
+        .store {
+          margin: 0;
+        }
+        
+        .price {
+          line-height: 37px;
+          vertical-align: middle;
+        }
+        p {
+          margin-top: 10px;
+          text-align: left;
+        }
+      }
     }
   }
 }

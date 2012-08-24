@@ -34,8 +34,9 @@
     min-height: 50%;
   }
 
-  .cover.bottom {
-    top: -90%;
+  .image.bottom {
+/*    top: -90%;*/
+    background-position: bottom !important;
   }
 
   #pages {
@@ -56,6 +57,7 @@
   }
 
   .page {
+    float: left;
     position: relative;
     display: inline-block;
     margin: 0;
@@ -74,21 +76,30 @@
     border: 1px solid red;
   }
 */
-  /*
-  .page {
-    visibility: hidden;
-  }
 
+/*  .page {
+    visibility: hidden;
+  }*/
+  /*
   .page.prev, .page.next {
     visibility: visible;
   }
-  .page.current {
+    */
+/*  .page.current {
     visibility: visible;
-  }
-  */
+  }*/
+
   .page.padding {
     width: 0;
   }
+  
+  /* sign up form */
+  #signup {
+    display: none;
+    background: white;
+    height: 93%;
+  }
+  
 </style>
 <%= render '/templates/all' %>
 
@@ -103,7 +114,35 @@
 
 <div id="pages" class="scrollable horizontal paginated">
 </div>
+
 <div id="content">
+</div>
+
+<div id="signup">
+  <form accept-charset="UTF-8" action="http://shop2.com/users/guest" class="simple_form content signup" id="new_guest" method="post">
+    <div style="margin:0;padding:0;display:inline">
+      <input name="utf8" type="hidden" value="✓">
+      <input name="authenticity_token" type="hidden" value="vz7kFbPAYMB7fzEG1scTGHDcJB07PFJeLrvUlv4ZEPQ=">
+    </div>
+    <p>
+      <a class="button large facebook" href="http://shop2.com/connect/facebook?return_to=/ipad">
+        <i class="icon-facebook"></i>
+        <span>Connect with Facebook</span>
+      </a>
+    </p>
+    <div class="stream-header">
+      <span>Or</span>
+    </div>
+
+    <input id="return_to" name="return_to" type="hidden" value="/mobile">
+
+    <div class="input string required">
+      <input class="string required" id="guest_email" name="guest[email]" placeholder="Please enter an email address" size="50" type="text">
+    </div>
+
+    <input class="button large full" name="commit" type="submit" value="Signup">
+
+  </form>  
 </div>
 
 <%# content_for :toolbar do %>
