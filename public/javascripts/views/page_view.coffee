@@ -159,6 +159,11 @@ class App.PageView extends Backbone.View
         
   destroy: ->
     #COMPLETELY UNBIND THE VIEW
+    
+    # Free up memory from images
+    this.$('img').each ->
+      $(this).attr('src', '/images/blank.gif')
+      
     this.undelegateEvents()
 
     $(this.el).unbind()
