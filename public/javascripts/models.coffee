@@ -85,7 +85,7 @@ class App.StreamCollection extends Backbone.Collection
     else
       url = "#{@url}?page=#{@page}&callback=?#fetch_next"
     
-    this.fetch({ url: url, dataType: "jsonp" })
+    this.fetch({ silent: true, url: url, dataType: "jsonp" })
   
   fetchPrev: ->
     console.warn('fetch prev')
@@ -97,17 +97,19 @@ class App.StreamCollection extends Backbone.Collection
     else
       url = "#{@url}?page=#{@page}&callback=?#fetch_prev"
     
-    this.fetch({ url: url, dataType: "jsonp" })
+    this.fetch({ silent: true, url: url, dataType: "jsonp" })
     
   parse: (resp, xhr)->
     if @length == 0
       @currentPage = resp
+      
     else if @nextPage.length == 0 && @currentPage.length > 0 && ! @reverse
       @nextPage = resp
       @loading = false
       @currentPage = @currentPage.concat(@nextPage)
       @nextPage = []
       return @currentPage
+    
     else if @prevPage.length == 0 && @currentPage.length > 0 && @reverse
       @prevPage = resp
       @loading = false

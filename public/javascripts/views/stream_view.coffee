@@ -78,7 +78,8 @@ class App.StreamView extends Backbone.View
         # Add current class
         $(@el).find('.page').removeClass('current').removeClass('prev').removeClass('next')
         
-        $(target.el).addClass('current')
+        target.active()
+        
         $(target.el).next().addClass('next') if $(target.el).next()
         
         loading = false
@@ -100,7 +101,7 @@ class App.StreamView extends Backbone.View
  
     $(document).on 'keydown', (e)=>
       key = e.which || e.keyCode
-      pos = 1024
+      pos = @scroller.viewport
       
       if key == 39 
         @changedDir = @direction != "right"
@@ -243,11 +244,11 @@ class App.StreamView extends Backbone.View
     
     if method == 'append'
       page = @pages.shift()
-      page.remove()
+      page.destroy()
       paddingPages += 1
     else
       page = @pages.pop()
-      page.remove()
+      page.destroy()
       paddingPages -= 1
   
     @padding.data('pages', paddingPages)

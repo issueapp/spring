@@ -240,8 +240,8 @@ input[type=text], input[type=password], textarea {
     padding: 10% 2% 10%;
     position: relative;
     
-    
     & > p {
+      visibility: visible;
       white-space: normal;
       text-overflow: ellipsis;
     }
@@ -323,16 +323,20 @@ article.product {
     height: 100%;
     
     p {
+      visibility: visible;
       white-space: initial;
       text-overflow: initial;
+      margin-bottom: 1em;
     }
     
     .price {
+      visibility: visible;
+      
       font-size: 1.5em;
     }
     
     .button {
-      margin: 1em 0em 2em 0em;
+      margin: 0 0em 2em 0em;
     }
   }
 }
