@@ -50,7 +50,7 @@ class App.Router extends Backbone.Router
       $('#content').html('')
     
     if App.stream.length == 0
-      App.stream.url = "http://shop2.dev/speedmax/products.json?highres=true"
+      App.stream.url = "http://shop2.com/taylorluk/products.json?highres=true"
       
       App.stream.fetch({ dataType: "jsonp" })
     else
