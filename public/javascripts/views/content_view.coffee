@@ -42,9 +42,14 @@ class App.ContentView extends Backbone.View
     this.setElement( $(source) )
     
     
-    $('#content').append(@el)    
+    $(@el).css('opacity', "0")
+    
+    $('#content').append( @el )    
+    
+    # $(@el).hide()
     
     @toolbar.render()
+    $(@el).animate({ opacity: 1 }, 150)
     
   # viewContent: ->
   #   
