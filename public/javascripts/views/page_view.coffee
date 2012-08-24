@@ -30,6 +30,7 @@ class App.PageView extends Backbone.View
   # render: ->
   events:
     'click .item a.link': 'viewContent'
+    'swipe .item a.link': 'silent'
     'orientationchange': 'changeOrientation'
 
   itemTemplate: Mustache.compile('
@@ -42,6 +43,7 @@ class App.PageView extends Backbone.View
       <a class="link" href="/products/{{ handle }}">
         <h3 class="title">{{ title }}</h3>
       </a>
+      <p class="">{{ description }}</p>
     </div>
 
   ')
@@ -81,12 +83,23 @@ class App.PageView extends Backbone.View
     
     if window.orientation == 0 or window.orientation == 180
       this.changeOrientation()
+  
+  # Development debug only
+  silent: (e)->
+    @silentClick = true
+    return false
+  
+  active: ->
+    @silentClick = false
+    $(@el).addClass('current')
     
-    # @template = Mustache.compile('<div class="image cover"><img width="{{ image_width }}" height="{{ image_height }}" src="{{ image_url }}"></div><div class="info"><h3 class="title">{{ title }}</h3></div>')
   
   viewContent: (e)->
-    link = $(e.currentTarget).attr('href')
-    App.router.navigate(link, { trigger: true })
+    unless @silentClick
+      link = $(e.currentTarget).attr('href')
+      App.router.navigate(link, { trigger: true })
+    
+    e.preventDefault()
     false
   
   addItem: (item)->
@@ -100,10 +113,8 @@ class App.PageView extends Backbone.View
       node = @page.find(".item").eq(index)
       
       node.append(@itemTemplate(item))
-      
+        
       ##### HACK HACK HACK
-      
-      console.log(item.tags_array.join(','))
       if item.tags_array.join(',').match(/shoe/i) && node.parent().not('.col.half')
         node.find('.image.cover').addClass('bottom')
       # Temporary item template
@@ -111,6 +122,8 @@ class App.PageView extends Backbone.View
       # node.html(tpl)
     
     this.setElement(@page)
+    
+    this.$(".split p").each (p)-> $clamp(this, {clamp: 3})
     
     @page
     
@@ -143,3 +156,13 @@ class App.PageView extends Backbone.View
     classNames.forEach (className, index)->
       page.find(className).forEach (element)->
         $(element).removeClass(oldNames[index]).addClass(newNames[index])
+        
+  destroy: ->
+    #COMPLETELY UNBIND THE VIEW
+    this.undelegateEvents()
+
+    $(this.el).unbind()
+
+    #Remove view from DOM
+    this.remove()
+    Backbone.View.prototype.remove.call(this)
