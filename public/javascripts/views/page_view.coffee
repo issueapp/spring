@@ -36,7 +36,7 @@ class App.PageView extends Backbone.View
   itemTemplate: Mustache.compile('
     <div class="image cover">
       <a class="link" href="/products/{{ handle }}">
-      <img src="{{ image_url }}">
+      <img src="http://deyf8doogqx67.cloudfront.net{{ cdn_image_url }}">
       </a>
     </div>
     <div class="info">
