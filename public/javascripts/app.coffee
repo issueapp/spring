@@ -54,7 +54,8 @@ class App.Router extends Backbone.Router
     App.streamView ||= new App.StreamView({ el: '#pages', collection: App.stream })
     
     if App.contentView
-      $(App.streamView.el).css('visibility', 'visible')
+      $(App.streamView.el).animate({ opacity: 1}, 150)
+      
       $('#content').html('')
     
     if App.stream.length == 0
@@ -65,7 +66,7 @@ class App.Router extends Backbone.Router
       App.streamView.render()
     
   content: (handle) ->
-    $(App.streamView.el).css('visibility', 'hidden')
+    $(App.streamView.el).css('opacity', "0")
     
     content = App.stream.find (item)-> item.get('handle') == handle
     App.contentView = new App.ContentView( model: content )
