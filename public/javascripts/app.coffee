@@ -2,6 +2,14 @@
 this.App ||= {
   standalone: window.navigator.standalone
   
+  streams: [
+    { title: "Top Content", "http://shop2.com/products.json?highres=true", default: true },
+    { title: "Editors choices", "http://shop2.com/taylorluk/products.json?highres=true" },
+    { title: "Mens", "http://shop2.com/interests/mens/products.json?highres=true" },
+    { title: "Womens", "http://shop2.com/interests/womens/products.json?highres=true" },
+    { title: "Womens", "http://shop2.com/interests/womens/products.json?highres=true" }
+  ]
+  
   init: ->
     this.router = new App.Router
     console.log "Router starting", Backbone.history.start({pushState: true, root: "/ipad/"})
@@ -50,7 +58,7 @@ class App.Router extends Backbone.Router
       $('#content').html('')
     
     if App.stream.length == 0
-      App.stream.url = "http://shop2.com/taylorluk/products.json?highres=true"
+      App.stream.url = "http://shop2.com/taylorluk/products.json?highres=true&sort=created_at"
       
       App.stream.fetch({ dataType: "jsonp" })
     else
