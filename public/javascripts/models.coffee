@@ -23,9 +23,11 @@ class App.StreamCollection extends Backbone.Collection
   #    ^
   # [ a,b,c;d,e,f,g;h,i,j;k,l,m,n; ] [ u, z, y ]
   #   |     |       |     |       |
-  fill: (page, offset, reverse)->
+  fill: (page, offset, reverse, isMobile)->
     reverse ||= false
     offset ||= @offset
+    isMobile ||= false
+    
     current = 0
     page.items ||= []
     # if reverse
@@ -38,30 +40,30 @@ class App.StreamCollection extends Backbone.Collection
     # return 0 if reverse && offset == 0
     
     if reverse
-      console.warn("offset", offset, "limit", page.limit)
+      # console.warn("offset", offset, "limit", page.limit)
       offset = offset - page.limit
       
     else
       offset = offset
     
     this.each (item, index) =>
-      lowerBound = index >= offset
-      upperBound = index < offset + page.limit
-      
-      return false if !upperBound
-      
-      if lowerBound and upperBound
+      if isMobile
         page.addItem( item.toJSON() )
+      else
+        lowerBound = index >= offset
+        upperBound = index < offset + page.limit
+        return false if !upperBound
+      
+        if lowerBound and upperBound
+          page.addItem( item.toJSON() )
         
-        if reverse
-          current =  Math.max(offset + page.limit, 0)
-        else
-          current = index + 1
-
-      
-      
+          if reverse
+            current =  Math.max(offset + page.limit, 0)
+          else
+            current = index + 1
+    
     # Load next page if needed
-    console.warn("loading", @loading, "offset", offset, "@currentPage.length", @currentPage.length)
+    # console.warn("loading", @loading, "offset", offset, "@currentPage.length", @currentPage.length)
     
     if !@loading && !reverse && offset > @currentPage.length/2
       @reverse = false
@@ -76,7 +78,7 @@ class App.StreamCollection extends Backbone.Collection
     @offset = page.offset = current
   
   fetchNext: ->
-    console.warn("fetch next")
+    # console.warn("fetch next")
     
     @page += 1
     
@@ -88,7 +90,7 @@ class App.StreamCollection extends Backbone.Collection
     this.fetch({ silent: true, url: url, dataType: "jsonp" })
   
   fetchPrev: ->
-    console.warn('fetch prev')
+    # console.warn('fetch prev')
     @page -= 1
     @page = Math.max(@page, 1)
     
@@ -116,7 +118,7 @@ class App.StreamCollection extends Backbone.Collection
       @currentPage = @currentPage.concat(@prevPage)
       @prevPage = []
       return @currentPage
-    
+      
     resp
   
   pageInfo: ->

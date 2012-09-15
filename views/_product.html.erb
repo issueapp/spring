@@ -9,16 +9,16 @@ image_class = type.match(/half|third/) ? "scale" : ""
   <div class="counters">
   </div>
 
-  <% if type == 'split' %>
-    <div class="image" style="background-image: url(<%= product.image_url %>); background-size: cover; background-position: center center">
+  <%# if type == 'split' %>
+  <div class="image" style="height: 100%; background-image: url(<%= product.image_url %>); background-size: cover; background-position: center center">
+  </div>
+    
+  <!-- <%# else %>
+    <div class="image <%#= image_class %>">
+      <img src="<%#= product.image_url %>">
     </div>
     
-  <% else %>
-    <div class="image <%= image_class %>">
-      <img src="<%= product.image_url %>">
-    </div>
-    
-  <% end %>
+  <%# end %> -->
 
   <div class="info">
     <h3 class="title"><%= product.title %></h3>
