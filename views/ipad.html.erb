@@ -9,7 +9,7 @@
   }
   
   nav[role=navigation] {
-    position: absolute;
+    position: fixed;
     top:0;
     left:0;
     width:100%;
@@ -52,7 +52,7 @@
   }
 
   .scrollable {
-    display: inline-block;
+/*    display: inline-block;*/
     overflow: hidden;
   }
 
@@ -71,24 +71,6 @@
     border: 1px solid #fff;
   }
 
-/*
-  .page.current {
-    border: 1px solid red;
-  }
-*/
-
-/*  .page {
-    visibility: hidden;
-  }*/
-  /*
-  .page.prev, .page.next {
-    visibility: visible;
-  }
-    */
-/*  .page.current {
-    visibility: visible;
-  }*/
-
   .page.padding {
     width: 0;
   }
@@ -100,9 +82,40 @@
     height: 93%;
   }
   
+  /* iphone */
+  #pages {
+    height: 104%;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  nav[role="navigation"] > h1 {
+    margin: 0;
+  }
+  
+  #pages, .page, .item {
+    position: initial;
+  }
+  
+  .item .info {
+    position: static;
+  }
+  
+  .page {
+    height: auto !important;
+    max-height: initial;
+  }
+  
+  div[role="main"] {
+    position: initial;
+  }
+  
+  .product .image {
+    height: 90% !important;
+  }
+  
 </style>
 <%= render '/templates/all' %>
-
 
 <div id="hero" style="display:none;">
   <h1>Start your personalised shopping catalogue</h1>
@@ -112,7 +125,7 @@
   </div>
 </div>
 
-<div id="pages" class="scrollable horizontal paginated">
+<div id="pages" class="scrollable paginated">
 </div>
 
 <div id="content">
@@ -162,8 +175,8 @@
 </script>
 <% end %>
 
-<% if params[:version] %>
+<%# if params[:version] %>
   <%#= render "section/#{params[:version]}" %>
-<% else %>
+<%# else %>
   <%#= render "section/v1" %>
-<% end %>
+<%# end %>
