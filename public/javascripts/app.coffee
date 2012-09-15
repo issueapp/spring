@@ -13,17 +13,17 @@ this.App ||= {
   init: ->
     this.router = new App.Router
     console.log "Router starting", Backbone.history.start({pushState: true, root: "/ipad/"})
-    
+    # this.isMobile()
     this.setLayout height: window.innerHeight, width: window.innerWidth, device: "ipad"
 
   setLayout: (dimension)->
     $('#touch-layout').remove()
     toolbar = { height:  $('nav.toolbar').height() }
-
+    
     css = "
       .page { 
         width: #{dimension.width}px;
-        height: #{dimension.height - toolbar.height}px;
+        height: #{dimension.height}px;
       }\n
 
       div[role=main] {
@@ -44,14 +44,21 @@ this.App ||= {
 
 class App.Router extends Backbone.Router
   routes:
-    "ipad":         "home"
-    "section":      "home"
-    "products/:handle":      "content"
+    "ipad":             "home"
+    "section":          "home"
+    "products/:handle": "content"
   
   home: ->
-    console.log('backhome')
     App.stream ||= new App.StreamCollection
-    App.streamView ||= new App.StreamView({ el: '#pages', collection: App.stream })
+    pages = $('#pages')
+    isMobile = this.isMobile()
+    
+    if isMobile
+      # pages.addClass('vertical')
+      App.listView ||= new App.ListView({ el: '#pages', collection: App.stream })
+    else
+      pages.addClass('horizontal')
+      App.streamView ||= new App.StreamView({ el: '#pages', collection: App.stream })
     
     if App.contentView
       $(App.streamView.el).animate({ opacity: 1}, 150)
@@ -60,8 +67,9 @@ class App.Router extends Backbone.Router
     
     if App.stream.length == 0
       App.stream.url = "http://shop2.com/taylorluk/products.json?highres=true&sort=created_at"
-      
       App.stream.fetch({ dataType: "jsonp" })
+    else if isMobile
+      App.listView.render()
     else
       App.streamView.render()
     
@@ -71,6 +79,23 @@ class App.Router extends Backbone.Router
     content = App.stream.find (item)-> item.get('handle') == handle
     App.contentView = new App.ContentView( model: content )
     App.contentView.render()
+  
+  isMobile: ->
+    uagent = navigator.userAgent.toLowerCase()
+    ismobile = false
     
-    console.log(content)
+    list = [
+        "midp","240x320","blackberry","netfront","nokia","panasonic",
+        "portalmmm","sharp","sie-","sonyericsson","symbian",
+        "windows ce","benq","mda","mot-","opera mini",
+        "philips","pocket pc","sagem","samsung","sda",
+        "sgh-","vodafone","xda","palm","iphone",
+        "ipod","android"
+      ]
     
+    list.forEach (item)->
+      if uagent.indexOf(item) != -1
+        ismobile = true
+    
+    ismobile
+    # true

@@ -53,24 +53,28 @@ class App.PageView extends Backbone.View
     @order.push Math.floor(Math.random() * $('script.section_tpl').length)
   
   @getTemplate = (data)=>
-    @section_tpl ||= $('script.section_tpl')
-    
-    if data.method == 'append'
-      if data.stream.changedDir
-        @templateIndex += 2 
-        
-      @templateIndex += 1
-      @templateIndex = 0 if @templateIndex > 9
-      
+    if data.isMobile
+      @section_tpl ||= $('script.mobile_tpl')
+      @section_tpl.html()
     else
-      if data.stream.changedDir
-        @templateIndex -= 2 
+      @section_tpl ||= $('script.section_tpl')
+    
+      if data.method == 'append'
+        if data.stream.changedDir
+          @templateIndex += 2 
         
-      @templateIndex -= 1
-      @templateIndex = 9 if @templateIndex < 0
+        @templateIndex += 1
+        @templateIndex = 0 if @templateIndex > 9
+      
+      else
+        if data.stream.changedDir
+          @templateIndex -= 2 
+        
+        @templateIndex -= 1
+        @templateIndex = 9 if @templateIndex < 0
 
-    index = @order[@templateIndex]
-    @section_tpl.eq(index).html()
+      index = @order[@templateIndex]
+      @section_tpl.eq(index).html()
 
   initialize: (data)->
     # 1 , 2 ,3
@@ -79,7 +83,7 @@ class App.PageView extends Backbone.View
     @items = []
     @page = $(App.PageView.getTemplate(data))
     @limit = @page.find('.item').length
-    
+    @isMobile = data.isMobile
     
     if window.orientation == 0 or window.orientation == 180
       this.changeOrientation()
@@ -111,7 +115,6 @@ class App.PageView extends Backbone.View
   render: ->
     @items.forEach (item, index)=>
       node = @page.find(".item").eq(index)
-      
       node.append(@itemTemplate(item))
         
       ##### HACK HACK HACK
