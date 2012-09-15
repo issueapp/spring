@@ -1,5 +1,4 @@
 <style>
-
   html, body {
     overflow: hidden;
   }
@@ -116,6 +115,10 @@
     height: 90% !important;
   }
   
+  /* diable tap highlighting */
+  .toolbar, a {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+  }
 </style>
 <%= render '/templates/all' %>
 
