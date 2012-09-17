@@ -62,6 +62,25 @@ Row
 
 Column
 
+### Markup
+
+    body
+      nav#menu
+        
+      div[role=main]
+        
+        #sections
+          header.toolbar
+          div.pages
+            div.page
+            ...
+        
+        #content
+          header.toolbar
+          div.pages
+            div.page
+            ...
+      
 ### Web layout
 
 ![web layout](http://cl.ly/3N223u3F0G380U1j322U/web-layout.png)
