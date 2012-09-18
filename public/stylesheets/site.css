@@ -7,7 +7,7 @@
   Images
 
 */
-/* line 15, ../../stylesheets/site.scss */
+/* line 16, ../../stylesheets/site.scss */
 .button.large [class^="icon-"],
 .button.large [class*=" icon-"] {
   height: 40px;
@@ -19,23 +19,23 @@
   All Style for mobile site.
   --------------------------------------------------
 */
-/* line 28, ../../stylesheets/site.scss */
+/* line 29, ../../stylesheets/site.scss */
 body {
   background: #f8fafa;
   color: #333333;
 }
 
-/* line 33, ../../stylesheets/site.scss */
+/* line 34, ../../stylesheets/site.scss */
 a {
   color: #4a90a6;
   text-decoration: none;
 }
-/* line 37, ../../stylesheets/site.scss */
+/* line 38, ../../stylesheets/site.scss */
 a:visited {
   color: #333333;
 }
 
-/* line 42, ../../stylesheets/site.scss */
+/* line 43, ../../stylesheets/site.scss */
 .logo {
   background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADYAAAAyCAYAAAAX1CjLAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDowMTgwMTE3NDA3MjA2ODExODBDMEJFMTc2QjBGRkY5NSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo1MDVFNzkxN0FFREYxMUUxQTRDRDhCN0NCODE1RjM5QiIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo1MDVFNzkxNkFFREYxMUUxQTRDRDhCN0NCODE1RjM5QiIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjA0ODAxMTc0MDcyMDY4MTE4MEMwQkUxNzZCMEZGRjk1IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjAxODAxMTc0MDcyMDY4MTE4MEMwQkUxNzZCMEZGRjk1Ii8+IDwvcmRmOkRlc2NyaXB0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') 10px 4px no-repeat;
   margin: 0 0 0 0px;
@@ -47,7 +47,7 @@ a:visited {
   line-height: 50px;
 }
 
-/* line 54, ../../stylesheets/site.scss */
+/* line 55, ../../stylesheets/site.scss */
 nav[role=navigation] {
   position: relative;
   height: 44px;
@@ -59,13 +59,13 @@ nav[role=navigation] {
   -moz-box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 3px;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 3px;
 }
-/* line 64, ../../stylesheets/site.scss */
+/* line 65, ../../stylesheets/site.scss */
 nav[role=navigation] a:first-child {
   position: absolute;
   top: 7px;
   left: 1%;
 }
-/* line 70, ../../stylesheets/site.scss */
+/* line 71, ../../stylesheets/site.scss */
 nav[role=navigation] > h1 {
   text-align: center;
   vertical-align: middle;
@@ -75,19 +75,19 @@ nav[role=navigation] > h1 {
   letter-spacing: 0.7px;
   text-transform: uppercase;
   padding: 0;
-  margin: 0 180px 0 230px;
+  margin: 0 180px;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
 }
-/* line 85, ../../stylesheets/site.scss */
+/* line 86, ../../stylesheets/site.scss */
 nav[role=navigation] a:last-child {
   font-family: "Helvetica";
   position: absolute;
   top: 7px;
   right: 1%;
 }
-/* line 92, ../../stylesheets/site.scss */
+/* line 93, ../../stylesheets/site.scss */
 nav[role=navigation] div.actions {
   position: absolute;
   top: 11px;
@@ -95,7 +95,7 @@ nav[role=navigation] div.actions {
   font-size: 21px;
   letter-spacing: 0.2em;
 }
-/* line 100, ../../stylesheets/site.scss */
+/* line 101, ../../stylesheets/site.scss */
 nav[role=navigation] .icon-reorder {
   line-height: 31px;
 }
@@ -103,11 +103,11 @@ nav[role=navigation] .icon-reorder {
 /*
     Navigation list
 */
-/* line 108, ../../stylesheets/site.scss */
+/* line 109, ../../stylesheets/site.scss */
 .nav {
   list-style: none;
 }
-/* line 111, ../../stylesheets/site.scss */
+/* line 112, ../../stylesheets/site.scss */
 .nav > li {
   display: block;
   float: left;
@@ -116,7 +116,7 @@ nav[role=navigation] .icon-reorder {
   text-transform: uppercase;
   letter-spacing: .1em;
 }
-/* line 121, ../../stylesheets/site.scss */
+/* line 122, ../../stylesheets/site.scss */
 .nav > li > a {
   display: block;
   float: none;
@@ -129,7 +129,7 @@ nav[role=navigation] .icon-reorder {
 /*
       Content
 */
-/* line 135, ../../stylesheets/site.scss */
+/* line 136, ../../stylesheets/site.scss */
 .content {
   padding: 10px;
 }
@@ -137,7 +137,7 @@ nav[role=navigation] .icon-reorder {
 /*
       Form
 */
-/* line 144, ../../stylesheets/site.scss */
+/* line 145, ../../stylesheets/site.scss */
 input[type=text], input[type=password], textarea {
   border: 1px solid #c6d2d2;
   border-radius: 5px;
@@ -146,7 +146,7 @@ input[type=text], input[type=password], textarea {
   font-size: 14px;
   line-height: 19px;
 }
-/* line 152, ../../stylesheets/site.scss */
+/* line 153, ../../stylesheets/site.scss */
 input[type=text]:focus, input[type=password]:focus, textarea:focus {
   box-shadow: #39f 0px 0px 10px 0px;
 }
@@ -156,7 +156,7 @@ input[type=text]:focus, input[type=password]:focus, textarea:focus {
       Product Styles    
 
 */
-/* line 163, ../../stylesheets/site.scss */
+/* line 164, ../../stylesheets/site.scss */
 .product .link {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -165,7 +165,7 @@ input[type=text]:focus, input[type=password]:focus, textarea:focus {
   color: #222;
   display: block;
 }
-/* line 174, ../../stylesheets/site.scss */
+/* line 172, ../../stylesheets/site.scss */
 .product .info {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -176,7 +176,7 @@ input[type=text]:focus, input[type=password]:focus, textarea:focus {
   padding: 0.5em 3% 0.5em;
   height: 35px;
 }
-/* line 183, ../../stylesheets/site.scss */
+/* line 181, ../../stylesheets/site.scss */
 .product .title {
   position: relative;
   font-family: "Helvetica Neue";
@@ -188,7 +188,7 @@ input[type=text]:focus, input[type=password]:focus, textarea:focus {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-/* line 197, ../../stylesheets/site.scss */
+/* line 195, ../../stylesheets/site.scss */
 .product .info p {
   visibility: hidden;
   margin: 0;
@@ -198,7 +198,7 @@ input[type=text]:focus, input[type=password]:focus, textarea:focus {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-/* line 207, ../../stylesheets/site.scss */
+/* line 205, ../../stylesheets/site.scss */
 .product .counters {
   color: #DF5454;
   font-size: 14px;
@@ -212,44 +212,39 @@ input[type=text]:focus, input[type=password]:focus, textarea:focus {
 /*
     Product split view
 */
-/* line 221, ../../stylesheets/site.scss */
+/* line 219, ../../stylesheets/site.scss */
 .product.split {
   position: relative;
 }
-/* line 224, ../../stylesheets/site.scss */
+/* line 222, ../../stylesheets/site.scss */
 .product.split .image {
-  overflow: hidden;
-  display: inline-block;
+  float: left;
   width: 49%;
-  left: 0;
-  height: 100%;
-  top: initial;
-  vertical-align: middle;
 }
-/* line 234, ../../stylesheets/site.scss */
+/* line 227, ../../stylesheets/site.scss */
 .product.split .info {
   margin: 0;
   width: 49%;
   height: auto;
   vertical-align: middle;
-  padding: 10% 2% 10%;
+  padding: 15% 2% 0;
   position: relative;
 }
-/* line 243, ../../stylesheets/site.scss */
+/* line 235, ../../stylesheets/site.scss */
 .product.split .info > p {
   visibility: visible;
   white-space: normal;
   text-overflow: ellipsis;
 }
 
-/* line 251, ../../stylesheets/site.scss */
+/* line 243, ../../stylesheets/site.scss */
 .stream-header {
   border-bottom: 1px solid #ddd;
   text-align: center;
   margin: 20px 10px;
   height: 0px;
 }
-/* line 256, ../../stylesheets/site.scss */
+/* line 248, ../../stylesheets/site.scss */
 .stream-header > span {
   position: relative;
   font-family: serif;
@@ -259,13 +254,13 @@ input[type=text]:focus, input[type=password]:focus, textarea:focus {
   padding: 10px;
   height: 14px;
   display: inline-block;
-  background: white;
+  background: #F8FAFA;
 }
 
 /*
     Homepage
 */
-/* line 272, ../../stylesheets/site.scss */
+/* line 264, ../../stylesheets/site.scss */
 #hero {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -276,7 +271,7 @@ input[type=text]:focus, input[type=password]:focus, textarea:focus {
   background: #fff;
 }
 
-/* line 280, ../../stylesheets/site.scss */
+/* line 272, ../../stylesheets/site.scss */
 #trending {
   margin-top: 30px;
 }
@@ -284,32 +279,32 @@ input[type=text]:focus, input[type=password]:focus, textarea:focus {
 /*
     Signup Page
 */
-/* line 289, ../../stylesheets/site.scss */
+/* line 281, ../../stylesheets/site.scss */
 input.email {
   width: 220px;
 }
 
-/* line 293, ../../stylesheets/site.scss */
+/* line 285, ../../stylesheets/site.scss */
 form.signup {
   margin: 0 auto;
   max-width: 420px;
   text-align: center;
 }
-/* line 298, ../../stylesheets/site.scss */
+/* line 290, ../../stylesheets/site.scss */
 form.signup .full {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   width: 100%;
 }
-/* line 303, ../../stylesheets/site.scss */
+/* line 295, ../../stylesheets/site.scss */
 form.signup input[type=text] {
   padding: 0.5em;
   margin-bottom: 10px;
   width: 100%;
 }
 
-/* line 312, ../../stylesheets/site.scss */
+/* line 304, ../../stylesheets/site.scss */
 .pagination {
   display: none;
 }
@@ -317,24 +312,24 @@ form.signup input[type=text] {
 /*
   Product Detail Page
 */
-/* line 321, ../../stylesheets/site.scss */
+/* line 313, ../../stylesheets/site.scss */
 article.product .info {
   top: 0px;
   height: 100%;
 }
-/* line 325, ../../stylesheets/site.scss */
+/* line 317, ../../stylesheets/site.scss */
 article.product .info p {
   visibility: visible;
   white-space: initial;
   text-overflow: initial;
   margin-bottom: 1em;
 }
-/* line 332, ../../stylesheets/site.scss */
+/* line 324, ../../stylesheets/site.scss */
 article.product .info .price {
   visibility: visible;
   font-size: 1.5em;
 }
-/* line 338, ../../stylesheets/site.scss */
+/* line 330, ../../stylesheets/site.scss */
 article.product .info .button {
   margin: 0 0em 2em 0em;
 }

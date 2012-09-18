@@ -1,1 +1,161 @@
-<%= render :template => "/layouts/default" %>
+<html class="no-js" lang="en">
+  <head>
+    <title>Shop2</title>
+
+    <!-- http://t.co/dKP3o1e -->
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0" />
+  
+  
+    <link rel="stylesheet" href="http://shop2.com/assets/components/_button.css">
+    <link rel="stylesheet" href="/stylesheets/layout.css"/>
+    <link rel="stylesheet" href="/stylesheets/site.css"/>
+    <link rel="stylesheet" href="/stylesheets/font-awesome.css"/>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    <!--iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    
+    <style>
+      html, body {
+        overflow: hidden;
+      }
+
+      [role=main] {
+        position: relative;
+      }
+
+      nav[role=navigation] {
+        position: fixed;
+        top:0;
+        left:0;
+        width:100%;
+      }
+
+      .cover {
+        position:relative;
+        height: 200%; 
+        width: 200%;
+        top: -50%;
+        left: -50%;
+      }
+
+      .cover img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        min-width: 51%;
+        min-height: 50%;
+      }
+
+      .image.bottom {
+    /*    top: -90%;*/
+        background-position: bottom !important;
+      }
+
+      #sections .pages {
+        position: absolute;
+        white-space: nowrap;
+        overflow: hidden;
+        /* margin-top: 55px; */
+      }
+
+      #content {
+        position: absolute;
+        white-space: nowrap;
+      }
+
+      .scrollable {
+    /*    display: inline-block;*/
+        overflow: hidden;
+      }
+
+      .page {
+        position: relative;
+        display: inline-block;
+        margin: 0;
+        padding: 5px;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        white-space: normal;
+        overflow: hidden;
+
+        border: 1px solid #fff;
+      }
+
+      .page .image {
+        opacity: 0.999;
+      }
+
+      .page.padding {
+        width: 0;
+      }
+
+      /* sign up form */
+      #signup {
+        display: none;
+        background: white;
+        height: 93%;
+      }
+
+      .product .image {
+
+        height: 90% !important;
+      }
+      /* iphone */
+
+    </style>
+  </head>
+  <body>
+
+    <nav id="menu"></nav>
+    
+    <div role="main">
+      
+      <div id="sections">
+        <header class="toolbar"></header>
+        <div class="pages scrollable paginated"></div>
+      </div>
+      
+      <div id="content">
+        <header class="toolbar"></header>
+        <div class="pages"></div>
+      </div>
+      
+    </div>
+  </body>
+  
+  <%= render '/templates/all' %>
+  <script src="/javascripts/vendor/zepto.js"></script>  
+  <script src="/javascripts/vendor/underscore.js"></script>  
+  <script src="/javascripts/vendor/backbone.js"></script>  
+  <script src="/javascripts/vendor/mustache.js"></script>  
+  <script src="/javascripts/vendor/clamp.js"></script>
+  <script src="/javascripts/vendor/scrollability2.js"></script>
+  <script src="/javascripts/vendor/h5bp-helper.js"></script>
+
+  <script src="/javascripts/app.js"></script>
+  <script src="/javascripts/models.js"></script>
+
+  <script src="/javascripts/views/toolbar.js"></script>
+  <script src="/javascripts/views/content_view.js"></script>
+  <script src="/javascripts/views/page_view.js"></script>
+  <script src="/javascripts/views/list_view.js"></script>
+  <script src="/javascripts/views/stream_view.js"></script>
+  <script src="/javascripts/misc.js"></script>
+  
+  
+  
+  <script>
+    MBP.hideUrlBarOnLoad()
+  
+    App.init()
+  </script>
+</html>

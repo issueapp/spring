@@ -1,4 +1,4 @@
-
+  
 ###
   Stream View that many sliding pages
   
@@ -253,7 +253,8 @@ class App.StreamView extends Backbone.View
   
     @padding.data('pages', paddingPages)
     
-    @padding.width( paddingPages * @scroller.viewport )
+    # @padding.width( paddingPages * @scroller.viewport )
+    @padding[0].style.width = paddingPages * @scroller.viewport
     # @padding.width( @padding.width() + scroller.viewport )    
     
   renderPage: (page, method, reposition)->

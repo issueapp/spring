@@ -50,15 +50,15 @@ class App.Router extends Backbone.Router
   
   home: ->
     App.stream ||= new App.StreamCollection
-    pages = $('#pages')
+    pages = $('#sections .pages')
     isMobile = this.isMobile()
     
     if isMobile
       # pages.addClass('vertical')
-      App.listView ||= new App.ListView({ el: '#pages', collection: App.stream })
+      App.listView ||= new App.ListView({ el: '#sections .pages', collection: App.stream })
     else
       pages.addClass('horizontal')
-      App.streamView ||= new App.StreamView({ el: '#pages', collection: App.stream })
+      App.streamView ||= new App.StreamView({ el: '#sections .pages', collection: App.stream })
     
     if App.contentView
       $(App.streamView.el).animate({ opacity: 1}, 150)
