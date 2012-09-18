@@ -668,66 +668,66 @@ div.container {
 .row.v-third-2 {
   height: 66%;
 }
-/* line 122, ../../stylesheets/layout.scss */
+/* line 117, ../../stylesheets/layout.scss */
 .page .row > .item {
   height: 100%;
 }
 
-/* line 128, ../../stylesheets/layout.scss */
+/* line 123, ../../stylesheets/layout.scss */
 .page {
   margin: 55px 1% 0px 1%;
   max-height: 100%;
 }
-/* line 132, ../../stylesheets/layout.scss */
+/* line 127, ../../stylesheets/layout.scss */
 .page .row:last-child {
   margin-bottom: 0;
 }
 
-/* line 139, ../../stylesheets/layout.scss */
+/* line 134, ../../stylesheets/layout.scss */
 .col.full, .item.full {
   width: 100%;
 }
-/* line 140, ../../stylesheets/layout.scss */
+/* line 135, ../../stylesheets/layout.scss */
 .col.half, .item.half {
   width: 49.5%;
 }
-/* line 141, ../../stylesheets/layout.scss */
+/* line 136, ../../stylesheets/layout.scss */
 .col.third, .item.third {
   width: 32.65%;
 }
-/* line 142, ../../stylesheets/layout.scss */
+/* line 137, ../../stylesheets/layout.scss */
 .col.third-2, .item.third-2 {
   width: 64%;
 }
-/* line 144, ../../stylesheets/layout.scss */
+/* line 139, ../../stylesheets/layout.scss */
 .col.sixth, .item.sixth {
   width: 15.02%;
 }
-/* line 146, ../../stylesheets/layout.scss */
+/* line 141, ../../stylesheets/layout.scss */
 .col.fourty, .item.fourty {
   width: 39%;
 }
-/* line 147, ../../stylesheets/layout.scss */
+/* line 142, ../../stylesheets/layout.scss */
 .col.sixty, .item.sixty {
   width: 59%;
 }
-/* line 149, ../../stylesheets/layout.scss */
+/* line 144, ../../stylesheets/layout.scss */
 .col.v-full, .item.v-full {
   height: 100%;
 }
-/* line 150, ../../stylesheets/layout.scss */
+/* line 145, ../../stylesheets/layout.scss */
 .col.v-half, .item.v-half {
   height: 49.40%;
 }
-/* line 151, ../../stylesheets/layout.scss */
+/* line 146, ../../stylesheets/layout.scss */
 .col.v-third, .item.v-third {
   height: 35.03%;
 }
-/* line 152, ../../stylesheets/layout.scss */
+/* line 147, ../../stylesheets/layout.scss */
 .col.v-third-2, .item.v-third-2 {
   height: 64%;
 }
-/* line 154, ../../stylesheets/layout.scss */
+/* line 149, ../../stylesheets/layout.scss */
 .col:last-child, .item:last-child {
   margin-right: 0;
 }
@@ -779,19 +779,6 @@ and (orientation : landscape) {
     display: block;
     clear: both;
   }
-
-  /* line 37, ../../stylesheets/_landscape.scss */
-  .split .image {
-    width: 50%;
-    left: -1%;
-    height: 100%;
-  }
-  /* line 42, ../../stylesheets/_landscape.scss */
-  .split .image img {
-    width: 100%;
-    max-height: initial;
-    max-width: initial;
-  }
 }
 /* iPads (portrait) ----------- */
 @media only screen 
@@ -799,78 +786,63 @@ and (min-device-width : 768px)
 and (max-device-width : 1024px) 
 and (orientation : portrait) {
   /* 768 =================================================== */
-  /* line 13, ../../stylesheets/_portrait.scss */
-  .page {
-    width: 768px !important;
-    height: 946px !important;
-  }
-
-  /* line 19, ../../stylesheets/_portrait.scss */
-  .row {
-    height: 93.8%;
-  }
-  /* line 22, ../../stylesheets/_portrait.scss */
-  .row.v-half {
-    height: 46.4%;
-  }
-
-  /* line 27, ../../stylesheets/_portrait.scss */
-  .col {
-    height: 93.8%;
-  }
-  /* line 29, ../../stylesheets/_portrait.scss */
-  .col .v-third {
-    height: 32.68%;
-  }
-
-  /* line 34, ../../stylesheets/_portrait.scss */
-  article.page .row {
-    height: 95.5%;
-  }
-  /* line 39, ../../stylesheets/_portrait.scss */
-  article.page .col.half, article.page .item.half {
+  /* line 16, ../../stylesheets/_portrait.scss */
+  article.page .col.half {
     height: 49%;
     width: 100%;
+    background: white;
   }
-  /* line 45, ../../stylesheets/_portrait.scss */
-  article.page .image.cover {
+  /* line 21, ../../stylesheets/_portrait.scss */
+  article.page .col.half .image {
+    left: 25%;
     position: relative;
-    height: 100%;
-    width: initial;
-    top: initial;
-    left: initial;
+    width: 50%;
   }
-  /* line 54, ../../stylesheets/_portrait.scss */
-  article.page .info .title, article.page .info .price, article.page .info .store {
+  /* line 27, ../../stylesheets/_portrait.scss */
+  article.page .col.half .info {
     text-align: center;
+  }
+  /* line 29, ../../stylesheets/_portrait.scss */
+  article.page .col.half .info .store {
+    margin: 0;
+  }
+  /* line 33, ../../stylesheets/_portrait.scss */
+  article.page .col.half .info .price {
+    line-height: 37px;
+    vertical-align: middle;
+  }
+  /* line 37, ../../stylesheets/_portrait.scss */
+  article.page .col.half .info p {
+    margin-top: 10px;
+    text-align: left;
   }
 }
 /*
     Utility
 */
-/* line 201, ../../stylesheets/layout.scss */
+/* line 196, ../../stylesheets/layout.scss */
 .ipad {
   height: 1024px;
   width: 768px;
 }
-/* line 205, ../../stylesheets/layout.scss */
+/* line 200, ../../stylesheets/layout.scss */
 .ipad.landscape {
   width: 1024px;
   height: 768px;
 }
 
-/* line 211, ../../stylesheets/layout.scss */
+/* line 206, ../../stylesheets/layout.scss */
 .iphone {
   width: 320px;
   height: 480px;
 }
-/* line 215, ../../stylesheets/layout.scss */
+/* line 210, ../../stylesheets/layout.scss */
 .iphone.landscape {
   height: 480px;
   weight: 320px;
 }
 
-/* line 221, ../../stylesheets/layout.scss */
+/* line 216, ../../stylesheets/layout.scss */
 .grid-item .item {
   height: 40px;
 }

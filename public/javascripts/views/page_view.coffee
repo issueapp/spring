@@ -35,11 +35,12 @@ class App.PageView extends Backbone.View
 
   itemTemplate: Mustache.compile('
     <a class="link" href="/products/{{ handle }}">
-    <div class="image" style="background-image: url(http://deyf8doogqx67.cloudfront.net{{ cdn_image_url }}); background-size: cover; background-position: center; height: 100%;"></div>
+    <div class="image" style="background-image: url(http://deyf8doogqx67.cloudfront.net{{ cdn_image_url }}); background-size: cover; background-position: center; height: 100%;">
+    </div>
     </a>
     
     <div class="info">
-      <a class="link" href="/products/{{ handle }}">
+      <a class="title link" href="/products/{{ handle }}">
         <h3 class="title">{{ title }}</h3>
       </a>
       <p class="">{{ description }}</p>
@@ -113,9 +114,13 @@ class App.PageView extends Backbone.View
     @items.length >= @limit
     
   render: ->
+    nodes = @page.find(".item")
+    
     @items.forEach (item, index)=>
-      node = @page.find(".item").eq(index)
-      node.append(@itemTemplate(item))
+      nodes[index].innerHTML = @itemTemplate(item)
+      # node.innerHTML = @itemTemplate(item)
+
+      # node.append(@itemTemplate(item))
         
       ##### HACK HACK HACK
       if item.tags_array.join(',').match(/shoe/i) && node.parent().not('.col.half')
@@ -127,7 +132,7 @@ class App.PageView extends Backbone.View
     
     this.setElement(@page)
     
-    this.$(".split p").each (p)-> $clamp(this, {clamp: 3})
+    # this.$(".split p").each (p)-> $clamp(this, {clamp: 3})
     
     @page
     
@@ -167,8 +172,8 @@ class App.PageView extends Backbone.View
     # Free up memory from images
     # this.$('img').each ->
     #   $(this).attr('src', '/images/blank.gif')
-    this.$('.image').each ->
-      $(this).css('background-image', 'none')
+    # this.$('.image').each ->
+    #   $(this).css('background-image', 'none')
       
     this.undelegateEvents()
 
