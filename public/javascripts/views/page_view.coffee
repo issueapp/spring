@@ -35,14 +35,15 @@ class App.PageView extends Backbone.View
 
   itemTemplate: Mustache.compile(
     '
-    <a class="link" href="/products/{{ handle }}">
-      <div class="image cover" data-style="background-image: url(http://deyf8doogqx67.cloudfront.net{{ cdn_image_url }}); background-size: cover; background-position: center; height: 100%;">
+    <div class="image cover">
+      <a class="link" href="/products/{{ handle }}">
         <img src="http://deyf8doogqx67.cloudfront.net{{ cdn_image_url }}">
-      </div>
-    </a>
+      </a>
+    </div>
+
     
     <div class="info">
-      <a class="title link" href="/products/{{ handle }}">
+      <a class="link" href="/products/{{ handle }}">
         <h3 class="title">{{ title }}</h3>
       </a>
       <p class="">{{ description }}</p>
@@ -140,7 +141,7 @@ class App.PageView extends Backbone.View
 
     # @page.css('visibility', 'visible')
     
-    # this.$(".split p").each (p)-> $clamp(this, {clamp: 3})
+    this.$(".split p").each (p)-> $clamp(this, {clamp: 3})
     
     @page
     
