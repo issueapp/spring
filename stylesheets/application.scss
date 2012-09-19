@@ -1,0 +1,82 @@
+@charset "UTF-8";
+
+// 1. ROOT 					==============================
+
+@import 'h5bp';
+@import 'compass';
+
+
+//    1.1 HTML/BODY
+html{
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+//  min-width: 320px;
+}
+
+//    1.2 VARIABLES
+$bg_color: #f8fafa;
+$text_color: #333;
+
+
+// 2. TYPOGRAPHY 			==============================
+
+
+// 3. LAYOUT     			==============================
+@import 'layout';
+
+
+// 4. UI         			==============================
+@import 'ui';
+
+// 5. ITEM       			==============================
+@import 'item';
+
+// 6. PAGE       			==============================
+@import 'page';
+
+// 7. RESPONSIVE 			==============================
+
+// 768px
+@media only screen and (min-width: 768px) {
+  @import "768";
+}
+
+
+
+
+/*
+    Utility
+*/
+
+div.container {
+  background: #ffc; margin:0 auto; overflow:hidden; width:96%;
+}
+
+.ipad {
+  height: 1024px;
+  width: 768px;
+  
+  &.landscape {
+    width: 1024px;
+    height: 768px;
+  }
+}
+
+.iphone {
+  width: 320px;
+  height: 480px;
+  
+  &.landscape {
+    height: 480px;
+    weight: 320px;
+  }
+}
+
+.grid-item .item {
+  height: 40px;
+}
+
+
+

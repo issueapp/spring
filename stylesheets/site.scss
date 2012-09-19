@@ -52,7 +52,7 @@ a {
   line-height: 50px;
 }
 
-nav[role=navigation] {
+header.toolbar {
   position: relative;
   height: 44px;
   background: #F4F8F9;
@@ -155,90 +155,6 @@ input[type=text], input[type=password], textarea {
   }
 }
 
-/*  
-
-      Product Styles    
-
-*/
-.product {
-  .link {
-    @include box-sizing(border-box);
-    
-    cursor: pointer;
-    color: #222;
-    display: block;
-  }
-  
-  .info {
-    @include box-sizing(border-box);
-    width: 100%;
-    vertical-align: top;
-    background: white;
-    padding: 0.5em 3% 0.5em;
-    height: 35px;
-  }
-  
-  .title {
-    position: relative;
-    font-family: "Helvetica Neue";
-    
-    letter-spacing: -1px;
-    
-    font-size: 1.2em;
-    margin: 0 0 0.5em;    
-    width: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .info p {
-    visibility: hidden;
-    margin: 0;
-    font-size: 0.75em;
-    color: #666;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .counters {
-    color: #DF5454;
-    font-size: 14px;
-    position: absolute;
-    top: 2%;
-    right: 6%;
-    z-index: 1;
-    line-height: 12px;
-  }
-}
-
-/*
-    Product split view
-*/
-.product.split {
-  position: relative;
-  
-  .image {
-    float: left;
-    width: 49%;
-  }
-  
-  .info {
-    margin: 0;
-    width: 49%;
-    height: auto;
-    vertical-align: middle;
-    padding: 15% 2% 0;
-    position: relative;
-    
-    & > p {
-      visibility: visible;
-      white-space: normal;
-      text-overflow: ellipsis;
-    }
-  }
-}
 
 .stream-header {
   border-bottom: 1px solid #ddd;
