@@ -33,10 +33,12 @@ class App.PageView extends Backbone.View
     'swipe .item a.link': 'silent'
     'orientationchange': 'changeOrientation'
 
-  itemTemplate: Mustache.compile('
+  itemTemplate: Mustache.compile(
+    '
     <a class="link" href="/products/{{ handle }}">
-    <div class="image" style="background-image: url(http://deyf8doogqx67.cloudfront.net{{ cdn_image_url }}); background-size: cover; background-position: center; height: 100%;">
-    </div>
+      <div class="image cover" data-style="background-image: url(http://deyf8doogqx67.cloudfront.net{{ cdn_image_url }}); background-size: cover; background-position: center; height: 100%;">
+        <img src="http://deyf8doogqx67.cloudfront.net{{ cdn_image_url }}">
+      </div>
     </a>
     
     <div class="info">
@@ -45,8 +47,9 @@ class App.PageView extends Backbone.View
       </a>
       <p class="">{{ description }}</p>
     </div>
-
-  ')
+    '
+  
+  )
   
   @templateIndex = -1
   @order = []
@@ -82,7 +85,9 @@ class App.PageView extends Backbone.View
     @offset = null
     
     @items = []
-    @page = $(App.PageView.getTemplate(data))
+    @fragment = $('#temp').html(App.PageView.getTemplate(data)).css('visibility', 'hidden')
+    
+    @page = $(@fragment.children().first())
     @limit = @page.find('.item').length
     @isMobile = data.isMobile
     
@@ -117,13 +122,14 @@ class App.PageView extends Backbone.View
     nodes = @page.find(".item")
     
     @items.forEach (item, index)=>
-      nodes[index].innerHTML = @itemTemplate(item)
+      node = $(nodes[index])
+      node[0].innerHTML = @itemTemplate(item)
       # node.innerHTML = @itemTemplate(item)
 
       # node.append(@itemTemplate(item))
         
       ##### HACK HACK HACK
-      if item.tags_array.join(',').match(/shoe/i) && node.parent().not('.col.half')
+      if item.tags_array.join(',').match(/shoe/i) && $(node).parent().not('.col.half')
         # node.find('.image.cover').addClass('bottom')
         node.find('.image').addClass('bottom')
       # Temporary item template
@@ -131,6 +137,8 @@ class App.PageView extends Backbone.View
       # node.html(tpl)
     
     this.setElement(@page)
+
+    # @page.css('visibility', 'visible')
     
     # this.$(".split p").each (p)-> $clamp(this, {clamp: 3})
     
@@ -170,10 +178,12 @@ class App.PageView extends Backbone.View
     #COMPLETELY UNBIND THE VIEW
     
     # Free up memory from images
-    # this.$('img').each ->
-    #   $(this).attr('src', '/images/blank.gif')
+    this.$('img').each ->
+      $(this).attr('src', '/images/blank.gif')
+    # 
     # this.$('.image').each ->
-    #   $(this).css('background-image', 'none')
+    #   this.style.backgroundImage = 'none'
+      # $(this).css('background-image', 'none')
       
     this.undelegateEvents()
 
@@ -181,4 +191,8 @@ class App.PageView extends Backbone.View
 
     #Remove view from DOM
     this.remove()
-    Backbone.View.prototype.remove.call(this)
+    $(this.el).empty()
+
+    $(this.el).remove()
+    
+    # Backbone.View.prototype.remove.call(this)

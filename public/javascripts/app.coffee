@@ -18,16 +18,16 @@ this.App ||= {
 
   setLayout: (dimension)->
     $('#touch-layout').remove()
-    toolbar = { height:  $('nav.toolbar').height() }
+    toolbar = { height:  $('header.toolbar').height() }
     
     css = "
       .page { 
         width: #{dimension.width}px;
-        height: #{dimension.height}px;
+        height: #{dimension.height - toolbar.height}px;
       }\n
 
-      div[role=main] {
-      margin-top: #{toolbar.height}px !important;
+      .back-pages {
+        margin-top: #{toolbar.height}px !important;
       }"
     
     style = document.createElement('style')

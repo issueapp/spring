@@ -51,13 +51,15 @@ class App.StreamView extends Backbone.View
     $(@el).on "swipeLeft", =>
       @changedDir = @direction != "right"
       @direction = "right"
-    
+      $(@el).attr('data-direction', @direction)
+      
     $(@el).on "swipeRight", =>
       @changedDir = @direction != "left"
       @direction = "left"
-
+      $(@el).attr('data-direction', @direction)
+      
     loading = false
-    
+
     # Switched page
     #  event.page = non zero page index
     $(@el).on "scrollability-page", (event, a, b)=>
@@ -80,8 +82,10 @@ class App.StreamView extends Backbone.View
         
         target.active()
         
-        $(target.el).next().addClass('next') if $(target.el).next()
-        
+        $(target.el).next().addClass('next')
+        $(target.el).prev().addClass('prev')
+        $(@el).removeClass('swiping')
+
         loading = false
         
       this.renderInfo()
@@ -222,8 +226,9 @@ class App.StreamView extends Backbone.View
     target = this.lastPage()
     offset = target && target.offset || 0
     page = new App.PageView(method: 'append', stream: this)
-    
+
     @collection.fill(page, offset)
+    console.log("renderPage", page)
     
     return if page.items.length == 0
 
@@ -234,6 +239,7 @@ class App.StreamView extends Backbone.View
       # Render
       # maintain index
       @currentIndex = @currentIndex - 1
+
       this.renderPage(page, 'append') 
     
     page
@@ -250,8 +256,10 @@ class App.StreamView extends Backbone.View
       page = @pages.pop()
       page.destroy()
       paddingPages -= 1
+
+    page = null
   
-    @padding.data('pages', paddingPages)
+    @padding.attr('data-pages', paddingPages)
     
     # @padding.width( paddingPages * @scroller.viewport )
     @padding[0].style.width = paddingPages * @scroller.viewport
@@ -268,16 +276,18 @@ class App.StreamView extends Backbone.View
     
     if method == 'prepend'
       # $(@el).prepend( node )
-      
-      @padding.after(node)
+
+      container = @padding.after('<div class="page rotatable"></div>').next()
       pos = -pos
     else
-      $(@el).append( node )
+      container = $(@el).append('<div class="page rotatable"></div>').children().last()
     
-    # setTimeout =>
-    #   node.css('visibility', 'visible')
-    # , 500
-    
+    setTimeout =>
+      container[0].parentNode.replaceChild(node[0], container[0])
+      node.css('visibility', 'visible')
+      node[0].className = container[0].className
+    , 300
+    # 
     # this.updatePos(pos) if reposition
     
     $(node).attr('data-offset', page.offset)
