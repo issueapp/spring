@@ -1,0 +1,8 @@
+a {
+  color: #4a90a6;
+  text-decoration: none;
+  
+  &:visited {
+    color: $text_color;
+  }
+}

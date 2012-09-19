@@ -21,11 +21,10 @@ $text_color: #333;
 
 
 // 2. TYPOGRAPHY 			==============================
-
+@import 'typography';
 
 // 3. LAYOUT     			==============================
 @import 'layout';
-
 
 // 4. UI         			==============================
 @import 'ui';
@@ -42,9 +41,6 @@ $text_color: #333;
 @media only screen and (min-width: 768px) {
   @import "768";
 }
-
-
-
 
 /*
     Utility
