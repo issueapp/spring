@@ -1,6 +1,4 @@
 @charset "UTF-8";
- 
-
 /*
     Layout and rendering
     ---
@@ -8,59 +6,9 @@
 
     Default style for 320px
     
-    Grid system
+    Structure (menu/main)
+    Grid (row/col)
 */
-@import 'h5bp';
-@import 'compass';
-
-
-html{
-  -webkit-font-smoothing: antialiased;
-}
-
-body {
-//  min-width: 320px;
-}
-
-div.container {
-  background: #ffc; margin:0 auto; overflow:hidden; width:96%;
-}
-
-/*
-    Item
-    
-    define layout and positioning of a rendering unit
-        
-*/
-.item {
-  position: relative;
-  
-  background: #fff;
-//  border: 1px solid #ccc;
-  
-  float: left; 
-  margin: 0 1% 2% 0;
-  overflow: hidden;
-  width: 100%;
-  
-//  padding: 20px;
-  padding: 0;
-  
-  @include box-sizing(border-box);
-	
-//  @include box-shadow(#ccc, 1px 1px 2px);
-//  border: 1px solid #eee;
-//  border-width: 0 1px 1px 0;
-	
-	.info {
-	  @include box-sizing(border-box);
-	  
-	  position: absolute;
-    bottom: 0;
-    
-	  display: inline-block;
-	}
-}
 
 .col {
   position: relative;
@@ -72,20 +20,11 @@ div.container {
   float: left; 
   margin: 0 1% 0 0;
   overflow: hidden;
-//  height: 200px;
   
-  .item {
-    height: 100%;
-  }
-  
+  // TODO: why here
   .item:last-child {
     margin-bottom: 0;
   }
-  
-  /* Backgorund hinting mode */
-//  .hint & {
-//    background: #cff;
-//  }
 }
 
 .row {
@@ -114,19 +53,6 @@ div.container {
 	}
 	&.v-third-2 { height: 66% }
 	
-  .page & > .item {
-    height: 100%;
-  }
-
-}
-
-.page {
-  margin: 55px 1% 0px 1%;
-  max-height: 100%;
-  
-  .row:last-child {
-    margin-bottom: 0;
-  }
 }
 
 .col, .item {
@@ -151,71 +77,23 @@ div.container {
 	}
 }
 
-
-// 768px
-@media only screen and (min-width: 768px) {
-  @import "768";
-}
-
-// 992px
-@media only screen and (min-width: 992px) {
-  @import "992";
-}
-
-// 1382px
-@media only screen and (min-width: 1382px) {
-  @import "1382";
-}
-
 /* iPads (landscape) ----------- */
-@media only screen 
-and (min-device-width : 768px) 
-and (max-device-width : 1024px) 
-and (orientation : landscape) {
-  @import "landscape"
-}
+//@media only screen 
+//and (min-device-width : 768px) 
+//and (max-device-width : 1024px) 
+//and (orientation : landscape) {
+//  @import "landscape"
+//}
 
 /* iPads (portrait) ----------- */
-@media only screen 
-and (min-device-width : 768px) 
-and (max-device-width : 1024px) 
-and (orientation : portrait) {
-  @import "portrait"
-}
+//@media only screen 
+//and (min-device-width : 768px) 
+//and (max-device-width : 1024px) 
+//and (orientation : portrait) {
+//  @import "portrait"
+//}
 
 // Alternatives
 //@media all and (orientation:portrait) {}
 //
 //@media all and (orientation:landscape) {}
-
-
-/*
-    Utility
-*/
-
-.ipad {
-  height: 1024px;
-  width: 768px;
-  
-  &.landscape {
-    width: 1024px;
-    height: 768px;
-  }
-}
-
-.iphone {
-  width: 320px;
-  height: 480px;
-  
-  &.landscape {
-    height: 480px;
-    weight: 320px;
-  }
-}
-
-.grid-item .item {
-  height: 40px;
-}
-
-
-

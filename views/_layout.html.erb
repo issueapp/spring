@@ -9,8 +9,8 @@
   
   
     <link rel="stylesheet" href="http://shop2.com/assets/components/_button.css">
-    <link rel="stylesheet" href="/stylesheets/layout.css"/>
-    <link rel="stylesheet" href="/stylesheets/site.css"/>
+    <link rel="stylesheet" href="/stylesheets/application.css"/>
+
     <link rel="stylesheet" href="/stylesheets/font-awesome.css"/>
 
     <link rel="shortcut icon" href="/favicon.ico">
@@ -19,10 +19,18 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     
-    
     <style>
       html, body {
         overflow: hidden;
+      }
+
+      body {
+        position: relative;
+        margin-left: -150px;
+      }
+      
+      body.expand-menu {
+        margin-left: 0;
       }
 
       [role=main] {
@@ -76,7 +84,7 @@
     /*    display: inline-block;*/
         overflow: hidden;
       }
-
+      
       .page {
         position: relative;
         display: inline-block;
@@ -89,15 +97,10 @@
 
         border: 1px solid #fff;
       }
-
-      .page .image {
-        opacity: 0.999;
-      }
-
+      
       .page.padding {
         width: 0;
       }
-
       /* sign up form */
       #signup {
         display: none;
@@ -111,18 +114,47 @@
       }
       /* iphone */
 
+
+      /* Vertical scroll */
+      
+      .vertical-scroll {
+        /* IPHONE toolbar hack: height: 104%; */
+        
+        overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;
+      }
+      
     </style>
   </head>
   <body>
 
-    <nav id="menu"></nav>
+    <nav id="menu" style="position:absolute;top:0;left:0;width:150px;background:black;color:white;height:100%;z-index:1">
+      <ul>
+        <li><a href="#">Logo</a></li>
+        <li><a href="/stream">Stream</a></li>
+        <li><a href="/taylorluk/favourites">Favourites</a></li>
+        
+        <!-- Category -->
+        <li><a href="#">Men's</a></li>
+        <li><a href="">Women's</a></li>
+        <li><a href="#">Tech</a></li>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Media</a></li>
+        <li><a href="#">Art &amp; design</a></li>
+        
+      </ul>
+    </nav>
     
-    <div role="main">
+    <div role="main" style="margin-left:150px">
       
       <div id="sections">
-        <header class="toolbar"></header>
+        <header class="toolbar">
+          <a class="icon-reorder button" onclick="$(document.body).toggleClass('expand-menu'); return false"> </a>
+          <h1>TOP CONTENT</h1>
+        </header>
         <div class="pages scrollable paginated"></div>
       </div>
+      
       
       <div id="content">
         <header class="toolbar"></header>
@@ -130,6 +162,9 @@
       </div>
       
     </div>
+    
+    
+    <div id="temp" style="position:absolute; visibility:hidden"></div>
   </body>
   
   <%= render '/templates/all' %>

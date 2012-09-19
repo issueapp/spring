@@ -48,7 +48,7 @@ a:visited {
 }
 
 /* line 55, ../../stylesheets/site.scss */
-nav[role=navigation] {
+header.toolbar {
   position: relative;
   height: 44px;
   background: #F4F8F9;
@@ -60,13 +60,13 @@ nav[role=navigation] {
   box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 3px;
 }
 /* line 65, ../../stylesheets/site.scss */
-nav[role=navigation] a:first-child {
+header.toolbar a:first-child {
   position: absolute;
   top: 7px;
   left: 1%;
 }
 /* line 71, ../../stylesheets/site.scss */
-nav[role=navigation] > h1 {
+header.toolbar > h1 {
   text-align: center;
   vertical-align: middle;
   line-height: 44px;
@@ -81,14 +81,14 @@ nav[role=navigation] > h1 {
   overflow: hidden;
 }
 /* line 86, ../../stylesheets/site.scss */
-nav[role=navigation] a:last-child {
+header.toolbar a:last-child {
   font-family: "Helvetica";
   position: absolute;
   top: 7px;
   right: 1%;
 }
 /* line 93, ../../stylesheets/site.scss */
-nav[role=navigation] div.actions {
+header.toolbar div.actions {
   position: absolute;
   top: 11px;
   right: 20px;
@@ -96,7 +96,7 @@ nav[role=navigation] div.actions {
   letter-spacing: 0.2em;
 }
 /* line 101, ../../stylesheets/site.scss */
-nav[role=navigation] .icon-reorder {
+header.toolbar .icon-reorder {
   line-height: 31px;
 }
 
@@ -151,100 +151,14 @@ input[type=text]:focus, input[type=password]:focus, textarea:focus {
   box-shadow: #39f 0px 0px 10px 0px;
 }
 
-/*  
-
-      Product Styles    
-
-*/
-/* line 164, ../../stylesheets/site.scss */
-.product .link {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  cursor: pointer;
-  color: #222;
-  display: block;
-}
-/* line 172, ../../stylesheets/site.scss */
-.product .info {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  width: 100%;
-  vertical-align: top;
-  background: white;
-  padding: 0.5em 3% 0.5em;
-  height: 35px;
-}
-/* line 181, ../../stylesheets/site.scss */
-.product .title {
-  position: relative;
-  font-family: "Helvetica Neue";
-  letter-spacing: -1px;
-  font-size: 1.2em;
-  margin: 0 0 0.5em;
-  width: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-/* line 195, ../../stylesheets/site.scss */
-.product .info p {
-  visibility: hidden;
-  margin: 0;
-  font-size: 0.75em;
-  color: #666;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-/* line 205, ../../stylesheets/site.scss */
-.product .counters {
-  color: #DF5454;
-  font-size: 14px;
-  position: absolute;
-  top: 2%;
-  right: 6%;
-  z-index: 1;
-  line-height: 12px;
-}
-
-/*
-    Product split view
-*/
-/* line 219, ../../stylesheets/site.scss */
-.product.split {
-  position: relative;
-}
-/* line 222, ../../stylesheets/site.scss */
-.product.split .image {
-  float: left;
-  width: 49%;
-}
-/* line 227, ../../stylesheets/site.scss */
-.product.split .info {
-  margin: 0;
-  width: 49%;
-  height: auto;
-  vertical-align: middle;
-  padding: 15% 2% 0;
-  position: relative;
-}
-/* line 235, ../../stylesheets/site.scss */
-.product.split .info > p {
-  visibility: visible;
-  white-space: normal;
-  text-overflow: ellipsis;
-}
-
-/* line 243, ../../stylesheets/site.scss */
+/* line 159, ../../stylesheets/site.scss */
 .stream-header {
   border-bottom: 1px solid #ddd;
   text-align: center;
   margin: 20px 10px;
   height: 0px;
 }
-/* line 248, ../../stylesheets/site.scss */
+/* line 164, ../../stylesheets/site.scss */
 .stream-header > span {
   position: relative;
   font-family: serif;
@@ -260,7 +174,7 @@ input[type=text]:focus, input[type=password]:focus, textarea:focus {
 /*
     Homepage
 */
-/* line 264, ../../stylesheets/site.scss */
+/* line 180, ../../stylesheets/site.scss */
 #hero {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -271,7 +185,7 @@ input[type=text]:focus, input[type=password]:focus, textarea:focus {
   background: #fff;
 }
 
-/* line 272, ../../stylesheets/site.scss */
+/* line 188, ../../stylesheets/site.scss */
 #trending {
   margin-top: 30px;
 }
@@ -279,32 +193,32 @@ input[type=text]:focus, input[type=password]:focus, textarea:focus {
 /*
     Signup Page
 */
-/* line 281, ../../stylesheets/site.scss */
+/* line 197, ../../stylesheets/site.scss */
 input.email {
   width: 220px;
 }
 
-/* line 285, ../../stylesheets/site.scss */
+/* line 201, ../../stylesheets/site.scss */
 form.signup {
   margin: 0 auto;
   max-width: 420px;
   text-align: center;
 }
-/* line 290, ../../stylesheets/site.scss */
+/* line 206, ../../stylesheets/site.scss */
 form.signup .full {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   width: 100%;
 }
-/* line 295, ../../stylesheets/site.scss */
+/* line 211, ../../stylesheets/site.scss */
 form.signup input[type=text] {
   padding: 0.5em;
   margin-bottom: 10px;
   width: 100%;
 }
 
-/* line 304, ../../stylesheets/site.scss */
+/* line 220, ../../stylesheets/site.scss */
 .pagination {
   display: none;
 }
@@ -312,24 +226,24 @@ form.signup input[type=text] {
 /*
   Product Detail Page
 */
-/* line 313, ../../stylesheets/site.scss */
+/* line 229, ../../stylesheets/site.scss */
 article.product .info {
   top: 0px;
   height: 100%;
 }
-/* line 317, ../../stylesheets/site.scss */
+/* line 233, ../../stylesheets/site.scss */
 article.product .info p {
   visibility: visible;
   white-space: initial;
   text-overflow: initial;
   margin-bottom: 1em;
 }
-/* line 324, ../../stylesheets/site.scss */
+/* line 240, ../../stylesheets/site.scss */
 article.product .info .price {
   visibility: visible;
   font-size: 1.5em;
 }
-/* line 330, ../../stylesheets/site.scss */
+/* line 246, ../../stylesheets/site.scss */
 article.product .info .button {
   margin: 0 0em 2em 0em;
 }
