@@ -29,6 +29,33 @@
 	}
 }
 
+
+
+.cover {
+  position:relative;
+  height: 200%; 
+  width: 200%;
+  top: -50%;
+  left: -50%;
+}
+
+.cover img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  min-width: 51%;
+  min-height: 50%;
+}
+
+
+.image.bottom {
+/*    top: -90%;*/
+  background-position: bottom !important;
+}
+  
 /*  
 
       Product Styles    
@@ -103,8 +130,8 @@
     vertical-align: middle;
 
     img {
-      width: 150%;
-      left: -25%;
+//      width: 150%;
+//      left: -25%;
       // height: 100%;
     }
   }
