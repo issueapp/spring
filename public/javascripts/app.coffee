@@ -11,24 +11,36 @@ this.App ||= {
   ]
   
   init: ->
+    this.layout = new App.Layout
+
     this.router = new App.Router
     console.log "Router starting", Backbone.history.start({pushState: true, root: "/ipad/"})
-    # this.isMobile()
-    this.setLayout height: window.innerHeight, width: window.innerWidth, device: "ipad"
-
-  setLayout: (dimension)->
-    $('#touch-layout').remove()
-    toolbar = { height:  $('header.toolbar').height() }
     
+}
+
+class App.Layout extends Backbone.View
+  
+  initialize: ->
+    this.resize()
+    
+    $(window).on "orientationchange", => this.resize()
+    $(window).on "resize", => this.resize()
+  
+  resize: ->
+    dimension = {
+      width: window.innerWidth
+      height: window.innerHeight
+    }
+    
+    @viewport = $('#sections').width()
+    toolbar = { height:  $('header.toolbar').height() }
+
     css = "
       .page { 
         width: #{dimension.width}px;
         height: #{dimension.height - toolbar.height}px;
       }\n
-
-      .back-pages {
-        margin-top: #{toolbar.height}px !important;
-      }"
+      "
     
     style = document.createElement('style')
     style.type = 'text/css'
@@ -39,8 +51,14 @@ this.App ||= {
     else
       style.appendChild(document.createTextNode(css));
     
+    # Remove and reset the style
+    $('#touch-layout').remove()
     $(document.body).append(style)
-}
+
+    # main view
+    if App.streamView
+      App.streamView.onResize()
+    
 
 class App.Router extends Backbone.Router
   routes:
@@ -58,7 +76,7 @@ class App.Router extends Backbone.Router
       App.listView ||= new App.ListView({ el: '#sections .pages', collection: App.stream })
     else
       pages.addClass('horizontal')
-      App.streamView ||= new App.StreamView({ el: '#sections .pages', collection: App.stream })
+      App.streamView ||= new App.StreamView({ el: '#sections .pages', layout: App.layout, collection: App.stream })
     
     if App.contentView
       $(App.streamView.el).animate({ opacity: 1}, 150)

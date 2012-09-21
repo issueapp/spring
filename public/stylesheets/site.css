@@ -127,35 +127,7 @@ input[type=text]:focus, input[type=password]:focus, textarea:focus {
   margin-top: 30px;
 }
 
-/*
-    Signup Page
-*/
-/* line 137, ../../stylesheets/site.scss */
-input.email {
-  width: 220px;
-}
-
-/* line 141, ../../stylesheets/site.scss */
-form.signup {
-  margin: 0 auto;
-  max-width: 420px;
-  text-align: center;
-}
-/* line 146, ../../stylesheets/site.scss */
-form.signup .full {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  width: 100%;
-}
-/* line 151, ../../stylesheets/site.scss */
-form.signup input[type=text] {
-  padding: 0.5em;
-  margin-bottom: 10px;
-  width: 100%;
-}
-
-/* line 159, ../../stylesheets/site.scss */
+/* line 134, ../../stylesheets/site.scss */
 .pagination {
   display: none;
 }
@@ -163,24 +135,24 @@ form.signup input[type=text] {
 /*
   Product Detail Page
 */
-/* line 168, ../../stylesheets/site.scss */
+/* line 143, ../../stylesheets/site.scss */
 article.product .info {
   top: 0px;
   height: 100%;
 }
-/* line 172, ../../stylesheets/site.scss */
+/* line 147, ../../stylesheets/site.scss */
 article.product .info p {
   visibility: visible;
   white-space: initial;
   text-overflow: initial;
   margin-bottom: 1em;
 }
-/* line 179, ../../stylesheets/site.scss */
+/* line 154, ../../stylesheets/site.scss */
 article.product .info .price {
   visibility: visible;
   font-size: 1.5em;
 }
-/* line 185, ../../stylesheets/site.scss */
+/* line 160, ../../stylesheets/site.scss */
 article.product .info .button {
   margin: 0 0em 2em 0em;
 }
