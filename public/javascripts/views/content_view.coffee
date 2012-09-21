@@ -19,17 +19,23 @@
 ###
 class App.ContentView extends Backbone.View
   # Uses product template.
-  el: "article.page"
+  # el: "article.page"
+  el: "#content .pages"
   
   template: Mustache.compile($('#product_tpl').html())
   
-  # events:
-  #   'click .item a.link': 'viewContent'
-  #   'orientationchange': 'changeOrientation'
+  events:
+    'swipeLeft': 'viewNext'
+  
   initialize: ->
     @toolbar = new App.Toolbar
+    @padding = $(@el).find('.page.padding')
+    
+    if @padding.size() == 0
+      $('<div class="page padding" style="visibility:hidden;width:0;padding:0;width: 0px; border:0;font-size:0">').appendTo(@el)
     
   render: ->
+    # console.log 'content_view', @model
     @toolbar.title = @model.get('title')
     @toolbar.backBtn = true
     $(@toolbar.el).append($('<div class="actions">
@@ -41,17 +47,27 @@ class App.ContentView extends Backbone.View
     source = @template(@model.toJSON())
     this.setElement( $(source) )
     
-    
     $(@el).css('opacity', "0")
     
-    $('#content').append( @el )    
-    
-    # $(@el).hide()
+    $('#content .pages').append( @el )
     
     @toolbar.render()
+    
     $(@el).animate({ opacity: 1 }, 150)
     
-  # viewContent: ->
-  #   
-  # changeOrientation: ->
+  viewNext: (e)->
+    target = this.next()
+    if target
+      console.log 'content', target
+      
+    e.preventDefault()
+    
+  next: ->
+    content = App.stream.find (item)=> item.cid == "c" + (parseInt(@model.cid.match(/\d+$/)[0]) + 1)
+    
+    if content
+      App.contentView = new App.ContentView( model: content )
+      App.contentView.render()
+    
+    content
     

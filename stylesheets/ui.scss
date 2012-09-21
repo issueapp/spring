@@ -12,10 +12,17 @@ header.toolbar {
   z-index: 2;
   @include box-shadow(rgba(0,0,0, 0.3) 0px 1px 3px);
 
-  a:first-child {
+  a.button {
     position: absolute;
     top: 7px;
-    left: 1%;
+    &.icon-reorder {
+      left: 10px;
+    }
+    
+    &.back {
+      left: 42px;
+    }
+    
   }
   
   & > h1 {
@@ -36,7 +43,6 @@ header.toolbar {
   a:last-child {
     font-family: "Helvetica";
     position: absolute;
-    top: 7px;
     right: 1%;
   }
   
