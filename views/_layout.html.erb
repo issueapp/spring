@@ -57,10 +57,31 @@
         position: absolute;
         white-space: nowrap;
       }
+      
+      .animate {
+        -webkit-transition: all .3s ease-out;
+        -moz-transition: all .3s ease-out;
+        -o-transition: all .3s ease-out;
+        -ms-transition: all .3s ease-out;
+        transition: all .3s ease-out;
+      }
+      
+      .swiping {
+        -webkit-transition: all .15s ease-out;
+        -moz-transition: all .15s ease-out;
+        -o-transition: all .15s ease-out;
+        -ms-transition: all .15s ease-out;
+        transition: all .15s ease-out;
+      }
+
 
       .scrollable {
     /*    display: inline-block;*/
         overflow: hidden;
+      }
+      
+      .pages {
+        transform: translate3d(0,0,0);
       }
       
       .page {
@@ -74,6 +95,15 @@
         overflow: hidden;
 
         border: 1px solid #fff;
+      }
+      
+      .page.current {
+        visibility: visible;
+      }
+      
+      .page {
+        transform: translate3d(0,0,0);
+        -webkit-transform:translate3d(0,0,0);
       }
       
       .page.padding {
@@ -124,10 +154,10 @@
       
       <div id="sections">
         <header class="toolbar">
-          <a class="icon-reorder button" onclick="$(document.body).toggleClass('expand-menu'); return false"> </a>
+          <a class="icon-reorder button" ontouchstart="$(document.body).toggleClass('expand-menu'); return false"> </a>
           <h1>TOP CONTENT</h1>
         </header>
-        <div class="pages scrollable paginated"></div>
+        <div class="pages paginated"></div>
       </div>
       
       
