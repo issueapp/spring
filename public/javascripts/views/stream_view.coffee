@@ -30,8 +30,6 @@ class App.StreamView extends Backbone.View
   # events:
   #   'scrollability-page': 'onPageChange'
   #   'scrollability-end': 'onScrollEnd'
-  events:
-    'orientationchange': 'changeOrientation'
     
   initialize: (data)->
     @title = "TOP CONTENT"
@@ -40,26 +38,28 @@ class App.StreamView extends Backbone.View
     @direction ||= "right"
     @pages = []
     @limit = 3
+    @layout = data.layout
+    @transition = false
+    @offset = 0
+    
     # @container = $(@el)[0]
-    # @scroller = this.getScroller()
+
     @padding = $('<div class="page padding" style="visibility:hidden;width:0;padding:0;width: 0px; border:0;font-size:0">').appendTo(@el)
     @toolbar = new App.Toolbar
     
     # Render stream once data is loaded
     @collection.on("reset", this.render)
     
-    $(@el).on "swipeLeft", =>
-      @changedDir = @direction != "right"
-      @direction = "right"
-      $(@el).attr('data-direction', @direction)
+    # $(@el).on "swipeLeft", =>
+    #   # @changedDir = @direction != "right"
+    #   @direction = "right"
+    #   # $(@el).attr('data-direction', @direction)
+    #   
+    # $(@el).on "swipeRight", =>
+    #   # @changedDir = @direction != "left"
+    #   @direction = "left"
+    #   # $(@el).attr('data-direction', @direction)
       
-    $(@el).on "swipeRight", =>
-      @changedDir = @direction != "left"
-      @direction = "left"
-      $(@el).attr('data-direction', @direction)
-      
-    loading = false
-
     # Switched page
     #  event.page = non zero page index
     $(@el).on "scrollability-page", (event, a, b)=>
@@ -102,10 +102,68 @@ class App.StreamView extends Backbone.View
     #     prevNext = this.prependPage()
     #     this.clearPage('prepend')
     #     @fetchPage = false
- 
+
+    # Prevent browser from
+    
+    startClientX  = currentClientX = 0
+    
+    $(@el).on "touchstart", (e)=> 
+      if e.touches
+        e = e.touches[0]
+      
+      startClientX = e.clientX
+      $(@el).removeClass('animate').addClass('swiping')
+      
+    $(@el).on "touchmove", (e)=>
+      e.preventDefault()
+      
+      if e.touches
+        e = e.touches[0]
+
+      delta = e.clientX - startClientX
+      moveDelta = Math.abs(e.clientX - currentClientX)
+      
+      return if currentClientX > 0 && moveDelta < 25
+
+      @el.style.webkitTransform = 'translate3d(' + (@offset + delta * 1.1) + 'px,0,0)'
+      currentClientX = e.clientX
+
+    # Mark trasition has ended
+    $(@el).on $.fx.transitionEnd, => @transition = false
+
+    $(@el).on "swipeLeft", (e)=>
+      # return if @transition
+      target = this.next()
+
+      if target      
+        $(@el).removeClass('swiping').addClass('animate').css('transform', '')
+        
+        this.updatePos(- @layout.viewport)
+        
+        $(@el).find('.page').removeClass('current')
+        
+        $(target.el).addClass('current')
+      
+      e.preventDefault()
+
+    $(@el).on "swipeRight", (e)=>
+      # return if @transition
+
+      target = this.prev()
+
+      if target
+        $(@el).removeClass('swiping').addClass('animate').css('transform', '')
+
+        this.updatePos( @layout.viewport)
+        
+        $(@el).find('.page').removeClass('current')
+        $(target.el).addClass('current')
+
+      e.preventDefault()
+
     $(document).on 'keydown', (e)=>
       key = e.which || e.keyCode
-      pos = @scroller.viewport
+      pos = @layout.viewport
       
       if key == 39 
         @changedDir = @direction != "right"
@@ -121,15 +179,31 @@ class App.StreamView extends Backbone.View
       # Add current class
         
       if target
+        
+        if @transition
+          $(@el).removeClass('animate')
+        else
+          $(@el).addClass('animate').css('transform', '')
+        
         this.updatePos(pos)
         
         $(@el).find('.page').removeClass('current')
         $(target.el).addClass('current')
-
+    
       this.renderInfo()
-
-  changeOrientation: (e)->
-    @padding.width()
+      
+  onResize: ->
+    paddings = parseInt(this.$('.padding').data('pages')) || 0
+    
+    $(@el).removeClass('animate')
+    
+    this.$('.item img').addClass('animate')
+    
+    if @offset != 0
+      @offset = -(paddings + 1) * App.layout.viewport
+    
+    this.updatePos(0)
+    this.updatePadding()
 
   # onPageChange: (event) =>
   #   console.log("Switched Page: #{event.page}")
@@ -187,16 +261,22 @@ class App.StreamView extends Backbone.View
 
   # When we insert and remove pages, the rendering offset 
   updatePos: (offset)->
-    scroller = this.getScroller()
-    pos = scroller.position
+    node = @el
 
-    animation = scroller.node.style.webKitAnimation 
-    scroller.node.style.removeProperty('-webkit-animation')
-    # scroller.node.style.webKitAnimation = ''
-    # scroller.node.style.webkitAnimationPlayState  =''
-    scroller.node.style.webkitTransform = scroller.update(pos + offset)
-    scroller.node.style.webKitAnimation = animation
+    # Necessary to pause animation in order to get correct transform value
+    # console.log(node.style.webkitAnimation)
+    console.log(node.style)
+    
 
+    @offset = Math.round(@offset + offset)
+    
+    if @offset <= 0
+      node.style.webkitTransform = 'translate3d(' + @offset + 'px, 0, 0)'
+      # $(@el).css('-webkit-transform', 'translate3d(' + @offset + 'px,0,0)')
+
+    # Mark transition started
+    @transition = true
+    
   prependPage: (render)->
     render ?= true
     first = this.firstPage()
@@ -261,10 +341,17 @@ class App.StreamView extends Backbone.View
   
     @padding.attr('data-pages', paddingPages)
     
-    # @padding.width( paddingPages * @scroller.viewport )
-    @padding[0].style.width = paddingPages * @scroller.viewport
-    # @padding.width( @padding.width() + scroller.viewport )    
     
+    this.updatePadding(paddingPages)
+    # @padding.width( paddingPages * @scroller.viewport )
+    # @padding[0].style.width = paddingPages * @scroller.viewport
+    # @padding.width( @padding.width() + scroller.viewport )    
+  
+  updatePadding: (pages)->
+    pages ||= parseInt(this.$('.padding').data('pages') || 0)
+    
+    @padding[0].style.width = pages * @layout.viewport
+  
   renderPage: (page, method, reposition)->
     reposition ?= true
     method ?= 'append'
@@ -284,9 +371,8 @@ class App.StreamView extends Backbone.View
     
     setTimeout =>
       container[0].parentNode.replaceChild(node[0], container[0])
-      node.css('visibility', 'visible')
       node[0].className = container[0].className
-    , 300
+    , 200
     # 
     # this.updatePos(pos) if reposition
     

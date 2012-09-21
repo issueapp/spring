@@ -130,31 +130,6 @@ input[type=text], input[type=password], textarea {
 }
 
 
-/*
-    Signup Page
-*/
-
-input.email {
-  width: 220px
-}
-
-form.signup {
-  margin: 0 auto;
-  max-width: 420px;
-  text-align: center;
-  
-  .full {
-    @include box-sizing(border-box);
-    width: 100%;
-  }
-  
-  input[type=text] {
-    padding: 0.5em;
-    margin-bottom: 10px;
-    width: 100%;
-  }
-}
-
 // Pagination
 .pagination {
   display: none;
