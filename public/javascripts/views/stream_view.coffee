@@ -308,7 +308,7 @@ class App.StreamView extends Backbone.View
     page = new App.PageView(method: 'append', stream: this)
 
     @collection.fill(page, offset)
-    console.log("renderPage", page)
+    # console.log("renderPage", page)
     
     return if page.items.length == 0
 
