@@ -1,9 +1,9 @@
 class App.Toolbar extends Backbone.View
-  el: "nav.toolbar"
+  el: "header.toolbar"
   
   events:
-    'click a.signup': 'signup'
-    'click a.back-home': 'backHome'
+    'ontouchstart a.signup': 'signup'
+    'ontouchstart a.back-home': 'backHome'
   
   render: ->
     titleTag = this.$('h1').html(@title)
