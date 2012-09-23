@@ -52,7 +52,7 @@ class App.SwipeView extends Backbone.View
     @currentPage = this.$('.current').eq(0)
     if @currentPage.length == 0
       @currentPage = $(@el).children(":not(.padding)").first().addClass('current')
-    
+      
     # Set padding
     @padding = $('<div class="page padding" style="visibility:hidden;width:0;padding:0;width: 0px; border:0;font-size:0">')
 
@@ -134,7 +134,7 @@ class App.SwipeView extends Backbone.View
     index = this.$('.page:not(.padding)').indexOf( this.$('.current')[0] )
     buffered = this.$(".page:not(.padding)")[index + step]
     
-    console.log(buffered)
+    console.log('buffered', buffered)
     
     unless buffered
       console.log("trigger: buffer:#{dir}")

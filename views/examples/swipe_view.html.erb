@@ -116,7 +116,7 @@
   }
   
   
-  $('.swipe-paging').append('<div class="page k4">'+ createPage(+1)+'</div>')
+  $('.swipe-paging').append('<div class="page">'+ createPage(+1)+'</div>')
   $('.swipe-paging').append('<div class="page next loading">Loading...</div>')
   
   view = new App.SwipeView
@@ -145,7 +145,7 @@
     var page = createPage(+1)
 
     if (page)
-      $(view.el).append('<div class="page k6">' + page + '</div>')
+      $(view.el).append('<div class="page">' + page + '</div>')
 
   })
   
@@ -154,7 +154,7 @@
     var page = createPage(-1)
     
     if (page)
-      view.padding.after('<div class="page k8">' + page + '</div>')
+      view.padding.after('<div class="page">' + page + '</div>')
   })
 </script>
 <% end %>
