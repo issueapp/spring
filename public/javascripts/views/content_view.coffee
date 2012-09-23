@@ -18,56 +18,64 @@
       div.row [ 3 ]
 ###
 class App.ContentView extends Backbone.View
-  # Uses product template.
-  # el: "article.page"
   el: "#content .pages"
   
   template: Mustache.compile($('#product_tpl').html())
   
-  events:
-    'swipeLeft': 'viewNext'
-  
   initialize: ->
     @toolbar = new App.Toolbar
-    @padding = $(@el).find('.page.padding')
+    this.render()
+    $('#content .pages').append('<article class="page loading">Loading...</article>')
     
-    if @padding.size() == 0
-      $('<div class="page padding" style="visibility:hidden;width:0;padding:0;width: 0px; border:0;font-size:0">').appendTo(@el)
+    @view = new App.SwipeView
+    @view.on('fetch:next', this.viewNext)
+    # @view.on('buffer:next', this.bufferNext)
     
-  render: ->
-    # console.log 'content_view', @model
-    @toolbar.title = @model.get('title')
-    @toolbar.backBtn = true
-    $(@toolbar.el).append($('<div class="actions">
-      <i class="icon-heart"></i>
-      <i class="icon-plus"></i>
-      <i class="icon-share-alt"></i>    
-    </div>'))
-    
-    source = @template(@model.toJSON())
-    this.setElement( $(source) )
-    
-    $(@el).css('opacity', "0")
-    
-    $('#content .pages').append( @el )
-    
-    @toolbar.render()
-    
-    $(@el).animate({ opacity: 1 }, 150)
-    
-  viewNext: (e)->
-    target = this.next()
-    if target
-      console.log 'content', target
+  render: (model)->
+    if model
+      source = @template(model.toJSON())
+      $('#content .pages').append( $(source) )
       
-    e.preventDefault()
+    else
+      @toolbar.title = @model.get('title')
+      @toolbar.backBtn = true
+      $(@toolbar.el).append($('<div class="actions">
+        <i class="icon-heart"></i>
+        <i class="icon-plus"></i>
+        <i class="icon-share-alt"></i>    
+      </div>'))
     
-  next: ->
+      source = @template(@model.toJSON())
+      this.setElement( $(source) )
+      $(@el).css('opacity', "0")
+    
+      $('#content .pages').append( @el )
+    
+      @toolbar.render()
+    
+      $(@el).animate({ opacity: 1 }, 150)
+    
+    this
+  
+  viewNext: =>
+    loading = $('#content .pages .loading')
+    this.next()
+    target = $('#content .pages .page').last()
+    console.log 'target', target
+    
+    if target
+      loading.html($(target).children())
+      loading.removeClass('loading').addClass('product')
+  
+  next: =>
     content = App.stream.find (item)=> item.cid == "c" + (parseInt(@model.cid.match(/\d+$/)[0]) + 1)
     
     if content
-      App.contentView = new App.ContentView( model: content )
-      App.contentView.render()
+      console.log 'next render', this.render(content)
     
-    content
+    console.log 'next', @el
+    @el
+    
+  bufferNext: =>
+    page = this.next()
     
