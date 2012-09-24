@@ -86,9 +86,10 @@ class App.PageView extends Backbone.View
     @offset = null
     
     @items = []
-    @fragment = $('#temp').html(App.PageView.getTemplate(data)).css('visibility', 'hidden')
-    
-    @page = $(@fragment.children().first())
+    @page = $(App.PageView.getTemplate(data))
+    # @fragment = $('#temp').html(App.PageView.getTemplate(data)).css('visibility', 'hidden')
+    # 
+    # @page = $(@fragment.children().first())
     @limit = @page.find('.item').length
     @isMobile = data.isMobile
     

@@ -712,8 +712,6 @@ function easeOutExpo(t, b, c, d) {
 
 function createXDirection(node) {
     var parent = node.parentNode;
-    
-    console.log("createXDirection parentNode", parent)
     var clipper = node.querySelector(".scrollable > .clipper") || node;
 
     // Necessary to pause animation in order to get correct transform value

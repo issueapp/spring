@@ -25,16 +25,18 @@ class App.ContentView extends Backbone.View
   initialize: ->
     @toolbar = new App.Toolbar
     this.render()
+    
     $('#content .pages').append('<article class="page loading">Loading...</article>')
     
     @view = new App.SwipeView
-    @view.on('fetch:next', this.viewNext)
-    # @view.on('buffer:next', this.bufferNext)
+    @view.on('fetch:next', this.fetchNext)
+    @view.on('buffer:next', this.bufferNext)
+    @view.on('buffer:prev', this.bufferPrev)
+    # @view.on('slideTo:next', this.slideToNext)
     
   render: (model)->
     if model
       source = @template(model.toJSON())
-      $('#content .pages').append( $(source) )
       
     else
       @toolbar.title = @model.get('title')
@@ -44,38 +46,47 @@ class App.ContentView extends Backbone.View
         <i class="icon-plus"></i>
         <i class="icon-share-alt"></i>    
       </div>'))
-    
+      
       source = @template(@model.toJSON())
       this.setElement( $(source) )
       $(@el).css('opacity', "0")
-    
+      
       $('#content .pages').append( @el )
     
       @toolbar.render()
     
       $(@el).animate({ opacity: 1 }, 150)
-    
-    this
+      
+      this
   
-  viewNext: =>
+  fetchNext: =>
     loading = $('#content .pages .loading')
-    this.next()
-    target = $('#content .pages .page').last()
-    console.log 'target', target
+    if content = this.next()
+      loading.html($(this.render(content)).children()).addClass('current product').removeClass('loading').attr('data-handle', content.get('handle'))
     
-    if target
-      loading.html($(target).children())
-      loading.removeClass('loading').addClass('product')
-  
   next: =>
-    content = App.stream.find (item)=> item.cid == "c" + (parseInt(@model.cid.match(/\d+$/)[0]) + 1)
+    current = App.stream.find (item)=>
+      item.get('handle') == ($('#content .pages .current').attr('data-handle') || @model.get('handle'))
     
-    if content
-      console.log 'next render', this.render(content)
+    if !(content = App.stream.findNext(current))
+      App.stream.fetchNext()
+      
+    else
+      content
     
-    console.log 'next', @el
-    @el
-    
+  prev: =>
+    current = App.stream.find (item)=>
+      item.get('handle') == $('#content .pages .current').attr('data-handle')
+      
+    content = App.stream.findPrev(current)
+  
   bufferNext: =>
-    page = this.next()
-    
+    target = this.next()
+    if target instanceof Backbone.Model
+      $('#content .pages').append($(this.render(target)))
+              
+  bufferPrev: =>
+    $('#content .pages .padding').after(this.render(target)) if target = this.prev()
+      
+  # slideToNext: =>
+    # update toolbar
