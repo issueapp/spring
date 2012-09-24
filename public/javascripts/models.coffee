@@ -130,3 +130,9 @@ class App.StreamCollection extends Backbone.Collection
       prev: false
       next: false
     }
+  
+  findNext: (current)->
+    current.collection.models[current.collection.models.indexOf(current) + 1]
+
+  findPrev: (current)->
+    current.collection.models[current.collection.models.indexOf(current) - 1]
