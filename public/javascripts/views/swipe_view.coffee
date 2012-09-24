@@ -60,6 +60,8 @@ class App.SwipeView extends Backbone.View
     
     $(document).on 'keydown', (e)=>
       switch (e.which || e.keyCode)
+        when 190 then this.moveRight()
+        when 188 then this.moveLeft()
         when 39 then this.moveRight()
         when 37 then this.moveLeft()
         
@@ -129,18 +131,13 @@ class App.SwipeView extends Backbone.View
       this.bufferPage(dir, bufferStep)
     
     this.destroyPage(dir, bufferStep)
+    this.trigger("slideTo:#{dir}", this)
   
   bufferPage: (dir, step)->
     index = this.$('.page:not(.padding)').indexOf( this.$('.current')[0] )
     buffered = this.$(".page:not(.padding)")[index + step]
     
-    console.log('buffered', buffered)
-    
     unless buffered
-      console.log("trigger: buffer:#{dir}")
-    
-      # if dir == "prev"
-        
       this.trigger("buffer:#{dir}", this) 
       
   destroyPage: (dir, step)->
