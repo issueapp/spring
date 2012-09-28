@@ -24,22 +24,34 @@ class App.ContentView extends Backbone.View
   
   initialize: ->
     @toolbar = new App.Toolbar
-    this.render()
-    
-    $('#content .pages').append('<article class="page loading">Loading...</article>')
+    @streamLength = App.stream.size()
+    @currentIndex = 0
+    @loading = false
+    @nextModel = null
+    @prevModel = null
     
     @view = new App.SwipeView
-    @view.on('fetch:next', this.fetchNext)
-    @view.on('buffer:next', this.bufferNext)
-    @view.on('buffer:prev', this.bufferPrev)
-    # @view.on('slideTo:next', this.slideToNext)
+    
+    @view.on('fetch:next',   => this.fetchNext())
+    @view.on('buffer:next',  => this.bufferNext())
+    @view.on('buffer:prev',  => this.bufferPrev())
+    @view.on('slideTo:prev', => this.slideToPrev())
+    @view.on('slideTo:next', => this.slideToNext())
+    @view.on('destroy',      this.destroy)
     
   render: (model)->
     if model
+      # if @currentIndex < 2 && @prevModel
+      #   @toolbar.title = @prevModel.get('title')
+      # else
+      #   @toolbar.title = @model.get('title')
+        
+      # @toolbar.render()
       source = @template(model.toJSON())
       
     else
-      @toolbar.title = @model.get('title')
+      # @toolbar.title = @model.get('title')
+      @toolbar.title = @model.collection.title
       @toolbar.backBtn = true
       $(@toolbar.el).append($('<div class="actions">
         <i class="icon-heart"></i>
@@ -47,24 +59,30 @@ class App.ContentView extends Backbone.View
         <i class="icon-share-alt"></i>    
       </div>'))
       
+      @currentIndex = 0
+      @view.offset = 0
+      
       source = @template(@model.toJSON())
       this.setElement( $(source) )
-      $(@el).css('opacity', "0")
+      $(@el).css('opacity', "0").addClass('current')
       
       $('#content .pages').append( @el )
-    
+      
       @toolbar.render()
     
       $(@el).animate({ opacity: 1 }, 150)
-      
+      $('#content .pages').append('<article class="page loading">Loading...</article>')
       this
   
-  fetchNext: =>
+  fetchNext: ->
     loading = $('#content .pages .loading')
-    if content = this.next()
-      loading.html($(this.render(content)).children()).addClass('current product').removeClass('loading').attr('data-handle', content.get('handle'))
+    if target = this.next()
+      @prevModel = @model
+      @model = target
+      @currentIndex += 1
+      loading.html($(this.render(target)).children()).addClass('current product').removeClass('loading').attr('data-handle', target.get('handle'))
     
-  next: =>
+  next: ->
     current = App.stream.find (item)=>
       item.get('handle') == ($('#content .pages .current').attr('data-handle') || @model.get('handle'))
     
@@ -74,19 +92,59 @@ class App.ContentView extends Backbone.View
     else
       content
     
-  prev: =>
+  prev: ->
     current = App.stream.find (item)=>
       item.get('handle') == $('#content .pages .current').attr('data-handle')
       
     content = App.stream.findPrev(current)
   
-  bufferNext: =>
+  bufferNext: ->
     target = this.next()
     if target instanceof Backbone.Model
-      $('#content .pages').append($(this.render(target)))
-              
-  bufferPrev: =>
-    $('#content .pages .padding').after(this.render(target)) if target = this.prev()
+      if @nextModel
+        @prevModel = @model
+        @model = @nextModel
+      @nextModel = target
       
-  # slideToNext: =>
-    # update toolbar
+      $('#content .pages').append($(this.render(target)))
+      
+      if @streamLength != App.stream.size()
+        @streamLength = App.stream.size()
+        @loading = false
+      
+      @currentIndex += 1
+      if @currentIndex > @streamLength/2 && !@loading
+        App.stream.fetchNext()
+        @loading = true
+        
+              
+  bufferPrev: ->
+    if target = this.prev()
+      @nextModel = @model
+      @model = @prevModel
+      @prevModel = target
+      
+      @currentIndex -= 1
+      $('#content .pages .padding').after(this.render(target))
+    
+  slideToNext: ->
+    if @currentIndex < 2
+      @currentIndex = 2
+      this.render(@model)
+
+  slideToPrev: ->
+    if @currentIndex == 2
+      @currentIndex -= 1
+    else if @currentIndex == 1
+      @currentIndex -= 1
+      this.render(@prevModel)
+      
+  destroy: (garbage)->
+    item = $(garbage)
+    item.find('.image').each ->
+      # $(this).attr('src', '/images/blank.gif')
+      $(this).removeAttr("style")
+    
+    item.off()
+    item.remove()
+  

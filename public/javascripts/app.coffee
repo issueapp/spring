@@ -83,7 +83,9 @@ class App.Router extends Backbone.Router
     
     if App.stream.length == 0
       App.stream.url = "http://shop2.com/taylorluk/products.json?highres=true&sort=created_at"
+      App.stream.title = "Taylorluk's favourites"
       App.stream.fetch({ dataType: "jsonp" })
+      
     else if isMobile
       App.listView.render()
     else
@@ -91,9 +93,16 @@ class App.Router extends Backbone.Router
     
   content: (handle) ->
     $(App.streamView.el).css('opacity', "0")
-    
     content = App.stream.find (item)-> item.get('handle') == handle
-    App.contentView = new App.ContentView( model: content )
+    # App.contentView = new App.ContentView( model: content )
+    
+    App.contentView ||= new App.ContentView
+    
+    App.contentView.model = content
+    App.contentView.render()
+    
+    # App.contentView.model = App.stream.find (item)-> item.get('handle') == handle
+    
     
   isMobile: ->
     uagent = navigator.userAgent.toLowerCase()
@@ -112,5 +121,5 @@ class App.Router extends Backbone.Router
       if uagent.indexOf(item) != -1
         ismobile = true
     
-    ismobile
-    # true
+    # ismobile
+    false
