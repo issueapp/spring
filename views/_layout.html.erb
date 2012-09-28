@@ -26,7 +26,7 @@
       body {
         background: #F8FAFA;
         position: relative;
-        margin-left: -150px;
+        margin-left: -220px;
       }
       
       body.expand-menu {
@@ -132,24 +132,28 @@
   </head>
   <body>
 
-    <nav id="menu" style="position:absolute;top:0;left:0;width:150px;background:black;color:white;height:100%;z-index:1">
-      <ul>
-        <li><a href="#">Logo</a></li>
-        <li><a href="/stream">Stream</a></li>
+    <nav id="menu"  style="position:absolute;top:0;left:0;height:100%;z-index:1">
+      <ul class="navigation">
+        <li class="logo"><a href="#">Logo</a></li>
+        
+        <li class="user"><a href="/stream">User name</a></li>
+
+        
+        <li class="active"><a href="/stream">Stream</a></li>
         <li><a href="/taylorluk/favourites">Favourites</a></li>
         
         <!-- Category -->
-        <li><a href="#">Men's</a></li>
-        <li><a href="">Women's</a></li>
-        <li><a href="#">Tech</a></li>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Media</a></li>
-        <li><a href="#">Art &amp; design</a></li>
+        <li><a href="/interests/mens">Men's</a></li>
+        <li><a href="/interests/womens">Women's</a></li>
+        <li><a href="/interests/tech">Tech</a></li>
+        <li><a href="/interests/home">Home</a></li>
+        <li><a href="/interests/media">Media</a></li>
+        <li><a href="/interests/media">Art &amp; design</a></li>
         
       </ul>
     </nav>
     
-    <div role="main" style="margin-left:150px">
+    <div role="main" style="margin-left:220px">
       
       <div id="sections">
         <header class="toolbar">

@@ -1,14 +1,66 @@
 //      User interface
 
+//------ ui/menu
+
+nav#menu {
+  width: 220px;
+  background: #161717;
+  
+  .logo {
+    height: 120px !important;
+    background: url("/images/logo.png") no-repeat center center;
+    text-indent: -1000000px;
+  }
+  
+  .navigation {
+    li {
+      
+      font-size: 16px;
+      font-family: "HelveticaNeue-Light";
+      letter-spacing: 0.8px;
+      @include box-sizing(border-box);
+      height: 44px;
+      line-height: 44px;
+      padding: 0 25px;
+      border-top: 1px solid #1e2020;
+      border-bottom: 1px solid #000;
+      
+    }
+    
+    a {
+      display: block;
+      color: white;
+    }
+    
+    li.active {
+      background: #f04f4f;
+      border-top: 1px solid #f48080;
+    }
+    
+    li.active:active {
+      background: #f04f4f;
+      border-bottom: 1px solid #f48080;
+      border-top: 1px solid #000;
+    }
+    
+    li.user {
+      
+    }
+    
+
+  }
+}
+//------ ui/toolbar
 
 // Toolbar
-
 header.toolbar {
   position: relative;
   height: 44px;
-  background: #F4F8F9;
+  
+  background: #fff;
   border-bottom: none;
-  border-top: 2px solid black;
+//  border-top: 2px solid black;
+
   z-index: 2;
   @include box-shadow(rgba(0,0,0, 0.3) 0px 1px 3px);
 
@@ -29,6 +81,7 @@ header.toolbar {
     text-align: center;
     vertical-align: middle;
     line-height: 44px;
+    color: #111;
     font-family: "HelveticaNeue-CondensedBold", "HelveticaNeue Neue";
     font-size: 20px;
     letter-spacing: 0.7px;
@@ -58,3 +111,9 @@ header.toolbar {
     line-height: 31px;
   }
 }
+
+
+//------ ui/forms
+//------ ui/buttons
+//------ ui/popover
+//------ ui/modal
