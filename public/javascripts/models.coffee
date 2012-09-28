@@ -118,7 +118,9 @@ class App.StreamCollection extends Backbone.Collection
       @currentPage = @currentPage.concat(@prevPage)
       @prevPage = []
       return @currentPage
-      
+    
+    $('.spinner').remove()
+    
     resp
   
   pageInfo: ->

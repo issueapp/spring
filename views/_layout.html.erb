@@ -30,6 +30,7 @@
       }
       
       body.expand-menu {
+        z-index: 0;
         margin-left: 0;
       }
 
@@ -50,6 +51,11 @@
         white-space: nowrap;
         overflow: hidden;
         /* margin-top: 55px; */
+      }
+      
+      #sections .spinner {
+        top: 300px;
+        left: 50%;
       }
 
       #content {
@@ -132,15 +138,13 @@
   </head>
   <body>
 
-    <nav id="menu"  style="position:absolute;top:0;left:0;height:100%;z-index:1">
+    <nav id="menu" style="position:absolute;top:0;left:0;height:100%;z-index:999">
       <ul class="navigation">
-        <li class="logo"><a href="#">Logo</a></li>
+        <li class="logo"><a href="/taylorluk/products">Logo</a></li>
         
-        <li class="user"><a href="/stream">User name</a></li>
-
-        
-        <li class="active"><a href="/stream">Stream</a></li>
-        <li><a href="/taylorluk/favourites">Favourites</a></li>
+        <li class="user"><a href="/taylorluk/products">Taylor Luk</a></li>
+        <li class="active"><a href="/taylorluk/products">Stream</a></li>
+        <li><a href="/taylorluk/products">Favourites</a></li>
         
         <!-- Category -->
         <li><a href="/interests/mens">Men's</a></li>
@@ -149,12 +153,10 @@
         <li><a href="/interests/home">Home</a></li>
         <li><a href="/interests/media">Media</a></li>
         <li><a href="/interests/media">Art &amp; design</a></li>
-        
       </ul>
     </nav>
     
     <div role="main" style="margin-left:220px">
-      
       <div id="sections">
         <header class="toolbar">
           <a class="icon-reorder button" ontouchstart="$(document.body).toggleClass('expand-menu'); return false"> </a>
@@ -167,26 +169,25 @@
       <div id="content">
         <div class="pages swipe-paging"></div>
       </div>
-      
     </div>
-    
-    
     <!-- <div id="temp" style="position:absolute; visibility:hidden"></div> -->
   </body>
   
   <%= render '/templates/all' %>
-  <script src="/javascripts/vendor/zepto.js"></script>  
+  <script src="/javascripts/vendor/zepto.js"></script>
   <script src="/javascripts/vendor/underscore.js"></script>  
   <script src="/javascripts/vendor/backbone.js"></script>  
   <script src="/javascripts/vendor/mustache.js"></script>  
   <script src="/javascripts/vendor/clamp.js"></script>
   <script src="/javascripts/vendor/scrollability2.js"></script>
   <script src="/javascripts/vendor/h5bp-helper.js"></script>
+  <script src="/javascripts/vendor/spin.min.js"></script>
 
   <script src="/javascripts/app.js"></script>
   <script src="/javascripts/models.js"></script>
 
   <script src="/javascripts/views/toolbar.js"></script>
+  <script src="/javascripts/views/menu_view.js"></script>
   <script src="/javascripts/views/content_view.js"></script>
   <script src="/javascripts/views/swipe_view.js"></script>
   <script src="/javascripts/views/page_view.js"></script>
