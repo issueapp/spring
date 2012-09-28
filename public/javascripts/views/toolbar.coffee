@@ -4,7 +4,8 @@ class App.Toolbar extends Backbone.View
   events:
     'ontouchstart a.signup': 'signup'
     'ontouchstart a.back-home': 'backHome'
-  
+    'click a.back': 'back'
+    
   render: ->
     titleTag = this.$('h1').html(@title)
       
@@ -12,7 +13,7 @@ class App.Toolbar extends Backbone.View
     
     if @backBtn
       if btn.length == 0
-        btn = this.make('a', { href: "#", class: "button back", onclick: "window.history.back(); return false;"}, "Back")
+        btn = this.make('a', { href: "#", class: "button back"}, "Back")
         titleTag.before(btn)
     else
       btn.remove()
@@ -44,4 +45,9 @@ class App.Toolbar extends Backbone.View
     $('#signup').hide()
     $('#pages').show()
     this.$('a.button.back-home').remove()
+  
+  back: =>
+    $('#content .pages').removeAttr("style")
+    window.history.back()
     
+    false

@@ -52,18 +52,11 @@ class App.SwipeView extends Backbone.View
     @currentPage = this.$('.current').eq(0)
     if @currentPage.length == 0
       @currentPage = $(@el).children(":not(.padding)").first().addClass('current')
-      
-    # Set padding
-    @padding = $('<div class="page padding" style="visibility:hidden;width:0;padding:0;width: 0px; border:0;font-size:0">')
-
-    $(@el).prepend(@padding)
     
     $(document).on 'keydown', (e)=>
       switch (e.which || e.keyCode)
         when 190 then this.moveRight()
         when 188 then this.moveLeft()
-        when 39 then this.moveRight()
-        when 37 then this.moveLeft()
         
   onTouch: (e) ->
     e = e.touches[0] if e.touches
@@ -79,7 +72,7 @@ class App.SwipeView extends Backbone.View
     delta = e.clientX - @startClientX
     moveDelta = e.clientX - @currentClientX
     
-    this.updatePos(@offset + delta * 1.1)
+    this.updatePos(@offset + delta * 1.2)
     
     @currentClientX = e.clientX
   
@@ -100,6 +93,13 @@ class App.SwipeView extends Backbone.View
   moveLeft: -> this.slideTo("prev")
   
   slideTo: (dir)->
+    if this.$('.padding').length == 0
+      # Set padding
+      @padding = $('<div class="page padding" style="visibility:hidden;width:0;padding:0;width: 0px; border:0;font-size:0">')
+
+      $(@el).prepend(@padding)
+      
+    
     current = this.$('.current')
     target = current[dir]().not('.padding')
     bufferStep = parseInt(@bufferSize/2)

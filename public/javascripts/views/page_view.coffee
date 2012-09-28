@@ -30,24 +30,25 @@ class App.PageView extends Backbone.View
   # render: ->
   events:
     'click .item a.link': 'viewContent'
-    'swipe .item a.link': 'silent'
+    # 'swipe .item a.link': 'silent'
     'orientationchange': 'changeOrientation'
 
+  # <div class="image cover">
+  #   <a class="link" href="/products/{{ handle }}">
+  #     <img src="http://deyf8doogqx67.cloudfront.net{{ cdn_image_url }}">
+  #   </a>
+  # </div>
   itemTemplate: Mustache.compile(
     '
-    <div class="image cover">
-      <a class="link" href="/products/{{ handle }}">
-        <img src="http://deyf8doogqx67.cloudfront.net{{ cdn_image_url }}">
-      </a>
-    </div>
-
+    <a class="link" href="/products/{{ handle }}">
+      <div class="image" style="background-image: url(http://deyf8doogqx67.cloudfront.net{{ cdn_image_url }}); background-size: cover; background-position: center; height: 100%;">
+      </div>
     
-    <div class="info">
-      <a class="link" href="/products/{{ handle }}">
+      <div class="info">
         <h3 class="title">{{ title }}</h3>
-      </a>
-      <p class="">{{ description }}</p>
-    </div>
+        <p class="">{{ description }}</p>
+      </div>
+    </a>
     '
   
   )
@@ -107,9 +108,9 @@ class App.PageView extends Backbone.View
     
   
   viewContent: (e)->
-    unless @silentClick
-      link = $(e.currentTarget).attr('href')
-      App.router.navigate(link, { trigger: true })
+    # unless @silentClick
+    link = $(e.currentTarget).attr('href')
+    App.router.navigate(link, { trigger: true })
     
     e.preventDefault()
     false

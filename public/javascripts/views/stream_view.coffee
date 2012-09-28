@@ -265,7 +265,7 @@ class App.StreamView extends Backbone.View
 
     # Necessary to pause animation in order to get correct transform value
     # console.log(node.style.webkitAnimation)
-    console.log(node.style)
+    # console.log(node.style)
     
 
     @offset = Math.round(@offset + offset)
