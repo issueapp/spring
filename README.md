@@ -198,19 +198,87 @@ Unlike treesaver which will cut off contents, This pagination will put items int
     page count
     pagination bar
 
-Welcome
----
 
-    section#welcome.page.toc
-      figure
-        a
+Stylesheet
+===
+
+Here is the overall structure of our css files.
+
+application.css
+=====
+
+------ Compass
+------ Reset
+
+html, body
+
+------ layout - No style/colours
+
+  structure (menu/main)
+  grid (row/col)
+  
+------ ui
+------ ui/menu
+------ ui/toolbar
+------ ui/forms
+------ ui/buttons
+------ ui/popover
+------ ui/modal
+
+------ item.scss
+/* (core content and records) */
+
+  .item 
+    title
+    image
+    date
+    desc
+    author
+
+  .article.item
+  .product.item
+  .collection.item
+    
+------ page
+  .paging
+  
+  .page
+  
+  
+  .product.page
+    .panel
+    
+      h1.title
+      a.brand
+      span.price
+      span.comparison-price
+      button.purchase
+      
+      tabs.description
+        a.user
           img
-          h3
-        figcaption
-          
-    
-    
-List
----
 
-    
+      
+      tabs.comments
+      tabs.related
+      
+  
+  .article.page
+
+// Static pages
+
+  .signup
+  .welcome
+
+------ mobile
+  
+  .page {
+    320
+  }
+  
+  @media only screen and orientation {
+    480
+  }
+
+
+------- ipad
