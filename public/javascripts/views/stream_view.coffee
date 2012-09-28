@@ -32,6 +32,8 @@ class App.StreamView extends Backbone.View
   #   'scrollability-end': 'onScrollEnd'
     
   initialize: (data)->
+    $(@el).off()
+    
     @title = "TOP CONTENT"
     @currentIndex ||= 0
     @pageEvent = null
@@ -43,7 +45,7 @@ class App.StreamView extends Backbone.View
     @offset = 0
     
     # @container = $(@el)[0]
-
+    
     @padding = $('<div class="page padding" style="visibility:hidden;width:0;padding:0;width: 0px; border:0;font-size:0">').appendTo(@el)
     @toolbar = new App.Toolbar
     
@@ -63,8 +65,6 @@ class App.StreamView extends Backbone.View
     # Switched page
     #  event.page = non zero page index
     $(@el).on "scrollability-page", (event, a, b)=>
-      # console.warn("Switched Page", @changedDir, event.page, @currentIndex)
-      
       # return if loading
       # Start page change
       if @direction == "right"
@@ -74,7 +74,6 @@ class App.StreamView extends Backbone.View
       else if @direction == "left"
         loading = true
         target = this.prev()
-        # console.log(target)
       
       if target = @pages[@currentIndex]
         # Add current class
@@ -91,7 +90,6 @@ class App.StreamView extends Backbone.View
       this.renderInfo()
     
     # $(@container).on "scrollability-end", (event) =>
-    #   console.warn('scrollability-end', @fetchPage)
     #   
     #   if @fetchPage == 'append'
     #     farNext = this.appendPage()
@@ -130,7 +128,7 @@ class App.StreamView extends Backbone.View
 
     # Mark trasition has ended
     $(@el).on $.fx.transitionEnd, => @transition = false
-
+    
     $(@el).on "swipeLeft", (e)=>
       # return if @transition
       target = this.next()
@@ -382,7 +380,6 @@ class App.StreamView extends Backbone.View
   
   render: =>
     firstRender = @pages.length == 0
-
     
     @scroller ||= this.getScroller()
     
@@ -401,7 +398,7 @@ class App.StreamView extends Backbone.View
     
     @toolbar.title = this.title
     @toolbar.backBtn = false
-    @toolbar.signupButton = true
+    @toolbar.signupButton = false
     @toolbar.$('.actions').remove()
 
     @toolbar.render()

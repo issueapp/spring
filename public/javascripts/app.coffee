@@ -65,28 +65,55 @@ class App.Router extends Backbone.Router
 
     "interests/:handle": "products"
     "products/:handle": "content"
-
+    ":name/products": "stream"
+  
+  stream: (name)->
+    if App.stream.owner != name
+      $('#sections .pages').removeAttr("style")
+      $('#sections .padding').width(0)
+      $('#sections .pages').html('')
+    
+      spinner = new Spinner().spin()
+      $('#sections').append(spinner.el)
+      
+      App.router.navigate("#{name}/products", { trigger: true })
+      App.stream = new App.StreamCollection
+      App.streamView = new App.StreamView({ el: '#sections .pages', layout: App.layout, collection: App.stream })
+    
+      App.stream.url = "http://shop2.com/#{name}/products.json?highres=true&sort=created_at"
+      App.stream.title = "#{name}'s favourites"
+      App.stream.owner = "#{name}"
+      App.stream.fetch({ dataType: "jsonp" })
+    else
+      $(App.streamView.el).animate({ opacity: 1}, 150)
+      
   products: (handle)->
-    App.stream = new App.StreamCollection
-    App.streamView = new App.StreamView({ el: '#sections .pages', layout: App.layout, collection: App.stream })
-    
-    
-    $('#sections .padding').width(0)
-    $('#sections .pages').html('')
-    
-    App.stream.url = "http://shop2.com/interests/#{handle}.json"
-    App.stream.title = handle
-    App.stream.fetch({ dataType: "jsonp" })
-    
+    if App.stream.title != handle
+      $('#sections .pages').removeAttr("style")
+      $('#sections .padding').width(0)
+      $('#sections .pages').html('')
+      
+      spinner = new Spinner().spin()
+      $('#sections').append(spinner.el)
+      
+      App.router.navigate("interests/#{handle}", { trigger: true })
+      App.stream = new App.StreamCollection
+      App.streamView = new App.StreamView({ el: '#sections .pages', layout: App.layout, collection: App.stream })
+          
+      App.stream.url = "http://shop2.com/interests/#{handle}.json"
+      App.stream.title = handle
+      App.stream.fetch({ dataType: "jsonp" })
+    else
+      $(App.streamView.el).animate({ opacity: 1}, 150)
+      
   home: ->
+    App.menu ||= new App.MenuView
     App.stream ||= new App.StreamCollection
-    
     
     pages = $('#sections .pages')
     isMobile = this.isMobile()
     
     if isMobile
-      # pages.addClass('vertical')
       App.listView ||= new App.ListView({ el: '#sections .pages', collection: App.stream })
     else
       pages.addClass('horizontal')
@@ -110,14 +137,10 @@ class App.Router extends Backbone.Router
   content: (handle) ->
     $(App.streamView.el).css('opacity', "0")
     content = App.stream.find (item)-> item.get('handle') == handle
-    # App.contentView = new App.ContentView( model: content )
     
     App.contentView ||= new App.ContentView
-    
     App.contentView.model = content
     App.contentView.render()
-    
-    # App.contentView.model = App.stream.find (item)-> item.get('handle') == handle
     
     
   isMobile: ->
