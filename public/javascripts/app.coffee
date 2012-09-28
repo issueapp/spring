@@ -62,10 +62,26 @@ class App.Router extends Backbone.Router
   routes:
     "ipad":             "home"
     "section":          "home"
+
+    "interests/:handle": "products"
     "products/:handle": "content"
-  
+
+  products: (handle)->
+    App.stream = new App.StreamCollection
+    App.streamView = new App.StreamView({ el: '#sections .pages', layout: App.layout, collection: App.stream })
+    
+    
+    $('#sections .padding').width(0)
+    $('#sections .pages').html('')
+    
+    App.stream.url = "http://shop2.com/interests/#{handle}.json"
+    App.stream.title = handle
+    App.stream.fetch({ dataType: "jsonp" })
+    
   home: ->
     App.stream ||= new App.StreamCollection
+    
+    
     pages = $('#sections .pages')
     isMobile = this.isMobile()
     
