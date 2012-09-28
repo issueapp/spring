@@ -47,7 +47,8 @@ class App.Toolbar extends Backbone.View
     this.$('a.button.back-home').remove()
   
   back: =>
-    $('#content .pages').removeAttr("style")
+    $('#content .pages').removeAttr("style").html('')
+    $(@el).find('a.back').remove()
     window.history.back()
     
     false
