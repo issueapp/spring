@@ -92,6 +92,7 @@ class App.Router extends Backbone.Router
       $('#sections .pages').removeAttr("style")
       $('#sections .padding').width(0)
       $('#sections .pages').html('')
+      $('#content .pages').html('')
       
       spinner = new Spinner().spin()
       $('#sections').append(spinner.el)
@@ -139,6 +140,7 @@ class App.Router extends Backbone.Router
     content = App.stream.find (item)-> item.get('handle') == handle
     
     App.contentView ||= new App.ContentView
+    # App.contentView.view.offset = 0
     App.contentView.model = content
     App.contentView.render()
     
