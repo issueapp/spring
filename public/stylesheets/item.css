@@ -1,0 +1,69 @@
+/*
+Syntax error: Undefined mixin 'box-sizing'.
+        on line 20 of ./stylesheets/item.scss, in `box-sizing'
+        from line 20 of ./stylesheets/item.scss
+
+15:   width: 100%;
+16:   height: 100%;
+17: 
+18:   padding: 0;
+19:   
+20:   @include box-sizing(border-box);
+21: 
+22: 	.info {
+23: 	  @include box-sizing(border-box);
+24: 	  
+25: 	  position: absolute;
+
+Backtrace:
+./stylesheets/item.scss:20:in `box-sizing'
+./stylesheets/item.scss:20
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:170:in `visit_mixin'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:18:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:53:in `map'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:27:in `block in visit_children'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:39:in `with_environment'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:26:in `visit_children'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:238:in `visit_rule'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:18:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:53:in `map'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:27:in `block in visit_children'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:39:in `with_environment'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:26:in `visit_children'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:47:in `visit_root'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:18:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:7:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.1.19/lib/sass/tree/root_node.rb:20:in `render'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.1.19/lib/sass/engine.rb:300:in `_render'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.1.19/lib/sass/engine.rb:247:in `render'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.1.19/lib/sass/plugin/compiler.rb:340:in `update_stylesheet'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.1.19/lib/sass/plugin/compiler.rb:202:in `block in update_stylesheets'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.1.19/lib/sass/plugin/compiler.rb:200:in `each'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.1.19/lib/sass/plugin/compiler.rb:200:in `update_stylesheets'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.1.19/lib/sass/plugin.rb:81:in `update_stylesheets'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.1.19/lib/sass/plugin.rb:54:in `check_for_updates'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.1.19/lib/sass/plugin/rack.rb:51:in `call'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/rack-1.4.1/lib/rack/lint.rb:48:in `_call'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/rack-1.4.1/lib/rack/lint.rb:36:in `call'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/rack-1.4.1/lib/rack/showexceptions.rb:24:in `call'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/rack-1.4.1/lib/rack/commonlogger.rb:20:in `call'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/rack-1.4.1/lib/rack/chunked.rb:43:in `call'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/rack-1.4.1/lib/rack/content_length.rb:14:in `call'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/rack-1.4.1/lib/rack/handler/webrick.rb:59:in `service'
+/Users/taylorluk/.rvm/rubies/ruby-1.9.3-p125-perf/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+/Users/taylorluk/.rvm/rubies/ruby-1.9.3-p125-perf/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+/Users/taylorluk/.rvm/rubies/ruby-1.9.3-p125-perf/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: Undefined mixin 'box-sizing'.\A         on line 20 of ./stylesheets/item.scss, in `box-sizing'\A         from line 20 of ./stylesheets/item.scss\A \A 15:   width: 100%;\A 16:   height: 100%;\A 17: \A 18:   padding: 0;\A 19:   \A 20:   @include box-sizing(border-box);\A 21: \A 22: 	.info {\A 23: 	  @include box-sizing(border-box);\A 24: 	  \A 25: 	  position: absolute;"; }
