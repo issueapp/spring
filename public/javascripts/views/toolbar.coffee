@@ -49,6 +49,8 @@ class App.Toolbar extends Backbone.View
   back: =>
     $('#content .pages').removeAttr("style").html('')
     $(@el).find('a.back').remove()
+    $(@el).find('a.actions').remove()
+    
     window.history.back()
     
     false
