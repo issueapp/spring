@@ -1,0 +1,42 @@
+
+.swipe-paging {
+  position: absolute;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.animate {
+  -webkit-transition: all .3s ease-out;
+  -moz-transition: all .3s ease-out;
+  -o-transition: all .3s ease-out;
+  -ms-transition: all .3s ease-out;
+  transition: all .3s ease-out;
+}
+
+.swiping {
+  -webkit-transition: all .15s ease-out;
+  -moz-transition: all .15s ease-out;
+  -o-transition: all .15s ease-out;
+  -ms-transition: all .15s ease-out;
+  transition: all .15s ease-out;
+}
+
+.page {
+  position: relative;
+  display: inline-block;
+  margin: 0;
+  padding: 5px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  white-space: normal;
+  overflow: hidden;
+  border: 1px solid #fff;
+}
+
+.page {
+  transform: translate3d(0,0,0);
+  -webkit-transform:translate3d(0,0,0);
+}
+
+.page.padding {
+  width: 0;
+}
