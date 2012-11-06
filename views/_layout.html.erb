@@ -10,6 +10,8 @@
   
     <link rel="stylesheet" href="http://shop2.com/assets/components/_button.css">
     <link rel="stylesheet" href="/stylesheets/application.css"/>
+    <link rel="stylesheet" href="/stylesheets/swipe-view.css"/>
+
     <link rel="stylesheet" href="/stylesheets/font-awesome.css"/>
 
     <link rel="shortcut icon" href="/favicon.ico">
@@ -24,7 +26,6 @@
       }
 
       body {
-        background: #F8FAFA;
         position: relative;
         margin-left: -220px;
       }
@@ -34,10 +35,6 @@
         margin-left: 0;
       }
 
-      [role=main] {
-        position: relative;
-      }
-
       nav[role=navigation] {
         position: fixed;
         top:0;
@@ -45,99 +42,9 @@
         width:100%;
       }
 
-
-      #sections .pages {
-        position: absolute;
-        white-space: nowrap;
-        overflow: hidden;
-        /* margin-top: 55px; */
-      }
-      
-      #sections .spinner {
-        top: 300px;
-        left: 50%;
-      }
-
-      #content {
-/*        position: absolute;*/
-        white-space: nowrap;
-      }
-      
-      .animate {
-        -webkit-transition: all .3s ease-out;
-        -moz-transition: all .3s ease-out;
-        -o-transition: all .3s ease-out;
-        -ms-transition: all .3s ease-out;
-        transition: all .3s ease-out;
-      }
-      
-      .swiping {
-        -webkit-transition: all .15s ease-out;
-        -moz-transition: all .15s ease-out;
-        -o-transition: all .15s ease-out;
-        -ms-transition: all .15s ease-out;
-        transition: all .15s ease-out;
-      }
-
-
-      .scrollable {
-    /*    display: inline-block;*/
-        overflow: hidden;
-      }
-      
-      .pages {
-        transform: translate3d(0,0,0);
-      }
-      
-      .page {
-        position: relative;
-        display: inline-block;
-        margin: 0;
-        padding: 5px;
-        -webkit-box-sizing: border-box;
-        box-sizing: border-box;
-        white-space: normal;
-        overflow: hidden;
-
-        border: 1px solid #fff;
-      }
-      
-      .page.current {
-        visibility: visible;
-      }
-      
-      .page {
-        transform: translate3d(0,0,0);
-        -webkit-transform:translate3d(0,0,0);
-      }
-      
-      .page.padding {
-        width: 0;
-      }
-      /* sign up form */
-      #signup {
-        display: none;
-        background: white;
-        height: 93%;
-      }
-
-/*      .product .image {
-
-        height: 90% !important;
-      }*/
-
-      /* Vertical scroll */
-      
-      .vertical-scroll {
-        /* IPHONE toolbar hack: height: 104%; */        
-        overflow-y: scroll;
-        -webkit-overflow-scrolling: touch;
-      }
-      
     </style>
   </head>
   <body>
-
     <nav id="menu" style="position:absolute;top:0;left:0;height:100%;z-index:999">
       <ul class="navigation">
         <li class="logo"><a href="/taylorluk/products"></a></li>
@@ -162,9 +69,8 @@
           <a class="icon-reorder button" ontouchstart="$(document.body).toggleClass('expand-menu'); return false"> </a>
           <h1>TOP CONTENT</h1>
         </header>
-        <div class="pages paginated"></div>
+        <%= yield %>
       </div>
-      
       
       <div id="content">
         <div class="pages swipe-paging"></div>
@@ -195,11 +101,11 @@
   <script src="/javascripts/views/stream_view.js"></script>
   <script src="/javascripts/misc.js"></script>
   
-  
-  
   <script>
     MBP.hideUrlBarOnLoad()
   
     App.init()
   </script>
+  
+  <%= yield :js %>
 </html>

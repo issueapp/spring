@@ -80,6 +80,7 @@ class App.SwipeView extends Backbone.View
     e = e.changedTouches[0] if e.changedTouches
     moveDelta = e.clientX - @startClientX
     
+    # Stop swiping and animate the left go.
     $(@el).addClass('animate').removeClass('swiping')
     
     # Snap to the left

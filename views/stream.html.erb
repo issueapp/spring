@@ -1,0 +1,302 @@
+<%
+
+items = [
+  Hashie::Mash.new(
+    _type: "Product",
+    title: "Canon EOS M Camera",
+    price: "$800",
+    image_url: "http://deyf8doogqx67.cloudfront.net/images/BAhbB1sHOgZmSSJMMjAxMi8wNS8xNS8wNC8yNS81Mi8xODkvY2VsbF9waG9uZV9sZW5zZXNfYjQxMF82MDAuMDAwMDAwMTMxMTgxMDcwNC5qcGcGOgZFVFsIOgZwOgp0aHVtYkkiCjYwMHg+BjsGVA.png",
+    
+    found_by: {
+      name: "Nicole",
+      image_url: "http://deyf8doogqx67.cloudfront.net/images/BAhbB1sHOgZmSSJGMjAxMi8wOS8wOC8wMS8zMC81Ny85NzUvU2NyZWVuX1Nob3RfMjAxMl8wOV8wOF9hdF8xMS4zMC4yOV9BTS5wbmcGOgZFVFsIOgZwOgp0aHVtYkkiCzk2eDk2IwY7BlQ",
+      url: "http://something.com"
+    }
+  ),
+
+  Hashie::Mash.new(
+    _type: "Article",
+    title: "Something you miss",
+    description: "I really lucked out when I found this coat in a thrift store a couple years ago, it has the best slightly oversized fit and British vibe. Wore it for a day in the city with the usual formula of basics and cracked out accessories.",
+    
+    content: "I really lucked out when I found this coat in a thrift store a couple years ago, it has the best slightly oversized fit and British vibe. Wore it for a day in the city with the usual formula of basics and cracked out accessories. I never take bare leg and coat weather for granted, there’s something so fresh about skipping tights but wearing pounds of wool things on your torso. By the way I’m done hair tossing for the month, I swear. Way past quota at this point.",
+    image_url: "http://i279.photobucket.com/albums/kk154/fashiontoast/10-2012/ss2.jpg",
+    
+    author: {
+      name: "Rumi",
+      image_url: "http://www.bloglovin.com/images/people/4735.jpg",
+      url: "http://something.com"
+    }
+  ),
+  
+  Hashie::Mash.new(
+    _type: "Article",
+    title: "Kate Moss: A Photo Album",
+    image_url: "http://theedit.com.au/cache/mod_aidanews2_K2/thumbs/868-1-10a451d868feb5fd854c1535dddc148e_L.jpg",
+    
+    description: "“I don’t want to be myself, ever. I’m terrible at a snapshot. Terrible. I blink all the time. I’ve got facial Tourette’s. Unless I’m working and in that zone, I’m not very good at pictures, really,”",
+    
+    author: {
+      name: "Alex Thompson",
+      image_url: "http://theedit.com.au/media/k2/users/17.jpg"
+    }
+  ),
+  
+  Hashie::Mash.new(
+    title: "NATIVE UNION POP PHONE HANDSET",
+    image_url: "http://deyf8doogqx67.cloudfront.net/images/BAhbB1sHOgZmSSIvMjAxMi8wOC8xNi8wNC8yMC8wOC80MTMvMTY1MjEuMC5kZXRhaWwuanBnBjoGRVRbCDoGcDoKdGh1bWJJIgozNDN4PgY7BkY.png",
+    price: "$209",
+    found_by: {
+      name: "Nicole",
+      image_url: "http://deyf8doogqx67.cloudfront.net/images/BAhbB1sHOgZmSSJGMjAxMi8wOS8wOC8wMS8zMC81Ny85NzUvU2NyZWVuX1Nob3RfMjAxMl8wOV8wOF9hdF8xMS4zMC4yOV9BTS5wbmcGOgZFVFsIOgZwOgp0aHVtYkkiCzk2eDk2IwY7BlQ",
+      url: "http://something.com"
+    }
+  ),
+  product = Hashie::Mash.new(
+    title: "NATIVE UNION POP PHONE HANDSET",
+    image_url: "http://deyf8doogqx67.cloudfront.net/images/BAhbB1sHOgZmSSIzMjAxMi8wNy8wNi8xMC8yMS80MC84MDMvdDIxNjZfY29sb3JibG9ja180LmpwZwY6BkVUWwg6BnA6CnRodW1iSSIKNjAweD4GOwZU.png",
+    price: "$456",
+    found_by: {
+      name: "Nicole",
+      image_url: "http://deyf8doogqx67.cloudfront.net/images/BAhbB1sHOgZmSSJGMjAxMi8wOS8wOC8wMS8zMC81Ny85NzUvU2NyZWVuX1Nob3RfMjAxMl8wOV8wOF9hdF8xMS4zMC4yOV9BTS5wbmcGOgZFVFsIOgZwOgp0aHVtYkkiCzk2eDk2IwY7BlQ",
+      url: "http://something.com"
+    }
+  )
+]
+%>
+
+<!-- layout 4, 2 - 3 -->
+<div class="swipe-paging">
+
+<div class="page rotatable">
+  <div class="row v-half">
+    
+    <% product = items[0] %>
+    <figure class="product item half">
+      <%= cover_image product.image_url %>
+      <figcaption class="info">
+        <h3 class="title"><%= product.title %></h3>
+        <p><%= product.description %></p>
+        
+        <a class="via user" href="">
+          <img src="<%= product.found_by.image_url %>" width=16 height=16> <span class="action">Collected by</span> <%= product.found_by.name %>
+        </a>
+        <a class="price"><%= product.price %></a>
+      </figcaption>
+    </figure>
+    
+    <% article = items[1] %>
+    <figure class="article item half split">
+      <%= cover_image article.image_url %>
+      
+      <figcaption class="info">
+        <h3 class="title"><%= article.title %></h3>
+        <p><%= article.description %></p>
+        
+        <a class="via user" href="">
+          <img src="<%= article.author.image_url %>" width=16 height=16> <%= article.author.name %>
+        </a>
+      </figcaption>
+    </figure>
+  </div>
+  
+  <div class="row v-half">
+    <% article = items[2] %>
+    <figure class="article item third">
+      <%= cover_image article.image_url %>
+      
+      <figcaption class="info">
+        <h3 class="title"><%= article.title %></h3>
+        <p><%= article.description %></p>
+
+        <a class="via user" href="">
+          <img src="<%= article.author.image_url %>" width=16 height=16> <%= article.author.name %>
+        </a>
+      </figcaption>
+    </figure>
+    
+    <% product = items[3] %>
+    <figure class="product item third">
+      <%= cover_image product.image_url %>
+      <div class="info">
+        <h3 class="title"><%= product.title %></h3>
+        <p class=""></p>
+        
+        <a class="via user" href="">
+          <img src="<%= product.found_by.image_url %>" width=16 height=16> <span class="action">Loved by</span> <%= product.found_by.name %>
+        </a>
+        <a class="price"><%= product.price %></a>
+      </div>
+    </figure>
+    
+    <% product = items[4] %>
+    <figure class="product item third">
+       <%= cover_image product.image_url %>
+       <div class="info">
+         <h3 class="title"><%= product.title %></h3>
+         <p class=""></p>
+         <a class="via user" href="">
+           <img src="<%= product.found_by.image_url %>" width=16 height=16> <span class="action">Found by</span> <%= product.found_by.name %>
+         </a>
+         <a class="price"><%= product.price %></a>
+       </div>
+    </figure>
+  </div>
+</div>
+<!-- layout 4, 2 - 3 -->
+
+
+
+<div class="page rotatable">
+  <div class="row v-half">
+    <% article = items[2] %>
+    <figure class="article item third-2 split">
+      <%= cover_image article.image_url %>
+      
+      <figcaption class="info">
+        <h3 class="title"><%= article.title %></h3>
+        <p><%= article.description %></p>
+
+        <a class="via user" href="">
+          <img src="<%= article.author.image_url %>" width=16 height=16> <%= article.author.name %>
+        </a>
+      </figcaption>
+    </figure>
+
+    <% article = items[1] %>
+    <figure class="article item third">
+      <%= cover_image article.image_url %>
+      
+      <figcaption class="info">
+        <h3 class="title"><%= article.title %></h3>
+        <p><%= article.description %></p>
+        
+        <a class="via user" href="">
+          <img src="<%= article.author.image_url %>" width=16 height=16> <%= article.author.name %>
+        </a>
+      </figcaption>
+    </figure>
+  </div>
+  
+  <div class="row v-half">
+
+    <% product = items[0] %>
+    <figure class="product item third-2">
+      <%= cover_image product.image_url %>
+      <figcaption class="info">
+        <h3 class="title"><%= product.title %></h3>
+        <p><%= product.description %></p>
+        
+        <a class="via user" href="">
+          <img src="<%= product.found_by.image_url %>" width=16 height=16> <span class="action">Collected by</span> <%= product.found_by.name %>
+        </a>
+        <a class="price"><%= product.price %></a>
+      </figcaption>
+    </figure>
+
+    <% product = items[3] %>
+    <figure class="product item third">
+      <%= cover_image product.image_url %>
+      <div class="info">
+        <h3 class="title"><%= product.title %></h3>
+        <p class=""></p>
+        
+        <a class="via user" href="">
+          <img src="<%= product.found_by.image_url %>" width=16 height=16> <span class="action">Loved by</span> <%= product.found_by.name %>
+        </a>
+        <a class="price"><%= product.price %></a>
+      </div>
+    </figure>
+    
+    <% product = items[4] %>
+    <figure class="product item third">
+       <%= cover_image product.image_url %>
+       <div class="info">
+         <h3 class="title"><%= product.title %></h3>
+         <p class=""></p>
+         <a class="via user" href="">
+           <img src="<%= product.found_by.image_url %>" width=16 height=16> <span class="action">Found by</span> <%= product.found_by.name %>
+         </a>
+         <a class="price"><%= product.price %></a>
+       </div>
+    </figure>
+  </div>
+</div>
+
+
+<div class="page rotatable">
+  <div class="row">
+  
+  <div class="col half">
+    <% article = items[2] %>
+    <figure class="article item">
+      <%= cover_image article.image_url %>
+      
+      <figcaption class="info">
+        <h3 class="title"><%= article.title %></h3>
+        <p><%= article.description %></p>
+
+        <a class="via user" href="">
+          <img src="<%= article.author.image_url %>" width=16 height=16> <%= article.author.name %>
+        </a>
+      </figcaption>
+    </figure>
+  </div>
+  
+  <div class="col half">
+    <% product = items[3] %>
+    <figure class="product item v-third">
+      <%= cover_image product.image_url %>
+      <div class="info">
+        <h3 class="title"><%= product.title %></h3>
+        <p class=""></p>
+        
+        <a class="via user" href="">
+          <img src="<%= product.found_by.image_url %>" width=16 height=16> <span class="action">Loved by</span> <%= product.found_by.name %>
+        </a>
+        <a class="price"><%= product.price %></a>
+      </div>
+    </figure>
+    
+    <% article = items[2] %>
+    <figure class="article item v-thrid">
+      <%= cover_image article.image_url %>
+      
+      <figcaption class="info">
+        <h3 class="title"><%= article.title %></h3>
+        <p><%= article.description %></p>
+
+        <a class="via user" href="">
+          <img src="<%= article.author.image_url %>" width=16 height=16> <%= article.author.name %>
+        </a>
+      </figcaption>
+    </figure>
+
+    <% product = items[4] %>
+    <figure class="product item v-third">
+      <%= cover_image product.image_url %>
+      <div class="info">
+        <h3 class="title"><%= product.title %></h3>
+        <p class=""></p>
+        
+        <a class="via user" href="">
+          <img src="<%= product.found_by.image_url %>" width=16 height=16> <span class="action">Loved by</span> <%= product.found_by.name %>
+        </a>
+        <a class="price"><%= product.price %></a>
+      </div>
+    </figure>
+
+  </div>
+  </div>
+  
+</div>
+</div>
+
+<% content_for :js do %>
+  <script>
+  $(function() {
+    view = new App.SwipeView
+    
+  })
+  </script>
+<% end %>
