@@ -245,7 +245,7 @@ items = [
   
   <div class="col half">
     <% product = items[3] %>
-    <figure class="product item v-third">
+    <figure class="product item v-half">
       <%= cover_image product.image_url %>
       <div class="info">
         <h3 class="title"><%= product.title %></h3>
@@ -259,7 +259,7 @@ items = [
     </figure>
     
     <% article = items[2] %>
-    <figure class="article item v-thrid">
+    <figure class="article item v-half split">
       <%= cover_image article.image_url %>
       
       <figcaption class="info">
@@ -270,20 +270,6 @@ items = [
           <img src="<%= article.author.image_url %>" width=16 height=16> <%= article.author.name %>
         </a>
       </figcaption>
-    </figure>
-
-    <% product = items[4] %>
-    <figure class="product item v-third">
-      <%= cover_image product.image_url %>
-      <div class="info">
-        <h3 class="title"><%= product.title %></h3>
-        <p class=""></p>
-        
-        <a class="via user" href="">
-          <img src="<%= product.found_by.image_url %>" width=16 height=16> <span class="action">Loved by</span> <%= product.found_by.name %>
-        </a>
-        <a class="price"><%= product.price %></a>
-      </div>
     </figure>
 
   </div>

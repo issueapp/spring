@@ -1,65 +1,4 @@
-<style>
-  html, body {
-    overflow: hidden;
-  }
-
-  body {
-    position: relative;
-  }
-
-  .swipe-paging {
-    position: absolute;
-    white-space: nowrap;
-    overflow: hidden;
-  }
-
-  .animate {
-    -webkit-transition: all .3s ease-out;
-    -moz-transition: all .3s ease-out;
-    -o-transition: all .3s ease-out;
-    -ms-transition: all .3s ease-out;
-    transition: all .3s ease-out;
-  }
-  
-  .page {
-    transform: translate3d(0,0,0);
-    -webkit-transform:translate3d(0,0,0);
-    position: relative;
-    float: left;
-    display: inline-block;
-    margin: 0;
-    padding: 5px;
-    white-space: normal;
-    overflow: hidden;
-    border: 1px solid #fff;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;    
-  }
-  
-  .page.current {
-    visibility: visible;
-  }
-  
-  .page.padding {
-    width: 0;
-  }
-  
-  .page {
-    border: 1px solid red;
-    background: #eee;
-    width: 1024px;
-    height: 768px;
-  }
-  
-</style>
-
 <div class="swipe-paging">
-  <!-- <div class="page current">
-    <h1>1. Lorem ipsum dolor sit amet, consectetur adipisicing elit,</h1>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-  </div>
-  <div class="page next loading">Loading...</div> -->
-
 </div>
 
 <% content_for :js do %>
@@ -68,7 +7,6 @@
 <script src="/javascripts/vendor/h5bp-helper.js"></script>
 
 <script>
-  
   var page = "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
   
   
@@ -98,36 +36,21 @@
   
   // Next page doesn't exist
   view.on("fetch:next", function(view) {
-    
-    // view.$('.current').after('<div class="page loading"></div>')
     var loading = view.$('.loading')
     loading.html( createPage(+1) )
     loading.removeClass('loading')
-    // console.log(loading)
-    // $(view.el).append("")
   })
-  // view.on("fetch:prev", function(view) {
-  //   alert(1)
-  //   var page = createPage(-1)
-  //   if (page)
-  //     view.padding.after('<div class="page">' + page + '</div>')
-  //   // console.log(loading)
-  //   // $(view.el).append("")
-  // })
-  
+
   // Buffered page doesn't exist
   view.on("buffer:next", function(view) {
     var page = createPage(+1)
-
     if (page)
       $(view.el).append('<div class="page">' + page + '</div>')
-
   })
   
   // Buffered page doesn't exist
   view.on("buffer:prev", function(view) {
     var page = createPage(-1)
-    
     if (page)
       view.padding.after('<div class="page">' + page + '</div>')
   })
