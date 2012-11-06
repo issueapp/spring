@@ -1,36 +1,4 @@
 
-/*
-    Item
-    
-    define layout and positioning of a rendering unit
-        
-*/
-.item {
-  position: relative;
-  background: #fff;
-  
-  float: left; 
-  margin: 0 1% 2% 0;
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
-
-  padding: 0;
-  
-  @include box-sizing(border-box);
-
-	.info {
-	  @include box-sizing(border-box);
-	  
-	  position: absolute;
-    bottom: 0;
-    
-	  display: inline-block;
-	}
-}
-
-
-
 .cover {
   position:relative;
   height: 200%; 
@@ -56,6 +24,89 @@
   background-position: bottom !important;
 }
 
+/*
+    Item
+    
+    define layout and positioning of a rendering unit
+        
+*/
+.item {
+  @include box-sizing(border-box);
+
+  position: relative;
+  background: #fff;
+  
+  float: left; 
+  margin: 0 0 2% 0;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+
+  padding: 20px;
+  
+  
+  border: 1px solid #eee;
+  border-width: 0 1px 1px 0;
+  
+  
+  // Image 60%
+  .image {
+    height: 60%;
+  }
+  
+  // Info 40%
+	.info {
+	  // Layout
+	  @include box-sizing(border-box);
+	  
+//    position: absolute;
+    bottom: 0;
+	  display: inline-block;
+	  
+    // Layout
+    vertical-align: top;
+    background: white;
+    padding: 1.5em 0 1.5em;
+    width: 100%;
+    height: 40%;
+    
+    color: #222;
+  }
+  
+  .info p {
+    font-size: 12px;
+    color: #666;
+  }
+  
+  
+  .title {
+    /*    Style   */
+    position: relative;
+    font-family: "Helvetica Neue";
+    
+//    letter-spacing: -1px;
+    text-transform: uppercase;
+    
+    font-size: 0.9em;
+    margin: 0 0 0.5em;    
+    width: 100%;
+    
+    // Elipsis
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  // Sources
+  .via a {
+    color: #666;
+  }
+}
+
+.row .item:last-child {
+  border-right: 0;
+}
+
 
 /*  
 
@@ -63,6 +114,41 @@
 
 */
 .product {
+  .image {
+    height: 80%;
+  }
+  
+  .info {
+    height: 20%
+  }
+  
+  .price {
+    display: block;
+    position: absolute;
+    right: 20px;
+    padding: 10px 20px;
+    font-weight: bold;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    bottom: 20%;
+    height: 20px;
+    line-height: 20px;
+    margin-bottom: 13px;
+  }
+  .price:before {
+    position: absolute;
+  	left: 50%;
+  	top: 100%;
+  	width: 0;
+  	height: 0;
+  	border: solid transparent;
+  	content: " ";
+  	
+  	margin-left: -7px;
+  	border-width: 7px;
+  	border-top-color: rgba(0, 0, 0, 0.8);
+  }
+  
   .link {
     @include box-sizing(border-box);
     
@@ -71,33 +157,33 @@
     display: block;
   }
   
-  .info {
-    @include box-sizing(border-box);
-    width: 100%;
-    vertical-align: top;
-    background: white;
-    padding: 0.5em 3% 0.5em;
-    height: 35px;
-  }
-  
-  .title {
-    position: relative;
-    font-family: "Helvetica Neue";
-    
-    letter-spacing: -1px;
-    
-    font-size: 1.2em;
-    margin: 0 0 0.5em;    
-    width: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
+//  .info {
+//    @include box-sizing(border-box);
+//    width: 100%;
+//    vertical-align: top;
+//    background: white;
+//    padding: 0.5em 3% 0.5em;
+//    height: 35px;
+//  }
+//  
+//  .title {
+//    position: relative;
+//    font-family: "Helvetica Neue";
+//    
+//    letter-spacing: -1px;
+//    
+//    font-size: 1.2em;
+//    margin: 0 0 0.5em;    
+//    width: 100%;
+//    white-space: nowrap;
+//    overflow: hidden;
+//    text-overflow: ellipsis;
+//  }
 
   .info p {
     visibility: hidden;
     margin: 0;
-    font-size: 0.75em;
+//    font-size: 0.75em;
     color: #666;
     white-space: nowrap;
     overflow: hidden;
@@ -118,7 +204,7 @@
 /*
     Product split view
 */
-.product.split {
+.item.split {
   position: relative;
   
   .image {
@@ -137,18 +223,41 @@
     }
   }
   
+  .info:before {
+    position: absolute;
+  	bottom: 60%;
+  	right: 101%;
+  	width: 0;
+  	height: 0;
+  	border: solid transparent;
+  	content: " ";
+  	
+  	margin-left: -10px;
+  	border-width: 10px;
+  	border-right-color: #fff;
+  }
+  
   .info {
     margin: 0;
     width: 49%;
     height: auto;
     vertical-align: middle;
-    padding: 10% 2% 10%;
+    padding: 10% 2% 0;
     position: relative;
+    height: 100%;
     
     & > p {
+      font-size: 150%;
       visibility: visible;
       white-space: normal;
       text-overflow: ellipsis;
     }
+  }
+  
+  .via {
+    position: absolute;
+    
+    bottom: 0;
+    left: 10px;
   }
 }
