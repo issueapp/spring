@@ -208,18 +208,6 @@ items = [
       </div>
     </figure>
     
-    <% product = items[4] %>
-    <figure class="product item third">
-       <%= cover_image product.image_url %>
-       <div class="info">
-         <h3 class="title"><%= product.title %></h3>
-         <p class=""></p>
-         <a class="via user" href="">
-           <img src="<%= product.found_by.image_url %>" width=16 height=16> <span class="action">Found by</span> <%= product.found_by.name %>
-         </a>
-         <a class="price"><%= product.price %></a>
-       </div>
-    </figure>
   </div>
 </div>
 

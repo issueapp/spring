@@ -41,9 +41,7 @@
   overflow: hidden;
   width: 100%;
   height: 100%;
-
   padding: 20px;
-  
   
   border: 1px solid #eee;
   border-width: 0 1px 1px 0;
@@ -66,29 +64,40 @@
     // Layout
     vertical-align: top;
     background: white;
-    padding: 1.5em 0 1.5em;
+    padding: 1.25em 0 1.25em;
     width: 100%;
     height: 40%;
     
-    color: #222;
+    color: #333;
   }
   
   .info p {
     font-size: 12px;
+    margin-bottom: 0.5em;
     color: #666;
   }
   
+  // Sources
+  .info a.via {
+    font-size: 12px;
+    color: #777;
+    
+    img {
+      vertical-align: middle;
+      margin-right: 5px;
+    }
+  }
   
   .title {
     /*    Style   */
     position: relative;
     font-family: "Helvetica Neue";
     
-//    letter-spacing: -1px;
+    letter-spacing: 1px;
     text-transform: uppercase;
     
     font-size: 0.9em;
-    margin: 0 0 0.5em;    
+    margin: 0 0 0.7em;    
     width: 100%;
     
     // Elipsis
@@ -97,10 +106,6 @@
     text-overflow: ellipsis;
   }
   
-  // Sources
-  .via a {
-    color: #666;
-  }
 }
 
 .row .item:last-child {
@@ -114,11 +119,11 @@
 */
 .product {
   .image {
-    height: 80%;
+    height: 73%;
   }
   
   .info {
-    height: 20%
+    height: 27%
   }
   
   .price {
