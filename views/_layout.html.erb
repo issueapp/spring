@@ -6,8 +6,8 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
     <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0" />
-  
-  
+
+
     <link rel="stylesheet" href="http://shop2.com/assets/components/_button.css">
     <link rel="stylesheet" href="/stylesheets/application.css"/>
     <link rel="stylesheet" href="/stylesheets/swipe-view.css"/>
@@ -19,7 +19,7 @@
     <!--iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    
+
     <style>
       html, body {
         overflow: hidden;
@@ -29,7 +29,7 @@
         position: relative;
         margin-left: -220px;
       }
-      
+
       body.expand-menu {
         z-index: 0;
         margin-left: 0;
@@ -45,14 +45,27 @@
     </style>
   </head>
   <body>
+    <div class="landing">
+      <h1 class="logo">Shop2</h1>
+      <div class="welcome">
+        <p>your edition</p>
+        <p>of a digital shopping magazine</p>
+        <span>browse ></span>
+      </div>
+      <div class="footer">
+        <i class="icon-facebook"></i>
+        Sign in or signup
+      </div>
+    </div>
+
     <nav id="menu" style="position:absolute;top:0;left:0;height:100%;z-index:999">
       <ul class="navigation">
         <li class="logo"><a href="/taylorluk/products"></a></li>
-        
+
         <li class="user"><a href="/taylorluk/products">Taylor Luk</a></li>
         <li class="active"><a href="/taylorluk/products">Stream</a></li>
         <li><a href="/taylorluk/products">Favourites</a></li>
-        
+
         <!-- Category -->
         <li><a href="/interests/mens">Men's</a></li>
         <li><a href="/interests/womens">Women's</a></li>
@@ -62,7 +75,7 @@
         <li><a href="/interests/media">Art &amp; design</a></li>
       </ul>
     </nav>
-    
+
     <div role="main" style="margin-left:220px">
       <div id="sections">
         <header class="toolbar">
@@ -71,19 +84,19 @@
         </header>
         <%= yield %>
       </div>
-      
+
       <div id="content">
         <div class="pages swipe-paging"></div>
       </div>
     </div>
     <!-- <div id="temp" style="position:absolute; visibility:hidden"></div> -->
   </body>
-  
+
   <%= render '/templates/all' %>
   <script src="/javascripts/vendor/zepto.js"></script>
-  <script src="/javascripts/vendor/underscore.js"></script>  
-  <script src="/javascripts/vendor/backbone.js"></script>  
-  <script src="/javascripts/vendor/mustache.js"></script>  
+  <script src="/javascripts/vendor/underscore.js"></script>
+  <script src="/javascripts/vendor/backbone.js"></script>
+  <script src="/javascripts/vendor/mustache.js"></script>
   <script src="/javascripts/vendor/clamp.js"></script>
   <script src="/javascripts/vendor/scrollability2.js"></script>
   <script src="/javascripts/vendor/h5bp-helper.js"></script>
@@ -100,12 +113,20 @@
   <script src="/javascripts/views/list_view.js"></script>
   <script src="/javascripts/views/stream_view.js"></script>
   <script src="/javascripts/misc.js"></script>
-  
+
   <script>
     MBP.hideUrlBarOnLoad()
-  
+
     App.init()
   </script>
-  
+
   <%= yield :js %>
+
+  <script>
+    $('.welcome span').click(function () {
+      $('.landing').animate({ opacity : 0 }, {duration: 200, complete: function () {
+        $('.landing').hide();
+      }});
+    });
+  </script>
 </html>
