@@ -136,6 +136,7 @@ class App.Router extends Backbone.Router
   content: (handle) ->
     App.streamView.$el.css('opacity', '0')
     content = App.stream.find (item)-> item.get('handle') == handle
+
     App.contentView ||= new App.ContentView
 
     App.contentView.resetAttrs()
@@ -200,3 +201,4 @@ class App.Router extends Backbone.Router
   #
   #   # ismobile
   #   false
+
