@@ -24,9 +24,9 @@ class App.PageView extends Backbone.View
   #   @limit = 3
   #   @products = products
   #   @rows = []
-  # 
+  #
   # fill: (products)->
-  # 
+  #
   # render: ->
   events:
     'click .item a.link': 'viewContent'
@@ -41,41 +41,45 @@ class App.PageView extends Backbone.View
   itemTemplate: Mustache.compile(
     '
     <a class="link" href="/products/{{ handle }}">
-      <div class="image" style="background-image: url(http://deyf8doogqx67.cloudfront.net{{ cdn_image_url }}); background-size: cover; background-position: center; height: 100%;">
-      </div>
-    
-      <div class="info">
-        <h3 class="title">{{ title }}</h3>
-        <p class="">{{ description }}</p>
+      <div class="image" style="background-image: url({{ image_url }}); background-size: cover; background-position: center;">
       </div>
     </a>
+    <figcaption class="info">
+      <h3 class="title">{{ title }}</h3>
+      <p>{{ description }}</p>
+
+      <a class="via user" href="">
+        {{#author}}
+        <img src="{{ image_url }}" width=16 height=16> <span class="action">Collected by</span> {{ name }}
+        {{/author}}
+      </a>
+    </figcaption>
     '
-  
   )
-  
+
   @templateIndex = -1
   @order = []
   until @order.length == 10
     @order.push Math.floor(Math.random() * $('script.section_tpl').length)
-  
+
   @getTemplate = (data)=>
     if data.isMobile
       @section_tpl ||= $('script.mobile_tpl')
       @section_tpl.html()
     else
       @section_tpl ||= $('script.section_tpl')
-    
+
       if data.method == 'append'
         if data.stream.changedDir
-          @templateIndex += 2 
-        
+          @templateIndex += 2
+
         @templateIndex += 1
         @templateIndex = 0 if @templateIndex > 9
-      
+
       else
         if data.stream.changedDir
-          @templateIndex -= 2 
-        
+          @templateIndex -= 2
+
         @templateIndex -= 1
         @templateIndex = 9 if @templateIndex < 0
 
@@ -85,52 +89,54 @@ class App.PageView extends Backbone.View
   initialize: (data)->
     # 1 , 2 ,3
     @offset = null
-    
     @items = []
     @page = $(App.PageView.getTemplate(data))
     # @fragment = $('#temp').html(App.PageView.getTemplate(data)).css('visibility', 'hidden')
-    # 
+    #
     # @page = $(@fragment.children().first())
     @limit = @page.find('.item').length
     @isMobile = data.isMobile
-    
+
     if window.orientation == 0 or window.orientation == 180
       this.changeOrientation()
-    
+
   # Development debug only
   silent: (e)->
     @silentClick = true
     return false
-  
+
   active: ->
     @silentClick = false
     $(@el).addClass('current')
-    
-  
+
+
   viewContent: (e)->
     # unless @silentClick
     link = $(e.currentTarget).attr('href')
     App.router.navigate(link, { trigger: true })
-    
+
     e.preventDefault()
     false
-  
+
   addItem: (item)->
-    @items.push(item) 
+    @items.push(item)
 
   isFull: ->
     @items.length >= @limit
-    
+
   render: ->
     nodes = @page.find(".item")
-    
+
     @items.forEach (item, index)=>
       node = $(nodes[index])
+      # if node.hasClass('split') && item['description'].length == 0
+        # node.removeClass('split')
+        # console.log 123, node
       node[0].innerHTML = @itemTemplate(item)
       # node.innerHTML = @itemTemplate(item)
 
       # node.append(@itemTemplate(item))
-        
+
       ##### HACK HACK HACK
       if item.tags_array.join(',').match(/shoe/i) && $(node).parent().not('.col.half')
         # node.find('.image.cover').addClass('bottom')
@@ -138,18 +144,18 @@ class App.PageView extends Backbone.View
       # Temporary item template
       # tpl = Milk.render('<div class="image cover"><img width="{{ image_width }}" height="{{ image_height }}" src="{{ image_url }}"></div><div class="info"><h3 class="title">{{ title }}</h3></div>', item)
       # node.html(tpl)
-    
+
     this.setElement(@page)
 
     # @page.css('visibility', 'visible')
-    
+
     this.$(".split p").each (p)-> $clamp(this, {clamp: 3})
-    
+
     @page
-    
+
   changeOrientation: ->
     @page ||= $('.rotatable')
-    
+
     if @page.find('.v-half') && !@page.find('.v-half').hasClass('row')
       this.doFlipClass(
         @page,
@@ -169,25 +175,25 @@ class App.PageView extends Backbone.View
       this.doFlipClass(@page, ['.row.v-half'], ['row v-half'], ['col half'])
     else
       this.doFlipClass(@page, ['.col.half'], ['col half'], ['row v-half'])
-      
+
     @page
 
   doFlipClass: (page, classNames, oldNames, newNames)->
     classNames.forEach (className, index)->
       page.find(className).forEach (element)->
         $(element).removeClass(oldNames[index]).addClass(newNames[index])
-        
+
   destroy: ->
     #COMPLETELY UNBIND THE VIEW
-    
+
     # Free up memory from images
     this.$('img').each ->
       $(this).attr('src', '/images/blank.gif')
-    # 
+    #
     # this.$('.image').each ->
     #   this.style.backgroundImage = 'none'
       # $(this).css('background-image', 'none')
-      
+
     this.undelegateEvents()
 
     $(this.el).unbind()
@@ -197,5 +203,5 @@ class App.PageView extends Backbone.View
     $(this.el).empty()
 
     $(this.el).remove()
-    
+
     # Backbone.View.prototype.remove.call(this)

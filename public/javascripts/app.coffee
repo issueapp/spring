@@ -3,17 +3,16 @@ this.App ||= {
   standalone: window.navigator.standalone
 
   streams: [
-    { title: "Top Content", "http://shop2.com/products.json?highres=true", default: true },
-    { title: "Editors choices", "http://shop2.com/taylorluk/products.json?highres=true" },
-    { title: "Mens", "http://shop2.com/interests/mens/products.json?highres=true" },
-    { title: "Womens", "http://shop2.com/interests/womens/products.json?highres=true" }
+    { title: "Top Content", "http://shop2.com/items.json", default: true },
+    { title: "Editors choices", "http://shop2.com/taylorluk/items.json" },
+    { title: "Mens", "http://shop2.com/interests/mens/items.json" },
+    { title: "Womens", "http://shop2.com/interests/womens/items.json" }
   ]
 
   init: ->
     this.layout = new App.Layout
     this.router = new App.Router
-    Backbone.history.start({pushState: true, root: "/ipad/"})
-
+    Backbone.history.start({pushState: true, root: "/stream/"})
 }
 
 class App.Layout extends Backbone.View
@@ -72,7 +71,7 @@ class App.Layout extends Backbone.View
 
 class App.Router extends Backbone.Router
   routes:
-    "ipad":             "home"
+    "stream":           "home"
     "section":          "home"
 
     "interests/:handle": "products"
@@ -92,7 +91,7 @@ class App.Router extends Backbone.Router
       App.stream = new App.StreamCollection
       App.streamView = new App.StreamView({ el: '#sections .pages', layout: App.layout, collection: App.stream })
 
-      App.stream.url = "http://shop2.com/#{name}/products.json?highres=true&sort=created_at"
+      App.stream.url = "http://shop2.com/#{name}/items.json?sort=created_at"
       App.stream.title = "#{name}'s favourites"
       App.stream.owner = "#{name}"
       App.stream.fetch({ dataType: "jsonp" })
@@ -123,22 +122,22 @@ class App.Router extends Backbone.Router
     App.menu ||= new App.MenuView
     App.stream ||= new App.StreamCollection
 
-    pages = $('#sections .pages')
+    pages = $('#sections .swipe-paging')
     isMobile = this.isMobile()
 
     if isMobile
-      App.listView ||= new App.ListView({ el: '#sections .pages', collection: App.stream })
+      App.listView ||= new App.ListView({ el: '#sections .swipe-paging', collection: App.stream })
     else
       pages.addClass('horizontal')
-      App.streamView ||= new App.StreamView({ el: '#sections .pages', layout: App.layout, collection: App.stream })
+      App.streamView ||= new App.StreamView({ el: '#sections .swipe-paging', layout: App.layout, collection: App.stream })
 
     if App.contentView
       $(App.streamView.el).animate({ opacity: 1}, 150)
 
-      $('#content .pages').html('')
+      $('#content .swipe-paging').html('')
 
     if App.stream.length == 0
-      App.stream.url = "http://shop2.com/taylorluk/products.json?highres=true&sort=created_at"
+      App.stream.url = "http://shop2.com/taylorluk/items.json?sort=created_at"
       App.stream.title = "Taylorluk's favourites"
       App.stream.fetch({ dataType: "jsonp" })
 
