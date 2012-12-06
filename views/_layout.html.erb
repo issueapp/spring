@@ -89,10 +89,8 @@
         <div class="pages swipe-paging"></div>
       </div>
     </div>
-    <!-- <div id="temp" style="position:absolute; visibility:hidden"></div> -->
   </body>
 
-  <%= render '/templates/all' %>
   <script src="/javascripts/vendor/zepto.js"></script>
   <script src="/javascripts/vendor/underscore.js"></script>
   <script src="/javascripts/vendor/backbone.js"></script>
@@ -123,10 +121,11 @@
   <%= yield :js %>
 
   <script>
-    $('.welcome span').click(function () {
+    $('.welcome span').on('touchstart', function () {
       $('.landing').animate({ opacity : 0 }, {duration: 200, complete: function () {
         $('.landing').hide();
       }});
+      return false;
     });
   </script>
 </html>
