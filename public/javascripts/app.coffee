@@ -74,9 +74,9 @@ class App.Router extends Backbone.Router
     "stream":           "home"
     "section":          "home"
 
-    "interests/:handle": "products"
-    "products/:handle": "content"
-    ":name/products": "stream"
+    "interests/:handle": "items"
+    "items/:handle": "content"
+    ":name/items": "stream"
 
   stream: (name)->
     if App.stream.owner != name
@@ -87,7 +87,7 @@ class App.Router extends Backbone.Router
       spinner = new Spinner().spin()
       $('#sections').append(spinner.el)
 
-      App.router.navigate("#{name}/products", { trigger: true })
+      App.router.navigate("#{name}/items", { trigger: true })
       App.stream = new App.StreamCollection
       App.streamView = new App.StreamView({ el: '#sections .pages', layout: App.layout, collection: App.stream })
 
@@ -98,7 +98,7 @@ class App.Router extends Backbone.Router
     else
       $(App.streamView.el).animate({ opacity: 1}, 150)
 
-  products: (handle)->
+  items: (handle)->
     if App.stream.title != handle
       $('#sections .pages').removeAttr("style")
       $('#sections .padding').width(0)
@@ -122,19 +122,19 @@ class App.Router extends Backbone.Router
     App.menu ||= new App.MenuView
     App.stream ||= new App.StreamCollection
 
-    pages = $('#sections .swipe-paging')
+    pages = $('#sections .pages')
     isMobile = this.isMobile()
 
     if isMobile
-      App.listView ||= new App.ListView({ el: '#sections .swipe-paging', collection: App.stream })
+      App.listView ||= new App.ListView({ el: '#sections .pages', collection: App.stream })
     else
       pages.addClass('horizontal')
-      App.streamView ||= new App.StreamView({ el: '#sections .swipe-paging', layout: App.layout, collection: App.stream })
+      App.streamView ||= new App.StreamView({ el: '#sections .pages', layout: App.layout, collection: App.stream })
 
     if App.contentView
       $(App.streamView.el).animate({ opacity: 1}, 150)
 
-      $('#content .swipe-paging').html('')
+      $('#content .pages').html('')
 
     if App.stream.length == 0
       App.stream.url = "http://shop2.com/taylorluk/items.json?sort=created_at"
@@ -149,7 +149,6 @@ class App.Router extends Backbone.Router
   content: (handle) ->
     $(App.streamView.el).css('opacity', "0")
     content = App.stream.find (item)-> item.get('handle') == handle
-
     App.contentView ||= new App.ContentView
     # App.contentView.view.offset = 0
     App.contentView.model = content

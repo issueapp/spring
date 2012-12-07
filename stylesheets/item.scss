@@ -126,8 +126,8 @@
   // make sure only the last item in a row doesn't have right border
   .row .item:first-child {
     border-right-width: 1px;
-    border-top-color: #EEE;
-    border-top-style: solid;
+    border-right-color: #EEE;
+    border-right-style: solid;
   }
 
   /*
@@ -272,7 +272,7 @@
       display: block;
       position: absolute;
       top: 0;
-      left: -100%;
+      left: -102%;
       color: white;
     }
 

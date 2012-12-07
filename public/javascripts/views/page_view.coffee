@@ -40,7 +40,7 @@ class App.PageView extends Backbone.View
   # </div>
   itemTemplate: Mustache.compile(
     '
-    <a class="link" href="/products/{{ handle }}">
+    <a class="link" href="/items/{{ handle }}">
       <div class="image" style="background-image: url({{ image_url }}); background-size: cover; background-position: center;">
       </div>
     </a>
@@ -53,6 +53,10 @@ class App.PageView extends Backbone.View
         <img src="{{ image_url }}" width=16 height=16> <span class="action">Collected by</span> {{ name }}
         {{/author}}
       </a>
+
+      {{#price_in_string}}
+        <a class="price">{{price_in_string}}</a>
+      {{/price_in_string}}
     </figcaption>
     '
   )
@@ -129,9 +133,6 @@ class App.PageView extends Backbone.View
 
     @items.forEach (item, index)=>
       node = $(nodes[index])
-      # if node.hasClass('split') && item['description'].length == 0
-        # node.removeClass('split')
-        # console.log 123, node
       node[0].innerHTML = @itemTemplate(item)
       # node.innerHTML = @itemTemplate(item)
 
