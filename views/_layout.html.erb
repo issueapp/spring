@@ -7,7 +7,6 @@
     <meta name="MobileOptimized" content="320">
     <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0" />
 
-
     <link rel="stylesheet" href="http://shop2.com/assets/components/_button.css">
     <link rel="stylesheet" href="/stylesheets/application.css"/>
     <link rel="stylesheet" href="/stylesheets/swipe-view.css"/>
@@ -42,6 +41,84 @@
         width:100%;
       }
 
+      [role=main] {
+        position: relative;
+      }
+
+      #sections .pages {
+        position: absolute;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+
+      #sections .spinner {
+        top: 300px;
+        left: 50%;
+      }
+
+      #content {
+        white-space: nowrap;
+      }
+
+      .animate {
+        -webkit-transition: all .3s ease-out;
+        -moz-transition: all .3s ease-out;
+        -o-transition: all .3s ease-out;
+        -ms-transition: all .3s ease-out;
+        transition: all .3s ease-out;
+      }
+
+      .swiping {
+        -webkit-transition: all .15s ease-out;
+        -moz-transition: all .15s ease-out;
+        -o-transition: all .15s ease-out;
+        -ms-transition: all .15s ease-out;
+        transition: all .15s ease-out;
+      }
+
+      .scrollable {
+        overflow: hidden;
+      }
+
+      .pages {
+        transform: translate3d(0,0,0);
+        -webkit-transform:translate3d(0,0,0);
+      }
+
+      .page {
+        position: relative;
+        display: inline-block;
+        margin: 0;
+        padding: 5px;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        white-space: normal;
+        overflow: hidden;
+        border: 1px solid #fff;
+
+        transform: translate3d(0,0,0);
+        -webkit-transform:translate3d(0,0,0);
+      }
+
+      .page.current {
+        visibility: visible;
+      }
+
+      .page.padding {
+        width: 0;
+      }
+
+      #signup {
+        display: none;
+        background: white;
+        height: 93%;
+      }
+
+      .vertical-scroll {
+        /* IPHONE toolbar hack: height: 104%; */
+        overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;
+      }
     </style>
   </head>
   <body>
@@ -52,19 +129,19 @@
         <p>of a digital shopping magazine</p>
         <span>browse ></span>
       </div>
-      <div class="footer">
+      <!-- <div class="footer">
         <i class="icon-facebook"></i>
         Sign in or signup
-      </div>
+      </div> -->
     </div>
 
     <nav id="menu" style="position:absolute;top:0;left:0;height:100%;z-index:999">
       <ul class="navigation">
-        <li class="logo"><a href="/taylorluk/products"></a></li>
+        <li class="logo"><a href="/taylorluk/items"></a></li>
 
-        <li class="user"><a href="/taylorluk/products">Taylor Luk</a></li>
-        <li class="active"><a href="/taylorluk/products">Stream</a></li>
-        <li><a href="/taylorluk/products">Favourites</a></li>
+        <li class="user"><a href="/taylorluk/items">Taylor Luk</a></li>
+        <li class="active"><a href="/taylorluk/items">Stream</a></li>
+        <li><a href="/taylorluk/items">Favourites</a></li>
 
         <!-- Category -->
         <li><a href="/interests/mens">Men's</a></li>
@@ -90,6 +167,8 @@
       </div>
     </div>
   </body>
+
+  <%= render '/templates/new' %>
 
   <script src="/javascripts/vendor/zepto.js"></script>
   <script src="/javascripts/vendor/underscore.js"></script>
