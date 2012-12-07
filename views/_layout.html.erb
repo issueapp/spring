@@ -33,6 +33,14 @@
     <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon.png">
     <!-- For everything else -->
     <link rel="shortcut icon" href="/favicon.ico">
+    <!-- For iPhone 4 -->
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon.png">
+    <!-- For everything else -->
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    <script>(function(){var p,l,r=window.devicePixelRatio;if(navigator.platform==="iPad"){p=r===2?"img/startup/startup-tablet-portrait-retina.png":"images/startup/tablet-portrait.png";l=r===2?"images/startup/startup-tablet-landscape-retina.png":"images/startup/tablet-landscape.png";document.write('<link rel="apple-touch-startup-image" href="'+l+'" media="screen and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="'+p+'" media="screen and (orientation: portrait)"/>');}else{p=r===2?"img/startup/startup-retina.png":"img/startup/startup.png";document.write('<link rel="apple-touch-startup-image" href="'+p+'"/>');}})()</script>
+
+    <meta http-equiv="cleartype" content="on">
 
     <script>(function(){var p,l,r=window.devicePixelRatio;if(navigator.platform==="iPad"){p=r===2?"img/startup/startup-tablet-portrait-retina.png":"images/startup/tablet-portrait.png";l=r===2?"images/startup/startup-tablet-landscape-retina.png":"images/startup/tablet-landscape.png";document.write('<link rel="apple-touch-startup-image" href="'+l+'" media="screen and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="'+p+'" media="screen and (orientation: portrait)"/>');}else{p=r===2?"img/startup/startup-retina.png":"img/startup/startup.png";document.write('<link rel="apple-touch-startup-image" href="'+p+'"/>');}})()</script>
 
@@ -202,7 +210,6 @@
   </body>
 
   <%= render '/templates/new' %>
-
   <script src="/javascripts/vendor/zepto.js"></script>
   <script src="/javascripts/vendor/zepto.cookie.js"></script>
   <script src="/javascripts/vendor/underscore.js"></script>
@@ -224,7 +231,7 @@
   <script src="/javascripts/views/list_view.js"></script>
   <script src="/javascripts/views/stream_view.js"></script>
   <script src="/javascripts/misc.js"></script>
-
+  
   <script>
     MBP.hideUrlBarOnLoad()
 
