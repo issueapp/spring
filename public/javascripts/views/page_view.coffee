@@ -29,7 +29,7 @@ class App.PageView extends Backbone.View
   #
   # render: ->
   events:
-    'click .item a.link': 'viewContent'
+    'touchstart .item a.link': 'viewContent'
     # 'swipe .item a.link': 'silent'
     'orientationchange': 'changeOrientation'
 
@@ -38,6 +38,12 @@ class App.PageView extends Backbone.View
   #     <img src="http://deyf8doogqx67.cloudfront.net{{ cdn_image_url }}">
   #   </a>
   # </div>
+
+  # <a class="via user" href="">
+  #   {{#author}}
+  #   <img src="{{ image_url }}" width=16 height=16> <span class="action">Collected by</span> {{ name }}
+  #   {{/author}}
+  # </a>
   itemTemplate: Mustache.compile(
     '
     <a class="link" href="/items/{{ handle }}">
@@ -47,12 +53,6 @@ class App.PageView extends Backbone.View
     <figcaption class="info">
       <h3 class="title">{{ title }}</h3>
       <p>{{ description }}</p>
-
-      <a class="via user" href="">
-        {{#author}}
-        <img src="{{ image_url }}" width=16 height=16> <span class="action">Collected by</span> {{ name }}
-        {{/author}}
-      </a>
 
       {{#price_in_string}}
         <a class="price">{{price_in_string}}</a>
@@ -142,9 +142,14 @@ class App.PageView extends Backbone.View
       if item.tags_array.join(',').match(/shoe/i) && $(node).parent().not('.col.half')
         # node.find('.image.cover').addClass('bottom')
         node.find('.image').addClass('bottom')
-      # Temporary item template
-      # tpl = Milk.render('<div class="image cover"><img width="{{ image_width }}" height="{{ image_height }}" src="{{ image_url }}"></div><div class="info"><h3 class="title">{{ title }}</h3></div>', item)
-      # node.html(tpl)
+
+      # strip html tags from article description
+      if !!item.description && item.description.match(/<\w+>/)
+        content = node.find('.info p')[0].innerText
+        tmp = document.createElement("div")
+        tmp.innerHTML = content
+        node.find('.info p').html(tmp.textContent || tmp.innerText)
+
 
     this.setElement(@page)
 

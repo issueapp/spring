@@ -1,14 +1,12 @@
 class App.StreamCollection extends Backbone.Collection
 
   initialize: ->
-    @offset ||= 0
-    @perPage ||= 10
+    @offset = 0
+    @perPage = 10
 
     # Server pagination
-    @page ||= 1
-    @currentPage ||= []
-    @prevPage ||= []
-    @nextPage ||= []
+    @page = 1
+    @currentPage = @prevPage = @nextPage = []
 
     this.on('fetch-next', this.fetchNext)
     this.on('fetch-prev', this.fetchPrev)

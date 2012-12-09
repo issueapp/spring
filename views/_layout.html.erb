@@ -1,5 +1,14 @@
-<html class="no-js" lang="en">
+<!-- HTML5 Mobile Boilerplate -->
+<!--[if IEMobile 7]><html class="no-js iem7"><![endif]-->
+<!--[if (gt IEMobile 7)|!(IEMobile)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+
+<!-- HTML5 Boilerplate -->
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
   <head>
+    <meta charset="utf-8">
     <title>Shop2</title>
 
     <!-- http://t.co/dKP3o1e -->
@@ -10,10 +19,17 @@
     <link rel="stylesheet" href="http://shop2.com/assets/components/_button.css">
     <link rel="stylesheet" href="/stylesheets/application.css"/>
     <link rel="stylesheet" href="/stylesheets/swipe-view.css"/>
-
     <link rel="stylesheet" href="/stylesheets/font-awesome.css"/>
 
     <link rel="shortcut icon" href="/favicon.ico">
+    <!-- For iPhone 4 -->
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon.png">
+    <!-- For everything else -->
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    <script>(function(){var p,l,r=window.devicePixelRatio;if(navigator.platform==="iPad"){p=r===2?"img/startup/startup-tablet-portrait-retina.png":"images/startup/tablet-portrait.png";l=r===2?"images/startup/startup-tablet-landscape-retina.png":"images/startup/tablet-landscape.png";document.write('<link rel="apple-touch-startup-image" href="'+l+'" media="screen and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="'+p+'" media="screen and (orientation: portrait)"/>');}else{p=r===2?"img/startup/startup-retina.png":"img/startup/startup.png";document.write('<link rel="apple-touch-startup-image" href="'+p+'"/>');}})()</script>
+
+    <meta http-equiv="cleartype" content="on">
 
     <!--iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -27,6 +43,8 @@
       body {
         position: relative;
         margin-left: -220px;
+        /* diable tap highlighting! */
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
       }
 
       body.expand-menu {
@@ -142,7 +160,6 @@
         <li class="user"><a href="/taylorluk/items">Taylor Luk</a></li>
         <li class="active"><a href="/taylorluk/items">Stream</a></li>
         <li><a href="/taylorluk/items">Favourites</a></li>
-
         <!-- Category -->
         <li><a href="/interests/mens">Men's</a></li>
         <li><a href="/interests/womens">Women's</a></li>
@@ -161,7 +178,6 @@
         </header>
         <%= yield %>
       </div>
-
       <div id="content">
         <div class="pages swipe-paging"></div>
       </div>
