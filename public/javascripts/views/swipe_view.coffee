@@ -42,7 +42,7 @@ class App.SwipeView extends Backbone.View
     swipeRight: "moveLeft"
 
   initialize: (data)->
-    @viewport ||= @el.parentNode.offsetWidth
+    # @viewport ||= @el.parentNode.offsetWidth
     @offset ||= 0
     @currentIndex ||= 0
     @startClientX = @currentClientX = 0
@@ -52,6 +52,11 @@ class App.SwipeView extends Backbone.View
     @currentPage = this.$('.current').eq(0)
     if @currentPage.length == 0
       @currentPage = $(@el).children(":not(.padding)").first().addClass('current')
+
+    if expendMenu = $('body.expand-menu')[0]
+      @viewport ||= expendMenu.offsetWidth
+    else
+      @viewport ||= @el.parentNode.offsetWidth
 
     $(document).on 'keydown', (e)=>
       switch (e.which || e.keyCode)
@@ -70,7 +75,7 @@ class App.SwipeView extends Backbone.View
     e = e.touches[0] if e.touches
 
     delta = e.clientX - @startClientX
-    moveDelta = e.clientX - @currentClientX
+    # moveDelta = e.clientX - @currentClientX
 
     this.updatePos(@offset + delta * 1.2)
 

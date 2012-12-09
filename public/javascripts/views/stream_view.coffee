@@ -27,14 +27,9 @@
 
 ###
 class App.StreamView extends Backbone.View
-  # events:
-  #   'scrollability-page': 'onPageChange'
-  #   'scrollability-end': 'onScrollEnd'
 
   initialize: (data)->
-    $(@el).off()
-
-    @title = "TOP CONTENT"
+    @title = data.title || "Top content"
     @currentIndex ||= 0
     @pageEvent = null
     @direction ||= "right"
@@ -44,26 +39,18 @@ class App.StreamView extends Backbone.View
     @transition = false
     @offset = 0
 
-    # @container = $(@el)[0]
+    # reset view
+    this.$el.removeAttr("style").html('')
+    this.$el.off()
 
-    @padding = $('<div class="page padding" style="visibility:hidden;width:0;padding:0;width: 0px; border:0;font-size:0">').appendTo(@el)
-    @toolbar = new App.Toolbar
+    @padding = $('<div class="page padding" style="visibility:hidden;width:0;padding:0;border:0;font-size:0">').appendTo(@el)
+    @toolbar = App.toolbar || new App.Toolbar
 
     # Render stream once data is loaded
-    @collection.on("reset", this.render)
-
-    # $(@el).on "swipeLeft", =>
-    #   # @changedDir = @direction != "right"
-    #   @direction = "right"
-    #   # $(@el).attr('data-direction', @direction)
-    #
-    # $(@el).on "swipeRight", =>
-    #   # @changedDir = @direction != "left"
-    #   @direction = "left"
-    #   # $(@el).attr('data-direction', @direction)
+    @collection.on("reset", => this.render())
 
     # Switched page
-    #  event.page = non zero page index
+    # event.page = non zero page index
     $(@el).on "scrollability-page", (event, a, b)=>
       # return if loading
       # Start page change
@@ -87,22 +74,7 @@ class App.StreamView extends Backbone.View
 
         loading = false
 
-      this.renderInfo()
-
-    # $(@container).on "scrollability-end", (event) =>
-    #
-    #   if @fetchPage == 'append'
-    #     farNext = this.appendPage()
-    #     this.clearPage('append')
-    #     @fetchPage = false
-    #
-    #   else if @fetchPage == 'prepend'
-    #     prevNext = this.prependPage()
-    #     this.clearPage('prepend')
-    #     @fetchPage = false
-
     # Prevent browser from
-
     startClientX  = currentClientX = 0
 
     $(@el).on "touchstart", (e)=>
@@ -187,8 +159,7 @@ class App.StreamView extends Backbone.View
 
         $(@el).find('.page').removeClass('current')
         $(target.el).addClass('current')
-
-      this.renderInfo()
+      # this.renderInfo()
 
   onResize: ->
     paddings = parseInt(this.$('.padding').data('pages')) || 0
@@ -203,16 +174,10 @@ class App.StreamView extends Backbone.View
     this.updatePos(0)
     this.updatePadding()
 
-  # onPageChange: (event) =>
-  #   console.log("Switched Page: #{event.page}")
-  #   @pageEvent = event
-
   # Convient helpers
   getScroller: ->
     if directions == undefined
       directions = scrollability && scrollability.directions
-
-
     directions && directions.horizontal(@el)
 
   firstPage: -> @pages[0]
@@ -238,7 +203,6 @@ class App.StreamView extends Backbone.View
 
     page
 
-  #
   # Load previous for page 2 +
   prev: ()->
     if page = @pages[@currentIndex - 1]
@@ -259,18 +223,10 @@ class App.StreamView extends Backbone.View
 
   # When we insert and remove pages, the rendering offset
   updatePos: (offset)->
-    node = @el
-
-    # Necessary to pause animation in order to get correct transform value
-    # console.log(node.style.webkitAnimation)
-    # console.log(node.style)
-
-
     @offset = Math.round(@offset + offset)
 
     if @offset <= 0
-      node.style.webkitTransform = 'translate3d(' + @offset + 'px, 0, 0)'
-      # $(@el).css('-webkit-transform', 'translate3d(' + @offset + 'px,0,0)')
+      @el.style.webkitTransform = 'translate3d(' + @offset + 'px, 0, 0)'
 
     # Mark transition started
     @transition = true
@@ -286,8 +242,6 @@ class App.StreamView extends Backbone.View
     @collection.fill(page, offset, true) if offset > 0
 
     return if page.items.length == 0
-
-    # console.warn('Prepend', page, offset, page.items.map (i)-> i.id )
 
     # push and pop
     @pages.unshift(page)
@@ -306,7 +260,6 @@ class App.StreamView extends Backbone.View
     page = new App.PageView(method: 'append', stream: this)
 
     @collection.fill(page, offset)
-    # console.log("renderPage", page)
 
     return if page.items.length == 0
 
@@ -317,7 +270,6 @@ class App.StreamView extends Backbone.View
       # Render
       # maintain index
       @currentIndex = @currentIndex - 1
-
       this.renderPage(page, 'append')
 
     page
@@ -338,12 +290,7 @@ class App.StreamView extends Backbone.View
     page = null
 
     @padding.attr('data-pages', paddingPages)
-
-
     this.updatePadding(paddingPages)
-    # @padding.width( paddingPages * @scroller.viewport )
-    # @padding[0].style.width = paddingPages * @scroller.viewport
-    # @padding.width( @padding.width() + scroller.viewport )
 
   updatePadding: (pages)->
     pages ||= parseInt(this.$('.padding').data('pages') || 0)
@@ -357,13 +304,11 @@ class App.StreamView extends Backbone.View
 
     # Render
     node = page.render()
-    # node.css('visibility', 'hidden')
 
     if method == 'prepend'
-      # $(@el).prepend( node )
-
       container = @padding.after('<div class="page rotatable"></div>').next()
       pos = -pos
+
     else
       container = $(@el).append('<div class="page rotatable"></div>').children().last()
 
@@ -371,53 +316,25 @@ class App.StreamView extends Backbone.View
       container[0].parentNode.replaceChild(node[0], container[0])
       node[0].className = container[0].className
     , 200
-    #
-    # this.updatePos(pos) if reposition
 
     $(node).attr('data-offset', page.offset)
 
     node
 
-  render: =>
+  render: ->
     firstRender = @pages.length == 0
-
     @scroller ||= this.getScroller()
 
     until @pages.length == @limit
-    #   page = this.appendPage(false)
-    #   this.renderPage(page, 'append', false)
       page = this.appendPage(false)
-      # page.offset = page.limit if page.offset == 0
       this.renderPage(page, 'append', false)
 
     if firstRender
       this.firstPage().offset = this.firstPage().limit
+      this.firstPage().$el.addClass('current')
+      @pages[1].$el.addClass('next')
 
-      $(this.firstPage().el).addClass('current')
-      $(@pages[1].el).addClass('next')
-
-    @toolbar.title = this.title
-    @toolbar.backBtn = false
-    @toolbar.signupButton = false
-    @toolbar.$('.actions').remove()
-
+    @toolbar.title = @title
     @toolbar.render()
 
-  renderInfo: ->
-    # <dt>currentIndex</dt><dd id="stat-stream-index"></dd>
-    # <dt>Pages</dt><dd id="stat-pages"></dd>
-    # <dt>Page offset</dt><dd id="stat-page-offset"></dd>
-    #
-    # <dt>Collection index</dt><dd id="stat-collection-index"></dd>
-    # $('#stat-collection-index').html(@collection.offset)
-    # $('#stat-stream-index').html(@currentIndex)
-    # $('#stat-page-offset').html(this.currentPage().offset )
-    #
-    # $('')
-    #
-    # $('#stat-items').html('')
-    # pages = @pages.map (p)->
-    #   ids = p.items.map (i)-> i.id
-    #   div = $('<div>').html( p.offset + " => " + ids.join(", ")).appendTo($('#stat-items'))
-    #   div.css( width: 150, display: "inline-block")
-    #   div.css( border: "1px solid red") if $(p.el).is('.current')
+    this
