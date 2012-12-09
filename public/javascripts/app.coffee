@@ -2,17 +2,30 @@
 this.App ||= {
   standalone: window.navigator.standalone
 
-  streams: [
-    { title: "Top Content", "http://shop2.com/items.json", default: true },
-    { title: "Editors choices", "http://shop2.com/taylorluk/items.json" },
-    { title: "Mens", "http://shop2.com/interests/mens/items.json" },
-    { title: "Womens", "http://shop2.com/interests/womens/items.json" }
-  ]
+  streams: {
+    top_content: {
+      title: "Top Content"
+      url: "http://shop2.com/taylorluk/items.json"
+      default: true
+    }
+    editors_choices: {
+      title: "Editors choices"
+      url: "http://shop2.com/taylorluk/items.json"
+    }
+    mens: {
+      title: "Mens"
+      url: "http://shop2.com/interests/mens/items.json"
+    }
+    womens: {
+      title: "Womens"
+      url: "http://shop2.com/interests/womens/items.json"
+    }
+  }
 
   init: ->
     this.layout = new App.Layout
     this.router = new App.Router
-    Backbone.history.start({pushState: true, root: "/stream/"})
+    Backbone.history.start({ pushState: true, root: "/stream/" })
 }
 
 class App.Layout extends Backbone.View
@@ -25,12 +38,12 @@ class App.Layout extends Backbone.View
 
   resize: ->
     dimension = {
-      width: window.innerWidth
+      width:  window.innerWidth
       height: window.innerHeight
     }
 
     @viewport = $('#sections').width()
-    toolbar = { height:  $('header.toolbar').height() }
+    toolbar   = { height: $('header.toolbar').height() }
 
     css = "
       body {
@@ -73,104 +86,92 @@ class App.Router extends Backbone.Router
   routes:
     "stream":           "home"
     "section":          "home"
-
     "interests/:handle": "items"
     "items/:handle": "content"
     ":name/items": "stream"
 
   stream: (name)->
-    if App.stream.owner != name
-      $('#sections .pages').removeAttr("style")
-      $('#sections .padding').width(0)
-      $('#sections .pages').html('')
+    if App.stream.title != (name + "'s Favorites")
+      url = "http://shop2.com/#{name}/items.json"
+      title = name + "'s Favorites"
+      this.resetView(url, title)
 
-      spinner = new Spinner().spin()
-      $('#sections').append(spinner.el)
-
-      App.router.navigate("#{name}/items", { trigger: true })
-      App.stream = new App.StreamCollection
-      App.streamView = new App.StreamView({ el: '#sections .pages', layout: App.layout, collection: App.stream })
-
-      App.stream.url = "http://shop2.com/#{name}/items.json?sort=created_at"
-      App.stream.title = "#{name}'s favourites"
-      App.stream.owner = "#{name}"
-      App.stream.fetch({ dataType: "jsonp" })
     else
-      $(App.streamView.el).animate({ opacity: 1}, 150)
+      this.backToStream()
 
   items: (handle)->
     if App.stream.title != handle
-      $('#sections .pages').removeAttr("style")
-      $('#sections .padding').width(0)
-      $('#sections .pages').html('')
-      $('#content .pages').html('')
+      url = "http://shop2.com/interests/#{handle}.json"
+      title = handle
+      this.resetView(url, title)
 
-      spinner = new Spinner().spin()
-      $('#sections').append(spinner.el)
-
-      App.router.navigate("interests/#{handle}", { trigger: true })
-      App.stream = new App.StreamCollection
-      App.streamView = new App.StreamView({ el: '#sections .pages', layout: App.layout, collection: App.stream })
-
-      App.stream.url = "http://shop2.com/interests/#{handle}.json"
-      App.stream.title = handle
-      App.stream.fetch({ dataType: "jsonp" })
     else
-      $(App.streamView.el).animate({ opacity: 1}, 150)
+      this.backToStream()
 
   home: ->
-    App.menu ||= new App.MenuView
-    App.stream ||= new App.StreamCollection
+    if !App.stream || App.streamView.title != App.streams.top_content.title
+      url = App.streams.top_content.url
+      title = App.streams.top_content.title
+      this.resetView(url, title)
 
-    pages = $('#sections .pages')
-    isMobile = this.isMobile()
-
-    if isMobile
-      App.listView ||= new App.ListView({ el: '#sections .pages', collection: App.stream })
     else
-      pages.addClass('horizontal')
-      App.streamView ||= new App.StreamView({ el: '#sections .pages', layout: App.layout, collection: App.stream })
-
-    if App.contentView
-      $(App.streamView.el).animate({ opacity: 1}, 150)
-
-      $('#content .pages').html('')
-
-    if App.stream.length == 0
-      App.stream.url = "http://shop2.com/taylorluk/items.json?sort=created_at"
-      App.stream.title = "Taylorluk's favourites"
-      App.stream.fetch({ dataType: "jsonp" })
-
-    else if isMobile
-      App.listView.render()
-    else
-      App.streamView.render()
+      this.backToStream()
 
   content: (handle) ->
-    $(App.streamView.el).css('opacity', "0")
+    App.streamView.$el.css('opacity', '0')
     content = App.stream.find (item)-> item.get('handle') == handle
     App.contentView ||= new App.ContentView
-    # App.contentView.view.offset = 0
+
+    App.contentView.resetAttrs()
     App.contentView.model = content
     App.contentView.render()
 
+  resetView: (url, title)->
+    if App.toolbar
+      App.toolbar.actionsBtn = false
+      App.toolbar.backBtn = false
+      App.toolbar.title = title
+      App.toolbar.render()
 
-  isMobile: ->
-    uagent = navigator.userAgent.toLowerCase()
-    ismobile = false
+    $('#sections .pages').addClass('horizontal')
+    $('#content .pages').html('')
+    $(document).off('keydown')
 
-    list = [
-        "midp","240x320","blackberry","netfront","nokia","panasonic",
-        "portalmmm","sharp","sie-","sonyericsson","symbian",
-        "windows ce","benq","mda","mot-","opera mini",
-        "philips","pocket pc","sagem","samsung","sda",
-        "sgh-","vodafone","xda","palm","iphone",
-        "ipod","android"
-      ]
+    spinner = new Spinner().spin()
+    $('#sections').append(spinner.el)
 
-    list.forEach (item)->
-      if uagent.indexOf(item) != -1
-        ismobile = true
+    App.menu ||= new App.MenuView
+    App.toolbar ||= new App.Toolbar
 
-    # ismobile
-    false
+    App.stream = new App.StreamCollection
+    App.streamView = new App.StreamView({ el: '#sections .pages', layout: App.layout, collection: App.stream, title: title })
+
+    App.stream.url = url + "?sort=created_at"
+    App.stream.title = title
+    App.stream.fetch({ dataType: "jsonp" })
+
+  backToStream: ->
+    App.streamView.$el.animate({opacity: 1}, 150)
+    App.toolbar.actionsBtn = false
+    App.toolbar.backBtn = false
+    App.toolbar.render()
+
+  # isMobile: ->
+  #   uagent = navigator.userAgent.toLowerCase()
+  #   ismobile = false
+  #
+  #   list = [
+  #       "midp","240x320","blackberry","netfront","nokia","panasonic",
+  #       "portalmmm","sharp","sie-","sonyericsson","symbian",
+  #       "windows ce","benq","mda","mot-","opera mini",
+  #       "philips","pocket pc","sagem","samsung","sda",
+  #       "sgh-","vodafone","xda","palm","iphone",
+  #       "ipod","android"
+  #     ]
+  #
+  #   list.forEach (item)->
+  #     if uagent.indexOf(item) != -1
+  #       ismobile = true
+  #
+  #   # ismobile
+  #   false
