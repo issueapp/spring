@@ -1,24 +1,34 @@
 /*
 Syntax error: Undefined mixin 'box-sizing'.
-        on line 20 of ./stylesheets/item.scss, in `box-sizing'
-        from line 20 of ./stylesheets/item.scss
+        on line 38 of ./stylesheets/item.scss, in `box-sizing'
+        from line 38 of ./stylesheets/item.scss
 
-15:   width: 100%;
-16:   height: 100%;
-17: 
-18:   padding: 0;
-19:   
-20:   @include box-sizing(border-box);
-21: 
-22: 	.info {
-23: 	  @include box-sizing(border-box);
-24: 	  
-25: 	  position: absolute;
+33: 
+34: .page {
+35: 
+36:   .item {
+37: 
+38:     @include box-sizing(border-box);
+39: 
+40:     position: relative;
+41:     background: #fff;
+42: 
+43:     float: left;
 
 Backtrace:
-./stylesheets/item.scss:20:in `box-sizing'
-./stylesheets/item.scss:20
+./stylesheets/item.scss:38:in `box-sizing'
+./stylesheets/item.scss:38
 /Users/gkwrh/.rvm/gems/ruby-1.9.3-p125/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:170:in `visit_mixin'
+/Users/gkwrh/.rvm/gems/ruby-1.9.3-p125/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Users/gkwrh/.rvm/gems/ruby-1.9.3-p125/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:18:in `visit'
+/Users/gkwrh/.rvm/gems/ruby-1.9.3-p125/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+/Users/gkwrh/.rvm/gems/ruby-1.9.3-p125/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:53:in `map'
+/Users/gkwrh/.rvm/gems/ruby-1.9.3-p125/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+/Users/gkwrh/.rvm/gems/ruby-1.9.3-p125/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:27:in `block in visit_children'
+/Users/gkwrh/.rvm/gems/ruby-1.9.3-p125/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:39:in `with_environment'
+/Users/gkwrh/.rvm/gems/ruby-1.9.3-p125/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:26:in `visit_children'
+/Users/gkwrh/.rvm/gems/ruby-1.9.3-p125/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+/Users/gkwrh/.rvm/gems/ruby-1.9.3-p125/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:238:in `visit_rule'
 /Users/gkwrh/.rvm/gems/ruby-1.9.3-p125/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:37:in `visit'
 /Users/gkwrh/.rvm/gems/ruby-1.9.3-p125/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:18:in `visit'
 /Users/gkwrh/.rvm/gems/ruby-1.9.3-p125/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
@@ -66,4 +76,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined mixin 'box-sizing'.\A         on line 20 of ./stylesheets/item.scss, in `box-sizing'\A         from line 20 of ./stylesheets/item.scss\A \A 15:   width: 100%;\A 16:   height: 100%;\A 17: \A 18:   padding: 0;\A 19:   \A 20:   @include box-sizing(border-box);\A 21: \A 22: 	.info {\A 23: 	  @include box-sizing(border-box);\A 24: 	  \A 25: 	  position: absolute;"; }
+  content: "Syntax error: Undefined mixin 'box-sizing'.\A         on line 38 of ./stylesheets/item.scss, in `box-sizing'\A         from line 38 of ./stylesheets/item.scss\A \A 33: \A 34: .page {\A 35: \A 36:   .item {\A 37: \A 38:     @include box-sizing(border-box);\A 39: \A 40:     position: relative;\A 41:     background: #fff;\A 42: \A 43:     float: left;"; }
