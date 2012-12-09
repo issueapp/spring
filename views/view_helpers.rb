@@ -6,6 +6,13 @@
 module ViewHelpers
   require 'hashie/mash'
   
+  def cover_image(url)
+<<-eos
+  <div class="image" style="background-image: url(#{url}); background-size: cover; background-position: center;">
+  </div>
+eos
+  end
+  
   def px2em(pixel)
     pixel.to_f / 13
   end

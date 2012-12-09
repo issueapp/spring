@@ -586,14 +586,13 @@ a:visited {
     No style or presentation code should be in this stylesheet
 
     Default style for 320px
-    
+
     Structure (menu/main)
     Grid (row/col)
 */
 /* line 13, ../../stylesheets/layout.scss */
-.col {
+.page .col {
   position: relative;
-  font-size: 120%;
   width: 100%;
   height: 99.9%;
   -webkit-box-sizing: border-box;
@@ -604,91 +603,85 @@ a:visited {
   overflow: hidden;
 }
 /* line 25, ../../stylesheets/layout.scss */
-.col .item:last-child {
+.page .col .item:last-child {
   margin-bottom: 0;
 }
-
 /* line 30, ../../stylesheets/layout.scss */
-.row {
+.page .row {
   position: relative;
-  font-size: 120%;
   overflow: hidden;
   *zoom: 1;
   width: 100%;
-  height: 91%;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 /* line 40, ../../stylesheets/layout.scss */
-.row:last-child {
+.page .row:last-child {
   background: none;
 }
 /* line 44, ../../stylesheets/layout.scss */
-.row.v-full {
+.page .row.v-full {
   height: 100%;
 }
 /* line 45, ../../stylesheets/layout.scss */
-.row.v-half {
+.page .row.v-half {
   height: 49.9%;
-  margin-bottom: 1%;
 }
-/* line 50, ../../stylesheets/layout.scss */
-.row.v-third {
+/* line 49, ../../stylesheets/layout.scss */
+.page .row.v-third {
   height: 32.03%;
-  margin-bottom: 1%;
 }
-/* line 54, ../../stylesheets/layout.scss */
-.row.v-third-2 {
+/* line 52, ../../stylesheets/layout.scss */
+.page .row.v-third-2 {
   height: 66%;
 }
-
-/* line 60, ../../stylesheets/layout.scss */
-.col.full, .item.full {
+/* line 58, ../../stylesheets/layout.scss */
+.page .col.full, .page .item.full {
   width: 100%;
 }
-/* line 61, ../../stylesheets/layout.scss */
-.col.half, .item.half {
+/* line 59, ../../stylesheets/layout.scss */
+.page .col.half, .page .item.half {
   width: 49.5%;
 }
+/* line 61, ../../stylesheets/layout.scss */
+.page .col.third, .page .item.third {
+  width: 33.3%;
+}
 /* line 62, ../../stylesheets/layout.scss */
-.col.third, .item.third {
-  width: 32.65%;
+.page .col.third-2, .page .item.third-2 {
+  width: 66.6%;
 }
-/* line 63, ../../stylesheets/layout.scss */
-.col.third-2, .item.third-2 {
-  width: 64%;
-}
-/* line 65, ../../stylesheets/layout.scss */
-.col.sixth, .item.sixth {
+/* line 64, ../../stylesheets/layout.scss */
+.page .col.sixth, .page .item.sixth {
   width: 15.02%;
 }
-/* line 67, ../../stylesheets/layout.scss */
-.col.fourty, .item.fourty {
+/* line 66, ../../stylesheets/layout.scss */
+.page .col.fourty, .page .item.fourty {
   width: 39%;
 }
-/* line 68, ../../stylesheets/layout.scss */
-.col.sixty, .item.sixty {
+/* line 67, ../../stylesheets/layout.scss */
+.page .col.sixty, .page .item.sixty {
   width: 59%;
 }
-/* line 70, ../../stylesheets/layout.scss */
-.col.v-full, .item.v-full {
+/* line 69, ../../stylesheets/layout.scss */
+.page .col.v-full, .page .item.v-full {
   height: 100%;
 }
-/* line 71, ../../stylesheets/layout.scss */
-.col.v-half, .item.v-half {
+/* line 70, ../../stylesheets/layout.scss */
+.page .col.v-half, .page .item.v-half {
   height: 49.40%;
 }
-/* line 72, ../../stylesheets/layout.scss */
-.col.v-third, .item.v-third {
+/* line 71, ../../stylesheets/layout.scss */
+.page .col.v-third, .page .item.v-third {
   height: 35.03%;
 }
-/* line 73, ../../stylesheets/layout.scss */
-.col.v-third-2, .item.v-third-2 {
+/* line 72, ../../stylesheets/layout.scss */
+.page .col.v-third-2, .page .item.v-third-2 {
   height: 64%;
 }
-/* line 75, ../../stylesheets/layout.scss */
-.col:last-child, .item:last-child {
+/* line 74, ../../stylesheets/layout.scss */
+.page .col:last-child, .page .item:last-child {
   margin-right: 0;
 }
 
@@ -794,37 +787,7 @@ header.toolbar .icon-reorder {
   line-height: 31px;
 }
 
-/*
-    Item
-    
-    define layout and positioning of a rendering unit
-        
-*/
-/* line 8, ../../stylesheets/item.scss */
-.item {
-  position: relative;
-  background: #fff;
-  float: left;
-  margin: 0 1% 2% 0;
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
-  padding: 0;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-/* line 22, ../../stylesheets/item.scss */
-.item .info {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  position: absolute;
-  bottom: 0;
-  display: inline-block;
-}
-
-/* line 34, ../../stylesheets/item.scss */
+/* line 2, ../../stylesheets/item.scss */
 .cover {
   position: relative;
   height: 200%;
@@ -833,7 +796,7 @@ header.toolbar .icon-reorder {
   left: -50%;
 }
 
-/* line 42, ../../stylesheets/item.scss */
+/* line 10, ../../stylesheets/item.scss */
 .cover img {
   position: absolute;
   top: 0;
@@ -845,61 +808,169 @@ header.toolbar .icon-reorder {
   min-height: 50%;
 }
 
-/* line 54, ../../stylesheets/item.scss */
+/* line 22, ../../stylesheets/item.scss */
 .image.bottom {
   /*    top: -90%;*/
   background-position: bottom !important;
 }
 
-/*  
+/*
+    Item
 
-      Product Styles    
+    define layout and positioning of a rendering unit
 
 */
-/* line 66, ../../stylesheets/item.scss */
-.product .link {
+/* line 34, ../../stylesheets/item.scss */
+.page {
+  /*
+
+        Product Styles
+
+  */
+  /*
+      Product split view
+  */
+}
+/* line 36, ../../stylesheets/item.scss */
+.page .item {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  position: relative;
+  background: #fff;
+  float: left;
+  margin: 0 0 2% 0;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  border: 1px solid #eee;
+  border-width: 0 1px 1px 0;
+}
+/* line 54, ../../stylesheets/item.scss */
+.page .item .image {
+  height: 60%;
+}
+/* line 58, ../../stylesheets/item.scss */
+.page .item .link {
   cursor: pointer;
   color: #222;
-  display: block;
 }
-/* line 74, ../../stylesheets/item.scss */
-.product .info {
+/* line 65, ../../stylesheets/item.scss */
+.page .item .info {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  width: 100%;
+  bottom: 0;
+  display: inline-block;
   vertical-align: top;
   background: white;
-  padding: 0.5em 3% 0.5em;
-  height: 35px;
+  padding: 1.25em 0 1.25em;
+  width: 100%;
+  height: 40%;
+  color: #333;
 }
-/* line 83, ../../stylesheets/item.scss */
-.product .title {
+/* line 82, ../../stylesheets/item.scss */
+.page .item .info p {
+  font-size: 13px;
+  margin: 0.5em 0 0.5em;
+  max-height: 62px;
+  color: #666;
+}
+/* line 90, ../../stylesheets/item.scss */
+.page .item .via {
+  font-size: 12px;
+  color: #777;
+  position: absolute;
+  bottom: 20px;
+}
+/* line 96, ../../stylesheets/item.scss */
+.page .item .via img {
+  vertical-align: middle;
+  margin-right: 5px;
+}
+/* line 102, ../../stylesheets/item.scss */
+.page .item .title {
+  /*    Style   */
   position: relative;
   font-family: "Helvetica Neue";
-  letter-spacing: -1px;
-  font-size: 1.2em;
-  margin: 0 0 0.5em;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  margin: 0 0 0em;
   width: 100%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-/* line 97, ../../stylesheets/item.scss */
-.product .info p {
-  visibility: hidden;
-  margin: 0;
-  font-size: 0.75em;
-  color: #666;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+/* line 122, ../../stylesheets/item.scss */
+.page .row .item:last-child {
+  border-right: 0;
 }
-/* line 107, ../../stylesheets/item.scss */
-.product .counters {
+/* line 127, ../../stylesheets/item.scss */
+.page .row .item:first-child {
+  border-right-width: 1px;
+  border-right-color: #EEE;
+  border-right-style: solid;
+}
+/* line 140, ../../stylesheets/item.scss */
+.page .product .overlay, .page .no-description .overlay {
+  height: 90%;
+}
+/* line 144, ../../stylesheets/item.scss */
+.page .product .image, .page .no-description .image {
+  height: 90%;
+}
+/* line 152, ../../stylesheets/item.scss */
+.page .no-image .overlay {
+  height: 100%;
+}
+/* line 156, ../../stylesheets/item.scss */
+.page .no-image .image {
+  display: none;
+}
+/* line 160, ../../stylesheets/item.scss */
+.page .no-image .description {
+  -webkit-line-clamp: 10 !important;
+}
+/* line 168, ../../stylesheets/item.scss */
+.page .product .info {
+  height: 10%;
+}
+/* line 172, ../../stylesheets/item.scss */
+.page .product .price {
+  display: block;
+  position: absolute;
+  font-size: 12px;
+  left: 20px;
+  top: 20px;
+  padding: 9px 18px;
+  height: 20px;
+  line-height: 20px;
+  margin-bottom: 13px;
+  font-weight: bold;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+}
+/* line 188, ../../stylesheets/item.scss */
+.page .product .price:before {
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  width: 0;
+  height: 0;
+  border: solid transparent;
+  content: " ";
+  margin-left: -7px;
+  border-width: 7px;
+  border-top-color: rgba(0, 0, 0, 0.8);
+}
+/* line 202, ../../stylesheets/item.scss */
+.page .product .info p {
+  visibility: hidden;
+}
+/* line 206, ../../stylesheets/item.scss */
+.page .product .counters {
   color: #DF5454;
   font-size: 14px;
   position: absolute;
@@ -908,16 +979,16 @@ header.toolbar .icon-reorder {
   z-index: 1;
   line-height: 12px;
 }
-
-/*
-    Product split view
-*/
-/* line 121, ../../stylesheets/item.scss */
-.product.split {
-  position: relative;
+/* line 221, ../../stylesheets/item.scss */
+.page .item.split .overlay {
+  height: 100%;
 }
-/* line 124, ../../stylesheets/item.scss */
-.product.split .image {
+/* line 225, ../../stylesheets/item.scss */
+.page .item.split a.action.love, .page .item.split a.action.collect {
+  top: 50%;
+}
+/* line 229, ../../stylesheets/item.scss */
+.page .item.split .image {
   overflow: hidden;
   display: inline-block;
   width: 49%;
@@ -926,20 +997,50 @@ header.toolbar .icon-reorder {
   top: initial;
   vertical-align: middle;
 }
-/* line 140, ../../stylesheets/item.scss */
-.product.split .info {
+/* line 239, ../../stylesheets/item.scss */
+.page .item.split .info:before {
+  position: absolute;
+  bottom: 60%;
+  right: 101%;
+  width: 0;
+  height: 0;
+  border: solid transparent;
+  content: " ";
+  margin-left: -10px;
+  border-width: 10px;
+  border-right-color: #fff;
+}
+/* line 253, ../../stylesheets/item.scss */
+.page .item.split .info {
   margin: 0;
   width: 49%;
   height: auto;
   vertical-align: middle;
-  padding: 10% 2% 10%;
+  padding: 15% 2% 0;
   position: relative;
+  height: 100%;
 }
-/* line 148, ../../stylesheets/item.scss */
-.product.split .info > p {
+/* line 262, ../../stylesheets/item.scss */
+.page .item.split .info > p {
+  font-size: 150%;
   visibility: visible;
   white-space: normal;
+  max-height: inherit;
   text-overflow: ellipsis;
+}
+/* line 271, ../../stylesheets/item.scss */
+.page .item.split .price {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: -102%;
+  color: white;
+}
+/* line 279, ../../stylesheets/item.scss */
+.page .item.split .via {
+  position: absolute;
+  bottom: 0;
+  left: 10px;
 }
 
 /* line 1, ../../stylesheets/page.scss */
@@ -1014,6 +1115,66 @@ article.page .description {
     text-align: left;
   }
 }
+/* line 73, ../../stylesheets/page.scss */
+.landing {
+  margin-left: 220px;
+  height: 100%;
+  background-image: url(/images/landing_stargates_modified.png);
+  background-position: center;
+  background-size: cover;
+  color: white;
+  font-family: "proxima-nova", sans-serif;
+}
+/* line 82, ../../stylesheets/page.scss */
+.landing .logo {
+  padding: 38px 0 0 105px;
+  height: 100px;
+  background: url("/images/logo.png") no-repeat 20px 20px;
+  color: white;
+  font-size: 22px;
+}
+/* line 90, ../../stylesheets/page.scss */
+.landing .welcome {
+  position: absolute;
+  top: 35%;
+  padding-left: 12px;
+  font-weight: bold;
+}
+/* line 96, ../../stylesheets/page.scss */
+.landing .welcome p:first-child {
+  margin: 0 0 0 8px;
+  font-size: 102px;
+  text-transform: uppercase;
+}
+/* line 102, ../../stylesheets/page.scss */
+.landing .welcome p:nth-child(2) {
+  margin: 0 0 0 8px;
+  font-size: 25px;
+}
+/* line 107, ../../stylesheets/page.scss */
+.landing .welcome span {
+  position: absolute;
+  top: 40px;
+  right: 12px;
+  padding: 18px 20px 18px 26px;
+  background-color: #f04500;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+/* line 118, ../../stylesheets/page.scss */
+.landing .footer {
+  position: absolute;
+  bottom: 20px;
+  padding-left: 20px;
+  font-size: 14px;
+}
+/* line 124, ../../stylesheets/page.scss */
+.landing .footer i {
+  padding-right: 10px;
+  vertical-align: middle;
+  font-size: 24px;
+}
+
 /*
     Utility
 */
