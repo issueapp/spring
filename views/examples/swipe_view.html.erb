@@ -20,7 +20,7 @@
     -ms-transition: all .3s ease-out;
     transition: all .3s ease-out;
   }
-  
+
   .page {
     transform: translate3d(0,0,0);
     -webkit-transform:translate3d(0,0,0);
@@ -33,28 +33,28 @@
     overflow: hidden;
     border: 1px solid #fff;
     -webkit-box-sizing: border-box;
-    box-sizing: border-box;    
+    box-sizing: border-box;
   }
-  
+
   .page.current {
     visibility: visible;
   }
-  
+
   .page.padding {
     width: 0;
   }
-  
+
   .page {
     border: 1px solid red;
     background: #eee;
-    width: 1024px;
-    height: 768px;
+    width: 696px;
+    height: 327px;
   }
-  
+
   .k1, .k2, .k3, .k4, .k5, .k6, .k7 {
     background-size: cover;
   }
-  
+
   .k1 {
     background-image: url(http://placekitten.com/1024/1021);
   }
@@ -79,12 +79,6 @@
 </style>
 
 <div class="swipe-paging">
-  <!-- <div class="page current">
-    <h1>1. Lorem ipsum dolor sit amet, consectetur adipisicing elit,</h1>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-  </div>
-  <div class="page next loading">Loading...</div> -->
-
 </div>
 
 <% content_for :js do %>
@@ -93,66 +87,49 @@
 <script src="/javascripts/vendor/h5bp-helper.js"></script>
 
 <script>
-  
   var page = "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
-  
-  
+
+
   var i = 0, pages = []
-  
-  
+
+
   for (i = 0; i < 7; i++) {
     pages.push("<h1>Page " + i + " </h1> " + page)
   }
   i = -1;
-  
+
   var createPage = function (step) {
     i = i + step
     if (i < 0) i = -1
-    
+
     if (i> 6) i = 7
-    
-    console.log("Generate page", i, pages[i])
+
     return pages[i]
   }
-  
-  
+
+
   $('.swipe-paging').append('<div class="page">'+ createPage(+1)+'</div>')
   $('.swipe-paging').append('<div class="page next loading">Loading...</div>')
-  
+
   view = new App.SwipeView
-  
+
   // Next page doesn't exist
   view.on("fetch:next", function(view) {
-    
-    // view.$('.current').after('<div class="page loading"></div>')
     var loading = view.$('.loading')
     loading.html( createPage(+1) )
     loading.removeClass('loading')
-    // console.log(loading)
-    // $(view.el).append("")
   })
-  // view.on("fetch:prev", function(view) {
-  //   alert(1)
-  //   var page = createPage(-1)
-  //   if (page)
-  //     view.padding.after('<div class="page">' + page + '</div>')
-  //   // console.log(loading)
-  //   // $(view.el).append("")
-  // })
-  
+
   // Buffered page doesn't exist
   view.on("buffer:next", function(view) {
     var page = createPage(+1)
-
     if (page)
       $(view.el).append('<div class="page">' + page + '</div>')
-
   })
-  
+
   // Buffered page doesn't exist
   view.on("buffer:prev", function(view) {
     var page = createPage(-1)
-    
     if (page)
       view.padding.after('<div class="page">' + page + '</div>')
   })

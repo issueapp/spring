@@ -70,3 +70,62 @@ article.page .description {
     text-align: left;
   }
 }
+/* line 73, ../../stylesheets/page.scss */
+.landing {
+  margin-left: 220px;
+  height: 100%;
+  background-image: url(/images/landing_stargates_modified.png);
+  background-position: center;
+  background-size: cover;
+  color: white;
+  font-family: "proxima-nova", sans-serif;
+}
+/* line 82, ../../stylesheets/page.scss */
+.landing .logo {
+  padding: 38px 0 0 105px;
+  height: 100px;
+  background: url("/images/logo.png") no-repeat 20px 20px;
+  color: white;
+  font-size: 22px;
+}
+/* line 90, ../../stylesheets/page.scss */
+.landing .welcome {
+  position: absolute;
+  top: 35%;
+  padding-left: 12px;
+  font-weight: bold;
+}
+/* line 96, ../../stylesheets/page.scss */
+.landing .welcome p:first-child {
+  margin: 0 0 0 8px;
+  font-size: 102px;
+  text-transform: uppercase;
+}
+/* line 102, ../../stylesheets/page.scss */
+.landing .welcome p:nth-child(2) {
+  margin: 0 0 0 8px;
+  font-size: 25px;
+}
+/* line 107, ../../stylesheets/page.scss */
+.landing .welcome span {
+  position: absolute;
+  top: 40px;
+  right: 12px;
+  padding: 18px 20px 18px 26px;
+  background-color: #f04500;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+/* line 118, ../../stylesheets/page.scss */
+.landing .footer {
+  position: absolute;
+  bottom: 20px;
+  padding-left: 20px;
+  font-size: 14px;
+}
+/* line 124, ../../stylesheets/page.scss */
+.landing .footer i {
+  padding-right: 10px;
+  vertical-align: middle;
+  font-size: 24px;
+}

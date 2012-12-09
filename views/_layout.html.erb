@@ -1,5 +1,14 @@
-<html class="no-js" lang="en">
+<!-- HTML5 Mobile Boilerplate -->
+<!--[if IEMobile 7]><html class="no-js iem7"><![endif]-->
+<!--[if (gt IEMobile 7)|!(IEMobile)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+
+<!-- HTML5 Boilerplate -->
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
   <head>
+    <meta charset="utf-8">
     <title>Shop2</title>
 
     <!-- http://t.co/dKP3o1e -->
@@ -7,9 +16,9 @@
     <meta name="MobileOptimized" content="320">
     <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0" />
 
-
     <link rel="stylesheet" href="http://shop2.com/assets/components/_button.css">
     <link rel="stylesheet" href="/stylesheets/application.css"/>
+    <link rel="stylesheet" href="/stylesheets/swipe-view.css"/>
     <link rel="stylesheet" href="/stylesheets/font-awesome.css"/>
 
     <link rel="shortcut icon" href="/favicon.ico">
@@ -32,18 +41,15 @@
       }
 
       body {
-        background: #F8FAFA;
         position: relative;
         margin-left: -220px;
+        /* diable tap highlighting! */
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
       }
 
       body.expand-menu {
         z-index: 0;
         margin-left: 0;
-      }
-
-      [role=main] {
-        position: relative;
       }
 
       nav[role=navigation] {
@@ -53,12 +59,14 @@
         width:100%;
       }
 
+      [role=main] {
+        position: relative;
+      }
 
       #sections .pages {
         position: absolute;
         white-space: nowrap;
         overflow: hidden;
-        /* margin-top: 55px; */
       }
 
       #sections .spinner {
@@ -67,7 +75,6 @@
       }
 
       #content {
-/*        position: absolute;*/
         white-space: nowrap;
       }
 
@@ -87,14 +94,13 @@
         transition: all .15s ease-out;
       }
 
-
       .scrollable {
-    /*    display: inline-block;*/
         overflow: hidden;
       }
 
       .pages {
         transform: translate3d(0,0,0);
+        -webkit-transform:translate3d(0,0,0);
       }
 
       .page {
@@ -106,8 +112,10 @@
         box-sizing: border-box;
         white-space: normal;
         overflow: hidden;
-
         border: 1px solid #fff;
+
+        transform: translate3d(0,0,0);
+        -webkit-transform:translate3d(0,0,0);
       }
 
       .page.current {
@@ -122,38 +130,41 @@
       .page.padding {
         width: 0;
       }
-      /* sign up form */
+
       #signup {
         display: none;
         background: white;
         height: 93%;
       }
 
-/*      .product .image {
-
-        height: 90% !important;
-      }*/
-
-      /* Vertical scroll */
-
       .vertical-scroll {
         /* IPHONE toolbar hack: height: 104%; */
         overflow-y: scroll;
         -webkit-overflow-scrolling: touch;
       }
-
     </style>
   </head>
   <body>
+    <div class="landing">
+      <h1 class="logo">Shop2</h1>
+      <div class="welcome">
+        <p>your edition</p>
+        <p>of a digital shopping magazine</p>
+        <span>browse ></span>
+      </div>
+      <!-- <div class="footer">
+        <i class="icon-facebook"></i>
+        Sign in or signup
+      </div> -->
+    </div>
 
     <nav id="menu" style="position:absolute;top:0;left:0;height:100%;z-index:999">
       <ul class="navigation">
-        <li class="logo"><a href="/taylorluk/products"></a></li>
+        <li class="logo"><a href="/taylorluk/items"></a></li>
 
-        <li class="user"><a href="/taylorluk/products">Taylor Luk</a></li>
-        <li class="active"><a href="/taylorluk/products">Stream</a></li>
-        <li><a href="/taylorluk/products">Favourites</a></li>
-
+        <li class="user"><a href="/taylorluk/items">Taylor Luk</a></li>
+        <li class="active"><a href="/taylorluk/items">Stream</a></li>
+        <li><a href="/taylorluk/items">Favourites</a></li>
         <!-- Category -->
         <li><a href="/interests/mens">Men's</a></li>
         <li><a href="/interests/womens">Women's</a></li>
@@ -170,18 +181,17 @@
           <a class="icon-reorder button" ontouchstart="$(document.body).toggleClass('expand-menu'); return false"> </a>
           <h1>TOP CONTENT</h1>
         </header>
-        <div class="pages paginated"></div>
+        <%= yield %>
       </div>
-
 
       <div id="content">
         <div class="pages swipe-paging"></div>
       </div>
     </div>
-    <!-- <div id="temp" style="position:absolute; visibility:hidden"></div> -->
   </body>
 
-  <%= render '/templates/all' %>
+  <%= render '/templates/new' %>
+
   <script src="/javascripts/vendor/zepto.js"></script>
   <script src="/javascripts/vendor/underscore.js"></script>
   <script src="/javascripts/vendor/backbone.js"></script>
@@ -203,11 +213,20 @@
   <script src="/javascripts/views/stream_view.js"></script>
   <script src="/javascripts/misc.js"></script>
 
-
-
   <script>
     MBP.hideUrlBarOnLoad()
 
     App.init()
+  </script>
+
+  <%= yield :js %>
+
+  <script>
+    $('.welcome span').on('touchstart', function () {
+      $('.landing').animate({ opacity : 0 }, {duration: 200, complete: function () {
+        $('.landing').hide();
+      }});
+      return false;
+    });
   </script>
 </html>
