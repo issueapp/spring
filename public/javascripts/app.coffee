@@ -130,6 +130,7 @@ class App.Router extends Backbone.Router
     if App.toolbar
       App.toolbar.actionsBtn = false
       App.toolbar.backBtn = false
+      App.toolbar.typeBtn = true
       App.toolbar.title = title
       App.toolbar.render()
 
@@ -154,6 +155,7 @@ class App.Router extends Backbone.Router
     App.streamView.$el.animate({opacity: 1}, 150)
     App.toolbar.actionsBtn = false
     App.toolbar.backBtn = false
+    App.toolbar.typeBtn = true
     App.toolbar.render()
 
   # isMobile: ->
