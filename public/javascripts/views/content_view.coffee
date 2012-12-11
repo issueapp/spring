@@ -59,6 +59,7 @@ class App.ContentView extends Backbone.View
     else
       @toolbar.title = @model.collection.title
       @toolbar.backBtn = true
+      App.toolbar.typeBtn = false
       @toolbar.actionsBtn = true
       @toolbar.render()
 

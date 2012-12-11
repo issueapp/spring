@@ -29,7 +29,7 @@ class App.PageView extends Backbone.View
   #
   # render: ->
   events:
-    'touchstart .item a.link': 'viewContent'
+    'click .item a.link': 'viewContent'
     # 'swipe .item a.link': 'silent'
     'orientationchange': 'changeOrientation'
 
@@ -51,7 +51,9 @@ class App.PageView extends Backbone.View
       </div>
     </a>
     <figcaption class="info">
-      <h3 class="title">{{ title }}</h3>
+      <a class="link" href="/items/{{ handle }}">
+        <h3 class="title">{{ title }}</h3>
+      </a>
       <p>{{ description }}</p>
 
       {{#price_in_string}}
@@ -62,9 +64,9 @@ class App.PageView extends Backbone.View
   )
 
   @templateIndex = -1
-  @order = []
-  until @order.length == 10
-    @order.push Math.floor(Math.random() * $('script.section_tpl').length)
+  @order = [0, 1, 3, 2, 0, 3, 2, 0, 2, 3]
+  # until @order.length == 10
+  #   @order.push Math.floor(Math.random() * $('script.section_tpl').length)
 
   @getTemplate = (data)=>
     if data.isMobile
@@ -91,7 +93,6 @@ class App.PageView extends Backbone.View
       @section_tpl.eq(index).html()
 
   initialize: (data)->
-    # 1 , 2 ,3
     @offset = null
     @items = []
     @page = $(App.PageView.getTemplate(data))
