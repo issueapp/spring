@@ -666,7 +666,7 @@ a:visited {
 }
 /* line 61, ../../stylesheets/layout.scss */
 .page .col.half, .page .item.half {
-  width: 50%;
+  width: 49.9%;
 }
 /* line 63, ../../stylesheets/layout.scss */
 .page .col.third, .page .item.third {
