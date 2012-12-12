@@ -1,9 +1,11 @@
+@import "compass/css3/box-sizing";
+
 //      User interface
 
 //------ ui/menu
 
 nav#menu {
-  width: 220px;
+  width: 260px;
   background: #161717;
 
   .logo {
@@ -19,9 +21,10 @@ nav#menu {
 
   .navigation {
     li {
-      font-size: 16px;
+      font-size: 14px;
       font-family: "HelveticaNeue-Light";
       letter-spacing: 0.8px;
+      font-weight: bold;
       @include box-sizing(border-box);
       height: 44px;
       line-height: 44px;
@@ -36,8 +39,18 @@ nav#menu {
     }
 
     li.active {
-      background: #f04f4f;
-      border-top: 1px solid #f48080;
+//      background: #f04f4f;
+//      border-top: 1px solid #f48080;
+    }
+    
+    // Level two menu
+    & > ul li {
+      padding-left: 40px;
+      font-weight: normal;
+      
+      a {
+        color: #ccc;
+      }
     }
 
 //    li.active:active {
