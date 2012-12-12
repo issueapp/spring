@@ -1,9 +1,11 @@
+@import "compass/css3/columns";
 
 .swipe-paging {
   position: absolute;
   white-space: nowrap;
   overflow: hidden;
 }
+
 .animate {
   -webkit-transition: all .3s ease-out;
   -moz-transition: all .3s ease-out;
@@ -39,4 +41,61 @@
 
 .page.padding {
   width: 0;
+}
+
+#content {
+  .page {
+    @include column-count(2);
+    padding: 22px;
+
+    .info {
+      margin-left: 8px;
+
+      .title {
+        margin: 0;
+        padding: 70px 0 0;
+        color: #2c2c2c;
+        font-weight: normal;
+        font-size: 23px;
+        font-family: 'proxima_nova_bold';
+      }
+
+      .source {
+        margin: 0;
+        color: #666;
+        font-size: 12px;
+        font-family: 'proxima_nova_regular';
+        span {
+          color: #2c2c2c;
+        }
+      }
+
+      .price {
+        span:first-child {
+          color: #2c2c2c;
+          font-size: 18px;
+          font-family: 'proxima_nova_bold';
+        }
+      }
+
+      .store {
+        position: absolute;
+        top: 144px;
+        right: 0;
+        padding: 17px 14px 17px 22px;
+        background-color: #F04500;
+        color: white;
+        text-transform: uppercase;
+        font-size: 14px;
+        font-family: 'proxima_nova_bold';
+      }
+
+      .description {
+        padding-top: 10px;
+        color: #666;
+        font-size: 16px;
+        font-family: 'proxima_nova_regular';
+      }
+    }
+  }
 }
