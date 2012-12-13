@@ -292,7 +292,10 @@ var Mustache;
     // From the spec: inverted sections may render text once based on the
     // inverse value of the key. That is, they will be rendered if the key
     // doesn't exist, is false, or is an empty list.
-    if (value == null || value === false || (isArray(value) && value.length === 0)) {
+    // if (value == null || value === false || (isArray(value) && value.length === 0)) {
+
+    // https://github.com/bgreenlee/mustache.js/commit/b257bc6b4b5b90ec112af183e52399905b157396
+    if (!value || (isArray(value) && value.length === 0)) {
       return callback(context, this);
     }
 

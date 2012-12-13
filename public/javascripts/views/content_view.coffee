@@ -20,7 +20,8 @@
 class App.ContentView extends Backbone.View
   el: "#content .pages"
 
-  template: Mustache.compile($('#product_tpl').html())
+  product_template: Mustache.compile($('#product_tpl').html())
+  content_template: Mustache.compile($('#content_tpl').html())
 
   initialize: ->
     @toolbar = App.toolbar || new App.Toolbar
@@ -43,16 +44,20 @@ class App.ContentView extends Backbone.View
 
   render: (model)->
     if model
-      source = $(@template(model.toJSON()))
+      if model.get('_type') == 'Article'
+        source = $(@content_template(model.toJSON()))
 
-      # strip html tags from article description
-      description = source.find('.description')
+        # strip html tags from article description
+        description = source.find('.description')
 
-      if description[0].innerText.match(/<\w+>/)
-        content = description[0].innerText
-        tmp = document.createElement("div")
-        tmp.innerHTML = content
-        source.find('.description').eq(0).html(tmp.textContent || tmp.innerText)
+        if description.length > 0 && description[0].innerText.match(/<\w+>/)
+          content = description[0].innerText
+          tmp = document.createElement("div")
+          tmp.innerHTML = content
+          source.find('.description').eq(0).html(tmp.textContent || tmp.innerText)
+
+      else
+        source = $(@product_template(model.toJSON()))
 
       source[0]
 
@@ -63,16 +68,20 @@ class App.ContentView extends Backbone.View
       @toolbar.actionsBtn = true
       @toolbar.render()
 
-      source = $(@template(@model.toJSON()))
+      if @model.get('_type') == 'Article'
+        source = $(@content_template(@model.toJSON()))
 
-      # strip html tags from article description
-      description = source.find('.description')
+        # strip html tags from article description
+        description = source.find('.description')
 
-      if description[0].innerText.match(/<\w+>/)
-        content = description[0].innerText
-        tmp = document.createElement("div")
-        tmp.innerHTML = content
-        source.find('.description').eq(0).html(tmp.textContent || tmp.innerText)
+        if description.length > 0 && description[0].innerText.match(/<\w+>/)
+          content = description[0].innerText
+          tmp = document.createElement("div")
+          tmp.innerHTML = content
+          source.find('.description').eq(0).html(tmp.textContent || tmp.innerText)
+
+      else
+        source = $(@product_template(@model.toJSON()))
 
       this.setElement(source)
       $(@el).css('opacity', "0").addClass('current')
