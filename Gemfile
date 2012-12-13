@@ -12,6 +12,7 @@ gem 'rack-coffee'
 gem 'actionpack', '~> 3.2'
 gem 'railties',   '~> 3.2'
 gem 'tzinfo'
+gem "sinatra"
 
 # Markdown and Textile
 # gem 'rdiscount' # Markdown

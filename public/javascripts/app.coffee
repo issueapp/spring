@@ -31,82 +31,49 @@ this.App ||= {
     }
 
   init: ->
+    $('a[rel="app"]').live "click", (e) ->
+      # unless @silentClick
+      link = $(e.currentTarget).attr('href')
+      App.router.navigate(link, { trigger: true })
+
+      e.preventDefault()
+      false
+
+
     this.layout = new App.Layout
     this.router = new App.Router
-    Backbone.history.start({ pushState: true, root: "/stream/" })
+    Backbone.history.start({ pushState: true })
 }
-
-class App.Layout extends Backbone.View
-
-  initialize: ->
-    this.resize()
-
-    $(window).on "orientationchange", => this.resize()
-    $(window).on "resize", => this.resize()
-
-  resize: ->
-    dimension = {
-      width:  window.innerWidth
-      height: window.innerHeight
-    }
-
-    @viewport = $('#sections').width()
-    toolbar   = { height: $('header.toolbar').height() }
-
-    css = "
-      body {
-        height: #{dimension.height}px;
-      }\n
-
-      .page {
-        width: #{dimension.width}px;
-        height: #{dimension.height - toolbar.height}px;
-      }\n
-
-      .landing {
-        width: #{dimension.width}px;
-      }\n
-
-      .landing .welcome {
-       width: #{dimension.width}px;
-      }
-      "
-
-    style = document.createElement('style')
-    style.type = 'text/css'
-    style.id = "touch-layout"
-
-    if style.styleSheet
-      style.styleSheet.cssText = css
-    else
-      style.appendChild(document.createTextNode(css));
-
-    # Remove and reset the style
-    $('#touch-layout').remove()
-    $(document.body).append(style)
-
-    # main view
-    if App.streamView
-      App.streamView.onResize()
-
 
 class App.Router extends Backbone.Router
   routes:
     "stream":           "home"
     "section":          "home"
-    "interests/:handle": "items"
     "items/:handle": "content"
-    ":name/items": "stream"
-
+    "discover": "discover"
+    ":type/:handle": "channel"
+    
   initialize: (options)->
     this.route(/.*\?type=(\w+)/, "filter")
 
-  stream: (name)->
-    if App.stream.title != (name + "'s Favorites")
-      url = "http://shop2.com/#{name}/items.json"
-      title = name + "'s Favorites"
+  # View a channel in a stream format
+  channel: (type, handle)->
+    # toggle toolbar
+    App.toolbar.menu()
+    $('#discover').hide()
+    url = ""
+    
+    switch type
+      when "users"
+        url = "http://shop2.com/#{handle}/items.json"
+      when "sites"
+        url = "http://shop2.com/sites/#{handle}/items.json"
+      when "interests"
+        url = "http://shop2.com/interests/#{handle}.json"
+    
+    if App.stream.title != handle
+      title = handle
       this.resetView(url, title)
-
     else
       this.backToStream()
 
@@ -115,23 +82,20 @@ class App.Router extends Backbone.Router
     title = App.stream.title
     this.resetView(url, title, type)
 
-  items: (handle)->
-    if App.stream.title != handle
-      url = "http://shop2.com/interests/#{handle}.json"
-      title = handle
-      this.resetView(url, title)
-
-    else
-      this.backToStream()
-
   home: ->
+    $('#discover').hide()
+    
     if !App.stream || App.streamView.title != App.streams.top_content.title
       url = App.streams.top_content.url
       title = App.streams.top_content.title
       this.resetView(url, title)
-
     else
       this.backToStream()
+
+  discover: ->
+    App.discover = new App.DiscoverView
+    # App.discover.show()
+    $('#discover').show()
 
   content: (handle) ->
     App.streamView.$el.css('opacity', '0')
@@ -144,6 +108,7 @@ class App.Router extends Backbone.Router
     App.contentView.render()
 
   resetView: (url, title, type)->
+    $('#discover').hide()
     if App.toolbar
       App.toolbar.actionsBtn = false
       App.toolbar.backBtn = false
