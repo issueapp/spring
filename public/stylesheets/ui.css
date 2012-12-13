@@ -1,20 +1,20 @@
 /* line 7, ../../stylesheets/ui.scss */
 nav#menu {
   width: 260px;
-  background: #161717;
+  background: #0c0c0c;
 }
 /* line 11, ../../stylesheets/ui.scss */
 nav#menu .logo {
   height: 120px !important;
   background: url("/images/logo.png") no-repeat center center;
 }
-/* line 15, ../../stylesheets/ui.scss */
+/* line 14, ../../stylesheets/ui.scss */
 nav#menu .logo a {
   margin-left: -25px;
   height: 120px;
   width: 220px;
 }
-/* line 23, ../../stylesheets/ui.scss */
+/* line 22, ../../stylesheets/ui.scss */
 nav#menu .navigation li {
   font-size: 14px;
   font-family: "HelveticaNeue-Light";
@@ -26,13 +26,17 @@ nav#menu .navigation li {
   height: 44px;
   line-height: 44px;
   padding: 0 25px;
-  border-top: 1px solid #1e2020;
-  border-bottom: 1px solid #000;
+  border-top: 1px solid #0f0f0f;
+  border-bottom: 1px solid #0a0a0a;
 }
-/* line 36, ../../stylesheets/ui.scss */
+/* line 35, ../../stylesheets/ui.scss */
 nav#menu .navigation a {
   display: block;
   color: white;
+}
+/* line 40, ../../stylesheets/ui.scss */
+nav#menu .navigation li.active {
+  background: #141414;
 }
 /* line 47, ../../stylesheets/ui.scss */
 nav#menu .navigation > ul li {

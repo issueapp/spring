@@ -6,12 +6,11 @@
 
 nav#menu {
   width: 260px;
-  background: #161717;
+  background: rgba(12,12,12, 1);
 
   .logo {
     height: 120px !important;
     background: url("/images/logo.png") no-repeat center center;
-//    text-indent: -1000000px;
     a {
       margin-left: -25px;
       height: 120px;
@@ -29,8 +28,8 @@ nav#menu {
       height: 44px;
       line-height: 44px;
       padding: 0 25px;
-      border-top: 1px solid #1e2020;
-      border-bottom: 1px solid #000;
+      border-top: 1px solid rgba(15, 15, 15, 1);
+      border-bottom: 1px solid rgba(10, 10, 10, 1);
     }
 
     a {
@@ -39,6 +38,7 @@ nav#menu {
     }
 
     li.active {
+      background: rgba(20,20,20,1);
 //      background: #f04f4f;
 //      border-top: 1px solid #f48080;
     }
