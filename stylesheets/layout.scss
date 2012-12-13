@@ -54,9 +54,8 @@
   }
 
   .col, .item {
-
     &.full { width: 100% }
-    &.half { width: 49.9%; }
+    &.half { width: 50%; }
     // &.third { width: 33% }
     &.third { width: 33.3% }
     &.third-2 { width: 66.6% }

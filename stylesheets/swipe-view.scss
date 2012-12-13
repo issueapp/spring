@@ -31,7 +31,6 @@
   box-sizing: border-box;
   white-space: normal;
   overflow: hidden;
-  border: 1px solid #fff;
 }
 
 .page {
@@ -45,11 +44,11 @@
 
 #content {
   .page {
-    @include column-count(2);
-    padding: 22px;
+    padding: 22px 0 22px 22px;
+    overflow: hidden;
 
     .info {
-      margin-left: 8px;
+      margin: 0 22px;
 
       .title {
         margin: 0;
@@ -80,7 +79,7 @@
 
       .store {
         position: absolute;
-        top: 144px;
+        top: 120px;
         right: 0;
         padding: 17px 14px 17px 22px;
         background-color: #F04500;
@@ -91,10 +90,24 @@
       }
 
       .description {
-        padding-top: 10px;
+        padding-top: 25px;
         color: #666;
         font-size: 16px;
         font-family: 'proxima_nova_regular';
+      }
+    }
+  }
+
+  .content.page {
+    padding: 22px;
+    @include column-count(2);
+    .info {
+      margin-left: 8px;
+      .store {
+        top: 144px;
+      }
+      .description {
+        padding-top: 70px;
       }
     }
   }
