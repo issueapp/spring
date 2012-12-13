@@ -176,10 +176,10 @@
 
     <nav id="menu" style="position:absolute;top:0;left:0;height:100%;z-index:999">
       <ul class="navigation">
-        <li class="logo"><a href="/taylorluk/items"></a></li>
+        <li class="logo"><a href="/users/taylorluk"></a></li>
 
-        <li class="active"><a href="/taylorluk/items">Discover</a></li>
-        <li><a href="/taylorluk/items">My Edition</a></li>
+        <li class="active"><a href="/discover">Discover</a></li>
+        <li><a href="/users/taylorluk">My Edition</a></li>
         <!-- Category -->
         <ul>
           <li><a href="/interests/mens">Mens wear</a></li>
@@ -194,24 +194,47 @@
     </nav>
 
     <div role="main" style="margin-left:260px">
-      <section id="discover">
+      
+      <section id="discover" style="display:none">
         <header>
           <input type="search" placeholder="Search">
         </header>
         
         <ul id="category">
-          <li>
-            <li><a href="/interests/mens">Mens wear</a></li>
-            <li><a href="/interests/womens">Women's</a></li>
-            <li><a href="/interests/tech">Tech</a></li>
-            <li><a href="/interests/home">Home</a></li>
-            <li><a href="/interests/media">Media</a></li>
-            <li><a href="/interests/media">Art &amp; design</a></li>
-          </li>
+          <li class="active"><a href="/interests/mens">Featured</a></li>
+          <li><a href="#">Men</a></li>
+          <li><a href="#">Women</a></li>
+          <li><a href="#">Tech</a></li>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Media</a></li>
+          <li><a href="#">Art &amp; design</a></li>
         </ul>
         
-        <ul>
-          
+        <ul class="channels">
+          <li style="background-image: url(http://c806568.r68.cf2.rackcdn.com/features/dev/new_collections/Nasty-Gal_CrossYourHeart.jpg); background-size: cover">
+            Nastygal
+            <a class="action follow" href="">+</a><a class="action view" rel="app" href="/sites/nastygal">></a>
+          </li>
+          <li style="background-image: url(http://www.thesartorialist.com/wp-content/themes/sartorialist/images/author.jpg); background-size: cover">
+            Sartorialist
+            <a class="action follow" href="">+</a><a class="action view" rel="app" href="/sites/the-sartorialist">></a>
+          </li>
+          <li>
+            Man Repeller
+            <a class="action follow" href="">+</a><a class="action view" href="">></a>
+          </li>
+          <li>
+            Calivintage
+            <a class="action follow" href="">+</a><a class="action view" href="">></a>
+          </li>
+          <li>
+            The Edit
+            <a class="action follow" href="">+</a><a class="action view" href="">></a>
+          </li>
+          <li>
+            Design Love Fest
+            <a class="action follow" href="">+</a><a class="action view" href="">></a>
+          </li>
         </ul>
       </section>
       
@@ -243,7 +266,7 @@
 
   <script src="/javascripts/app.js"></script>
   <script src="/javascripts/models.js"></script>
-
+  <script src="/javascripts/views/layout.js"></script>
   <script src="/javascripts/views/toolbar.js"></script>
   <script src="/javascripts/views/menu_view.js"></script>
   <script src="/javascripts/views/content_view.js"></script>
@@ -251,6 +274,8 @@
   <script src="/javascripts/views/page_view.js"></script>
   <script src="/javascripts/views/list_view.js"></script>
   <script src="/javascripts/views/stream_view.js"></script>
+  <script src="/javascripts/views/discover_menu.js"></script>
+  
   <script src="/javascripts/misc.js"></script>
   
   <script>

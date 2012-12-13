@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <title>Shop2</title>
+
+    <!-- http://t.co/dKP3o1e -->
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0" />
+    <link rel="shortcut icon" href="/favicon.ico">
+    <!--iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <%= stylesheet_link_tag "new" %>
+  </head>
+  
+  <body class="a-plain-header">
+    <nav role="primary">      
+      <div class="nav-content">
+
+    		<ul class="nav-list">
+    		  <li class="logo">
+    		    <a href="option-5.html" class="logo-link">
+    				shop2
+    			  </a>
+    			</li>
+    			<li><a href="#">discover</a></li>
+    			<li class="right last"><a class="sign-in-btn" href="#">sign in</a></li>
+    			<li class="right"><a href="#">about</a></li>
+    		</ul>
+    	</div>
+    </nav>
+
+    <% if (header = yield(:header)).present? %>
+    <header class="<%= @header_class %>">
+      <div class="container">
+        <%= header %>
+      </div>
+    </header>
+    <% end %>
+    
+    <div class="toolbar-container">
+    	<div class="toolbar">
+    		<div class="content-picker">
+    			<ul class="content-picker-list">
+    				<li class="first"><a href="#" class="all">all</a></li>
+    				<li><a href="#" class="shop">shop</a></li>
+    				<li><a href="#" class="read">read</a></li>
+    				<li class="last"><a href="#" class="photo">photo</a></li>
+    			</ul>
+    		</div>
+    		
+    		<div class="sort-by-menus">
+    			<ul class="sory-by-list">
+    				<li><a class="jmenu" href="#">Category</a></li>
+    				<li><a class="jmenu" href="#">Sort By</a></li>
+    			</ul>
+    		</div>
+    		<div class="sign-up-container">
+    			start your shopping magazine
+    			<a class="sign-up-btn" href="#">Sign Up</a>
+    		</div>
+    	</div>
+    </div>
+    
+    <div role="main" class="container">
+      <%= yield %>
+    </div>
+    
+    <footer></footer>
+  </body>
+</html>
