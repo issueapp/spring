@@ -52,6 +52,9 @@ class App.ContentView extends Backbone.View
       if model.get('type') == 'Article'
         source = $(@content_template(model.toJSON()))
 
+        # source.find('img').forEach (item)->
+        #   $(item).replaceWith('<div class="touch-image" style="background-image: url(' + item.src + ')";></div>')
+
       else
         source = $(@product_template(model.toJSON()))
 
