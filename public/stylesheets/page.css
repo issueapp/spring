@@ -1,23 +1,23 @@
 /*
 Syntax error: Undefined mixin 'box-sizing'.
-        on line 274 of ./stylesheets/page.scss, in `box-sizing'
-        from line 274 of ./stylesheets/page.scss
+        on line 273 of ./stylesheets/page.scss, in `box-sizing'
+        from line 273 of ./stylesheets/page.scss
 
-269:   height: 1000px;
-270:   header {
-271:     padding: 40px 20px;
-272:     
-273:     input[type=search] {
-274:       @include box-sizing(border-box);
-275:       @include border-radius(5px);
-276:       font-family: Georgia;
-277:       font-style: italic;
-278:       font-size: 16px;
-279:       padding: 10px 20px;
+268:   height: 1000px;
+269:   header {
+270:     padding: 40px 20px;
+271:     
+272:     input[type=search] {
+273:       @include box-sizing(border-box);
+274:       @include border-radius(5px);
+275:       font-family: Georgia;
+276:       font-style: italic;
+277:       font-size: 16px;
+278:       padding: 10px 20px;
 
 Backtrace:
-./stylesheets/page.scss:274:in `box-sizing'
-./stylesheets/page.scss:274
+./stylesheets/page.scss:273:in `box-sizing'
+./stylesheets/page.scss:273
 /Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:170:in `visit_mixin'
 /Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:37:in `visit'
 /Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:18:in `visit'
@@ -86,4 +86,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined mixin 'box-sizing'.\A         on line 274 of ./stylesheets/page.scss, in `box-sizing'\A         from line 274 of ./stylesheets/page.scss\A \A 269:   height: 1000px;\A 270:   header {\A 271:     padding: 40px 20px;\A 272:     \A 273:     input[type=search] {\A 274:       @include box-sizing(border-box);\A 275:       @include border-radius(5px);\A 276:       font-family: Georgia;\A 277:       font-style: italic;\A 278:       font-size: 16px;\A 279:       padding: 10px 20px;"; }
+  content: "Syntax error: Undefined mixin 'box-sizing'.\A         on line 273 of ./stylesheets/page.scss, in `box-sizing'\A         from line 273 of ./stylesheets/page.scss\A \A 268:   height: 1000px;\A 269:   header {\A 270:     padding: 40px 20px;\A 271:     \A 272:     input[type=search] {\A 273:       @include box-sizing(border-box);\A 274:       @include border-radius(5px);\A 275:       font-family: Georgia;\A 276:       font-style: italic;\A 277:       font-size: 16px;\A 278:       padding: 10px 20px;"; }
