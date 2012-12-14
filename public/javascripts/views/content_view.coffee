@@ -44,17 +44,16 @@ class App.ContentView extends Backbone.View
 
   render: (model)->
     if model
-      if model.get('_type') == 'Article'
+
+      if !!model.get('image_url') && !model.get('image_url').match('http')
+        protocal = window.location.protocol + "//"
+        model.set('image_url', protocal + model.get('image_url'))
+
+      if model.get('type') == 'Article'
         source = $(@content_template(model.toJSON()))
 
-        # strip html tags from article description
-        description = source.find('.description')
-
-        if description.length > 0 && description[0].innerText.match(/<\w+>/)
-          content = description[0].innerText
-          tmp = document.createElement("div")
-          tmp.innerHTML = content
-          source.find('.description').eq(0).html(tmp.textContent || tmp.innerText)
+        source.find('img').forEach (item)->
+          $(item).replaceWith('<div class="touch-image" style="background-image: url(' + item.src + ')";></div>')
 
       else
         source = $(@product_template(model.toJSON()))
@@ -68,17 +67,16 @@ class App.ContentView extends Backbone.View
       @toolbar.actionsBtn = true
       @toolbar.render()
 
-      if @model.get('_type') == 'Article'
+      if !!@model.get('image_url') && !@model.get('image_url').match('http')
+        protocal = window.location.protocol + "//"
+        @model.set('image_url', protocal + @model.get('image_url'))
+
+
+      if @model.get('type') == 'Article'
         source = $(@content_template(@model.toJSON()))
 
-        # strip html tags from article description
-        description = source.find('.description')
-
-        if description.length > 0 && description[0].innerText.match(/<\w+>/)
-          content = description[0].innerText
-          tmp = document.createElement("div")
-          tmp.innerHTML = content
-          source.find('.description').eq(0).html(tmp.textContent || tmp.innerText)
+        source.find('img').forEach (item)->
+          $(item).replaceWith('<div class="touch-image" style="background-image: url(' + item.src + ')";></div>')
 
       else
         source = $(@product_template(@model.toJSON()))
@@ -97,7 +95,12 @@ class App.ContentView extends Backbone.View
       @prevModel = @model
       @model = target
       @currentIndex += 1
-      loading.html($(this.render(target)).children()).addClass('current product').removeClass('loading').attr('data-handle', target.get('handle'))
+      if @model.get('type') == "Product"
+        target_css = 'current product'
+      else
+        target_css = 'current content'
+
+      loading.html($(this.render(target)).children()).addClass(target_css).removeClass('loading').attr('data-handle', target.get('handle'))
 
   next: ->
     current = App.stream.find (item)=>
