@@ -131,16 +131,19 @@ class App.PageView extends Backbone.View
 
   render: ->
     nodes = @page.find(".item")
+    protocal = window.location.protocol + "//"
 
     @items.forEach (item, index)=>
       node = $(nodes[index])
+      item.image_url = protocal + item.image_url if !!item.image_url && !item.image_url.match('http')
+
       node[0].innerHTML = @itemTemplate(item)
       # node.innerHTML = @itemTemplate(item)
 
       # node.append(@itemTemplate(item))
 
       ##### HACK HACK HACK
-      if item.tags_array.join(',').match(/shoe/i) && $(node).parent().not('.col.half')
+      if !!item.tags_array && item.tags_array.join(',').match(/shoe/i) && $(node).parent().not('.col.half')
         # node.find('.image.cover').addClass('bottom')
         node.find('.image').addClass('bottom')
 

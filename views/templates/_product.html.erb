@@ -1,6 +1,8 @@
 <article class="product page" data-handle="{{ handle }}">
   <div class="col half">
-    <div class="image" style="background-image: url(http://deyf8doogqx67.cloudfront.net{{ cdn_image_url }}); background-size: cover; background-position: center; height: 100%;"></div>
+    {{#image_url}}
+    <div class="image" style="background-image: url({{ image_url }}); background-size: cover; background-position: center; height: 100%;"></div>
+    {{/image_url}}
   </div>
 
   <div class="col half">
