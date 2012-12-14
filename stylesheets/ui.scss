@@ -163,3 +163,130 @@ header.toolbar {
 //------ ui/buttons
 //------ ui/popover
 //------ ui/modal
+//------- ui/discover_menu
+
+/*      Discover menu   */
+#discover {
+  background: white;
+  position: absolute;
+  z-index: 100;
+  height: 1000px;
+  header {
+    padding: 40px 20px;
+    
+    input[type=search] {
+      @include box-sizing(border-box);
+      @include border-radius(5px);
+      font-family: Georgia;
+      font-style: italic;
+      font-size: 16px;
+      padding: 10px 20px;
+      border: 1px solid #ddd;
+      width: 100%;
+      
+      &:focus {
+//        box-shadow: 0 0 5px ;
+        box-shadow: 0 0 5px rgba(0, 100, 255, 1);
+        outline: 0;
+      }
+    }
+  }
+  
+  ul#category {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 220px;
+    height: 100%;
+    background: #eee;
+    float: left;
+    
+    li {
+      font-size: 14px;
+      font-family: "HelveticaNeue-Light";
+      letter-spacing: 0.8px;
+      @include box-sizing(border-box);
+      height: 44px;
+      line-height: 44px;
+      padding: 0 25px;
+      border-top: 1px solid #ddd;
+//        border-bottom: 1px solid rgba(10, 10, 10, 1);
+    }
+
+    a {
+      display: block;
+      color: #444;
+    }
+
+    li:hover {
+      background: rgba(230, 230, 230,1);
+    }
+
+    li.active {
+      background: #ccc;
+    }
+
+    // Level two menu
+    & > ul li {
+      padding-left: 40px;
+      font-weight: normal;
+
+      a {
+        color: #ccc;
+      }
+    }
+  }
+  
+  ul.channels {
+    @include box-sizing(border-box);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    padding-left: 240px;
+    width: 100%;
+    height: 100%;
+
+    li {
+      position: relative;
+      @include box-sizing(border-box);
+      float: left;
+      color: white;
+      font-size: 14px;
+      padding: 15px;
+      width: 240px;
+      height: 170px;
+      background: #999;
+      margin-right: 20px;
+      margin-bottom: 20px;
+    }
+    
+    .action {
+      font-family: "Georgia";
+      position: absolute;
+      top: 30%;
+      left: 30px;
+      float: left;
+      margin-right: 10px;
+      text-align: center;
+      display: block;
+      font-size: 24px;
+      font-weight: bold;
+      line-height: 70px;
+      width: 70px;
+      height: 70px;
+      
+      @include border-radius(40px);
+      color: white;
+      border: 1px solid rgba(255,255,255, 0.3);
+    }
+    
+    .action:hover {
+      background: rgba(0, 0, 0, 0.1);
+    }
+    
+    .action.view {
+      left: 130px;
+    }
+  }
+
+}

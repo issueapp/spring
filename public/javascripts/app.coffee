@@ -9,26 +9,27 @@ Environment = {
 # Application bootstrap
 this.App ||= {
   standalone: window.navigator.standalone
-
+  
   streams: {
-      top_content: {
-        title: "Top Content"
-        url: "http://#{Environment.host}/taylorluk/items.json"
-        default: true
-      }
-      editors_choices: {
-        title: "Editors choices"
-        url: "http://#{Environment.host}/taylorluk/items.json"
-      }
-      mens: {
-        title: "Mens"
-        url: "http://#{Environment.host}/interests/mens/items.json"
-      }
-      womens: {
-        title: "Womens"
-        url: "http://#{Environment.host}/interests/womens/items.json"
-      }
+    top_content: {
+      title: "Top Content"
+      url: "http://#{Environment.host}/taylorluk/items.json"
+      default: true
     }
+    editors_choices: {
+      title: "Editors choices"
+      url: "http://#{Environment.host}/taylorluk/items.json"
+    }
+    mens: {
+      title: "Mens"
+      url: "http://#{Environment.host}/interests/mens/items.json"
+    }
+    womens: {
+      title: "Womens"
+      url: "http://#{Environment.host}/interests/womens/items.json"
+    }
+  }
+
 
   init: ->
     $('a[rel="app"]').live "click", (e) ->
@@ -38,8 +39,7 @@ this.App ||= {
 
       e.preventDefault()
       false
-
-
+    
     this.layout = new App.Layout
     this.router = new App.Router
     Backbone.history.start({ pushState: true })
@@ -100,7 +100,6 @@ class App.Router extends Backbone.Router
   content: (handle) ->
     App.streamView.$el.css('opacity', '0')
     content = App.stream.find (item)-> item.get('handle') == handle
-
     App.contentView ||= new App.ContentView
 
     App.contentView.resetAttrs()
@@ -146,24 +145,3 @@ class App.Router extends Backbone.Router
     App.toolbar.backBtn = false
     App.toolbar.typeBtn = true
     App.toolbar.render()
-
-  # isMobile: ->
-  #   uagent = navigator.userAgent.toLowerCase()
-  #   ismobile = false
-  #
-  #   list = [
-  #       "midp","240x320","blackberry","netfront","nokia","panasonic",
-  #       "portalmmm","sharp","sie-","sonyericsson","symbian",
-  #       "windows ce","benq","mda","mot-","opera mini",
-  #       "philips","pocket pc","sagem","samsung","sda",
-  #       "sgh-","vodafone","xda","palm","iphone",
-  #       "ipod","android"
-  #     ]
-  #
-  #   list.forEach (item)->
-  #     if uagent.indexOf(item) != -1
-  #       ismobile = true
-  #
-  #   # ismobile
-  #   false
-
