@@ -214,7 +214,7 @@
   <%= yield :js %>
 
   <script>
-    $('.welcome span').on('touchstart', function () {
+    $('.welcome span').on('touchend', function () {
       $('.landing').animate({ opacity : 0 }, {duration: 200, complete: function () {
         $('.landing').hide();
       }});
