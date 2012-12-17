@@ -154,7 +154,6 @@ class App.PageView extends Backbone.View
         tmp.innerHTML = content
         node.find('.info p').html(tmp.textContent || tmp.innerText)
 
-
     this.setElement(@page)
 
     # @page.css('visibility', 'visible')

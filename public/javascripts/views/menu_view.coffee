@@ -2,8 +2,8 @@ class App.MenuView extends Backbone.View
   el: "nav#menu"
 
   events:
-    'touchstart ul.navigation li.logo a': 'home'
-    'touchstart ul.navigation li a': 'navigate'
+    'touchend ul.navigation li.logo a': 'home'
+    'touchend ul.navigation li a': 'navigate'
 
   navigate: (e)->
     target = $(e.target)

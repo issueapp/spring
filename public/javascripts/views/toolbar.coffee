@@ -2,14 +2,18 @@ class App.Toolbar extends Backbone.View
   el: "header.toolbar"
 
   events:
-    'touchstart a.back': 'back'
-    'touchstart a.menu': 'menu'
+    'touchend a.back': 'back'
+    'touchend a.menu': 'menu'
+    'touchend a.type': 'filter'
+    'touchend h1': 'collection'
 
   initialize: ->
     @backBtn = @actionsBtn = false
     @typeBtn = true
+    @popover_template = $('#popover_tpl').html()
 
   render: ->
+    $('.drop-down').hide()
     title = this.$('h1').html(@title)
     backButton = this.$el.find('a.back')
     typeButton = this.$el.find('a.type')
@@ -59,5 +63,48 @@ class App.Toolbar extends Backbone.View
 
   menu: ->
     $(document.body).toggleClass('expand-menu')
+
+    false
+
+  filter: ->
+    filterPopover = $('#filter-dropdown')
+
+    if filterPopover.length == 0
+
+      data = {
+        "class": "filter"
+        "collection": [
+          { "link": "#1", "query": "shop" }
+          { "link": "#2", "query": "read" }
+        ]
+      }
+
+      html = $(Mustache.to_html(@popover_template, data))
+      html.appendTo(this.$el)
+
+    else
+      filterPopover.toggle()
+
+    false
+
+  collection: ->
+    collectionPopover = $('#collection-dropdown')
+
+    if collectionPopover.length == 0
+
+      data = {
+        "class": "collection"
+        "collection": [
+          { "link": "#1", "query": "collection 1" }
+          { "link": "#2", "query": "collection 2" }
+          { "link": "#3", "query": "collection 3" }
+        ]
+      }
+
+      html = $(Mustache.to_html(@popover_template, data))
+      html.appendTo(this.$el)
+
+    else
+      collectionPopover.toggle()
 
     false
