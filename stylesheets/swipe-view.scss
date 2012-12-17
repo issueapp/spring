@@ -103,15 +103,6 @@
     margin: 0;
     @include column-count(2);
 
-    .touch-image {
-      display:inline-block;
-      width: 100%;
-      height: auto;
-      min-height: 50%;
-      background-size: cover;
-      background-position: center;
-    }
-
     iframe {
       width: 100% !important;
     }
