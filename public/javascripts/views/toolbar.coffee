@@ -6,6 +6,7 @@ class App.Toolbar extends Backbone.View
     'touchend a.menu': 'menu'
     'touchend a.type': 'filter'
     'touchend h1': 'collection'
+    'touchend #filter-dropdown a': 'toggleStatus'
 
   initialize: ->
     @backBtn = @actionsBtn = false
@@ -72,10 +73,12 @@ class App.Toolbar extends Backbone.View
     if filterPopover.length == 0
 
       data = {
-        "class": "filter"
-        "collection": [
-          { "link": "#1", "query": "shop" }
-          { "link": "#2", "query": "read" }
+        'type': 'filter'
+        'collection': [
+          { 'class': 'view-all active', 'link': '#1', 'content': 'view all' }
+          { 'class': 'shop', 'link': '#2', 'content': 'shop' }
+          { 'class': 'read', 'link': '#3', 'content': 'read' }
+          { 'class': 'photo', 'link': '#4', 'content': 'photo' }
         ]
       }
 
@@ -93,11 +96,11 @@ class App.Toolbar extends Backbone.View
     if collectionPopover.length == 0
 
       data = {
-        "class": "collection"
+        "type": "collection"
         "collection": [
-          { "link": "#1", "query": "collection 1" }
-          { "link": "#2", "query": "collection 2" }
-          { "link": "#3", "query": "collection 3" }
+          { "link": "#1", "content": "collection a" }
+          { "link": "#2", "content": "collection b" }
+          { "link": "#3", "content": "collection c" }
         ]
       }
 
@@ -106,5 +109,11 @@ class App.Toolbar extends Backbone.View
 
     else
       collectionPopover.toggle()
+
+    false
+
+  toggleStatus: (e)->
+    this.$el.find('.active').removeClass('active')
+    $(e.currentTarget).addClass('active')
 
     false
