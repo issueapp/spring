@@ -1,9 +1,9 @@
-<div id="{{class}}-dropdown" class="drop-down">
+<div id="{{type}}-dropdown" class="drop-down">
   <div class="drop-wrapper">
     <span class="drop-top"></span>
     <ul class="popover-list">
       {{#collection}}
-        <li><a href="{{link}}">{{query}}</a></li>
+        <li><a class="{{class}}" href="{{link}}">{{content}}</a></li>
       {{/collection}}
     </ul>
   </div>
