@@ -132,7 +132,7 @@ article.page {
 
 div.drop-down {
   position: absolute;
-  top: 26px;
+  top: 22px;
   width: 110px;
   font-size:13px;
 
@@ -162,7 +162,7 @@ div.drop-down {
       float: none;
       margin: 0;
       padding: 13px 0px 13px 10px;
-      border-bottom: 1px solid #eee;
+      border-top: 1px solid #eee;
       background-image: none;
 
       a {
@@ -184,8 +184,8 @@ div.drop-down {
       }
     }
 
-    li:last-child {
-      border-bottom: none;
+    li:first-child {
+      border-top: none;
     }
   }
 }
@@ -216,12 +216,25 @@ div.drop-down {
 #collection-dropdown {
   left: 50%;
   margin-left: -151px;
+
   .drop-wrapper {
     width: 300px;
+
     a {
-      padding: 0;
+      height: 18px;
+      padding: 0 0 0 5px;
+      line-height: 20px;
       color: #6F6F6F;
-      font-size: 12px;
+      font-size: 13px;
+    }
+
+    li.active {
+      border-left: 5px solid #000;
+
+      a {
+        padding: 0;
+        color: #333;
+      }
     }
   }
 }
