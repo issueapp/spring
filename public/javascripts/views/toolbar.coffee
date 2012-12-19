@@ -6,7 +6,8 @@ class App.Toolbar extends Backbone.View
     'touchend a.menu': 'menu'
     'touchend a.type': 'filter'
     'touchend h1': 'collection'
-    'touchend #filter-dropdown a': 'toggleStatus'
+    'touchend #filter-dropdown a': 'toggleFilterStatus'
+    'touchend #collection-dropdown li': 'toggleCollectionStatus'
 
   initialize: ->
     @backBtn = @actionsBtn = false
@@ -96,15 +97,19 @@ class App.Toolbar extends Backbone.View
     if collectionPopover.length == 0
 
       data = {
-        "type": "collection"
-        "collection": [
-          { "link": "#1", "content": "collection a" }
-          { "link": "#2", "content": "collection b" }
-          { "link": "#3", "content": "collection c" }
+        'type': 'collection'
+        'collection': [
+          { 'link': '#1', 'content': 'collection a' }
+          { 'link': '#2', 'content': 'collection b' }
+          { 'link': '#3', 'content': 'collection c' }
         ]
       }
 
       html = $(Mustache.to_html(@popover_template, data))
+
+      # DEMO Only
+      html.find('li').eq(0).addClass('active')
+
       html.appendTo(this.$el)
 
     else
@@ -112,8 +117,14 @@ class App.Toolbar extends Backbone.View
 
     false
 
-  toggleStatus: (e)->
-    this.$el.find('.active').removeClass('active')
+  toggleFilterStatus: (e)->
+    this.$el.find('#filter-dropdown .active').removeClass('active')
+    $(e.currentTarget).addClass('active')
+
+    false
+
+  toggleCollectionStatus: (e)->
+    this.$el.find('#collection-dropdown .active').removeClass('active')
     $(e.currentTarget).addClass('active')
 
     false
