@@ -2,7 +2,7 @@ class App.Toolbar extends Backbone.View
   el: "header.toolbar"
 
   events:
-    'touchend a.back': 'back'
+    'touchstart a.back': 'back'
     'touchend a.menu': 'menu'
     'touchend a.type': 'filter'
     'touchend h1': 'collection'
