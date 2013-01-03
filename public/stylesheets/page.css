@@ -64,13 +64,13 @@ article.page .description {
     line-height: 37px;
     vertical-align: middle;
   }
-  /* line 64, ../../stylesheets/page.scss */
+  /* line 65, ../../stylesheets/page.scss */
   article.page .col.half .info p {
     margin-top: 10px;
     text-align: left;
   }
 }
-/* line 73, ../../stylesheets/page.scss */
+/* line 74, ../../stylesheets/page.scss */
 .landing {
   margin-left: 260px;
   height: 100%;
@@ -80,7 +80,7 @@ article.page .description {
   color: white;
   font-family: "proxima-nova", sans-serif;
 }
-/* line 82, ../../stylesheets/page.scss */
+/* line 83, ../../stylesheets/page.scss */
 .landing .logo {
   padding: 38px 0 0 105px;
   height: 100px;
@@ -88,25 +88,25 @@ article.page .description {
   color: white;
   font-size: 22px;
 }
-/* line 90, ../../stylesheets/page.scss */
+/* line 91, ../../stylesheets/page.scss */
 .landing .welcome {
   position: absolute;
   top: 35%;
   padding-left: 12px;
   font-weight: bold;
 }
-/* line 96, ../../stylesheets/page.scss */
+/* line 97, ../../stylesheets/page.scss */
 .landing .welcome p:first-child {
   margin: 0 0 0 8px;
   font-size: 102px;
   text-transform: uppercase;
 }
-/* line 102, ../../stylesheets/page.scss */
+/* line 103, ../../stylesheets/page.scss */
 .landing .welcome p:nth-child(2) {
   margin: 0 0 0 8px;
   font-size: 25px;
 }
-/* line 107, ../../stylesheets/page.scss */
+/* line 108, ../../stylesheets/page.scss */
 .landing .welcome span {
   position: absolute;
   top: 40px;
@@ -116,16 +116,136 @@ article.page .description {
   text-transform: uppercase;
   font-size: 14px;
 }
-/* line 118, ../../stylesheets/page.scss */
+/* line 119, ../../stylesheets/page.scss */
 .landing .footer {
   position: absolute;
   bottom: 20px;
   padding-left: 20px;
   font-size: 14px;
 }
-/* line 124, ../../stylesheets/page.scss */
+/* line 125, ../../stylesheets/page.scss */
 .landing .footer i {
   padding-right: 10px;
   vertical-align: middle;
   font-size: 24px;
+}
+
+/* line 133, ../../stylesheets/page.scss */
+div.drop-down {
+  position: absolute;
+  top: 22px;
+  width: 110px;
+  font-size: 13px;
+}
+/* line 139, ../../stylesheets/page.scss */
+div.drop-down span.drop-top {
+  display: block;
+  margin: -7px 0 0;
+  padding: 7px 15px 0px;
+  background: url("/images/top-arrow.png") no-repeat center top;
+}
+/* line 146, ../../stylesheets/page.scss */
+div.drop-down div.drop-wrapper {
+  position: absolute;
+  top: 36px;
+  border: 1px solid #eee;
+  background-color: white;
+  font-family: "Helvetica Neue", Hevetica, Arial, sans-serif;
+}
+/* line 155, ../../stylesheets/page.scss */
+div.drop-down ul.popover-list {
+  overflow: auto;
+  margin: 0;
+  padding: 0;
+}
+/* line 160, ../../stylesheets/page.scss */
+div.drop-down ul.popover-list li {
+  display: block;
+  float: none;
+  margin: 0;
+  padding: 13px 0px 13px 10px;
+  border-top: 1px solid #eee;
+  background-image: none;
+}
+/* line 168, ../../stylesheets/page.scss */
+div.drop-down ul.popover-list li a {
+  height: 15px;
+  line-height: 17px;
+  text-transform: uppercase;
+  font-size: 10px;
+  font-family: "proxima_nova_regular";
+  position: static;
+  display: block;
+  padding: 0px 0px 0px 37px;
+  color: #b9b9b9;
+  text-shadow: none;
+  font-weight: normal;
+}
+/* line 181, ../../stylesheets/page.scss */
+div.drop-down ul.popover-list li a:active, div.drop-down ul.popover-list li a.active {
+  color: #6f6f6f;
+}
+/* line 187, ../../stylesheets/page.scss */
+div.drop-down ul.popover-list li:first-child {
+  border-top: none;
+}
+
+/* line 193, ../../stylesheets/page.scss */
+#filter-dropdown {
+  right: -10px;
+}
+/* line 196, ../../stylesheets/page.scss */
+#filter-dropdown .drop-wrapper {
+  left: -26px;
+}
+/* line 199, ../../stylesheets/page.scss */
+#filter-dropdown .drop-wrapper .drop-top {
+  margin-left: 78px;
+}
+/* line 205, ../../stylesheets/page.scss */
+#filter-dropdown ul.popover-list li .view-all {
+  background: url(/images/view-all-icon.png) no-repeat 10px top;
+}
+/* line 206, ../../stylesheets/page.scss */
+#filter-dropdown ul.popover-list li .shop {
+  background: url(/images/shop-icon.png) no-repeat 10px top;
+}
+/* line 207, ../../stylesheets/page.scss */
+#filter-dropdown ul.popover-list li .read {
+  background: url(/images/read-icon.png) no-repeat 10px top;
+}
+/* line 208, ../../stylesheets/page.scss */
+#filter-dropdown ul.popover-list li .photo {
+  background: url(/images/photo-icon.png) no-repeat 10px top;
+}
+/* line 210, ../../stylesheets/page.scss */
+#filter-dropdown ul.popover-list li a:active, #filter-dropdown ul.popover-list li a.active {
+  background-position-y: bottom;
+}
+
+/* line 216, ../../stylesheets/page.scss */
+#collection-dropdown {
+  left: 50%;
+  margin-left: -151px;
+}
+/* line 220, ../../stylesheets/page.scss */
+#collection-dropdown .drop-wrapper {
+  width: 300px;
+}
+/* line 223, ../../stylesheets/page.scss */
+#collection-dropdown .drop-wrapper a {
+  height: 18px;
+  padding: 0 0 0 5px;
+  line-height: 20px;
+  color: #6F6F6F;
+  font-size: 13px;
+}
+/* line 231, ../../stylesheets/page.scss */
+#collection-dropdown .drop-wrapper li.active {
+  border-left: 5px solid #000;
+}
+/* line 234, ../../stylesheets/page.scss */
+#collection-dropdown .drop-wrapper li.active a {
+  padding: 0;
+  color: #333;
 }
