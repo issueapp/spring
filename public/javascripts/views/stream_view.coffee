@@ -38,6 +38,7 @@ class App.StreamView extends Backbone.View
     @layout = data.layout
     @transition = false
     @offset = 0
+    @newChannel = data.newChannel
 
     # reset view
     this.$el.removeAttr("style").html('')
@@ -75,7 +76,7 @@ class App.StreamView extends Backbone.View
         loading = false
 
     # Prevent browser from
-    startClientX  = currentClientX = 0
+    startClientX = currentClientX = 0
 
     $(@el).on "touchstart", (e)=>
       if e.touches
@@ -83,6 +84,8 @@ class App.StreamView extends Backbone.View
 
       startClientX = e.clientX
       $(@el).removeClass('animate').addClass('swiping')
+
+    loadingImage = false
 
     $(@el).on "touchmove", (e)=>
       e.preventDefault()
@@ -93,41 +96,62 @@ class App.StreamView extends Backbone.View
       delta = e.clientX - startClientX
       moveDelta = Math.abs(e.clientX - currentClientX)
 
-      return if currentClientX > 0 && moveDelta < 25
+      return if currentClientX > 0 && moveDelta < 15
 
-      @el.style.webkitTransform = 'translate3d(' + (@offset + delta * 1.1) + 'px,0,0)'
+      @el.style.webkitTransform = 'translate3d(' + (@offset + delta) + 'px,0,0)'
       currentClientX = e.clientX
 
     # Mark trasition has ended
     $(@el).on $.fx.transitionEnd, => @transition = false
 
     $(@el).on "swipeLeft", (e)=>
-      # return if @transition
+      @changedDir = @direction != "right"
+      @direction = "right"
       target = this.next()
+      loadingImage = false
 
       if target
         $(@el).removeClass('swiping').addClass('animate').css('transform', '')
-
         this.updatePos(- @layout.viewport)
-
-        $(@el).find('.page').removeClass('current')
-
+        $(@el).find('.page').removeClass('current').css('visibility', 'visible')
         $(target.el).addClass('current')
+
+        this.updateBackgroundImage($(target.el)) if $(target.el).find('.image').css('background-image') == 'none'
+        this.updateBackgroundImage($(target.el).next().css('visibility', 'hidden'))
+
+        # remove previous page background image after 200ms
+        setTimeout =>
+          target.$el.prev().find('.image').forEach (item) ->
+            $(item).css("background-image", 'none')
+          target.$el.prev().css('visibility', 'hidden')
+        , 200
 
       e.preventDefault()
 
     $(@el).on "swipeRight", (e)=>
-      # return if @transition
-
+      @changedDir = @direction != "left"
+      @direction = "left"
       target = this.prev()
+      loadingImage = false
 
       if target
         $(@el).removeClass('swiping').addClass('animate').css('transform', '')
-
-        this.updatePos( @layout.viewport)
-
-        $(@el).find('.page').removeClass('current')
+        this.updatePos(@layout.viewport)
+        $(@el).find('.page').removeClass('current').css('visibility', 'visible')
         $(target.el).addClass('current')
+
+        this.updateBackgroundImage($(target.el)) if $(target.el).find('.image').css('background-image') == 'none'
+        this.updateBackgroundImage($(target.el).prev().css('visibility', 'hidden'))
+
+        # remove previous page background image after 200ms
+        setTimeout =>
+          target.$el.next().find('.image').forEach (item) ->
+            $(item).css("background-image", 'none')
+          target.$el.next().css('visibility', 'hidden')
+        , 200
+
+      # Snap to the left
+      @el.style.webkitTransform = 'translate3d(0,0,0)' if @offset == 0
 
       e.preventDefault()
 
@@ -149,7 +173,6 @@ class App.StreamView extends Backbone.View
       # Add current class
 
       if target
-
         if @transition
           $(@el).removeClass('animate')
         else
@@ -166,7 +189,7 @@ class App.StreamView extends Backbone.View
 
     $(@el).removeClass('animate')
 
-    this.$('.item img').addClass('animate')
+    # this.$('.item img').addClass('animate')
 
     if @offset != 0
       @offset = -(paddings + 1) * App.layout.viewport
@@ -211,7 +234,7 @@ class App.StreamView extends Backbone.View
       step = parseInt(@limit/2)
 
       # Far prev
-      unless @pages[@currentIndex - step]
+      if this.$el.find('.padding').css('width') != '0px'
         # @fetchPage = 'prepend'
         farNext = this.prependPage()
         this.clearPage('prepend')
@@ -247,7 +270,7 @@ class App.StreamView extends Backbone.View
     @pages.unshift(page)
 
     # maintain index
-    if render== true
+    if render == true
       @currentIndex = @currentIndex + 1
       this.renderPage(page, 'prepend')
 
@@ -257,8 +280,11 @@ class App.StreamView extends Backbone.View
     render ?= true
     target = this.lastPage()
     offset = target && target.offset || 0
-    page = new App.PageView(method: 'append', stream: this)
+    if @newChannel
+      App.PageView.templateIndex = -1
+      @newChannel = false
 
+    page = new App.PageView(method: 'append', stream: this)
     @collection.fill(page, offset)
 
     return if page.items.length == 0
@@ -312,10 +338,8 @@ class App.StreamView extends Backbone.View
     else
       container = $(@el).append('<div class="page rotatable"></div>').children().last()
 
-    setTimeout =>
-      container[0].parentNode.replaceChild(node[0], container[0])
-      node[0].className = container[0].className
-    , 200
+    container[0].parentNode.replaceChild(node[0], container[0])
+    node[0].className = container[0].className
 
     $(node).attr('data-offset', page.offset)
 
@@ -332,9 +356,14 @@ class App.StreamView extends Backbone.View
     if firstRender
       this.firstPage().offset = this.firstPage().limit
       this.firstPage().$el.addClass('current')
-      @pages[1].$el.addClass('next')
+      this.updateBackgroundImage(@pages[0].$el)
+      this.updateBackgroundImage(@pages[1].$el)
 
     @toolbar.title = @title
     @toolbar.render()
 
     this
+
+  updateBackgroundImage: (target) ->
+    target.find('.image').forEach (item) ->
+      $(item).css("background-image", 'url(' + $(item).data('original') + ')') if $(item).data('original')
