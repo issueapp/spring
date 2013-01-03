@@ -20,7 +20,8 @@
 class App.ContentView extends Backbone.View
   el: "#content .pages"
 
-  template: Mustache.compile($('#product_tpl').html())
+  product_template: Mustache.compile($('#product_tpl').html())
+  content_template: Mustache.compile($('#content_tpl').html())
 
   initialize: ->
     @toolbar = App.toolbar || new App.Toolbar
@@ -43,16 +44,16 @@ class App.ContentView extends Backbone.View
 
   render: (model)->
     if model
-      source = $(@template(model.toJSON()))
 
-      # strip html tags from article description
-      description = source.find('.description')
+      if !!model.get('image_url') && !model.get('image_url').match('http')
+        protocal = window.location.protocol + "//"
+        model.set('image_url', protocal + model.get('image_url'))
 
-      if description[0].innerText.match(/<\w+>/)
-        content = description[0].innerText
-        tmp = document.createElement("div")
-        tmp.innerHTML = content
-        source.find('.description').eq(0).html(tmp.textContent || tmp.innerText)
+      if model.get('type') == 'Article'
+        source = $(@content_template(model.toJSON()))
+
+      else
+        source = $(@product_template(model.toJSON()))
 
       source[0]
 
@@ -63,16 +64,16 @@ class App.ContentView extends Backbone.View
       @toolbar.actionsBtn = true
       @toolbar.render()
 
-      source = $(@template(@model.toJSON()))
+      if !!@model.get('image_url') && !@model.get('image_url').match('http')
+        protocal = window.location.protocol + "//"
+        @model.set('image_url', protocal + @model.get('image_url'))
 
-      # strip html tags from article description
-      description = source.find('.description')
 
-      if description[0].innerText.match(/<\w+>/)
-        content = description[0].innerText
-        tmp = document.createElement("div")
-        tmp.innerHTML = content
-        source.find('.description').eq(0).html(tmp.textContent || tmp.innerText)
+      if @model.get('type') == 'Article'
+        source = $(@content_template(@model.toJSON()))
+
+      else
+        source = $(@product_template(@model.toJSON()))
 
       this.setElement(source)
       $(@el).css('opacity', "0").addClass('current')
@@ -88,7 +89,12 @@ class App.ContentView extends Backbone.View
       @prevModel = @model
       @model = target
       @currentIndex += 1
-      loading.html($(this.render(target)).children()).addClass('current product').removeClass('loading').attr('data-handle', target.get('handle'))
+      if @model.get('type') == "Product"
+        target_css = 'current product'
+      else
+        target_css = 'current content'
+
+      loading.html($(this.render(target)).children()).addClass(target_css).removeClass('loading').attr('data-handle', target.get('handle'))
 
   next: ->
     current = App.stream.find (item)=>

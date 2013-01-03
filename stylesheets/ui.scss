@@ -111,7 +111,6 @@ header.toolbar {
   & > h1 {
     overflow: hidden;
     margin: 0 auto;
-    // background: url("/images/down-arrow.png") no-repeat 100% 47%;
     vertical-align: middle;
     text-align: center;
     text-transform: uppercase;
@@ -122,6 +121,14 @@ header.toolbar {
     font-size: 17px;
     font-family: "proxima_nova_ltregular";
     line-height: 50px;
+
+    &.dropdown-arrow:after {
+      display: inline-block;
+      width: 18px;
+      height: 11px;
+      background: url("/images/down-arrow.png") no-repeat center;
+      content: "";
+    }
   }
 
   div.actions {

@@ -145,7 +145,7 @@ class App.Router extends Backbone.Router
     App.toolbar ||= new App.Toolbar
 
     App.stream = new App.StreamCollection
-    App.streamView = new App.StreamView({ el: '#sections .pages', layout: App.layout, collection: App.stream, title: title })
+    App.streamView = new App.StreamView({ el: '#sections .pages', layout: App.layout, collection: App.stream, title: title, newChannel: true })
 
     App.stream.url = url + "?sort=created_at"
     App.stream.title = title
