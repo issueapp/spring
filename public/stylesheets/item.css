@@ -1,79 +1,256 @@
+/* line 3, ../../stylesheets/item.scss */
+.cover {
+  position: relative;
+  height: 200%;
+  width: 200%;
+  top: -50%;
+  left: -50%;
+}
+
+/* line 11, ../../stylesheets/item.scss */
+.cover img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  min-width: 51%;
+  min-height: 50%;
+}
+
+/* line 22, ../../stylesheets/item.scss */
+.image.bottom {
+  /*    top: -90%;*/
+  background-position: bottom !important;
+}
+
 /*
-Syntax error: Undefined mixin 'box-sizing'.
-        on line 38 of ./stylesheets/item.scss, in `box-sizing'
-        from line 38 of ./stylesheets/item.scss
+    Item
 
-33: 
-34: .page {
-35: 
-36:   .item {
-37: 
-38:     @include box-sizing(border-box);
-39: 
-40:     position: relative;
-41:     background: #fff;
-42: 
-43:     float: left;
+    define layout and positioning of a rendering unit
 
-Backtrace:
-./stylesheets/item.scss:38:in `box-sizing'
-./stylesheets/item.scss:38
-/Users/gkwrh/.rvm/gems/ruby-1.9.3-p125/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:170:in `visit_mixin'
-/Users/gkwrh/.rvm/gems/ruby-1.9.3-p125/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:37:in `visit'
-/Users/gkwrh/.rvm/gems/ruby-1.9.3-p125/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:18:in `visit'
-/Users/gkwrh/.rvm/gems/ruby-1.9.3-p125/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
-/Users/gkwrh/.rvm/gems/ruby-1.9.3-p125/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:53:in `map'
-/Users/gkwrh/.rvm/gems/ruby-1.9.3-p125/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:53:in `visit_children'
-/Users/gkwrh/.rvm/gems/ruby-1.9.3-p125/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:27:in `block in visit_children'
-/Users/gkwrh/.rvm/gems/ruby-1.9.3-p125/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:39:in `with_environment'
-/Users/gkwrh/.rvm/gems/ruby-1.9.3-p125/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:26:in `visit_children'
-/Users/gkwrh/.rvm/gems/ruby-1.9.3-p125/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:37:in `block in visit'
-/Users/gkwrh/.rvm/gems/ruby-1.9.3-p125/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:238:in `visit_rule'
-/Users/gkwrh/.rvm/gems/ruby-1.9.3-p125/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:37:in `visit'
-/Users/gkwrh/.rvm/gems/ruby-1.9.3-p125/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:18:in `visit'
-/Users/gkwrh/.rvm/gems/ruby-1.9.3-p125/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
-/Users/gkwrh/.rvm/gems/ruby-1.9.3-p125/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:53:in `map'
-/Users/gkwrh/.rvm/gems/ruby-1.9.3-p125/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:53:in `visit_children'
-/Users/gkwrh/.rvm/gems/ruby-1.9.3-p125/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:27:in `block in visit_children'
-/Users/gkwrh/.rvm/gems/ruby-1.9.3-p125/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:39:in `with_environment'
-/Users/gkwrh/.rvm/gems/ruby-1.9.3-p125/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:26:in `visit_children'
-/Users/gkwrh/.rvm/gems/ruby-1.9.3-p125/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:37:in `block in visit'
-/Users/gkwrh/.rvm/gems/ruby-1.9.3-p125/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:238:in `visit_rule'
-/Users/gkwrh/.rvm/gems/ruby-1.9.3-p125/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:37:in `visit'
-/Users/gkwrh/.rvm/gems/ruby-1.9.3-p125/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:18:in `visit'
-/Users/gkwrh/.rvm/gems/ruby-1.9.3-p125/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
-/Users/gkwrh/.rvm/gems/ruby-1.9.3-p125/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:53:in `map'
-/Users/gkwrh/.rvm/gems/ruby-1.9.3-p125/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:53:in `visit_children'
-/Users/gkwrh/.rvm/gems/ruby-1.9.3-p125/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:27:in `block in visit_children'
-/Users/gkwrh/.rvm/gems/ruby-1.9.3-p125/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:39:in `with_environment'
-/Users/gkwrh/.rvm/gems/ruby-1.9.3-p125/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:26:in `visit_children'
-/Users/gkwrh/.rvm/gems/ruby-1.9.3-p125/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:37:in `block in visit'
-/Users/gkwrh/.rvm/gems/ruby-1.9.3-p125/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:47:in `visit_root'
-/Users/gkwrh/.rvm/gems/ruby-1.9.3-p125/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:37:in `visit'
-/Users/gkwrh/.rvm/gems/ruby-1.9.3-p125/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:18:in `visit'
-/Users/gkwrh/.rvm/gems/ruby-1.9.3-p125/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:7:in `visit'
-/Users/gkwrh/.rvm/gems/ruby-1.9.3-p125/gems/sass-3.1.19/lib/sass/tree/root_node.rb:20:in `render'
-/Users/gkwrh/.rvm/gems/ruby-1.9.3-p125/gems/sass-3.1.19/lib/sass/engine.rb:300:in `_render'
-/Users/gkwrh/.rvm/gems/ruby-1.9.3-p125/gems/sass-3.1.19/lib/sass/engine.rb:247:in `render'
-/Users/gkwrh/.rvm/gems/ruby-1.9.3-p125/gems/sass-3.1.19/lib/sass/plugin/compiler.rb:340:in `update_stylesheet'
-/Users/gkwrh/.rvm/gems/ruby-1.9.3-p125/gems/sass-3.1.19/lib/sass/plugin/compiler.rb:202:in `block in update_stylesheets'
-/Users/gkwrh/.rvm/gems/ruby-1.9.3-p125/gems/sass-3.1.19/lib/sass/plugin/compiler.rb:200:in `each'
-/Users/gkwrh/.rvm/gems/ruby-1.9.3-p125/gems/sass-3.1.19/lib/sass/plugin/compiler.rb:200:in `update_stylesheets'
-/Users/gkwrh/.rvm/gems/ruby-1.9.3-p125/gems/sass-3.1.19/lib/sass/plugin.rb:81:in `update_stylesheets'
-/Users/gkwrh/.rvm/gems/ruby-1.9.3-p125/gems/sass-3.1.19/lib/sass/plugin.rb:54:in `check_for_updates'
-/Users/gkwrh/.rvm/gems/ruby-1.9.3-p125/gems/sass-3.1.19/lib/sass/plugin/rack.rb:51:in `call'
-/Users/gkwrh/.rvm/gems/ruby-1.9.3-p125/gems/rack-1.4.1/lib/rack/lint.rb:48:in `_call'
-/Users/gkwrh/.rvm/gems/ruby-1.9.3-p125/gems/rack-1.4.1/lib/rack/lint.rb:36:in `call'
-/Users/gkwrh/.rvm/gems/ruby-1.9.3-p125/gems/rack-1.4.1/lib/rack/showexceptions.rb:24:in `call'
-/Users/gkwrh/.rvm/gems/ruby-1.9.3-p125/gems/rack-1.4.1/lib/rack/commonlogger.rb:20:in `call'
-/Users/gkwrh/.rvm/gems/ruby-1.9.3-p125/gems/rack-1.4.1/lib/rack/chunked.rb:43:in `call'
-/Users/gkwrh/.rvm/gems/ruby-1.9.3-p125/gems/rack-1.4.1/lib/rack/content_length.rb:14:in `call'
-/Users/gkwrh/.rvm/gems/ruby-1.9.3-p125/gems/rack-1.4.1/lib/rack/handler/webrick.rb:59:in `service'
-/Users/gkwrh/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
-/Users/gkwrh/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
-/Users/gkwrh/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
 */
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Syntax error: Undefined mixin 'box-sizing'.\A         on line 38 of ./stylesheets/item.scss, in `box-sizing'\A         from line 38 of ./stylesheets/item.scss\A \A 33: \A 34: .page {\A 35: \A 36:   .item {\A 37: \A 38:     @include box-sizing(border-box);\A 39: \A 40:     position: relative;\A 41:     background: #fff;\A 42: \A 43:     float: left;"; }
+/* line 34, ../../stylesheets/item.scss */
+.page {
+  /*
+
+        Product Styles
+
+  */
+  /*
+      Product split view
+  */
+}
+/* line 36, ../../stylesheets/item.scss */
+.page .item {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+  background: #fff;
+  float: left;
+  margin: 0 0 2% 0;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  border: 1px solid #eee;
+  border-width: 0 1px 1px 0;
+}
+/* line 54, ../../stylesheets/item.scss */
+.page .item .image {
+  height: 60%;
+}
+/* line 58, ../../stylesheets/item.scss */
+.page .item .link {
+  cursor: pointer;
+  color: #222;
+}
+/* line 65, ../../stylesheets/item.scss */
+.page .item .info {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  bottom: 0;
+  display: inline-block;
+  vertical-align: top;
+  background: white;
+  padding: 1.25em 0 1.25em;
+  width: 100%;
+  height: 40%;
+  color: #333;
+}
+/* line 82, ../../stylesheets/item.scss */
+.page .item .info p {
+  font-size: 13px;
+  margin: 0.5em 0 0.5em;
+  max-height: 62px;
+  color: #666;
+}
+/* line 90, ../../stylesheets/item.scss */
+.page .item .via {
+  font-size: 12px;
+  color: #777;
+  position: absolute;
+  bottom: 20px;
+}
+/* line 96, ../../stylesheets/item.scss */
+.page .item .via img {
+  vertical-align: middle;
+  margin-right: 5px;
+}
+/* line 102, ../../stylesheets/item.scss */
+.page .item .title {
+  /*    Style   */
+  position: relative;
+  font-family: "proxima_nova", "Helvetica Neue";
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #2c2c2c;
+  font-size: 12px;
+  margin: 0 0 0em;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/* line 122, ../../stylesheets/item.scss */
+.page .row .item:last-child {
+  border-right: 0;
+}
+/* line 127, ../../stylesheets/item.scss */
+.page .row .item:first-child {
+  border-right-width: 1px;
+  border-right-color: #EEE;
+  border-right-style: solid;
+}
+/* line 140, ../../stylesheets/item.scss */
+.page .product .overlay, .page .no-description .overlay {
+  height: 90%;
+}
+/* line 144, ../../stylesheets/item.scss */
+.page .product .image, .page .no-description .image {
+  height: 90%;
+}
+/* line 152, ../../stylesheets/item.scss */
+.page .no-image .overlay {
+  height: 100%;
+}
+/* line 156, ../../stylesheets/item.scss */
+.page .no-image .image {
+  display: none;
+}
+/* line 160, ../../stylesheets/item.scss */
+.page .no-image .description {
+  -webkit-line-clamp: 10 !important;
+}
+/* line 168, ../../stylesheets/item.scss */
+.page .product .info {
+  height: 10%;
+}
+/* line 172, ../../stylesheets/item.scss */
+.page .product .price {
+  display: block;
+  position: absolute;
+  font-size: 12px;
+  left: 20px;
+  top: 20px;
+  padding: 9px 18px;
+  height: 20px;
+  line-height: 20px;
+  margin-bottom: 13px;
+  font-weight: bold;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+}
+/* line 188, ../../stylesheets/item.scss */
+.page .product .price:before {
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  width: 0;
+  height: 0;
+  border: solid transparent;
+  content: " ";
+  margin-left: -7px;
+  border-width: 7px;
+  border-top-color: rgba(0, 0, 0, 0.8);
+}
+/* line 202, ../../stylesheets/item.scss */
+.page .product .info p {
+  visibility: hidden;
+}
+/* line 206, ../../stylesheets/item.scss */
+.page .product .counters {
+  color: #DF5454;
+  font-size: 14px;
+  position: absolute;
+  top: 2%;
+  right: 6%;
+  z-index: 1;
+  line-height: 12px;
+}
+/* line 221, ../../stylesheets/item.scss */
+.page .item.split .overlay {
+  height: 100%;
+}
+/* line 225, ../../stylesheets/item.scss */
+.page .item.split a.action.love, .page .item.split a.action.collect {
+  top: 50%;
+}
+/* line 229, ../../stylesheets/item.scss */
+.page .item.split .image {
+  overflow: hidden;
+  display: inline-block;
+  width: 49%;
+  left: 0;
+  height: 100%;
+  top: initial;
+  vertical-align: middle;
+}
+/* line 239, ../../stylesheets/item.scss */
+.page .item.split .info:before {
+  position: absolute;
+  bottom: 60%;
+  right: 101%;
+  width: 0;
+  height: 0;
+  border: solid transparent;
+  content: " ";
+  margin-left: -10px;
+  border-width: 10px;
+  border-right-color: #fff;
+}
+/* line 253, ../../stylesheets/item.scss */
+.page .item.split .info {
+  margin: 0;
+  width: 49%;
+  height: auto;
+  vertical-align: middle;
+  padding: 15% 2% 0;
+  position: relative;
+  height: 100%;
+}
+/* line 262, ../../stylesheets/item.scss */
+.page .item.split .info > p {
+  font-size: 105%;
+  visibility: visible;
+  white-space: normal;
+  max-height: inherit;
+  text-overflow: ellipsis;
+}
+/* line 271, ../../stylesheets/item.scss */
+.page .item.split .price {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: -102%;
+  color: white;
+}
+/* line 279, ../../stylesheets/item.scss */
+.page .item.split .via {
+  position: absolute;
+  bottom: 0;
+  left: 10px;
+}

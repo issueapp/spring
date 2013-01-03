@@ -1,11 +1,11 @@
-/* line 2, ../../stylesheets/swipe-view.scss */
+/* line 3, ../../stylesheets/swipe-view.scss */
 .swipe-paging {
   position: absolute;
   white-space: nowrap;
   overflow: hidden;
 }
 
-/* line 7, ../../stylesheets/swipe-view.scss */
+/* line 9, ../../stylesheets/swipe-view.scss */
 .animate {
   -webkit-transition: all .3s ease-out;
   -moz-transition: all .3s ease-out;
@@ -14,7 +14,7 @@
   transition: all .3s ease-out;
 }
 
-/* line 15, ../../stylesheets/swipe-view.scss */
+/* line 17, ../../stylesheets/swipe-view.scss */
 .swiping {
   -webkit-transition: all .15s ease-out;
   -moz-transition: all .15s ease-out;
@@ -23,7 +23,7 @@
   transition: all .15s ease-out;
 }
 
-/* line 23, ../../stylesheets/swipe-view.scss */
+/* line 25, ../../stylesheets/swipe-view.scss */
 .page {
   position: relative;
   display: inline-block;
@@ -33,16 +33,97 @@
   box-sizing: border-box;
   white-space: normal;
   overflow: hidden;
-  border: 1px solid #fff;
 }
 
-/* line 35, ../../stylesheets/swipe-view.scss */
+/* line 36, ../../stylesheets/swipe-view.scss */
 .page {
   transform: translate3d(0, 0, 0);
   -webkit-transform: translate3d(0, 0, 0);
 }
 
-/* line 40, ../../stylesheets/swipe-view.scss */
+/* line 41, ../../stylesheets/swipe-view.scss */
 .page.padding {
   width: 0;
+}
+
+/* line 46, ../../stylesheets/swipe-view.scss */
+#content .page {
+  padding: 22px 0 22px 22px;
+  overflow: hidden;
+}
+/* line 50, ../../stylesheets/swipe-view.scss */
+#content .page .info {
+  margin: 0 22px;
+}
+/* line 53, ../../stylesheets/swipe-view.scss */
+#content .page .info .title {
+  margin: 0;
+  padding: 70px 0 0;
+  color: #2c2c2c;
+  font-weight: normal;
+  font-size: 23px;
+  font-family: 'proxima_nova_bold';
+}
+/* line 62, ../../stylesheets/swipe-view.scss */
+#content .page .info .source {
+  margin: 0;
+  color: #666;
+  font-size: 12px;
+  font-family: 'proxima_nova_regular';
+}
+/* line 67, ../../stylesheets/swipe-view.scss */
+#content .page .info .source span {
+  color: #2c2c2c;
+}
+/* line 73, ../../stylesheets/swipe-view.scss */
+#content .page .info .price span:first-child {
+  color: #2c2c2c;
+  font-size: 18px;
+  font-family: 'proxima_nova_bold';
+}
+/* line 80, ../../stylesheets/swipe-view.scss */
+#content .page .info .store {
+  position: absolute;
+  top: 120px;
+  right: 0;
+  padding: 17px 14px 17px 22px;
+  background-color: #F04500;
+  color: white;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-family: 'proxima_nova_bold';
+}
+/* line 92, ../../stylesheets/swipe-view.scss */
+#content .page .info .description {
+  padding-top: 25px;
+  color: #666;
+  font-size: 16px;
+  font-family: 'proxima_nova_regular';
+}
+/* line 101, ../../stylesheets/swipe-view.scss */
+#content .content.page {
+  padding: 22px;
+  margin: 0;
+  -webkit-column-count: 2;
+  -moz-column-count: 2;
+  -ms-column-count: 2;
+  -o-column-count: 2;
+  column-count: 2;
+}
+/* line 106, ../../stylesheets/swipe-view.scss */
+#content .content.page iframe {
+  width: 100% !important;
+}
+/* line 110, ../../stylesheets/swipe-view.scss */
+#content .content.page * {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+/* line 115, ../../stylesheets/swipe-view.scss */
+#content .content.page h1, #content .content.page h2, #content .content.page h3, #content .content.page h4, #content .content.page h5, #content .content.page h6 {
+  margin: 15px 0 !important;
+}
+/* line 119, ../../stylesheets/swipe-view.scss */
+#content .content.page p {
+  margin: 0 0 10px 0 !important;
 }

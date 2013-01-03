@@ -102,28 +102,36 @@ header.toolbar > h1 {
   font-family: "proxima_nova_ltregular";
   line-height: 50px;
 }
-/* line 127, ../../stylesheets/ui.scss */
+/* line 125, ../../stylesheets/ui.scss */
+header.toolbar > h1.dropdown-arrow:after {
+  display: inline-block;
+  width: 18px;
+  height: 11px;
+  background: url("/images/down-arrow.png") no-repeat center;
+  content: "";
+}
+/* line 134, ../../stylesheets/ui.scss */
 header.toolbar div.actions {
   position: absolute;
   top: 0px;
   right: 0px;
 }
-/* line 132, ../../stylesheets/ui.scss */
+/* line 139, ../../stylesheets/ui.scss */
 header.toolbar div.actions a {
   width: 56px;
   border-left: 1px solid #eee;
 }
-/* line 137, ../../stylesheets/ui.scss */
+/* line 144, ../../stylesheets/ui.scss */
 header.toolbar div.actions .heart {
   right: 114px;
   background: url("/images/action-like.png") no-repeat center;
 }
-/* line 142, ../../stylesheets/ui.scss */
+/* line 149, ../../stylesheets/ui.scss */
 header.toolbar div.actions .collect {
   right: 57px;
   background: url("/images/action-collect.png") no-repeat center;
 }
-/* line 147, ../../stylesheets/ui.scss */
+/* line 154, ../../stylesheets/ui.scss */
 header.toolbar div.actions .share {
   right: 0px;
   background: url("/images/action-share.png") no-repeat center;
