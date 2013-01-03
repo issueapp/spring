@@ -1,79 +1,107 @@
 /*
-Syntax error: Undefined mixin 'box-sizing'.
-        on line 18 of ./stylesheets/layout.scss, in `box-sizing'
-        from line 18 of ./stylesheets/layout.scss
+    Layout and rendering
+    ---
+    No style or presentation code should be in this stylesheet
 
-13:   .col {
-14:     position: relative;
-15:     //  font-size: 120%;
-16:     width: 100%;
-17:     height: 99.9%;
-18:     @include box-sizing(border-box);
-19: 
-20:     float: left;
-21:     margin: 0;
-22:     overflow: hidden;
-23: 
+    Default style for 320px
 
-Backtrace:
-./stylesheets/layout.scss:18:in `box-sizing'
-./stylesheets/layout.scss:18
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p286/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:170:in `visit_mixin'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p286/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:37:in `visit'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p286/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:18:in `visit'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p286/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p286/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:53:in `map'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p286/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:53:in `visit_children'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p286/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:27:in `block in visit_children'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p286/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:39:in `with_environment'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p286/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:26:in `visit_children'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p286/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:37:in `block in visit'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p286/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:238:in `visit_rule'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p286/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:37:in `visit'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p286/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:18:in `visit'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p286/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p286/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:53:in `map'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p286/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:53:in `visit_children'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p286/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:27:in `block in visit_children'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p286/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:39:in `with_environment'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p286/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:26:in `visit_children'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p286/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:37:in `block in visit'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p286/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:238:in `visit_rule'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p286/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:37:in `visit'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p286/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:18:in `visit'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p286/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p286/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:53:in `map'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p286/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:53:in `visit_children'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p286/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:27:in `block in visit_children'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p286/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:39:in `with_environment'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p286/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:26:in `visit_children'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p286/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:37:in `block in visit'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p286/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:47:in `visit_root'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p286/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:37:in `visit'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p286/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:18:in `visit'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p286/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:7:in `visit'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p286/gems/sass-3.1.19/lib/sass/tree/root_node.rb:20:in `render'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p286/gems/sass-3.1.19/lib/sass/engine.rb:300:in `_render'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p286/gems/sass-3.1.19/lib/sass/engine.rb:247:in `render'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p286/gems/sass-3.1.19/lib/sass/plugin/compiler.rb:340:in `update_stylesheet'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p286/gems/sass-3.1.19/lib/sass/plugin/compiler.rb:202:in `block in update_stylesheets'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p286/gems/sass-3.1.19/lib/sass/plugin/compiler.rb:200:in `each'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p286/gems/sass-3.1.19/lib/sass/plugin/compiler.rb:200:in `update_stylesheets'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p286/gems/sass-3.1.19/lib/sass/plugin.rb:81:in `update_stylesheets'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p286/gems/sass-3.1.19/lib/sass/plugin.rb:54:in `check_for_updates'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p286/gems/sass-3.1.19/lib/sass/plugin/rack.rb:51:in `call'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p286/gems/rack-1.4.1/lib/rack/lint.rb:48:in `_call'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p286/gems/rack-1.4.1/lib/rack/lint.rb:36:in `call'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p286/gems/rack-1.4.1/lib/rack/showexceptions.rb:24:in `call'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p286/gems/rack-1.4.1/lib/rack/commonlogger.rb:20:in `call'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p286/gems/rack-1.4.1/lib/rack/chunked.rb:43:in `call'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p286/gems/rack-1.4.1/lib/rack/content_length.rb:14:in `call'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p286/gems/rack-1.4.1/lib/rack/handler/webrick.rb:59:in `service'
-/Users/taylorluk/.rvm/rubies/ruby-1.9.3-p286/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
-/Users/taylorluk/.rvm/rubies/ruby-1.9.3-p286/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
-/Users/taylorluk/.rvm/rubies/ruby-1.9.3-p286/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+    Structure (menu/main)
+    Grid (row/col)
 */
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Syntax error: Undefined mixin 'box-sizing'.\A         on line 18 of ./stylesheets/layout.scss, in `box-sizing'\A         from line 18 of ./stylesheets/layout.scss\A \A 13:   .col {\A 14:     position: relative;\A 15:     //  font-size: 120%;\A 16:     width: 100%;\A 17:     height: 99.9%;\A 18:     @include box-sizing(border-box);\A 19: \A 20:     float: left;\A 21:     margin: 0;\A 22:     overflow: hidden;\A 23: "; }
+/* line 16, ../../stylesheets/layout.scss */
+.page .col {
+  position: relative;
+  width: 100%;
+  height: 99.9%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  float: left;
+  margin: 0;
+  overflow: hidden;
+}
+/* line 28, ../../stylesheets/layout.scss */
+.page .col .item:last-child {
+  margin-bottom: 0;
+}
+/* line 33, ../../stylesheets/layout.scss */
+.page .row {
+  position: relative;
+  overflow: hidden;
+  *zoom: 1;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* line 43, ../../stylesheets/layout.scss */
+.page .row:last-child {
+  background: none;
+}
+/* line 47, ../../stylesheets/layout.scss */
+.page .row.v-full {
+  height: 100%;
+}
+/* line 48, ../../stylesheets/layout.scss */
+.page .row.v-half {
+  height: 49.9%;
+}
+/* line 52, ../../stylesheets/layout.scss */
+.page .row.v-third {
+  height: 32.03%;
+}
+/* line 55, ../../stylesheets/layout.scss */
+.page .row.v-third-2 {
+  height: 66%;
+}
+/* line 60, ../../stylesheets/layout.scss */
+.page .col.full, .page .item.full {
+  width: 100%;
+}
+/* line 61, ../../stylesheets/layout.scss */
+.page .col.half, .page .item.half {
+  width: 50%;
+}
+/* line 63, ../../stylesheets/layout.scss */
+.page .col.third, .page .item.third {
+  width: 33.3%;
+}
+/* line 64, ../../stylesheets/layout.scss */
+.page .col.third-2, .page .item.third-2 {
+  width: 66.6%;
+}
+/* line 66, ../../stylesheets/layout.scss */
+.page .col.sixth, .page .item.sixth {
+  width: 15.02%;
+}
+/* line 68, ../../stylesheets/layout.scss */
+.page .col.fourty, .page .item.fourty {
+  width: 39%;
+}
+/* line 69, ../../stylesheets/layout.scss */
+.page .col.sixty, .page .item.sixty {
+  width: 59%;
+}
+/* line 71, ../../stylesheets/layout.scss */
+.page .col.v-full, .page .item.v-full {
+  height: 100%;
+}
+/* line 72, ../../stylesheets/layout.scss */
+.page .col.v-half, .page .item.v-half {
+  height: 49.40%;
+}
+/* line 73, ../../stylesheets/layout.scss */
+.page .col.v-third, .page .item.v-third {
+  height: 35.03%;
+}
+/* line 74, ../../stylesheets/layout.scss */
+.page .col.v-third-2, .page .item.v-third-2 {
+  height: 64%;
+}
+/* line 76, ../../stylesheets/layout.scss */
+.page .col:last-child, .page .item:last-child {
+  margin-right: 0;
+}
+
+/* iPads (landscape) ----------- */
+/* iPads (portrait) ----------- */

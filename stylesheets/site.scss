@@ -1,13 +1,13 @@
 @import "compass/css3/box-shadow";
-@import "compass/css3/box-sizing";  
+@import "compass/css3/box-sizing";
 
 
 /*
 
   Application
-  
+
   Items
-  
+
   Images
 
 */
@@ -48,7 +48,7 @@ body {
 */
 .nav {
   list-style: none;
-  
+
   & > li {
     display: block;
     float: left;
@@ -58,7 +58,7 @@ body {
     text-transform: uppercase;
     letter-spacing: .1em;
   }
-  
+
   & > li > a {
     display: block;
     float: none;
@@ -89,7 +89,7 @@ input[type=text], input[type=password], textarea {
   box-shadow: #eee 1px 1px 5px 0px inset;
   font-size: 14px;
   line-height: 19px;
-  
+
   &:focus {
     box-shadow: #39f 0px 0px 10px 0px;
   }
@@ -143,20 +143,20 @@ article.product {
   .info {
     top: 0px;
     height: 100%;
-    
+
     p {
       visibility: visible;
       white-space: initial;
       text-overflow: initial;
       margin-bottom: 1em;
     }
-    
+
     .price {
       visibility: visible;
-      
+
       font-size: 1.5em;
     }
-    
+
     .button {
       margin: 0 0em 2em 0em;
     }
