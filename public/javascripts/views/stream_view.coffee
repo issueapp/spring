@@ -98,16 +98,6 @@ class App.StreamView extends Backbone.View
 
       return if currentClientX > 0 && moveDelta < 15
 
-      # load background image after move 15px, use delta to determine load which side
-      if !loadingImage && Math.abs(delta) > 1
-        loadingImage = true
-
-        if delta < 0
-          this.updateBackgroundImage(this.$el.find('.current').next())
-
-        else
-          this.updateBackgroundImage(this.$el.find('.current').prev())
-
       @el.style.webkitTransform = 'translate3d(' + (@offset + delta) + 'px,0,0)'
       currentClientX = e.clientX
 
@@ -123,16 +113,17 @@ class App.StreamView extends Backbone.View
       if target
         $(@el).removeClass('swiping').addClass('animate').css('transform', '')
         this.updatePos(- @layout.viewport)
-        $(@el).find('.page').removeClass('current')
+        $(@el).find('.page').removeClass('current').css('visibility', 'visible')
         $(target.el).addClass('current')
 
-        # double check background image loading status
-        this.updateBackgroundImage($(target.el)) if $(target.el).find('.image').css('background-image') == "none"
+        this.updateBackgroundImage($(target.el)) if $(target.el).find('.image').css('background-image') == 'none'
+        this.updateBackgroundImage($(target.el).next().css('visibility', 'hidden'))
 
         # remove previous page background image after 200ms
         setTimeout =>
           target.$el.prev().find('.image').forEach (item) ->
             $(item).css("background-image", 'none')
+          target.$el.prev().css('visibility', 'hidden')
         , 200
 
       e.preventDefault()
@@ -145,16 +136,18 @@ class App.StreamView extends Backbone.View
 
       if target
         $(@el).removeClass('swiping').addClass('animate').css('transform', '')
-        this.updatePos( @layout.viewport)
-        $(@el).find('.page').removeClass('current')
+        this.updatePos(@layout.viewport)
+        $(@el).find('.page').removeClass('current').css('visibility', 'visible')
         $(target.el).addClass('current')
 
-        this.updateBackgroundImage($(target.el)) if $(target.el).find('.image').css('background-image') == "none"
+        this.updateBackgroundImage($(target.el)) if $(target.el).find('.image').css('background-image') == 'none'
+        this.updateBackgroundImage($(target.el).prev().css('visibility', 'hidden'))
 
         # remove previous page background image after 200ms
         setTimeout =>
           target.$el.next().find('.image').forEach (item) ->
             $(item).css("background-image", 'none')
+          target.$el.next().css('visibility', 'hidden')
         , 200
 
       # Snap to the left
@@ -364,6 +357,7 @@ class App.StreamView extends Backbone.View
       this.firstPage().offset = this.firstPage().limit
       this.firstPage().$el.addClass('current')
       this.updateBackgroundImage(@pages[0].$el)
+      this.updateBackgroundImage(@pages[1].$el)
 
     @toolbar.title = @title
     @toolbar.render()
@@ -371,5 +365,5 @@ class App.StreamView extends Backbone.View
     this
 
   updateBackgroundImage: (target) ->
-    $(target).find('.image').forEach (item) ->
+    target.find('.image').forEach (item) ->
       $(item).css("background-image", 'url(' + $(item).data('original') + ')') if $(item).data('original')
