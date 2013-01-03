@@ -21,7 +21,6 @@
     <link rel="stylesheet" href="/stylesheets/swipe-view.css"/>
     <link rel="stylesheet" href="/stylesheets/font-awesome.css"/>
 
-    <link rel="shortcut icon" href="/favicon.ico">
     <!-- For iPhone 4 -->
     <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon.png">
     <!-- For everything else -->
@@ -112,7 +111,6 @@
         box-sizing: border-box;
         white-space: normal;
         overflow: hidden;
-        border: 1px solid #fff;
 
         transform: translate3d(0,0,0);
         -webkit-transform:translate3d(0,0,0);
@@ -203,7 +201,7 @@
       <div id="sections">
         <header class="toolbar">
           <a class="menu"></a>
-          <h1>TOP CONTENT</h1>
+          <h1 class="dropdown-arrow">TOP CONTENT</h1>
         </header>
         <%= yield %>
       </div>
@@ -247,7 +245,7 @@
   <%= yield :js %>
 
   <script>
-    $('.welcome span').on('touchstart', function () {
+    $('.welcome span').on('touchend', function () {
       $('.landing').animate({ opacity : 0 }, {duration: 200, complete: function () {
         $('.landing').hide();
       }});

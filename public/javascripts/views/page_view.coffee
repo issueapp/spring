@@ -47,7 +47,7 @@ class App.PageView extends Backbone.View
   itemTemplate: Mustache.compile(
     '
     <a class="link" href="/items/{{ handle }}">
-      <div class="image" style="background-image: url({{ image_url }}); background-size: cover; background-position: center;">
+      <div class="image" data-original="{{ image_url }}" style="background-size: cover; background-position: center;">
       </div>
     </a>
     <figcaption class="info">
@@ -64,6 +64,7 @@ class App.PageView extends Backbone.View
   )
 
   @templateIndex = -1
+  #         5  4  3  4  5  3  4  5  4  3 items count
   @order = [0, 1, 3, 2, 0, 3, 2, 0, 2, 3]
   # until @order.length == 10
   #   @order.push Math.floor(Math.random() * $('script.section_tpl').length)
@@ -81,13 +82,17 @@ class App.PageView extends Backbone.View
 
         @templateIndex += 1
         @templateIndex = 0 if @templateIndex > 9
+        @templateIndex = 3 if @templateIndex == 1 && $('#sections .page.rotatable').length == 3 && $('#sections .padding').css('width') == '0px'
 
       else
         if data.stream.changedDir
           @templateIndex -= 2
+          @templateIndex = 10 if @templateIndex == 0
 
         @templateIndex -= 1
-        @templateIndex = 9 if @templateIndex < 0
+        @templateIndex = 9 if @templateIndex == -1
+        @templateIndex = 8 if @templateIndex == -2
+        @templateIndex = 7 if @templateIndex == -3
 
       index = @order[@templateIndex]
       @section_tpl.eq(index).html()
@@ -95,7 +100,9 @@ class App.PageView extends Backbone.View
   initialize: (data)->
     @offset = null
     @items = []
+
     @page = $(App.PageView.getTemplate(data))
+
     # @fragment = $('#temp').html(App.PageView.getTemplate(data)).css('visibility', 'hidden')
     #
     # @page = $(@fragment.children().first())
@@ -114,7 +121,6 @@ class App.PageView extends Backbone.View
     @silentClick = false
     $(@el).addClass('current')
 
-
   viewContent: (e)->
     # unless @silentClick
     link = $(e.currentTarget).attr('href')
@@ -131,16 +137,19 @@ class App.PageView extends Backbone.View
 
   render: ->
     nodes = @page.find(".item")
+    protocal = window.location.protocol + "//"
 
     @items.forEach (item, index)=>
       node = $(nodes[index])
+      item.image_url = protocal + item.image_url if !!item.image_url && !item.image_url.match('http')
+
       node[0].innerHTML = @itemTemplate(item)
       # node.innerHTML = @itemTemplate(item)
 
       # node.append(@itemTemplate(item))
 
       ##### HACK HACK HACK
-      if item.tags_array.join(',').match(/shoe/i) && $(node).parent().not('.col.half')
+      if !!item.tags_array && item.tags_array.join(',').match(/shoe/i) && $(node).parent().not('.col.half')
         # node.find('.image.cover').addClass('bottom')
         node.find('.image').addClass('bottom')
 
@@ -150,7 +159,6 @@ class App.PageView extends Backbone.View
         tmp = document.createElement("div")
         tmp.innerHTML = content
         node.find('.info p').html(tmp.textContent || tmp.innerText)
-
 
     this.setElement(@page)
 
@@ -191,16 +199,6 @@ class App.PageView extends Backbone.View
         $(element).removeClass(oldNames[index]).addClass(newNames[index])
 
   destroy: ->
-    #COMPLETELY UNBIND THE VIEW
-
-    # Free up memory from images
-    this.$('img').each ->
-      $(this).attr('src', '/images/blank.gif')
-    #
-    # this.$('.image').each ->
-    #   this.style.backgroundImage = 'none'
-      # $(this).css('background-image', 'none')
-
     this.undelegateEvents()
 
     $(this.el).unbind()
@@ -210,5 +208,3 @@ class App.PageView extends Backbone.View
     $(this.el).empty()
 
     $(this.el).remove()
-
-    # Backbone.View.prototype.remove.call(this)
