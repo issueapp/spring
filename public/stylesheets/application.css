@@ -1228,32 +1228,39 @@ article.page .description {
 /* line 119, ../../stylesheets/page.scss */
 .landing .footer {
   position: absolute;
-  bottom: 20px;
-  padding-left: 20px;
+  bottom: 28px;
+  padding-left: 30px;
   font-size: 14px;
+  line-height: 20px;
 }
-/* line 125, ../../stylesheets/page.scss */
+/* line 126, ../../stylesheets/page.scss */
+.landing .footer a {
+  font-family: "proxima_nova_bold";
+  color: white;
+  vertical-align: bottom;
+}
+/* line 132, ../../stylesheets/page.scss */
 .landing .footer i {
   padding-right: 10px;
   vertical-align: middle;
   font-size: 24px;
 }
 
-/* line 133, ../../stylesheets/page.scss */
+/* line 140, ../../stylesheets/page.scss */
 div.drop-down {
   position: absolute;
   top: 22px;
   width: 110px;
   font-size: 13px;
 }
-/* line 139, ../../stylesheets/page.scss */
+/* line 146, ../../stylesheets/page.scss */
 div.drop-down span.drop-top {
   display: block;
   margin: -7px 0 0;
   padding: 7px 15px 0px;
   background: url("/images/top-arrow.png") no-repeat center top;
 }
-/* line 146, ../../stylesheets/page.scss */
+/* line 153, ../../stylesheets/page.scss */
 div.drop-down div.drop-wrapper {
   position: absolute;
   top: 36px;
@@ -1261,13 +1268,13 @@ div.drop-down div.drop-wrapper {
   background-color: white;
   font-family: "Helvetica Neue", Hevetica, Arial, sans-serif;
 }
-/* line 155, ../../stylesheets/page.scss */
+/* line 162, ../../stylesheets/page.scss */
 div.drop-down ul.popover-list {
   overflow: auto;
   margin: 0;
   padding: 0;
 }
-/* line 160, ../../stylesheets/page.scss */
+/* line 167, ../../stylesheets/page.scss */
 div.drop-down ul.popover-list li {
   display: block;
   float: none;
@@ -1276,7 +1283,7 @@ div.drop-down ul.popover-list li {
   border-top: 1px solid #eee;
   background-image: none;
 }
-/* line 168, ../../stylesheets/page.scss */
+/* line 175, ../../stylesheets/page.scss */
 div.drop-down ul.popover-list li a {
   height: 15px;
   line-height: 17px;
@@ -1290,58 +1297,58 @@ div.drop-down ul.popover-list li a {
   text-shadow: none;
   font-weight: normal;
 }
-/* line 181, ../../stylesheets/page.scss */
+/* line 188, ../../stylesheets/page.scss */
 div.drop-down ul.popover-list li a:active, div.drop-down ul.popover-list li a.active {
   color: #6f6f6f;
 }
-/* line 187, ../../stylesheets/page.scss */
+/* line 194, ../../stylesheets/page.scss */
 div.drop-down ul.popover-list li:first-child {
   border-top: none;
 }
 
-/* line 193, ../../stylesheets/page.scss */
+/* line 200, ../../stylesheets/page.scss */
 #filter-dropdown {
   right: -10px;
 }
-/* line 196, ../../stylesheets/page.scss */
+/* line 203, ../../stylesheets/page.scss */
 #filter-dropdown .drop-wrapper {
   left: -26px;
 }
-/* line 199, ../../stylesheets/page.scss */
+/* line 206, ../../stylesheets/page.scss */
 #filter-dropdown .drop-wrapper .drop-top {
   margin-left: 78px;
 }
-/* line 205, ../../stylesheets/page.scss */
+/* line 212, ../../stylesheets/page.scss */
 #filter-dropdown ul.popover-list li .view-all {
   background: url(/images/view-all-icon.png) no-repeat 10px top;
 }
-/* line 206, ../../stylesheets/page.scss */
+/* line 213, ../../stylesheets/page.scss */
 #filter-dropdown ul.popover-list li .shop {
   background: url(/images/shop-icon.png) no-repeat 10px top;
 }
-/* line 207, ../../stylesheets/page.scss */
+/* line 214, ../../stylesheets/page.scss */
 #filter-dropdown ul.popover-list li .read {
   background: url(/images/read-icon.png) no-repeat 10px top;
 }
-/* line 208, ../../stylesheets/page.scss */
+/* line 215, ../../stylesheets/page.scss */
 #filter-dropdown ul.popover-list li .photo {
   background: url(/images/photo-icon.png) no-repeat 10px top;
 }
-/* line 210, ../../stylesheets/page.scss */
+/* line 217, ../../stylesheets/page.scss */
 #filter-dropdown ul.popover-list li a:active, #filter-dropdown ul.popover-list li a.active {
   background-position-y: bottom;
 }
 
-/* line 216, ../../stylesheets/page.scss */
+/* line 223, ../../stylesheets/page.scss */
 #collection-dropdown {
   left: 50%;
   margin-left: -151px;
 }
-/* line 220, ../../stylesheets/page.scss */
+/* line 227, ../../stylesheets/page.scss */
 #collection-dropdown .drop-wrapper {
   width: 300px;
 }
-/* line 223, ../../stylesheets/page.scss */
+/* line 230, ../../stylesheets/page.scss */
 #collection-dropdown .drop-wrapper a {
   height: 18px;
   padding: 0 0 0 5px;
@@ -1349,14 +1356,29 @@ div.drop-down ul.popover-list li:first-child {
   color: #6F6F6F;
   font-size: 13px;
 }
-/* line 231, ../../stylesheets/page.scss */
+/* line 238, ../../stylesheets/page.scss */
 #collection-dropdown .drop-wrapper li.active {
   border-left: 5px solid #000;
 }
-/* line 234, ../../stylesheets/page.scss */
+/* line 241, ../../stylesheets/page.scss */
 #collection-dropdown .drop-wrapper li.active a {
   padding: 0;
   color: #333;
+}
+
+/* line 249, ../../stylesheets/page.scss */
+.flash, .notice, .alert {
+  position: absolute;
+  top: 45px;
+  right: 0px;
+  z-index: 100;
+  padding: 20px 30px;
+  width: 268px;
+  background: #222;
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+  font-family: "Helvetica Neue", Hevetica, Arial, sans-serif;
 }
 
 /*

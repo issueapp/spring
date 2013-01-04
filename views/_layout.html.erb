@@ -243,7 +243,19 @@
   </script>
 
   <script>
-    alert( $.fn.cookie("notice").replace(/\+/g, " ") );
-    $.fn.cookie("notice", null, {domain: ".<%= api_host %>"});
+    if($.fn.cookie("notice") != null) {
+      var div = document.createElement("div");
+      div.innerHTML = $.fn.cookie("notice").replace(/\+/g, " ");
+      div.className = 'notice';
+      document.body.appendChild(div);
+
+      setTimeout(function() {
+        $(div).animate({ opacity : 0 }, {duration: 500, complete: function () {
+          $(div).hide();
+        }});
+      }, 3500);
+
+      $.fn.cookie("notice", null, {domain: ".<%= api_host %>"});
+    }
   </script>
 </html>
