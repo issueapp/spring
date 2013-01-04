@@ -1,3 +1,11 @@
+<%
+  api_host = if 'production' == ENV['RACK_ENV']
+               'shop2.com'
+             else
+               'shop2.dev'
+             end
+%>
+
 <!-- HTML5 Mobile Boilerplate -->
 <!--[if IEMobile 7]><html class="no-js iem7"><![endif]-->
 <!--[if (gt IEMobile 7)|!(IEMobile)]><!--><html class="no-js" lang="en"><!--<![endif]-->
@@ -16,7 +24,7 @@
     <meta name="MobileOptimized" content="320">
     <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0" />
 
-    <link rel="stylesheet" href="http://shop2.com/assets/components/_button.css">
+    <link rel="stylesheet" href="http://deyf8doogqx67.cloudfront.net/assets/components/_button.css">
     <link rel="stylesheet" href="/stylesheets/application.css"/>
     <link rel="stylesheet" href="/stylesheets/swipe-view.css"/>
     <link rel="stylesheet" href="/stylesheets/font-awesome.css"/>
@@ -150,10 +158,12 @@
         <p>of a digital shopping magazine</p>
         <span>browse ></span>
       </div>
-      <!-- <div class="footer">
+      <div class="footer">
         <i class="icon-facebook"></i>
-        Sign in or signup
-      </div> -->
+        <a href="http://<%= api_host %>/connect/facebook?return_to=<%= request.url %>">
+          Sign in or request an invite
+        </a>
+      </div>
     </div>
 
     <nav id="menu" style="position:absolute;top:0;left:0;height:100%;z-index:999">
@@ -194,6 +204,7 @@
   <%= render '/templates/new' %>
 
   <script src="/javascripts/vendor/zepto.js"></script>
+  <script src="/javascripts/vendor/zepto.cookie.js"></script>
   <script src="/javascripts/vendor/underscore.js"></script>
   <script src="/javascripts/vendor/backbone.js"></script>
   <script src="/javascripts/vendor/mustache.js"></script>
@@ -229,5 +240,10 @@
       }});
       return false;
     });
+  </script>
+
+  <script>
+    alert( $.fn.cookie("notice").replace(/\+/g, " ") );
+    $.fn.cookie("notice", null, {domain: ".<%= api_host %>"});
   </script>
 </html>
