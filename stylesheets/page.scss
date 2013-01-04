@@ -118,9 +118,16 @@ article.page {
 
   .footer {
     position: absolute;
-    bottom: 20px;
-    padding-left: 20px;
+    bottom: 28px;
+    padding-left: 30px;
     font-size: 14px;
+    line-height: 20px;
+
+    a {
+      font-family: "proxima_nova_bold";
+      color: white;
+      vertical-align: bottom;
+    }
 
     i {
       padding-right: 10px;
@@ -237,4 +244,18 @@ div.drop-down {
       }
     }
   }
+}
+
+.flash, .notice, .alert {
+  position: absolute;
+  top: 45px;
+  right: 0px;
+  z-index: 100;
+  padding: 20px 30px;
+  width: 268px;
+  background: #222;
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+  font-family: "Helvetica Neue", Hevetica, Arial, sans-serif;
 }
