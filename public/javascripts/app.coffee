@@ -1,26 +1,34 @@
+Environment = {
+  host: if /localhost/.test window.location.host
+          window.location.host
+        else
+          window.location.host.split(".").slice(-2).join(".")
+
+}
+
 # Application bootstrap
 this.App ||= {
   standalone: window.navigator.standalone
 
   streams: {
-    top_content: {
-      title: "Top Content"
-      url: "http://shop2.com/taylorluk/items.json"
-      default: true
+      top_content: {
+        title: "Top Content"
+        url: "http://#{Environment.host}/taylorluk/items.json"
+        default: true
+      }
+      editors_choices: {
+        title: "Editors choices"
+        url: "http://#{Environment.host}/taylorluk/items.json"
+      }
+      mens: {
+        title: "Mens"
+        url: "http://#{Environment.host}/interests/mens/items.json"
+      }
+      womens: {
+        title: "Womens"
+        url: "http://#{Environment.host}/interests/womens/items.json"
+      }
     }
-    editors_choices: {
-      title: "Editors choices"
-      url: "http://shop2.com/taylorluk/items.json"
-    }
-    mens: {
-      title: "Mens"
-      url: "http://shop2.com/interests/mens/items.json"
-    }
-    womens: {
-      title: "Womens"
-      url: "http://shop2.com/interests/womens/items.json"
-    }
-  }
 
   init: ->
     this.layout = new App.Layout
@@ -147,7 +155,7 @@ class App.Router extends Backbone.Router
     App.stream = new App.StreamCollection
     App.streamView = new App.StreamView({ el: '#sections .pages', layout: App.layout, collection: App.stream, title: title, newChannel: true })
 
-    App.stream.url = url + "?sort=created_at"
+    App.stream.url = url + "?sort=published_at"
     App.stream.title = title
     App.stream.fetch({ dataType: "jsonp" })
 
