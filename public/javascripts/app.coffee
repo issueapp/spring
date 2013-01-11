@@ -98,6 +98,9 @@ class App.Router extends Backbone.Router
     "items/:handle": "content"
     ":name/items": "stream"
 
+  initialize: (options)->
+    this.route(/^stream\?type=(\w+)/, "filter")
+
   stream: (name)->
     if App.stream.title != (name + "'s Favorites")
       url = "http://shop2.com/#{name}/items.json"
@@ -106,6 +109,11 @@ class App.Router extends Backbone.Router
 
     else
       this.backToStream()
+
+  filter: (type)->
+    url = App.streams.top_content.url
+    title = App.streams.top_content.title
+    this.resetView(url, title, type)
 
   items: (handle)->
     if App.stream.title != handle
@@ -134,7 +142,7 @@ class App.Router extends Backbone.Router
     App.contentView.model = content
     App.contentView.render()
 
-  resetView: (url, title)->
+  resetView: (url, title, type)->
     if App.toolbar
       App.toolbar.actionsBtn = false
       App.toolbar.backBtn = false
@@ -142,6 +150,7 @@ class App.Router extends Backbone.Router
       App.toolbar.title = title
       App.toolbar.render()
 
+    $('div.landing').hide() if $.fn.cookie('seenLandingPage') == "1"
     $('#sections .pages').addClass('horizontal')
     $('#content .pages').html('')
     $(document).off('keydown')
@@ -156,6 +165,7 @@ class App.Router extends Backbone.Router
     App.streamView = new App.StreamView({ el: '#sections .pages', layout: App.layout, collection: App.stream, title: title, newChannel: true })
 
     App.stream.url = url + "?sort=published_at"
+    App.stream.url += '&type='+type if type != undefined
     App.stream.title = title
     App.stream.fetch({ dataType: "jsonp" })
 

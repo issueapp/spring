@@ -237,6 +237,7 @@
     $('.welcome span').on('touchend', function () {
       $('.landing').animate({ opacity : 0 }, {duration: 200, complete: function () {
         $('.landing').hide();
+        $.fn.cookie("seenLandingPage", 1);
       }});
       return false;
     });

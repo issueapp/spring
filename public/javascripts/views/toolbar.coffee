@@ -76,10 +76,10 @@ class App.Toolbar extends Backbone.View
       data = {
         'type': 'filter'
         'collection': [
-          { 'class': 'view-all active', 'link': '#1', 'content': 'view all' }
-          { 'class': 'shop', 'link': '#2', 'content': 'shop' }
-          { 'class': 'read', 'link': '#3', 'content': 'read' }
-          { 'class': 'photo', 'link': '#4', 'content': 'photo' }
+          { 'class': 'view-all active', 'link': '#', 'content': 'view all' }
+          { 'class': 'shop', 'link': '?type=product', 'content': 'shop' }
+          { 'class': 'read', 'link': '?type=article', 'content': 'read' }
+          { 'class': 'photo', 'link': '?type=picture', 'content': 'photo' }
         ]
       }
 
@@ -120,8 +120,6 @@ class App.Toolbar extends Backbone.View
   toggleFilterStatus: (e)->
     this.$el.find('#filter-dropdown .active').removeClass('active')
     $(e.currentTarget).addClass('active')
-
-    false
 
   toggleCollectionStatus: (e)->
     this.$el.find('#collection-dropdown .active').removeClass('active')
