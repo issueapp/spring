@@ -151,7 +151,7 @@
     </style>
   </head>
   <body>
-    <div class="landing">
+<!--     <div class="landing">
       <h1 class="logo">Shop2</h1>
       <div class="welcome">
         <p>your edition</p>
@@ -164,7 +164,7 @@
           Sign in or request an invite
         </a>
       </div>
-    </div>
+    </div> -->
 
     <nav id="menu" style="position:absolute;top:0;left:0;height:100%;z-index:999">
       <ul class="navigation">
@@ -237,7 +237,7 @@
     $('.welcome span').on('touchend', function () {
       $('.landing').animate({ opacity : 0 }, {duration: 200, complete: function () {
         $('.landing').hide();
-        $.fn.cookie("seenLandingPage", 1);
+        // $.fn.cookie("seenLandingPage", 1);
       }});
       return false;
     });

@@ -99,7 +99,7 @@ class App.Router extends Backbone.Router
     ":name/items": "stream"
 
   initialize: (options)->
-    this.route(/^stream\?type=(\w+)/, "filter")
+    this.route(/.*\?type=(\w+)/, "filter")
 
   stream: (name)->
     if App.stream.title != (name + "'s Favorites")
@@ -111,8 +111,8 @@ class App.Router extends Backbone.Router
       this.backToStream()
 
   filter: (type)->
-    url = App.streams.top_content.url
-    title = App.streams.top_content.title
+    url = App.stream.url
+    title = App.stream.title
     this.resetView(url, title, type)
 
   items: (handle)->
@@ -150,7 +150,7 @@ class App.Router extends Backbone.Router
       App.toolbar.title = title
       App.toolbar.render()
 
-    $('div.landing').hide() if $.fn.cookie('seenLandingPage') == "1"
+    # $('div.landing').hide() if $.fn.cookie('seenLandingPage') == "1"
     $('#sections .pages').addClass('horizontal')
     $('#content .pages').html('')
     $(document).off('keydown')
@@ -164,8 +164,13 @@ class App.Router extends Backbone.Router
     App.stream = new App.StreamCollection
     App.streamView = new App.StreamView({ el: '#sections .pages', layout: App.layout, collection: App.stream, title: title, newChannel: true })
 
-    App.stream.url = url + "?sort=published_at"
-    App.stream.url += '&type='+type if type != undefined
+
+    if type != undefined
+      App.stream.url = url.replace(/\.json(\?.*)/, '.json') + "?sort=published_at&type=" + type
+
+    else
+      App.stream.url = url + "?sort=published_at"
+
     App.stream.title = title
     App.stream.fetch({ dataType: "jsonp" })
 
