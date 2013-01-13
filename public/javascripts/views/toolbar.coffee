@@ -118,8 +118,12 @@ class App.Toolbar extends Backbone.View
     false
 
   toggleFilterStatus: (e)->
+    target = $(e.target)
     this.$el.find('#filter-dropdown .active').removeClass('active')
     $(e.currentTarget).addClass('active')
+    App.router.navigate(target.attr('href'), { trigger: true })
+
+    e.preventDefault()
 
   toggleCollectionStatus: (e)->
     this.$el.find('#collection-dropdown .active').removeClass('active')
