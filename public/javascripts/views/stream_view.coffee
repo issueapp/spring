@@ -358,9 +358,8 @@ class App.StreamView extends Backbone.View
       this.firstPage().$el.addClass('current')
       this.updateBackgroundImage(@pages[0].$el)
       this.updateBackgroundImage(@pages[1].$el)
-
-    @toolbar.title = @title
-    @toolbar.render()
+    
+    @toolbar.render(title: @title, typeBtn: true)
 
     this
 

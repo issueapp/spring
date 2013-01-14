@@ -1,6 +1,7 @@
 Environment = {
   host: if /localhost/.test window.location.host
-          window.location.host
+          "shop2.com"
+          # window.location.host
         else
           window.location.host.split(".").slice(-2).join(".")
 
@@ -32,6 +33,8 @@ this.App ||= {
 
 
   init: ->
+    
+    # All link should be internal /!#/path
     $('a[rel="app"]').live "click", (e) ->
       # unless @silentClick
       link = $(e.currentTarget).attr('href')
@@ -39,14 +42,24 @@ this.App ||= {
 
       e.preventDefault()
       false
-    
-    this.layout = new App.Layout
-    this.router = new App.Router
-    
-    this.menu = new App.MenuView
-    this.toolbar = new App.Toolbar      
+      
 
-    Backbone.history.start({ pushState: true })
+    @layout = new App.Layout
+    @router = new App.Router
+    
+    @menu = new App.MenuView
+    @toolbar = new App.Toolbar      
+
+    @stream = new App.StreamCollection
+    @streamView = new App.StreamView( el: '#sections .pages', layout: @layout, collection: @stream )
+
+    Backbone.history.start()
+
+    if Backbone.history.fragment
+      $('.landing').hide()
+      @router.resetView()
+    else
+      $('.landing').css('opacity', '1')
 }
 
 class App.Router extends Backbone.Router
@@ -75,6 +88,7 @@ class App.Router extends Backbone.Router
       when "interests"
         url = "http://shop2.com/interests/#{handle}.json"
     
+    
     if !App.stream || App.stream.title != handle
       title = handle
       this.resetView(url, title)
@@ -87,6 +101,7 @@ class App.Router extends Backbone.Router
     this.resetView(url, title, type)
 
   home: ->
+    $('.landing').hide()
     $('#discover').hide()
     
     if !App.stream || App.streamView.title != App.streams.top_content.title
@@ -106,7 +121,7 @@ class App.Router extends Backbone.Router
     App.streamView.$el.css('opacity', '0')
     content = App.stream.find (item)-> item.get('handle') == handle
     App.contentView ||= new App.ContentView
-
+    
     App.contentView.resetAttrs()
     App.contentView.model = content
     App.contentView.render()
@@ -115,24 +130,23 @@ class App.Router extends Backbone.Router
     $('#discover').hide()
     
     if App.toolbar
-      App.toolbar.render(title: title, backBtn: false, actionsBtn: false)
+      App.toolbar.render(title: title, typeBtn: false, backBtn: false, actionsBtn: false)
 
     # $('div.landing').hide() if $.fn.cookie('seenLandingPage') == "1"
     $('#sections .pages').addClass('horizontal')
     $('#content .pages').html('')
     $(document).off('keydown')
-
+    
     # load a product stream
-    spinner = new Spinner().spin()
-    $('#sections').append(spinner.el)
+    if url
+      spinner = new Spinner().spin()
+      $('#sections').append(spinner.el)
 
-    App.stream = new App.StreamCollection
-    App.streamView = new App.StreamView({ el: '#sections .pages', layout: App.layout, collection: App.stream, title: title, newChannel: true })
-
+      App.stream = new App.StreamCollection
+      App.streamView = new App.StreamView({ el: '#sections .pages', layout: App.layout, collection: App.stream, title: title, newChannel: true })
 
     if type != undefined
       App.stream.url = url.replace(/\.json(\?.*)/, '.json') + "?sort=published_at&type=" + type
-
     else
       App.stream.url = url + "?sort=published_at"
 

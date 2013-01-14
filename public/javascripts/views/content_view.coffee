@@ -54,9 +54,13 @@ class App.ContentView extends Backbone.View
     this.setElement(source)
     
     # Render single model, return node
+    
+    App.toolbar.typeBtn = false
+    
     if model
       source[0]
     else  
+      
       @toolbar.render(title: @model.collection.title, backBtn: true, typeBtn: false, actionsBtn: true)
       
       # Content view should fade in
