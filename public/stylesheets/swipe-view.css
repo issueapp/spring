@@ -14,19 +14,11 @@
   transition: all .3s ease-out;
 }
 
-/* line 17, ../../stylesheets/swipe-view.scss */
-.swiping {
-  -webkit-transition: all .15s ease-out;
-  -moz-transition: all .15s ease-out;
-  -o-transition: all .15s ease-out;
-  -ms-transition: all .15s ease-out;
-  transition: all .15s ease-out;
-}
-
 /* line 25, ../../stylesheets/swipe-view.scss */
 .page {
   position: relative;
   display: inline-block;
+  vertical-align: top;
   margin: 0;
   padding: 5px;
   -webkit-box-sizing: border-box;
@@ -35,28 +27,29 @@
   overflow: hidden;
 }
 
-/* line 36, ../../stylesheets/swipe-view.scss */
+/* line 37, ../../stylesheets/swipe-view.scss */
 .page {
   transform: translate3d(0, 0, 0);
   -webkit-transform: translate3d(0, 0, 0);
 }
 
-/* line 41, ../../stylesheets/swipe-view.scss */
+/* line 42, ../../stylesheets/swipe-view.scss */
 .page.padding {
   width: 0;
 }
 
-/* line 46, ../../stylesheets/swipe-view.scss */
+/* line 47, ../../stylesheets/swipe-view.scss */
 #content .page {
   padding: 22px 0 22px 22px;
   overflow: hidden;
+  font-family: 'proxima_nova_regular';
 }
-/* line 50, ../../stylesheets/swipe-view.scss */
+/* line 52, ../../stylesheets/swipe-view.scss */
 #content .page .info {
   margin: 0 22px;
 }
-/* line 53, ../../stylesheets/swipe-view.scss */
-#content .page .info .title {
+/* line 56, ../../stylesheets/swipe-view.scss */
+#content .page .title {
   margin: 0;
   padding: 70px 0 0;
   color: #2c2c2c;
@@ -64,25 +57,14 @@
   font-size: 23px;
   font-family: 'proxima_nova_bold';
 }
-/* line 62, ../../stylesheets/swipe-view.scss */
-#content .page .info .source {
-  margin: 0;
-  color: #666;
-  font-size: 12px;
-  font-family: 'proxima_nova_regular';
-}
-/* line 67, ../../stylesheets/swipe-view.scss */
-#content .page .info .source span {
-  color: #2c2c2c;
-}
-/* line 73, ../../stylesheets/swipe-view.scss */
-#content .page .info .price span:first-child {
+/* line 65, ../../stylesheets/swipe-view.scss */
+#content .page .price span:first-child {
   color: #2c2c2c;
   font-size: 18px;
   font-family: 'proxima_nova_bold';
 }
-/* line 80, ../../stylesheets/swipe-view.scss */
-#content .page .info .store {
+/* line 72, ../../stylesheets/swipe-view.scss */
+#content .page .store {
   position: absolute;
   top: 120px;
   right: 0;
@@ -93,37 +75,61 @@
   font-size: 14px;
   font-family: 'proxima_nova_bold';
 }
-/* line 92, ../../stylesheets/swipe-view.scss */
-#content .page .info .description {
-  padding-top: 25px;
+/* line 84, ../../stylesheets/swipe-view.scss */
+#content .page .source {
+  margin: 0;
   color: #666;
-  font-size: 16px;
-  font-family: 'proxima_nova_regular';
+  font-size: 12px;
 }
-/* line 101, ../../stylesheets/swipe-view.scss */
+/* line 88, ../../stylesheets/swipe-view.scss */
+#content .page .source span {
+  color: #2c2c2c;
+}
+/* line 92, ../../stylesheets/swipe-view.scss */
+#content .page .description {
+  padding-top: 25px;
+  font-size: 16px;
+}
+/* line 98, ../../stylesheets/swipe-view.scss */
 #content .content.page {
   padding: 22px;
   margin: 0;
+}
+/* line 102, ../../stylesheets/swipe-view.scss */
+#content .content.page .title {
+  margin: 0.5em 0;
+}
+/* line 106, ../../stylesheets/swipe-view.scss */
+#content .content.page .author, #content .content.page .published-at {
+  color: #333;
+  font-family: Georgia;
+  font-style: italic;
+}
+/* line 112, ../../stylesheets/swipe-view.scss */
+#content .content.page .body {
   -webkit-column-count: 2;
   -moz-column-count: 2;
   -ms-column-count: 2;
   -o-column-count: 2;
   column-count: 2;
+  -webkit-column-gap: 40px;
+  -moz-column-gap: 40px;
+  -ms-column-gap: 40px;
+  -o-column-gap: 40px;
+  column-gap: 40px;
+  font-size: 13px;
+  line-height: 18px;
+  color: #222;
+  margin: 0;
+  text-align: justify;
+  -webkit-hyphens: auto;
 }
-/* line 106, ../../stylesheets/swipe-view.scss */
+/* line 124, ../../stylesheets/swipe-view.scss */
 #content .content.page iframe {
   width: 100% !important;
 }
-/* line 110, ../../stylesheets/swipe-view.scss */
+/* line 128, ../../stylesheets/swipe-view.scss */
 #content .content.page * {
   margin: 0 !important;
   padding: 0 !important;
-}
-/* line 115, ../../stylesheets/swipe-view.scss */
-#content .content.page h1, #content .content.page h2, #content .content.page h3, #content .content.page h4, #content .content.page h5, #content .content.page h6 {
-  margin: 15px 0 !important;
-}
-/* line 119, ../../stylesheets/swipe-view.scss */
-#content .content.page p {
-  margin: 0 0 10px 0 !important;
 }

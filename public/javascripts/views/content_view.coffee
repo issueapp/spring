@@ -43,42 +43,23 @@ class App.ContentView extends Backbone.View
     @view.offset = 0
 
   render: (model)->
-    if model
-
-      if !!model.get('image_url') && !model.get('image_url').match('http')
-        protocal = window.location.protocol + "//"
-        model.set('image_url', protocal + model.get('image_url'))
-
-      if model.get('type') == 'Article'
-        source = $(@content_template(model.toJSON()))
-
-        # source.find('img').forEach (item)->
-        #   $(item).replaceWith('<div class="touch-image" style="background-image: url(' + item.src + ')";></div>')
-
-      else
-        source = $(@product_template(model.toJSON()))
-
-      source[0]
-
+    @model = model if model
+    
+    # render content page node
+    if @model.get('type') == 'Article'
+      source = $(@content_template(@model.toJSON()))
     else
-      @toolbar.title = @model.collection.title
-      @toolbar.backBtn = true
-      App.toolbar.typeBtn = false
-      @toolbar.actionsBtn = true
-      @toolbar.render()
-
-      if !!@model.get('image_url') && !@model.get('image_url').match('http')
-        protocal = window.location.protocol + "//"
-        @model.set('image_url', protocal + @model.get('image_url'))
-
-
-      if @model.get('type') == 'Article'
-        source = $(@content_template(@model.toJSON()))
-
-      else
-        source = $(@product_template(@model.toJSON()))
-
-      this.setElement(source)
+      source = $(@product_template(@model.toJSON()))
+    
+    this.setElement(source)
+    
+    # Render single model, return node
+    if model
+      source[0]
+    else  
+      @toolbar.render(title: @model.collection.title, backBtn: true, typeBtn: false, actionsBtn: true)
+      
+      # Content view should fade in
       $(@el).css('opacity', "0").addClass('current')
       $('#content .pages').append( @el )
 
@@ -97,6 +78,7 @@ class App.ContentView extends Backbone.View
       else
         target_css = 'current content'
 
+      ## TODO: this needs to be cleanup, fetch should only fetch a page
       loading.html($(this.render(target)).children()).addClass(target_css).removeClass('loading').attr('data-handle', target.get('handle'))
 
   next: ->

@@ -52,28 +52,28 @@ class App.StreamView extends Backbone.View
 
     # Switched page
     # event.page = non zero page index
-    $(@el).on "scrollability-page", (event, a, b)=>
-      # return if loading
-      # Start page change
-      if @direction == "right"
-        loading = true
-        target = this.next()
-
-      else if @direction == "left"
-        loading = true
-        target = this.prev()
-
-      if target = @pages[@currentIndex]
-        # Add current class
-        $(@el).find('.page').removeClass('current').removeClass('prev').removeClass('next')
-
-        target.active()
-
-        $(target.el).next().addClass('next')
-        $(target.el).prev().addClass('prev')
-        $(@el).removeClass('swiping')
-
-        loading = false
+    # $(@el).on "scrollability-page", (event, a, b)=>
+    #   # return if loading
+    #   # Start page change
+    #   if @direction == "right"
+    #     loading = true
+    #     target = this.next()
+    # 
+    #   else if @direction == "left"
+    #     loading = true
+    #     target = this.prev()
+    # 
+    #   if target = @pages[@currentIndex]
+    #     # Add current class
+    #     $(@el).find('.page').removeClass('current').removeClass('prev').removeClass('next')
+    # 
+    #     target.active()
+    # 
+    #     $(target.el).next().addClass('next')
+    #     $(target.el).prev().addClass('prev')
+    #     $(@el).removeClass('swiping')
+    # 
+    #     loading = false
 
     # Prevent browser from
     startClientX = currentClientX = 0
@@ -95,9 +95,9 @@ class App.StreamView extends Backbone.View
 
       delta = e.clientX - startClientX
       moveDelta = Math.abs(e.clientX - currentClientX)
-
-      return if currentClientX > 0 && moveDelta < 15
-
+      
+      # return if currentClientX > 0 && moveDelta < 25
+      
       @el.style.webkitTransform = 'translate3d(' + (@offset + delta) + 'px,0,0)'
       currentClientX = e.clientX
 
