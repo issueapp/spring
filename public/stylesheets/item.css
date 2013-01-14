@@ -134,23 +134,37 @@
   display: block;
   height: 90%;
 }
-/* line 153, ../../stylesheets/item.scss */
+/* line 152, ../../stylesheets/item.scss */
+.page .no-image .title {
+  font-size: 200%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3 !important;
+}
+/* line 159, ../../stylesheets/item.scss */
 .page .no-image .overlay {
   height: 100%;
 }
-/* line 157, ../../stylesheets/item.scss */
+/* line 163, ../../stylesheets/item.scss */
 .page .no-image .image {
   display: none;
 }
-/* line 161, ../../stylesheets/item.scss */
+/* line 167, ../../stylesheets/item.scss */
 .page .no-image .description {
-  -webkit-line-clamp: 10 !important;
+  visibility: visible !important;
+  display: block;
+  -webkit-line-clamp: 8 !important;
+  height: 10em !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
 }
-/* line 169, ../../stylesheets/item.scss */
+/* line 182, ../../stylesheets/item.scss */
 .page .product .info {
   height: 10%;
 }
-/* line 173, ../../stylesheets/item.scss */
+/* line 186, ../../stylesheets/item.scss */
 .page .product .price {
   display: block;
   position: absolute;
@@ -165,7 +179,7 @@
   background: rgba(0, 0, 0, 0.8);
   color: white;
 }
-/* line 189, ../../stylesheets/item.scss */
+/* line 202, ../../stylesheets/item.scss */
 .page .product .price:before {
   position: absolute;
   left: 50%;
@@ -178,11 +192,11 @@
   border-width: 7px;
   border-top-color: rgba(0, 0, 0, 0.8);
 }
-/* line 203, ../../stylesheets/item.scss */
+/* line 216, ../../stylesheets/item.scss */
 .page .product .info p {
   visibility: hidden;
 }
-/* line 207, ../../stylesheets/item.scss */
+/* line 220, ../../stylesheets/item.scss */
 .page .product .counters {
   color: #DF5454;
   font-size: 14px;
@@ -192,15 +206,15 @@
   z-index: 1;
   line-height: 12px;
 }
-/* line 222, ../../stylesheets/item.scss */
+/* line 235, ../../stylesheets/item.scss */
 .page .item.split .overlay {
   height: 100%;
 }
-/* line 226, ../../stylesheets/item.scss */
+/* line 239, ../../stylesheets/item.scss */
 .page .item.split a.action.love, .page .item.split a.action.collect {
   top: 50%;
 }
-/* line 230, ../../stylesheets/item.scss */
+/* line 243, ../../stylesheets/item.scss */
 .page .item.split .image {
   overflow: hidden;
   display: inline-block;
@@ -210,7 +224,7 @@
   top: initial;
   vertical-align: middle;
 }
-/* line 240, ../../stylesheets/item.scss */
+/* line 253, ../../stylesheets/item.scss */
 .page .item.split .info:before {
   position: absolute;
   bottom: 60%;
@@ -223,7 +237,7 @@
   border-width: 10px;
   border-right-color: #fff;
 }
-/* line 254, ../../stylesheets/item.scss */
+/* line 267, ../../stylesheets/item.scss */
 .page .item.split .info {
   margin: 0;
   width: 49%;
@@ -233,7 +247,7 @@
   position: relative;
   height: 100%;
 }
-/* line 263, ../../stylesheets/item.scss */
+/* line 276, ../../stylesheets/item.scss */
 .page .item.split .info > p {
   font-size: 105%;
   visibility: visible;
@@ -241,7 +255,7 @@
   max-height: inherit;
   text-overflow: ellipsis;
 }
-/* line 272, ../../stylesheets/item.scss */
+/* line 285, ../../stylesheets/item.scss */
 .page .item.split .price {
   display: block;
   position: absolute;
@@ -249,7 +263,7 @@
   left: -102%;
   color: white;
 }
-/* line 280, ../../stylesheets/item.scss */
+/* line 293, ../../stylesheets/item.scss */
 .page .item.split .via {
   position: absolute;
   bottom: 0;
