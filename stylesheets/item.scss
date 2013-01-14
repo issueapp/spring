@@ -149,7 +149,13 @@
 
 
  .no-image {
-
+    .title {
+      font-size: 200%;
+      overflow : hidden;
+      text-overflow: ellipsis;
+      -webkit-line-clamp: 3 !important;
+    }
+    
     .overlay {
       height: 100%;
     }
@@ -159,7 +165,14 @@
     }
 
     .description {
-      -webkit-line-clamp: 10 !important;
+      visibility: visible !important;
+      display: block;
+      -webkit-line-clamp: 8 !important;
+      height: 10em !important;
+      overflow : hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
     }
   }
 

@@ -54,7 +54,7 @@ class App.PageView extends Backbone.View
       <a class="link" href="/items/{{ handle }}">
         <h3 class="title">{{ title }}</h3>
       </a>
-      <p>{{ description }}</p>
+      <p class="description">{{ description }}</p>
 
       {{#price_in_string}}
         <a class="price">{{price_in_string}}</a>
@@ -145,6 +145,8 @@ class App.PageView extends Backbone.View
 
       node[0].innerHTML = @itemTemplate(item)
       # node.innerHTML = @itemTemplate(item)
+
+      node.addClass('no-image').removeClass('split') unless item.image_url
 
       # node.append(@itemTemplate(item))
 

@@ -1,10 +1,10 @@
 Environment = {
-  host: if /localhost/.test window.location.host
-          "shop2.com"
-          # window.location.host
-        else
-          window.location.host.split(".").slice(-2).join(".")
-
+  host: "shop2.com"
+        # if /localhost/.test window.location.host
+        #   "shop2.com"
+        #   # window.location.host
+        # else
+        #   window.location.host.split(".").slice(-2).join(".")
 }
 
 # Application bootstrap
@@ -35,15 +35,14 @@ this.App ||= {
   init: ->
     
     # All link should be internal /!#/path
-    $('a[rel="app"]').live "click", (e) ->
+    $('a:not([rel="external"])').live "click", (e) ->
       # unless @silentClick
       link = $(e.currentTarget).attr('href')
       App.router.navigate(link, { trigger: true })
 
       e.preventDefault()
       false
-      
-
+    
     @layout = new App.Layout
     @router = new App.Router
     
@@ -57,7 +56,6 @@ this.App ||= {
 
     if Backbone.history.fragment
       $('.landing').hide()
-      @router.resetView()
     else
       $('.landing').css('opacity', '1')
 }
@@ -112,9 +110,11 @@ class App.Router extends Backbone.Router
       this.backToStream()
 
   discover: ->
-    App.discover = new App.DiscoverView
+    # App.discover = new App.DiscoverView
+    $('#discover').show()
+    
     $('.landing').hide()
-    this.resetView()
+    # this.resetView()
     App.menu.toggle(true)
 
   content: (handle) ->
@@ -137,22 +137,28 @@ class App.Router extends Backbone.Router
     $('#content .pages').html('')
     $(document).off('keydown')
     
-    # load a product stream
-    if url
+    # Target resource url
+    if type != undefined
+      url = url.replace(/\.json(\?.*)/, '.json') + "?sort=published_at&type=" + type
+    else
+      url = url + "?sort=published_at"
+
+    # Only fetch new stream content when URL is different
+    if url && url != App.stream.url
       spinner = new Spinner().spin()
       $('#sections').append(spinner.el)
-
+    
       App.stream = new App.StreamCollection
       App.streamView = new App.StreamView({ el: '#sections .pages', layout: App.layout, collection: App.stream, title: title, newChannel: true })
 
-    if type != undefined
-      App.stream.url = url.replace(/\.json(\?.*)/, '.json') + "?sort=published_at&type=" + type
+      App.stream.url = url
+      App.stream.title = title
+      
+      App.stream.fetch({ dataType: "jsonp" })
     else
-      App.stream.url = url + "?sort=published_at"
-
-    App.stream.title = title
-    App.stream.fetch({ dataType: "jsonp" })
+      # This is probably duplicate
+      App.streamView.$el.animate({opacity: 1}, 150)
 
   backToStream: ->
-    App.streamView.$el.animate({opacity: 1}, 150)
     App.toolbar.render(actionsBtn: false, backBtn: false, typeBtn: true)
+    App.streamView.$el.animate({opacity: 1}, 150)
