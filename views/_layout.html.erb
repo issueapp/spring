@@ -93,54 +93,6 @@
         white-space: nowrap;
       }
 
-      .animate {
-        -webkit-transition: all .3s ease-out;
-        -moz-transition: all .3s ease-out;
-        -o-transition: all .3s ease-out;
-        -ms-transition: all .3s ease-out;
-        transition: all .3s ease-out;
-      }
-
-      .swiping {
-        -webkit-transition: all .15s ease-out;
-        -moz-transition: all .15s ease-out;
-        -o-transition: all .15s ease-out;
-        -ms-transition: all .15s ease-out;
-        transition: all .15s ease-out;
-      }
-
-      .scrollable {
-        overflow: hidden;
-      }
-
-      .pages {
-        transform: translate3d(0,0,0);
-        -webkit-transform:translate3d(0,0,0);
-      }
-
-      .page {
-        position: relative;
-        display: inline-block;
-        margin: 0;
-        padding: 0px 5px;
-        -webkit-box-sizing: border-box;
-        box-sizing: border-box;
-        white-space: normal;
-        overflow: hidden;
-
-        transform: translate3d(0,0,0);
-        -webkit-transform:translate3d(0,0,0);
-      }
-
-      .page.current {
-        visibility: visible;
-      }
-
-      .page {
-        transform: translate3d(0,0,0);
-        -webkit-transform:translate3d(0,0,0);
-      }
-
       .page.padding {
         width: 0;
       }
@@ -166,6 +118,7 @@
         <p>of a digital shopping magazine</p>
         <span>browse ></span>
       </div>
+      
       <div class="footer">
         <i class="icon-facebook"></i>
         <a href="http://<%= api_host %>/connect/facebook?return_to=<%= request.url %>">
@@ -220,12 +173,13 @@
             <a class="action follow" href="">+</a><a class="action view" rel="app" href="/sites/the-sartorialist">></a>
           </li>
           <li>
-            Man Repeller
-            <a class="action follow" href="">+</a><a class="action view" href="">></a>
+            Shopakira
+            <a class="action follow" href="">+</a><a class="action view" rel="app" href="/sites/shopakira">></a>
+
           </li>
           <li>
-            Calivintage
-            <a class="action follow" href="">+</a><a class="action view" href="">></a>
+            The Chronicle of Her
+            <a class="action follow" href="">+</a><a class="action view" rel="app" href="/sites/the-chronicle-of-her">></a>
           </li>
           <li>
             The Edit
@@ -263,6 +217,8 @@
   <script src="/javascripts/vendor/scrollability2.js"></script>
   <script src="/javascripts/vendor/h5bp-helper.js"></script>
   <script src="/javascripts/vendor/spin.min.js"></script>
+
+  <script src="/javascripts/vendor/relative_date.js"></script>
 
   <script src="/javascripts/app.js"></script>
   <script src="/javascripts/models.js"></script>

@@ -1,6 +1,11 @@
 <article class="content page" data-handle="{{ handle }}">
-  <h3 class="title">{{ title }}</h3>
-  {{ #content }}
-    {{{ content }}}
-  {{ /content }}
+  <header>
+    <h3 class="title">{{ title }}</h3>
+    <span class="author">By {{ author }}</span> | <datetime class="">{{ published_at }}</datetime>
+  </header>
+  <div class="body">
+    {{ #content }}
+      {{{ content }}}
+    {{ /content }}
+  </div>
 </article>

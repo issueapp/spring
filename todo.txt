@@ -1,10 +1,25 @@
-
-
-
-
-
 # Mobile design
 
+
+## Code Review
+
+ContentView
+
+ 1. ContentView#fetchNext does too much, it should simply fetch a new page
+ 2. image protocol should be part of json resource
+
+Cover page 
+
+ 1. it needs better picture
+ 2. it should support swipe action
+
+Menu
+
+ 1. We only have men/women category for now, there isn't enough channels for other categories
+ 2. Visual distinction between a live feed and a separate issue
+
+
+----
 
 ## Features
 
@@ -18,7 +33,7 @@
  
  - Visitor can signin via facebook, twitter or logins
 
-Design
+## Design
 
 - SwipeView pagination footer
 - SwipeView to support scrollable elements within the view
@@ -29,12 +44,3 @@ Design
 - 2 level collapsable menu
 - Startup cover screen
 - buttons, popover
-
-Architecture
-
-App
-  home
-  list_content (url)
-  show_content (id)
-  
-  
