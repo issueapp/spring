@@ -20,14 +20,15 @@ class App.Toolbar extends Backbone.View
     @actionsButton = this.$('div.actions')
   
   render: (options)->
-    options ||= {
+    options = _.extend({ 
       backBtn: false,
       typeBtn: false,
       actionsBtn: false,
       title: true
-    }
+    }, options)
     
     $('.drop-down').hide()
+    console.log(options)
     
     # Build step    
     if typeof(options.title) == "string"
@@ -35,15 +36,17 @@ class App.Toolbar extends Backbone.View
     
     # back button on content view page
     if @backButton.length == 0
-      btn = this.make('a', { href: '#', class: 'back'}, 'Back') 
-      @titleTag.before(btn)
-    @backButton.toggle(options.backButton)
+      @backButton = $(this.make('a', { href: '#', class: 'back'}, 'Back'))
+      @titleTag.before(@backButton)
+    
+    @backButton.toggle(options.backBtn)
     
     # type selector
     if @typeButton.length == 0
-      btn = this.make('a', {href: '#', class: 'type'})
-      @titleTag.before(btn)
-    @typeButton.toggle(options.typeButton)
+      @typeButton = $(this.make('a', {href: '#', class: 'type'}))
+      @titleTag.before(@typeButton)
+
+    @typeButton.toggle(options.typeBtn)
 
     # actions button on content view page - love, collect and share
     if @actionsButton.length == 0
@@ -53,11 +56,12 @@ class App.Toolbar extends Backbone.View
         <a class="share"></a>
       </div>')
       this.$el.append(@actionsButton)
-    @actionsButton.toggle(options.actionsButton)
+    
+    @actionsButton.toggle(options.actionsBtn)
     
   back: ->
     @actionsBtn = @backBtn = false
-    @typeBtn = true
+    @typeBtn = false
     $('#content .pages').removeAttr('style').html('')
     window.history.back()
 
