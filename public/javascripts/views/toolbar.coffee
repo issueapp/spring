@@ -15,6 +15,8 @@ class App.Toolbar extends Backbone.View
     @popover_template = $('#popover_tpl').html()
 
     @titleTag = this.$('h1')
+    @followButton = this.$('a.follow')
+    
     @backButton = this.$('a.back')
     @typeButton = this.$('a.type')
     @actionsButton = this.$('div.actions')
@@ -24,11 +26,11 @@ class App.Toolbar extends Backbone.View
       backBtn: false,
       typeBtn: false,
       actionsBtn: false,
-      title: true
+      title: true,
+      followBtn: false
     }, options)
     
     $('.drop-down').hide()
-    console.log(options)
     
     # Build step    
     if typeof(options.title) == "string"
@@ -40,6 +42,13 @@ class App.Toolbar extends Backbone.View
       @titleTag.before(@backButton)
     
     @backButton.toggle(options.backBtn)
+    
+    # back button on content view page
+    if @followButton.length == 0
+      @followButton = $(this.make('a', { href: '#', class: 'follow'}, 'Follow'))
+      @titleTag.before(@followButton)
+
+    @followButton.toggle(options.followBtn)
     
     # type selector
     if @typeButton.length == 0
@@ -78,7 +87,7 @@ class App.Toolbar extends Backbone.View
       data = {
         'type': 'filter'
         'collection': [
-          { 'class': 'view-all active', 'link': '#', 'content': 'view all' }
+          { 'class': 'view-all active', 'link': '?type=all', 'content': 'view all' }
           { 'class': 'shop', 'link': '?type=product', 'content': 'shop' }
           { 'class': 'read', 'link': '?type=article', 'content': 'read' }
           { 'class': 'photo', 'link': '?type=picture', 'content': 'photo' }
@@ -101,9 +110,9 @@ class App.Toolbar extends Backbone.View
       data = {
         'type': 'collection'
         'collection': [
-          { 'link': '#1', 'content': 'collection a' }
-          { 'link': '#2', 'content': 'collection b' }
-          { 'link': '#3', 'content': 'collection c' }
+          { 'link': '#1', 'content': 'Latest Arrivals' }
+          { 'link': '#2', 'content': 'Editors choice' }
+          { 'link': '#3', 'content': 'Promotions' }
         ]
       }
 

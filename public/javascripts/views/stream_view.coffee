@@ -124,7 +124,7 @@ class App.StreamView extends Backbone.View
           target.$el.prev().find('.image').forEach (item) ->
             $(item).css("background-image", 'none')
           target.$el.prev().css('visibility', 'hidden')
-        , 200
+        , 500
 
       e.preventDefault()
 

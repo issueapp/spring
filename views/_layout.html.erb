@@ -28,7 +28,9 @@
     <link rel="stylesheet" href="/stylesheets/application.css"/>
     <link rel="stylesheet" href="/stylesheets/swipe-view.css"/>
     <link rel="stylesheet" href="/stylesheets/font-awesome.css"/>
-
+    <link rel="stylesheet" href="/stylesheets/vendor/add2home.css"/>
+  
+  
     <!-- For iPhone 4 -->
     <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon.png">
     <!-- For everything else -->
@@ -173,22 +175,23 @@
             Sartorialist
             <a class="action follow" href="">+</a><a class="action view" rel="app" href="/sites/the-sartorialist">></a>
           </li>
-          <li>
+          <li style="background-image:url('http://www.shopakira.com/product_images/uploaded_images/a-white-story-thumbnail.jpg'); background-size: cover">
             Shopakira
             <a class="action follow" href="">+</a><a class="action view" rel="app" href="/sites/shopakira">></a>
 
           </li>
-          <li>
+          <li style="background-image:url('http://i1190.photobucket.com/albums/z449/CHRONICLESOFHER/chroniclesofher_headshot_2small-1.jpg'); background-size: cover">
             The Chronicle of Her
             <a class="action follow" href="">+</a><a class="action view" rel="app" href="/sites/the-chronicle-of-her">></a>
           </li>
-          <li>
-            The Edit
-            <a class="action follow" href="">+</a><a class="action view" href="">></a>
+          <li style="background-image:url('http://www.dalton-park.co.uk/wp-content/uploads/2009/06/levis_705.jpg'); background-size: cover">
+            Levis
+            <a class="action follow" href="">+</a><a class="action view" href="sites/levis">></a>
           </li>
-          <li>
-            Design Love Fest
-            <a class="action follow" href="">+</a><a class="action view" href="">></a>
+          <li style="background-image:url('http://www.accessoriesmagazine.com/wp-content/uploads/2011/06/J.-Crew-sign-and-logo.jpg'); background-size: cover">
+            
+            J Crew
+            <a class="action follow" href="sites/jcrew">+</a><a class="action view" href="sites/jcrew">></a>
           </li>
         </ul>
       </section>
@@ -235,6 +238,17 @@
   
   <script src="/javascripts/misc.js"></script>
   
+  <script type="text/javascript">
+  var addToHomeConfig = {
+  	animationIn: 'bubble',
+  	animationOut: 'drop',
+  	lifespan:10000,
+  	expire:2,
+  	touchIcon:true
+  };
+  </script>
+  <script src="/javascripts/vendor/add2home.js"></script>
+
   <script>
     MBP.hideUrlBarOnLoad()
 
@@ -244,6 +258,37 @@
   <%= yield :js %>
 
   <script>
+  if (typeof window.DeviceMotionEvent != 'undefined') {
+      // Shake sensitivity (a lower number is more)
+      var sensitivity = 20;
+
+      // Position variables
+      var x1 = 0, y1 = 0, z1 = 0, x2 = 0, y2 = 0, z2 = 0;
+
+      // Listen to motion events and update the position
+      window.addEventListener('devicemotion', function (e) {
+          x1 = e.accelerationIncludingGravity.x;
+          y1 = e.accelerationIncludingGravity.y;
+          z1 = e.accelerationIncludingGravity.z;
+      }, false);
+
+      // Periodically check the position and fire
+      // if the change is greater than the sensitivity
+      setInterval(function () {
+          var change = Math.abs(x1-x2+y1-y2+z1-z2);
+
+          if (change > sensitivity) {
+            window.location = "/#stream"
+          }
+
+          // Update new position
+          x2 = x1;
+          y2 = y1;
+          z2 = z1;
+      }, 150);
+  }
+  
+  
     if($.fn.cookie("notice") != null) {
       var div = document.createElement("div");
       div.innerHTML = $.fn.cookie("notice").replace(/\+/g, " ");
@@ -258,5 +303,7 @@
 
       $.fn.cookie("notice", null, {domain: ".<%= api_host %>"});
     }
+    
   </script>
+
 </html>
