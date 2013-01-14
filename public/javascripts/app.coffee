@@ -42,6 +42,10 @@ this.App ||= {
     
     this.layout = new App.Layout
     this.router = new App.Router
+    
+    this.menu = new App.MenuView
+    this.toolbar = new App.Toolbar      
+
     Backbone.history.start({ pushState: true })
 }
 
@@ -59,7 +63,7 @@ class App.Router extends Backbone.Router
   # View a channel in a stream format
   channel: (type, handle)->
     # toggle toolbar
-    App.toolbar.menu()
+    App.menu.toggle(false)
     $('#discover').hide()
     url = ""
     
@@ -71,7 +75,7 @@ class App.Router extends Backbone.Router
       when "interests"
         url = "http://shop2.com/interests/#{handle}.json"
     
-    if App.stream.title != handle
+    if !App.stream || App.stream.title != handle
       title = handle
       this.resetView(url, title)
     else
@@ -94,8 +98,9 @@ class App.Router extends Backbone.Router
 
   discover: ->
     App.discover = new App.DiscoverView
-    # App.discover.show()
-    $('#discover').show()
+    $('.landing').hide()
+    this.resetView()
+    App.menu.toggle(true)
 
   content: (handle) ->
     App.streamView.$el.css('opacity', '0')
@@ -108,23 +113,18 @@ class App.Router extends Backbone.Router
 
   resetView: (url, title, type)->
     $('#discover').hide()
+    
     if App.toolbar
-      App.toolbar.actionsBtn = false
-      App.toolbar.backBtn = false
-      App.toolbar.typeBtn = true
-      App.toolbar.title = title
-      App.toolbar.render()
+      App.toolbar.render(title: title, backBtn: false, actionsBtn: false)
 
     # $('div.landing').hide() if $.fn.cookie('seenLandingPage') == "1"
     $('#sections .pages').addClass('horizontal')
     $('#content .pages').html('')
     $(document).off('keydown')
 
+    # load a product stream
     spinner = new Spinner().spin()
     $('#sections').append(spinner.el)
-
-    App.menu ||= new App.MenuView
-    App.toolbar ||= new App.Toolbar
 
     App.stream = new App.StreamCollection
     App.streamView = new App.StreamView({ el: '#sections .pages', layout: App.layout, collection: App.stream, title: title, newChannel: true })
@@ -141,7 +141,4 @@ class App.Router extends Backbone.Router
 
   backToStream: ->
     App.streamView.$el.animate({opacity: 1}, 150)
-    App.toolbar.actionsBtn = false
-    App.toolbar.backBtn = false
-    App.toolbar.typeBtn = true
-    App.toolbar.render()
+    App.toolbar.render(actionsBtn: false, backBtn: false, typeBtn: true)

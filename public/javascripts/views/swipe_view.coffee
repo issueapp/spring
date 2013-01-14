@@ -76,8 +76,9 @@ class App.SwipeView extends Backbone.View
 
     delta = e.clientX - @startClientX
     # moveDelta = e.clientX - @currentClientX
-
-    this.updatePos(@offset + delta * 1.2)
+    # console.log(@offset + delta * 1.1)
+    
+    this.updatePos(@offset + delta)
 
     @currentClientX = e.clientX
 

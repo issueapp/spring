@@ -14,47 +14,47 @@ class App.Toolbar extends Backbone.View
     @typeBtn = true
     @popover_template = $('#popover_tpl').html()
 
-  render: ->
+    @titleTag = this.$('h1')
+    @backButton = this.$('a.back')
+    @typeButton = this.$('a.type')
+    @actionsButton = this.$('div.actions')
+  
+  render: (options)->
+    options ||= {
+      backBtn: false,
+      typeBtn: false,
+      actionsBtn: false,
+      title: true
+    }
+    
     $('.drop-down').hide()
-    title = this.$('h1').html(@title)
-    backButton = this.$el.find('a.back')
-    typeButton = this.$el.find('a.type')
-    actionsButton = this.$el.find('div.actions')
-
+    
+    # Build step    
+    if typeof(options.title) == "string"
+      @titleTag.html(@title = options.title)
+    
     # back button on content view page
-    if @backBtn
-      if backButton.length == 0
-        btn = this.make('a', { href: '#', class: 'back'}, 'Back')
-        title.before(btn)
-      else
-        backButton.show()
-    else
-      backButton.hide()
-
-    if @typeBtn
-      if typeButton.length == 0
-        btn = this.make('a', {href: '#', class: 'type'})
-        title.before(btn)
-      else
-        typeButton.show()
-    else
-      typeButton.hide()
+    if @backButton.length == 0
+      btn = this.make('a', { href: '#', class: 'back'}, 'Back') 
+      @titleTag.before(btn)
+    @backButton.toggle(options.backButton)
+    
+    # type selector
+    if @typeButton.length == 0
+      btn = this.make('a', {href: '#', class: 'type'})
+      @titleTag.before(btn)
+    @typeButton.toggle(options.typeButton)
 
     # actions button on content view page - love, collect and share
-    if @actionsBtn
-      if actionsButton.length == 0
-        this.$el.append(
-          $('<div class="actions">
-            <a class="heart"></a>
-            <a class="collect"></a>
-            <a class="share"></a>
-          </div>')
-        )
-      else
-        actionsButton.show()
-    else
-      actionsButton.hide()
-
+    if @actionsButton.length == 0
+      @actionsButton = $('<div class="actions">
+        <a class="heart"></a>
+        <a class="collect"></a>
+        <a class="share"></a>
+      </div>')
+      this.$el.append(@actionsButton)
+    @actionsButton.toggle(options.actionsButton)
+    
   back: ->
     @actionsBtn = @backBtn = false
     @typeBtn = true
@@ -62,12 +62,10 @@ class App.Toolbar extends Backbone.View
     window.history.back()
 
     false
-
+  
   menu: ->
-    $(document.body).toggleClass('expand-menu')
-
-    false
-
+    App.menu.toggle()
+  
   filter: ->
     filterPopover = $('#filter-dropdown')
 
@@ -116,7 +114,7 @@ class App.Toolbar extends Backbone.View
       collectionPopover.toggle()
 
     false
-
+  
   toggleFilterStatus: (e)->
     target = $(e.target)
     this.$el.find('#filter-dropdown .active').removeClass('active')
@@ -130,3 +128,4 @@ class App.Toolbar extends Backbone.View
     $(e.currentTarget).addClass('active')
 
     false
+    App.menu.toggle()
