@@ -1,4 +1,5 @@
 @import "compass/css3/box-sizing";
+@import "compass/css3/border-radius";
 
 //      User interface
 
@@ -42,12 +43,12 @@ nav#menu {
 //      background: #f04f4f;
 //      border-top: 1px solid #f48080;
     }
-    
+
     // Level two menu
     & > ul li {
       padding-left: 40px;
       font-weight: normal;
-      
+
       a {
         color: #ccc;
       }
@@ -173,7 +174,7 @@ header.toolbar {
   height: 1000px;
   header {
     padding: 40px 20px;
-    
+
     input[type=search] {
       @include box-sizing(border-box);
       @include border-radius(5px);
@@ -183,7 +184,7 @@ header.toolbar {
       padding: 10px 20px;
       border: 1px solid #ddd;
       width: 100%;
-      
+
       &:focus {
 //        box-shadow: 0 0 5px ;
         box-shadow: 0 0 5px rgba(0, 100, 255, 1);
@@ -191,7 +192,7 @@ header.toolbar {
       }
     }
   }
-  
+
   ul#category {
     list-style: none;
     padding: 0;
@@ -200,7 +201,7 @@ header.toolbar {
     height: 100%;
     background: #eee;
     float: left;
-    
+
     li {
       font-size: 14px;
       font-family: "HelveticaNeue-Light";
@@ -236,7 +237,7 @@ header.toolbar {
       }
     }
   }
-  
+
   ul.channels {
     @include box-sizing(border-box);
     margin: 0;
@@ -259,7 +260,7 @@ header.toolbar {
       margin-right: 20px;
       margin-bottom: 20px;
     }
-    
+
     .action {
       font-family: "Georgia";
       position: absolute;
@@ -274,16 +275,16 @@ header.toolbar {
       line-height: 70px;
       width: 70px;
       height: 70px;
-      
+
       @include border-radius(40px);
       color: white;
       border: 1px solid rgba(255,255,255, 0.3);
     }
-    
+
     .action:hover {
       background: rgba(255, 255, 255, 0.2);
     }
-    
+
     .action.view {
       left: 130px;
     }

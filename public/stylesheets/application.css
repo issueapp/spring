@@ -711,23 +711,23 @@ a:visited {
 
 /* iPads (landscape) ----------- */
 /* iPads (portrait) ----------- */
-/* line 7, ../../stylesheets/ui.scss */
+/* line 8, ../../stylesheets/ui.scss */
 nav#menu {
   width: 260px;
   background: #0c0c0c;
 }
-/* line 11, ../../stylesheets/ui.scss */
+/* line 12, ../../stylesheets/ui.scss */
 nav#menu .logo {
   height: 120px !important;
   background: url("/images/logo.png") no-repeat center center;
 }
-/* line 14, ../../stylesheets/ui.scss */
+/* line 15, ../../stylesheets/ui.scss */
 nav#menu .logo a {
   margin-left: -25px;
   height: 120px;
   width: 220px;
 }
-/* line 22, ../../stylesheets/ui.scss */
+/* line 23, ../../stylesheets/ui.scss */
 nav#menu .navigation li {
   font-size: 15px;
   font-family: "HelveticaNeue-Light", "HelveticaNeue";
@@ -742,26 +742,26 @@ nav#menu .navigation li {
   border-top: 1px solid #0f0f0f;
   border-bottom: 1px solid #0a0a0a;
 }
-/* line 35, ../../stylesheets/ui.scss */
+/* line 36, ../../stylesheets/ui.scss */
 nav#menu .navigation a {
   display: block;
   color: white;
 }
-/* line 40, ../../stylesheets/ui.scss */
+/* line 41, ../../stylesheets/ui.scss */
 nav#menu .navigation li.active {
   background: #141414;
 }
-/* line 47, ../../stylesheets/ui.scss */
+/* line 48, ../../stylesheets/ui.scss */
 nav#menu .navigation > ul li {
   padding-left: 40px;
   font-weight: normal;
 }
-/* line 51, ../../stylesheets/ui.scss */
+/* line 52, ../../stylesheets/ui.scss */
 nav#menu .navigation > ul li a {
   color: #ccc;
 }
 
-/* line 70, ../../stylesheets/ui.scss */
+/* line 71, ../../stylesheets/ui.scss */
 header.toolbar {
   position: relative;
   height: 50px;
@@ -769,28 +769,28 @@ header.toolbar {
   z-index: 2;
   border-bottom: 1px solid #eee;
 }
-/* line 76, ../../stylesheets/ui.scss */
+/* line 77, ../../stylesheets/ui.scss */
 header.toolbar a {
   position: absolute;
   display: inline-block;
   height: 50px;
   cursor: pointer;
 }
-/* line 83, ../../stylesheets/ui.scss */
+/* line 84, ../../stylesheets/ui.scss */
 header.toolbar a.menu {
   left: 0;
   width: 64px;
   border-right: 1px solid #EEE;
   background: url("/images/icon-reorder.png") no-repeat center;
 }
-/* line 90, ../../stylesheets/ui.scss */
+/* line 91, ../../stylesheets/ui.scss */
 header.toolbar a.type {
   right: 0;
   width: 64px;
   border-left: 1px solid #EEE;
   background: url("/images/icon-filter.png") no-repeat center;
 }
-/* line 97, ../../stylesheets/ui.scss */
+/* line 98, ../../stylesheets/ui.scss */
 header.toolbar a.back {
   left: 65px;
   margin-left: 10px;
@@ -804,7 +804,7 @@ header.toolbar a.back {
   font-family: "proxima_nova_regular";
   line-height: 50px;
 }
-/* line 111, ../../stylesheets/ui.scss */
+/* line 112, ../../stylesheets/ui.scss */
 header.toolbar > h1 {
   overflow: hidden;
   margin: 0 auto;
@@ -819,7 +819,7 @@ header.toolbar > h1 {
   font-family: "proxima_nova_ltregular";
   line-height: 50px;
 }
-/* line 125, ../../stylesheets/ui.scss */
+/* line 126, ../../stylesheets/ui.scss */
 header.toolbar > h1.dropdown-arrow:after {
   display: inline-block;
   width: 18px;
@@ -827,46 +827,46 @@ header.toolbar > h1.dropdown-arrow:after {
   background: url("/images/down-arrow.png") no-repeat center;
   content: "";
 }
-/* line 134, ../../stylesheets/ui.scss */
+/* line 135, ../../stylesheets/ui.scss */
 header.toolbar div.actions {
   position: absolute;
   top: 0px;
   right: 0px;
 }
-/* line 139, ../../stylesheets/ui.scss */
+/* line 140, ../../stylesheets/ui.scss */
 header.toolbar div.actions a {
   width: 56px;
   border-left: 1px solid #eee;
 }
-/* line 144, ../../stylesheets/ui.scss */
+/* line 145, ../../stylesheets/ui.scss */
 header.toolbar div.actions .heart {
   right: 114px;
   background: url("/images/action-like.png") no-repeat center;
 }
-/* line 149, ../../stylesheets/ui.scss */
+/* line 150, ../../stylesheets/ui.scss */
 header.toolbar div.actions .collect {
   right: 57px;
   background: url("/images/action-collect.png") no-repeat center;
 }
-/* line 154, ../../stylesheets/ui.scss */
+/* line 155, ../../stylesheets/ui.scss */
 header.toolbar div.actions .share {
   right: 0px;
   background: url("/images/action-share.png") no-repeat center;
 }
 
 /*      Discover menu   */
-/* line 169, ../../stylesheets/ui.scss */
+/* line 170, ../../stylesheets/ui.scss */
 #discover {
   background: white;
   position: absolute;
   z-index: 100;
   height: 1000px;
 }
-/* line 174, ../../stylesheets/ui.scss */
+/* line 175, ../../stylesheets/ui.scss */
 #discover header {
   padding: 40px 20px;
 }
-/* line 177, ../../stylesheets/ui.scss */
+/* line 178, ../../stylesheets/ui.scss */
 #discover header input[type=search] {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -883,12 +883,12 @@ header.toolbar div.actions .share {
   border: 1px solid #ddd;
   width: 100%;
 }
-/* line 187, ../../stylesheets/ui.scss */
+/* line 188, ../../stylesheets/ui.scss */
 #discover header input[type=search]:focus {
   box-shadow: 0 0 5px #0064ff;
   outline: 0;
 }
-/* line 195, ../../stylesheets/ui.scss */
+/* line 196, ../../stylesheets/ui.scss */
 #discover ul#category {
   list-style: none;
   padding: 0;
@@ -898,7 +898,7 @@ header.toolbar div.actions .share {
   background: #eee;
   float: left;
 }
-/* line 204, ../../stylesheets/ui.scss */
+/* line 205, ../../stylesheets/ui.scss */
 #discover ul#category li {
   font-size: 14px;
   font-family: "HelveticaNeue-Light";
@@ -911,29 +911,29 @@ header.toolbar div.actions .share {
   padding: 0 25px;
   border-top: 1px solid #ddd;
 }
-/* line 216, ../../stylesheets/ui.scss */
+/* line 217, ../../stylesheets/ui.scss */
 #discover ul#category a {
   display: block;
   color: #444;
 }
-/* line 221, ../../stylesheets/ui.scss */
+/* line 222, ../../stylesheets/ui.scss */
 #discover ul#category li:hover {
   background: #e6e6e6;
 }
-/* line 225, ../../stylesheets/ui.scss */
+/* line 226, ../../stylesheets/ui.scss */
 #discover ul#category li.active {
   background: #ccc;
 }
-/* line 230, ../../stylesheets/ui.scss */
+/* line 231, ../../stylesheets/ui.scss */
 #discover ul#category > ul li {
   padding-left: 40px;
   font-weight: normal;
 }
-/* line 234, ../../stylesheets/ui.scss */
+/* line 235, ../../stylesheets/ui.scss */
 #discover ul#category > ul li a {
   color: #ccc;
 }
-/* line 240, ../../stylesheets/ui.scss */
+/* line 241, ../../stylesheets/ui.scss */
 #discover ul.channels {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -945,7 +945,7 @@ header.toolbar div.actions .share {
   width: 100%;
   height: 100%;
 }
-/* line 249, ../../stylesheets/ui.scss */
+/* line 250, ../../stylesheets/ui.scss */
 #discover ul.channels li {
   position: relative;
   -webkit-box-sizing: border-box;
@@ -961,7 +961,7 @@ header.toolbar div.actions .share {
   margin-right: 20px;
   margin-bottom: 20px;
 }
-/* line 263, ../../stylesheets/ui.scss */
+/* line 264, ../../stylesheets/ui.scss */
 #discover ul.channels .action {
   font-family: "Georgia";
   position: absolute;
@@ -984,11 +984,11 @@ header.toolbar div.actions .share {
   color: white;
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
-/* line 283, ../../stylesheets/ui.scss */
+/* line 284, ../../stylesheets/ui.scss */
 #discover ul.channels .action:hover {
   background: rgba(255, 255, 255, 0.2);
 }
-/* line 287, ../../stylesheets/ui.scss */
+/* line 288, ../../stylesheets/ui.scss */
 #discover ul.channels .action.view {
   left: 130px;
 }
