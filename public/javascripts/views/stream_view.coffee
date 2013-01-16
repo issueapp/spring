@@ -45,6 +45,7 @@ class App.StreamView extends Backbone.View
     this.$el.off()
 
     @padding = $('<div class="page padding" style="visibility:hidden;width:0;padding:0;border:0;font-size:0">').appendTo(@el)
+
     @toolbar = App.toolbar || new App.Toolbar
 
     # Render stream once data is loaded
@@ -58,21 +59,21 @@ class App.StreamView extends Backbone.View
     #   if @direction == "right"
     #     loading = true
     #     target = this.next()
-    # 
+    #
     #   else if @direction == "left"
     #     loading = true
     #     target = this.prev()
-    # 
+    #
     #   if target = @pages[@currentIndex]
     #     # Add current class
     #     $(@el).find('.page').removeClass('current').removeClass('prev').removeClass('next')
-    # 
+    #
     #     target.active()
-    # 
+    #
     #     $(target.el).next().addClass('next')
     #     $(target.el).prev().addClass('prev')
     #     $(@el).removeClass('swiping')
-    # 
+    #
     #     loading = false
 
     # Prevent browser from
@@ -95,9 +96,9 @@ class App.StreamView extends Backbone.View
 
       delta = e.clientX - startClientX
       moveDelta = Math.abs(e.clientX - currentClientX)
-      
+
       # return if currentClientX > 0 && moveDelta < 25
-      
+
       @el.style.webkitTransform = 'translate3d(' + (@offset + delta) + 'px,0,0)'
       currentClientX = e.clientX
 
@@ -358,8 +359,8 @@ class App.StreamView extends Backbone.View
       this.firstPage().$el.addClass('current')
       this.updateBackgroundImage(@pages[0].$el)
       this.updateBackgroundImage(@pages[1].$el)
-    
-    @toolbar.render(title: @title, typeBtn: true)
+
+    @toolbar.render(title: @title, typeBtn: true, channelBtn: true, followBtn: true)
 
     this
 

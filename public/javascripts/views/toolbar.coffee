@@ -10,46 +10,55 @@ class App.Toolbar extends Backbone.View
     'touchend #collection-dropdown li': 'toggleCollectionStatus'
 
   initialize: ->
-    @backBtn = @actionsBtn = false
+    @channelBtn = @backBtn = @actionsBtn = false
     @typeBtn = true
     @popover_template = $('#popover_tpl').html()
 
     @titleTag = this.$('h1')
     @followButton = this.$('a.follow')
-    
+
     @backButton = this.$('a.back')
+    @channelButton = this.$('a.channel')
     @typeButton = this.$('a.type')
     @actionsButton = this.$('div.actions')
-  
+
   render: (options)->
-    options = _.extend({ 
+    options = _.extend({
       backBtn: false,
       typeBtn: false,
       actionsBtn: false,
       title: true,
-      followBtn: false
+      followBtn: false,
+      channelBtn: false
     }, options)
-    
+
     $('.drop-down').hide()
-    
-    # Build step    
+
+    # Build step
     if typeof(options.title) == "string"
       @titleTag.html(@title = options.title)
-    
+
     # back button on content view page
     if @backButton.length == 0
       @backButton = $(this.make('a', { href: '#', class: 'back'}, 'Back'))
       @titleTag.before(@backButton)
-    
+
     @backButton.toggle(options.backBtn)
-    
-    # back button on content view page
+
+    # channel button on stream view page, can be anything which users can follow
+    if @channelButton.length == 0
+      @channelButton = $(this.make('a', { href: '#stream', class: 'channel'}, 'Taylor'))
+      @titleTag.before(@channelButton)
+
+    @channelButton.toggle(options.channelBtn)
+
+    # follow button on stream view page
     if @followButton.length == 0
-      @followButton = $(this.make('a', { href: '#', class: 'follow'}, 'Follow'))
+      @followButton = $(this.make('a', { href: '#stream', class: 'follow'}, 'follow'))
       @titleTag.before(@followButton)
 
     @followButton.toggle(options.followBtn)
-    
+
     # type selector
     if @typeButton.length == 0
       @typeButton = $(this.make('a', {href: '#', class: 'type'}))
@@ -65,9 +74,9 @@ class App.Toolbar extends Backbone.View
         <a class="share"></a>
       </div>')
       this.$el.append(@actionsButton)
-    
+
     @actionsButton.toggle(options.actionsBtn)
-    
+
   back: ->
     @actionsBtn = @backBtn = false
     @typeBtn = false
@@ -75,10 +84,10 @@ class App.Toolbar extends Backbone.View
     window.history.back()
 
     false
-  
+
   menu: ->
     App.menu.toggle()
-  
+
   filter: ->
     filterPopover = $('#filter-dropdown')
 
@@ -127,7 +136,7 @@ class App.Toolbar extends Backbone.View
       collectionPopover.toggle()
 
     false
-  
+
   toggleFilterStatus: (e)->
     target = $(e.target)
     this.$el.find('#filter-dropdown .active').removeClass('active')
