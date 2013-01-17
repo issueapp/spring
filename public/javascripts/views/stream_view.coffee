@@ -120,12 +120,15 @@ class App.StreamView extends Backbone.View
         this.updateBackgroundImage($(target.el)) if $(target.el).find('.image').css('background-image') == 'none'
         this.updateBackgroundImage($(target.el).next().css('visibility', 'hidden'))
 
-        # remove previous page background image after 200ms
+        # remove previous page background image after 300ms
         setTimeout =>
           target.$el.prev().find('.image').forEach (item) ->
             $(item).css("background-image", 'none')
           target.$el.prev().css('visibility', 'hidden')
-        , 500
+        , 300
+
+      # Snap to the right
+      @el.style.webkitTransform = 'translate3d(0,0,0)' if @offset == 0
 
       e.preventDefault()
 
@@ -144,12 +147,12 @@ class App.StreamView extends Backbone.View
         this.updateBackgroundImage($(target.el)) if $(target.el).find('.image').css('background-image') == 'none'
         this.updateBackgroundImage($(target.el).prev().css('visibility', 'hidden'))
 
-        # remove previous page background image after 200ms
+        # remove previous page background image after 300ms
         setTimeout =>
           target.$el.next().find('.image').forEach (item) ->
             $(item).css("background-image", 'none')
           target.$el.next().css('visibility', 'hidden')
-        , 200
+        , 300
 
       # Snap to the left
       @el.style.webkitTransform = 'translate3d(0,0,0)' if @offset == 0
@@ -352,13 +355,19 @@ class App.StreamView extends Backbone.View
 
     until @pages.length == @limit
       page = this.appendPage(false)
+      break if !page?
       this.renderPage(page, 'append', false)
 
     if firstRender
-      this.firstPage().offset = this.firstPage().limit
-      this.firstPage().$el.addClass('current')
-      this.updateBackgroundImage(@pages[0].$el)
-      this.updateBackgroundImage(@pages[1].$el)
+      if this.firstPage()?
+        this.firstPage().offset = this.firstPage().limit
+        this.firstPage().$el.addClass('current')
+        this.updateBackgroundImage(@pages[0].$el) if @pages[0]?
+        this.updateBackgroundImage(@pages[1].$el) if @pages[1]?
+
+      else
+        noContent = $(this.make('span', {id: 'noContent'}, 'No content available, please follow the current channel for future updates :)'))
+        $('#sections').append(noContent)
 
     @toolbar.render(title: @title, typeBtn: true, channelBtn: true, followBtn: true)
 

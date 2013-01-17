@@ -22,14 +22,13 @@ this.App ||= {
     }
     mens: {
       title: "Mens"
-      url: "http://#{Environment.host}/interests/mens/items.json"
+      url: "http://#{Environment.host}/interests/mens.json"
     }
     womens: {
       title: "Womens"
-      url: "http://#{Environment.host}/interests/womens/items.json"
+      url: "http://#{Environment.host}/interests/womens.json"
     }
   }
-
 
   init: ->
 
@@ -85,7 +84,6 @@ class App.Router extends Backbone.Router
       when "interests"
         url = "http://shop2.com/interests/#{handle}.json"
 
-
     if !App.stream || App.stream.title != handle
       title = handle
       this.resetView(url, title)
@@ -132,8 +130,15 @@ class App.Router extends Backbone.Router
 
     # $('div.landing').hide() if $.fn.cookie('seenLandingPage') == "1"
     $('#sections .pages').addClass('horizontal')
+    $('#sections #noContent').remove()
     $('#content .pages').html('')
     $(document).off('keydown')
+
+    # reset filter dropdown view-all to active when swithcing channels
+    if url && url != App.stream.url
+      dropdown = $('#sections #filter-dropdown')
+      dropdown.find('.active').removeClass('active')
+      dropdown.find('.view-all').addClass('active')
 
     # Target resource url
     if type != undefined
@@ -142,6 +147,7 @@ class App.Router extends Backbone.Router
       url = url + "?sort=published_at"
 
     # Only fetch new stream content when URL is different
+
     if url && url != App.stream.url
       spinner = new Spinner().spin()
       $('#sections').append(spinner.el)
