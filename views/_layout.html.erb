@@ -91,6 +91,15 @@
         left: 50%;
       }
 
+      #sections #noContent {
+        position: absolute;
+        top: 300px;
+        left: 50%;
+        margin-left: -233px;
+        font-size: 14px;
+        font-family: Georgia;
+      }
+
       #content {
         white-space: nowrap;
       }
@@ -122,7 +131,7 @@
         <p>of personalized magazine</p>
         <a href="stream" rel="app">browse ></a>
       </div>
-      
+
       <div class="footer">
         <i class="icon-facebook"></i>
         <a href="http://<%= api_host %>/connect/facebook?return_to=<%= request.url %>">
@@ -155,7 +164,7 @@
         <header>
           <input type="search" placeholder="Search">
         </header>
-        
+
         <ul id="category">
           <li class="active"><a href="/interests/mens">Featured</a></li>
           <li><a href="#">Men</a></li>
@@ -165,7 +174,7 @@
           <li><a href="#">Media</a></li>
           <li><a href="#">Art &amp; design</a></li>
         </ul>
-        
+
         <ul class="channels">
           <li style="background-image: url(http://c806568.r68.cf2.rackcdn.com/features/dev/new_collections/Nasty-Gal_CrossYourHeart.jpg); background-size: cover">
             Nastygal
@@ -189,13 +198,13 @@
             <a class="action follow" href="">+</a><a class="action view" href="sites/levis">></a>
           </li>
           <li style="background-image:url('http://www.accessoriesmagazine.com/wp-content/uploads/2011/06/J.-Crew-sign-and-logo.jpg'); background-size: cover">
-            
+
             J Crew
             <a class="action follow" href="sites/jcrew">+</a><a class="action view" href="sites/jcrew">></a>
           </li>
         </ul>
       </section>
-      
+
       <div id="sections">
         <header class="toolbar">
           <a class="menu"></a>
@@ -207,7 +216,7 @@
       <div id="content">
         <div class="pages swipe-paging"></div>
       </div>
-      
+
     </div>
   </body>
 
@@ -235,9 +244,9 @@
   <script src="/javascripts/views/list_view.js"></script>
   <script src="/javascripts/views/stream_view.js"></script>
   <script src="/javascripts/views/discover_menu.js"></script>
-  
+
   <script src="/javascripts/misc.js"></script>
-  
+
   <script type="text/javascript">
   var addToHomeConfig = {
   	animationIn: 'bubble',
@@ -287,8 +296,8 @@
           z2 = z1;
       }, 150);
   }
-  
-  
+
+
     if($.fn.cookie("notice") != null) {
       var div = document.createElement("div");
       div.innerHTML = $.fn.cookie("notice").replace(/\+/g, " ");
@@ -303,7 +312,7 @@
 
       $.fn.cookie("notice", null, {domain: ".<%= api_host %>"});
     }
-    
+
   </script>
 
 </html>
