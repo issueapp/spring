@@ -771,28 +771,28 @@ header.toolbar {
 }
 /* line 77, ../../stylesheets/ui.scss */
 header.toolbar a {
-  position: absolute;
-  display: inline-block;
   height: 50px;
   cursor: pointer;
 }
-/* line 84, ../../stylesheets/ui.scss */
+/* line 82, ../../stylesheets/ui.scss */
+header.toolbar a.menu, header.toolbar a.back, header.toolbar a.channel, header.toolbar a.follow {
+  float: left;
+}
+/* line 86, ../../stylesheets/ui.scss */
 header.toolbar a.menu {
-  left: 0;
   width: 64px;
   border-right: 1px solid #EEE;
   background: url("/images/icon-reorder.png") no-repeat center;
 }
-/* line 91, ../../stylesheets/ui.scss */
+/* line 92, ../../stylesheets/ui.scss */
 header.toolbar a.type {
-  right: 0;
+  float: right;
   width: 64px;
   border-left: 1px solid #EEE;
   background: url("/images/icon-filter.png") no-repeat center;
 }
-/* line 98, ../../stylesheets/ui.scss */
+/* line 99, ../../stylesheets/ui.scss */
 header.toolbar a.back, header.toolbar a.channel {
-  left: 65px;
   margin-left: 21px;
   width: 85px;
   border-right: 1px solid #EEE;
@@ -806,7 +806,6 @@ header.toolbar a.back, header.toolbar a.channel {
 }
 /* line 112, ../../stylesheets/ui.scss */
 header.toolbar a.follow {
-  left: 172px;
   margin-left: 13px;
   padding-left: 14px;
   width: 77px;
@@ -819,12 +818,10 @@ header.toolbar a.follow {
   font-family: Georgia, "proxima_nova_regular";
   line-height: 50px;
 }
-/* line 127, ../../stylesheets/ui.scss */
-header.toolbar > h1 {
-  overflow: hidden;
-  margin: 0 auto;
-  vertical-align: middle;
-  text-align: center;
+/* line 126, ../../stylesheets/ui.scss */
+header.toolbar .title {
+  position: absolute;
+  left: 50%;
   text-transform: uppercase;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -834,54 +831,59 @@ header.toolbar > h1 {
   font-family: "proxima_nova_ltregular";
   line-height: 50px;
 }
-/* line 141, ../../stylesheets/ui.scss */
-header.toolbar > h1.dropdown-arrow:after {
+/* line 138, ../../stylesheets/ui.scss */
+header.toolbar .title span {
+  position: relative;
+  left: -50%;
+}
+/* line 142, ../../stylesheets/ui.scss */
+header.toolbar .title span:after {
   display: inline-block;
   width: 18px;
   height: 11px;
   background: url("/images/down-arrow.png") no-repeat center;
   content: "";
 }
-/* line 150, ../../stylesheets/ui.scss */
+/* line 152, ../../stylesheets/ui.scss */
 header.toolbar div.actions {
   position: absolute;
   top: 0px;
   right: 0px;
 }
-/* line 155, ../../stylesheets/ui.scss */
+/* line 157, ../../stylesheets/ui.scss */
 header.toolbar div.actions a {
   width: 56px;
   border-left: 1px solid #eee;
 }
-/* line 160, ../../stylesheets/ui.scss */
+/* line 162, ../../stylesheets/ui.scss */
 header.toolbar div.actions .heart {
   right: 114px;
   background: url("/images/action-like.png") no-repeat center;
 }
-/* line 165, ../../stylesheets/ui.scss */
+/* line 167, ../../stylesheets/ui.scss */
 header.toolbar div.actions .collect {
   right: 57px;
   background: url("/images/action-collect.png") no-repeat center;
 }
-/* line 170, ../../stylesheets/ui.scss */
+/* line 172, ../../stylesheets/ui.scss */
 header.toolbar div.actions .share {
   right: 0px;
   background: url("/images/action-share.png") no-repeat center;
 }
 
 /*      Discover menu   */
-/* line 185, ../../stylesheets/ui.scss */
+/* line 187, ../../stylesheets/ui.scss */
 #discover {
   background: white;
   position: absolute;
   z-index: 100;
   height: 1000px;
 }
-/* line 190, ../../stylesheets/ui.scss */
+/* line 192, ../../stylesheets/ui.scss */
 #discover header {
   padding: 40px 20px;
 }
-/* line 193, ../../stylesheets/ui.scss */
+/* line 195, ../../stylesheets/ui.scss */
 #discover header input[type=search] {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -898,12 +900,12 @@ header.toolbar div.actions .share {
   border: 1px solid #ddd;
   width: 100%;
 }
-/* line 203, ../../stylesheets/ui.scss */
+/* line 205, ../../stylesheets/ui.scss */
 #discover header input[type=search]:focus {
   box-shadow: 0 0 5px #0064ff;
   outline: 0;
 }
-/* line 211, ../../stylesheets/ui.scss */
+/* line 213, ../../stylesheets/ui.scss */
 #discover ul#category {
   list-style: none;
   padding: 0;
@@ -913,7 +915,7 @@ header.toolbar div.actions .share {
   background: #eee;
   float: left;
 }
-/* line 220, ../../stylesheets/ui.scss */
+/* line 222, ../../stylesheets/ui.scss */
 #discover ul#category li {
   font-size: 14px;
   font-family: "HelveticaNeue-Light";
@@ -926,29 +928,29 @@ header.toolbar div.actions .share {
   padding: 0 25px;
   border-top: 1px solid #ddd;
 }
-/* line 232, ../../stylesheets/ui.scss */
+/* line 234, ../../stylesheets/ui.scss */
 #discover ul#category a {
   display: block;
   color: #444;
 }
-/* line 237, ../../stylesheets/ui.scss */
+/* line 239, ../../stylesheets/ui.scss */
 #discover ul#category li:hover {
   background: #e6e6e6;
 }
-/* line 241, ../../stylesheets/ui.scss */
+/* line 243, ../../stylesheets/ui.scss */
 #discover ul#category li.active {
   background: #ccc;
 }
-/* line 246, ../../stylesheets/ui.scss */
+/* line 248, ../../stylesheets/ui.scss */
 #discover ul#category > ul li {
   padding-left: 40px;
   font-weight: normal;
 }
-/* line 250, ../../stylesheets/ui.scss */
+/* line 252, ../../stylesheets/ui.scss */
 #discover ul#category > ul li a {
   color: #ccc;
 }
-/* line 256, ../../stylesheets/ui.scss */
+/* line 258, ../../stylesheets/ui.scss */
 #discover ul.channels {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -960,7 +962,7 @@ header.toolbar div.actions .share {
   width: 100%;
   height: 100%;
 }
-/* line 265, ../../stylesheets/ui.scss */
+/* line 267, ../../stylesheets/ui.scss */
 #discover ul.channels li {
   position: relative;
   -webkit-box-sizing: border-box;
@@ -976,7 +978,7 @@ header.toolbar div.actions .share {
   margin-right: 20px;
   margin-bottom: 20px;
 }
-/* line 279, ../../stylesheets/ui.scss */
+/* line 281, ../../stylesheets/ui.scss */
 #discover ul.channels .action {
   font-family: "Georgia";
   position: absolute;
@@ -999,11 +1001,11 @@ header.toolbar div.actions .share {
   color: white;
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
-/* line 299, ../../stylesheets/ui.scss */
+/* line 301, ../../stylesheets/ui.scss */
 #discover ul.channels .action:hover {
   background: rgba(255, 255, 255, 0.2);
 }
-/* line 303, ../../stylesheets/ui.scss */
+/* line 305, ../../stylesheets/ui.scss */
 #discover ul.channels .action.view {
   left: 130px;
 }
