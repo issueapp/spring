@@ -75,28 +75,28 @@ header.toolbar {
   z-index: 2;
   border-bottom: 1px solid #eee;
   a {
-    position: absolute;
-    display: inline-block;
     height: 50px;
     cursor: pointer;
   }
 
+  a.menu, a.back, a.channel, a.follow {
+    float: left;
+  }
+
   a.menu {
-    left: 0;
     width: 64px;
     border-right: 1px solid #EEE;
     background: url('/images/icon-reorder.png') no-repeat center;
   }
 
   a.type {
-    right: 0;
+    float: right;
     width: 64px;
     border-left: 1px solid #EEE;
     background: url('/images/icon-filter.png') no-repeat center;
   }
 
   a.back, a.channel {
-    left: 65px;
     margin-left: 21px;
     width: 85px;
     border-right: 1px solid #EEE;
@@ -110,7 +110,6 @@ header.toolbar {
   }
 
   a.follow {
-    left: 172px;
     margin-left: 13px;
     padding-left: 14px;
     width: 77px;
@@ -124,11 +123,9 @@ header.toolbar {
     line-height: 50px;
   }
 
-  & > h1 {
-    overflow: hidden;
-    margin: 0 auto;
-    vertical-align: middle;
-    text-align: center;
+  .title {
+    position: absolute;
+    left: 50%;
     text-transform: uppercase;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -138,12 +135,17 @@ header.toolbar {
     font-family: "proxima_nova_ltregular";
     line-height: 50px;
 
-    &.dropdown-arrow:after {
-      display: inline-block;
-      width: 18px;
-      height: 11px;
-      background: url("/images/down-arrow.png") no-repeat center;
-      content: "";
+    span {
+      position: relative;
+      left: -50%;
+
+      &:after {
+        display: inline-block;
+        width: 18px;
+        height: 11px;
+        background: url("/images/down-arrow.png") no-repeat center;
+        content: "";
+      }
     }
   }
 

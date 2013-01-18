@@ -5,7 +5,7 @@ class App.Toolbar extends Backbone.View
     'touchstart a.back': 'back'
     'touchend a.menu': 'menu'
     'touchend a.type': 'filter'
-    'touchend h1': 'collection'
+    'touchend .title': 'collection'
     'touchend #filter-dropdown a': 'toggleFilterStatus'
     'touchend #collection-dropdown li': 'toggleCollectionStatus'
 
@@ -14,7 +14,7 @@ class App.Toolbar extends Backbone.View
     @typeBtn = true
     @popover_template = $('#popover_tpl').html()
 
-    @titleTag = this.$('h1')
+    @titleTag = this.$('.title')
     @followButton = this.$('a.follow')
 
     @backButton = this.$('a.back')
@@ -36,7 +36,8 @@ class App.Toolbar extends Backbone.View
 
     # Build step
     if typeof(options.title) == "string"
-      @titleTag.html(@title = options.title)
+      @title = options.title
+      @titleTag.html('<span>'+@title+'</span>')
 
     # back button on content view page
     if @backButton.length == 0
