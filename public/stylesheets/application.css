@@ -1137,31 +1137,35 @@ header.toolbar div.actions .share {
   border-right-color: #EEE;
   border-right-style: solid;
 }
-/* line 140, ../../stylesheets/item.scss */
+/* line 133, ../../stylesheets/item.scss */
+.page .row .col:first-child .product.item .price {
+  margin-bottom: 43px;
+}
+/* line 144, ../../stylesheets/item.scss */
 .page .product .overlay, .page .no-description .overlay {
   height: 90%;
 }
-/* line 144, ../../stylesheets/item.scss */
+/* line 148, ../../stylesheets/item.scss */
 .page .product .image, .page .no-description .image {
   display: block;
   height: 90%;
 }
-/* line 152, ../../stylesheets/item.scss */
+/* line 156, ../../stylesheets/item.scss */
 .page .no-image .title {
   font-size: 200%;
   overflow: hidden;
   text-overflow: ellipsis;
   -webkit-line-clamp: 3 !important;
 }
-/* line 159, ../../stylesheets/item.scss */
+/* line 163, ../../stylesheets/item.scss */
 .page .no-image .overlay {
   height: 100%;
 }
-/* line 163, ../../stylesheets/item.scss */
+/* line 167, ../../stylesheets/item.scss */
 .page .no-image .image {
   display: none;
 }
-/* line 167, ../../stylesheets/item.scss */
+/* line 171, ../../stylesheets/item.scss */
 .page .no-image .description {
   visibility: visible !important;
   display: block;
@@ -1172,17 +1176,17 @@ header.toolbar div.actions .share {
   display: -webkit-box;
   -webkit-box-orient: vertical;
 }
-/* line 182, ../../stylesheets/item.scss */
+/* line 186, ../../stylesheets/item.scss */
 .page .product .info {
   height: 10%;
 }
-/* line 186, ../../stylesheets/item.scss */
+/* line 190, ../../stylesheets/item.scss */
 .page .product .price {
   display: block;
   position: absolute;
   font-size: 12px;
-  left: 20px;
-  top: 20px;
+  right: 20px;
+  bottom: 34px;
   padding: 9px 18px;
   height: 20px;
   line-height: 20px;
@@ -1191,7 +1195,7 @@ header.toolbar div.actions .share {
   background: rgba(0, 0, 0, 0.8);
   color: white;
 }
-/* line 202, ../../stylesheets/item.scss */
+/* line 206, ../../stylesheets/item.scss */
 .page .product .price:before {
   position: absolute;
   left: 50%;
@@ -1204,11 +1208,11 @@ header.toolbar div.actions .share {
   border-width: 7px;
   border-top-color: rgba(0, 0, 0, 0.8);
 }
-/* line 216, ../../stylesheets/item.scss */
+/* line 220, ../../stylesheets/item.scss */
 .page .product .info p {
   visibility: hidden;
 }
-/* line 220, ../../stylesheets/item.scss */
+/* line 224, ../../stylesheets/item.scss */
 .page .product .counters {
   color: #DF5454;
   font-size: 14px;
@@ -1218,15 +1222,15 @@ header.toolbar div.actions .share {
   z-index: 1;
   line-height: 12px;
 }
-/* line 235, ../../stylesheets/item.scss */
+/* line 239, ../../stylesheets/item.scss */
 .page .item.split .overlay {
   height: 100%;
 }
-/* line 239, ../../stylesheets/item.scss */
+/* line 243, ../../stylesheets/item.scss */
 .page .item.split a.action.love, .page .item.split a.action.collect {
   top: 50%;
 }
-/* line 243, ../../stylesheets/item.scss */
+/* line 247, ../../stylesheets/item.scss */
 .page .item.split .image {
   overflow: hidden;
   display: inline-block;
@@ -1236,7 +1240,7 @@ header.toolbar div.actions .share {
   top: initial;
   vertical-align: middle;
 }
-/* line 253, ../../stylesheets/item.scss */
+/* line 257, ../../stylesheets/item.scss */
 .page .item.split .info:before {
   position: absolute;
   bottom: 60%;
@@ -1249,7 +1253,7 @@ header.toolbar div.actions .share {
   border-width: 10px;
   border-right-color: #fff;
 }
-/* line 267, ../../stylesheets/item.scss */
+/* line 271, ../../stylesheets/item.scss */
 .page .item.split .info {
   margin: 0;
   width: 49%;
@@ -1259,7 +1263,7 @@ header.toolbar div.actions .share {
   position: relative;
   height: 100%;
 }
-/* line 276, ../../stylesheets/item.scss */
+/* line 280, ../../stylesheets/item.scss */
 .page .item.split .info > p {
   font-size: 105%;
   visibility: visible;
@@ -1267,15 +1271,12 @@ header.toolbar div.actions .share {
   max-height: inherit;
   text-overflow: ellipsis;
 }
-/* line 285, ../../stylesheets/item.scss */
+/* line 289, ../../stylesheets/item.scss */
 .page .item.split .price {
-  display: block;
-  position: absolute;
-  top: 0;
-  left: -102%;
-  color: white;
+  bottom: 13px;
+  right: 0;
 }
-/* line 293, ../../stylesheets/item.scss */
+/* line 304, ../../stylesheets/item.scss */
 .page .item.split .via {
   position: absolute;
   bottom: 0;
