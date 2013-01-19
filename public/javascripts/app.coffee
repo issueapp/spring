@@ -119,7 +119,6 @@ class App.Router extends Backbone.Router
     if App.toolbar
       App.toolbar.render(title: title, typeBtn: false, backBtn: false, actionsBtn: false)
 
-    # $('div.landing').hide() if $.fn.cookie('seenLandingPage') == "1"
     $('#sections .pages').addClass('horizontal')
     $('#sections #noContent').remove()
     $('#content .pages').html('')
@@ -138,7 +137,6 @@ class App.Router extends Backbone.Router
       url = url + "?sort=published_at"
 
     # Only fetch new stream content when URL is different
-
     if url && url != App.stream.url
       spinner = new Spinner().spin()
       $('#sections').append(spinner.el)
