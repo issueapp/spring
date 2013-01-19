@@ -129,6 +129,7 @@ class App.StreamView extends Backbone.View
 
       # Snap to the right
       @el.style.webkitTransform = 'translate3d(0,0,0)' if @offset == 0
+      @el.style.webkitTransform = 'translate3d(' + @offset + 'px,0,0)' if !target?
 
       e.preventDefault()
 
@@ -238,12 +239,12 @@ class App.StreamView extends Backbone.View
       step = parseInt(@limit/2)
 
       # Far prev
-      if this.$el.find('.padding').css('width') != '0px'
-        # @fetchPage = 'prepend'
+      if this.$el.find('.padding').css('width') != '0px' && @currentIndex != 1
         farNext = this.prependPage()
         this.clearPage('prepend')
 
       else
+        App.PageView.templateIndex -= 3 if @currentIndex != 0
         farPrev = @pages[@currentIndex - step]
 
     page
