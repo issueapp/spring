@@ -1,5 +1,5 @@
 <article class="product page" data-handle="{{ handle }}">
-  <div class="col half">  
+  <div class="col half">
     {{#image_url}}
     <!-- <div class="image">
       <img width="{{ image_width }}" height="{{ image_height }}" src="{{image_url}}"/>
@@ -16,9 +16,8 @@
       {{/brand}}
       <p class="price">
         <span>{{ price }}</span>
-        <!-- <span>{{ comparison_price }}</span> -->
       </p>
-      <a class="store" href="{{ url }}" target="_blank">buy now ></a>
+      <a class="store" rel="external" href="{{ url }}" target="_blank">buy now ></a>
 
       <p class="description">
       {{ #description }}
