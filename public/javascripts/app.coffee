@@ -1,11 +1,3 @@
-Environment = {
-  host: "shop2.com"
-    # if /localhost/.test window.location.host
-    #   "shop2.com"
-    # else
-    #   window.location.host.split(".").slice(-2).join(".")
-}
-
 # Application bootstrap
 this.App ||= {
   standalone: window.navigator.standalone
@@ -13,25 +5,24 @@ this.App ||= {
   streams: {
     top_content: {
       title: "Top Content"
-      url: "http://#{Environment.host}/taylorluk/items.json"
+      url: "http://shop2.com/taylorluk/items.json"
       default: true
     }
     editors_choices: {
       title: "Editors choices"
-      url: "http://#{Environment.host}/taylorluk/items.json"
+      url: "http://shop2.com/taylorluk/items.json"
     }
     mens: {
       title: "Mens"
-      url: "http://#{Environment.host}/interests/mens.json"
+      url: "http://shop2.com/interests/mens.json"
     }
     womens: {
       title: "Womens"
-      url: "http://#{Environment.host}/interests/womens.json"
+      url: "http://shop2.com/interests/womens.json"
     }
   }
 
   init: ->
-
     # All link should be internal /!#/path
     $('a:not([rel="external"])').live "click", (e) ->
       # unless @silentClick
