@@ -852,38 +852,44 @@ header.toolbar div.actions {
 }
 /* line 157, ../../stylesheets/ui.scss */
 header.toolbar div.actions a {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
   width: 56px;
   border-left: 1px solid #eee;
 }
-/* line 162, ../../stylesheets/ui.scss */
+/* line 163, ../../stylesheets/ui.scss */
 header.toolbar div.actions .heart {
   right: 114px;
   background: url("/images/action-like.png") no-repeat center;
 }
-/* line 167, ../../stylesheets/ui.scss */
+/* line 168, ../../stylesheets/ui.scss */
 header.toolbar div.actions .collect {
   right: 57px;
   background: url("/images/action-collect.png") no-repeat center;
 }
-/* line 172, ../../stylesheets/ui.scss */
+/* line 173, ../../stylesheets/ui.scss */
 header.toolbar div.actions .share {
   right: 0px;
   background: url("/images/action-share.png") no-repeat center;
 }
 
 /*      Discover menu   */
-/* line 187, ../../stylesheets/ui.scss */
+/* line 188, ../../stylesheets/ui.scss */
 #discover {
   background: white;
   position: absolute;
   z-index: 100;
   height: 1000px;
 }
-/* line 192, ../../stylesheets/ui.scss */
+/* line 193, ../../stylesheets/ui.scss */
 #discover header {
   padding: 40px 20px;
 }
-/* line 195, ../../stylesheets/ui.scss */
+/* line 196, ../../stylesheets/ui.scss */
 #discover header input[type=search] {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -900,12 +906,12 @@ header.toolbar div.actions .share {
   border: 1px solid #ddd;
   width: 100%;
 }
-/* line 205, ../../stylesheets/ui.scss */
+/* line 206, ../../stylesheets/ui.scss */
 #discover header input[type=search]:focus {
   box-shadow: 0 0 5px #0064ff;
   outline: 0;
 }
-/* line 213, ../../stylesheets/ui.scss */
+/* line 214, ../../stylesheets/ui.scss */
 #discover ul#category {
   list-style: none;
   padding: 0;
@@ -915,7 +921,7 @@ header.toolbar div.actions .share {
   background: #eee;
   float: left;
 }
-/* line 222, ../../stylesheets/ui.scss */
+/* line 223, ../../stylesheets/ui.scss */
 #discover ul#category li {
   font-size: 14px;
   font-family: "HelveticaNeue-Light";
@@ -928,29 +934,29 @@ header.toolbar div.actions .share {
   padding: 0 25px;
   border-top: 1px solid #ddd;
 }
-/* line 234, ../../stylesheets/ui.scss */
+/* line 235, ../../stylesheets/ui.scss */
 #discover ul#category a {
   display: block;
   color: #444;
 }
-/* line 239, ../../stylesheets/ui.scss */
+/* line 240, ../../stylesheets/ui.scss */
 #discover ul#category li:hover {
   background: #e6e6e6;
 }
-/* line 243, ../../stylesheets/ui.scss */
+/* line 244, ../../stylesheets/ui.scss */
 #discover ul#category li.active {
   background: #ccc;
 }
-/* line 248, ../../stylesheets/ui.scss */
+/* line 249, ../../stylesheets/ui.scss */
 #discover ul#category > ul li {
   padding-left: 40px;
   font-weight: normal;
 }
-/* line 252, ../../stylesheets/ui.scss */
+/* line 253, ../../stylesheets/ui.scss */
 #discover ul#category > ul li a {
   color: #ccc;
 }
-/* line 258, ../../stylesheets/ui.scss */
+/* line 259, ../../stylesheets/ui.scss */
 #discover ul.channels {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -962,7 +968,7 @@ header.toolbar div.actions .share {
   width: 100%;
   height: 100%;
 }
-/* line 267, ../../stylesheets/ui.scss */
+/* line 268, ../../stylesheets/ui.scss */
 #discover ul.channels li {
   position: relative;
   -webkit-box-sizing: border-box;
@@ -978,7 +984,7 @@ header.toolbar div.actions .share {
   margin-right: 20px;
   margin-bottom: 20px;
 }
-/* line 281, ../../stylesheets/ui.scss */
+/* line 282, ../../stylesheets/ui.scss */
 #discover ul.channels .action {
   font-family: "Georgia";
   position: absolute;
@@ -1001,11 +1007,11 @@ header.toolbar div.actions .share {
   color: white;
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
-/* line 301, ../../stylesheets/ui.scss */
+/* line 302, ../../stylesheets/ui.scss */
 #discover ul.channels .action:hover {
   background: rgba(255, 255, 255, 0.2);
 }
-/* line 305, ../../stylesheets/ui.scss */
+/* line 306, ../../stylesheets/ui.scss */
 #discover ul.channels .action.view {
   left: 130px;
 }
