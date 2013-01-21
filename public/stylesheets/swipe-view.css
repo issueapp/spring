@@ -40,30 +40,31 @@
 
 /* line 47, ../../stylesheets/swipe-view.scss */
 #content .page {
-  padding: 22px 0 22px 22px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 22px 22px 22px 22px;
   overflow: hidden;
   font-family: 'proxima_nova_regular';
 }
-/* line 52, ../../stylesheets/swipe-view.scss */
+/* line 55, ../../stylesheets/swipe-view.scss */
 #content .page .info {
   margin: 0 22px;
 }
-/* line 56, ../../stylesheets/swipe-view.scss */
+/* line 59, ../../stylesheets/swipe-view.scss */
 #content .page .title {
   margin: 0;
-  padding: 70px 0 0;
   color: #2c2c2c;
   font-weight: normal;
   font-size: 23px;
   font-family: 'proxima_nova_bold';
 }
-/* line 65, ../../stylesheets/swipe-view.scss */
+/* line 67, ../../stylesheets/swipe-view.scss */
 #content .page .price span:first-child {
   color: #2c2c2c;
   font-size: 18px;
   font-family: 'proxima_nova_bold';
 }
-/* line 72, ../../stylesheets/swipe-view.scss */
+/* line 74, ../../stylesheets/swipe-view.scss */
 #content .page .store {
   position: absolute;
   top: 120px;
@@ -75,48 +76,40 @@
   font-size: 14px;
   font-family: 'proxima_nova_bold';
 }
-/* line 84, ../../stylesheets/swipe-view.scss */
+/* line 86, ../../stylesheets/swipe-view.scss */
 #content .page .source {
   margin: 0;
   color: #666;
   font-size: 12px;
 }
-/* line 88, ../../stylesheets/swipe-view.scss */
+/* line 90, ../../stylesheets/swipe-view.scss */
 #content .page .source span {
   color: #2c2c2c;
 }
-/* line 92, ../../stylesheets/swipe-view.scss */
+/* line 94, ../../stylesheets/swipe-view.scss */
 #content .page .description {
   padding-top: 25px;
   font-size: 16px;
 }
-/* line 98, ../../stylesheets/swipe-view.scss */
+/* line 100, ../../stylesheets/swipe-view.scss */
 #content .content.page {
-  padding: 22px;
+  overflow: auto;
   margin: 0;
 }
-/* line 102, ../../stylesheets/swipe-view.scss */
-#content .content.page .title {
-  margin: 0.5em 0;
+/* line 105, ../../stylesheets/swipe-view.scss */
+#content .content.page header {
+  margin: 0 0 18px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
 }
-/* line 106, ../../stylesheets/swipe-view.scss */
+/* line 115, ../../stylesheets/swipe-view.scss */
 #content .content.page .author, #content .content.page .published-at {
   color: #333;
   font-family: Georgia;
   font-style: italic;
 }
-/* line 112, ../../stylesheets/swipe-view.scss */
+/* line 121, ../../stylesheets/swipe-view.scss */
 #content .content.page .body {
-  -webkit-column-count: 2;
-  -moz-column-count: 2;
-  -ms-column-count: 2;
-  -o-column-count: 2;
-  column-count: 2;
-  -webkit-column-gap: 40px;
-  -moz-column-gap: 40px;
-  -ms-column-gap: 40px;
-  -o-column-gap: 40px;
-  column-gap: 40px;
   font-size: 13px;
   line-height: 18px;
   color: #222;
@@ -124,12 +117,19 @@
   text-align: justify;
   -webkit-hyphens: auto;
 }
-/* line 124, ../../stylesheets/swipe-view.scss */
+/* line 133, ../../stylesheets/swipe-view.scss */
 #content .content.page iframe {
   width: 100% !important;
 }
-/* line 128, ../../stylesheets/swipe-view.scss */
-#content .content.page * {
-  margin: 0 !important;
-  padding: 0 !important;
+/* line 143, ../../stylesheets/swipe-view.scss */
+#content .content.page .body p {
+  margin: 1.2em 0 !important;
+}
+/* line 147, ../../stylesheets/swipe-view.scss */
+#content .content.page .body img {
+  box-sizing: border-box;
+  clear: both;
+  display: block;
+  float: none;
+  margin: 0 auto;
 }

@@ -45,15 +45,8 @@ class App.Toolbar extends Backbone.View
       @titleTag.before(@backButton)
 
     @backButton.toggle(options.backBtn)
-
+    
     # channel button on stream view page, can be anything which users can follow
-    if @channelButton.length == 0
-      @channelButton = $(this.make('a', { href: '#stream', class: 'channel'}, 'Taylor'))
-      @titleTag.before(@channelButton)
-
-    @channelButton.toggle(options.channelBtn)
-
-    # follow button on stream view page
     if @followButton.length == 0
       @followButton = $(this.make('a', { href: '#stream', class: 'follow'}, 'follow'))
       @titleTag.before(@followButton)
@@ -70,9 +63,9 @@ class App.Toolbar extends Backbone.View
     # actions button on content view page - love, collect and share
     if @actionsButton.length == 0
       @actionsButton = $('<div class="actions">
-        <a class="heart"></a>
-        <a class="collect"></a>
-        <a class="share"></a>
+        <a class="heart"> </a>
+        <a class="collect"> </a>
+        <a class="share"> </a>
       </div>')
       this.$el.append(@actionsButton)
 
