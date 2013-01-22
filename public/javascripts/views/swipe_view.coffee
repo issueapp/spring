@@ -40,6 +40,7 @@ class App.SwipeView extends Backbone.View
 
     swipeLeft: "moveRight"
     swipeRight: "moveLeft"
+    'click .page.current #image-gallery img': 'iniGalleryView'
 
   initialize: (data)->
     # @viewport ||= @el.parentNode.offsetWidth
@@ -50,6 +51,7 @@ class App.SwipeView extends Backbone.View
 
     # Set current page
     @currentPage = this.$('.current').eq(0)
+
     if @currentPage.length == 0
       @currentPage = $(@el).children(":not(.padding)").first().addClass('current')
 
@@ -62,6 +64,11 @@ class App.SwipeView extends Backbone.View
       switch (e.which || e.keyCode)
         when 190 then this.moveRight()
         when 188 then this.moveLeft()
+
+  iniGalleryView: (e)->
+    $('#gallery .swipe').append('<div class="page">'+ $('.current #image-gallery li.main').html() + '</div>')
+    $('#gallery .swipe').append('<div class="page next loading">Loading...</div>')
+    this.trigger("initGalleryView", this)
 
   onTouch: (e) ->
     e = e.touches[0] if e.touches
@@ -77,7 +84,7 @@ class App.SwipeView extends Backbone.View
     delta = e.clientX - @startClientX
     # moveDelta = e.clientX - @currentClientX
     # console.log(@offset + delta * 1.1)
-    
+
     this.updatePos(@offset + delta)
 
     @currentClientX = e.clientX
