@@ -104,8 +104,18 @@
       #content {
         white-space: nowrap;
       }
+      
       .transition {
         -webkit-transition:opacity 0.5s ease;
+      }
+      
+      .zoom:hover { 
+         -moz-transform: scale(1.4);
+         -webkit-transform: scale(1.4);
+         -o-transform: scale(1.4);
+         transform: scale(1.4);
+         -ms-transform: scale(1.4);
+         filter: progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=2, M12=-0, M21=0, M22=2);
       }
       .page.padding {
         width: 0;
@@ -127,6 +137,15 @@
   <body>
     <div class="landing transition" style="opacity:0">
       <h1 class="logo"></h1>
+      
+      <div class="featured">
+        <h3>Featured</h3>
+        <ul>
+          <li>Preview: Adventure issue </li>
+          <li>Topman is here </li>
+          <li>Profresh style</li>
+      </div>
+      
       <div class="welcome">
         <p>your edition</p>
         <p>of personalized magazine</p>
@@ -141,7 +160,7 @@
       </div>
     </div>
 
-    <nav id="menu" style="position:absolute;top:0;left:0;height:100%;z-index:999">
+    <nav id="menu" class="animate" style="position:absolute;top:0;left:0;height:100%;z-index:999">
       <ul class="navigation">
         <li class="logo"><a href="/users/taylorluk"></a></li>
 

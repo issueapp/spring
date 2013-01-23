@@ -210,15 +210,44 @@ article.page {
 .landing {
   margin-left: 260px;
   height: 100%;
-  background-image: url(/images/landing_stargates_modified.png);
+  
+  background-color: #000;
+  background-image: url(/images/cover-girl-bus.jpeg);
   background-position: center;
   background-size: cover;
   color: white;
   font-family: "proxima-nova", sans-serif;
 
+  .featured {
+    width: 30%;
+    float: right;
+    padding: 0 20px;
+
+    h3 {
+      top: 20px;
+      font-size: 16px;
+      color: #666;
+      text-transform: uppercase;
+      text-align:right;
+
+    }
+    ul {
+      list-style: none;
+      text-transform: uppercase;
+      text-align:right;
+      font-size: 16px;
+      line-height: 24px;
+      color: #eee;
+    }
+  }
+
   .logo {
+    opacity: 0.3;
+    position:absolute;
+    right: 20px;
+    bottom: 0;
     padding: 38px 0 0 105px;
-    height: 100px;
+    height: 60px;
     background: url("/images/logo.png") no-repeat 20px 20px;
     color: white;
     font-size: 22px;
