@@ -45,7 +45,7 @@ class App.StreamView extends Backbone.View
     this.$el.off()
 
     @padding = $('<div class="page padding" style="visibility:hidden;width:0;padding:0;border:0;font-size:0">').appendTo(@el)
-
+    
     @toolbar = App.toolbar || new App.Toolbar
 
     # Render stream once data is loaded
@@ -203,10 +203,10 @@ class App.StreamView extends Backbone.View
     this.updatePadding()
 
   # Convient helpers
-  getScroller: ->
-    if directions == undefined
-      directions = scrollability && scrollability.directions
-    directions && directions.horizontal(@el)
+  # getScroller: ->
+  #   if directions == undefined
+  #     directions = scrollability && scrollability.directions
+  #   directions && directions.horizontal(@el)
 
   firstPage: -> @pages[0]
 
@@ -352,7 +352,6 @@ class App.StreamView extends Backbone.View
 
   render: ->
     firstRender = @pages.length == 0
-    @scroller ||= this.getScroller()
 
     until @pages.length == @limit
       page = this.appendPage(false)
@@ -377,3 +376,9 @@ class App.StreamView extends Backbone.View
   updateBackgroundImage: (target) ->
     target.find('.image').forEach (item) ->
       $(item).css("background-image", 'url(' + $(item).data('original') + ')') if $(item).data('original')
+      
+  show: ->
+    this.$el.animate({opacity: 1}, 150)
+  
+  hide: ->
+    this.$el.css('opacity', '0')

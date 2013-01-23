@@ -1,45 +1,19 @@
 # Application bootstrap
 this.App ||= {
   standalone: window.navigator.standalone
-
-  streams: {
-    top_content: {
-      title: "Top Content"
-      url: "http://shop2.com/taylorluk/items.json"
-      default: true
-    }
-    editors_choices: {
-      title: "Editors choices"
-      url: "http://shop2.com/taylorluk/items.json"
-    }
-    mens: {
-      title: "Mens"
-      url: "http://shop2.com/interests/mens.json"
-    }
-    womens: {
-      title: "Womens"
-      url: "http://shop2.com/interests/womens.json"
-    }
-  }
-
+  touch: !!('ontouchstart' in window)
+  
   init: ->
-    # All link should be internal /!#/path
-    $('a:not([rel="external"])').live "click", (e) ->
-      # unless @silentClick
-      link = $(e.currentTarget).attr('href')
-      App.router.navigate(link, { trigger: true })
-
-      e.preventDefault()
-      false
-
     @layout = new App.Layout
     @router = new App.Router
-
+    @discover = new App.DiscoverMenu
+    
     @menu = new App.MenuView
     @toolbar = new App.Toolbar
 
     @stream = new App.StreamCollection
     @streamView = new App.StreamView( el: '#sections .pages', layout: @layout, collection: @stream )
+    @contentView ||= new App.ContentView
 
     Backbone.history.start()
 
@@ -47,111 +21,144 @@ this.App ||= {
       $('.landing').hide()
     else
       $('.landing').css('opacity', '1')
+      
+    # All link should be internal /!#/path # unless @silentClick
+    $('a:not([rel="external"])').live "click", (e) ->
+      link = $(e.currentTarget).attr('href')
+      App.router.navigate(link, { trigger: true })
+      e.preventDefault()
+      false
 }
 
 class App.Router extends Backbone.Router
   routes:
-    "stream":           "home"
-    "section":          "home"
-    "items/:handle": "content"
-    "discover": "discover"
-    ":type/:handle": "channel"
+    "stream":                     "home"
+    "section":                    "home"
+    "items/:handle":              "content"
+    
+    "discover":                   "discover"
+    "discover/:category":         "discover"
+    
+    ":type/:handle":              "channel"
 
   initialize: (options)->
     this.route(/.*\?type=(\w+)/, "filter")
 
+  home: ->
+    $('.landing').hide()
+    this.channel("stream")
+
   # View a channel in a stream format
   channel: (type, handle)->
-    # toggle toolbar
     App.menu.toggle(false)
+    App.contentView.clear()
     $('#discover').hide()
-    url = ""
-
-    switch type
+    
+    # Default to stream stream url
+    url = switch type
       when "users"
-        url = "http://shop2.com/#{handle}/items.json"
+        this.url_for("#{handle}")
       when "sites"
-        url = "http://shop2.com/sites/#{handle}/items.json"
+        this.url_for("sites/#{handle}")
       when "interests"
-        url = "http://shop2.com/interests/#{handle}.json"
-
-    if !App.stream || App.stream.title != handle
-      title = handle
-      this.resetView(url, title)
+        this.url_for("interests/#{handle}")
+      else
+        this.url_for("taylorluk")
+    
+    if !App.stream || (App.stream && App.stream.url != url)
+      this.resetView(url, handle)
     else
       this.backToStream()
 
   filter: (type)->
-    url = App.stream.url
-    title = App.stream.title
-    this.resetView(url, title, type)
-
-  home: ->
-    $('.landing').hide()
-    $('#discover').hide()
-    if !App.stream || App.streamView.title != App.streams.top_content.title
-      url = App.streams.top_content.url
-      title = App.streams.top_content.title
-      this.resetView(url, title)
+    if type != undefined
+      url = App.stream.url.replace(/\.json(\?.*)/, '.json') + "?sort=published_at&type=" + type
     else
-      this.backToStream()
+      url = App.stream.url + "?sort=published_at"
+    title = App.stream.title
+    
+    this.resetView(url, title)
 
-  discover: ->
-    # App.discover = new App.DiscoverView
-    $('#discover').show()
-
+  discover: (category)->
     $('.landing').hide()
-    # this.resetView()
-    App.menu.toggle(true)
+    
+    # alert(Backbone.history.fragment)
+
+    # App.discover = new App.DiscoverView
+
+    App.discover.collection = App.channels
+    App.discover.render(category)
+    App.menu.render()
 
   content: (handle) ->
-    App.streamView.$el.css('opacity', '0')
-    content = App.stream.find (item)-> item.get('handle') == handle
-    App.contentView ||= new App.ContentView
-
-    App.contentView.resetAttrs()
-    App.contentView.model = content
-    App.contentView.render()
-
+    App.streamView.hide()
+    App.contentView.show()
+    
+    # Might need to delay rendering when page is loading
+    renderer = (content)->
+      App.contentView.resetAttrs()
+      App.contentView.model = content
+      App.contentView.render()
+    
+    # fetch item from collection
+    if App.stream.length > 0
+      content = App.stream.find (item)-> item.get('handle') == handle
+      renderer(content)
+    else
+    # request a new item
+      product = new Backbone.Model
+      
+      product.fetch({ 
+        dataType: "jsonp", url: this.url_for("items/#{handle}"), 
+        success: (data)-> renderer(product)
+      })
+  
+  url_for: (path)->
+    "http://shop2.com/#{path}/items.json"
+  
+  # Set view to default state
+  # This is a work around when we change between different view containers.
   resetView: (url, title, type)->
-    $('#discover').hide()
-
+    
+    # reset toolbar to default states.
     if App.toolbar
       App.toolbar.render(title: title, typeBtn: false, backBtn: false, actionsBtn: false)
-
-    $('#sections .pages').addClass('horizontal')
-    $('#sections #noContent').remove()
-    $('#content .pages').html('')
-    $(document).off('keydown')
-
-    # reset filter dropdown view-all to active when swithcing channels
+    
+      # reset filter dropdown view-all to active when swithcing channels
     if url && url != App.stream.url
       dropdown = $('#sections #filter-dropdown')
       dropdown.find('.active').removeClass('active')
       dropdown.find('.view-all').addClass('active')
-
-    # Target resource url
-    if type != undefined
-      url = url.replace(/\.json(\?.*)/, '.json') + "?sort=published_at&type=" + type
-    else
-      url = url + "?sort=published_at"
-
+    
+    # Section views reset
+    $('#sections .pages').addClass('horizontal')
+    $('#content .pages').html('')
+    
+    # Shouldn't new render replace it?
+    $('#sections #noContent').remove()
+    
+    $(document).off('keydown')
+    
+    # TODO: this code block like fetching the stream again renderStream(url)
     # Only fetch new stream content when URL is different
     if url && url != App.stream.url
-      spinner = new Spinner().spin()
-      $('#sections').append(spinner.el)
-
       App.stream = new App.StreamCollection
       App.streamView = new App.StreamView({ el: '#sections .pages', layout: App.layout, collection: App.stream, title: title, newChannel: true })
 
       App.stream.url = url
       App.stream.title = title
 
+      spinner = new Spinner().spin()
+      $('#sections').append(spinner.el)
+      
       App.stream.fetch({ dataType: "jsonp" })
     else
       # This is probably duplicate
-      App.streamView.$el.animate({opacity: 1}, 150)
+      App.streamView.show()
 
   backToStream: ->
     App.toolbar.render(actionsBtn: false, backBtn: false, typeBtn: true, channelBtn: true, followBtn: true)
-    App.streamView.$el.animate({opacity: 1}, 150)
+    $('#content .pages').html('')
+
+    App.streamView.show()
+    

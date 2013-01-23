@@ -5,6 +5,9 @@ class App.MenuView extends Backbone.View
     'touchend ul.navigation li.logo a': 'home'
     'touchend ul.navigation li a': 'navigate'
 
+  initialize: ->
+    this.refresh()
+
   navigate: (e)->
     target = $(e.target)
 
@@ -13,6 +16,19 @@ class App.MenuView extends Backbone.View
     App.router.navigate(target.attr('href'), { trigger: true })
 
     e.preventDefault()
+  
+  refresh: ->
+    channel_list = $(this.$('ul.subscribed')).html('')
+    
+    App.channels.forEach (channel)-> 
+      if channel.followed
+        channel_list.append """
+          <li><a href="#{ channel.path }">#{ channel.name } <span class="counter">#{ channel.item_count || "" }</span></a></li>
+        """
+  
+  render: ->
+    this.toggle(true)
+    this.refresh()
 
   home: (e)->
     target = $(e.target)
