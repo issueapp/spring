@@ -1,38 +1,36 @@
-$.fn.relativeDate = function(opts){
-    var defaults = {
-        dateGetter: function(el){
-            return $(el).text();
-        }
-    },
-    options = $.extend({}, defaults, opts),
-    time_ago_in_words_with_parsing = function(from) {
-        var date = new Date;
-        date.setTime(Date.parse(from));
-        return time_ago_in_words(date);
-    },
-    time_ago_in_words = function(from) {
-        return distance_of_time_in_words(new Date, from);
-    },
-    distance_of_time_in_words = function(to, from) {
-        var distance_in_seconds = ((to - from) / 1000);
-        var distance_in_minutes = Math.floor(distance_in_seconds / 60);
+/*
+ * JavaScript Pretty Date
+ * Copyright (c) 2011 John Resig (ejohn.org)
+ * Licensed under the MIT and GPL licenses.
+ */
 
-        if (distance_in_minutes == 0) { return 'less than a minute ago'; }
-        if (distance_in_minutes == 1) { return 'a minute ago'; }
-        if (distance_in_minutes < 45) { return distance_in_minutes + ' minutes ago'; }
-        if (distance_in_minutes < 90) { return 'about 1 hour ago'; }
-        if (distance_in_minutes < 1440) { return 'about ' + Math.round(distance_in_minutes / 60) + ' hours ago'; }
-        if (distance_in_minutes < 2880) { return '1 day ago'; }
-        if (distance_in_minutes < 43200) { return Math.floor(distance_in_minutes / 1440) + ' days ago'; }
-        if (distance_in_minutes < 86400) { return 'about 1 month ago'; }
-        if (distance_in_minutes < 525960) { return Math.floor(distance_in_minutes / 43200) + ' months ago'; }
-        if (distance_in_minutes < 1051199) { return 'about 1 year ago'; }
+// Takes an ISO time and returns a string representing how
+// long ago the date represents.
+function prettyDate(time){
+	var date = new Date((time || "").replace(/-/g,"/").replace(/[TZ]/g," ")),
+		diff = (((new Date()).getTime() - date.getTime()) / 1000),
+		day_diff = Math.floor(diff / 86400);
+			
+	if ( isNaN(day_diff) || day_diff < 0 || day_diff >= 31 )
+		return;
+			
+	return day_diff == 0 && (
+			diff < 60 && "just now" ||
+			diff < 120 && "1 minute ago" ||
+			diff < 3600 && Math.floor( diff / 60 ) + " minutes ago" ||
+			diff < 7200 && "1 hour ago" ||
+			diff < 86400 && Math.floor( diff / 3600 ) + " hours ago") ||
+		day_diff == 1 && "Yesterday" ||
+		day_diff < 7 && day_diff + " days ago" ||
+		day_diff < 31 && Math.ceil( day_diff / 7 ) + " weeks ago";
+}
 
-        return 'over ' + Math.floor(distance_in_minutes / 525960) + ' years ago';
-    }
-
-    return $(this).each(function(){
-        date_str = options.dateGetter(this);
-        $(this).html(time_ago_in_words_with_parsing(date_str));
-    });
-};
+// If jQuery is included in the page, adds a jQuery plugin to handle it as well
+if ( typeof jQuery != "undefined" )
+	jQuery.fn.prettyDate = function(){
+		return this.each(function(){
+			var date = prettyDate(this.title);
+			if ( date )
+				jQuery(this).text( date );
+		});
+	};

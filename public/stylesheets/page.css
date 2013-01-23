@@ -70,7 +70,117 @@ article.page .description {
     text-align: left;
   }
 }
-/* line 74, ../../stylesheets/page.scss */
+/* line 76, ../../stylesheets/page.scss */
+#content .page {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 22px 22px 22px 22px;
+  overflow: hidden;
+  font-family: 'proxima_nova_regular';
+}
+/* line 84, ../../stylesheets/page.scss */
+#content .page .info {
+  margin: 0 22px;
+}
+/* line 88, ../../stylesheets/page.scss */
+#content .page .title {
+  margin: 0;
+  color: #2c2c2c;
+  font-weight: normal;
+  font-size: 23px;
+  font-family: 'proxima_nova_bold';
+}
+/* line 96, ../../stylesheets/page.scss */
+#content .page .price span:first-child {
+  color: #2c2c2c;
+  font-size: 18px;
+  font-family: 'proxima_nova_bold';
+}
+/* line 103, ../../stylesheets/page.scss */
+#content .page .store {
+  position: absolute;
+  top: 120px;
+  right: 0;
+  padding: 17px 14px 17px 22px;
+  background-color: #F04500;
+  color: white;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-family: 'proxima_nova_bold';
+}
+/* line 115, ../../stylesheets/page.scss */
+#content .page .source {
+  margin: 0;
+  color: #666;
+  font-size: 12px;
+}
+/* line 119, ../../stylesheets/page.scss */
+#content .page .source span {
+  color: #2c2c2c;
+}
+/* line 123, ../../stylesheets/page.scss */
+#content .page .description {
+  padding-top: 25px;
+  font-size: 16px;
+}
+/* line 129, ../../stylesheets/page.scss */
+#content .content.page {
+  overflow: auto;
+}
+/* line 132, ../../stylesheets/page.scss */
+#content .content.page header {
+  margin: 0 0 18px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+  text-align: center;
+}
+/* line 140, ../../stylesheets/page.scss */
+#content .content.page header, #content .content.page .body {
+  width: 80%;
+  margin: 0 auto;
+}
+/* line 146, ../../stylesheets/page.scss */
+#content .content.page .title {
+  text-transform: uppercase;
+  font-size: 24px;
+  font-weight: normal;
+}
+/* line 154, ../../stylesheets/page.scss */
+#content .content.page .author, #content .content.page .published-at {
+  color: #333;
+  font-family: Georgia;
+  font-style: italic;
+}
+/* line 160, ../../stylesheets/page.scss */
+#content .content.page .body {
+  font-size: 16px;
+  line-height: 22px;
+  color: #333;
+  text-align: justify;
+  -webkit-hyphens: auto;
+}
+/* line 172, ../../stylesheets/page.scss */
+#content .content.page .body p {
+  margin: 1.2em 0 !important;
+}
+/* line 176, ../../stylesheets/page.scss */
+#content .content.page .body a[href] {
+  color: #d93e00;
+}
+/* line 180, ../../stylesheets/page.scss */
+#content .content.page .body img {
+  box-sizing: border-box;
+  clear: both;
+  display: block;
+  float: none;
+  margin: 0 auto;
+}
+/* line 190, ../../stylesheets/page.scss */
+#content .content.page iframe {
+  width: 100% !important;
+}
+
+/* line 210, ../../stylesheets/page.scss */
 .landing {
   margin-left: 260px;
   height: 100%;
@@ -80,7 +190,7 @@ article.page .description {
   color: white;
   font-family: "proxima-nova", sans-serif;
 }
-/* line 83, ../../stylesheets/page.scss */
+/* line 219, ../../stylesheets/page.scss */
 .landing .logo {
   padding: 38px 0 0 105px;
   height: 100px;
@@ -88,25 +198,25 @@ article.page .description {
   color: white;
   font-size: 22px;
 }
-/* line 91, ../../stylesheets/page.scss */
+/* line 227, ../../stylesheets/page.scss */
 .landing .welcome {
   position: absolute;
   top: 35%;
   padding-left: 12px;
   font-weight: bold;
 }
-/* line 97, ../../stylesheets/page.scss */
+/* line 233, ../../stylesheets/page.scss */
 .landing .welcome p:first-child {
   margin: 0 0 0 8px;
   font-size: 102px;
   text-transform: uppercase;
 }
-/* line 103, ../../stylesheets/page.scss */
+/* line 239, ../../stylesheets/page.scss */
 .landing .welcome p:nth-child(2) {
   margin: 0 0 0 8px;
   font-size: 25px;
 }
-/* line 108, ../../stylesheets/page.scss */
+/* line 244, ../../stylesheets/page.scss */
 .landing .welcome a {
   color: white;
   position: absolute;
@@ -117,7 +227,7 @@ article.page .description {
   text-transform: uppercase;
   font-size: 14px;
 }
-/* line 120, ../../stylesheets/page.scss */
+/* line 256, ../../stylesheets/page.scss */
 .landing .footer {
   position: absolute;
   bottom: 28px;
@@ -125,140 +235,20 @@ article.page .description {
   font-size: 14px;
   line-height: 20px;
 }
-/* line 127, ../../stylesheets/page.scss */
+/* line 263, ../../stylesheets/page.scss */
 .landing .footer a {
   font-family: "proxima_nova_bold";
   color: white;
   vertical-align: bottom;
 }
-/* line 133, ../../stylesheets/page.scss */
+/* line 269, ../../stylesheets/page.scss */
 .landing .footer i {
   padding-right: 10px;
   vertical-align: middle;
   font-size: 24px;
 }
 
-/* line 141, ../../stylesheets/page.scss */
-div.drop-down {
-  position: absolute;
-  top: 22px;
-  width: 110px;
-  font-size: 13px;
-}
-/* line 147, ../../stylesheets/page.scss */
-div.drop-down span.drop-top {
-  display: block;
-  margin: -7px 0 0;
-  padding: 7px 15px 0px;
-  background: url("/images/top-arrow.png") no-repeat center top;
-}
-/* line 154, ../../stylesheets/page.scss */
-div.drop-down div.drop-wrapper {
-  position: absolute;
-  top: 36px;
-  border: 1px solid #eee;
-  background-color: white;
-  font-family: "Helvetica Neue", Hevetica, Arial, sans-serif;
-}
-/* line 163, ../../stylesheets/page.scss */
-div.drop-down ul.popover-list {
-  overflow: auto;
-  margin: 0;
-  padding: 0;
-}
-/* line 168, ../../stylesheets/page.scss */
-div.drop-down ul.popover-list li {
-  display: block;
-  float: none;
-  margin: 0;
-  padding: 13px 0px 13px 10px;
-  border-top: 1px solid #eee;
-  background-image: none;
-}
-/* line 176, ../../stylesheets/page.scss */
-div.drop-down ul.popover-list li a {
-  height: 15px;
-  line-height: 17px;
-  text-transform: uppercase;
-  font-size: 10px;
-  font-family: "proxima_nova_regular";
-  position: static;
-  display: block;
-  padding: 0px 0px 0px 37px;
-  color: #b9b9b9;
-  text-shadow: none;
-  font-weight: normal;
-}
-/* line 189, ../../stylesheets/page.scss */
-div.drop-down ul.popover-list li a:active, div.drop-down ul.popover-list li a.active {
-  color: #6f6f6f;
-}
-/* line 195, ../../stylesheets/page.scss */
-div.drop-down ul.popover-list li:first-child {
-  border-top: none;
-}
-
-/* line 201, ../../stylesheets/page.scss */
-#filter-dropdown {
-  right: -10px;
-}
-/* line 204, ../../stylesheets/page.scss */
-#filter-dropdown .drop-wrapper {
-  left: -26px;
-}
-/* line 207, ../../stylesheets/page.scss */
-#filter-dropdown .drop-wrapper .drop-top {
-  margin-left: 78px;
-}
-/* line 213, ../../stylesheets/page.scss */
-#filter-dropdown ul.popover-list li .view-all {
-  background: url(/images/view-all-icon.png) no-repeat 10px top;
-}
-/* line 214, ../../stylesheets/page.scss */
-#filter-dropdown ul.popover-list li .shop {
-  background: url(/images/shop-icon.png) no-repeat 10px top;
-}
-/* line 215, ../../stylesheets/page.scss */
-#filter-dropdown ul.popover-list li .read {
-  background: url(/images/read-icon.png) no-repeat 10px top;
-}
-/* line 216, ../../stylesheets/page.scss */
-#filter-dropdown ul.popover-list li .photo {
-  background: url(/images/photo-icon.png) no-repeat 10px top;
-}
-/* line 218, ../../stylesheets/page.scss */
-#filter-dropdown ul.popover-list li a:active, #filter-dropdown ul.popover-list li a.active {
-  background-position-y: bottom;
-}
-
-/* line 224, ../../stylesheets/page.scss */
-#collection-dropdown {
-  left: 50%;
-  margin-left: -151px;
-}
-/* line 228, ../../stylesheets/page.scss */
-#collection-dropdown .drop-wrapper {
-  width: 300px;
-}
-/* line 231, ../../stylesheets/page.scss */
-#collection-dropdown .drop-wrapper a {
-  height: 18px;
-  padding: 0 0 0 5px;
-  line-height: 20px;
-  color: #6F6F6F;
-  font-size: 13px;
-}
-/* line 239, ../../stylesheets/page.scss */
-#collection-dropdown .drop-wrapper li.active {
-  border-left: 5px solid #000;
-}
-/* line 242, ../../stylesheets/page.scss */
-#collection-dropdown .drop-wrapper li.active a {
-  padding: 0;
-  color: #333;
-}
-
-/* line 250, ../../stylesheets/page.scss */
+/* line 277, ../../stylesheets/page.scss */
 .flash, .notice, .alert {
   position: absolute;
   top: 45px;
