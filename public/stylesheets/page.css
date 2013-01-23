@@ -184,39 +184,67 @@ article.page .description {
 .landing {
   margin-left: 260px;
   height: 100%;
-  background-image: url(/images/landing_stargates_modified.png);
+  background-color: #000;
+  background-image: url(/images/cover-girl-bus.jpeg);
   background-position: center;
   background-size: cover;
   color: white;
   font-family: "proxima-nova", sans-serif;
 }
-/* line 219, ../../stylesheets/page.scss */
+/* line 221, ../../stylesheets/page.scss */
+.landing .featured {
+  width: 30%;
+  float: right;
+  padding: 0 20px;
+}
+/* line 226, ../../stylesheets/page.scss */
+.landing .featured h3 {
+  top: 20px;
+  font-size: 16px;
+  color: #666;
+  text-transform: uppercase;
+  text-align: right;
+}
+/* line 234, ../../stylesheets/page.scss */
+.landing .featured ul {
+  list-style: none;
+  text-transform: uppercase;
+  text-align: right;
+  font-size: 16px;
+  line-height: 24px;
+  color: #eee;
+}
+/* line 244, ../../stylesheets/page.scss */
 .landing .logo {
+  opacity: 0.3;
+  position: absolute;
+  right: 20px;
+  bottom: 0;
   padding: 38px 0 0 105px;
-  height: 100px;
+  height: 60px;
   background: url("/images/logo.png") no-repeat 20px 20px;
   color: white;
   font-size: 22px;
 }
-/* line 227, ../../stylesheets/page.scss */
+/* line 256, ../../stylesheets/page.scss */
 .landing .welcome {
   position: absolute;
   top: 35%;
   padding-left: 12px;
   font-weight: bold;
 }
-/* line 233, ../../stylesheets/page.scss */
+/* line 262, ../../stylesheets/page.scss */
 .landing .welcome p:first-child {
   margin: 0 0 0 8px;
   font-size: 102px;
   text-transform: uppercase;
 }
-/* line 239, ../../stylesheets/page.scss */
+/* line 268, ../../stylesheets/page.scss */
 .landing .welcome p:nth-child(2) {
   margin: 0 0 0 8px;
   font-size: 25px;
 }
-/* line 244, ../../stylesheets/page.scss */
+/* line 273, ../../stylesheets/page.scss */
 .landing .welcome a {
   color: white;
   position: absolute;
@@ -227,7 +255,7 @@ article.page .description {
   text-transform: uppercase;
   font-size: 14px;
 }
-/* line 256, ../../stylesheets/page.scss */
+/* line 285, ../../stylesheets/page.scss */
 .landing .footer {
   position: absolute;
   bottom: 28px;
@@ -235,20 +263,20 @@ article.page .description {
   font-size: 14px;
   line-height: 20px;
 }
-/* line 263, ../../stylesheets/page.scss */
+/* line 292, ../../stylesheets/page.scss */
 .landing .footer a {
   font-family: "proxima_nova_bold";
   color: white;
   vertical-align: bottom;
 }
-/* line 269, ../../stylesheets/page.scss */
+/* line 298, ../../stylesheets/page.scss */
 .landing .footer i {
   padding-right: 10px;
   vertical-align: middle;
   font-size: 24px;
 }
 
-/* line 277, ../../stylesheets/page.scss */
+/* line 306, ../../stylesheets/page.scss */
 .flash, .notice, .alert {
   position: absolute;
   top: 45px;

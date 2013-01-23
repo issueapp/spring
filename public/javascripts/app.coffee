@@ -46,6 +46,13 @@ class App.Router extends Backbone.Router
 
   home: ->
     $('.landing').hide()
+    
+    $('#sections .pages').append(
+    
+    
+    
+    )
+    
     this.channel("stream")
 
   # View a channel in a stream format
@@ -89,6 +96,9 @@ class App.Router extends Backbone.Router
     App.discover.collection = App.channels
     App.discover.render(category)
     App.menu.render()
+
+  issue: ->
+    
 
   content: (handle) ->
     App.streamView.hide()
