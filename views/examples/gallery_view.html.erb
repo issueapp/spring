@@ -47,8 +47,8 @@
   .page {
     border: 1px solid red;
     background: #eee;
-    width: 934px;
-    height: 394px;
+    /*width: 934px;*/
+    /*height: 394px;*/
   }
 
   .k1, .k2, .k3, .k4, .k5, .k6, .k7 {
@@ -77,6 +77,10 @@
     background-image: url(http://placekitten.com/1024/1011);
   }
 
+  .toolbar {
+    height: 50px;
+  }
+
   /* Gallery Style*/
   ul#image-gallery li {
     display: none;
@@ -92,16 +96,15 @@
     left: 0;
     z-index: 1000;
     overflow: hidden;
-    background: #000;
     white-space: nowrap;
     cursor: pointer;
   }
 
   #gallery .swipe .page {
-    height: 434px;
     border: none;
     background-color: #222;
     color: white;
+    padding: 0;
     text-align: center;
   }
 
@@ -141,6 +144,11 @@
 <script src="/javascripts/views/swipe_view.js"></script>
 <script src="/javascripts/views/gallery_view.js"></script>
 <script type="text/javascript">
+
+  var pageWidth = window.innerWidth
+  var pageHeight = window.innerHeight - 50
+  $('head').append('<style>.page { width:'+pageWidth+'; height:'+pageHeight+' }</style>');
+
   var page = "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
 
   var i = 0, pages = []
@@ -190,8 +198,8 @@
   var n, lastStep = 0, width = 300, images = [];
 
   for (n = 0; n < 7; n++) {
-    width += 50;
-    images.push("<h1>Image " + n + " </h1> " + '<img src="http://placekitten.com/934/'+ width +'" />');
+    width += 100;
+    images.push("<h1>Image " + n + " </h1> " + '<img src="http://placehold.it/900x'+ width +'" />');
   }
 
   n = -1;
