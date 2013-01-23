@@ -68,6 +68,8 @@ class App.SwipeView extends Backbone.View
   iniGalleryView: (e)->
     $('#gallery .swipe').append('<div class="page">'+ $('.current #image-gallery li.main').html() + '</div>')
     $('#gallery .swipe').append('<div class="page next loading">Loading...</div>')
+    $('head').append('<style> #gallery .swipe, #gallery .swipe .page { height:'+window.innerHeight+'; }</style>');
+
     this.trigger("initGalleryView", this)
 
   onTouch: (e) ->
