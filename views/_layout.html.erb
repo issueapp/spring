@@ -126,16 +126,16 @@
   </head>
   <body>
     <div class="landing transition" style="opacity:0">
-      <h1 class="logo">Shop2</h1>
+      <h1 class="logo"></h1>
       <div class="welcome">
         <p>your edition</p>
         <p>of personalized magazine</p>
-        <a href="stream" rel="app">browse ></a>
+        <a href="stream" rel="app">browse  &rarr;</a>
       </div>
 
       <div class="footer">
         <i class="icon-facebook"></i>
-        <a href="http://<%= api_host %>/connect/facebook?return_to=<%= request.url %>">
+        <a rel="external" href="http://<%= api_host %>/connect/facebook?return_to=<%= request.url %>">
           Sign in or request an invite
         </a>
       </div>
@@ -145,18 +145,30 @@
       <ul class="navigation">
         <li class="logo"><a href="/users/taylorluk"></a></li>
 
-        <li class="active"><a href="/discover">Discover</a></li>
-        <li><a href="/users/taylorluk">My Edition</a></li>
+        <li><a href="/discover">Discover<span class="right-icon icon-globe"></span></a></li>
+        <li class="active"><a href="/stream">My Edition<span class="right-icon icon-book"></span></a></li>
         <!-- Category -->
-        <ul>
+        <ul class="subscribed">
           <li><a href="/interests/mens">Mens wear</a></li>
           <li><a href="/interests/womens">Women's</a></li>
           <li><a href="/interests/tech">Tech</a></li>
-          <li><a href="/interests/home">Home</a></li>
+          <li><a href="/interests/home">xHome</a></li>
           <li><a href="/interests/media">Media</a></li>
           <li><a href="/interests/media">Art &amp; design</a></li>
         </ul>
-        <li class="user"><a href="/taylorluk/items">Taylor Luk</a></li>
+        <li class="user">
+          
+          <a class="right-icon settings" href="/settings">
+            <i class="icon-cog"></i>
+          </a>
+          
+          <a href="/taylorluk/items">
+            <div class="thumb">
+              <img width=30 height=30 src="https://en.gravatar.com/userimage/3750669/11f87325e01820f4350d21db1fb429c8.jpeg">
+            </div>
+            Taylor Luk
+          </a>
+        </li>
       </ul>
     </nav>
 
@@ -167,13 +179,13 @@
         </header>
 
         <ul id="category">
-          <li class="active"><a href="/interests/mens">Featured</a></li>
-          <li><a href="#">Men</a></li>
-          <li><a href="#">Women</a></li>
-          <li><a href="#">Tech</a></li>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Media</a></li>
-          <li><a href="#">Art &amp; design</a></li>
+          <li class="active"><a href="/discover">Featured</a></li>
+          <li><a href="/discover/men">Men</a></li>
+          <li><a href="/discover/women">Women</a></li>
+          <li><a href="/discover/tech">Tech</a></li>
+          <li><a href="/discover/home">Home</a></li>
+          <li><a href="/discover/media">Media</a></li>
+          <li><a href="/discover/design">Art &amp; design</a></li>
         </ul>
 
         <ul class="channels">
@@ -228,14 +240,14 @@
   <script src="/javascripts/vendor/backbone.js"></script>
   <script src="/javascripts/vendor/mustache.js"></script>
   <script src="/javascripts/vendor/clamp.js"></script>
-  <script src="/javascripts/vendor/scrollability2.js"></script>
   <script src="/javascripts/vendor/h5bp-helper.js"></script>
   <script src="/javascripts/vendor/spin.min.js"></script>
-
   <script src="/javascripts/vendor/relative_date.js"></script>
 
   <script src="/javascripts/app.js"></script>
   <script src="/javascripts/models.js"></script>
+  <script src="/javascripts/channels.js"></script>
+  
   <script src="/javascripts/views/layout.js"></script>
   <script src="/javascripts/views/toolbar.js"></script>
   <script src="/javascripts/views/menu_view.js"></script>

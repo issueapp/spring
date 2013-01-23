@@ -45,6 +45,8 @@ class App.ContentView extends Backbone.View
   render: (model)->
     @model = model if model
     
+    @model.attributes.published_at = prettyDate(@model.get('published_at'))
+    
     # render content page node
     if @model.get('type') == 'Article'
       source = $(@content_template(@model.toJSON()))
@@ -54,14 +56,19 @@ class App.ContentView extends Backbone.View
     this.setElement(source)
     
     # Render single model, return node
-    
     App.toolbar.typeBtn = false
     
     if model
       source[0]
     else  
-      
-      @toolbar.render(title: @model.collection.title, backBtn: true, typeBtn: false, actionsBtn: true)
+      if @model.collection
+        title = @model.collection.title
+      else if @model.get('site')
+        title = @model.get('site').title
+      else if @model.get('source')
+        title = @model.get('source').title
+        
+      @toolbar.render(title: title, backBtn: true, typeBtn: false, actionsBtn: true)
       
       # Content view should fade in
       $(@el).css('opacity', "0").addClass('current')
@@ -141,6 +148,12 @@ class App.ContentView extends Backbone.View
     else if @currentIndex == 1
       @currentIndex -= 1
       this.render(@prevModel)
+      
+  show: ->
+    this.$el.css('opacity', 1)
+    
+  clear: -> 
+    this.$el.html('').removeAttr('style')
 
   destroy: (garbage)->
     item = $(garbage)
