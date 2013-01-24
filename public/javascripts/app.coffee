@@ -2,12 +2,12 @@
 this.App ||= {
   standalone: window.navigator.standalone
   touch: !!('ontouchstart' in window)
-  
+
   init: ->
     @layout = new App.Layout
     @router = new App.Router
     @discover = new App.DiscoverMenu
-    
+
     @menu = new App.MenuView
     @toolbar = new App.Toolbar
 
@@ -21,7 +21,7 @@ this.App ||= {
       $('.landing').hide()
     else
       $('.landing').css('opacity', '1')
-      
+
     # All link should be internal /!#/path # unless @silentClick
     $('a:not([rel="external"])').live "click", (e) ->
       link = $(e.currentTarget).attr('href')
@@ -35,10 +35,10 @@ class App.Router extends Backbone.Router
     "stream":                     "home"
     "section":                    "home"
     "items/:handle":              "content"
-    
+
     "discover":                   "discover"
     "discover/:category":         "discover"
-    
+
     ":type/:handle":              "channel"
 
   initialize: (options)->
@@ -46,13 +46,9 @@ class App.Router extends Backbone.Router
 
   home: ->
     $('.landing').hide()
-    
-    $('#sections .pages').append(
-    
-    
-    
-    )
-    
+
+    # $('#sections .pages').append()
+
     this.channel("stream")
 
   # View a channel in a stream format
@@ -60,7 +56,7 @@ class App.Router extends Backbone.Router
     App.menu.toggle(false)
     App.contentView.clear()
     $('#discover').hide()
-    
+
     # Default to stream stream url
     url = switch type
       when "users"
@@ -71,7 +67,7 @@ class App.Router extends Backbone.Router
         this.url_for("interests/#{handle}")
       else
         this.url_for("taylorluk")
-    
+
     if !App.stream || (App.stream && App.stream.url != url)
       this.resetView(url, handle)
     else
@@ -83,12 +79,12 @@ class App.Router extends Backbone.Router
     else
       url = App.stream.url + "?sort=published_at"
     title = App.stream.title
-    
+
     this.resetView(url, title)
 
   discover: (category)->
     $('.landing').hide()
-    
+
     # alert(Backbone.history.fragment)
 
     # App.discover = new App.DiscoverView
@@ -98,18 +94,18 @@ class App.Router extends Backbone.Router
     App.menu.render()
 
   issue: ->
-    
+
 
   content: (handle) ->
     App.streamView.hide()
     App.contentView.show()
-    
+
     # Might need to delay rendering when page is loading
     renderer = (content)->
       App.contentView.resetAttrs()
       App.contentView.model = content
       App.contentView.render()
-    
+
     # fetch item from collection
     if App.stream.length > 0
       content = App.stream.find (item)-> item.get('handle') == handle
@@ -117,38 +113,38 @@ class App.Router extends Backbone.Router
     else
     # request a new item
       product = new Backbone.Model
-      
-      product.fetch({ 
-        dataType: "jsonp", url: this.url_for("items/#{handle}"), 
+
+      product.fetch({
+        dataType: "jsonp", url: this.url_for("items/#{handle}"),
         success: (data)-> renderer(product)
       })
-  
+
   url_for: (path)->
     "http://shop2.com/#{path}/items.json"
-  
+
   # Set view to default state
   # This is a work around when we change between different view containers.
   resetView: (url, title, type)->
-    
+
     # reset toolbar to default states.
     if App.toolbar
       App.toolbar.render(title: title, typeBtn: false, backBtn: false, actionsBtn: false)
-    
+
       # reset filter dropdown view-all to active when swithcing channels
     if url && url != App.stream.url
       dropdown = $('#sections #filter-dropdown')
       dropdown.find('.active').removeClass('active')
       dropdown.find('.view-all').addClass('active')
-    
+
     # Section views reset
     $('#sections .pages').addClass('horizontal')
     $('#content .pages').html('')
-    
+
     # Shouldn't new render replace it?
     $('#sections #noContent').remove()
-    
+
     $(document).off('keydown')
-    
+
     # TODO: this code block like fetching the stream again renderStream(url)
     # Only fetch new stream content when URL is different
     if url && url != App.stream.url
@@ -160,7 +156,7 @@ class App.Router extends Backbone.Router
 
       spinner = new Spinner().spin()
       $('#sections').append(spinner.el)
-      
+
       App.stream.fetch({ dataType: "jsonp" })
     else
       # This is probably duplicate
@@ -171,4 +167,4 @@ class App.Router extends Backbone.Router
     $('#content .pages').html('')
 
     App.streamView.show()
-    
+
