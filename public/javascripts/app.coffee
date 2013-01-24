@@ -59,6 +59,9 @@ class App.Router extends Backbone.Router
   routes:
     "stream":                     "home"
     "section":                    "home"
+    
+    "signup":                     "signup"
+    
     "items/:handle":              "content"
 
     "discover":                   "discover"
@@ -69,15 +72,23 @@ class App.Router extends Backbone.Router
   initialize: (options)->
     this.route(/.*\?type=(\w+)/, "filter")
 
+  signup: ->
+    App.toolbar.hide()
+    $('.landing').hide()
+
+    $('#signup').show()
+
   home: ->
     $('.landing').hide()
     this.channel("stream")
 
   # View a channel in a stream format
   channel: (type, handle)->
+    
     App.menu.toggle(false)
     App.contentView.clear()
     $('#discover').hide()
+    $('#signup').hide()
 
     # Default to stream stream url
     url = switch type
