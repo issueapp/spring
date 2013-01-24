@@ -1,3 +1,5 @@
+@import "compass/css3/box-sizing";
+
 .page {
   margin: 0 1%;
   max-height: 100%;
@@ -76,7 +78,7 @@ article.page {
   .page {
     @include box-sizing(border-box);
     -webkit-overflow-scrolling: touch;
-    
+
 
     padding: 22px 22px 22px 22px;
     overflow: hidden;
@@ -85,7 +87,7 @@ article.page {
     .info {
       margin: 0 22px;
     }
-    
+
     .title {
       margin: 0;
       color: #2c2c2c;
@@ -112,7 +114,7 @@ article.page {
       font-size: 14px;
       font-family: 'proxima_nova_bold';
     }
-    
+
     .source {
       margin: 0;
       color: #666;
@@ -129,20 +131,20 @@ article.page {
 
   .content.page {
     overflow: auto;
-    
+
     header {
       margin: 0 0 18px;
       padding-bottom: 15px;
       border-bottom:1px solid #eee;
       text-align: center;
     }
-  
+
     // One column single page dimension
     header, .body {
       width: 80%;
       margin: 0 auto;
     }
-    
+
 
     .title {
       text-transform: uppercase;
@@ -150,34 +152,34 @@ article.page {
       font-weight: normal;
       // margin: 0.5em 0;
     }
-    
-    
+
+
     .author, .published-at {
       color: #333;
       font-family: Georgia;
       font-style: italic;
     }
-        
+
     .body {
 
       // @include column-count(2);
       // @include column-gap(40px);
-      
+
       font-size: 16px;
       line-height: 22px;
       color: #333;
-      
+
       text-align: justify;
       -webkit-hyphens: auto;
 
       p {
         margin: 1.2em 0 !important;
       }
-      
+
       a[href] {
         color: #d93e00;
       }
-      
+
       img {
         box-sizing: border-box;
         clear: both;
@@ -188,8 +190,8 @@ article.page {
         height: auto;
       }
     }
-    
-    
+
+
     iframe {
       width: 100% !important;
     }
@@ -198,7 +200,7 @@ article.page {
 //      margin: 0 !important;
 //      padding: 0 !important;
     }
-    
+
 //
 //    h1, h2, h3, h4, h5, h6 {
 //      margin: 15px 0 !important;
@@ -213,7 +215,7 @@ article.page {
 .landing {
   margin-left: 260px;
   height: 100%;
-  
+
   background-color: #000;
   background-image: url(/images/cover-girl-bus.jpeg);
   background-position: center;
