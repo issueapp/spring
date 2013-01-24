@@ -1502,17 +1502,17 @@ div.drop-down ul.popover-list li:first-child {
   left: 10px;
 }
 
-/* line 1, ../../stylesheets/page.scss */
+/* line 3, ../../stylesheets/page.scss */
 .page {
   margin: 0 1%;
   max-height: 100%;
 }
-/* line 5, ../../stylesheets/page.scss */
+/* line 7, ../../stylesheets/page.scss */
 .page .row:last-child {
   margin-bottom: 0;
 }
 
-/* line 11, ../../stylesheets/page.scss */
+/* line 13, ../../stylesheets/page.scss */
 article.page .image.cover {
   position: relative;
   height: 200%;
@@ -1520,61 +1520,61 @@ article.page .image.cover {
   top: -50%;
   left: -50%;
 }
-/* line 19, ../../stylesheets/page.scss */
+/* line 21, ../../stylesheets/page.scss */
 article.page .price, article.page .store {
   display: inline-block;
 }
-/* line 23, ../../stylesheets/page.scss */
+/* line 25, ../../stylesheets/page.scss */
 article.page .price {
   float: left;
   line-height: 37px;
 }
-/* line 28, ../../stylesheets/page.scss */
+/* line 30, ../../stylesheets/page.scss */
 article.page .button.store {
   margin-bottom: 1em;
   display: block;
   float: right;
   margin: 0;
 }
-/* line 35, ../../stylesheets/page.scss */
+/* line 37, ../../stylesheets/page.scss */
 article.page .description {
   display: block;
   clear: both;
 }
 
 @media screen and (orientation:portrait) {
-  /* line 43, ../../stylesheets/page.scss */
+  /* line 45, ../../stylesheets/page.scss */
   article.page .col.half {
     height: 49%;
     width: 100%;
     background: white;
   }
-  /* line 48, ../../stylesheets/page.scss */
+  /* line 50, ../../stylesheets/page.scss */
   article.page .col.half .image {
     left: 25%;
     position: relative;
     width: 50%;
   }
-  /* line 54, ../../stylesheets/page.scss */
+  /* line 56, ../../stylesheets/page.scss */
   article.page .col.half .info {
     text-align: center;
   }
-  /* line 56, ../../stylesheets/page.scss */
+  /* line 58, ../../stylesheets/page.scss */
   article.page .col.half .info .store {
     margin: 0;
   }
-  /* line 60, ../../stylesheets/page.scss */
+  /* line 62, ../../stylesheets/page.scss */
   article.page .col.half .info .price {
     line-height: 37px;
     vertical-align: middle;
   }
-  /* line 65, ../../stylesheets/page.scss */
+  /* line 67, ../../stylesheets/page.scss */
   article.page .col.half .info p {
     margin-top: 10px;
     text-align: left;
   }
 }
-/* line 76, ../../stylesheets/page.scss */
+/* line 78, ../../stylesheets/page.scss */
 #content .page {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -1584,11 +1584,11 @@ article.page .description {
   overflow: hidden;
   font-family: 'proxima_nova_regular';
 }
-/* line 85, ../../stylesheets/page.scss */
+/* line 87, ../../stylesheets/page.scss */
 #content .page .info {
   margin: 0 22px;
 }
-/* line 89, ../../stylesheets/page.scss */
+/* line 91, ../../stylesheets/page.scss */
 #content .page .title {
   margin: 0;
   color: #2c2c2c;
@@ -1596,13 +1596,13 @@ article.page .description {
   font-size: 23px;
   font-family: 'proxima_nova_bold';
 }
-/* line 97, ../../stylesheets/page.scss */
+/* line 99, ../../stylesheets/page.scss */
 #content .page .price span:first-child {
   color: #2c2c2c;
   font-size: 18px;
   font-family: 'proxima_nova_bold';
 }
-/* line 104, ../../stylesheets/page.scss */
+/* line 106, ../../stylesheets/page.scss */
 #content .page .store {
   position: absolute;
   top: 120px;
@@ -1614,50 +1614,50 @@ article.page .description {
   font-size: 14px;
   font-family: 'proxima_nova_bold';
 }
-/* line 116, ../../stylesheets/page.scss */
+/* line 118, ../../stylesheets/page.scss */
 #content .page .source {
   margin: 0;
   color: #666;
   font-size: 12px;
 }
-/* line 120, ../../stylesheets/page.scss */
+/* line 122, ../../stylesheets/page.scss */
 #content .page .source span {
   color: #2c2c2c;
 }
-/* line 124, ../../stylesheets/page.scss */
+/* line 126, ../../stylesheets/page.scss */
 #content .page .description {
   padding-top: 25px;
   font-size: 16px;
 }
-/* line 130, ../../stylesheets/page.scss */
+/* line 132, ../../stylesheets/page.scss */
 #content .content.page {
   overflow: auto;
 }
-/* line 133, ../../stylesheets/page.scss */
+/* line 135, ../../stylesheets/page.scss */
 #content .content.page header {
   margin: 0 0 18px;
   padding-bottom: 15px;
   border-bottom: 1px solid #eee;
   text-align: center;
 }
-/* line 141, ../../stylesheets/page.scss */
+/* line 143, ../../stylesheets/page.scss */
 #content .content.page header, #content .content.page .body {
   width: 80%;
   margin: 0 auto;
 }
-/* line 147, ../../stylesheets/page.scss */
+/* line 149, ../../stylesheets/page.scss */
 #content .content.page .title {
   text-transform: uppercase;
   font-size: 24px;
   font-weight: normal;
 }
-/* line 155, ../../stylesheets/page.scss */
+/* line 157, ../../stylesheets/page.scss */
 #content .content.page .author, #content .content.page .published-at {
   color: #333;
   font-family: Georgia;
   font-style: italic;
 }
-/* line 161, ../../stylesheets/page.scss */
+/* line 163, ../../stylesheets/page.scss */
 #content .content.page .body {
   font-size: 16px;
   line-height: 22px;
@@ -1665,15 +1665,15 @@ article.page .description {
   text-align: justify;
   -webkit-hyphens: auto;
 }
-/* line 173, ../../stylesheets/page.scss */
+/* line 175, ../../stylesheets/page.scss */
 #content .content.page .body p {
   margin: 1.2em 0 !important;
 }
-/* line 177, ../../stylesheets/page.scss */
+/* line 179, ../../stylesheets/page.scss */
 #content .content.page .body a[href] {
   color: #d93e00;
 }
-/* line 181, ../../stylesheets/page.scss */
+/* line 183, ../../stylesheets/page.scss */
 #content .content.page .body img {
   box-sizing: border-box;
   clear: both;
@@ -1683,12 +1683,12 @@ article.page .description {
   max-width: 100%;
   height: auto;
 }
-/* line 193, ../../stylesheets/page.scss */
+/* line 195, ../../stylesheets/page.scss */
 #content .content.page iframe {
   width: 100% !important;
 }
 
-/* line 213, ../../stylesheets/page.scss */
+/* line 215, ../../stylesheets/page.scss */
 .landing {
   margin-left: 260px;
   height: 100%;
@@ -1699,13 +1699,13 @@ article.page .description {
   color: white;
   font-family: "proxima-nova", sans-serif;
 }
-/* line 224, ../../stylesheets/page.scss */
+/* line 226, ../../stylesheets/page.scss */
 .landing .featured {
   width: 30%;
   float: right;
   padding: 0 20px;
 }
-/* line 229, ../../stylesheets/page.scss */
+/* line 231, ../../stylesheets/page.scss */
 .landing .featured h3 {
   top: 20px;
   font-size: 16px;
@@ -1713,7 +1713,7 @@ article.page .description {
   text-transform: uppercase;
   text-align: right;
 }
-/* line 237, ../../stylesheets/page.scss */
+/* line 239, ../../stylesheets/page.scss */
 .landing .featured ul {
   list-style: none;
   text-transform: uppercase;
@@ -1722,7 +1722,7 @@ article.page .description {
   line-height: 24px;
   color: #eee;
 }
-/* line 247, ../../stylesheets/page.scss */
+/* line 249, ../../stylesheets/page.scss */
 .landing .logo {
   opacity: 0.3;
   position: absolute;
@@ -1734,25 +1734,25 @@ article.page .description {
   color: white;
   font-size: 22px;
 }
-/* line 259, ../../stylesheets/page.scss */
+/* line 261, ../../stylesheets/page.scss */
 .landing .welcome {
   position: absolute;
   top: 35%;
   padding-left: 12px;
   font-weight: bold;
 }
-/* line 265, ../../stylesheets/page.scss */
+/* line 267, ../../stylesheets/page.scss */
 .landing .welcome p:first-child {
   margin: 0 0 0 8px;
   font-size: 102px;
   text-transform: uppercase;
 }
-/* line 271, ../../stylesheets/page.scss */
+/* line 273, ../../stylesheets/page.scss */
 .landing .welcome p:nth-child(2) {
   margin: 0 0 0 8px;
   font-size: 25px;
 }
-/* line 276, ../../stylesheets/page.scss */
+/* line 278, ../../stylesheets/page.scss */
 .landing .welcome a {
   color: white;
   position: absolute;
@@ -1763,7 +1763,7 @@ article.page .description {
   text-transform: uppercase;
   font-size: 14px;
 }
-/* line 288, ../../stylesheets/page.scss */
+/* line 290, ../../stylesheets/page.scss */
 .landing .footer {
   position: absolute;
   bottom: 28px;
@@ -1771,20 +1771,20 @@ article.page .description {
   font-size: 14px;
   line-height: 20px;
 }
-/* line 295, ../../stylesheets/page.scss */
+/* line 297, ../../stylesheets/page.scss */
 .landing .footer a {
   font-family: "proxima_nova_bold";
   color: white;
   vertical-align: bottom;
 }
-/* line 301, ../../stylesheets/page.scss */
+/* line 303, ../../stylesheets/page.scss */
 .landing .footer i {
   padding-right: 10px;
   vertical-align: middle;
   font-size: 24px;
 }
 
-/* line 309, ../../stylesheets/page.scss */
+/* line 311, ../../stylesheets/page.scss */
 .flash, .notice, .alert {
   position: absolute;
   top: 45px;
