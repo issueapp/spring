@@ -122,7 +122,6 @@
       }
 
       #signup {
-        display: none;
         background: white;
         height: 93%;
       }
@@ -154,8 +153,12 @@
 
       <div class="footer">
         <i class="icon-facebook"></i>
-        <a rel="external" href="http://<%= api_host %>/connect/facebook?return_to=<%= request.url %>">
+        <!-- <a rel="external" href="http://<%= api_host %>/connect/facebook?return_to=<%= request.url %>">
           Sign in or request an invite
+        </a> -->
+        
+        <a rel="" href="/signup">
+          Facebook connect
         </a>
       </div>
     </div>
@@ -192,6 +195,23 @@
     </nav>
 
     <div role="main" style="margin-left:260px">
+      
+      <div id="signup" class="page transition" style="display:none" data-path="signup">
+        <h1>Choose channels that interest you</h1>
+        <ul class="channels">
+          <li class="large">
+            Men's clothes <a class="action follow" href="">+</a>
+          </li>
+          <li class="large">Arts & Crafts <a class="action follow" href="">+</a></li>
+          <li class="large">Men's shoes <a class="action follow" href="">+</a></li>
+          <li class="large">Cars <a class="action follow" href="">+</a></li>
+          <li class="large">Home <a class="action follow" href="">+</a></li>
+          <li class="large">Media <a class="action follow" href="">+</a></li>
+        </ul>
+        
+        <a class="complete button orange" href="#/stream">Done > </a>
+      </div>
+      
       <section id="discover" style="display:none">
         <header>
           <input type="search" placeholder="Search">
