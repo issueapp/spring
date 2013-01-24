@@ -455,8 +455,9 @@ div.drop-down ul.popover-list li:first-child {
 #discover ul#category > ul li a {
   color: #ccc;
 }
-/* line 451, ../../stylesheets/ui.scss */
-#discover ul.channels {
+
+/* line 454, ../../stylesheets/ui.scss */
+ul.channels {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -467,20 +468,19 @@ div.drop-down ul.popover-list li:first-child {
   overflow: auto;
   -webkit-overflow-scrolling: touch;
   padding-top: 120;
-  left: 240px;
+  left: 20px;
   top: 0;
   border-top: 200px;
   position: absolute;
   bottom: 0;
   padding-bottom: 50%;
 }
-/* line 470, ../../stylesheets/ui.scss */
-#discover ul.channels li {
+/* line 472, ../../stylesheets/ui.scss */
+ul.channels li {
   position: relative;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  text-shadow: 0 1px 1px #333333;
   float: left;
   color: white;
   font-size: 14px;
@@ -490,10 +490,11 @@ div.drop-down ul.popover-list li:first-child {
   background: #999;
   margin-right: 20px;
   margin-bottom: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
   background-size: cover;
 }
-/* line 489, ../../stylesheets/ui.scss */
-#discover ul.channels .action {
+/* line 493, ../../stylesheets/ui.scss */
+ul.channels .action {
   font-family: "Georgia";
   position: absolute;
   top: 30%;
@@ -515,15 +516,15 @@ div.drop-down ul.popover-list li:first-child {
   color: white;
   border: 1.5px solid rgba(255, 255, 255, 0.3);
 }
-/* line 509, ../../stylesheets/ui.scss */
-#discover ul.channels .action.followed {
+/* line 513, ../../stylesheets/ui.scss */
+ul.channels .action.followed {
   background: rgba(240, 69, 0, 0.2);
 }
-/* line 513, ../../stylesheets/ui.scss */
-#discover ul.channels .action:hover {
+/* line 517, ../../stylesheets/ui.scss */
+ul.channels .action:hover {
   background: rgba(255, 255, 255, 0.2);
 }
-/* line 517, ../../stylesheets/ui.scss */
-#discover ul.channels .action.view {
+/* line 521, ../../stylesheets/ui.scss */
+ul.channels .action.view {
   left: 130px;
 }
