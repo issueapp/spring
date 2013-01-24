@@ -40,6 +40,7 @@ class App.Toolbar extends Backbone.View
       channelBtn: false
     }, options)
 
+    $(@el).show()
     $('.drop-down').hide()
 
     # Build step
@@ -86,6 +87,12 @@ class App.Toolbar extends Backbone.View
       this.$el.append(@actionsButton)
 
     @actionsButton.toggle(options.actionsBtn)
+
+  show: ->
+    $(@el).show()
+    
+  hide: ->
+    $(@el).hide()
 
   back: (e)->
     @actionsBtn = @backBtn = false
