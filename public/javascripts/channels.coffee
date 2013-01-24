@@ -106,6 +106,6 @@ App.channels = [
     gender: "women",
     thumbnail_url: "http://deyf8doogqx67.cloudfront.net/images/BAhbBlsHOgZmSSJCMjAxMy8wMS8xNC8yMS81MS8yNC8zMDIvNjU3MjdfMzc5ODY2ODc4NzA5ODY2XzUyOTY5NDgxN19uLmpwZwY6BkVU",
     path: "/sites/pro-fresh-style",
-    featured: true, followed: false
+    featured: true, followed: true
   },
 ]

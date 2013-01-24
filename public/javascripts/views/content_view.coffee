@@ -35,6 +35,7 @@ class App.ContentView extends Backbone.View
     @view.on('destroy',         this.destroy)
 
   resetAttrs: ->
+    @view.updatePos(0)
     @streamLength = App.stream.size()
     @currentIndex = 0
     @loading = false
@@ -54,7 +55,7 @@ class App.ContentView extends Backbone.View
       source = $(@product_template(@model.toJSON()))
     
     this.setElement(source)
-    
+
     # Render single model, return node
     App.toolbar.typeBtn = false
     

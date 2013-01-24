@@ -54,6 +54,13 @@ class App.Toolbar extends Backbone.View
 
     @backButton.toggle(options.backBtn)
     
+    if window.location.host.match(/localhost/)
+      @reloadButton = this.$('a.reload')
+      
+      if @reloadButton.length == 0
+        @reloadButton = $(this.make('a', { href: '', class: 'icon reload follow', onclick:"window.location.reload(true); return false"}, 'reload'))
+        @titleTag.before(@reloadButton)
+        
     # channel button on stream view page, can be anything which users can follow
       
     if @followButton.length == 0
