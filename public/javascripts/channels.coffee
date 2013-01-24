@@ -27,7 +27,7 @@ App.channels = [
     item_count: 12
     featured: true, followed: false
   },
-  
+
   {
     name: "J Crew",
     type: "brand",
@@ -37,7 +37,7 @@ App.channels = [
     path: "/sites/j-crew",
     featured: true, followed: false
   },
-  
+
   {
     name: "Chronicle of her",
     type: "blog",
@@ -48,7 +48,7 @@ App.channels = [
     featured: true,
     followed: false
   },
-  
+
   {
     name: "the Sartorialist",
     type: "blog",
@@ -58,7 +58,7 @@ App.channels = [
     path: "/sites/the-sartorialist",
     featured: true, followed: true
   },
-  
+
   {
     name: "Levis",
     type: "blog",
@@ -68,17 +68,17 @@ App.channels = [
     path: "/sites/levis",
     featured: true, followed: true
   },
-  
+
   {
     name: "Topman",
     type: "brand",
     categories: ["Men"],
     gender: "men",
-    thumbnail_url: "http://thefashionisto.com/wp-content/uploads/2009/10/TOPMAN.jpg"
+    thumbnail_url: "http://demicouture.ca/wp-content/uploads/2009/02/topman-fw09.jpg"
     path: "/sites/topman",
     featured: true, followed: false
   },
-  
+
   {
     name: "Selectism",
     type: "blog",
@@ -88,7 +88,7 @@ App.channels = [
     path: "/sites/selectism",
     featured: true, followed: false
   },
-  
+
   {
     name: "Acquire mag",
     type: "blog",
@@ -98,13 +98,13 @@ App.channels = [
     path: "/sites/acquiremag",
     featured: true, followed: false
   },
-  
+
   {
     name: "Profresh Style",
     type: "blog",
     categories: ["Women"],
     gender: "women",
-    # thumbnail_url: "http://www.thesartorialist.com/wp-content/themes/sartorialist/images/author.jpg",
+    thumbnail_url: "http://deyf8doogqx67.cloudfront.net/images/BAhbBlsHOgZmSSJCMjAxMy8wMS8xNC8yMS81MS8yNC8zMDIvNjU3MjdfMzc5ODY2ODc4NzA5ODY2XzUyOTY5NDgxN19uLmpwZwY6BkVU",
     path: "/sites/pro-fresh-style",
     featured: true, followed: false
   },
