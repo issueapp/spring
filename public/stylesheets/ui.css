@@ -369,8 +369,11 @@ div.drop-down ul.popover-list li:first-child {
 /* line 367, ../../stylesheets/ui.scss */
 #discover header {
   padding: 40px 20px;
+  background: white;
+  position: relative;
+  z-index: 1;
 }
-/* line 370, ../../stylesheets/ui.scss */
+/* line 373, ../../stylesheets/ui.scss */
 #discover header input[type=search] {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -387,12 +390,12 @@ div.drop-down ul.popover-list li:first-child {
   border: 1px solid #ddd;
   width: 100%;
 }
-/* line 380, ../../stylesheets/ui.scss */
+/* line 383, ../../stylesheets/ui.scss */
 #discover header input[type=search]:focus {
   box-shadow: 0 0 5px #0064ff;
   outline: 0;
 }
-/* line 388, ../../stylesheets/ui.scss */
+/* line 391, ../../stylesheets/ui.scss */
 #discover ul#category {
   list-style: none;
   padding: 0;
@@ -401,8 +404,9 @@ div.drop-down ul.popover-list li:first-child {
   height: 100%;
   background: #eee;
   float: left;
+  position: relative;
 }
-/* line 397, ../../stylesheets/ui.scss */
+/* line 401, ../../stylesheets/ui.scss */
 #discover ul#category li {
   position: relative;
   font-size: 14px;
@@ -416,20 +420,20 @@ div.drop-down ul.popover-list li:first-child {
   padding: 0 25px;
   border-top: 1px solid #ddd;
 }
-/* line 410, ../../stylesheets/ui.scss */
+/* line 414, ../../stylesheets/ui.scss */
 #discover ul#category a {
   display: block;
   color: #444;
 }
-/* line 415, ../../stylesheets/ui.scss */
+/* line 419, ../../stylesheets/ui.scss */
 #discover ul#category li:hover {
   background: #e6e6e6;
 }
-/* line 419, ../../stylesheets/ui.scss */
+/* line 423, ../../stylesheets/ui.scss */
 #discover ul#category li.active {
   background: #ccc;
 }
-/* line 423, ../../stylesheets/ui.scss */
+/* line 427, ../../stylesheets/ui.scss */
 #discover ul#category li.active:after {
   content: "";
   position: absolute;
@@ -442,16 +446,16 @@ div.drop-down ul.popover-list li:first-child {
   height: 0px;
   width: 0px;
 }
-/* line 437, ../../stylesheets/ui.scss */
+/* line 441, ../../stylesheets/ui.scss */
 #discover ul#category > ul li {
   padding-left: 40px;
   font-weight: normal;
 }
-/* line 441, ../../stylesheets/ui.scss */
+/* line 445, ../../stylesheets/ui.scss */
 #discover ul#category > ul li a {
   color: #ccc;
 }
-/* line 447, ../../stylesheets/ui.scss */
+/* line 451, ../../stylesheets/ui.scss */
 #discover ul.channels {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -459,11 +463,18 @@ div.drop-down ul.popover-list li:first-child {
   margin: 0;
   padding: 0;
   list-style: none;
-  padding-left: 240px;
-  width: 100%;
   height: 100%;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-top: 120;
+  left: 240px;
+  top: 0;
+  border-top: 200px;
+  position: absolute;
+  bottom: 0;
+  padding-bottom: 50%;
 }
-/* line 456, ../../stylesheets/ui.scss */
+/* line 470, ../../stylesheets/ui.scss */
 #discover ul.channels li {
   position: relative;
   -webkit-box-sizing: border-box;
@@ -481,7 +492,7 @@ div.drop-down ul.popover-list li:first-child {
   margin-bottom: 20px;
   background-size: cover;
 }
-/* line 475, ../../stylesheets/ui.scss */
+/* line 489, ../../stylesheets/ui.scss */
 #discover ul.channels .action {
   font-family: "Georgia";
   position: absolute;
@@ -504,15 +515,15 @@ div.drop-down ul.popover-list li:first-child {
   color: white;
   border: 1.5px solid rgba(255, 255, 255, 0.3);
 }
-/* line 495, ../../stylesheets/ui.scss */
+/* line 509, ../../stylesheets/ui.scss */
 #discover ul.channels .action.followed {
   background: rgba(240, 69, 0, 0.2);
 }
-/* line 499, ../../stylesheets/ui.scss */
+/* line 513, ../../stylesheets/ui.scss */
 #discover ul.channels .action:hover {
   background: rgba(255, 255, 255, 0.2);
 }
-/* line 503, ../../stylesheets/ui.scss */
+/* line 517, ../../stylesheets/ui.scss */
 #discover ul.channels .action.view {
   left: 130px;
 }
