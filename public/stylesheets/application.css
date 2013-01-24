@@ -1228,8 +1228,9 @@ div.popover ul.popover-list li:first-child {
 #discover ul#category > ul li a {
   color: #ccc;
 }
-/* line 505, ../../stylesheets/ui.scss */
-#discover ul.channels {
+
+/* line 507, ../../stylesheets/ui.scss */
+ul.channels {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -1240,20 +1241,19 @@ div.popover ul.popover-list li:first-child {
   overflow: auto;
   -webkit-overflow-scrolling: touch;
   padding-top: 120;
-  left: 240px;
+  left: 20px;
   top: 0;
   border-top: 200px;
   position: absolute;
   bottom: 0;
   padding-bottom: 50%;
 }
-/* line 524, ../../stylesheets/ui.scss */
-#discover ul.channels li {
+/* line 525, ../../stylesheets/ui.scss */
+ul.channels li {
   position: relative;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  text-shadow: 0 1px 1px #333333;
   float: left;
   color: white;
   font-size: 14px;
@@ -1263,10 +1263,11 @@ div.popover ul.popover-list li:first-child {
   background: #999;
   margin-right: 20px;
   margin-bottom: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
   background-size: cover;
 }
-/* line 543, ../../stylesheets/ui.scss */
-#discover ul.channels .action {
+/* line 546, ../../stylesheets/ui.scss */
+ul.channels .action {
   font-family: "Georgia";
   position: absolute;
   top: 30%;
@@ -1288,16 +1289,16 @@ div.popover ul.popover-list li:first-child {
   color: white;
   border: 1.5px solid rgba(255, 255, 255, 0.3);
 }
-/* line 563, ../../stylesheets/ui.scss */
-#discover ul.channels .action.followed {
+/* line 566, ../../stylesheets/ui.scss */
+ul.channels .action.followed {
   background: rgba(240, 69, 0, 0.2);
 }
-/* line 567, ../../stylesheets/ui.scss */
-#discover ul.channels .action:hover {
+/* line 570, ../../stylesheets/ui.scss */
+ul.channels .action:hover {
   background: rgba(255, 255, 255, 0.2);
 }
-/* line 571, ../../stylesheets/ui.scss */
-#discover ul.channels .action.view {
+/* line 574, ../../stylesheets/ui.scss */
+ul.channels .action.view {
   left: 130px;
 }
 
@@ -1713,8 +1714,8 @@ article.page .description {
   text-align: center;
 }
 /* line 142, ../../stylesheets/page.scss */
-#content .content.page header, #content .content.page .body {
-  width: 80%;
+#content .content.page header, #content .content.page .body.one-column {
+  width: 90%;
   margin: 0 auto;
 }
 /* line 148, ../../stylesheets/page.scss */
@@ -1769,7 +1770,7 @@ article.page .description {
   margin-left: 260px;
   height: 100%;
   background-color: #000;
-  background-image: url(/images/cover-girl-bus.jpeg);
+  background-image: url(/images/landing_stargates_modified.png);
   background-position: center;
   background-size: cover;
   color: white;
@@ -1785,7 +1786,7 @@ article.page .description {
 .landing .featured h3 {
   top: 20px;
   font-size: 16px;
-  color: #666;
+  color: #999;
   text-transform: uppercase;
   text-align: right;
 }
@@ -1796,7 +1797,7 @@ article.page .description {
   text-align: right;
   font-size: 16px;
   line-height: 24px;
-  color: #eee;
+  color: #fff;
 }
 /* line 250, ../../stylesheets/page.scss */
 .landing .logo {
@@ -1860,7 +1861,56 @@ article.page .description {
   font-size: 24px;
 }
 
-/* line 312, ../../stylesheets/page.scss */
+/* line 314, ../../stylesheets/page.scss */
+#signup.page ul.channels {
+  top: 100px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  border-top: 90px;
+  padding: 0 0;
+}
+/* line 321, ../../stylesheets/page.scss */
+#signup.page ul.channels a.follow {
+  -webkit-border-radius: 80px;
+  -moz-border-radius: 80px;
+  -ms-border-radius: 80px;
+  -o-border-radius: 80px;
+  border-radius: 80px;
+  margin-left: 50px;
+  font-weight: bold;
+  line-height: 120px;
+  text-align: center;
+  width: 120px;
+  height: 120px;
+}
+/* line 331, ../../stylesheets/page.scss */
+#signup.page ul.channels li {
+  width: 315px;
+  height: 260px;
+}
+/* line 337, ../../stylesheets/page.scss */
+#signup.page h1 {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 18px;
+  color: #666;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+/* line 346, ../../stylesheets/page.scss */
+#signup.page a.complete {
+  font-family: "proxima_nova", "Helvetica Neue";
+  position: absolute;
+  font-weight: bold;
+  bottom: 0;
+  right: 20px;
+  padding: 0 30px;
+  line-height: 50x;
+}
+
+/* line 357, ../../stylesheets/page.scss */
 .flash, .notice, .alert {
   position: absolute;
   top: 45px;

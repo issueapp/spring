@@ -501,76 +501,77 @@ div.popover {
       }
     }
   }
+}
 
-  ul.channels {
+
+ul.channels {
+  @include box-sizing(border-box);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  height: 100%;
+  
+  overflow: auto;
+  -webkit-overflow-scrolling:touch;
+  
+  padding-top: 120;
+  left: 20px;
+  top: 0;
+  border-top: 200px;
+  position: absolute;
+  bottom: 0;
+  padding-bottom: 50%;
+  
+  li {
+    position: relative;
     @include box-sizing(border-box);
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    height: 100%;
+    float: left;
+    color: white;
 
-    overflow: auto;
-    -webkit-overflow-scrolling:touch;
 
-    padding-top: 120;
-    left: 240px;
-    top: 0;
-    border-top: 200px;
+    font-size: 14px;
+    padding: 15px;
+    width: 240px;
+    height: 170px;
+    background: #999;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    background-color: rgba(0,0,0, 0.5);
+    background-size: cover;
+
+  }
+  
+  
+
+  .action {
+    font-family: "Georgia";
     position: absolute;
-    bottom: 0;
-    padding-bottom: 50%;
+    top: 30%;
+    left: 30px;
+    float: left;
+    margin-right: 10px;
+    text-align: center;
+    display: block;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 70px;
+    width: 70px;
+    height: 70px;
 
-
-    li {
-      position: relative;
-      @include box-sizing(border-box);
-      @include text-shadow(0 1px 1px #333);
-      float: left;
-      color: white;
-
-
-      font-size: 14px;
-      padding: 15px;
-      width: 240px;
-      height: 170px;
-      background: #999;
-      margin-right: 20px;
-      margin-bottom: 20px;
-
-      background-size: cover;
-    }
-
-    .action {
-      font-family: "Georgia";
-      position: absolute;
-      top: 30%;
-      left: 30px;
-      float: left;
-      margin-right: 10px;
-      text-align: center;
-      display: block;
-      font-size: 24px;
-      font-weight: bold;
-      line-height: 70px;
-      width: 70px;
-      height: 70px;
-
-      @include border-radius(40px);
-      color: white;
-      border: 1.5px solid rgba(255,255,255, 0.3);
-    }
-
-    .action.followed {
-      background: rgba(240, 69, 0, 0.2);
-    }
-
-    .action:hover {
-      background: rgba(255, 255, 255, 0.2);
-    }
-
-    .action.view {
-      left: 130px;
-    }
+    @include border-radius(40px);
+    color: white;
+    border: 1.5px solid rgba(255,255,255, 0.3);
   }
 
+  .action.followed {
+    background: rgba(240, 69, 0, 0.2);
+  }
+
+  .action:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .action.view {
+    left: 130px;
+  }
 }
