@@ -67,14 +67,19 @@ class App.SwipeView extends Backbone.View
     e = e.touches[0] if e.touches
 
     @startClientX = e.clientX
+    @startClientY = e.clientY
+
     $(@el).removeClass('animate').addClass('swiping')
 
   onMove: (e) ->
+    e = e.touches[0] if e.touches
+    delta = e.clientX - @startClientX
+    
+    return if e.clientY < @startClientY
+    
     e.preventDefault()
 
-    e = e.touches[0] if e.touches
 
-    delta = e.clientX - @startClientX
     # moveDelta = e.clientX - @currentClientX
     # console.log(@offset + delta * 1.1)
     

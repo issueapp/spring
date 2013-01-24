@@ -1,292 +1,79 @@
-/* line 1, ../../stylesheets/page.scss */
-.page {
-  margin: 0 1%;
-  max-height: 100%;
-}
-/* line 5, ../../stylesheets/page.scss */
-.page .row:last-child {
-  margin-bottom: 0;
-}
+/*
+Syntax error: Undefined mixin 'box-sizing'.
+        on line 77 of ./stylesheets/page.scss, in `box-sizing'
+        from line 77 of ./stylesheets/page.scss
 
-/* line 11, ../../stylesheets/page.scss */
-article.page .image.cover {
-  position: relative;
-  height: 200%;
-  width: 200%;
-  top: -50%;
-  left: -50%;
-}
-/* line 19, ../../stylesheets/page.scss */
-article.page .price, article.page .store {
-  display: inline-block;
-}
-/* line 23, ../../stylesheets/page.scss */
-article.page .price {
-  float: left;
-  line-height: 37px;
-}
-/* line 28, ../../stylesheets/page.scss */
-article.page .button.store {
-  margin-bottom: 1em;
-  display: block;
-  float: right;
-  margin: 0;
-}
-/* line 35, ../../stylesheets/page.scss */
-article.page .description {
-  display: block;
-  clear: both;
-}
+72: }
+73: 
+74: 
+75: #content {
+76:   .page {
+77:     @include box-sizing(border-box);
+78:     -webkit-overflow-scrolling: touch;
+79:     
+80: 
+81:     padding: 22px 22px 22px 22px;
+82:     overflow: hidden;
 
-@media screen and (orientation:portrait) {
-  /* line 43, ../../stylesheets/page.scss */
-  article.page .col.half {
-    height: 49%;
-    width: 100%;
-    background: white;
-  }
-  /* line 48, ../../stylesheets/page.scss */
-  article.page .col.half .image {
-    left: 25%;
-    position: relative;
-    width: 50%;
-  }
-  /* line 54, ../../stylesheets/page.scss */
-  article.page .col.half .info {
-    text-align: center;
-  }
-  /* line 56, ../../stylesheets/page.scss */
-  article.page .col.half .info .store {
-    margin: 0;
-  }
-  /* line 60, ../../stylesheets/page.scss */
-  article.page .col.half .info .price {
-    line-height: 37px;
-    vertical-align: middle;
-  }
-  /* line 65, ../../stylesheets/page.scss */
-  article.page .col.half .info p {
-    margin-top: 10px;
-    text-align: left;
-  }
-}
-/* line 76, ../../stylesheets/page.scss */
-#content .page {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  padding: 22px 22px 22px 22px;
-  overflow: hidden;
-  font-family: 'proxima_nova_regular';
-}
-/* line 84, ../../stylesheets/page.scss */
-#content .page .info {
-  margin: 0 22px;
-}
-/* line 88, ../../stylesheets/page.scss */
-#content .page .title {
-  margin: 0;
-  color: #2c2c2c;
-  font-weight: normal;
-  font-size: 23px;
-  font-family: 'proxima_nova_bold';
-}
-/* line 96, ../../stylesheets/page.scss */
-#content .page .price span:first-child {
-  color: #2c2c2c;
-  font-size: 18px;
-  font-family: 'proxima_nova_bold';
-}
-/* line 103, ../../stylesheets/page.scss */
-#content .page .store {
-  position: absolute;
-  top: 120px;
-  right: 0;
-  padding: 17px 14px 17px 22px;
-  background-color: #F04500;
-  color: white;
-  text-transform: uppercase;
-  font-size: 14px;
-  font-family: 'proxima_nova_bold';
-}
-/* line 115, ../../stylesheets/page.scss */
-#content .page .source {
-  margin: 0;
-  color: #666;
-  font-size: 12px;
-}
-/* line 119, ../../stylesheets/page.scss */
-#content .page .source span {
-  color: #2c2c2c;
-}
-/* line 123, ../../stylesheets/page.scss */
-#content .page .description {
-  padding-top: 25px;
-  font-size: 16px;
-}
-/* line 129, ../../stylesheets/page.scss */
-#content .content.page {
-  overflow: auto;
-}
-/* line 132, ../../stylesheets/page.scss */
-#content .content.page header {
-  margin: 0 0 18px;
-  padding-bottom: 15px;
-  border-bottom: 1px solid #eee;
-  text-align: center;
-}
-/* line 140, ../../stylesheets/page.scss */
-#content .content.page header, #content .content.page .body {
-  width: 80%;
-  margin: 0 auto;
-}
-/* line 146, ../../stylesheets/page.scss */
-#content .content.page .title {
-  text-transform: uppercase;
-  font-size: 24px;
-  font-weight: normal;
-}
-/* line 154, ../../stylesheets/page.scss */
-#content .content.page .author, #content .content.page .published-at {
-  color: #333;
-  font-family: Georgia;
-  font-style: italic;
-}
-/* line 160, ../../stylesheets/page.scss */
-#content .content.page .body {
-  font-size: 16px;
-  line-height: 22px;
-  color: #333;
-  text-align: justify;
-  -webkit-hyphens: auto;
-}
-/* line 172, ../../stylesheets/page.scss */
-#content .content.page .body p {
-  margin: 1.2em 0 !important;
-}
-/* line 176, ../../stylesheets/page.scss */
-#content .content.page .body a[href] {
-  color: #d93e00;
-}
-/* line 180, ../../stylesheets/page.scss */
-#content .content.page .body img {
-  box-sizing: border-box;
-  clear: both;
-  display: block;
-  float: none;
-  margin: 0 auto;
-}
-/* line 190, ../../stylesheets/page.scss */
-#content .content.page iframe {
-  width: 100% !important;
-}
-
-/* line 210, ../../stylesheets/page.scss */
-.landing {
-  margin-left: 260px;
-  height: 100%;
-  background-color: #000;
-  background-image: url(/images/cover-girl-bus.jpeg);
-  background-position: center;
-  background-size: cover;
-  color: white;
-  font-family: "proxima-nova", sans-serif;
-}
-/* line 221, ../../stylesheets/page.scss */
-.landing .featured {
-  width: 30%;
-  float: right;
-  padding: 0 20px;
-}
-/* line 226, ../../stylesheets/page.scss */
-.landing .featured h3 {
-  top: 20px;
-  font-size: 16px;
-  color: #666;
-  text-transform: uppercase;
-  text-align: right;
-}
-/* line 234, ../../stylesheets/page.scss */
-.landing .featured ul {
-  list-style: none;
-  text-transform: uppercase;
-  text-align: right;
-  font-size: 16px;
-  line-height: 24px;
-  color: #eee;
-}
-/* line 244, ../../stylesheets/page.scss */
-.landing .logo {
-  opacity: 0.3;
-  position: absolute;
-  right: 20px;
-  bottom: 0;
-  padding: 38px 0 0 105px;
-  height: 60px;
-  background: url("/images/logo.png") no-repeat 20px 20px;
-  color: white;
-  font-size: 22px;
-}
-/* line 256, ../../stylesheets/page.scss */
-.landing .welcome {
-  position: absolute;
-  top: 35%;
-  padding-left: 12px;
-  font-weight: bold;
-}
-/* line 262, ../../stylesheets/page.scss */
-.landing .welcome p:first-child {
-  margin: 0 0 0 8px;
-  font-size: 102px;
-  text-transform: uppercase;
-}
-/* line 268, ../../stylesheets/page.scss */
-.landing .welcome p:nth-child(2) {
-  margin: 0 0 0 8px;
-  font-size: 25px;
-}
-/* line 273, ../../stylesheets/page.scss */
-.landing .welcome a {
-  color: white;
-  position: absolute;
-  top: 40px;
-  right: 12px;
-  padding: 18px 20px 18px 26px;
-  background-color: #f04500;
-  text-transform: uppercase;
-  font-size: 14px;
-}
-/* line 285, ../../stylesheets/page.scss */
-.landing .footer {
-  position: absolute;
-  bottom: 28px;
-  padding-left: 30px;
-  font-size: 14px;
-  line-height: 20px;
-}
-/* line 292, ../../stylesheets/page.scss */
-.landing .footer a {
-  font-family: "proxima_nova_bold";
-  color: white;
-  vertical-align: bottom;
-}
-/* line 298, ../../stylesheets/page.scss */
-.landing .footer i {
-  padding-right: 10px;
-  vertical-align: middle;
-  font-size: 24px;
-}
-
-/* line 306, ../../stylesheets/page.scss */
-.flash, .notice, .alert {
-  position: absolute;
-  top: 45px;
-  right: 0px;
-  z-index: 100;
-  padding: 20px 30px;
-  width: 268px;
-  background: #222;
-  color: white;
-  font-weight: bold;
-  font-size: 15px;
-  font-family: "Helvetica Neue", Hevetica, Arial, sans-serif;
-}
+Backtrace:
+./stylesheets/page.scss:77:in `box-sizing'
+./stylesheets/page.scss:77
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:170:in `visit_mixin'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:18:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:53:in `map'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:27:in `block in visit_children'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:39:in `with_environment'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:26:in `visit_children'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:238:in `visit_rule'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:18:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:53:in `map'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:27:in `block in visit_children'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:39:in `with_environment'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:26:in `visit_children'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:238:in `visit_rule'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:18:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:53:in `map'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:27:in `block in visit_children'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:39:in `with_environment'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:26:in `visit_children'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:47:in `visit_root'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:18:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:7:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.1.19/lib/sass/tree/root_node.rb:20:in `render'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.1.19/lib/sass/engine.rb:300:in `_render'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.1.19/lib/sass/engine.rb:247:in `render'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.1.19/lib/sass/plugin/compiler.rb:340:in `update_stylesheet'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.1.19/lib/sass/plugin/compiler.rb:202:in `block in update_stylesheets'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.1.19/lib/sass/plugin/compiler.rb:200:in `each'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.1.19/lib/sass/plugin/compiler.rb:200:in `update_stylesheets'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.1.19/lib/sass/plugin.rb:81:in `update_stylesheets'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.1.19/lib/sass/plugin.rb:54:in `check_for_updates'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.1.19/lib/sass/plugin/rack.rb:51:in `call'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/rack-1.4.1/lib/rack/lint.rb:48:in `_call'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/rack-1.4.1/lib/rack/lint.rb:36:in `call'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/rack-1.4.1/lib/rack/showexceptions.rb:24:in `call'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/rack-1.4.1/lib/rack/commonlogger.rb:20:in `call'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/rack-1.4.1/lib/rack/chunked.rb:43:in `call'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/rack-1.4.1/lib/rack/content_length.rb:14:in `call'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/rack-1.4.1/lib/rack/handler/webrick.rb:59:in `service'
+/Users/taylorluk/.rvm/rubies/ruby-1.9.3-p362/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+/Users/taylorluk/.rvm/rubies/ruby-1.9.3-p362/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+/Users/taylorluk/.rvm/rubies/ruby-1.9.3-p362/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: Undefined mixin 'box-sizing'.\A         on line 77 of ./stylesheets/page.scss, in `box-sizing'\A         from line 77 of ./stylesheets/page.scss\A \A 72: }\A 73: \A 74: \A 75: #content {\A 76:   .page {\A 77:     @include box-sizing(border-box);\A 78:     -webkit-overflow-scrolling: touch;\A 79:     \A 80: \A 81:     padding: 22px 22px 22px 22px;\A 82:     overflow: hidden;"; }

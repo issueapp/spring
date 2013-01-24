@@ -1577,16 +1577,18 @@ article.page .description {
 /* line 76, ../../stylesheets/page.scss */
 #content .page {
   -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
   padding: 22px 22px 22px 22px;
   overflow: hidden;
   font-family: 'proxima_nova_regular';
 }
-/* line 84, ../../stylesheets/page.scss */
+/* line 85, ../../stylesheets/page.scss */
 #content .page .info {
   margin: 0 22px;
 }
-/* line 88, ../../stylesheets/page.scss */
+/* line 89, ../../stylesheets/page.scss */
 #content .page .title {
   margin: 0;
   color: #2c2c2c;
@@ -1594,13 +1596,13 @@ article.page .description {
   font-size: 23px;
   font-family: 'proxima_nova_bold';
 }
-/* line 96, ../../stylesheets/page.scss */
+/* line 97, ../../stylesheets/page.scss */
 #content .page .price span:first-child {
   color: #2c2c2c;
   font-size: 18px;
   font-family: 'proxima_nova_bold';
 }
-/* line 103, ../../stylesheets/page.scss */
+/* line 104, ../../stylesheets/page.scss */
 #content .page .store {
   position: absolute;
   top: 120px;
@@ -1612,50 +1614,50 @@ article.page .description {
   font-size: 14px;
   font-family: 'proxima_nova_bold';
 }
-/* line 115, ../../stylesheets/page.scss */
+/* line 116, ../../stylesheets/page.scss */
 #content .page .source {
   margin: 0;
   color: #666;
   font-size: 12px;
 }
-/* line 119, ../../stylesheets/page.scss */
+/* line 120, ../../stylesheets/page.scss */
 #content .page .source span {
   color: #2c2c2c;
 }
-/* line 123, ../../stylesheets/page.scss */
+/* line 124, ../../stylesheets/page.scss */
 #content .page .description {
   padding-top: 25px;
   font-size: 16px;
 }
-/* line 129, ../../stylesheets/page.scss */
+/* line 130, ../../stylesheets/page.scss */
 #content .content.page {
   overflow: auto;
 }
-/* line 132, ../../stylesheets/page.scss */
+/* line 133, ../../stylesheets/page.scss */
 #content .content.page header {
   margin: 0 0 18px;
   padding-bottom: 15px;
   border-bottom: 1px solid #eee;
   text-align: center;
 }
-/* line 140, ../../stylesheets/page.scss */
+/* line 141, ../../stylesheets/page.scss */
 #content .content.page header, #content .content.page .body {
   width: 80%;
   margin: 0 auto;
 }
-/* line 146, ../../stylesheets/page.scss */
+/* line 147, ../../stylesheets/page.scss */
 #content .content.page .title {
   text-transform: uppercase;
   font-size: 24px;
   font-weight: normal;
 }
-/* line 154, ../../stylesheets/page.scss */
+/* line 155, ../../stylesheets/page.scss */
 #content .content.page .author, #content .content.page .published-at {
   color: #333;
   font-family: Georgia;
   font-style: italic;
 }
-/* line 160, ../../stylesheets/page.scss */
+/* line 161, ../../stylesheets/page.scss */
 #content .content.page .body {
   font-size: 16px;
   line-height: 22px;
@@ -1663,28 +1665,30 @@ article.page .description {
   text-align: justify;
   -webkit-hyphens: auto;
 }
-/* line 172, ../../stylesheets/page.scss */
+/* line 173, ../../stylesheets/page.scss */
 #content .content.page .body p {
   margin: 1.2em 0 !important;
 }
-/* line 176, ../../stylesheets/page.scss */
+/* line 177, ../../stylesheets/page.scss */
 #content .content.page .body a[href] {
   color: #d93e00;
 }
-/* line 180, ../../stylesheets/page.scss */
+/* line 181, ../../stylesheets/page.scss */
 #content .content.page .body img {
   box-sizing: border-box;
   clear: both;
   display: block;
   float: none;
   margin: 0 auto;
+  max-width: 100%;
+  height: auto;
 }
-/* line 190, ../../stylesheets/page.scss */
+/* line 193, ../../stylesheets/page.scss */
 #content .content.page iframe {
   width: 100% !important;
 }
 
-/* line 210, ../../stylesheets/page.scss */
+/* line 213, ../../stylesheets/page.scss */
 .landing {
   margin-left: 260px;
   height: 100%;
@@ -1695,13 +1699,13 @@ article.page .description {
   color: white;
   font-family: "proxima-nova", sans-serif;
 }
-/* line 221, ../../stylesheets/page.scss */
+/* line 224, ../../stylesheets/page.scss */
 .landing .featured {
   width: 30%;
   float: right;
   padding: 0 20px;
 }
-/* line 226, ../../stylesheets/page.scss */
+/* line 229, ../../stylesheets/page.scss */
 .landing .featured h3 {
   top: 20px;
   font-size: 16px;
@@ -1709,7 +1713,7 @@ article.page .description {
   text-transform: uppercase;
   text-align: right;
 }
-/* line 234, ../../stylesheets/page.scss */
+/* line 237, ../../stylesheets/page.scss */
 .landing .featured ul {
   list-style: none;
   text-transform: uppercase;
@@ -1718,7 +1722,7 @@ article.page .description {
   line-height: 24px;
   color: #eee;
 }
-/* line 244, ../../stylesheets/page.scss */
+/* line 247, ../../stylesheets/page.scss */
 .landing .logo {
   opacity: 0.3;
   position: absolute;
@@ -1730,25 +1734,25 @@ article.page .description {
   color: white;
   font-size: 22px;
 }
-/* line 256, ../../stylesheets/page.scss */
+/* line 259, ../../stylesheets/page.scss */
 .landing .welcome {
   position: absolute;
   top: 35%;
   padding-left: 12px;
   font-weight: bold;
 }
-/* line 262, ../../stylesheets/page.scss */
+/* line 265, ../../stylesheets/page.scss */
 .landing .welcome p:first-child {
   margin: 0 0 0 8px;
   font-size: 102px;
   text-transform: uppercase;
 }
-/* line 268, ../../stylesheets/page.scss */
+/* line 271, ../../stylesheets/page.scss */
 .landing .welcome p:nth-child(2) {
   margin: 0 0 0 8px;
   font-size: 25px;
 }
-/* line 273, ../../stylesheets/page.scss */
+/* line 276, ../../stylesheets/page.scss */
 .landing .welcome a {
   color: white;
   position: absolute;
@@ -1759,7 +1763,7 @@ article.page .description {
   text-transform: uppercase;
   font-size: 14px;
 }
-/* line 285, ../../stylesheets/page.scss */
+/* line 288, ../../stylesheets/page.scss */
 .landing .footer {
   position: absolute;
   bottom: 28px;
@@ -1767,20 +1771,20 @@ article.page .description {
   font-size: 14px;
   line-height: 20px;
 }
-/* line 292, ../../stylesheets/page.scss */
+/* line 295, ../../stylesheets/page.scss */
 .landing .footer a {
   font-family: "proxima_nova_bold";
   color: white;
   vertical-align: bottom;
 }
-/* line 298, ../../stylesheets/page.scss */
+/* line 301, ../../stylesheets/page.scss */
 .landing .footer i {
   padding-right: 10px;
   vertical-align: middle;
   font-size: 24px;
 }
 
-/* line 306, ../../stylesheets/page.scss */
+/* line 309, ../../stylesheets/page.scss */
 .flash, .notice, .alert {
   position: absolute;
   top: 45px;

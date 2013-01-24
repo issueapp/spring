@@ -46,9 +46,7 @@ class App.Router extends Backbone.Router
 
   home: ->
     $('.landing').hide()
-
-    # $('#sections .pages').append()
-
+    
     this.channel("stream")
 
   # View a channel in a stream format
@@ -60,14 +58,14 @@ class App.Router extends Backbone.Router
     # Default to stream stream url
     url = switch type
       when "users"
-        this.url_for("#{handle}")
+        this.url_for("#{handle}/items")
       when "sites"
-        this.url_for("sites/#{handle}")
+        this.url_for("sites/#{handle}/items")
       when "interests"
-        this.url_for("interests/#{handle}")
+        this.url_for("interests/#{handle}/items")
       else
-        this.url_for("taylorluk")
-
+        this.url_for("taylorluk/items")
+    
     if !App.stream || (App.stream && App.stream.url != url)
       this.resetView(url, handle)
     else
@@ -101,27 +99,29 @@ class App.Router extends Backbone.Router
     App.contentView.show()
 
     # Might need to delay rendering when page is loading
-    renderer = (content)->
+    renderer = (c)->
+      
       App.contentView.resetAttrs()
-      App.contentView.model = content
+      App.contentView.model = c
+
       App.contentView.render()
 
     # fetch item from collection
     if App.stream.length > 0
-      content = App.stream.find (item)-> item.get('handle') == handle
+      content = App.stream.find (e)-> e.get('handle') == handle
+      console.log "From collection", handle, content
       renderer(content)
     else
     # request a new item
       product = new Backbone.Model
-
       product.fetch({
         dataType: "jsonp", url: this.url_for("items/#{handle}"),
         success: (data)-> renderer(product)
       })
 
   url_for: (path)->
-    "http://shop2.com/#{path}/items.json"
-
+    "http://shop2.com/#{path}.json"
+  
   # Set view to default state
   # This is a work around when we change between different view containers.
   resetView: (url, title, type)->
