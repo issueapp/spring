@@ -1,6 +1,6 @@
 class App.PopoverView extends Backbone.View
   events:
-    'click li a': 'toggleFocus'
+    'touchend li a': 'toggleFocus'
 
   initialize: ->
     @popover_template = $('#popover_tpl').html()
@@ -22,10 +22,11 @@ class App.PopoverView extends Backbone.View
   collectionDropdown: (target)->
     data = {
       'type': 'collectionDropdown'
+      'title': 'SELECTION'
       'collection': [
-        { 'link': '#1', 'content': 'Latest Arrivals', 'class': 'active' }
-        { 'link': '#2', 'content': 'Editors choice' }
-        { 'link': '#3', 'content': 'Promotions' }
+        { 'link': '#', 'content': 'Latest Arrivals', 'class': 'active' }
+        { 'link': '#', 'content': 'Editors choice' }
+        { 'link': '#', 'content': 'Promotions' }
       ]
     }
 
@@ -33,11 +34,18 @@ class App.PopoverView extends Backbone.View
     html.appendTo(target.parent())
 
   toggleFocus: (e)->
-    $(e.currentTarget).parents('.popover').find('a').removeClass('active')
-    $(e.currentTarget).addClass('active')
+    target = $(e.currentTarget)
+    target.parents('.popover').find('a').removeClass('active')
+    target.addClass('active')
+
+    # don't remove the timeout, otherwise navigation won't work
+    setTimeout =>
+      this.$el.hide()
+    , 0
 
   resetFocus: ->
     this.$el.find('a').removeClass('active')
     this.$el.forEach (item)->
       $(item).find('li:first-child a').addClass('active')
+
 

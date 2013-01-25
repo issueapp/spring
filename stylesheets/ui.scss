@@ -4,6 +4,7 @@
 @import "compass/css3/box-sizing";
 @import "compass/css3/border-radius";
 @import "compass/css3/text-shadow";
+@import "compass/css3/box-shadow";
 
 //      User interface
 //------ ui/menu
@@ -70,6 +71,10 @@ nav#menu {
       background: rgba(20,20,20,1);
     }
 
+    li.active span.right-icon {
+      color: white;
+    }
+
     // Level two menu
     & > ul li {
       padding-left: 30px;
@@ -88,7 +93,6 @@ nav#menu {
       margin-right: 5px;
       color: #666;
     }
-
 
     .counter {
       position: absolute;
@@ -247,7 +251,7 @@ header.toolbar {
 
 div.popover {
   position: absolute;
-  top: 22px;
+  top: 27px;
   width: 110px;
   font-size:13px;
 
@@ -259,7 +263,7 @@ div.popover {
   }
 
   div.drop-wrapper {
-    // @include box-shadow(#c9c9c9 2px 2px 5px);
+    @include box-shadow(#c9c9c9 2px 2px 5px);
     position: absolute;
     top: 36px;
     border:1px solid #eee;
@@ -276,7 +280,7 @@ div.popover {
       display: block;
       float: none;
       margin: 0;
-      padding: 13px 0px 13px 10px;
+      padding: 18px 0px 18px 10px;
       border-top: 1px solid #eee;
       background-image: none;
 
@@ -284,7 +288,7 @@ div.popover {
         height: 15px;
         line-height: 17px;
         text-transform: uppercase;
-        font-size: 10px;
+        font-size: 12px;
         font-family: "proxima_nova_regular";
         position: static;
         display: block;
@@ -296,6 +300,13 @@ div.popover {
         &:active, &.active {
           color: #6f6f6f;
         }
+      }
+
+      &.header {
+        color: #7A7A7A;
+        text-align: center;
+        font-size: 16px;
+        font-family: "proxima_nova_regular";
       }
     }
 
@@ -312,7 +323,8 @@ div.popover {
     left: -26px;
 
     .drop-top {
-      margin-left: 78px;
+      margin-left: 70px;
+      padding-right: 30px;
     }
   }
 
@@ -334,17 +346,23 @@ div.popover {
 
   .drop-wrapper {
     width: 300px;
+    min-height: 94px;
 
-    a {
-      height: 18px;
-      padding: 0 0 0 5px;
-      line-height: 20px;
-      color: #6F6F6F;
-      font-size: 13px;
-    }
+    li {
+      padding: 0;
 
-    a.active {
-      font-weight: bold;
+      &.header {padding: 10px 0px;}
+      a {
+        padding: 18px 0px 18px 18px;
+        height: 18px;
+        color: #6F6F6F;
+        font-size: 13px;
+        line-height: 20px;
+      }
+
+      a.active {
+        background-color: #f3f3f3;
+      }
     }
   }
 }

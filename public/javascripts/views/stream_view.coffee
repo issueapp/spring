@@ -45,7 +45,7 @@ class App.StreamView extends Backbone.View
     this.$el.off()
 
     @padding = $('<div class="page padding" style="visibility:hidden;width:0;padding:0;border:0;font-size:0">').appendTo(@el)
-    
+
     @toolbar = App.toolbar || new App.Toolbar
 
     # Render stream once data is loaded
@@ -369,16 +369,16 @@ class App.StreamView extends Backbone.View
         noContent = $(this.make('span', {id: 'noContent'}, 'No content available, please follow the current channel for future updates :)'))
         $('#sections').append(noContent)
 
-    @toolbar.render(title: @title, typeBtn: true, channelBtn: true, followBtn: true)
+    @toolbar.render(title: @title, typeBtn: true, followBtn: true)
 
     this
 
   updateBackgroundImage: (target) ->
     target.find('.image').forEach (item) ->
       $(item).css("background-image", 'url(' + $(item).data('original') + ')') if $(item).data('original')
-      
+
   show: ->
     this.$el.animate({opacity: 1}, 150)
-  
+
   hide: ->
     this.$el.css('opacity', '0')

@@ -6,15 +6,7 @@ class App.Toolbar extends Backbone.View
     "click a.menu": 'menu'
 
   initialize: ->
-    # this.delegateEvents
-    #   "tap a.back": 'back'
-    #   "tap a.menu": 'menu'
-    #   "tap a.type": 'filter'
-    #   "tap .title": 'collection'
-    #   "tap #filter-dropdown a": 'toggleFilterStatus'
-    #   "tap #collection-dropdown li": 'toggleCollectionStatus'
-
-    @channelBtn = @backBtn = @actionsBtn = false
+    @backBtn = @actionsBtn = false
     @typeBtn = true
     @popover_template = $('#popover_tpl').html()
 
@@ -22,7 +14,6 @@ class App.Toolbar extends Backbone.View
     @followButton = this.$('a.follow')
 
     @backButton = this.$('a.back')
-    @channelButton = this.$('a.channel')
     @typeButton = this.$('a.type')
     @actionsButton = this.$('div.actions')
 
@@ -32,8 +23,7 @@ class App.Toolbar extends Backbone.View
       typeBtn: false,
       actionsBtn: false,
       title: true,
-      followBtn: false,
-      channelBtn: false
+      followBtn: false
     }, options)
 
     $('.drop-down').hide()
@@ -58,7 +48,6 @@ class App.Toolbar extends Backbone.View
         @titleTag.before(@reloadButton)
 
     # channel button on stream view page, can be anything which users can follow
-
     if @followButton.length == 0
       @followButton = $(this.make('a', { href: '#stream', class: 'follow'}, 'follow'))
       @titleTag.before(@followButton)
@@ -84,12 +73,12 @@ class App.Toolbar extends Backbone.View
     @actionsButton.toggle(options.actionsBtn)
 
   back: (e)->
-    @actionsBtn = @backBtn = false
-    @typeBtn = false
-    window.history.back();
+    @typeBtn = @actionsBtn = @backBtn = false
 
-    e.preventDefault();
-    e.stopPropagation();
+    window.history.back()
+
+    e.preventDefault()
+    e.stopPropagation()
 
   menu: ->
     App.menu.toggle()
