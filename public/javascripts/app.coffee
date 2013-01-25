@@ -14,6 +14,7 @@ this.App ||= {
     @stream = new App.StreamCollection
     @streamView = new App.StreamView( el: '#sections .pages', layout: @layout, collection: @stream )
     @contentView ||= new App.ContentView
+    @popover = new App.PopoverView
 
     Backbone.history.start()
 
@@ -22,11 +23,27 @@ this.App ||= {
     else
       $('.landing').css('opacity', '1')
 
+    $('a[rel="popover"]').live "click", (e)=>
+
+      target = $(e.currentTarget)
+      link = target.attr('href') # link => #filterDropdown
+      dropdown = $(link)
+
+      if dropdown.length == 0
+        method = link.replace('#', '') # method => filterDropdown
+        @popover[method](target) if typeof @popover[method] == "function" # popover.filterDropdown(target)
+        @popover.setElement('.popover')
+
+      else
+        dropdown.toggle()
+
+      false
+
     # All link should be internal /!#/path # unless @silentClick
-    $('a:not([rel="external"])').live "click", (e) ->
+    $('a:not([rel="external"]):not([rel="popover"])').live "click", (e) =>
       link = $(e.currentTarget).attr('href')
       App.router.navigate(link, { trigger: true })
-      e.preventDefault()
+
       false
 }
 
@@ -46,7 +63,6 @@ class App.Router extends Backbone.Router
 
   home: ->
     $('.landing').hide()
-    
     this.channel("stream")
 
   # View a channel in a stream format
@@ -65,7 +81,7 @@ class App.Router extends Backbone.Router
         this.url_for("interests/#{handle}/items")
       else
         this.url_for("taylorluk/items")
-    
+
     if !App.stream || (App.stream && App.stream.url != url)
       this.resetView(url, handle)
     else
@@ -100,7 +116,7 @@ class App.Router extends Backbone.Router
 
     # Might need to delay rendering when page is loading
     renderer = (c)->
-      
+
       App.contentView.resetAttrs()
       App.contentView.model = c
 
@@ -109,7 +125,6 @@ class App.Router extends Backbone.Router
     # fetch item from collection
     if App.stream.length > 0
       content = App.stream.find (e)-> e.get('handle') == handle
-      console.log "From collection", handle, content
       renderer(content)
     else
     # request a new item
@@ -121,20 +136,15 @@ class App.Router extends Backbone.Router
 
   url_for: (path)->
     "http://shop2.com/#{path}.json"
-  
+
   # Set view to default state
   # This is a work around when we change between different view containers.
   resetView: (url, title, type)->
 
     # reset toolbar to default states.
-    if App.toolbar
+    if App.toolbar && title != App.stream.title
       App.toolbar.render(title: title, typeBtn: false, backBtn: false, actionsBtn: false)
-
-      # reset filter dropdown view-all to active when swithcing channels
-    if url && url != App.stream.url
-      dropdown = $('#sections #filter-dropdown')
-      dropdown.find('.active').removeClass('active')
-      dropdown.find('.view-all').addClass('active')
+      App.popover.resetFocus()
 
     # Section views reset
     $('#sections .pages').addClass('horizontal')
@@ -158,6 +168,7 @@ class App.Router extends Backbone.Router
       $('#sections').append(spinner.el)
 
       App.stream.fetch({ dataType: "jsonp" })
+
     else
       # This is probably duplicate
       App.streamView.show()

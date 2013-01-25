@@ -104,12 +104,12 @@
       #content {
         white-space: nowrap;
       }
-      
+
       .transition {
         -webkit-transition:opacity 0.5s ease;
       }
-      
-      .zoom:hover { 
+
+      .zoom:hover {
          -moz-transform: scale(1.4);
          -webkit-transform: scale(1.4);
          -o-transform: scale(1.4);
@@ -137,7 +137,7 @@
   <body>
     <div class="landing transition" style="opacity:0">
       <h1 class="logo"></h1>
-      
+
       <div class="featured">
         <h3>Featured</h3>
         <ul>
@@ -145,7 +145,7 @@
           <li>Topman is here </li>
           <li>Profresh style</li>
       </div>
-      
+
       <div class="welcome">
         <p>your edition</p>
         <p>of personalized magazine</p>
@@ -176,11 +176,11 @@
           <li><a href="/interests/media">Art &amp; design</a></li>
         </ul>
         <li class="user">
-          
+
           <a class="right-icon settings" href="/settings">
             <i class="icon-cog"></i>
           </a>
-          
+
           <a href="/taylorluk/items">
             <div class="thumb">
               <img width=30 height=30 src="https://en.gravatar.com/userimage/3750669/11f87325e01820f4350d21db1fb429c8.jpeg">
@@ -240,7 +240,7 @@
       <div id="sections">
         <header class="toolbar">
           <a class="menu"></a>
-          <div class="title"><span>TOP CONTENT</span></div>
+          <a class="title" rel="popover" href="#collectionDropdown"><span>TOP CONTENT</span></a>
         </header>
         <%= yield %>
       </div>
@@ -266,7 +266,7 @@
   <script src="/javascripts/app.js"></script>
   <script src="/javascripts/models.js"></script>
   <script src="/javascripts/channels.js"></script>
-  
+
   <script src="/javascripts/views/layout.js"></script>
   <script src="/javascripts/views/toolbar.js"></script>
   <script src="/javascripts/views/menu_view.js"></script>
@@ -276,6 +276,7 @@
   <script src="/javascripts/views/list_view.js"></script>
   <script src="/javascripts/views/stream_view.js"></script>
   <script src="/javascripts/views/discover_menu.js"></script>
+  <script src="/javascripts/views/popover_view.js"></script>
 
   <script src="/javascripts/misc.js"></script>
 

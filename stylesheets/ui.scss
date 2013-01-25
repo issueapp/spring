@@ -151,7 +151,7 @@ header.toolbar {
     background: url('/images/icon-reorder.png') no-repeat center;
   }
 
-  a.type {
+  a.filter {
     float: right;
     width: 64px;
     border-left: 1px solid #EEE;
@@ -200,6 +200,7 @@ header.toolbar {
     span {
       position: relative;
       left: -50%;
+      color: #333;
 
       &:after {
         display: inline-block;
@@ -244,7 +245,7 @@ header.toolbar {
 //------ ui/buttons
 //------ ui/popover
 
-div.drop-down {
+div.popover {
   position: absolute;
   top: 22px;
   width: 110px;
@@ -304,7 +305,7 @@ div.drop-down {
   }
 }
 
-#filter-dropdown {
+#filterDropdown {
   right: -10px;
 
   .drop-wrapper {
@@ -327,7 +328,7 @@ div.drop-down {
   }
 }
 
-#collection-dropdown {
+#collectionDropdown {
   left: 50%;
   margin-left: -151px;
 
@@ -342,13 +343,8 @@ div.drop-down {
       font-size: 13px;
     }
 
-    li.active {
-      border-left: 5px solid #000;
-
-      a {
-        padding: 0;
-        color: #333;
-      }
+    a.active {
+      font-weight: bold;
     }
   }
 }
@@ -369,7 +365,7 @@ div.drop-down {
     background: white;
     position: relative;
     z-index: 1;
-    
+
     input[type=search] {
       @include box-sizing(border-box);
       @include border-radius(5px);
@@ -397,7 +393,7 @@ div.drop-down {
     background: #eee;
     float: left;
     position:relative;
-    
+
     li {
       position: relative;
       font-size: 14px;
@@ -454,10 +450,10 @@ div.drop-down {
     padding: 0;
     list-style: none;
     height: 100%;
-    
+
     overflow: auto;
     -webkit-overflow-scrolling:touch;
-    
+
     padding-top: 120;
     left: 240px;
     top: 0;
@@ -465,8 +461,8 @@ div.drop-down {
     position: absolute;
     bottom: 0;
     padding-bottom: 50%;
-    
-    
+
+
     li {
       position: relative;
       @include box-sizing(border-box);
