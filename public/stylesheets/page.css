@@ -1,23 +1,23 @@
 /*
 Syntax error: Undefined mixin 'border-radius'.
-        on line 321 of ./stylesheets/page.scss, in `border-radius'
-        from line 321 of ./stylesheets/page.scss
+        on line 323 of ./stylesheets/page.scss, in `border-radius'
+        from line 323 of ./stylesheets/page.scss
 
-316:     width: 100%;
-317:     border-top: 90px;
 318:     padding:0 0;
-319:     
-320:     a.follow {
-321:       @include border-radius(80px);
-322:       margin-left: 50px;
-323:       font-weight: bold;
-324:       line-height: 120px;
-325:       text-align: center;
-326:       width: 120px;
+319:     left: 20px;
+320: 
+321:     a.follow {
+322:       position:absolute;
+323:       @include border-radius(80px);
+324:       left: 50%;
+325:       font-weight: bold;
+326:       line-height: 120px;
+327:       margin-left: -60px;
+328:       text-align: center;
 
 Backtrace:
-./stylesheets/page.scss:321:in `border-radius'
-./stylesheets/page.scss:321
+./stylesheets/page.scss:323:in `border-radius'
+./stylesheets/page.scss:323
 /Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:170:in `visit_mixin'
 /Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:37:in `visit'
 /Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:18:in `visit'
@@ -86,4 +86,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined mixin 'border-radius'.\A         on line 321 of ./stylesheets/page.scss, in `border-radius'\A         from line 321 of ./stylesheets/page.scss\A \A 316:     width: 100%;\A 317:     border-top: 90px;\A 318:     padding:0 0;\A 319:     \A 320:     a.follow {\A 321:       @include border-radius(80px);\A 322:       margin-left: 50px;\A 323:       font-weight: bold;\A 324:       line-height: 120px;\A 325:       text-align: center;\A 326:       width: 120px;"; }
+  content: "Syntax error: Undefined mixin 'border-radius'.\A         on line 323 of ./stylesheets/page.scss, in `border-radius'\A         from line 323 of ./stylesheets/page.scss\A \A 318:     padding:0 0;\A 319:     left: 20px;\A 320: \A 321:     a.follow {\A 322:       position:absolute;\A 323:       @include border-radius(80px);\A 324:       left: 50%;\A 325:       font-weight: bold;\A 326:       line-height: 120px;\A 327:       margin-left: -60px;\A 328:       text-align: center;"; }
