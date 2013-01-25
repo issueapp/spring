@@ -515,12 +515,13 @@ ul.channels {
   -webkit-overflow-scrolling:touch;
   
   padding-top: 120;
-  left: 20px;
+  left: 240px;
   top: 0;
   border-top: 200px;
   position: absolute;
   bottom: 0;
   padding-bottom: 50%;
+  
   
   li {
     position: relative;
@@ -538,10 +539,7 @@ ul.channels {
     margin-bottom: 20px;
     background-color: rgba(0,0,0, 0.5);
     background-size: cover;
-
   }
-  
-  
 
   .action {
     font-family: "Georgia";
