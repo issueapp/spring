@@ -468,14 +468,14 @@ ul.channels {
   overflow: auto;
   -webkit-overflow-scrolling: touch;
   padding-top: 120;
-  left: 20px;
+  left: 240px;
   top: 0;
   border-top: 200px;
   position: absolute;
   bottom: 0;
   padding-bottom: 50%;
 }
-/* line 472, ../../stylesheets/ui.scss */
+/* line 473, ../../stylesheets/ui.scss */
 ul.channels li {
   position: relative;
   -webkit-box-sizing: border-box;
@@ -493,7 +493,7 @@ ul.channels li {
   background-color: rgba(0, 0, 0, 0.5);
   background-size: cover;
 }
-/* line 493, ../../stylesheets/ui.scss */
+/* line 491, ../../stylesheets/ui.scss */
 ul.channels .action {
   font-family: "Georgia";
   position: absolute;
@@ -516,15 +516,15 @@ ul.channels .action {
   color: white;
   border: 1.5px solid rgba(255, 255, 255, 0.3);
 }
-/* line 513, ../../stylesheets/ui.scss */
+/* line 511, ../../stylesheets/ui.scss */
 ul.channels .action.followed {
   background: rgba(240, 69, 0, 0.2);
 }
-/* line 517, ../../stylesheets/ui.scss */
+/* line 515, ../../stylesheets/ui.scss */
 ul.channels .action:hover {
   background: rgba(255, 255, 255, 0.2);
 }
-/* line 521, ../../stylesheets/ui.scss */
+/* line 519, ../../stylesheets/ui.scss */
 ul.channels .action.view {
   left: 130px;
 }
