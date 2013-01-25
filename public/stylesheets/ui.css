@@ -529,14 +529,18 @@ ul.channels {
   overflow: auto;
   -webkit-overflow-scrolling: touch;
   padding-top: 120;
-  left: 20px;
+  left: 240px;
   top: 0;
   border-top: 200px;
   position: absolute;
   bottom: 0;
   padding-bottom: 50%;
 }
+<<<<<<< HEAD
 /* line 525, ../../stylesheets/ui.scss */
+=======
+/* line 473, ../../stylesheets/ui.scss */
+>>>>>>> Fixes channel alignment and rename top content to my edition
 ul.channels li {
   position: relative;
   -webkit-box-sizing: border-box;
@@ -554,7 +558,11 @@ ul.channels li {
   background-color: rgba(0, 0, 0, 0.5);
   background-size: cover;
 }
+<<<<<<< HEAD
 /* line 546, ../../stylesheets/ui.scss */
+=======
+/* line 491, ../../stylesheets/ui.scss */
+>>>>>>> Fixes channel alignment and rename top content to my edition
 ul.channels .action {
   font-family: "Georgia";
   position: absolute;
@@ -577,6 +585,7 @@ ul.channels .action {
   color: white;
   border: 1.5px solid rgba(255, 255, 255, 0.3);
 }
+<<<<<<< HEAD
 /* line 566, ../../stylesheets/ui.scss */
 ul.channels .action.followed {
   background: rgba(240, 69, 0, 0.2);
@@ -586,6 +595,17 @@ ul.channels .action:hover {
   background: rgba(255, 255, 255, 0.2);
 }
 /* line 574, ../../stylesheets/ui.scss */
+=======
+/* line 511, ../../stylesheets/ui.scss */
+ul.channels .action.followed {
+  background: rgba(240, 69, 0, 0.2);
+}
+/* line 515, ../../stylesheets/ui.scss */
+ul.channels .action:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+/* line 519, ../../stylesheets/ui.scss */
+>>>>>>> Fixes channel alignment and rename top content to my edition
 ul.channels .action.view {
   left: 130px;
 }
