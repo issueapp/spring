@@ -35,7 +35,7 @@ App.channels = [
     gender: "unisex",
     thumbnail_url: "http://www.accessoriesmagazine.com/wp-content/uploads/2011/06/J.-Crew-sign-and-logo.jpg",
     path: "/sites/j-crew",
-    featured: true, followed: false
+    featured: true, followed: true
   },
 
   {
@@ -86,7 +86,7 @@ App.channels = [
     gender: "unisex",
     thumbnail_url: "http://styleproof.com/img/selectism-logo.jpg",
     path: "/sites/selectism",
-    featured: true, followed: false
+    featured: true, followed: true
   },
 
   {
