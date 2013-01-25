@@ -74,17 +74,13 @@ class App.SwipeView extends Backbone.View
   onMove: (e) ->
     e = e.touches[0] if e.touches
     delta = e.clientX - @startClientX
-    
-    return if e.clientY < @startClientY
-    
-    e.preventDefault()
 
+    return if e.clientY < @startClientY
 
     # moveDelta = e.clientX - @currentClientX
     # console.log(@offset + delta * 1.1)
-    
-    this.updatePos(@offset + delta)
 
+    this.updatePos(@offset + delta)
     @currentClientX = e.clientX
 
   onTouchEnd: (e) ->
