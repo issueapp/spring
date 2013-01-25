@@ -24,13 +24,15 @@ this.App ||= {
       $('.landing').css('opacity', '1')
 
     $('a[rel="popover"]').live "click", (e)=>
-
       target = $(e.currentTarget)
-      link = target.attr('href') # link => #filterDropdown
-      dropdown = $(link)
+      id = target.attr('href') # id => #filterDropdown
+      return if !id
+
+      dropdown = $(id)
+      $('.popover:not('+id+'):visible').hide()
 
       if dropdown.length == 0
-        method = link.replace('#', '') # method => filterDropdown
+        method = id.replace('#', '') # method => filterDropdown
         @popover[method](target) if typeof @popover[method] == "function" # popover.filterDropdown(target)
         @popover.setElement('.popover')
 
@@ -42,9 +44,10 @@ this.App ||= {
     # All link should be internal /!#/path # unless @silentClick
     $('a:not([rel="external"]):not([rel="popover"])').live "click", (e) =>
       link = $(e.currentTarget).attr('href')
-      App.router.navigate(link, { trigger: true })
+      App.router.navigate(link, { trigger: true }) if link != '#' && link != ''
 
       false
+
 }
 
 class App.Router extends Backbone.Router
@@ -84,6 +87,7 @@ class App.Router extends Backbone.Router
 
     if !App.stream || (App.stream && App.stream.url != url)
       this.resetView(url, handle)
+
     else
       this.backToStream()
 
@@ -140,15 +144,17 @@ class App.Router extends Backbone.Router
   # Set view to default state
   # This is a work around when we change between different view containers.
   resetView: (url, title, type)->
-
     # reset toolbar to default states.
-    if App.toolbar && title != App.stream.title
-      App.toolbar.render(title: title, typeBtn: false, backBtn: false, actionsBtn: false)
+    if App.toolbar
+      App.toolbar.render(title: title, typeBtn: true, followBtn: true, backBtn: false, actionsBtn: false)
+
+    # HACK: use title to detect switing channels
+    if title != App.stream.title
       App.popover.resetFocus()
 
     # Section views reset
     $('#sections .pages').addClass('horizontal')
-    $('#content .pages').html('')
+    $('#content .pages').html('').removeAttr('style')
 
     # Shouldn't new render replace it?
     $('#sections #noContent').remove()
@@ -174,8 +180,8 @@ class App.Router extends Backbone.Router
       App.streamView.show()
 
   backToStream: ->
-    App.toolbar.render(actionsBtn: false, backBtn: false, typeBtn: true, channelBtn: true, followBtn: true)
-    $('#content .pages').html('')
+    App.toolbar.render(actionsBtn: false, backBtn: false, typeBtn: true, followBtn: true)
+    $('#content .pages').html('').removeAttr('style')
 
     App.streamView.show()
 

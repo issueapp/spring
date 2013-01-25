@@ -57,7 +57,7 @@ class App.PageView extends Backbone.View
       <p class="description">{{ description }}</p>
 
       {{#price}}
-        <a class="price">{{price}}</a>
+        <a class="price" href="/items/{{ handle }}">{{price}}</a>
       {{/price}}
     </figcaption>
     '

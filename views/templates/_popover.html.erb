@@ -2,6 +2,9 @@
   <div class="drop-wrapper">
     <span class="drop-top"></span>
     <ul class="popover-list">
+      {{#title}}
+        <li class="header"><span>{{title}}</span></li>
+      {{/title}}
       {{#collection}}
         <li><a class="{{class}}" href="{{link}}">{{content}}</a></li>
       {{/collection}}
