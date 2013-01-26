@@ -377,8 +377,35 @@ div.popover ul.popover-list li:first-child {
   background-color: #f3f3f3;
 }
 
+/* line 370, ../../stylesheets/ui.scss */
+#shareDropdown {
+  right: -10px;
+}
+/* line 373, ../../stylesheets/ui.scss */
+#shareDropdown .drop-wrapper {
+  left: -26px;
+}
+/* line 376, ../../stylesheets/ui.scss */
+#shareDropdown .drop-wrapper .drop-top {
+  margin-left: 70px;
+  padding-right: 30px;
+}
+/* line 382, ../../stylesheets/ui.scss */
+#shareDropdown .drop-wrapper .popover-list a {
+  display: inline;
+  padding: 0;
+  border: none;
+  color: #6f6f6f;
+  vertical-align: bottom;
+}
+/* line 389, ../../stylesheets/ui.scss */
+#shareDropdown .drop-wrapper .popover-list a i {
+  width: 28px;
+  font-size: 19px;
+}
+
 /*      Discover menu   */
-/* line 374, ../../stylesheets/ui.scss */
+/* line 402, ../../stylesheets/ui.scss */
 #discover {
   background: white;
   position: absolute;
@@ -386,14 +413,14 @@ div.popover ul.popover-list li:first-child {
   height: 1000px;
   width: 100%;
 }
-/* line 381, ../../stylesheets/ui.scss */
+/* line 409, ../../stylesheets/ui.scss */
 #discover header {
   padding: 40px 20px;
   background: white;
   position: relative;
   z-index: 1;
 }
-/* line 387, ../../stylesheets/ui.scss */
+/* line 415, ../../stylesheets/ui.scss */
 #discover header input[type=search] {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -410,12 +437,12 @@ div.popover ul.popover-list li:first-child {
   border: 1px solid #ddd;
   width: 100%;
 }
-/* line 397, ../../stylesheets/ui.scss */
+/* line 425, ../../stylesheets/ui.scss */
 #discover header input[type=search]:focus {
   box-shadow: 0 0 5px #0064ff;
   outline: 0;
 }
-/* line 405, ../../stylesheets/ui.scss */
+/* line 433, ../../stylesheets/ui.scss */
 #discover ul#category {
   list-style: none;
   padding: 0;
@@ -426,7 +453,7 @@ div.popover ul.popover-list li:first-child {
   float: left;
   position: relative;
 }
-/* line 415, ../../stylesheets/ui.scss */
+/* line 443, ../../stylesheets/ui.scss */
 #discover ul#category li {
   position: relative;
   font-size: 14px;
@@ -440,20 +467,20 @@ div.popover ul.popover-list li:first-child {
   padding: 0 25px;
   border-top: 1px solid #ddd;
 }
-/* line 428, ../../stylesheets/ui.scss */
+/* line 456, ../../stylesheets/ui.scss */
 #discover ul#category a {
   display: block;
   color: #444;
 }
-/* line 433, ../../stylesheets/ui.scss */
+/* line 461, ../../stylesheets/ui.scss */
 #discover ul#category li:hover {
   background: #e6e6e6;
 }
-/* line 437, ../../stylesheets/ui.scss */
+/* line 465, ../../stylesheets/ui.scss */
 #discover ul#category li.active {
   background: #ccc;
 }
-/* line 441, ../../stylesheets/ui.scss */
+/* line 469, ../../stylesheets/ui.scss */
 #discover ul#category li.active:after {
   content: "";
   position: absolute;
@@ -466,16 +493,16 @@ div.popover ul.popover-list li:first-child {
   height: 0px;
   width: 0px;
 }
-/* line 455, ../../stylesheets/ui.scss */
+/* line 483, ../../stylesheets/ui.scss */
 #discover ul#category > ul li {
   padding-left: 40px;
   font-weight: normal;
 }
-/* line 459, ../../stylesheets/ui.scss */
+/* line 487, ../../stylesheets/ui.scss */
 #discover ul#category > ul li a {
   color: #ccc;
 }
-/* line 465, ../../stylesheets/ui.scss */
+/* line 493, ../../stylesheets/ui.scss */
 #discover ul.channels {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -494,7 +521,7 @@ div.popover ul.popover-list li:first-child {
   bottom: 0;
   padding-bottom: 50%;
 }
-/* line 484, ../../stylesheets/ui.scss */
+/* line 512, ../../stylesheets/ui.scss */
 #discover ul.channels li {
   position: relative;
   -webkit-box-sizing: border-box;
@@ -512,7 +539,7 @@ div.popover ul.popover-list li:first-child {
   margin-bottom: 20px;
   background-size: cover;
 }
-/* line 503, ../../stylesheets/ui.scss */
+/* line 531, ../../stylesheets/ui.scss */
 #discover ul.channels .action {
   font-family: "Georgia";
   position: absolute;
@@ -535,15 +562,15 @@ div.popover ul.popover-list li:first-child {
   color: white;
   border: 1.5px solid rgba(255, 255, 255, 0.3);
 }
-/* line 523, ../../stylesheets/ui.scss */
+/* line 551, ../../stylesheets/ui.scss */
 #discover ul.channels .action.followed {
   background: rgba(240, 69, 0, 0.2);
 }
-/* line 527, ../../stylesheets/ui.scss */
+/* line 555, ../../stylesheets/ui.scss */
 #discover ul.channels .action:hover {
   background: rgba(255, 255, 255, 0.2);
 }
-/* line 531, ../../stylesheets/ui.scss */
+/* line 559, ../../stylesheets/ui.scss */
 #discover ul.channels .action.view {
   left: 130px;
 }

@@ -48,6 +48,11 @@ this.App ||= {
 
       false
 
+    $("body").live "click touchend", (e)=>
+      if $('.popover:visible').length > 0 && $(e.target).attr('rel') != 'popover' && $(e.target).parent().attr('rel') != 'popover'
+        setTimeout =>
+          $('.popover:visible').hide()
+        , 0
 }
 
 class App.Router extends Backbone.Router
