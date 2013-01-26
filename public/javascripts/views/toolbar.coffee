@@ -64,9 +64,9 @@ class App.Toolbar extends Backbone.View
     # actions button on content view page - love, collect and share
     if @actionsButton.length == 0
       @actionsButton = $('<div class="actions">
-        <a class="heart"> </a>
-        <a class="collect"> </a>
-        <a class="share"> </a>
+        <a class="heart"></a>
+        <a class="collect"></a>
+        <a class="share" rel="popover" href="#shareDropdown"></a>
       </div>')
       this.$el.append(@actionsButton)
 

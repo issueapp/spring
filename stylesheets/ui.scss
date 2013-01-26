@@ -367,6 +367,34 @@ div.popover {
   }
 }
 
+#shareDropdown {
+  right: -10px;
+
+  .drop-wrapper {
+    left: -26px;
+
+    .drop-top {
+      margin-left: 70px;
+      padding-right: 30px;
+    }
+
+    .popover-list {
+      a {
+        display: inline;
+        padding: 0;
+        border: none;
+        color: #6f6f6f;
+        vertical-align: bottom;
+
+        i {
+          width: 28px;
+          font-size: 19px;
+        }
+      }
+    }
+  }
+}
+
 //------ ui/modal
 //------- ui/discover_menu
 
