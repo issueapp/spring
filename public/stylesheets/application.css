@@ -1406,11 +1406,11 @@ ul.channels .action.view {
   color: #333;
 }
 /* line 82, ../../stylesheets/item.scss */
-.page .item .info p {
+.page .item .description {
   font-size: 13px;
   margin: 0.5em 0 0.5em;
   max-height: 62px;
-  color: #666;
+  color: #777;
 }
 /* line 90, ../../stylesheets/item.scss */
 .page .item .via {
@@ -1479,6 +1479,9 @@ ul.channels .action.view {
 }
 /* line 171, ../../stylesheets/item.scss */
 .page .no-image .description {
+  font-weight: 200;
+  font-size: 150%;
+  max-height: none;
   visibility: visible !important;
   display: block;
   -webkit-line-clamp: 8 !important;
@@ -1488,11 +1491,11 @@ ul.channels .action.view {
   display: -webkit-box;
   -webkit-box-orient: vertical;
 }
-/* line 186, ../../stylesheets/item.scss */
+/* line 190, ../../stylesheets/item.scss */
 .page .product .info {
   height: 10%;
 }
-/* line 190, ../../stylesheets/item.scss */
+/* line 194, ../../stylesheets/item.scss */
 .page .product .price {
   display: block;
   position: absolute;
@@ -1507,7 +1510,7 @@ ul.channels .action.view {
   background: rgba(0, 0, 0, 0.8);
   color: white;
 }
-/* line 206, ../../stylesheets/item.scss */
+/* line 210, ../../stylesheets/item.scss */
 .page .product .price:before {
   position: absolute;
   left: 50%;
@@ -1520,11 +1523,11 @@ ul.channels .action.view {
   border-width: 7px;
   border-top-color: rgba(0, 0, 0, 0.8);
 }
-/* line 220, ../../stylesheets/item.scss */
-.page .product .info p {
+/* line 224, ../../stylesheets/item.scss */
+.page .product .description {
   visibility: hidden;
 }
-/* line 224, ../../stylesheets/item.scss */
+/* line 228, ../../stylesheets/item.scss */
 .page .product .counters {
   color: #DF5454;
   font-size: 14px;
@@ -1534,15 +1537,15 @@ ul.channels .action.view {
   z-index: 1;
   line-height: 12px;
 }
-/* line 239, ../../stylesheets/item.scss */
+/* line 243, ../../stylesheets/item.scss */
 .page .item.split .overlay {
   height: 100%;
 }
-/* line 243, ../../stylesheets/item.scss */
+/* line 247, ../../stylesheets/item.scss */
 .page .item.split a.action.love, .page .item.split a.action.collect {
   top: 50%;
 }
-/* line 247, ../../stylesheets/item.scss */
+/* line 251, ../../stylesheets/item.scss */
 .page .item.split .image {
   overflow: hidden;
   display: inline-block;
@@ -1552,7 +1555,7 @@ ul.channels .action.view {
   top: initial;
   vertical-align: middle;
 }
-/* line 257, ../../stylesheets/item.scss */
+/* line 261, ../../stylesheets/item.scss */
 .page .item.split .info:before {
   position: absolute;
   bottom: 60%;
@@ -1565,7 +1568,7 @@ ul.channels .action.view {
   border-width: 10px;
   border-right-color: #fff;
 }
-/* line 271, ../../stylesheets/item.scss */
+/* line 275, ../../stylesheets/item.scss */
 .page .item.split .info {
   margin: 0;
   width: 49%;
@@ -1574,21 +1577,22 @@ ul.channels .action.view {
   padding: 15% 2% 0;
   position: relative;
   height: 100%;
+  font-weight: 200;
 }
-/* line 280, ../../stylesheets/item.scss */
+/* line 285, ../../stylesheets/item.scss */
 .page .item.split .info > p {
-  font-size: 105%;
+  font-size: 150%;
   visibility: visible;
   white-space: normal;
   max-height: inherit;
   text-overflow: ellipsis;
 }
-/* line 289, ../../stylesheets/item.scss */
+/* line 294, ../../stylesheets/item.scss */
 .page .item.split .price {
   bottom: 13px;
   right: 0;
 }
-/* line 304, ../../stylesheets/item.scss */
+/* line 309, ../../stylesheets/item.scss */
 .page .item.split .via {
   position: absolute;
   bottom: 0;
