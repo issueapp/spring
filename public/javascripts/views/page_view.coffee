@@ -60,6 +60,7 @@ class App.PageView extends Backbone.View
         <a class="price">{{price}}</a>
       {{/price}}
     </figcaption>
+
     '
   )
 
@@ -145,6 +146,10 @@ class App.PageView extends Backbone.View
 
       node[0].innerHTML = @itemTemplate(item)
       # node.innerHTML = @itemTemplate(item)
+      
+      # # Assign content type
+      node.addClass(item.type.toLowerCase())
+
 
       node.addClass('no-image').removeClass('split') unless item.image_url
 
@@ -156,17 +161,26 @@ class App.PageView extends Backbone.View
         node.find('.image').addClass('bottom')
 
       # strip html tags from article description
-      if !!item.description && item.description.match(/<\w+>/)
+      description = item.description
+      
+      if !!description && description.match(/<\w+>/)
         content = node.find('.info p')[0].innerText
         tmp = document.createElement("div")
         tmp.innerHTML = content
-        node.find('.info p').html(tmp.textContent || tmp.innerText)
+        description = tmp.textContent || tmp.innerText
+
+        node.find('.info p').html(description)
+      
+      if !description
+        node.addClass("no-description")
 
     this.setElement(@page)
 
     # @page.css('visibility', 'visible')
-
-    this.$(".split p").each (p)-> $clamp(this, {clamp: 3})
+    
+    
+    this.$(".item.article p").each (p)-> $clamp(this, {clamp: 3})
+    this.$(".item.split p").each (p)-> $clamp(this, {clamp: 5})
 
     @page
 

@@ -77,9 +77,6 @@ class App.SwipeView extends Backbone.View
     
     return if e.clientY < @startClientY
     
-    e.preventDefault()
-
-
     # moveDelta = e.clientX - @currentClientX
     # console.log(@offset + delta * 1.1)
     
