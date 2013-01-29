@@ -285,6 +285,9 @@ class App.StreamView extends Backbone.View
     render ?= true
     target = this.lastPage()
     offset = target && target.offset || 0
+    
+    # TODO: When render a new stream, template should be resetted. 
+    # (should we use better reset logic to include other aspect such as dom clearing)
     if @newChannel
       App.PageView.templateIndex = -1
       @newChannel = false
