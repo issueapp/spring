@@ -9,10 +9,10 @@ class App.PopoverView extends Backbone.View
     data = {
       'type': 'filterDropdown'
       'collection': [
-        { 'class': 'view-all active', 'link': '?type=all', 'content': 'view all' }
-        { 'class': 'shop', 'link': '?type=product', 'content': 'shop' }
-        { 'class': 'read', 'link': '?type=article', 'content': 'read' }
-        { 'class': 'photo', 'link': '?type=picture', 'content': 'photo' }
+        { 'class': 'view-all active', 'link': '?type=all', 'content': '<span></span>view all' }
+        { 'class': 'shop', 'link': '?type=product', 'content': '<span></span>shop' }
+        { 'class': 'read', 'link': '?type=article', 'content': '<span></span>read' }
+        { 'class': 'photo', 'link': '?type=picture', 'content': '<span></span>photo' }
       ]
     }
 
