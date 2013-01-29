@@ -292,7 +292,7 @@ div.popover {
         font-family: "proxima_nova_regular";
         position: static;
         display: block;
-        padding: 0px 0px 0px 37px;
+        padding: 18px 0px 18px 18px;
         color: #b9b9b9;
         text-shadow: none;
         font-weight: normal;
@@ -329,12 +329,25 @@ div.popover {
   }
 
   ul.popover-list li {
-    .view-all { background: url(/images/view-all-icon.png) no-repeat 10px top; }
-    .shop { background: url(/images/shop-icon.png) no-repeat 10px top; }
-    .read { background: url(/images/read-icon.png) no-repeat 10px top; }
-    .photo { background: url(/images/photo-icon.png) no-repeat 10px top; }
+    padding: 0;
 
-    a:active, a.active {
+    a {
+      vertical-align: top;
+
+      span {
+        display: inline-block;
+        padding-right: 16px;
+        width: 15px;
+        height: 15px;
+      }
+
+      &.view-all span { background: url(/images/view-all-icon.png) no-repeat left top; }
+      &.shop span { background: url(/images/shop-icon.png) no-repeat left top; }
+      &.read span { background: url(/images/read-icon.png) no-repeat left top; }
+      &.photo span { background: url(/images/photo-icon.png) no-repeat left top; }
+    }
+
+    a:active span, a.active span {
       background-position-y: bottom;
     }
   }
@@ -353,7 +366,6 @@ div.popover {
 
       &.header {padding: 10px 0px;}
       a {
-        padding: 18px 0px 18px 18px;
         height: 18px;
         color: #6F6F6F;
         font-size: 13px;
