@@ -79,11 +79,11 @@
       color: #333;
     }
 
-    .info p {
+    .description {
       font-size: 13px;
       margin: 0.5em 0 0.5em;
       max-height: 62px;
-      color: #666;
+      color: #777;
     }
 
     // Sources
@@ -169,6 +169,10 @@
     }
 
     .description {
+      font-weight: 200;
+      font-size: 150%;
+      max-height: none;
+      
       visibility: visible !important;
       display: block;
       -webkit-line-clamp: 8 !important;
@@ -217,7 +221,7 @@
       border-top-color: rgba(0, 0, 0, 0.8);
     }
 
-    .info p {
+    .description {
       visibility: hidden;
     }
 
@@ -276,9 +280,10 @@
       padding: 15% 2% 0;
       position: relative;
       height: 100%;
+      font-weight: 200;
 
       & > p {
-        font-size: 105%;
+        font-size: 150%;
         visibility: visible;
         white-space: normal;
         max-height: inherit;
