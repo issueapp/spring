@@ -2,13 +2,6 @@ class App.GalleryView extends App.SwipeView
   el: '#gallery .swipe-paging'
 
   events:
-    # adding new events will rewrite parent's events
-    touchstart: "onTouch"
-    touchmove: "onMove"
-    touchend: "onTouchEnd"
-    swipeLeft: "moveRight"
-    swipeRight: "moveLeft"
-
     'touchend span.prev': 'prev'
     'touchend span.next': 'next'
 
@@ -37,6 +30,10 @@ class App.GalleryView extends App.SwipeView
   )
 
   initialize: (data)->
+    # inherit swipe events
+    swipe_events = _.result(@constructor.__super__, 'events')
+    _.extend(@constructor.prototype.events, swipe_events)
+
     @galleryWrapper = $('#gallery')
 
     $('#gallery a.back').live 'click', (e)=>
