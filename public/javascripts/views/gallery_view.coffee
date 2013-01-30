@@ -1,25 +1,35 @@
 class App.GalleryView extends App.SwipeView
-  el: '#gallery'
+  el: '#gallery .swipe-paging'
 
-  # events:
-    # 'click img': 'toggleText'
+  events:
+    # adding new events will rewrite parent's events
+    touchstart: "onTouch"
+    touchmove: "onMove"
+    touchend: "onTouchEnd"
+    swipeLeft: "moveRight"
+    swipeRight: "moveLeft"
 
-  # <header class="toolbar">
-  #   <a class="back">back</a>
-  #   <span>20 of 20</span>
-  #   <a class="share">share</a>
-  # </header>
-  # <footer>
-  #   <h3>name of the photo</h3>
-  #   <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit</a>
-  #   <nav class="paginate"></nav>
-  # </footer>
+    'touchend span.prev': 'prev'
+    'touchend span.next': 'next'
+
   template: Mustache.compile(
     '
+    <header class="toolbar">
+      <a class="back">back</a>
+      <div class="title"><span>20 of 20</span></div>
+      <a class="share">share</a>
+    </header>
     <div class="swipe-paging">
       {{#collection}}
       <div class="page image">
         <img src="{{source}}">
+        <footer>
+          <h3>name of the photo</h3>
+          <p class="description">description</p>
+          <span class="prev">prev</span>
+          <span class="next">next</span>
+          <nav class="paginate"></nav>
+        </footer>
       </div>
       {{/collection}}
     </div>
@@ -27,31 +37,46 @@ class App.GalleryView extends App.SwipeView
   )
 
   initialize: (data)->
-    @offset ||= 0
-    @currentIndex ||= 0
-    @startClientX = @currentClientX = 0
+    @galleryWrapper = $('#gallery')
 
-    # Set current page
+    $('#gallery a.back').live 'click', (e)=>
+      this.close()
+      false
+
+  resetAttr: ->
+    @offset = 0
+    @currentIndex = 0
+    @startClientX = @currentClientX = 0
     @currentPage = this.$('.current').eq(0)
 
     if @currentPage.length == 0
-      @currentPage = $(@el).children(":not(.padding)").first().addClass('current')
+      @currentPage = this.$el.children(":not(.padding)").first().addClass('current')
 
     if expendMenu = $('body.expand-menu')[0]
-      @viewport ||= expendMenu.offsetWidth
+      @viewport = expendMenu.offsetWidth
     else
-      @viewport ||= @el.parentNode.offsetWidth
+      @viewport = @el.parentNode.offsetWidth
 
-    @images = { 'collection': [] }
-    @gallery = $('#gallery')
-
-    $(data.target).find('a').forEach (item)=>
-      @images.collection.push { 'source': $(item).attr('href') }
-
-    @bufferSize ||= @images.collection.length
+    @bufferSize = @images.collection.length
 
   open: ->
-    @gallery.html @template(@images)
+    @images = { 'collection': [] }
+    $('.page.current .gallery').find('a').forEach (item)=>
+      @images.collection.push { 'source': $(item).attr('href') }
+
+    @galleryWrapper.html @template(@images)
     this.setElement('#gallery .swipe-paging')
+    this.resetAttr()
     this.$el.css('height', window.innerHeight)
     this.$el.find('.page:nth-child(1)').addClass('current')
+
+  next: ->
+    this.moveRight()
+
+  prev: ->
+    this.moveLeft()
+
+  close: ->
+    this.$el.find('img').forEach (item)->
+      $(item).attr('src', '/images/blank.gif')
+    @galleryWrapper.html('')
