@@ -27,137 +27,110 @@
 
 ###
 class App.StreamView extends Backbone.View
-
+  el: "#sections"
+  
   initialize: (data)->
-    @title = data.title || "Top content"
+    @title = data.title
     @currentIndex ||= 0
-    @pageEvent = null
     @direction ||= "right"
     @pages = []
     @limit = 3
     @layout = data.layout
     @transition = false
     @offset = 0
-    @newChannel = data.newChannel
 
-    # reset view
-    this.$el.removeAttr("style").html('')
-    this.$el.off()
-
-    @padding = $('<div class="page padding" style="visibility:hidden;width:0;padding:0;border:0;font-size:0">').appendTo(@el)
-
-    @toolbar = App.toolbar || new App.Toolbar
-
-    # Render stream once data is loaded
-    @collection.on("reset", => this.render())
-
-    # Switched page
-    # event.page = non zero page index
-    # $(@el).on "scrollability-page", (event, a, b)=>
-    #   # return if loading
-    #   # Start page change
-    #   if @direction == "right"
-    #     loading = true
-    #     target = this.next()
-    #
-    #   else if @direction == "left"
-    #     loading = true
-    #     target = this.prev()
-    #
-    #   if target = @pages[@currentIndex]
-    #     # Add current class
-    #     $(@el).find('.page').removeClass('current').removeClass('prev').removeClass('next')
-    #
-    #     target.active()
-    #
-    #     $(target.el).next().addClass('next')
-    #     $(target.el).prev().addClass('prev')
-    #     $(@el).removeClass('swiping')
-    #
-    #     loading = false
-
+    
+    @toolbar = new App.Toolbar(el: this.$('.toolbar'))
+    @container = this.$('.pages')[0]
+    
+    $(@container).removeAttr("style").html('').off()
+    @padding = $('<div class="page padding" style="visibility:hidden;width:0;padding:0;margin:0;border:0;font-size:0">').appendTo(@container)
+  
+    ##### Below should move to swipe view soon
     # Prevent browser from
     startClientX = currentClientX = 0
 
-    $(@el).on "touchstart", (e)=>
+    $(@container).on "touchstart", (e)=>
       if e.touches
         e = e.touches[0]
 
       startClientX = e.clientX
-      $(@el).removeClass('animate').addClass('swiping')
+      $(@container).removeClass('animate').addClass('swiping')
 
     loadingImage = false
 
-    $(@el).on "touchmove", (e)=>
+    $(@container).on "touchmove", (e)=>
       e.preventDefault()
-
-      if e.touches
-        e = e.touches[0]
+      
+      e = e.touches[0] if e.touches
 
       delta = e.clientX - startClientX
       moveDelta = Math.abs(e.clientX - currentClientX)
 
       # return if currentClientX > 0 && moveDelta < 25
 
-      @el.style.webkitTransform = 'translate3d(' + (@offset + delta) + 'px,0,0)'
+      @container.style.webkitTransform = 'translate3d(' + (@offset + delta) + 'px,0,0)'
       currentClientX = e.clientX
 
     # Mark trasition has ended
-    $(@el).on $.fx.transitionEnd, => @transition = false
+    $(@container).on $.fx.transitionEnd, => @transition = false
 
-    $(@el).on "swipeLeft", (e)=>
+    $(@container).on "swipeLeft", (e)=>
       @changedDir = @direction != "right"
       @direction = "right"
       target = this.next()
       loadingImage = false
 
       if target
-        $(@el).removeClass('swiping').addClass('animate').css('transform', '')
+        $(@container).removeClass('swiping').addClass('animate').css('transform', '')
         this.updatePos(- @layout.viewport)
-        $(@el).find('.page').removeClass('current').css('visibility', 'visible')
+        
+        $(@container).find('.page').removeClass('current').css('visibility', 'visible')
         $(target.el).addClass('current')
-
-        this.updateBackgroundImage($(target.el)) if $(target.el).find('.image').css('background-image') == 'none'
-        this.updateBackgroundImage($(target.el).next().css('visibility', 'hidden'))
-
-        # remove previous page background image after 300ms
-        setTimeout =>
-          target.$el.prev().find('.image').forEach (item) ->
-            $(item).css("background-image", 'none')
-          target.$el.prev().css('visibility', 'hidden')
-        , 300
+        
+        # Lazy load
+        # this.updateBackgroundImage($(target.el)) if $(target.el).find('.image').css('background-image') == 'none'
+        # this.updateBackgroundImage($(target.el).next().css('visibility', 'hidden'))
+        # 
+        # # remove previous page background image after 300ms
+        # setTimeout =>
+        #   target.$el.prev().find('.image').forEach (item) ->
+        #     $(item).css("background-image", 'none')
+        #   target.$el.prev().css('visibility', 'hidden')
+        # , 300
 
       # Snap to the right
-      @el.style.webkitTransform = 'translate3d(0,0,0)' if @offset == 0
-      @el.style.webkitTransform = 'translate3d(' + @offset + 'px,0,0)' if !target?
+      @container.style.webkitTransform = 'translate3d(0,0,0)' if @offset == 0
+      @container.style.webkitTransform = 'translate3d(' + @offset + 'px,0,0)' if !target?
 
       e.preventDefault()
 
-    $(@el).on "swipeRight", (e)=>
+    $(@container).on "swipeRight", (e)=>
       @changedDir = @direction != "left"
       @direction = "left"
       target = this.prev()
       loadingImage = false
 
       if target
-        $(@el).removeClass('swiping').addClass('animate').css('transform', '')
+        $(@container).removeClass('swiping').addClass('animate').css('transform', '')
         this.updatePos(@layout.viewport)
-        $(@el).find('.page').removeClass('current').css('visibility', 'visible')
+        
+        $(@container).find('.page').removeClass('current').css('visibility', 'visible')
         $(target.el).addClass('current')
 
-        this.updateBackgroundImage($(target.el)) if $(target.el).find('.image').css('background-image') == 'none'
-        this.updateBackgroundImage($(target.el).prev().css('visibility', 'hidden'))
-
-        # remove previous page background image after 300ms
-        setTimeout =>
-          target.$el.next().find('.image').forEach (item) ->
-            $(item).css("background-image", 'none')
-          target.$el.next().css('visibility', 'hidden')
-        , 300
+        # Lazy load
+        # this.updateBackgroundImage($(target.el)) if $(target.el).find('.image').css('background-image') == 'none'
+        # this.updateBackgroundImage($(target.el).prev().css('visibility', 'hidden'))
+        # 
+        # # remove previous page background image after 300ms
+        # setTimeout =>
+        #   target.$el.next().find('.image').forEach (item) ->
+        #     $(item).css("background-image", 'none')
+        #   target.$el.next().css('visibility', 'hidden')
+        # , 300
 
       # Snap to the left
-      @el.style.webkitTransform = 'translate3d(0,0,0)' if @offset == 0
-
+      @container.style.webkitTransform = 'translate3d(0,0,0)' if @offset == 0
       e.preventDefault()
 
     $(document).on 'keydown', (e)=>
@@ -173,26 +146,54 @@ class App.StreamView extends Backbone.View
       else if key == 37
         @changedDir = @direction != "left"
         @direction = "left"
-
         target = this.prev()
-      # Add current class
-
+        
       if target
         if @transition
-          $(@el).removeClass('animate')
+          $(@container).removeClass('animate')
         else
-          $(@el).addClass('animate').css('transform', '')
-
+          $(@container).addClass('animate').css('transform', '')
         this.updatePos(pos)
 
-        $(@el).find('.page').removeClass('current')
+        $(@container).find('.page').removeClass('current')
         $(target.el).addClass('current')
-      # this.renderInfo()
 
+  bindings: ->
+    this.undelegateEvents()
+    @model.on "reset", this.render, this
+    @model.on "request", => this.loading(true)
+    
+  # Reset the view back to the original state
+  # This is for view reuse
+  reset: ->
+    # Update binding
+    this.bindings()
+    
+    # Reset existing view 
+    if @pages.length > 0
+      @pages.forEach (p)-> p.destroy()
+            
+      @currentIndex = 0
+      @transition = false
+      @offset = 0
+      @pages = []
+      App.PageView.templateIndex = -1
+
+      this.$('.padding').data('pages', 0)
+      this.updatePadding()
+      this.updatePos(0)
+    
+    # Reset toolbar ui
+    dropdown = this.$("#filter-dropdown")
+    dropdown.find('.active').removeClass('active')
+    dropdown.find('.view-all').addClass('active')
+    
+    $('#sections #noContent').remove()
+    
   onResize: ->
     paddings = parseInt(this.$('.padding').data('pages')) || 0
 
-    $(@el).removeClass('animate')
+    $(@container).removeClass('animate')
 
     # this.$('.item img').addClass('animate')
 
@@ -254,7 +255,7 @@ class App.StreamView extends Backbone.View
     @offset = Math.round(@offset + offset)
 
     if @offset <= 0
-      @el.style.webkitTransform = 'translate3d(' + @offset + 'px, 0, 0)'
+      @container.style.webkitTransform = 'translate3d(' + @offset + 'px, 0, 0)'
 
     # Mark transition started
     @transition = true
@@ -267,7 +268,7 @@ class App.StreamView extends Backbone.View
 
     offset = offset - this.currentPage().limit
 
-    @collection.fill(page, offset, true) if offset > 0
+    @model.fill(page, offset, true) if offset > 0
 
     return if page.items.length == 0
 
@@ -288,12 +289,8 @@ class App.StreamView extends Backbone.View
     
     # TODO: When render a new stream, template should be resetted. 
     # (should we use better reset logic to include other aspect such as dom clearing)
-    if @newChannel
-      App.PageView.templateIndex = -1
-      @newChannel = false
-
     page = new App.PageView(method: 'append', stream: this)
-    @collection.fill(page, offset)
+    @model.fill(page, offset)
 
     return if page.items.length == 0
 
@@ -344,7 +341,7 @@ class App.StreamView extends Backbone.View
       pos = -pos
 
     else
-      container = $(@el).append('<div class="page rotatable"></div>').children().last()
+      container = $(@container).append('<div class="page rotatable"></div>').children().last()
 
     container[0].parentNode.replaceChild(node[0], container[0])
     node[0].className = container[0].className
@@ -353,33 +350,50 @@ class App.StreamView extends Backbone.View
 
     node
 
-  render: ->
-    firstRender = @pages.length == 0
+  loading: (load)->
+    load ?= true
+    @spinner ||= new Spinner()
+    
+    if load
+      @spinner.spin()
+      $('#sections').append(@spinner.el)
+    else
+      @spinner.stop()
 
+  render: ->
+    this.loading(false)
+    
+    firstRender = @pages.length == 0
+    
     until @pages.length == @limit
       page = this.appendPage(false)
-      break if !page?
+      break unless page?
+      
       this.renderPage(page, 'append', false)
 
     if firstRender
       if this.firstPage()?
         this.firstPage().offset = this.firstPage().limit
         this.firstPage().$el.addClass('current')
-        this.updateBackgroundImage(@pages[0].$el) if @pages[0]?
-        this.updateBackgroundImage(@pages[1].$el) if @pages[1]?
-
+        
+        # Lazy load
+        # this.updateBackgroundImage(@pages[0].$el) if @pages[0]?
+        # this.updateBackgroundImage(@pages[1].$el) if @pages[1]?
+        
       else
         noContent = $(this.make('span', {id: 'noContent'}, 'No content available, please follow the current channel for future updates :)'))
         $('#sections').append(noContent)
 
     @toolbar.render(title: @title, typeBtn: true, followBtn: true)
 
+    this.show()
     this
 
   updateBackgroundImage: (target) ->
     target.find('.image').forEach (item) ->
       $(item).css("background-image", 'url(' + $(item).data('original') + ')') if $(item).data('original')
-
+  
+  # Navigational
   show: ->
     this.$el.animate({opacity: 1}, 150)
 

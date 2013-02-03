@@ -125,41 +125,38 @@ nav#menu .navigation li.user .settings {
   font-size: 24px;
 }
 
-/* line 137, ../../stylesheets/ui.scss */
+/* line 3, ../../stylesheets/ui/toolbar.scss */
 header.toolbar {
-  position: relative;
+  position: fixed;
+  width: 100%;
   height: 50px;
-  background: #fff;
   z-index: 2;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
-/* line 143, ../../stylesheets/ui.scss */
+/* line 9, ../../stylesheets/ui/toolbar.scss */
 header.toolbar a {
   height: 50px;
   cursor: pointer;
 }
-/* line 148, ../../stylesheets/ui.scss */
+/* line 14, ../../stylesheets/ui/toolbar.scss */
 header.toolbar a.menu, header.toolbar a.back, header.toolbar a.channel, header.toolbar a.follow {
   float: left;
 }
-/* line 152, ../../stylesheets/ui.scss */
+/* line 18, ../../stylesheets/ui/toolbar.scss */
 header.toolbar a.menu {
   width: 64px;
-  border-right: 1px solid #EEE;
   background: url("/images/icon-reorder.png") no-repeat center;
 }
-/* line 158, ../../stylesheets/ui.scss */
-header.toolbar a.filter {
+/* line 24, ../../stylesheets/ui/toolbar.scss */
+header.toolbar a.type {
   float: right;
   width: 64px;
-  border-left: 1px solid #EEE;
   background: url("/images/icon-filter.png") no-repeat center;
 }
-/* line 165, ../../stylesheets/ui.scss */
+/* line 31, ../../stylesheets/ui/toolbar.scss */
 header.toolbar a.back, header.toolbar a.channel {
   margin-left: 21px;
   width: 85px;
-  border-right: 1px solid #EEE;
   background: url("/images/back.png") no-repeat 0% 50%;
   color: #666;
   text-align: center;
@@ -168,12 +165,11 @@ header.toolbar a.back, header.toolbar a.channel {
   font-family: Georgia, "proxima_nova_regular";
   line-height: 50px;
 }
-/* line 178, ../../stylesheets/ui.scss */
+/* line 44, ../../stylesheets/ui/toolbar.scss */
 header.toolbar a.follow {
   margin-left: 13px;
   padding-left: 14px;
   width: 77px;
-  border-right: 1px solid #EEE;
   background: url("/images/action-collect.png") no-repeat 0% 50%;
   color: #666;
   text-align: center;
@@ -182,7 +178,7 @@ header.toolbar a.follow {
   font-family: Georgia, "proxima_nova_regular";
   line-height: 50px;
 }
-/* line 192, ../../stylesheets/ui.scss */
+/* line 58, ../../stylesheets/ui/toolbar.scss */
 header.toolbar .title {
   position: absolute;
   left: 50%;
@@ -194,14 +190,14 @@ header.toolbar .title {
   font-size: 17px;
   font-family: "proxima_nova_ltregular";
   line-height: 50px;
+  cursor: pointer;
 }
-/* line 204, ../../stylesheets/ui.scss */
+/* line 71, ../../stylesheets/ui/toolbar.scss */
 header.toolbar .title span {
   position: relative;
   left: -50%;
-  color: #333;
 }
-/* line 209, ../../stylesheets/ui.scss */
+/* line 75, ../../stylesheets/ui/toolbar.scss */
 header.toolbar .title span:after {
   display: inline-block;
   width: 18px;
@@ -209,13 +205,13 @@ header.toolbar .title span:after {
   background: url("/images/down-arrow.png") no-repeat center;
   content: "";
 }
-/* line 219, ../../stylesheets/ui.scss */
+/* line 85, ../../stylesheets/ui/toolbar.scss */
 header.toolbar div.actions {
   position: absolute;
   top: 0px;
   right: 0px;
 }
-/* line 224, ../../stylesheets/ui.scss */
+/* line 90, ../../stylesheets/ui/toolbar.scss */
 header.toolbar div.actions a {
   display: -moz-inline-stack;
   display: inline-block;
@@ -224,39 +220,38 @@ header.toolbar div.actions a {
   zoom: 1;
   *display: inline;
   width: 56px;
-  border-left: 1px solid #eee;
 }
-/* line 230, ../../stylesheets/ui.scss */
+/* line 96, ../../stylesheets/ui/toolbar.scss */
 header.toolbar div.actions .heart {
   right: 114px;
   background: url("/images/action-like.png") no-repeat center;
 }
-/* line 235, ../../stylesheets/ui.scss */
+/* line 101, ../../stylesheets/ui/toolbar.scss */
 header.toolbar div.actions .collect {
   right: 57px;
   background: url("/images/action-collect.png") no-repeat center;
 }
-/* line 240, ../../stylesheets/ui.scss */
+/* line 106, ../../stylesheets/ui/toolbar.scss */
 header.toolbar div.actions .share {
   right: 0px;
   background: url("/images/action-share.png") no-repeat center;
 }
 
-/* line 252, ../../stylesheets/ui.scss */
+/* line 142, ../../stylesheets/ui.scss */
 div.popover {
   position: absolute;
   top: 27px;
   width: 110px;
   font-size: 13px;
 }
-/* line 258, ../../stylesheets/ui.scss */
+/* line 148, ../../stylesheets/ui.scss */
 div.popover span.drop-top {
   display: block;
   margin: -7px 0 0;
   padding: 7px 15px 0px;
   background: url("/images/top-arrow.png") no-repeat center top;
 }
-/* line 265, ../../stylesheets/ui.scss */
+/* line 155, ../../stylesheets/ui.scss */
 div.popover div.drop-wrapper {
   -webkit-box-shadow: #c9c9c9 2px 2px 5px;
   -moz-box-shadow: #c9c9c9 2px 2px 5px;
@@ -267,13 +262,13 @@ div.popover div.drop-wrapper {
   background-color: white;
   font-family: "Helvetica Neue", Hevetica, Arial, sans-serif;
 }
-/* line 274, ../../stylesheets/ui.scss */
+/* line 164, ../../stylesheets/ui.scss */
 div.popover ul.popover-list {
   overflow: auto;
   margin: 0;
   padding: 0;
 }
-/* line 279, ../../stylesheets/ui.scss */
+/* line 169, ../../stylesheets/ui.scss */
 div.popover ul.popover-list li {
   display: block;
   float: none;
@@ -282,7 +277,7 @@ div.popover ul.popover-list li {
   border-top: 1px solid #eee;
   background-image: none;
 }
-/* line 287, ../../stylesheets/ui.scss */
+/* line 177, ../../stylesheets/ui.scss */
 div.popover ul.popover-list li a {
   height: 15px;
   line-height: 17px;
@@ -296,115 +291,115 @@ div.popover ul.popover-list li a {
   text-shadow: none;
   font-weight: normal;
 }
-/* line 300, ../../stylesheets/ui.scss */
+/* line 190, ../../stylesheets/ui.scss */
 div.popover ul.popover-list li a:active, div.popover ul.popover-list li a.active {
   color: #6f6f6f;
 }
-/* line 305, ../../stylesheets/ui.scss */
+/* line 195, ../../stylesheets/ui.scss */
 div.popover ul.popover-list li.header {
   color: #7A7A7A;
   text-align: center;
   font-size: 16px;
   font-family: "proxima_nova_regular";
 }
-/* line 313, ../../stylesheets/ui.scss */
+/* line 203, ../../stylesheets/ui.scss */
 div.popover ul.popover-list li:first-child {
   border-top: none;
 }
 
-/* line 319, ../../stylesheets/ui.scss */
+/* line 209, ../../stylesheets/ui.scss */
 #filterDropdown {
   right: -10px;
 }
-/* line 322, ../../stylesheets/ui.scss */
+/* line 212, ../../stylesheets/ui.scss */
 #filterDropdown .drop-wrapper {
   left: -26px;
 }
-/* line 325, ../../stylesheets/ui.scss */
+/* line 215, ../../stylesheets/ui.scss */
 #filterDropdown .drop-wrapper .drop-top {
   margin-left: 70px;
   padding-right: 30px;
 }
-/* line 331, ../../stylesheets/ui.scss */
+/* line 221, ../../stylesheets/ui.scss */
 #filterDropdown ul.popover-list li {
   padding: 0;
 }
-/* line 334, ../../stylesheets/ui.scss */
+/* line 224, ../../stylesheets/ui.scss */
 #filterDropdown ul.popover-list li a {
   vertical-align: top;
 }
-/* line 337, ../../stylesheets/ui.scss */
+/* line 227, ../../stylesheets/ui.scss */
 #filterDropdown ul.popover-list li a span {
   display: inline-block;
   padding-right: 16px;
   width: 15px;
   height: 15px;
 }
-/* line 344, ../../stylesheets/ui.scss */
+/* line 234, ../../stylesheets/ui.scss */
 #filterDropdown ul.popover-list li a.view-all span {
   background: url(/images/view-all-icon.png) no-repeat left top;
 }
-/* line 345, ../../stylesheets/ui.scss */
+/* line 235, ../../stylesheets/ui.scss */
 #filterDropdown ul.popover-list li a.shop span {
   background: url(/images/shop-icon.png) no-repeat left top;
 }
-/* line 346, ../../stylesheets/ui.scss */
+/* line 236, ../../stylesheets/ui.scss */
 #filterDropdown ul.popover-list li a.read span {
   background: url(/images/read-icon.png) no-repeat left top;
 }
-/* line 347, ../../stylesheets/ui.scss */
+/* line 237, ../../stylesheets/ui.scss */
 #filterDropdown ul.popover-list li a.photo span {
   background: url(/images/photo-icon.png) no-repeat left top;
 }
-/* line 350, ../../stylesheets/ui.scss */
+/* line 240, ../../stylesheets/ui.scss */
 #filterDropdown ul.popover-list li a:active span, #filterDropdown ul.popover-list li a.active span {
   background-position-y: bottom;
 }
 
-/* line 356, ../../stylesheets/ui.scss */
+/* line 246, ../../stylesheets/ui.scss */
 #collectionDropdown {
   left: 50%;
   margin-left: -151px;
 }
-/* line 360, ../../stylesheets/ui.scss */
+/* line 250, ../../stylesheets/ui.scss */
 #collectionDropdown .drop-wrapper {
   width: 300px;
   min-height: 94px;
 }
-/* line 364, ../../stylesheets/ui.scss */
+/* line 254, ../../stylesheets/ui.scss */
 #collectionDropdown .drop-wrapper li {
   padding: 0;
 }
-/* line 367, ../../stylesheets/ui.scss */
+/* line 257, ../../stylesheets/ui.scss */
 #collectionDropdown .drop-wrapper li.header {
   padding: 10px 0px;
 }
-/* line 368, ../../stylesheets/ui.scss */
+/* line 258, ../../stylesheets/ui.scss */
 #collectionDropdown .drop-wrapper li a {
   height: 18px;
   color: #6F6F6F;
   font-size: 13px;
   line-height: 20px;
 }
-/* line 375, ../../stylesheets/ui.scss */
+/* line 265, ../../stylesheets/ui.scss */
 #collectionDropdown .drop-wrapper li a.active {
   background-color: #f3f3f3;
 }
 
-/* line 382, ../../stylesheets/ui.scss */
+/* line 272, ../../stylesheets/ui.scss */
 #shareDropdown {
   right: -10px;
 }
-/* line 385, ../../stylesheets/ui.scss */
+/* line 275, ../../stylesheets/ui.scss */
 #shareDropdown .drop-wrapper {
   left: -26px;
 }
-/* line 388, ../../stylesheets/ui.scss */
+/* line 278, ../../stylesheets/ui.scss */
 #shareDropdown .drop-wrapper .drop-top {
   margin-left: 70px;
   padding-right: 30px;
 }
-/* line 394, ../../stylesheets/ui.scss */
+/* line 284, ../../stylesheets/ui.scss */
 #shareDropdown .drop-wrapper .popover-list a {
   display: inline;
   padding: 0;
@@ -412,14 +407,14 @@ div.popover ul.popover-list li:first-child {
   color: #6f6f6f;
   vertical-align: bottom;
 }
-/* line 401, ../../stylesheets/ui.scss */
+/* line 291, ../../stylesheets/ui.scss */
 #shareDropdown .drop-wrapper .popover-list a i {
   width: 28px;
   font-size: 19px;
 }
 
 /*      Discover menu   */
-/* line 414, ../../stylesheets/ui.scss */
+/* line 304, ../../stylesheets/ui.scss */
 #discover {
   background: white;
   position: absolute;
@@ -427,14 +422,14 @@ div.popover ul.popover-list li:first-child {
   height: 1000px;
   width: 100%;
 }
-/* line 421, ../../stylesheets/ui.scss */
+/* line 311, ../../stylesheets/ui.scss */
 #discover header {
   padding: 40px 20px;
   background: white;
   position: relative;
   z-index: 1;
 }
-/* line 427, ../../stylesheets/ui.scss */
+/* line 317, ../../stylesheets/ui.scss */
 #discover header input[type=search] {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -451,12 +446,12 @@ div.popover ul.popover-list li:first-child {
   border: 1px solid #ddd;
   width: 100%;
 }
-/* line 437, ../../stylesheets/ui.scss */
+/* line 327, ../../stylesheets/ui.scss */
 #discover header input[type=search]:focus {
   box-shadow: 0 0 5px #0064ff;
   outline: 0;
 }
-/* line 445, ../../stylesheets/ui.scss */
+/* line 335, ../../stylesheets/ui.scss */
 #discover ul#category {
   list-style: none;
   padding: 0;
@@ -467,7 +462,7 @@ div.popover ul.popover-list li:first-child {
   float: left;
   position: relative;
 }
-/* line 455, ../../stylesheets/ui.scss */
+/* line 345, ../../stylesheets/ui.scss */
 #discover ul#category li {
   position: relative;
   font-size: 14px;
@@ -481,20 +476,20 @@ div.popover ul.popover-list li:first-child {
   padding: 0 25px;
   border-top: 1px solid #ddd;
 }
-/* line 468, ../../stylesheets/ui.scss */
+/* line 358, ../../stylesheets/ui.scss */
 #discover ul#category a {
   display: block;
   color: #444;
 }
-/* line 473, ../../stylesheets/ui.scss */
+/* line 363, ../../stylesheets/ui.scss */
 #discover ul#category li:hover {
   background: #e6e6e6;
 }
-/* line 477, ../../stylesheets/ui.scss */
+/* line 367, ../../stylesheets/ui.scss */
 #discover ul#category li.active {
   background: #ccc;
 }
-/* line 481, ../../stylesheets/ui.scss */
+/* line 371, ../../stylesheets/ui.scss */
 #discover ul#category li.active:after {
   content: "";
   position: absolute;
@@ -507,17 +502,17 @@ div.popover ul.popover-list li:first-child {
   height: 0px;
   width: 0px;
 }
-/* line 495, ../../stylesheets/ui.scss */
+/* line 385, ../../stylesheets/ui.scss */
 #discover ul#category > ul li {
   padding-left: 40px;
   font-weight: normal;
 }
-/* line 499, ../../stylesheets/ui.scss */
+/* line 389, ../../stylesheets/ui.scss */
 #discover ul#category > ul li a {
   color: #ccc;
 }
 
-/* line 507, ../../stylesheets/ui.scss */
+/* line 397, ../../stylesheets/ui.scss */
 ul.channels {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -536,11 +531,7 @@ ul.channels {
   bottom: 0;
   padding-bottom: 50%;
 }
-<<<<<<< HEAD
-/* line 525, ../../stylesheets/ui.scss */
-=======
-/* line 473, ../../stylesheets/ui.scss */
->>>>>>> Fixes channel alignment and rename top content to my edition
+/* line 416, ../../stylesheets/ui.scss */
 ul.channels li {
   position: relative;
   -webkit-box-sizing: border-box;
@@ -558,11 +549,7 @@ ul.channels li {
   background-color: rgba(0, 0, 0, 0.5);
   background-size: cover;
 }
-<<<<<<< HEAD
-/* line 546, ../../stylesheets/ui.scss */
-=======
-/* line 491, ../../stylesheets/ui.scss */
->>>>>>> Fixes channel alignment and rename top content to my edition
+/* line 434, ../../stylesheets/ui.scss */
 ul.channels .action {
   font-family: "Georgia";
   position: absolute;
@@ -585,27 +572,15 @@ ul.channels .action {
   color: white;
   border: 1.5px solid rgba(255, 255, 255, 0.3);
 }
-<<<<<<< HEAD
-/* line 566, ../../stylesheets/ui.scss */
+/* line 454, ../../stylesheets/ui.scss */
 ul.channels .action.followed {
   background: rgba(240, 69, 0, 0.2);
 }
-/* line 570, ../../stylesheets/ui.scss */
+/* line 458, ../../stylesheets/ui.scss */
 ul.channels .action:hover {
   background: rgba(255, 255, 255, 0.2);
 }
-/* line 574, ../../stylesheets/ui.scss */
-=======
-/* line 511, ../../stylesheets/ui.scss */
-ul.channels .action.followed {
-  background: rgba(240, 69, 0, 0.2);
-}
-/* line 515, ../../stylesheets/ui.scss */
-ul.channels .action:hover {
-  background: rgba(255, 255, 255, 0.2);
-}
-/* line 519, ../../stylesheets/ui.scss */
->>>>>>> Fixes channel alignment and rename top content to my edition
+/* line 462, ../../stylesheets/ui.scss */
 ul.channels .action.view {
   left: 130px;
 }
