@@ -81,44 +81,6 @@
     height: 50px;
   }
 
-  /* Gallery Style*/
-  #gallery .swipe-paging .page {
-    height: 100%;
-    text-align: center;
-  }
-
-  #gallery .swipe-paging .page img {
-    height: 100%;
-  }
-
-  #gallery header.toolbar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: none;
-  }
-
-  #gallery footer {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-  }
-
-  #gallery footer span.prev {
-    position: absolute;
-    bottom: 20px;
-    right: 50px;
-    cursor: pointer;
-  }
-
-  #gallery footer span.next {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    cursor: pointer;
-  }
 </style>
 
 <div class="swipe-paging"></div>
@@ -140,11 +102,11 @@
   var galleryPage = ' \
     <div class="col half"> \
       <div class="gallery"> \
-        <a href="http://placehold.it/650x400"><img src="http://placehold.it/900x400" ></a> \
-        <a href="http://placehold.it/600x400"></a> \
-        <a href="http://placehold.it/550x400"></a> \
-        <a href="http://placehold.it/500x400"></a> \
-        <a href="http://placehold.it/450x400"></a> \
+        <a href="http://placekitten.com/1024/1021"><img src="http://placehold.it/900x400" ></a> \
+        <a href="http://placekitten.com/1024/1022"></a> \
+        <a href="http://placekitten.com/1024/1023"></a> \
+        <a href="http://placekitten.com/1024/1024"></a> \
+        <a href="http://placekitten.com/1024/1025"></a> \
       </div> \
     </div>';
 
@@ -177,24 +139,24 @@
 
   var view = new App.SwipeView;
 
-  // Next page doesn't exist
-  view.on("fetch:next", function(view) {
-    var loading = view.$('.loading');
-    loading.html( createPage(+1) );
-    loading.removeClass('loading');
-    // loading.append(galleryPage);
-    loading.append(' \
-      <div class="col half"> \
-        <div class="gallery"> \
-          <a href="http://placehold.it/650x300"><img src="http://placehold.it/900x400" ></a> \
-          <a href="http://placehold.it/600x300"></a> \
-          <a href="http://placehold.it/550x300"></a> \
-          <a href="http://placehold.it/500x300"></a> \
-          <a href="http://placehold.it/450x300"></a> \
-        </div> \
-      </div>'
-    );
-  })
+  // // Next page doesn't exist
+  // view.on("fetch:next", function(view) {
+  //   var loading = view.$('.loading');
+  //   loading.html( createPage(+1) );
+  //   loading.removeClass('loading');
+  //   // loading.append(galleryPage);
+  //   loading.append(' \
+  //     <div class="col half"> \
+  //       <div class="gallery"> \
+  //         <a href="http://placehold.it/650x300"><img src="http://placehold.it/900x400" ></a> \
+  //         <a href="http://placehold.it/600x300"></a> \
+  //         <a href="http://placehold.it/550x300"></a> \
+  //         <a href="http://placehold.it/500x300"></a> \
+  //         <a href="http://placehold.it/450x300"></a> \
+  //       </div> \
+  //     </div>'
+  //   );
+  // })
 
   // Buffered page doesn't exist
   view.on("buffer:next", function(view) {

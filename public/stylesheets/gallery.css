@@ -1,0 +1,59 @@
+/* Gallery Style*/
+/* line 5, ../../stylesheets/gallery.scss */
+#gallery .page {
+  background: black;
+  height: 100%;
+  padding: 0;
+  text-align: center;
+}
+/* line 11, ../../stylesheets/gallery.scss */
+#gallery .page img {
+  height: 100%;
+}
+
+/* line 16, ../../stylesheets/gallery.scss */
+#gallery header.toolbar {
+  border-bottom: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: none;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(0, 0, 0, 0.5)), color-stop(100%, rgba(0, 0, 0, 0)));
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  background-image: -moz-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  background-image: -o-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  color: white;
+}
+/* line 27, ../../stylesheets/gallery.scss */
+#gallery header.toolbar a {
+  border: 0;
+  display: block;
+  height: 50px;
+  color: white;
+}
+
+/* line 35, ../../stylesheets/gallery.scss */
+#gallery footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: black;
+  color: white;
+}
+/* line 43, ../../stylesheets/gallery.scss */
+#gallery footer .prev {
+  position: absolute;
+  bottom: 20px;
+  left: 50px;
+  cursor: pointer;
+}
+/* line 50, ../../stylesheets/gallery.scss */
+#gallery footer .next {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
+}
