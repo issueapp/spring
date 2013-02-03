@@ -1,9 +1,10 @@
 class App.StreamCollection extends Backbone.Collection
 
-  initialize: ->
+  initialize: (data)->
     @offset = 0
     @perPage = 10
-
+    @url = data.url if data
+    
     # Server pagination
     @page = 1
     @currentPage = @prevPage = @nextPage = []
