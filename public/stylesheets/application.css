@@ -864,7 +864,7 @@ header.toolbar a.menu {
   background: url("/images/icon-reorder.png") no-repeat center;
 }
 /* line 24, ../../stylesheets/ui/toolbar.scss */
-header.toolbar a.type {
+header.toolbar a.filter {
   float: right;
   width: 64px;
   background: url("/images/icon-filter.png") no-repeat center;
@@ -897,6 +897,7 @@ header.toolbar a.follow {
 /* line 58, ../../stylesheets/ui/toolbar.scss */
 header.toolbar .title {
   position: absolute;
+  color: #333;
   left: 50%;
   text-transform: uppercase;
   text-overflow: ellipsis;
@@ -908,12 +909,12 @@ header.toolbar .title {
   line-height: 50px;
   cursor: pointer;
 }
-/* line 71, ../../stylesheets/ui/toolbar.scss */
+/* line 73, ../../stylesheets/ui/toolbar.scss */
 header.toolbar .title span {
   position: relative;
   left: -50%;
 }
-/* line 75, ../../stylesheets/ui/toolbar.scss */
+/* line 77, ../../stylesheets/ui/toolbar.scss */
 header.toolbar .title span:after {
   display: inline-block;
   width: 18px;
@@ -921,13 +922,13 @@ header.toolbar .title span:after {
   background: url("/images/down-arrow.png") no-repeat center;
   content: "";
 }
-/* line 85, ../../stylesheets/ui/toolbar.scss */
+/* line 87, ../../stylesheets/ui/toolbar.scss */
 header.toolbar div.actions {
   position: absolute;
   top: 0px;
   right: 0px;
 }
-/* line 90, ../../stylesheets/ui/toolbar.scss */
+/* line 92, ../../stylesheets/ui/toolbar.scss */
 header.toolbar div.actions a {
   display: -moz-inline-stack;
   display: inline-block;
@@ -937,17 +938,17 @@ header.toolbar div.actions a {
   *display: inline;
   width: 56px;
 }
-/* line 96, ../../stylesheets/ui/toolbar.scss */
+/* line 98, ../../stylesheets/ui/toolbar.scss */
 header.toolbar div.actions .heart {
   right: 114px;
   background: url("/images/action-like.png") no-repeat center;
 }
-/* line 101, ../../stylesheets/ui/toolbar.scss */
+/* line 103, ../../stylesheets/ui/toolbar.scss */
 header.toolbar div.actions .collect {
   right: 57px;
   background: url("/images/action-collect.png") no-repeat center;
 }
-/* line 106, ../../stylesheets/ui/toolbar.scss */
+/* line 108, ../../stylesheets/ui/toolbar.scss */
 header.toolbar div.actions .share {
   right: 0px;
   background: url("/images/action-share.png") no-repeat center;

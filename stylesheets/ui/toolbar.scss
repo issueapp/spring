@@ -21,13 +21,13 @@ header.toolbar {
     background: url('/images/icon-reorder.png') no-repeat center;
   }
 
-  a.type {
+  a.filter {
     float: right;
     width: 64px;
     // border-left: 1px solid #EEE;
     background: url('/images/icon-filter.png') no-repeat center;
   }
-
+  
   a.back, a.channel {
     margin-left: 21px;
     width: 85px;
@@ -57,6 +57,8 @@ header.toolbar {
 
   .title {
     position: absolute;
+    color: #333;
+    
     left: 50%;
     text-transform: uppercase;
     text-overflow: ellipsis;
