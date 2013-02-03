@@ -36,3 +36,8 @@ a:visited {
   src: url('fonts/../../fonts/proximanova-regular-webfont.eot');
   src: url('fonts/../../fonts/proximanova-regular-webfont.eot?#iefix') format("embedded-opentype"), url('fonts/../../fonts/proximanova-regular-webfont.woff') format("woff"), url('fonts/../../fonts/proximanova-regular-webfont.ttf') format("truetype"), url('fonts/../../fonts/proximanova-regular-webfont.svg#proxima_nova_regular') format("svg");
 }
+
+/* line 48, ../../stylesheets/typography.scss */
+body {
+  font-family: "proxima_nova", "Helvetica Neue";
+}

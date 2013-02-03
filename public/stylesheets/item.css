@@ -48,7 +48,6 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   position: relative;
-  background: #fff;
   float: left;
   margin: 0 0 2% 0;
   overflow: hidden;
@@ -58,42 +57,45 @@
   border: 1px solid #eee;
   border-width: 0 1px 1px 0;
 }
-/* line 54, ../../stylesheets/item.scss */
+/* line 53, ../../stylesheets/item.scss */
 .page .item .image {
   height: 60%;
 }
-/* line 58, ../../stylesheets/item.scss */
+/* line 57, ../../stylesheets/item.scss */
 .page .item .link {
   cursor: pointer;
   color: #222;
 }
-/* line 65, ../../stylesheets/item.scss */
+/* line 64, ../../stylesheets/item.scss */
 .page .item .info {
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+  right: 20px;
+  background: #fff;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  bottom: 0;
   display: inline-block;
   vertical-align: top;
-  background: white;
   padding: 1.25em 0 1.25em;
-  width: 100%;
-  height: 40%;
   color: #333;
 }
+<<<<<<< HEAD
 /* line 82, ../../stylesheets/item.scss */
+=======
+/* line 84, ../../stylesheets/item.scss */
+>>>>>>> refactor-views
 .page .item .description {
   font-size: 13px;
   margin: 0.5em 0 0.5em;
   max-height: 62px;
   color: #777;
 }
-/* line 90, ../../stylesheets/item.scss */
+/* line 92, ../../stylesheets/item.scss */
 .page .item .via {
   font-size: 12px;
-  color: #777;
-  position: absolute;
-  bottom: 20px;
+  color: #999;
 }
 /* line 96, ../../stylesheets/item.scss */
 .page .item .via img {
@@ -109,7 +111,7 @@
   text-transform: uppercase;
   color: #2c2c2c;
   font-size: 12px;
-  margin: 0 0 0em;
+  margin: 0 0 0.75em;
   width: 100%;
   white-space: nowrap;
   overflow: hidden;
@@ -138,22 +140,22 @@
   display: block;
   height: 90%;
 }
-/* line 156, ../../stylesheets/item.scss */
+/* line 163, ../../stylesheets/item.scss */
 .page .no-image .title {
   font-size: 200%;
   overflow: hidden;
   text-overflow: ellipsis;
   -webkit-line-clamp: 3 !important;
 }
-/* line 163, ../../stylesheets/item.scss */
+/* line 170, ../../stylesheets/item.scss */
 .page .no-image .overlay {
   height: 100%;
 }
-/* line 167, ../../stylesheets/item.scss */
+/* line 174, ../../stylesheets/item.scss */
 .page .no-image .image {
   display: none;
 }
-/* line 171, ../../stylesheets/item.scss */
+/* line 178, ../../stylesheets/item.scss */
 .page .no-image .description {
   font-weight: 200;
   font-size: 150%;
@@ -167,18 +169,22 @@
   display: -webkit-box;
   -webkit-box-orient: vertical;
 }
+<<<<<<< HEAD
 /* line 190, ../../stylesheets/item.scss */
 .page .product .info {
   height: 10%;
 }
 /* line 194, ../../stylesheets/item.scss */
+=======
+/* line 197, ../../stylesheets/item.scss */
+>>>>>>> refactor-views
 .page .product .price {
   display: block;
   position: absolute;
   font-size: 12px;
-  right: 20px;
-  bottom: 34px;
-  padding: 9px 18px;
+  top: 20px;
+  left: 20px;
+  padding: 6px 18px;
   height: 20px;
   line-height: 20px;
   margin-bottom: 13px;
@@ -186,7 +192,11 @@
   background: rgba(0, 0, 0, 0.8);
   color: white;
 }
+<<<<<<< HEAD
 /* line 210, ../../stylesheets/item.scss */
+=======
+/* line 218, ../../stylesheets/item.scss */
+>>>>>>> refactor-views
 .page .product .price:before {
   position: absolute;
   left: 50%;
@@ -199,11 +209,19 @@
   border-width: 7px;
   border-top-color: rgba(0, 0, 0, 0.8);
 }
+<<<<<<< HEAD
 /* line 224, ../../stylesheets/item.scss */
 .page .product .description {
   visibility: hidden;
 }
 /* line 228, ../../stylesheets/item.scss */
+=======
+/* line 232, ../../stylesheets/item.scss */
+.page .product .description {
+  display: none;
+}
+/* line 237, ../../stylesheets/item.scss */
+>>>>>>> refactor-views
 .page .product .counters {
   color: #DF5454;
   font-size: 14px;
@@ -213,6 +231,7 @@
   z-index: 1;
   line-height: 12px;
 }
+<<<<<<< HEAD
 /* line 243, ../../stylesheets/item.scss */
 .page .item.split .overlay {
   height: 100%;
@@ -222,6 +241,17 @@
   top: 50%;
 }
 /* line 251, ../../stylesheets/item.scss */
+=======
+/* line 252, ../../stylesheets/item.scss */
+.page .item.split .overlay {
+  height: 100%;
+}
+/* line 256, ../../stylesheets/item.scss */
+.page .item.split a.action.love, .page .item.split a.action.collect {
+  top: 50%;
+}
+/* line 260, ../../stylesheets/item.scss */
+>>>>>>> refactor-views
 .page .item.split .image {
   overflow: hidden;
   display: inline-block;
@@ -231,11 +261,15 @@
   top: initial;
   vertical-align: middle;
 }
+<<<<<<< HEAD
 /* line 261, ../../stylesheets/item.scss */
+=======
+/* line 270, ../../stylesheets/item.scss */
+>>>>>>> refactor-views
 .page .item.split .info:before {
   position: absolute;
   bottom: 60%;
-  right: 101%;
+  right: 100%;
   width: 0;
   height: 0;
   border: solid transparent;
@@ -244,18 +278,28 @@
   border-width: 10px;
   border-right-color: #fff;
 }
+<<<<<<< HEAD
 /* line 275, ../../stylesheets/item.scss */
+=======
+/* line 283, ../../stylesheets/item.scss */
+>>>>>>> refactor-views
 .page .item.split .info {
   margin: 0;
   width: 49%;
   height: auto;
   vertical-align: middle;
-  padding: 15% 2% 0;
+  padding: 10% 2% 0;
   position: relative;
   height: 100%;
   font-weight: 200;
+<<<<<<< HEAD
 }
 /* line 285, ../../stylesheets/item.scss */
+=======
+  left: auto;
+}
+/* line 294, ../../stylesheets/item.scss */
+>>>>>>> refactor-views
 .page .item.split .info > p {
   font-size: 150%;
   visibility: visible;
@@ -263,12 +307,16 @@
   max-height: inherit;
   text-overflow: ellipsis;
 }
+<<<<<<< HEAD
 /* line 294, ../../stylesheets/item.scss */
 .page .item.split .price {
   bottom: 13px;
   right: 0;
 }
 /* line 309, ../../stylesheets/item.scss */
+=======
+/* line 314, ../../stylesheets/item.scss */
+>>>>>>> refactor-views
 .page .item.split .via {
   position: absolute;
   bottom: 0;

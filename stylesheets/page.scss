@@ -1,13 +1,15 @@
 @import "compass/css3/box-sizing";
 
-.page {
-  margin: 0 1%;
+body .page {
+  margin: 0 0 0;
   max-height: 100%;
-
+  border-top: 50px solid transparent;
+  
   .row:last-child {
     margin-bottom: 0;
   }
 }
+
 
 article.page {
   .image.cover {
@@ -79,35 +81,36 @@ article.page {
     @include box-sizing(border-box);
     -webkit-overflow-scrolling: touch;
 
-
     padding: 22px 22px 22px 22px;
     overflow: hidden;
     font-family: 'proxima_nova_regular';
 
     .info {
-      margin: 0 22px;
+      margin: 20px 22px 0;
     }
 
     .title {
-      margin: 0;
-      color: #2c2c2c;
+      margin: 0 90px 10px 0;
+      // color: #2c2c2c;
       font-weight: normal;
-      font-size: 23px;
+      font-size: 24px;
       font-family: 'proxima_nova_bold';
+      text-transform: uppercase;
     }
     .price {
       span:first-child {
-        color: #2c2c2c;
-        font-size: 18px;
+        // color: #2c2c2c;
+        font-size: 24px;
         font-family: 'proxima_nova_bold';
       }
     }
 
     .store {
       position: absolute;
-      top: 120px;
-      right: 0;
-      padding: 17px 14px 17px 22px;
+      top: 20px;
+      right: -24px;
+      letter-spacing: 1.5px;
+      padding: 17px 13px 17px 20px;
       background-color: #F04500;
       color: white;
       text-transform: uppercase;
@@ -189,6 +192,8 @@ article.page {
         max-width: 100%;
         height: auto;
       }
+
+      ul {list-style-type: none;}
     }
 
 
