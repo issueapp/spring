@@ -38,7 +38,6 @@
     @include box-sizing(border-box);
 
     position: relative;
-    background: #fff;
 
     float: left;
     margin: 0 0 2% 0;
@@ -63,18 +62,21 @@
 
     // Info 40%
     .info {
+      position: absolute;
+      bottom: 0;
+      left: 20px;
+      right: 20px;
+      background: #fff;
+      
       // Layout
       @include box-sizing(border-box);
 
-      bottom: 0;
+      
       display: inline-block;
 
       // Layout
       vertical-align: top;
-      background: white;
       padding: 1.25em 0 1.25em;
-      width: 100%;
-      height: 40%;
 
       color: #333;
     }
@@ -89,9 +91,7 @@
     // Sources
     .via {
       font-size: 12px;
-      color: #777;
-      position: absolute;
-      bottom: 20px;
+      color: #999;
 
       img {
         vertical-align: middle;
@@ -108,7 +108,7 @@
       text-transform: uppercase;
       color: #2c2c2c;
       font-size: 12px;
-      margin: 0 0 0em;
+      margin: 0 0 0.75em;
       width: 100%;
 
       // Elipsis
@@ -149,7 +149,14 @@
       display: block;
       height: 90%;
     }
+    
+    
+    &.no-source {
+      
+    }
   }
+
+
 
 
  .no-image {
@@ -187,17 +194,18 @@
 
   .product {
 
-    .info {
-      height: 10%
-    }
-
     .price {
       display: block;
       position: absolute;
       font-size: 12px;
-      right: 20px;
-      bottom: 34px;
-      padding: 9px 18px;
+      
+      top: 20px;
+      left: 20px;
+      
+      //right: 20px;
+      //bottom: 34px;
+      
+      padding: 6px 18px;
       height: 20px;
       line-height: 20px;
       margin-bottom: 13px;
@@ -222,7 +230,8 @@
     }
 
     .description {
-      visibility: hidden;
+      display: none;
+      // visibility: hidden;
     }
 
     .counters {
@@ -261,12 +270,11 @@
     .info:before {
       position: absolute;
       bottom: 60%;
-      right: 101%;
+      right: 100%;
       width: 0;
       height: 0;
       border: solid transparent;
       content: " ";
-
       margin-left: -10px;
       border-width: 10px;
       border-right-color: #fff;
@@ -277,11 +285,11 @@
       width: 49%;
       height: auto;
       vertical-align: middle;
-      padding: 15% 2% 0;
+      padding: 10% 2% 0;
       position: relative;
       height: 100%;
       font-weight: 200;
-
+      left: auto;
       & > p {
         font-size: 150%;
         visibility: visible;
@@ -291,10 +299,6 @@
       }
     }
 
-    .price {
-      bottom: 13px;
-      right: 0;
-    }
 
     // http://cl.ly/image/1x3E0f1o212L/o
     // .price:before {
@@ -308,7 +312,6 @@
 
     .via {
       position: absolute;
-
       bottom: 0;
       left: 10px;
     }

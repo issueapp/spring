@@ -4,6 +4,7 @@
 @import "compass/css3/box-sizing";
 @import "compass/css3/border-radius";
 @import "compass/css3/text-shadow";
+@import "compass/css3/box-shadow";
 
 //      User interface
 //------ ui/menu
@@ -70,6 +71,10 @@ nav#menu {
       background: rgba(20,20,20,1);
     }
 
+    li.active span.right-icon {
+      color: white;
+    }
+
     // Level two menu
     & > ul li {
       padding-left: 30px;
@@ -88,7 +93,6 @@ nav#menu {
       margin-right: 5px;
       color: #666;
     }
-
 
     .counter {
       position: absolute;
@@ -129,124 +133,15 @@ nav#menu {
 }
 //------ ui/toolbar
 
-// Toolbar
-header.toolbar {
-  position: relative;
-  height: 50px;
-  background: #fff;
-  z-index: 2;
-  border-bottom: 1px solid #eee;
-  a {
-    height: 50px;
-    cursor: pointer;
-  }
-
-  a.menu, a.back, a.channel, a.follow {
-    float: left;
-  }
-
-  a.menu {
-    width: 64px;
-    border-right: 1px solid #EEE;
-    background: url('/images/icon-reorder.png') no-repeat center;
-  }
-
-  a.type {
-    float: right;
-    width: 64px;
-    border-left: 1px solid #EEE;
-    background: url('/images/icon-filter.png') no-repeat center;
-  }
-
-  a.back, a.channel {
-    margin-left: 21px;
-    width: 85px;
-    border-right: 1px solid #EEE;
-    background: url("/images/back.png") no-repeat 0% 50%;
-    color: #666;
-    text-align: center;
-    font-style: italic;
-    font-size: 12px;
-    font-family: Georgia, "proxima_nova_regular";
-    line-height: 50px;
-  }
-
-  a.follow {
-    margin-left: 13px;
-    padding-left: 14px;
-    width: 77px;
-    border-right: 1px solid #EEE;
-    background: url("/images/action-collect.png") no-repeat 0% 50%;
-    color: #666;
-    text-align: center;
-    font-style: italic;
-    font-size: 12px;
-    font-family: Georgia, "proxima_nova_regular";
-    line-height: 50px;
-  }
-
-  .title {
-    position: absolute;
-    left: 50%;
-    text-transform: uppercase;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    letter-spacing: 0.7px;
-    font-weight: normal;
-    font-size: 17px;
-    font-family: "proxima_nova_ltregular";
-    line-height: 50px;
-
-    span {
-      position: relative;
-      left: -50%;
-
-      &:after {
-        display: inline-block;
-        width: 18px;
-        height: 11px;
-        background: url("/images/down-arrow.png") no-repeat center;
-        content: "";
-      }
-    }
-  }
-
-  div.actions {
-    position: absolute;
-    top: 0px;
-    right: 0px;
-
-    a {
-      @include inline-block;
-      width: 56px;
-      border-left: 1px solid #eee;
-    }
-
-    .heart {
-      right: 114px;
-      background: url('/images/action-like.png') no-repeat center;
-    }
-
-    .collect {
-      right: 57px;
-      background: url('/images/action-collect.png') no-repeat center;
-    }
-
-    .share {
-      right: 0px;
-      background: url('/images/action-share.png') no-repeat center;
-    }
-  }
-}
-
+@import "ui/toolbar";
 
 //------ ui/forms
 //------ ui/buttons
 //------ ui/popover
 
-div.drop-down {
+div.popover {
   position: absolute;
-  top: 22px;
+  top: 27px;
   width: 110px;
   font-size:13px;
 
@@ -258,7 +153,7 @@ div.drop-down {
   }
 
   div.drop-wrapper {
-    // @include box-shadow(#c9c9c9 2px 2px 5px);
+    @include box-shadow(#c9c9c9 2px 2px 5px);
     position: absolute;
     top: 36px;
     border:1px solid #eee;
@@ -275,7 +170,7 @@ div.drop-down {
       display: block;
       float: none;
       margin: 0;
-      padding: 13px 0px 13px 10px;
+      padding: 18px 0px 18px 10px;
       border-top: 1px solid #eee;
       background-image: none;
 
@@ -283,11 +178,11 @@ div.drop-down {
         height: 15px;
         line-height: 17px;
         text-transform: uppercase;
-        font-size: 10px;
+        font-size: 12px;
         font-family: "proxima_nova_regular";
         position: static;
         display: block;
-        padding: 0px 0px 0px 37px;
+        padding: 18px 0px 18px 18px;
         color: #b9b9b9;
         text-shadow: none;
         font-weight: normal;
@@ -295,6 +190,13 @@ div.drop-down {
         &:active, &.active {
           color: #6f6f6f;
         }
+      }
+
+      &.header {
+        color: #7A7A7A;
+        text-align: center;
+        font-size: 16px;
+        font-family: "proxima_nova_regular";
       }
     }
 
@@ -304,50 +206,92 @@ div.drop-down {
   }
 }
 
-#filter-dropdown {
+#filterDropdown {
   right: -10px;
 
   .drop-wrapper {
     left: -26px;
 
     .drop-top {
-      margin-left: 78px;
+      margin-left: 70px;
+      padding-right: 30px;
     }
   }
 
   ul.popover-list li {
-    .view-all { background: url(/images/view-all-icon.png) no-repeat 10px top; }
-    .shop { background: url(/images/shop-icon.png) no-repeat 10px top; }
-    .read { background: url(/images/read-icon.png) no-repeat 10px top; }
-    .photo { background: url(/images/photo-icon.png) no-repeat 10px top; }
+    padding: 0;
 
-    a:active, a.active {
+    a {
+      vertical-align: top;
+
+      span {
+        display: inline-block;
+        padding-right: 16px;
+        width: 15px;
+        height: 15px;
+      }
+
+      &.view-all span { background: url(/images/view-all-icon.png) no-repeat left top; }
+      &.shop span { background: url(/images/shop-icon.png) no-repeat left top; }
+      &.read span { background: url(/images/read-icon.png) no-repeat left top; }
+      &.photo span { background: url(/images/photo-icon.png) no-repeat left top; }
+    }
+
+    a:active span, a.active span {
       background-position-y: bottom;
     }
   }
 }
 
-#collection-dropdown {
+#collectionDropdown {
   left: 50%;
   margin-left: -151px;
 
   .drop-wrapper {
     width: 300px;
+    min-height: 94px;
 
-    a {
-      height: 18px;
-      padding: 0 0 0 5px;
-      line-height: 20px;
-      color: #6F6F6F;
-      font-size: 13px;
+    li {
+      padding: 0;
+
+      &.header {padding: 10px 0px;}
+      a {
+        height: 18px;
+        color: #6F6F6F;
+        font-size: 13px;
+        line-height: 20px;
+      }
+
+      a.active {
+        background-color: #f3f3f3;
+      }
+    }
+  }
+}
+
+#shareDropdown {
+  right: -10px;
+
+  .drop-wrapper {
+    left: -26px;
+
+    .drop-top {
+      margin-left: 70px;
+      padding-right: 30px;
     }
 
-    li.active {
-      border-left: 5px solid #000;
-
+    .popover-list {
       a {
+        display: inline;
         padding: 0;
-        color: #333;
+        border: none;
+        color: #6f6f6f;
+        vertical-align: bottom;
+
+        i {
+          width: 28px;
+          font-size: 19px;
+        }
       }
     }
   }
@@ -369,7 +313,7 @@ div.drop-down {
     background: white;
     position: relative;
     z-index: 1;
-    
+
     input[type=search] {
       @include box-sizing(border-box);
       @include border-radius(5px);
@@ -397,7 +341,7 @@ div.drop-down {
     background: #eee;
     float: left;
     position:relative;
-    
+
     li {
       position: relative;
       font-size: 14px;
@@ -448,7 +392,6 @@ div.drop-down {
     }
   }
 }
-
 
 
 ul.channels {

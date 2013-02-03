@@ -47,20 +47,29 @@ class App.PageView extends Backbone.View
   itemTemplate: Mustache.compile(
     '
     <a class="link" href="/items/{{ handle }}">
-      <div class="image" data-original="{{ image_url }}" style="background-size: cover; background-position: center;">
+      <div class="image" data-original="{{ image_url }}" style="background-size: cover; background-image:url({{ image_url }}); background-position: center;">
       </div>
     </a>
     <figcaption class="info">
       <a class="link" href="/items/{{ handle }}">
         <h3 class="title">{{ title }}</h3>
       </a>
+      
       <p class="description">{{ description }}</p>
 
-      {{#price}}
-        <a class="price">{{price}}</a>
-      {{/price}}
+      {{#site}}
+      <a href="{{ path }}" class="via user">
+        <!-- 
+        <img alt="Profile_image?screen_name=nkechinjaka&amp;size=bigger" height="16" src="http://api.twitter.com/1/users/profile_image?screen_name=NkechiNjaka&amp;size=bigger" width="16">
+        -->
+        by {{ title }}
+      </a>
+      {{/site}}
     </figcaption>
-
+    
+    {{#price}}
+      <a class="price">{{price}}</a>
+    {{/price}}
     '
   )
 
@@ -152,14 +161,7 @@ class App.PageView extends Backbone.View
 
 
       node.addClass('no-image').removeClass('split') unless item.image_url
-
-      # node.append(@itemTemplate(item))
-
-      ##### HACK HACK HACK
-      if !!item.tags_array && item.tags_array.join(',').match(/shoe/i) && $(node).parent().not('.col.half')
-        # node.find('.image.cover').addClass('bottom')
-        node.find('.image').addClass('bottom')
-
+      
       # strip html tags from article description
       description = item.description
       

@@ -22,7 +22,7 @@ class App.Layout extends Backbone.View
 
       .page {
         width: #{dimension.width}px;
-        height: #{dimension.height - toolbar.height}px;
+        height: #{dimension.height}px;
       }\n
 
       .landing {

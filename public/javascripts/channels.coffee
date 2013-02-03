@@ -10,11 +10,21 @@ App.channels = [
   {
     name: "Nastygal",
     type: "brand",
-    categories: ["Faetured, Women"],
+    categories: ["Featured, Women"],
     gender: "women",
     thumbnail_url: "http://c806568.r68.cf2.rackcdn.com/features/dev/new_collections/Nasty-Gal_CrossYourHeart.jpg",
     path: "/sites/nastygal",
-    item_count: 20
+    item_count: 20,
+    featured: true, followed: false
+  },
+  {
+    name: "Taylor Stitch",
+    type: "brand",
+    categories: ["Featured, Men"],
+    gender: "men",
+    thumbnail_url: "http://cl.ly/image/3K3q3t0q1v1f/Screen%20Shot%202013-01-25%20at%203.04.12%20PM.png",
+    path: "/sites/taylorstitch",
+    item_count: 20,
     featured: true, followed: false
   },
   {
