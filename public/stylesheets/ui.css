@@ -513,11 +513,7 @@ div.popover ul.popover-list li:first-child {
   color: #ccc;
 }
 
-<<<<<<< HEAD
-/* line 454, ../../stylesheets/ui.scss */
-=======
 /* line 397, ../../stylesheets/ui.scss */
->>>>>>> refactor-views
 ul.channels {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -536,11 +532,7 @@ ul.channels {
   bottom: 0;
   padding-bottom: 50%;
 }
-<<<<<<< HEAD
-/* line 473, ../../stylesheets/ui.scss */
-=======
 /* line 416, ../../stylesheets/ui.scss */
->>>>>>> refactor-views
 ul.channels li {
   position: relative;
   -webkit-box-sizing: border-box;
@@ -558,11 +550,7 @@ ul.channels li {
   background-color: rgba(0, 0, 0, 0.5);
   background-size: cover;
 }
-<<<<<<< HEAD
-/* line 491, ../../stylesheets/ui.scss */
-=======
 /* line 434, ../../stylesheets/ui.scss */
->>>>>>> refactor-views
 ul.channels .action {
   font-family: "Georgia";
   position: absolute;
@@ -585,17 +573,6 @@ ul.channels .action {
   color: white;
   border: 1.5px solid rgba(255, 255, 255, 0.3);
 }
-<<<<<<< HEAD
-/* line 511, ../../stylesheets/ui.scss */
-ul.channels .action.followed {
-  background: rgba(240, 69, 0, 0.2);
-}
-/* line 515, ../../stylesheets/ui.scss */
-ul.channels .action:hover {
-  background: rgba(255, 255, 255, 0.2);
-}
-/* line 519, ../../stylesheets/ui.scss */
-=======
 /* line 454, ../../stylesheets/ui.scss */
 ul.channels .action.followed {
   background: rgba(240, 69, 0, 0.2);
@@ -605,7 +582,6 @@ ul.channels .action:hover {
   background: rgba(255, 255, 255, 0.2);
 }
 /* line 462, ../../stylesheets/ui.scss */
->>>>>>> refactor-views
 ul.channels .action.view {
   left: 130px;
 }
