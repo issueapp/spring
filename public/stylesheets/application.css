@@ -604,6 +604,11 @@ a:visited {
   src: url('fonts/../../fonts/proximanova-regular-webfont.eot?#iefix') format("embedded-opentype"), url('fonts/../../fonts/proximanova-regular-webfont.woff') format("woff"), url('fonts/../../fonts/proximanova-regular-webfont.ttf') format("truetype"), url('fonts/../../fonts/proximanova-regular-webfont.svg#proxima_nova_regular') format("svg");
 }
 
+/* line 48, ../../stylesheets/typography.scss */
+body {
+  font-family: "proxima_nova", "Helvetica Neue";
+}
+
 /*
     Layout and rendering
     ---
@@ -624,7 +629,6 @@ a:visited {
   box-sizing: border-box;
   float: left;
   margin: 0;
-  overflow: hidden;
 }
 /* line 28, ../../stylesheets/layout.scss */
 .page .col .item:last-child {
@@ -837,41 +841,38 @@ nav#menu .navigation li.user .settings {
   font-size: 24px;
 }
 
-/* line 137, ../../stylesheets/ui.scss */
+/* line 3, ../../stylesheets/ui/toolbar.scss */
 header.toolbar {
-  position: relative;
+  position: fixed;
+  width: 100%;
   height: 50px;
-  background: #fff;
   z-index: 2;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
-/* line 143, ../../stylesheets/ui.scss */
+/* line 9, ../../stylesheets/ui/toolbar.scss */
 header.toolbar a {
   height: 50px;
   cursor: pointer;
 }
-/* line 148, ../../stylesheets/ui.scss */
+/* line 14, ../../stylesheets/ui/toolbar.scss */
 header.toolbar a.menu, header.toolbar a.back, header.toolbar a.channel, header.toolbar a.follow {
   float: left;
 }
-/* line 152, ../../stylesheets/ui.scss */
+/* line 18, ../../stylesheets/ui/toolbar.scss */
 header.toolbar a.menu {
   width: 64px;
-  border-right: 1px solid #EEE;
   background: url("/images/icon-reorder.png") no-repeat center;
 }
-/* line 158, ../../stylesheets/ui.scss */
-header.toolbar a.filter {
+/* line 24, ../../stylesheets/ui/toolbar.scss */
+header.toolbar a.type {
   float: right;
   width: 64px;
-  border-left: 1px solid #EEE;
   background: url("/images/icon-filter.png") no-repeat center;
 }
-/* line 165, ../../stylesheets/ui.scss */
+/* line 31, ../../stylesheets/ui/toolbar.scss */
 header.toolbar a.back, header.toolbar a.channel {
   margin-left: 21px;
   width: 85px;
-  border-right: 1px solid #EEE;
   background: url("/images/back.png") no-repeat 0% 50%;
   color: #666;
   text-align: center;
@@ -880,12 +881,11 @@ header.toolbar a.back, header.toolbar a.channel {
   font-family: Georgia, "proxima_nova_regular";
   line-height: 50px;
 }
-/* line 178, ../../stylesheets/ui.scss */
+/* line 44, ../../stylesheets/ui/toolbar.scss */
 header.toolbar a.follow {
   margin-left: 13px;
   padding-left: 14px;
   width: 77px;
-  border-right: 1px solid #EEE;
   background: url("/images/action-collect.png") no-repeat 0% 50%;
   color: #666;
   text-align: center;
@@ -894,7 +894,7 @@ header.toolbar a.follow {
   font-family: Georgia, "proxima_nova_regular";
   line-height: 50px;
 }
-/* line 192, ../../stylesheets/ui.scss */
+/* line 58, ../../stylesheets/ui/toolbar.scss */
 header.toolbar .title {
   position: absolute;
   left: 50%;
@@ -906,14 +906,14 @@ header.toolbar .title {
   font-size: 17px;
   font-family: "proxima_nova_ltregular";
   line-height: 50px;
+  cursor: pointer;
 }
-/* line 204, ../../stylesheets/ui.scss */
+/* line 71, ../../stylesheets/ui/toolbar.scss */
 header.toolbar .title span {
   position: relative;
   left: -50%;
-  color: #333;
 }
-/* line 209, ../../stylesheets/ui.scss */
+/* line 75, ../../stylesheets/ui/toolbar.scss */
 header.toolbar .title span:after {
   display: inline-block;
   width: 18px;
@@ -921,13 +921,13 @@ header.toolbar .title span:after {
   background: url("/images/down-arrow.png") no-repeat center;
   content: "";
 }
-/* line 219, ../../stylesheets/ui.scss */
+/* line 85, ../../stylesheets/ui/toolbar.scss */
 header.toolbar div.actions {
   position: absolute;
   top: 0px;
   right: 0px;
 }
-/* line 224, ../../stylesheets/ui.scss */
+/* line 90, ../../stylesheets/ui/toolbar.scss */
 header.toolbar div.actions a {
   display: -moz-inline-stack;
   display: inline-block;
@@ -936,39 +936,38 @@ header.toolbar div.actions a {
   zoom: 1;
   *display: inline;
   width: 56px;
-  border-left: 1px solid #eee;
 }
-/* line 230, ../../stylesheets/ui.scss */
+/* line 96, ../../stylesheets/ui/toolbar.scss */
 header.toolbar div.actions .heart {
   right: 114px;
   background: url("/images/action-like.png") no-repeat center;
 }
-/* line 235, ../../stylesheets/ui.scss */
+/* line 101, ../../stylesheets/ui/toolbar.scss */
 header.toolbar div.actions .collect {
   right: 57px;
   background: url("/images/action-collect.png") no-repeat center;
 }
-/* line 240, ../../stylesheets/ui.scss */
+/* line 106, ../../stylesheets/ui/toolbar.scss */
 header.toolbar div.actions .share {
   right: 0px;
   background: url("/images/action-share.png") no-repeat center;
 }
 
-/* line 252, ../../stylesheets/ui.scss */
+/* line 142, ../../stylesheets/ui.scss */
 div.popover {
   position: absolute;
   top: 27px;
   width: 110px;
   font-size: 13px;
 }
-/* line 258, ../../stylesheets/ui.scss */
+/* line 148, ../../stylesheets/ui.scss */
 div.popover span.drop-top {
   display: block;
   margin: -7px 0 0;
   padding: 7px 15px 0px;
   background: url("/images/top-arrow.png") no-repeat center top;
 }
-/* line 265, ../../stylesheets/ui.scss */
+/* line 155, ../../stylesheets/ui.scss */
 div.popover div.drop-wrapper {
   -webkit-box-shadow: #c9c9c9 2px 2px 5px;
   -moz-box-shadow: #c9c9c9 2px 2px 5px;
@@ -979,13 +978,13 @@ div.popover div.drop-wrapper {
   background-color: white;
   font-family: "Helvetica Neue", Hevetica, Arial, sans-serif;
 }
-/* line 274, ../../stylesheets/ui.scss */
+/* line 164, ../../stylesheets/ui.scss */
 div.popover ul.popover-list {
   overflow: auto;
   margin: 0;
   padding: 0;
 }
-/* line 279, ../../stylesheets/ui.scss */
+/* line 169, ../../stylesheets/ui.scss */
 div.popover ul.popover-list li {
   display: block;
   float: none;
@@ -994,7 +993,7 @@ div.popover ul.popover-list li {
   border-top: 1px solid #eee;
   background-image: none;
 }
-/* line 287, ../../stylesheets/ui.scss */
+/* line 177, ../../stylesheets/ui.scss */
 div.popover ul.popover-list li a {
   height: 15px;
   line-height: 17px;
@@ -1008,115 +1007,115 @@ div.popover ul.popover-list li a {
   text-shadow: none;
   font-weight: normal;
 }
-/* line 300, ../../stylesheets/ui.scss */
+/* line 190, ../../stylesheets/ui.scss */
 div.popover ul.popover-list li a:active, div.popover ul.popover-list li a.active {
   color: #6f6f6f;
 }
-/* line 305, ../../stylesheets/ui.scss */
+/* line 195, ../../stylesheets/ui.scss */
 div.popover ul.popover-list li.header {
   color: #7A7A7A;
   text-align: center;
   font-size: 16px;
   font-family: "proxima_nova_regular";
 }
-/* line 313, ../../stylesheets/ui.scss */
+/* line 203, ../../stylesheets/ui.scss */
 div.popover ul.popover-list li:first-child {
   border-top: none;
 }
 
-/* line 319, ../../stylesheets/ui.scss */
+/* line 209, ../../stylesheets/ui.scss */
 #filterDropdown {
   right: -10px;
 }
-/* line 322, ../../stylesheets/ui.scss */
+/* line 212, ../../stylesheets/ui.scss */
 #filterDropdown .drop-wrapper {
   left: -26px;
 }
-/* line 325, ../../stylesheets/ui.scss */
+/* line 215, ../../stylesheets/ui.scss */
 #filterDropdown .drop-wrapper .drop-top {
   margin-left: 70px;
   padding-right: 30px;
 }
-/* line 331, ../../stylesheets/ui.scss */
+/* line 221, ../../stylesheets/ui.scss */
 #filterDropdown ul.popover-list li {
   padding: 0;
 }
-/* line 334, ../../stylesheets/ui.scss */
+/* line 224, ../../stylesheets/ui.scss */
 #filterDropdown ul.popover-list li a {
   vertical-align: top;
 }
-/* line 337, ../../stylesheets/ui.scss */
+/* line 227, ../../stylesheets/ui.scss */
 #filterDropdown ul.popover-list li a span {
   display: inline-block;
   padding-right: 16px;
   width: 15px;
   height: 15px;
 }
-/* line 344, ../../stylesheets/ui.scss */
+/* line 234, ../../stylesheets/ui.scss */
 #filterDropdown ul.popover-list li a.view-all span {
   background: url(/images/view-all-icon.png) no-repeat left top;
 }
-/* line 345, ../../stylesheets/ui.scss */
+/* line 235, ../../stylesheets/ui.scss */
 #filterDropdown ul.popover-list li a.shop span {
   background: url(/images/shop-icon.png) no-repeat left top;
 }
-/* line 346, ../../stylesheets/ui.scss */
+/* line 236, ../../stylesheets/ui.scss */
 #filterDropdown ul.popover-list li a.read span {
   background: url(/images/read-icon.png) no-repeat left top;
 }
-/* line 347, ../../stylesheets/ui.scss */
+/* line 237, ../../stylesheets/ui.scss */
 #filterDropdown ul.popover-list li a.photo span {
   background: url(/images/photo-icon.png) no-repeat left top;
 }
-/* line 350, ../../stylesheets/ui.scss */
+/* line 240, ../../stylesheets/ui.scss */
 #filterDropdown ul.popover-list li a:active span, #filterDropdown ul.popover-list li a.active span {
   background-position-y: bottom;
 }
 
-/* line 356, ../../stylesheets/ui.scss */
+/* line 246, ../../stylesheets/ui.scss */
 #collectionDropdown {
   left: 50%;
   margin-left: -151px;
 }
-/* line 360, ../../stylesheets/ui.scss */
+/* line 250, ../../stylesheets/ui.scss */
 #collectionDropdown .drop-wrapper {
   width: 300px;
   min-height: 94px;
 }
-/* line 364, ../../stylesheets/ui.scss */
+/* line 254, ../../stylesheets/ui.scss */
 #collectionDropdown .drop-wrapper li {
   padding: 0;
 }
-/* line 367, ../../stylesheets/ui.scss */
+/* line 257, ../../stylesheets/ui.scss */
 #collectionDropdown .drop-wrapper li.header {
   padding: 10px 0px;
 }
-/* line 368, ../../stylesheets/ui.scss */
+/* line 258, ../../stylesheets/ui.scss */
 #collectionDropdown .drop-wrapper li a {
   height: 18px;
   color: #6F6F6F;
   font-size: 13px;
   line-height: 20px;
 }
-/* line 375, ../../stylesheets/ui.scss */
+/* line 265, ../../stylesheets/ui.scss */
 #collectionDropdown .drop-wrapper li a.active {
   background-color: #f3f3f3;
 }
 
-/* line 382, ../../stylesheets/ui.scss */
+/* line 272, ../../stylesheets/ui.scss */
 #shareDropdown {
   right: -10px;
 }
-/* line 385, ../../stylesheets/ui.scss */
+/* line 275, ../../stylesheets/ui.scss */
 #shareDropdown .drop-wrapper {
   left: -26px;
 }
-/* line 388, ../../stylesheets/ui.scss */
+/* line 278, ../../stylesheets/ui.scss */
 #shareDropdown .drop-wrapper .drop-top {
   margin-left: 70px;
   padding-right: 30px;
 }
-/* line 394, ../../stylesheets/ui.scss */
+/* line 284, ../../stylesheets/ui.scss */
 #shareDropdown .drop-wrapper .popover-list a {
   display: inline;
   padding: 0;
@@ -1124,14 +1123,14 @@ div.popover ul.popover-list li:first-child {
   color: #6f6f6f;
   vertical-align: bottom;
 }
-/* line 401, ../../stylesheets/ui.scss */
+/* line 291, ../../stylesheets/ui.scss */
 #shareDropdown .drop-wrapper .popover-list a i {
   width: 28px;
   font-size: 19px;
 }
 
 /*      Discover menu   */
-/* line 414, ../../stylesheets/ui.scss */
+/* line 304, ../../stylesheets/ui.scss */
 #discover {
   background: white;
   position: absolute;
@@ -1139,14 +1138,14 @@ div.popover ul.popover-list li:first-child {
   height: 1000px;
   width: 100%;
 }
-/* line 421, ../../stylesheets/ui.scss */
+/* line 311, ../../stylesheets/ui.scss */
 #discover header {
   padding: 40px 20px;
   background: white;
   position: relative;
   z-index: 1;
 }
-/* line 427, ../../stylesheets/ui.scss */
+/* line 317, ../../stylesheets/ui.scss */
 #discover header input[type=search] {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -1163,12 +1162,12 @@ div.popover ul.popover-list li:first-child {
   border: 1px solid #ddd;
   width: 100%;
 }
-/* line 437, ../../stylesheets/ui.scss */
+/* line 327, ../../stylesheets/ui.scss */
 #discover header input[type=search]:focus {
   box-shadow: 0 0 5px #0064ff;
   outline: 0;
 }
-/* line 445, ../../stylesheets/ui.scss */
+/* line 335, ../../stylesheets/ui.scss */
 #discover ul#category {
   list-style: none;
   padding: 0;
@@ -1179,7 +1178,7 @@ div.popover ul.popover-list li:first-child {
   float: left;
   position: relative;
 }
-/* line 455, ../../stylesheets/ui.scss */
+/* line 345, ../../stylesheets/ui.scss */
 #discover ul#category li {
   position: relative;
   font-size: 14px;
@@ -1193,20 +1192,20 @@ div.popover ul.popover-list li:first-child {
   padding: 0 25px;
   border-top: 1px solid #ddd;
 }
-/* line 468, ../../stylesheets/ui.scss */
+/* line 358, ../../stylesheets/ui.scss */
 #discover ul#category a {
   display: block;
   color: #444;
 }
-/* line 473, ../../stylesheets/ui.scss */
+/* line 363, ../../stylesheets/ui.scss */
 #discover ul#category li:hover {
   background: #e6e6e6;
 }
-/* line 477, ../../stylesheets/ui.scss */
+/* line 367, ../../stylesheets/ui.scss */
 #discover ul#category li.active {
   background: #ccc;
 }
-/* line 481, ../../stylesheets/ui.scss */
+/* line 371, ../../stylesheets/ui.scss */
 #discover ul#category li.active:after {
   content: "";
   position: absolute;
@@ -1219,17 +1218,17 @@ div.popover ul.popover-list li:first-child {
   height: 0px;
   width: 0px;
 }
-/* line 495, ../../stylesheets/ui.scss */
+/* line 385, ../../stylesheets/ui.scss */
 #discover ul#category > ul li {
   padding-left: 40px;
   font-weight: normal;
 }
-/* line 499, ../../stylesheets/ui.scss */
+/* line 389, ../../stylesheets/ui.scss */
 #discover ul#category > ul li a {
   color: #ccc;
 }
 
-/* line 507, ../../stylesheets/ui.scss */
+/* line 397, ../../stylesheets/ui.scss */
 ul.channels {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -1248,11 +1247,7 @@ ul.channels {
   bottom: 0;
   padding-bottom: 50%;
 }
-<<<<<<< HEAD
-/* line 525, ../../stylesheets/ui.scss */
-=======
-/* line 473, ../../stylesheets/ui.scss */
->>>>>>> Fixes channel alignment and rename top content to my edition
+/* line 416, ../../stylesheets/ui.scss */
 ul.channels li {
   position: relative;
   -webkit-box-sizing: border-box;
@@ -1270,11 +1265,7 @@ ul.channels li {
   background-color: rgba(0, 0, 0, 0.5);
   background-size: cover;
 }
-<<<<<<< HEAD
-/* line 546, ../../stylesheets/ui.scss */
-=======
-/* line 491, ../../stylesheets/ui.scss */
->>>>>>> Fixes channel alignment and rename top content to my edition
+/* line 434, ../../stylesheets/ui.scss */
 ul.channels .action {
   font-family: "Georgia";
   position: absolute;
@@ -1297,27 +1288,15 @@ ul.channels .action {
   color: white;
   border: 1.5px solid rgba(255, 255, 255, 0.3);
 }
-<<<<<<< HEAD
-/* line 566, ../../stylesheets/ui.scss */
+/* line 454, ../../stylesheets/ui.scss */
 ul.channels .action.followed {
   background: rgba(240, 69, 0, 0.2);
 }
-/* line 570, ../../stylesheets/ui.scss */
+/* line 458, ../../stylesheets/ui.scss */
 ul.channels .action:hover {
   background: rgba(255, 255, 255, 0.2);
 }
-/* line 574, ../../stylesheets/ui.scss */
-=======
-/* line 511, ../../stylesheets/ui.scss */
-ul.channels .action.followed {
-  background: rgba(240, 69, 0, 0.2);
-}
-/* line 515, ../../stylesheets/ui.scss */
-ul.channels .action:hover {
-  background: rgba(255, 255, 255, 0.2);
-}
-/* line 519, ../../stylesheets/ui.scss */
->>>>>>> Fixes channel alignment and rename top content to my edition
+/* line 462, ../../stylesheets/ui.scss */
 ul.channels .action.view {
   left: 130px;
 }
@@ -1372,7 +1351,6 @@ ul.channels .action.view {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   position: relative;
-  background: #fff;
   float: left;
   margin: 0 0 2% 0;
   overflow: hidden;
@@ -1382,42 +1360,41 @@ ul.channels .action.view {
   border: 1px solid #eee;
   border-width: 0 1px 1px 0;
 }
-/* line 54, ../../stylesheets/item.scss */
+/* line 53, ../../stylesheets/item.scss */
 .page .item .image {
   height: 60%;
 }
-/* line 58, ../../stylesheets/item.scss */
+/* line 57, ../../stylesheets/item.scss */
 .page .item .link {
   cursor: pointer;
   color: #222;
 }
-/* line 65, ../../stylesheets/item.scss */
+/* line 64, ../../stylesheets/item.scss */
 .page .item .info {
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+  right: 20px;
+  background: #fff;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  bottom: 0;
   display: inline-block;
   vertical-align: top;
-  background: white;
   padding: 1.25em 0 1.25em;
-  width: 100%;
-  height: 40%;
   color: #333;
 }
-/* line 82, ../../stylesheets/item.scss */
+/* line 84, ../../stylesheets/item.scss */
 .page .item .description {
   font-size: 13px;
   margin: 0.5em 0 0.5em;
   max-height: 62px;
   color: #777;
 }
-/* line 90, ../../stylesheets/item.scss */
+/* line 92, ../../stylesheets/item.scss */
 .page .item .via {
   font-size: 12px;
-  color: #777;
-  position: absolute;
-  bottom: 20px;
+  color: #999;
 }
 /* line 96, ../../stylesheets/item.scss */
 .page .item .via img {
@@ -1433,7 +1410,7 @@ ul.channels .action.view {
   text-transform: uppercase;
   color: #2c2c2c;
   font-size: 12px;
-  margin: 0 0 0em;
+  margin: 0 0 0.75em;
   width: 100%;
   white-space: nowrap;
   overflow: hidden;
@@ -1462,22 +1439,22 @@ ul.channels .action.view {
   display: block;
   height: 90%;
 }
-/* line 156, ../../stylesheets/item.scss */
+/* line 163, ../../stylesheets/item.scss */
 .page .no-image .title {
   font-size: 200%;
   overflow: hidden;
   text-overflow: ellipsis;
   -webkit-line-clamp: 3 !important;
 }
-/* line 163, ../../stylesheets/item.scss */
+/* line 170, ../../stylesheets/item.scss */
 .page .no-image .overlay {
   height: 100%;
 }
-/* line 167, ../../stylesheets/item.scss */
+/* line 174, ../../stylesheets/item.scss */
 .page .no-image .image {
   display: none;
 }
-/* line 171, ../../stylesheets/item.scss */
+/* line 178, ../../stylesheets/item.scss */
 .page .no-image .description {
   font-weight: 200;
   font-size: 150%;
@@ -1491,18 +1468,14 @@ ul.channels .action.view {
   display: -webkit-box;
   -webkit-box-orient: vertical;
 }
-/* line 190, ../../stylesheets/item.scss */
-.page .product .info {
-  height: 10%;
-}
-/* line 194, ../../stylesheets/item.scss */
+/* line 197, ../../stylesheets/item.scss */
 .page .product .price {
   display: block;
   position: absolute;
   font-size: 12px;
-  right: 20px;
-  bottom: 34px;
-  padding: 9px 18px;
+  top: 20px;
+  left: 20px;
+  padding: 6px 18px;
   height: 20px;
   line-height: 20px;
   margin-bottom: 13px;
@@ -1510,7 +1483,7 @@ ul.channels .action.view {
   background: rgba(0, 0, 0, 0.8);
   color: white;
 }
-/* line 210, ../../stylesheets/item.scss */
+/* line 218, ../../stylesheets/item.scss */
 .page .product .price:before {
   position: absolute;
   left: 50%;
@@ -1523,11 +1496,11 @@ ul.channels .action.view {
   border-width: 7px;
   border-top-color: rgba(0, 0, 0, 0.8);
 }
-/* line 224, ../../stylesheets/item.scss */
+/* line 232, ../../stylesheets/item.scss */
 .page .product .description {
-  visibility: hidden;
+  display: none;
 }
-/* line 228, ../../stylesheets/item.scss */
+/* line 237, ../../stylesheets/item.scss */
 .page .product .counters {
   color: #DF5454;
   font-size: 14px;
@@ -1537,15 +1510,15 @@ ul.channels .action.view {
   z-index: 1;
   line-height: 12px;
 }
-/* line 243, ../../stylesheets/item.scss */
+/* line 252, ../../stylesheets/item.scss */
 .page .item.split .overlay {
   height: 100%;
 }
-/* line 247, ../../stylesheets/item.scss */
+/* line 256, ../../stylesheets/item.scss */
 .page .item.split a.action.love, .page .item.split a.action.collect {
   top: 50%;
 }
-/* line 251, ../../stylesheets/item.scss */
+/* line 260, ../../stylesheets/item.scss */
 .page .item.split .image {
   overflow: hidden;
   display: inline-block;
@@ -1555,11 +1528,11 @@ ul.channels .action.view {
   top: initial;
   vertical-align: middle;
 }
-/* line 261, ../../stylesheets/item.scss */
+/* line 270, ../../stylesheets/item.scss */
 .page .item.split .info:before {
   position: absolute;
   bottom: 60%;
-  right: 101%;
+  right: 100%;
   width: 0;
   height: 0;
   border: solid transparent;
@@ -1568,18 +1541,19 @@ ul.channels .action.view {
   border-width: 10px;
   border-right-color: #fff;
 }
-/* line 275, ../../stylesheets/item.scss */
+/* line 283, ../../stylesheets/item.scss */
 .page .item.split .info {
   margin: 0;
   width: 49%;
   height: auto;
   vertical-align: middle;
-  padding: 15% 2% 0;
+  padding: 10% 2% 0;
   position: relative;
   height: 100%;
   font-weight: 200;
+  left: auto;
 }
-/* line 285, ../../stylesheets/item.scss */
+/* line 294, ../../stylesheets/item.scss */
 .page .item.split .info > p {
   font-size: 150%;
   visibility: visible;
@@ -1587,12 +1561,7 @@ ul.channels .action.view {
   max-height: inherit;
   text-overflow: ellipsis;
 }
-/* line 294, ../../stylesheets/item.scss */
-.page .item.split .price {
-  bottom: 13px;
-  right: 0;
-}
-/* line 309, ../../stylesheets/item.scss */
+/* line 314, ../../stylesheets/item.scss */
 .page .item.split .via {
   position: absolute;
   bottom: 0;
@@ -1600,16 +1569,17 @@ ul.channels .action.view {
 }
 
 /* line 3, ../../stylesheets/page.scss */
-.page {
-  margin: 0 1%;
+body .page {
+  margin: 0 0 0;
   max-height: 100%;
+  border-top: 50px solid transparent;
 }
-/* line 7, ../../stylesheets/page.scss */
-.page .row:last-child {
+/* line 8, ../../stylesheets/page.scss */
+body .page .row:last-child {
   margin-bottom: 0;
 }
 
-/* line 13, ../../stylesheets/page.scss */
+/* line 15, ../../stylesheets/page.scss */
 article.page .image.cover {
   position: relative;
   height: 200%;
@@ -1617,61 +1587,61 @@ article.page .image.cover {
   top: -50%;
   left: -50%;
 }
-/* line 21, ../../stylesheets/page.scss */
+/* line 23, ../../stylesheets/page.scss */
 article.page .price, article.page .store {
   display: inline-block;
 }
-/* line 25, ../../stylesheets/page.scss */
+/* line 27, ../../stylesheets/page.scss */
 article.page .price {
   float: left;
   line-height: 37px;
 }
-/* line 30, ../../stylesheets/page.scss */
+/* line 32, ../../stylesheets/page.scss */
 article.page .button.store {
   margin-bottom: 1em;
   display: block;
   float: right;
   margin: 0;
 }
-/* line 37, ../../stylesheets/page.scss */
+/* line 39, ../../stylesheets/page.scss */
 article.page .description {
   display: block;
   clear: both;
 }
 
 @media screen and (orientation:portrait) {
-  /* line 45, ../../stylesheets/page.scss */
+  /* line 47, ../../stylesheets/page.scss */
   article.page .col.half {
     height: 49%;
     width: 100%;
     background: white;
   }
-  /* line 50, ../../stylesheets/page.scss */
+  /* line 52, ../../stylesheets/page.scss */
   article.page .col.half .image {
     left: 25%;
     position: relative;
     width: 50%;
   }
-  /* line 56, ../../stylesheets/page.scss */
+  /* line 58, ../../stylesheets/page.scss */
   article.page .col.half .info {
     text-align: center;
   }
-  /* line 58, ../../stylesheets/page.scss */
+  /* line 60, ../../stylesheets/page.scss */
   article.page .col.half .info .store {
     margin: 0;
   }
-  /* line 62, ../../stylesheets/page.scss */
+  /* line 64, ../../stylesheets/page.scss */
   article.page .col.half .info .price {
     line-height: 37px;
     vertical-align: middle;
   }
-  /* line 67, ../../stylesheets/page.scss */
+  /* line 69, ../../stylesheets/page.scss */
   article.page .col.half .info p {
     margin-top: 10px;
     text-align: left;
   }
 }
-/* line 78, ../../stylesheets/page.scss */
+/* line 80, ../../stylesheets/page.scss */
 #content .page {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -1681,80 +1651,80 @@ article.page .description {
   overflow: hidden;
   font-family: 'proxima_nova_regular';
 }
-/* line 86, ../../stylesheets/page.scss */
+/* line 88, ../../stylesheets/page.scss */
 #content .page .info {
-  margin: 0 22px;
+  margin: 20px 22px 0;
 }
-/* line 90, ../../stylesheets/page.scss */
+/* line 92, ../../stylesheets/page.scss */
 #content .page .title {
-  margin: 0;
-  color: #2c2c2c;
+  margin: 0 90px 10px 0;
   font-weight: normal;
-  font-size: 23px;
+  font-size: 24px;
   font-family: 'proxima_nova_bold';
+  text-transform: uppercase;
 }
-/* line 98, ../../stylesheets/page.scss */
+/* line 101, ../../stylesheets/page.scss */
 #content .page .price span:first-child {
-  color: #2c2c2c;
-  font-size: 18px;
+  font-size: 24px;
   font-family: 'proxima_nova_bold';
 }
-/* line 105, ../../stylesheets/page.scss */
+/* line 108, ../../stylesheets/page.scss */
 #content .page .store {
   position: absolute;
-  top: 80px;
-  right: 0;
-  padding: 17px 14px 17px 22px;
+  top: 20px;
+  right: -24px;
+  letter-spacing: 1.5px;
+  padding: 17px 13px 17px 20px;
   background-color: #F04500;
   color: white;
   text-transform: uppercase;
   font-size: 14px;
   font-family: 'proxima_nova_bold';
 }
-/* line 117, ../../stylesheets/page.scss */
+/* line 121, ../../stylesheets/page.scss */
 #content .page .source {
   margin: 0;
   color: #666;
   font-size: 12px;
 }
-/* line 121, ../../stylesheets/page.scss */
+/* line 125, ../../stylesheets/page.scss */
 #content .page .source span {
   color: #2c2c2c;
 }
-/* line 125, ../../stylesheets/page.scss */
+/* line 129, ../../stylesheets/page.scss */
 #content .page .description {
   padding-top: 25px;
   font-size: 16px;
 }
-/* line 131, ../../stylesheets/page.scss */
+/* line 135, ../../stylesheets/page.scss */
 #content .content.page {
   overflow: auto;
 }
-/* line 134, ../../stylesheets/page.scss */
+/* line 138, ../../stylesheets/page.scss */
 #content .content.page header {
   margin: 0 0 18px;
   padding-bottom: 15px;
   border-bottom: 1px solid #eee;
   text-align: center;
 }
-/* line 142, ../../stylesheets/page.scss */
+/* line 146, ../../stylesheets/page.scss */
 #content .content.page header, #content .content.page .body.one-column {
   width: 90%;
   margin: 0 auto;
 }
-/* line 148, ../../stylesheets/page.scss */
+/* line 152, ../../stylesheets/page.scss */
 #content .content.page .title {
   text-transform: uppercase;
   font-size: 24px;
   font-weight: normal;
 }
-/* line 156, ../../stylesheets/page.scss */
+/* line 160, ../../stylesheets/page.scss */
 #content .content.page .author, #content .content.page .published-at {
   color: #333;
   font-family: Georgia;
   font-style: italic;
 }
-/* line 162, ../../stylesheets/page.scss */
+/* line 166, ../../stylesheets/page.scss */
 #content .content.page .body {
   font-size: 16px;
   line-height: 22px;
@@ -1762,15 +1732,15 @@ article.page .description {
   text-align: justify;
   -webkit-hyphens: auto;
 }
-/* line 174, ../../stylesheets/page.scss */
+/* line 178, ../../stylesheets/page.scss */
 #content .content.page .body p {
   margin: 1.2em 0 !important;
 }
-/* line 178, ../../stylesheets/page.scss */
+/* line 182, ../../stylesheets/page.scss */
 #content .content.page .body a[href] {
   color: #d93e00;
 }
-/* line 182, ../../stylesheets/page.scss */
+/* line 186, ../../stylesheets/page.scss */
 #content .content.page .body img {
   box-sizing: border-box;
   clear: both;
@@ -1780,16 +1750,16 @@ article.page .description {
   max-width: 100%;
   height: auto;
 }
-/* line 192, ../../stylesheets/page.scss */
+/* line 196, ../../stylesheets/page.scss */
 #content .content.page .body ul {
   list-style-type: none;
 }
-/* line 196, ../../stylesheets/page.scss */
+/* line 200, ../../stylesheets/page.scss */
 #content .content.page iframe {
   width: 100% !important;
 }
 
-/* line 216, ../../stylesheets/page.scss */
+/* line 220, ../../stylesheets/page.scss */
 .landing {
   margin-left: 260px;
   height: 100%;
@@ -1800,13 +1770,13 @@ article.page .description {
   color: white;
   font-family: "proxima-nova", sans-serif;
 }
-/* line 227, ../../stylesheets/page.scss */
+/* line 231, ../../stylesheets/page.scss */
 .landing .featured {
   width: 30%;
   float: right;
   padding: 0 20px;
 }
-/* line 232, ../../stylesheets/page.scss */
+/* line 236, ../../stylesheets/page.scss */
 .landing .featured h3 {
   top: 20px;
   font-size: 16px;
@@ -1814,7 +1784,7 @@ article.page .description {
   text-transform: uppercase;
   text-align: right;
 }
-/* line 240, ../../stylesheets/page.scss */
+/* line 244, ../../stylesheets/page.scss */
 .landing .featured ul {
   list-style: none;
   text-transform: uppercase;
@@ -1823,7 +1793,7 @@ article.page .description {
   line-height: 24px;
   color: #fff;
 }
-/* line 250, ../../stylesheets/page.scss */
+/* line 254, ../../stylesheets/page.scss */
 .landing .logo {
   opacity: 0.3;
   position: absolute;
@@ -1835,25 +1805,25 @@ article.page .description {
   color: white;
   font-size: 22px;
 }
-/* line 262, ../../stylesheets/page.scss */
+/* line 266, ../../stylesheets/page.scss */
 .landing .welcome {
   position: absolute;
   top: 35%;
   padding-left: 12px;
   font-weight: bold;
 }
-/* line 268, ../../stylesheets/page.scss */
+/* line 272, ../../stylesheets/page.scss */
 .landing .welcome p:first-child {
   margin: 0 0 0 8px;
   font-size: 102px;
   text-transform: uppercase;
 }
-/* line 274, ../../stylesheets/page.scss */
+/* line 278, ../../stylesheets/page.scss */
 .landing .welcome p:nth-child(2) {
   margin: 0 0 0 8px;
   font-size: 25px;
 }
-/* line 279, ../../stylesheets/page.scss */
+/* line 283, ../../stylesheets/page.scss */
 .landing .welcome a {
   color: white;
   position: absolute;
@@ -1864,7 +1834,7 @@ article.page .description {
   text-transform: uppercase;
   font-size: 14px;
 }
-/* line 291, ../../stylesheets/page.scss */
+/* line 295, ../../stylesheets/page.scss */
 .landing .footer {
   position: absolute;
   bottom: 28px;
@@ -1872,20 +1842,20 @@ article.page .description {
   font-size: 14px;
   line-height: 20px;
 }
-/* line 298, ../../stylesheets/page.scss */
+/* line 302, ../../stylesheets/page.scss */
 .landing .footer a {
   font-family: "proxima_nova_bold";
   color: white;
   vertical-align: bottom;
 }
-/* line 304, ../../stylesheets/page.scss */
+/* line 308, ../../stylesheets/page.scss */
 .landing .footer i {
   padding-right: 10px;
   vertical-align: middle;
   font-size: 24px;
 }
 
-/* line 314, ../../stylesheets/page.scss */
+/* line 318, ../../stylesheets/page.scss */
 #signup.page ul.channels {
   top: 100px;
   -webkit-box-sizing: border-box;
@@ -1896,7 +1866,7 @@ article.page .description {
   padding: 0 0;
   left: 20px;
 }
-/* line 321, ../../stylesheets/page.scss */
+/* line 326, ../../stylesheets/page.scss */
 #signup.page ul.channels a.follow {
   position: absolute;
   -webkit-border-radius: 80px;
@@ -1912,20 +1882,12 @@ article.page .description {
   width: 120px;
   height: 120px;
 }
-<<<<<<< HEAD
-/* line 331, ../../stylesheets/page.scss */
-=======
-/* line 333, ../../stylesheets/page.scss */
->>>>>>> Fixes channel alignment and rename top content to my edition
+/* line 338, ../../stylesheets/page.scss */
 #signup.page ul.channels li {
   width: 315px;
   height: 260px;
 }
-<<<<<<< HEAD
-/* line 337, ../../stylesheets/page.scss */
-=======
-/* line 339, ../../stylesheets/page.scss */
->>>>>>> Fixes channel alignment and rename top content to my edition
+/* line 344, ../../stylesheets/page.scss */
 #signup.page h1 {
   margin-top: 40px;
   text-align: center;
@@ -1934,11 +1896,7 @@ article.page .description {
   font-weight: normal;
   text-transform: uppercase;
 }
-<<<<<<< HEAD
-/* line 346, ../../stylesheets/page.scss */
-=======
-/* line 348, ../../stylesheets/page.scss */
->>>>>>> Fixes channel alignment and rename top content to my edition
+/* line 353, ../../stylesheets/page.scss */
 #signup.page a.complete {
   font-family: "proxima_nova", "Helvetica Neue";
   position: absolute;
@@ -1949,11 +1907,7 @@ article.page .description {
   line-height: 50x;
 }
 
-<<<<<<< HEAD
-/* line 357, ../../stylesheets/page.scss */
-=======
-/* line 359, ../../stylesheets/page.scss */
->>>>>>> Fixes channel alignment and rename top content to my edition
+/* line 364, ../../stylesheets/page.scss */
 .flash, .notice, .alert {
   position: absolute;
   top: 45px;

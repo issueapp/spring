@@ -1,23 +1,23 @@
 /*
-Syntax error: Undefined mixin 'border-radius'.
-        on line 328 of ./stylesheets/page.scss, in `border-radius'
-        from line 328 of ./stylesheets/page.scss
+Syntax error: Undefined mixin 'inline-block'.
+        on line 91 of ./stylesheets/ui/toolbar.scss, in `inline-block'
+        from line 91 of ./stylesheets/ui/toolbar.scss
 
-323:     padding:0 0;
-324:     left: 20px;
-325: 
-326:     a.follow {
-327:       position:absolute;
-328:       @include border-radius(80px);
-329:       left: 50%;
-330:       font-weight: bold;
-331:       line-height: 120px;
-332:       margin-left: -60px;
-333:       text-align: center;
+86:     position: absolute;
+87:     top: 0px;
+88:     right: 0px;
+89: 
+90:     a {
+91:       @include inline-block;
+92:       width: 56px;
+93:       // border-left: 1px solid #eee;
+94:     }
+95: 
+96:     .heart {
 
 Backtrace:
-./stylesheets/page.scss:328:in `border-radius'
-./stylesheets/page.scss:328
+./stylesheets/ui/toolbar.scss:91:in `inline-block'
+./stylesheets/ui/toolbar.scss:91
 /Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:170:in `visit_mixin'
 /Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.1.19/lib/sass/tree/visitors/base.rb:37:in `visit'
 /Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.1.19/lib/sass/tree/visitors/perform.rb:18:in `visit'
@@ -86,4 +86,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined mixin 'border-radius'.\A         on line 328 of ./stylesheets/page.scss, in `border-radius'\A         from line 328 of ./stylesheets/page.scss\A \A 323:     padding:0 0;\A 324:     left: 20px;\A 325: \A 326:     a.follow {\A 327:       position:absolute;\A 328:       @include border-radius(80px);\A 329:       left: 50%;\A 330:       font-weight: bold;\A 331:       line-height: 120px;\A 332:       margin-left: -60px;\A 333:       text-align: center;"; }
+  content: "Syntax error: Undefined mixin 'inline-block'.\A         on line 91 of ./stylesheets/ui/toolbar.scss, in `inline-block'\A         from line 91 of ./stylesheets/ui/toolbar.scss\A \A 86:     position: absolute;\A 87:     top: 0px;\A 88:     right: 0px;\A 89: \A 90:     a {\A 91:       @include inline-block;\A 92:       width: 56px;\A 93:       // border-left: 1px solid #eee;\A 94:     }\A 95: \A 96:     .heart {"; }
