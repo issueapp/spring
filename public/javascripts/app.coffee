@@ -88,8 +88,8 @@ class App.Router extends Backbone.Router
   channel: (type, handle)->
     
     App.menu.toggle(false)
-    App.contentView.clear()
-    
+    App.contentView.hide()
+
     $('#discover').hide()
     $('#signup').hide()
 
