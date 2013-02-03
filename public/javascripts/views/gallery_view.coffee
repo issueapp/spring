@@ -10,7 +10,7 @@ class App.GalleryView extends App.SwipeView
     <header class="toolbar">
       <a class="back">back</a>
       <div class="title"><span>20 of 20</span></div>
-      <a class="share">share</a>
+      <div class="actions"><a class="share"></a></a>
     </header>
     <div class="swipe-paging">
       {{#collection}}
