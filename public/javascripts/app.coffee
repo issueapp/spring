@@ -4,15 +4,15 @@ this.App ||= {
   touch: !!('ontouchstart' in window)
 
   init: ->
-    @layout = new App.Layout
     @router = new App.Router
+
+    @layout = new App.Layout
     @discover = new App.DiscoverMenu
 
     @menu = new App.MenuView
-    @toolbar = new App.Toolbar
 
     @stream = new App.StreamCollection
-    @streamView = new App.StreamView( el: '#sections .pages', layout: @layout, collection: @stream )
+    @streamView = new App.StreamView( layout: @layout, model: @stream )
     @contentView ||= new App.ContentView
     @popover = new App.PopoverView
 
@@ -73,13 +73,15 @@ class App.Router extends Backbone.Router
     this.route(/.*\?type=(\w+)/, "filter")
 
   signup: ->
-    App.toolbar.hide()
+    # App.toolbar.hide()
     $('.landing').hide()
 
     $('#signup').show()
 
   home: ->
     $('.landing').hide()
+        
+    App.stream.title = "My Edition"
     this.channel("stream")
 
   # View a channel in a stream format
@@ -87,6 +89,7 @@ class App.Router extends Backbone.Router
     
     App.menu.toggle(false)
     App.contentView.clear()
+    
     $('#discover').hide()
     $('#signup').hide()
 
@@ -118,11 +121,7 @@ class App.Router extends Backbone.Router
 
   discover: (category)->
     $('.landing').hide()
-
-    # alert(Backbone.history.fragment)
-
-    # App.discover = new App.DiscoverView
-
+    
     App.discover.collection = App.channels
     App.discover.render(category)
     App.menu.render()
@@ -131,15 +130,14 @@ class App.Router extends Backbone.Router
 
 
   content: (handle) ->
+    
     App.streamView.hide()
     App.contentView.show()
 
     # Might need to delay rendering when page is loading
     renderer = (c)->
-
-      App.contentView.resetAttrs()
+      App.contentView.reset()
       App.contentView.model = c
-
       App.contentView.render()
 
     # fetch item from collection
@@ -160,44 +158,29 @@ class App.Router extends Backbone.Router
   # Set view to default state
   # This is a work around when we change between different view containers.
   resetView: (url, title, type)->
-    # reset toolbar to default states.
-    if App.toolbar
-      App.toolbar.render(title: title, typeBtn: true, followBtn: true, backBtn: false, actionsBtn: false)
-
-    # HACK: use title to detect switing channels
-    if title != App.stream.title
-      App.popover.resetFocus()
-
-    # Section views reset
-    $('#sections .pages').addClass('horizontal')
-    $('#content .pages').html('').removeAttr('style')
-
-    # Shouldn't new render replace it?
-    $('#sections #noContent').remove()
-
     $(document).off('keydown')
 
-    # TODO: this code block like fetching the stream again renderStream(url)
-    # Only fetch new stream content when URL is different
+    # Update stream content when URL is different
     if url && url != App.stream.url
+      
+      # App.streamView = new App.StreamView({ layout: App.layout, model: App.stream, title: title })
       App.stream = new App.StreamCollection
-      App.streamView = new App.StreamView({ el: '#sections .pages', layout: App.layout, collection: App.stream, title: title, newChannel: true })
-
       App.stream.url = url
-      App.stream.title = title
-
-      spinner = new Spinner().spin()
-      $('#sections').append(spinner.el)
-
+      App.stream.title = title if title
+      
+      App.streamView.model = App.stream
+      App.streamView.reset()
+      # App.streamView.loading(true)
+      
       App.stream.fetch({ dataType: "jsonp" })
 
     else
+      App.stream.title = title
       # This is probably duplicate
       App.streamView.show()
 
   backToStream: ->
-    App.toolbar.render(actionsBtn: false, backBtn: false, typeBtn: true, followBtn: true)
-    $('#content .pages').html('').removeAttr('style')
+    App.contentView.hide()
 
     App.streamView.show()
 
