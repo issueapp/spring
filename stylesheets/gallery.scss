@@ -1,0 +1,56 @@
+@import "compass/css3/images";
+
+/* Gallery Style*/
+
+#gallery .page {
+  background: black;
+  height: 100%;
+  padding:0;
+  text-align: center;
+
+  img {
+    height: 100%;
+  }
+}
+
+#gallery header.toolbar {
+  border-bottom: 0;
+  
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: none;
+  @include background-image(linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0)));  
+  color: white;
+  
+  a { 
+    border: 0;
+    display: block;
+    height: 50px;
+    color: white;
+  }
+}
+
+#gallery footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: black;
+  color: white;
+  
+  .prev {
+    position: absolute;
+    bottom: 20px;
+    left: 50px;
+    cursor: pointer;
+  }
+  
+  .next {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+  }
+}
