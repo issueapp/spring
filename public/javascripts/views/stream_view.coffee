@@ -46,6 +46,9 @@ class App.StreamView extends Backbone.View
     $(@container).removeAttr("style").html('').off()
     @padding = $('<div class="page padding" style="visibility:hidden;width:0;padding:0;margin:0;border:0;font-size:0">').appendTo(@container)
   
+    # Update binding
+    this.bindings()
+      
     ##### Below should move to swipe view soon
     # Prevent browser from
     startClientX = currentClientX = 0

@@ -1229,11 +1229,7 @@ div.popover ul.popover-list li:first-child {
   color: #ccc;
 }
 
-<<<<<<< HEAD
-/* line 454, ../../stylesheets/ui.scss */
-=======
 /* line 397, ../../stylesheets/ui.scss */
->>>>>>> refactor-views
 ul.channels {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -1252,11 +1248,7 @@ ul.channels {
   bottom: 0;
   padding-bottom: 50%;
 }
-<<<<<<< HEAD
-/* line 473, ../../stylesheets/ui.scss */
-=======
 /* line 416, ../../stylesheets/ui.scss */
->>>>>>> refactor-views
 ul.channels li {
   position: relative;
   -webkit-box-sizing: border-box;
@@ -1274,11 +1266,7 @@ ul.channels li {
   background-color: rgba(0, 0, 0, 0.5);
   background-size: cover;
 }
-<<<<<<< HEAD
-/* line 491, ../../stylesheets/ui.scss */
-=======
 /* line 434, ../../stylesheets/ui.scss */
->>>>>>> refactor-views
 ul.channels .action {
   font-family: "Georgia";
   position: absolute;
@@ -1301,17 +1289,6 @@ ul.channels .action {
   color: white;
   border: 1.5px solid rgba(255, 255, 255, 0.3);
 }
-<<<<<<< HEAD
-/* line 511, ../../stylesheets/ui.scss */
-ul.channels .action.followed {
-  background: rgba(240, 69, 0, 0.2);
-}
-/* line 515, ../../stylesheets/ui.scss */
-ul.channels .action:hover {
-  background: rgba(255, 255, 255, 0.2);
-}
-/* line 519, ../../stylesheets/ui.scss */
-=======
 /* line 454, ../../stylesheets/ui.scss */
 ul.channels .action.followed {
   background: rgba(240, 69, 0, 0.2);
@@ -1321,7 +1298,6 @@ ul.channels .action:hover {
   background: rgba(255, 255, 255, 0.2);
 }
 /* line 462, ../../stylesheets/ui.scss */
->>>>>>> refactor-views
 ul.channels .action.view {
   left: 130px;
 }
@@ -1409,11 +1385,7 @@ ul.channels .action.view {
   padding: 1.25em 0 1.25em;
   color: #333;
 }
-<<<<<<< HEAD
-/* line 82, ../../stylesheets/item.scss */
-=======
 /* line 84, ../../stylesheets/item.scss */
->>>>>>> refactor-views
 .page .item .description {
   font-size: 13px;
   margin: 0.5em 0 0.5em;
@@ -1497,15 +1469,7 @@ ul.channels .action.view {
   display: -webkit-box;
   -webkit-box-orient: vertical;
 }
-<<<<<<< HEAD
-/* line 190, ../../stylesheets/item.scss */
-.page .product .info {
-  height: 10%;
-}
-/* line 194, ../../stylesheets/item.scss */
-=======
 /* line 197, ../../stylesheets/item.scss */
->>>>>>> refactor-views
 .page .product .price {
   display: block;
   position: absolute;
@@ -1520,11 +1484,7 @@ ul.channels .action.view {
   background: rgba(0, 0, 0, 0.8);
   color: white;
 }
-<<<<<<< HEAD
-/* line 210, ../../stylesheets/item.scss */
-=======
 /* line 218, ../../stylesheets/item.scss */
->>>>>>> refactor-views
 .page .product .price:before {
   position: absolute;
   left: 50%;
@@ -1537,19 +1497,11 @@ ul.channels .action.view {
   border-width: 7px;
   border-top-color: rgba(0, 0, 0, 0.8);
 }
-<<<<<<< HEAD
-/* line 224, ../../stylesheets/item.scss */
-.page .product .description {
-  visibility: hidden;
-}
-/* line 228, ../../stylesheets/item.scss */
-=======
 /* line 232, ../../stylesheets/item.scss */
 .page .product .description {
   display: none;
 }
 /* line 237, ../../stylesheets/item.scss */
->>>>>>> refactor-views
 .page .product .counters {
   color: #DF5454;
   font-size: 14px;
@@ -1559,17 +1511,6 @@ ul.channels .action.view {
   z-index: 1;
   line-height: 12px;
 }
-<<<<<<< HEAD
-/* line 243, ../../stylesheets/item.scss */
-.page .item.split .overlay {
-  height: 100%;
-}
-/* line 247, ../../stylesheets/item.scss */
-.page .item.split a.action.love, .page .item.split a.action.collect {
-  top: 50%;
-}
-/* line 251, ../../stylesheets/item.scss */
-=======
 /* line 252, ../../stylesheets/item.scss */
 .page .item.split .overlay {
   height: 100%;
@@ -1579,7 +1520,6 @@ ul.channels .action.view {
   top: 50%;
 }
 /* line 260, ../../stylesheets/item.scss */
->>>>>>> refactor-views
 .page .item.split .image {
   overflow: hidden;
   display: inline-block;
@@ -1589,11 +1529,7 @@ ul.channels .action.view {
   top: initial;
   vertical-align: middle;
 }
-<<<<<<< HEAD
-/* line 261, ../../stylesheets/item.scss */
-=======
 /* line 270, ../../stylesheets/item.scss */
->>>>>>> refactor-views
 .page .item.split .info:before {
   position: absolute;
   bottom: 60%;
@@ -1606,11 +1542,7 @@ ul.channels .action.view {
   border-width: 10px;
   border-right-color: #fff;
 }
-<<<<<<< HEAD
-/* line 275, ../../stylesheets/item.scss */
-=======
 /* line 283, ../../stylesheets/item.scss */
->>>>>>> refactor-views
 .page .item.split .info {
   margin: 0;
   width: 49%;
@@ -1620,14 +1552,9 @@ ul.channels .action.view {
   position: relative;
   height: 100%;
   font-weight: 200;
-<<<<<<< HEAD
-}
-/* line 285, ../../stylesheets/item.scss */
-=======
   left: auto;
 }
-/* line 294, ../../stylesheets/item.scss */
->>>>>>> refactor-views
+/* line 293, ../../stylesheets/item.scss */
 .page .item.split .info > p {
   font-size: 150%;
   visibility: visible;
@@ -1635,16 +1562,7 @@ ul.channels .action.view {
   max-height: inherit;
   text-overflow: ellipsis;
 }
-<<<<<<< HEAD
-/* line 294, ../../stylesheets/item.scss */
-.page .item.split .price {
-  bottom: 13px;
-  right: 0;
-}
-/* line 309, ../../stylesheets/item.scss */
-=======
-/* line 314, ../../stylesheets/item.scss */
->>>>>>> refactor-views
+/* line 313, ../../stylesheets/item.scss */
 .page .item.split .via {
   position: absolute;
   bottom: 0;
@@ -1790,11 +1708,7 @@ article.page .description {
   border-bottom: 1px solid #eee;
   text-align: center;
 }
-<<<<<<< HEAD
-/* line 143, ../../stylesheets/page.scss */
-=======
 /* line 146, ../../stylesheets/page.scss */
->>>>>>> refactor-views
 #content .content.page header, #content .content.page .body.one-column {
   width: 90%;
   margin: 0 auto;
@@ -1942,11 +1856,7 @@ article.page .description {
   font-size: 24px;
 }
 
-<<<<<<< HEAD
-/* line 313, ../../stylesheets/page.scss */
-=======
 /* line 318, ../../stylesheets/page.scss */
->>>>>>> refactor-views
 #signup.page ul.channels {
   top: 100px;
   -webkit-box-sizing: border-box;
@@ -1957,11 +1867,7 @@ article.page .description {
   padding: 0 0;
   left: 20px;
 }
-<<<<<<< HEAD
-/* line 321, ../../stylesheets/page.scss */
-=======
 /* line 326, ../../stylesheets/page.scss */
->>>>>>> refactor-views
 #signup.page ul.channels a.follow {
   position: absolute;
   -webkit-border-radius: 80px;
@@ -1977,20 +1883,12 @@ article.page .description {
   width: 120px;
   height: 120px;
 }
-<<<<<<< HEAD
-/* line 333, ../../stylesheets/page.scss */
-=======
 /* line 338, ../../stylesheets/page.scss */
->>>>>>> refactor-views
 #signup.page ul.channels li {
   width: 315px;
   height: 260px;
 }
-<<<<<<< HEAD
-/* line 339, ../../stylesheets/page.scss */
-=======
 /* line 344, ../../stylesheets/page.scss */
->>>>>>> refactor-views
 #signup.page h1 {
   margin-top: 40px;
   text-align: center;
@@ -1999,11 +1897,7 @@ article.page .description {
   font-weight: normal;
   text-transform: uppercase;
 }
-<<<<<<< HEAD
-/* line 348, ../../stylesheets/page.scss */
-=======
 /* line 353, ../../stylesheets/page.scss */
->>>>>>> refactor-views
 #signup.page a.complete {
   font-family: "proxima_nova", "Helvetica Neue";
   position: absolute;
@@ -2014,11 +1908,7 @@ article.page .description {
   line-height: 50x;
 }
 
-<<<<<<< HEAD
-/* line 359, ../../stylesheets/page.scss */
-=======
 /* line 364, ../../stylesheets/page.scss */
->>>>>>> refactor-views
 .flash, .notice, .alert {
   position: absolute;
   top: 45px;
