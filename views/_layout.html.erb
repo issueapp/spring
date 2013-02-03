@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="http://deyf8doogqx67.cloudfront.net/assets/components/_button.css">
     <link rel="stylesheet" href="/stylesheets/application.css"/>
     <link rel="stylesheet" href="/stylesheets/swipe-view.css"/>
-    <link rel="stylesheet" href="/stylesheets/font-awesome.css"/>
+    <link rel="stylesheet" href="/stylesheets/vendor/font-awesome.css"/>
     <link rel="stylesheet" href="/stylesheets/vendor/add2home.css"/>
 
 
@@ -104,12 +104,12 @@
       #content {
         white-space: nowrap;
       }
-      
+
       .transition {
         -webkit-transition:opacity 0.5s ease;
       }
-      
-      .zoom:hover { 
+
+      .zoom:hover {
          -moz-transform: scale(1.4);
          -webkit-transform: scale(1.4);
          -o-transform: scale(1.4);
@@ -136,7 +136,7 @@
   <body>
     <div class="landing transition" style="opacity:0">
       <h1 class="logo"></h1>
-      
+
       <div class="featured">
         <h3>Featured</h3>
         <ul>
@@ -144,7 +144,7 @@
           <li>Topman is here </li>
           <li>Profresh style</li>
       </div>
-      
+
       <div class="welcome">
         <p>your edition</p>
         <p>of personalized magazine</p>
@@ -179,11 +179,11 @@
           <li><a href="/interests/media">Art &amp; design</a></li>
         </ul>
         <li class="user">
-          
+
           <a class="right-icon settings" href="/settings">
             <i class="icon-cog"></i>
           </a>
-          
+
           <a href="/taylorluk/items">
             <div class="thumb">
               <img width=30 height=30 src="https://en.gravatar.com/userimage/3750669/11f87325e01820f4350d21db1fb429c8.jpeg">
@@ -227,45 +227,75 @@
           <li><a href="/discover/design">Art &amp; design</a></li>
         </ul>
 
-        <ul class="channels">
-          <li style="background-image: url(http://c806568.r68.cf2.rackcdn.com/features/dev/new_collections/Nasty-Gal_CrossYourHeart.jpg); background-size: cover">
-            Nastygal
-            <a class="action follow" href="">+</a><a class="action view" rel="app" href="/sites/nastygal">></a>
-          </li>
-          <li style="background-image: url(http://www.thesartorialist.com/wp-content/themes/sartorialist/images/author.jpg); background-size: cover">
-            Sartorialist
-            <a class="action follow" href="">+</a><a class="action view" rel="app" href="/sites/the-sartorialist">></a>
-          </li>
-          <li style="background-image:url('http://www.shopakira.com/product_images/uploaded_images/a-white-story-thumbnail.jpg'); background-size: cover">
-            Shopakira
-            <a class="action follow" href="">+</a><a class="action view" rel="app" href="/sites/shopakira">></a>
-
-          </li>
-          <li style="background-image:url('http://i1190.photobucket.com/albums/z449/CHRONICLESOFHER/chroniclesofher_headshot_2small-1.jpg'); background-size: cover">
-            The Chronicle of Her
-            <a class="action follow" href="">+</a><a class="action view" rel="app" href="/sites/the-chronicle-of-her">></a>
-          </li>
-          <li style="background-image:url('http://www.dalton-park.co.uk/wp-content/uploads/2009/06/levis_705.jpg'); background-size: cover">
-            Levis
-            <a class="action follow" href="">+</a><a class="action view" href="sites/levis">></a>
-          </li>
-          <li style="background-image:url('http://www.accessoriesmagazine.com/wp-content/uploads/2011/06/J.-Crew-sign-and-logo.jpg'); background-size: cover">
-
-            J Crew
-            <a class="action follow" href="sites/jcrew">+</a><a class="action view" href="sites/jcrew">></a>
-          </li>
-        </ul>
+        <ul class="channels"></ul>
       </section>
 
       <div id="sections">
         <header class="toolbar">
           <a class="menu"></a>
-          <div class="title"><span>MY EDITION</span></div>
+          <a href="#" class="back" style="display: none;">Back</a>
+          <a href="#" class="icon reload follow" onclick="window.location.reload(true); return false">reload</a>
+          <a href="#" class="icon follow" >Follow</a>
+
+          <a class="title" rel="popover" href="#collectionDropdown"><span>TOP CONTENT</span></a>
+          
+          <!-- <a href="#filterDropdown" rel="popover" id="switch-mode" class="filter" style=""></a> -->
+          <a href="#filterDropdown" class="filter" rel="popover"></a>
+          
+          <div id="filter-dropdown" class="drop-down" style="display:none">
+            <div class="drop-wrapper">
+              <span class="drop-top"></span>
+              <ul class="popover-list">
+                  <li><a class="view-all active" href="?type=all">view all</a></li>
+                  <li><a class="shop" href="?type=product">shop</a></li>
+                  <li><a class="read" href="?type=article">read</a></li>
+                  <li><a class="photo" href="?type=picture">photo</a></li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="popover" id="filterDropdown" style="display:none">
+            <div class="drop-wrapper">
+              <span class="drop-top"></span>
+              <ul class="popover-list">
+                  <li><a class="view-all active" href="?type=all"><span></span>view all</a></li>
+                  <li><a class="shop" href="?type=product"><span></span>shop</a></li>
+                  <li><a class="read" href="?type=article"><span></span>read</a></li>
+                  <li><a class="photo" href="?type=picture"><span></span>photo</a></li>
+              </ul>
+            </div>
+          </div>
         </header>
         <%= yield %>
       </div>
 
-      <div id="content">
+      <div id="content" style="display:none">
+        <header class="toolbar">
+          <a class="menu"></a>
+          <a href="#" class="back" style="display: none;">Back</a>
+          <a href="" class="icon reload follow" onclick="window.location.reload(true); return false">reload</a>
+
+          <div class="title"><span>Page content</span></div>
+          
+          <div class="actions" style="">
+            <a class="heart"> </a>
+            <a class="collect"> </a>
+            
+            <a class="share" rel="popover" href="#shareDropdown"></a>
+          </div>
+          
+          <div class="popover" id="shareDropdown" style="display:none">
+            <div class="drop-wrapper">
+              <span class="drop-top"></span>
+              <ul class="popover-list">
+                  <li><a class="facebook" href="#"><i class="icon-facebook"></i>Facebook</a></li>
+                  <li><a class="twitter" href="#"><i class="icon-twitter"></i>Twitter</a></li>
+                  <li><a class="pinterest" href="#"><i class="icon-pinterest"></i>Pinterest</a></li>
+              </ul>
+            </div>
+          </div>
+        </header>
+        
         <div class="pages swipe-paging"></div>
       </div>
 
@@ -286,7 +316,7 @@
   <script src="/javascripts/app.js"></script>
   <script src="/javascripts/models.js"></script>
   <script src="/javascripts/channels.js"></script>
-  
+
   <script src="/javascripts/views/layout.js"></script>
   <script src="/javascripts/views/toolbar.js"></script>
   <script src="/javascripts/views/menu_view.js"></script>
@@ -296,6 +326,7 @@
   <script src="/javascripts/views/list_view.js"></script>
   <script src="/javascripts/views/stream_view.js"></script>
   <script src="/javascripts/views/discover_menu.js"></script>
+  <script src="/javascripts/views/popover_view.js"></script>
 
   <script src="/javascripts/misc.js"></script>
 

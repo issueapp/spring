@@ -53,16 +53,20 @@ class App.SwipeView extends Backbone.View
     if @currentPage.length == 0
       @currentPage = $(@el).children(":not(.padding)").first().addClass('current')
 
-    if expendMenu = $('body.expand-menu')[0]
-      @viewport ||= expendMenu.offsetWidth
-    else
-      @viewport ||= @el.parentNode.offsetWidth
-
+    this.getViewport()
+    
     $(document).on 'keydown', (e)=>
       switch (e.which || e.keyCode)
         when 190 then this.moveRight()
         when 188 then this.moveLeft()
 
+  getViewport: ->
+    # TODO: This should query the layout manager
+    if expendMenu = $('body.expand-menu')[0]
+      @viewport ||= expendMenu.offsetWidth
+    else
+      @viewport ||= @el.parentNode.offsetWidth
+  
   onTouch: (e) ->
     e = e.touches[0] if e.touches
 
@@ -74,20 +78,19 @@ class App.SwipeView extends Backbone.View
   onMove: (e) ->
     e = e.touches[0] if e.touches
     delta = e.clientX - @startClientX
-    
+
     return if e.clientY < @startClientY
     
     # moveDelta = e.clientX - @currentClientX
     # console.log(@offset + delta * 1.1)
-    
-    this.updatePos(@offset + delta)
 
+    this.updatePos(@offset + delta)
     @currentClientX = e.clientX
 
   onTouchEnd: (e) ->
     e = e.changedTouches[0] if e.changedTouches
     moveDelta = e.clientX - @startClientX
-
+    
     # Stop swiping and animate the left go.
     $(@el).addClass('animate').removeClass('swiping')
 
@@ -115,6 +118,9 @@ class App.SwipeView extends Backbone.View
     if target.length > 0
       # Remove swipe animation, start transition
       $(@el).removeClass('swiping').addClass('animate').css('transform', '')
+
+      # Force viewport if initialize didn't pick it up
+      this.getViewport() if @viewport == 0
 
       if dir == 'next'
         pos = @offset - @viewport

@@ -117,8 +117,6 @@ class App.StreamCollection extends Backbone.Collection
       @prevPage = []
       return @currentPage
 
-    $('.spinner').remove()
-
     resp
 
   pageInfo: ->

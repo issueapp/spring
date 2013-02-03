@@ -18,23 +18,24 @@
       div.row [ 3 ]
 ###
 class App.ContentView extends Backbone.View
-  el: "#content .pages"
+  el: "#content"
 
   product_template: Mustache.compile($('#product_tpl').html())
   content_template: Mustache.compile($('#content_tpl').html())
 
   initialize: ->
-    @toolbar = App.toolbar || new App.Toolbar
-
-    @view ||= new App.SwipeView
+    @toolbar = new App.Toolbar(el: this.$('.toolbar'))
+    
+    @view ||= new App.SwipeView(el: "#content .swipe-paging")
+    
     @view.on('fetch:next',   => this.fetchNext())
     @view.on('buffer:next',  => this.bufferNext())
     @view.on('buffer:prev',  => this.bufferPrev())
     @view.on('slideTo:prev', => this.slideToPrev())
     @view.on('slideTo:next', => this.slideToNext())
     @view.on('destroy',         this.destroy)
-
-  resetAttrs: ->
+    
+  reset: ->
     @view.updatePos(0)
     @streamLength = App.stream.size()
     @currentIndex = 0
@@ -45,41 +46,42 @@ class App.ContentView extends Backbone.View
 
   render: (model)->
     @model = model if model
-    
+
     @model.attributes.published_at = prettyDate(@model.get('published_at'))
-    
+
     # render content page node
     if @model.get('type') == 'Article'
       source = $(@content_template(@model.toJSON()))
     else
       source = $(@product_template(@model.toJSON()))
-    
-    this.setElement(source)
 
+    if this.$('.page').length == 0
+      source.addClass('current')
+    
     # Render single model, return node
-    App.toolbar.typeBtn = false
+    @toolbar.typeBtn = false
+    
+    if @model.collection
+      title = @model.collection.title
+    else if @model.get('site')
+      title = @model.get('site').title
+    
+    @toolbar.render(title: title, backBtn: true, typeBtn: false, actionsBtn: true)
     
     if model
       source[0]
-    else  
-      if @model.collection
-        title = @model.collection.title
-      else if @model.get('site')
-        title = @model.get('site').title
-      else if @model.get('source')
-        title = @model.get('source').title
-        
-      @toolbar.render(title: title, backBtn: true, typeBtn: false, actionsBtn: true)
-      
+    else
       # Content view should fade in
-      $(@el).css('opacity', "0").addClass('current')
-      $('#content .pages').append( @el )
+      this.$('.swipe-paging').append(source)
 
       $(@el).animate({ opacity: 1 }, 150)
-      $('#content .pages').append('<article class="page loading">Loading...</article>')
+      
+      this.$('.swipe-paging').append('<article class="page loading">Loading...</article>')
+      
       this
 
   fetchNext: ->
+    
     loading = $('#content .pages .loading')
     if target = this.next()
       @prevModel = @model
@@ -91,7 +93,8 @@ class App.ContentView extends Backbone.View
         target_css = 'current content'
 
       ## TODO: this needs to be cleanup, fetch should only fetch a page
-      loading.html($(this.render(target)).children()).addClass(target_css).removeClass('loading').attr('data-handle', target.get('handle'))
+      source = $(this.render(target)).html()
+      loading.html(source).addClass(target_css).removeClass('loading').attr('data-handle', target.get('handle'))
 
   next: ->
     current = App.stream.find (item)=>
@@ -111,6 +114,8 @@ class App.ContentView extends Backbone.View
     content = App.stream.findPrev(current)
 
   bufferNext: ->
+    console.log('buffer next')
+    
     target = this.next()
     if target instanceof Backbone.Model
       if @nextModel
@@ -149,17 +154,21 @@ class App.ContentView extends Backbone.View
     else if @currentIndex == 1
       @currentIndex -= 1
       this.render(@prevModel)
-      
+
   show: ->
+    this.$el.show()
     this.$el.css('opacity', 1)
     
+  hide: ->
+    this.$el.css('opacity', 0)
+    this.$el.hide()
+    
   clear: -> 
-    this.$el.html('').removeAttr('style')
+    # @view.$el.html('').removeAttr('style')
 
   destroy: (garbage)->
     item = $(garbage)
     item.find('.image').each ->
-      # $(this).attr('src', '/images/blank.gif')
       $(this).removeAttr("style")
 
     item.off()
