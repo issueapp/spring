@@ -1,0 +1,67 @@
+[
+  
+  {
+    type: "stream",
+    name: "Top content",
+    path: "stream",
+    featured: true,
+    followed: true
+  },
+  
+  {
+    name: "Nastygal",
+    type: "brand",
+    categories: ["Women's fashion"],
+    gender: "women",
+    
+    thumbnail_url: "http://c806568.r68.cf2.rackcdn.com/features/dev/new_collections/Nasty-Gal_CrossYourHeart.jpg",
+    path: "sites/nastygal",
+    featured: true, followed: false
+  },
+  
+  {
+    name: "Shopkira",
+    type: "brand",
+    categories: ["Women's fashion"],
+    gender: "women",
+    
+    thumbnail_url: "http://www.shopakira.com/product_images/uploaded_images/a-white-story-thumbnail.jpg",
+    path: "sites/shopkira",
+    featured: true, followed: false
+  },
+  
+  {
+    name: "J Crew",
+    type: "brand",
+    category: "Women's fashion, Men's fashion",
+    gender: "unisex",
+    
+    thumbnail_url: "http://www.accessoriesmagazine.com/wp-content/uploads/2011/06/J.-Crew-sign-and-logo.jpg",
+    path: "sites/j-crew",
+    featured: true, followed: false
+  },
+  
+  {
+    name: "Chronicle of her",
+    type: "blog",
+    category: "Women's fashion",
+    gender: "women",
+    
+    thumbnail_url: "http://i1190.photobucket.com/albums/z449/CHRONICLESOFHER/chroniclesofher_headshot_2small-1.jpg",
+    path: "sites/the-chronicle-of-her",
+    featured: true,
+    followed: false
+  },
+  
+  {
+    name: "the Sartorialist",
+    type: "blog",
+    categories: ["Street fashion"],
+    gender: "unisex",
+    
+    thumnail_url: "http://www.thesartorialist.com/wp-content/themes/sartorialist/images/author.jpg",
+    path: "sites/the-sartorialist",
+    featured: true, followed: false
+  }
+  
+]
