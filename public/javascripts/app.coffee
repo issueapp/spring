@@ -162,11 +162,15 @@ class App.Router extends Backbone.Router
 
     # Update stream content when URL is different
     if url && url != App.stream.url
-      App.stream = new App.StreamCollection(url: url)
-      App.streamView = new App.StreamView( title: title, layout: App.layout, model: App.stream )
-      App.streamView.loading(true)
+      # App.streamView = new App.StreamView({ layout: App.layout, model: App.stream, title: title })
+      App.stream = new App.StreamCollection
+      App.stream.url = url
+      App.stream.title = title if title
+      
+      App.streamView.model = App.stream
+      App.streamView.reset()
+      # App.streamView.loading(true)
       App.stream.fetch({ dataType: "jsonp" })
-    
     else
       App.streamView.title = title
       App.streamView.show()
