@@ -54,8 +54,8 @@ class App.SwipeView extends Backbone.View
     if @currentPage.length == 0
       @currentPage = $(@el).children(":not(.padding)").first().addClass('current')
 
-    if expendMenu = $('body.expand-menu')[0]
-      @viewport ||= expendMenu.offsetWidth
+    if expandMenu = $('body.expand-menu')[0]
+      @viewport ||= expandMenu.offsetWidth
     else
       @viewport ||= @el.parentNode.offsetWidth
 

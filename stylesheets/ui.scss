@@ -139,7 +139,7 @@ header.toolbar {
       position: relative;
       left: -50%;
 
-      &:after {
+      &.dropdown:after {
         display: inline-block;
         width: 18px;
         height: 11px;
