@@ -124,7 +124,7 @@ header.toolbar .title span {
   left: -50%;
 }
 /* line 142, ../../stylesheets/ui.scss */
-header.toolbar .title span:after {
+header.toolbar .title span.dropdown:after {
   display: inline-block;
   width: 18px;
   height: 11px;

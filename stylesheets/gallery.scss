@@ -1,11 +1,23 @@
 @import "compass/css3/images";
 
 /* Gallery Style*/
+.swipe-paging .gallery i {
+  position: absolute;
+  bottom: 0;
+  left: 11px;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+#gallery .swipe-paging {
+  z-index: 2;
+}
 
 #gallery .page {
-  background: black;
+  padding: 0;
   height: 100%;
-  padding:0;
+  background: black;
   text-align: center;
 
   img {
@@ -14,43 +26,52 @@
 }
 
 #gallery header.toolbar {
-  border-bottom: 0;
-  
+  @include background-image(linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0)));
+
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 3;
   width: 100%;
+  border-bottom: 0;
   background: none;
-  @include background-image(linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0)));  
   color: white;
-  
-  a { 
-    border: 0;
+
+  a {
     display: block;
     height: 50px;
+    border: 0;
     color: white;
   }
 }
 
 #gallery footer {
   position: absolute;
-  left: 0;
   bottom: 0;
+  left: 0;
   width: 100%;
   background: black;
   color: white;
-  
+
   .prev {
     position: absolute;
     bottom: 20px;
     left: 50px;
     cursor: pointer;
   }
-  
+
   .next {
     position: absolute;
-    bottom: 20px;
     right: 20px;
+    bottom: 20px;
     cursor: pointer;
   }
+}
+
+#gallery .overlay {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-color: black;
 }
