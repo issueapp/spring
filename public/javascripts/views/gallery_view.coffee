@@ -21,17 +21,21 @@ class App.GalleryView extends App.SwipeView
           <p class="description">description</p>
           <span class="prev">prev</span>
           <span class="next">next</span>
-          <nav class="paginate"></nav>
         </footer>
       </div>
       {{/collection}}
     </div>
+    <nav class="paginate">
+      {{#collection}}
+        <span class="bullet"></span>
+      {{/collection}}
+    </nav>
     <div class="overlay"></div>
     '
   )
 
   initialize: (data)->
-    # inherit swipe events
+    # inherit swipe events from SwipeView
     swipe_events = _.result(@constructor.__super__, 'events')
     _.extend(@constructor.prototype.events, swipe_events)
 
@@ -41,11 +45,12 @@ class App.GalleryView extends App.SwipeView
       this.close()
       false
 
+  # reset essential attributes for SwipeView, and update page number
   resetAttr: ->
+    @currentPageCount = 1
     @currentPage = this.$('.current').eq(0)
     @pageTracker = @galleryWrapper.find('header .title span')
-    @currentPageCount = 1
-
+    @pagePagination = @galleryWrapper.find('nav.paginate')
     @offset = @currentIndex = @startClientX = @currentClientX = 0
 
     if @currentPage.length == 0
@@ -56,11 +61,15 @@ class App.GalleryView extends App.SwipeView
     else
       @viewport = @el.parentNode.offsetWidth
 
+    # set buffer size to gallery image size to show all images in one go
     @bufferSize = @images.collection.length
-    @pageTracker.html(@currentPageCount + ' of ' + @bufferSize)
 
+    this.updatePageTracker()
+
+  # render gallery view markup, set corresponding attributes
   render: ->
     @images = { 'collection': [] }
+    # grab all image link, store them into images collection
     $('.page.current .gallery').find('a').forEach (item)=>
       @images.collection.push { 'source': $(item).attr('href') }
 
@@ -75,21 +84,29 @@ class App.GalleryView extends App.SwipeView
   prev: -> this.moveLeft()
 
   close: ->
+    # set all image source to blank image before remove everything,
+    # in order to release more memory
     this.$el.find('img').forEach (item)->
       $(item).attr('src', '/images/blank.gif')
     @galleryWrapper.html('')
 
+  # overwrite SwipeView#moveRight, adds page number update
   moveRight: ->
+    # increase current page number tracker if it's not on last page
     @currentPageCount += 1 if @currentPageCount < @bufferSize
     this.slideTo("next")
     this.updatePageTracker()
 
+  # overwrite SwipeView#moveLeft, adds page number update
   moveLeft: ->
+    # decrease current page number tracker if it's not on first page
     @currentPageCount -= 1 if @currentPageCount > 1
     this.slideTo("prev")
     this.updatePageTracker()
 
+  # update current page number, eg. 1 of 5, 2 of 5...
+  # update pagination dot status
   updatePageTracker: ->
-    setTimeout =>
-      @pageTracker.html(@currentPageCount + ' of ' + @bufferSize)
-    , 400
+    @pageTracker.html(@currentPageCount + ' of ' + @bufferSize)
+    @pagePagination.find('.bullet.selected').removeClass('selected')
+    @pagePagination.find('.bullet:nth-child(' + @currentPageCount + ')').addClass('selected')
