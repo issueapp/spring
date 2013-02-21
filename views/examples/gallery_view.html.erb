@@ -64,8 +64,9 @@
 <script src="/javascripts/views/gallery_view.js"></script>
 
 <script type="text/javascript">
-  var pageWidth = window.innerWidth
-  var pageHeight = window.innerHeight - 50
+  var pageWidth = window.innerWidth;
+  var pageHeight = window.innerHeight;
+
   $('head').append('<style>.page { width:'+pageWidth+'; height:'+pageHeight+' }</style>');
 
   var text = "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
@@ -144,6 +145,5 @@
     gallery.render();
     return false;
   });
-
 </script>
 <% end %>
