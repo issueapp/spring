@@ -1,0 +1,102 @@
+/* line 10, ../../stylesheets/form.scss */
+form {
+  margin: 0 0 1.25em;
+  /*================================================
+          Input fields
+    ================================================*/
+}
+/* line 13, ../../stylesheets/form.scss */
+form .text_field, form input[type="text"], form input[type="password"], form input[type="phone"], form input[type="email"],
+form input[type="search"], form input[type="url"], form textarea, form select {
+  padding: 9px;
+  margin: 0px 0 12px 0px;
+  line-height: 2em;
+  height: auto;
+  width: 100%;
+  max-width: 500px;
+  font-size: 14px;
+  border: 1px solid #cccccc;
+  background: white;
+  vertical-align: top;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-box-shadow: 1px 1px 2px #eeeeee inset;
+  -moz-box-shadow: 1px 1px 2px #eeeeee inset;
+  box-shadow: 1px 1px 2px #eeeeee inset;
+}
+/* line 31, ../../stylesheets/form.scss */
+form p.large, form label.large {
+  font-size: 24px;
+  line-height: 45px;
+}
+/* line 36, ../../stylesheets/form.scss */
+form .hint {
+  color: #666;
+  font-family: georgia;
+  font-style: italic;
+}
+/* line 46, ../../stylesheets/form.scss */
+form input.large {
+  font-size: 24px !important;
+  line-height: 45px;
+  height: 45px;
+}
+/* line 53, ../../stylesheets/form.scss */
+form input[type="text"], form input[type="password"], form input[type="phone"], form input[type="email"],
+form input[type="search"], form input[type="url"], form textarea, form select {
+  font-size: 100%;
+  line-height: normal;
+  /* ie */
+}
+/* line 4, ../../stylesheets/form.scss */
+form input[type="text"].placeholder, form input[type="password"].placeholder, form input[type="phone"].placeholder, form input[type="email"].placeholder,
+form input[type="search"].placeholder, form input[type="url"].placeholder, form textarea.placeholder, form select.placeholder {
+  font-family: georgia;
+  font-weight: normal !important;
+  font-style: italic;
+  font-size: 15px;
+}
+/* line 5, ../../stylesheets/form.scss */
+form input[type="text"]:-moz-placeholder, form input[type="password"]:-moz-placeholder, form input[type="phone"]:-moz-placeholder, form input[type="email"]:-moz-placeholder,
+form input[type="search"]:-moz-placeholder, form input[type="url"]:-moz-placeholder, form textarea:-moz-placeholder, form select:-moz-placeholder {
+  font-family: georgia;
+  font-weight: normal !important;
+  font-style: italic;
+  font-size: 15px;
+}
+/* line 6, ../../stylesheets/form.scss */
+form input[type="text"]::-webkit-input-placeholder, form input[type="password"]::-webkit-input-placeholder, form input[type="phone"]::-webkit-input-placeholder, form input[type="email"]::-webkit-input-placeholder,
+form input[type="search"]::-webkit-input-placeholder, form input[type="url"]::-webkit-input-placeholder, form textarea::-webkit-input-placeholder, form select::-webkit-input-placeholder {
+  font-family: georgia;
+  font-weight: normal !important;
+  font-style: italic;
+  font-size: 15px;
+}
+/* line 7, ../../stylesheets/form.scss */
+form input[type="text"]:-ms-input-placeholder, form input[type="password"]:-ms-input-placeholder, form input[type="phone"]:-ms-input-placeholder, form input[type="email"]:-ms-input-placeholder,
+form input[type="search"]:-ms-input-placeholder, form input[type="url"]:-ms-input-placeholder, form textarea:-ms-input-placeholder, form select:-ms-input-placeholder {
+  font-family: georgia;
+  font-weight: normal !important;
+  font-style: italic;
+  font-size: 15px;
+}
+/* line 67, ../../stylesheets/form.scss */
+form select {
+  width: auto;
+  background-color: #fff;
+  border: 1px solid #cccccc;
+  height: 2.5em;
+  line-height: 2.5em;
+}
+/* line 76, ../../stylesheets/form.scss */
+form input[type=submit], form input[type=button], form button[type=submit] {
+  line-height: 2em;
+  padding: 3px 15px;
+  margin-right: 5px;
+}

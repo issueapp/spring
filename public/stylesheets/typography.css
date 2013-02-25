@@ -1,43 +1,59 @@
-/* line 1, ../../stylesheets/typography.scss */
-a {
-  color: #4a90a6;
-  text-decoration: none;
-}
-/* line 5, ../../stylesheets/typography.scss */
-a:visited {
-  color: #333;
-}
+/*
+Syntax error: Undefined mixin 'min-screen'.
+        on line 178 of ./stylesheets/typography.scss, in `min-screen'
+        from line 178 of ./stylesheets/typography.scss
 
-/* line 10, ../../stylesheets/typography.scss */
-.toolbar, a {
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
+173: /* ====
+174:       Responsive (larger screen)
+175:   ====*/
+176:   
+177:   
+178: @include min-screen(768) {
+179:   
+180:   h1 {
+181:     font-size: 30px;
+182:     font-size: 1.875em;
+183:     font-size: 3rem;
 
-@font-face {
-  font-family: 'proxima_nova_ltregular';
-  font-weight: normal;
-  font-style: normal;
-  src: url('fonts/../../fonts/proximanova-light-webfont.eot');
-  src: url('fonts/../../fonts/proximanova-light-webfont.eot?#iefix') format("embedded-opentype"), url('fonts/../../fonts/proximanova-light-webfont.woff') format("woff"), url('fonts/../../fonts/proximanova-light-webfont.ttf') format("truetype"), url('fonts/../../fonts/proximanova-light-webfont.svg#proxima_nova_ltregular') format("svg");
-}
-
-@font-face {
-  font-family: 'proxima_nova_bold';
-  font-weight: normal;
-  font-style: normal;
-  src: url('fonts/../../fonts/proximanova-bold-webfont.eot');
-  src: url('fonts/../../fonts/proximanova-bold-webfont.eot?#iefix') format("embedded-opentype"), url('fonts/../../fonts/proximanova-bold-webfont.woff') format("woff"), url('fonts/../../fonts/proximanova-bold-webfont.ttf') format("truetype"), url('fonts/../../fonts/proximanova-bold-webfont.svg#proxima_nova_bold') format("svg");
-}
-
-@font-face {
-  font-family: 'proxima_nova_regular';
-  font-weight: normal;
-  font-style: normal;
-  src: url('fonts/../../fonts/proximanova-regular-webfont.eot');
-  src: url('fonts/../../fonts/proximanova-regular-webfont.eot?#iefix') format("embedded-opentype"), url('fonts/../../fonts/proximanova-regular-webfont.woff') format("woff"), url('fonts/../../fonts/proximanova-regular-webfont.ttf') format("truetype"), url('fonts/../../fonts/proximanova-regular-webfont.svg#proxima_nova_regular') format("svg");
-}
-
-/* line 48, ../../stylesheets/typography.scss */
-body {
-  font-family: "proxima_nova", "Helvetica Neue";
-}
+Backtrace:
+./stylesheets/typography.scss:178:in `min-screen'
+./stylesheets/typography.scss:178
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:251:in `visit_mixin'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:98:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:53:in `map'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:107:in `block in visit_children'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:119:in `with_environment'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:106:in `visit_children'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:126:in `visit_root'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:98:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:7:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/root_node.rb:20:in `render'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/engine.rb:315:in `_render'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/engine.rb:262:in `render'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/haml-3.1.6/vendor/sass/lib/sass/plugin/compiler.rb:339:in `update_stylesheet'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/haml-3.1.6/vendor/sass/lib/sass/plugin/compiler.rb:202:in `block in update_stylesheets'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/haml-3.1.6/vendor/sass/lib/sass/plugin/compiler.rb:200:in `each'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/haml-3.1.6/vendor/sass/lib/sass/plugin/compiler.rb:200:in `update_stylesheets'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/haml-3.1.6/vendor/sass/lib/sass/plugin.rb:81:in `update_stylesheets'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/haml-3.1.6/vendor/sass/lib/sass/plugin.rb:54:in `check_for_updates'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/haml-3.1.6/vendor/sass/lib/sass/plugin/rack.rb:51:in `call'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/rack-1.4.1/lib/rack/lint.rb:48:in `_call'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/rack-1.4.1/lib/rack/lint.rb:36:in `call'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/rack-1.4.1/lib/rack/showexceptions.rb:24:in `call'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/rack-1.4.1/lib/rack/commonlogger.rb:20:in `call'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/rack-1.4.1/lib/rack/chunked.rb:43:in `call'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/rack-1.4.1/lib/rack/content_length.rb:14:in `call'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/rack-1.4.1/lib/rack/handler/webrick.rb:59:in `service'
+/Users/taylorluk/.rvm/rubies/ruby-1.9.3-p362/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+/Users/taylorluk/.rvm/rubies/ruby-1.9.3-p362/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+/Users/taylorluk/.rvm/rubies/ruby-1.9.3-p362/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: Undefined mixin 'min-screen'.\A         on line 178 of ./stylesheets/typography.scss, in `min-screen'\A         from line 178 of ./stylesheets/typography.scss\A \A 173: /* ====\A 174:       Responsive (larger screen)\A 175:   ====*/\A 176:   \A 177:   \A 178: @include min-screen(768) {\A 179:   \A 180:   h1 {\A 181:     font-size: 30px;\A 182:     font-size: 1.875em;\A 183:     font-size: 3rem;"; }

@@ -1,106 +1,126 @@
-/*
-    Layout and rendering
-    ---
-    No style or presentation code should be in this stylesheet
+/* =========================================
+    Mobile first layout
+    ========================================*/
+/* line 5, ../../stylesheets/layout.scss */
+nav[role=navigation] {
+  width: auto;
+  height: 50px;
+  line-height: 50px;
+  float: right;
+}
 
-    Default style for 320px
-
-    Structure (menu/main)
-    Grid (row/col)
-*/
-/* line 16, ../../stylesheets/layout.scss */
-.page .col {
-  position: relative;
-  width: 100%;
-  height: 99.9%;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+/* line 12, ../../stylesheets/layout.scss */
+.links li {
+  list-style: none;
   float: left;
-  margin: 0;
+  line-height: 50px;
 }
-/* line 28, ../../stylesheets/layout.scss */
-.page .col .item:last-child {
-  margin-bottom: 0;
+
+/* line 18, ../../stylesheets/layout.scss */
+.links a {
+  letter-spacing: 0px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 8px 15px;
 }
-/* line 33, ../../stylesheets/layout.scss */
-.page .row {
-  position: relative;
-  overflow: hidden;
-  *zoom: 1;
-  width: 100%;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
+
+/* line 25, ../../stylesheets/layout.scss */
+nav[role=navigation] .links a.active {
+  border: 1px solid #999999;
+}
+
+/* ========================================
+        Page head
+   ========================================*/
+/* line 34, ../../stylesheets/layout.scss */
+body > header {
   box-sizing: border-box;
+  min-height: 150px;
+  margin: 0 0 20px;
+  padding: 1px;
+  padding-top: 20px;
+  /*  h1.logo {
+      font-size: 30px;
+      padding-top: 20px;
+      font-size: 24px;
+      float: left;
+      width: 80px;
+      padding: 0;
+    }*/
 }
-/* line 43, ../../stylesheets/layout.scss */
-.page .row:last-child {
-  background: none;
-}
-/* line 47, ../../stylesheets/layout.scss */
-.page .row.v-full {
-  height: 100%;
-}
-/* line 48, ../../stylesheets/layout.scss */
-.page .row.v-half {
-  height: 49.9%;
-}
-/* line 52, ../../stylesheets/layout.scss */
-.page .row.v-third {
-  height: 32.03%;
-}
-/* line 55, ../../stylesheets/layout.scss */
-.page .row.v-third-2 {
-  height: 66%;
-}
-/* line 60, ../../stylesheets/layout.scss */
-.page .col.full, .page .item.full {
-  width: 100%;
+/* line 51, ../../stylesheets/layout.scss */
+body > header h1.logo {
+  text-indent: -20000px;
+  margin: 0;
+  padding: 0;
+  float: left;
+  width: 200px;
+  height: 80px;
+  /*    background: image-url("issue-logo.png") -15px -90px no-repeat;*/
 }
 /* line 61, ../../stylesheets/layout.scss */
-.page .col.half, .page .item.half {
-  width: 49.9%;
+body > header h1 {
+  text-transform: uppercase;
+  margin: 0 0 0.2em;
+  padding-top: 50px;
 }
-/* line 63, ../../stylesheets/layout.scss */
-.page .col.third, .page .item.third {
-  width: 33.3%;
-}
-/* line 64, ../../stylesheets/layout.scss */
-.page .col.third-2, .page .item.third-2 {
-  width: 66.6%;
-}
-/* line 66, ../../stylesheets/layout.scss */
-.page .col.sixth, .page .item.sixth {
-  width: 15.02%;
-}
-/* line 68, ../../stylesheets/layout.scss */
-.page .col.fourty, .page .item.fourty {
-  width: 39%;
-}
-/* line 69, ../../stylesheets/layout.scss */
-.page .col.sixty, .page .item.sixty {
-  width: 59%;
-}
-/* line 71, ../../stylesheets/layout.scss */
-.page .col.v-full, .page .item.v-full {
-  height: 100%;
-}
-/* line 72, ../../stylesheets/layout.scss */
-.page .col.v-half, .page .item.v-half {
-  height: 49.40%;
-}
-/* line 73, ../../stylesheets/layout.scss */
-.page .col.v-third, .page .item.v-third {
-  height: 35.03%;
-}
-/* line 74, ../../stylesheets/layout.scss */
-.page .col.v-third-2, .page .item.v-third-2 {
-  height: 64%;
-}
-/* line 76, ../../stylesheets/layout.scss */
-.page .col:last-child, .page .item:last-child {
-  margin-right: 0;
+/* line 67, ../../stylesheets/layout.scss */
+body > header a {
+  color: #222;
 }
 
-/* iPads (landscape) ----------- */
-/* iPads (portrait) ----------- */
+/* line 72, ../../stylesheets/layout.scss */
+header.cover-image {
+  height: 300px;
+}
+/* line 75, ../../stylesheets/layout.scss */
+header.cover-image h1 {
+  padding-top: 130px;
+}
+
+/* line 81, ../../stylesheets/layout.scss */
+.logo {
+  float: left;
+  width: 200px;
+  height: 80px;
+  background: url('../images/issue-logo.png?1361755644') 0 -80px no-repeat;
+}
+/* line 88, ../../stylesheets/layout.scss */
+.logo.small {
+  width: 180px;
+  height: 50px;
+  background-position: -200px -80px;
+}
+/* line 94, ../../stylesheets/layout.scss */
+.dark-theme .logo {
+  background-position: 0 0px;
+}
+/* line 98, ../../stylesheets/layout.scss */
+.dark-theme .logo.small {
+  background-position: -200px 0px;
+}
+
+/* ========================================
+        Footer
+   ========================================*/
+/* line 107, ../../stylesheets/layout.scss */
+footer[role=contentinfo] {
+  clear: both;
+  padding: 50px 0;
+  border-top: 1px solid #eeeeee;
+}
+/* line 112, ../../stylesheets/layout.scss */
+footer[role=contentinfo] .copyright {
+  padding: 0;
+  margin: 0;
+  float: right;
+}
+/* line 118, ../../stylesheets/layout.scss */
+footer[role=contentinfo] .footer-links {
+  list-style: none;
+}
+/* line 121, ../../stylesheets/layout.scss */
+footer[role=contentinfo] .footer-links li {
+  padding-right: 40px;
+  display: inline;
+}

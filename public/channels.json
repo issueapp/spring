@@ -7,6 +7,17 @@
     featured: true,
     followed: true
   },
+
+  {
+    name: "The Issue",
+    type: "brand",
+    categories: ["Women's fashion"],
+    gender: "women",
+    
+    thumbnail_url: "http://c806568.r68.cf2.rackcdn.com/features/dev/new_collections/Nasty-Gal_CrossYourHeart.jpg",
+    path: "sites/nastygal",
+    featured: true, followed: false
+  },
   
   {
     name: "Nastygal",

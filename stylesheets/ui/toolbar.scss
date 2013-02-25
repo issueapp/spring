@@ -6,9 +6,17 @@ header.toolbar {
   height: 50px;
   z-index: 2;  
   border-bottom: 1px solid rgba(0,0,0, 0.1);
+  
   a {
     height: 50px;
     cursor: pointer;
+    color: #333;
+  }
+  
+  a.icon {
+    font-size: 32px;
+    line-height: 32px;
+    padding: 10px 0;
   }
 
   a.menu, a.back, a.channel, a.follow {
@@ -16,11 +24,14 @@ header.toolbar {
   }
 
   a.menu {
+    @extend .icon-list;
     width: 64px;
+    padding-left: 10px;
+    
     // border-right: 1px solid #EEE;
-    background: url('/images/icon-reorder.png') no-repeat center;
+    // background: url('/images/icon-reorder.png') no-repeat center;
   }
-
+  
   a.filter {
     float: right;
     width: 64px;
@@ -28,15 +39,20 @@ header.toolbar {
     background: url('/images/icon-filter.png') no-repeat center;
   }
   
-  a.back, a.channel {
-    margin-left: 21px;
-    width: 85px;
-    // border-right: 1px solid #EEE;
-    background: url("/images/back.png") no-repeat 0% 50%;
-    color: #666;
+  a.back {
+    &:before {
+      position: relative;
+      top: 8px;
+      font-size: 32px;
+    }
+
+    @extend .icon-arrow-left;
+    padding: 0;
+    
+    // background: url("/images/back.png") no-repeat 0% 50%;
     text-align: center;
     font-style: italic;
-    font-size: 12px;
+    font-size: 16px;
     font-family: Georgia, "proxima_nova_regular";
     line-height: 50px;
   }
@@ -65,7 +81,7 @@ header.toolbar {
     white-space: nowrap;
     letter-spacing: 0.7px;
     font-weight: normal;
-    font-size: 17px;
+    font-size: 18px;
     font-family: "proxima_nova_ltregular";
     line-height: 50px;
     cursor: pointer;
@@ -91,23 +107,28 @@ header.toolbar {
 
     a {
       @include inline-block;
+      font-size: 25px;
       width: 56px;
       // border-left: 1px solid #eee;
     }
 
     .heart {
+      @extend .icon-heart;
       right: 114px;
-      background: url('/images/action-like.png') no-repeat center;
+//      background: url('/images/action-like.png') no-repeat center;
     }
 
     .collect {
+      @extend .icon-plus;
+
       right: 57px;
-      background: url('/images/action-collect.png') no-repeat center;
+//      background: url('/images/action-collect.png') no-repeat center;
     }
 
     .share {
+      @extend .icon-export;
       right: 0px;
-      background: url('/images/action-share.png') no-repeat center;
+//      background: url('/images/action-share.png') no-repeat center;
     }
   }
 }

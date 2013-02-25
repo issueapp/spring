@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 @import 'compass/css3/images';
 
 /* Gallery Style*/
@@ -18,6 +19,16 @@
   padding: 0;
   height: 100%;
   background: black;
+=======
+@import "compass/css3/images";
+
+/* Gallery Style*/
+
+#gallery .page {
+  background: black;
+  height: 100%;
+  padding:0;
+>>>>>>> Stashed changes
   text-align: center;
 
   img {
@@ -26,6 +37,7 @@
 }
 
 #gallery header.toolbar {
+<<<<<<< Updated upstream
   @include background-image(linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0)));
 
   position: absolute;
@@ -41,24 +53,50 @@
     display: block;
     height: 50px;
     border: 0;
+=======
+  border-bottom: 0;
+  
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: none;
+  @include background-image(linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0)));  
+  color: white;
+  
+  a { 
+    border: 0;
+    display: block;
+    height: 50px;
+>>>>>>> Stashed changes
     color: white;
   }
 }
 
 #gallery footer {
   position: absolute;
+<<<<<<< Updated upstream
   bottom: 0;
   left: 0;
   width: 100%;
   background: black;
   color: white;
 
+=======
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: black;
+  color: white;
+  
+>>>>>>> Stashed changes
   .prev {
     position: absolute;
     bottom: 20px;
     left: 50px;
     cursor: pointer;
   }
+<<<<<<< Updated upstream
 
   .next {
     position: absolute;
@@ -96,3 +134,13 @@
   height: 100%;
   background-color: black;
 }
+=======
+  
+  .next {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+  }
+}
+>>>>>>> Stashed changes
