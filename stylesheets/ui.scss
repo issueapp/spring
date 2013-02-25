@@ -224,7 +224,7 @@ div.popover {
     a {
       vertical-align: top;
 
-      span {
+      &.dropdown:after {
         display: inline-block;
         padding-right: 16px;
         width: 15px;
