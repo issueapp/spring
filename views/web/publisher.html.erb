@@ -1,0 +1,114 @@
+<header class="page-head cover-image dark-theme" style="background-image: url(/images/publisher/publisher-bg.jpg); background-size:cover; background-position: 0 60%">
+  <div class="container">
+    <h1 class="logo small">Issue</h1>
+
+    <nav role="navigation">
+      <ul class="links">
+        <li><a class="base" href="/web">Home</a></li>
+        <li><a class="page" href="/blog">Blog</a></li>
+        <li><a class="active grid" href="/publisher">Publisher</a></li>
+      </ul>
+    </nav>
+    <h1>publish your Issue</h1>
+    <h3 class="subtitle">Taking brand publishing to the next nevel, One issue at a time!</h3>
+  </div>
+</header>
+
+<section class="tour">
+  <form class="container centered">
+    <h2>
+     Reserve your edition</h2>
+    
+  <div class="edition_handle">
+    <label for="edition_handle" class="handle-field large" style="font-family: Georgia; font-style: italic">http://issue.by/</label>
+    <input id="edition_handle" type="text" class="large" name="edition[handle]" placeholder="myedition" length="8">
+    
+    
+    <button class="large black open-modal" href="#reserve-edition-modal"> Reserve</button>
+  </div>
+  </form>
+</section>
+
+<section class="tour row odd">
+  <div class="container">
+    
+    <div class="col x6 box brand">
+      <h3>Your branded edition</h3>
+      <!-- <div class="col x6 box brand">
+      <img src="http://placehold.it/460x300/111" width="100%"> -->
+    </div>
+    
+    <div class="col x6">
+      <h2>Forward thinking brands</h2>
+
+      <p>
+        Turn your brand content into a tablet-friendly magazine they will love.
+      </p>
+
+      <p>
+        Consolidate and publish your content available as a live stream or Issues in minutes
+      </p>
+
+      <p>
+        Collaborate with bloggers and influences who love your brand, one issue at a time.
+      </p>
+    </div>
+</div>
+</section>
+
+<section class="tour blogger">
+  <div class="container">
+    <div class="col x6 box blogger">
+      <h3>You are the editor</h3>
+      <!-- <img src="http://placehold.it/460x300/111" alt="" width="100%"> -->
+    </div>
+    <div class="col x6">
+      <h2>Blogger &amp; Influencer</h2>
+      <p>Step up your game and become your own editor
+      </p><p>
+      Work with brands &amp; individuals you never thought were possible
+      </p><p>
+      Expand your influence and boost your career.
+      </p>
+    </div>  
+  </div>
+</section>
+
+<section class="tour odd">
+  <div class="container centered">
+  
+    <h2>The perfect match</h2>
+    <p class="subtitle">
+      Connect brands and bloggers of the highest quality, allow curation and collaborative editing
+    </p>
+    
+    <figure>
+      <%= image_tag "/images/home/tour-collaboration.png", width: "100%", style: "max-width: 600px" %>
+    <figure>
+  </dov>
+</section>
+
+<section class="tour">
+  <div class="container centered">
+    <h2>Capture, Curate &amp; publish</h2>
+    <p class="subtitle">
+      Beautify content around your brand, making it available as a Live stream or Issue. 
+    </p>
+    
+    <figure>
+      <%= image_tag "/images/home/tour-solution.png", width: "100%", style: "max-width: 600px" %>
+    <figure>
+  </dov>
+</section>
+
+<section class="tour odd">
+  <div class="container">
+    <div class=" col centered">
+      <a class="open-modal button large orange x4 " href="#reserve-edition-modal">Reserve your issue now</a>
+    </div>
+  </div>
+<section>
+
+<div id="reserve-edition-modal" class="modal" style="display:none">
+  <%= render "reserve" %>
+</div>

@@ -1,0 +1,63 @@
+@import "compass/css3/images";
+@import "compass/css3/border-radius";
+
+
+/* Gallery Style*/
+
+.gallery a.play {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  @extend .icon-play;
+  font-size: 16x;
+  color: white;
+  text-shadow: 1px 1px rgba(0,0,0, 0.5);
+  vertical-align: middle;
+  background: rgba(0,0,0,0.5);
+  @include border-radius(3px);
+  padding: 10px 10px;
+  
+  & > i {
+    font-size: 32px;
+    position: relative;
+    top: 3px;
+    vertical-align: middle;
+  }
+}
+
+#gallery .page {
+  background: black;
+  height: 100%;
+  padding:0;
+  text-align: center;
+
+  img {
+    height: 100%;
+  }
+}
+
+#gallery {
+  background: black;
+}
+#gallery footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0,0,0, 0.5);
+  color: white;
+  
+  .prev {
+    position: absolute;
+    bottom: 20px;
+    left: 50px;
+    cursor: pointer;
+  }
+  
+  .next {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+  }
+}

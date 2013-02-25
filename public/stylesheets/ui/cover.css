@@ -1,0 +1,100 @@
+/* line 1, ../../../stylesheets/ui/cover.scss */
+.landing.cover {
+  background-image: url(/images/landing_stargates_modified.png);
+}
+
+/* line 6, ../../../stylesheets/ui/cover.scss */
+.cover {
+  margin-left: 260px;
+  height: 100%;
+  background-color: #000;
+  background-position: center;
+  background-size: cover;
+  color: white;
+  font-family: "proxima-nova", sans-serif;
+}
+/* line 16, ../../../stylesheets/ui/cover.scss */
+.cover .featured {
+  width: 30%;
+  float: right;
+  padding: 0 20px;
+}
+/* line 21, ../../../stylesheets/ui/cover.scss */
+.cover .featured h3 {
+  top: 15px;
+  font-size: 16px;
+  color: #999;
+  text-transform: uppercase;
+  text-align: right;
+}
+/* line 29, ../../../stylesheets/ui/cover.scss */
+.cover .featured ul {
+  list-style: none;
+  text-transform: uppercase;
+  text-align: right;
+  font-size: 16px;
+  line-height: 24px;
+  color: #fff;
+}
+/* line 39, ../../../stylesheets/ui/cover.scss */
+.cover .logo {
+  opacity: 0.3;
+  position: absolute;
+  right: 20px;
+  bottom: 0;
+  padding: 38px 0 0 105px;
+  height: 60px;
+  background: url("/images/logo.png") no-repeat 20px 20px;
+  color: white;
+  font-size: 22px;
+}
+/* line 51, ../../../stylesheets/ui/cover.scss */
+.cover .welcome {
+  position: absolute;
+  top: 35%;
+  width: 100%;
+  padding-left: 12px;
+  font-weight: bold;
+}
+/* line 58, ../../../stylesheets/ui/cover.scss */
+.cover .welcome h1 {
+  margin: 0 0 0 8px;
+  font-size: 102px;
+  text-transform: uppercase;
+}
+/* line 64, ../../../stylesheets/ui/cover.scss */
+.cover .welcome h2 {
+  margin: 0 0 0 8px;
+  font-size: 25px;
+}
+/* line 69, ../../../stylesheets/ui/cover.scss */
+.cover .welcome a {
+  color: white;
+  position: absolute;
+  top: 40px;
+  right: 12px;
+  padding: 18px 20px 18px 26px;
+  background-color: #f04500;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+/* line 81, ../../../stylesheets/ui/cover.scss */
+.cover .footer {
+  position: absolute;
+  bottom: 28px;
+  padding-left: 30px;
+  font-size: 14px;
+  line-height: 20px;
+}
+/* line 88, ../../../stylesheets/ui/cover.scss */
+.cover .footer a {
+  font-family: "proxima_nova_bold";
+  color: white;
+  vertical-align: bottom;
+}
+/* line 94, ../../../stylesheets/ui/cover.scss */
+.cover .footer i {
+  padding-right: 10px;
+  vertical-align: middle;
+  font-size: 24px;
+}
