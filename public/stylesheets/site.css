@@ -79,18 +79,18 @@ input[type=text], input[type=password], textarea {
   border: 1px solid #c6d2d2;
   border-radius: 5px;
   padding: 0px 10px;
-  box-shadow: #eee 1px 1px 5px 0px inset;
+  box-shadow: #eeeeee 1px 1px 5px 0px inset;
   font-size: 14px;
   line-height: 19px;
 }
 /* line 93, ../../stylesheets/site.scss */
 input[type=text]:focus, input[type=password]:focus, textarea:focus {
-  box-shadow: #39f 0px 0px 10px 0px;
+  box-shadow: #3399ff 0px 0px 10px 0px;
 }
 
 /* line 99, ../../stylesheets/site.scss */
 .stream-header {
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #dddddd;
   text-align: center;
   margin: 20px 10px;
   height: 0px;
