@@ -172,6 +172,8 @@ class App.StreamView extends Backbone.View
     # Update binding
     this.bindings()
     
+    # @container.html('')
+    
     # Reset existing view 
     if @pages.length > 0
       @pages.forEach (p)-> p.destroy()
@@ -398,7 +400,9 @@ class App.StreamView extends Backbone.View
   
   # Navigational
   show: ->
+    this.$el.show()
     this.$el.animate({opacity: 1}, 150)
 
   hide: ->
     this.$el.css('opacity', '0')
+    this.$el.hide() 

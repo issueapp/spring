@@ -8,6 +8,16 @@ App.channels = [
   #   followed: true
   # },
   {
+    name: "The official",
+    type: "brand",
+    categories: ["Women's fashion"],
+    gender: "women",
+    
+    path: "issue",
+    featured: true, followed: false
+  },
+
+  {
     name: "Nastygal",
     type: "brand",
     categories: ["Featured, Women"],

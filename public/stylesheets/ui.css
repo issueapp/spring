@@ -1,587 +1,69 @@
-@charset "UTF-8";
-/* line 22, ../../stylesheets/ui.scss */
-body.expand-menu .navigation li.active:after {
-  content: "";
-  position: absolute;
-  right: -6px;
-  top: 50%;
-  margin-top: -6px;
-  border-color: transparent #141414;
-  border-style: solid;
-  border-width: 8px 0px 8px 8px;
-  height: 0px;
-  width: 0px;
-}
+/*
+Syntax error: Undefined mixin 'clearfix'.
+        on line 163 of ./stylesheets/ui.scss, in `clearfix'
+        from line 163 of ./stylesheets/ui.scss
 
-/* line 37, ../../stylesheets/ui.scss */
-nav#menu {
-  width: 260px;
-  background: #0c0c0c;
-}
-/* line 41, ../../stylesheets/ui.scss */
-nav#menu .logo {
-  height: 120px !important;
-  background: url("/images/logo.png") no-repeat center center;
-}
-/* line 44, ../../stylesheets/ui.scss */
-nav#menu .logo a {
-  margin-left: -25px;
-  height: 120px;
-  width: 220px;
-}
-/* line 52, ../../stylesheets/ui.scss */
-nav#menu .navigation li {
-  font-size: 15px;
-  font-family: "HelveticaNeue";
-  letter-spacing: 0.8px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  height: 44px;
-  line-height: 44px;
-  padding: 0 25px;
-  border-top: 1px solid #0f0f0f;
-  border-bottom: 1px solid #0a0a0a;
-  position: relative;
-}
-/* line 65, ../../stylesheets/ui.scss */
-nav#menu .navigation a {
-  display: block;
-  color: white;
-}
-/* line 70, ../../stylesheets/ui.scss */
-nav#menu .navigation li.active {
-  background: #141414;
-}
-/* line 74, ../../stylesheets/ui.scss */
-nav#menu .navigation li.active span.right-icon {
-  color: white;
-}
-/* line 79, ../../stylesheets/ui.scss */
-nav#menu .navigation > ul li {
-  padding-left: 30px;
-  font-weight: normal;
-}
-/* line 83, ../../stylesheets/ui.scss */
-nav#menu .navigation > ul li a {
-  color: #ccc;
-}
-/* line 88, ../../stylesheets/ui.scss */
-nav#menu .navigation > ul li a:before {
-  font-size: 12px;
-  content: '→';
-  width: 10px;
-  overflow: none;
-  margin-right: 5px;
-  color: #666;
-}
-/* line 97, ../../stylesheets/ui.scss */
-nav#menu .navigation .counter {
-  position: absolute;
-  right: 24px;
-  font-size: 12px;
-}
-/* line 103, ../../stylesheets/ui.scss */
-nav#menu .navigation .right-icon {
-  position: absolute;
-  right: 20px;
-  color: #444;
-  font-size: 24px;
-}
-/* line 111, ../../stylesheets/ui.scss */
-nav#menu .navigation li.user {
-  position: absolute;
-  bottom: 10px;
-  width: 100%;
-}
-/* line 116, ../../stylesheets/ui.scss */
-nav#menu .navigation li.user a {
-  font-size: 12px;
-}
-/* line 120, ../../stylesheets/ui.scss */
-nav#menu .navigation li.user .thumb {
-  display: -moz-inline-stack;
-  display: inline-block;
-  vertical-align: middle;
-  *vertical-align: auto;
-  zoom: 1;
-  *display: inline;
-  -webkit-border-radius: 20;
-  -moz-border-radius: 20;
-  -ms-border-radius: 20;
-  -o-border-radius: 20;
-  border-radius: 20;
-  overflow: hidden;
-}
-/* line 126, ../../stylesheets/ui.scss */
-nav#menu .navigation li.user .settings {
-  display: -moz-inline-stack;
-  display: inline-block;
-  vertical-align: middle;
-  *vertical-align: auto;
-  zoom: 1;
-  *display: inline;
-  float: right;
-  font-size: 24px;
-}
+158:     background-position-y: bottom;
+159:   }
+160: }
+161: 
+162: nav.tab-menu {
+163:   @include clearfix;
+164:   
+165:   ul {
+166:     list-style: none;
+167:     padding: 0;
+168:     border:1px solid #ccc;
 
-/* line 3, ../../stylesheets/ui/toolbar.scss */
-header.toolbar {
-  position: fixed;
-  width: 100%;
-  height: 50px;
-  z-index: 2;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}
-/* line 9, ../../stylesheets/ui/toolbar.scss */
-header.toolbar a {
-  height: 50px;
-  cursor: pointer;
-}
-/* line 14, ../../stylesheets/ui/toolbar.scss */
-header.toolbar a.menu, header.toolbar a.back, header.toolbar a.channel, header.toolbar a.follow {
-  float: left;
-}
-/* line 18, ../../stylesheets/ui/toolbar.scss */
-header.toolbar a.menu {
-  width: 64px;
-  background: url("/images/icon-reorder.png") no-repeat center;
-}
-/* line 24, ../../stylesheets/ui/toolbar.scss */
-header.toolbar a.filter {
-  float: right;
-  width: 64px;
-  background: url("/images/icon-filter.png") no-repeat center;
-}
-/* line 31, ../../stylesheets/ui/toolbar.scss */
-header.toolbar a.back, header.toolbar a.channel {
-  margin-left: 21px;
-  width: 85px;
-  background: url("/images/back.png") no-repeat 0% 50%;
-  color: #666;
-  text-align: center;
-  font-style: italic;
-  font-size: 12px;
-  font-family: Georgia, "proxima_nova_regular";
-  line-height: 50px;
-}
-/* line 44, ../../stylesheets/ui/toolbar.scss */
-header.toolbar a.follow {
-  margin-left: 13px;
-  padding-left: 14px;
-  width: 77px;
-  background: url("/images/action-collect.png") no-repeat 0% 50%;
-  color: #666;
-  text-align: center;
-  font-style: italic;
-  font-size: 12px;
-  font-family: Georgia, "proxima_nova_regular";
-  line-height: 50px;
-}
-/* line 58, ../../stylesheets/ui/toolbar.scss */
-header.toolbar .title {
-  position: absolute;
-  color: #333;
-  left: 50%;
-  text-transform: uppercase;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  letter-spacing: 0.7px;
-  font-weight: normal;
-  font-size: 17px;
-  font-family: "proxima_nova_ltregular";
-  line-height: 50px;
-  cursor: pointer;
-}
-/* line 73, ../../stylesheets/ui/toolbar.scss */
-header.toolbar .title span {
-  position: relative;
-  left: -50%;
-}
-/* line 77, ../../stylesheets/ui/toolbar.scss */
-header.toolbar .title span:after {
-  display: inline-block;
-  width: 18px;
-  height: 11px;
-  background: url("/images/down-arrow.png") no-repeat center;
-  content: "";
-}
-/* line 87, ../../stylesheets/ui/toolbar.scss */
-header.toolbar div.actions {
-  position: absolute;
-  top: 0px;
-  right: 0px;
-}
-/* line 92, ../../stylesheets/ui/toolbar.scss */
-header.toolbar div.actions a {
-  display: -moz-inline-stack;
-  display: inline-block;
-  vertical-align: middle;
-  *vertical-align: auto;
-  zoom: 1;
-  *display: inline;
-  width: 56px;
-}
-/* line 98, ../../stylesheets/ui/toolbar.scss */
-header.toolbar div.actions .heart {
-  right: 114px;
-  background: url("/images/action-like.png") no-repeat center;
-}
-/* line 103, ../../stylesheets/ui/toolbar.scss */
-header.toolbar div.actions .collect {
-  right: 57px;
-  background: url("/images/action-collect.png") no-repeat center;
-}
-/* line 108, ../../stylesheets/ui/toolbar.scss */
-header.toolbar div.actions .share {
-  right: 0px;
-  background: url("/images/action-share.png") no-repeat center;
-}
-
-/* line 142, ../../stylesheets/ui.scss */
-div.popover {
-  position: absolute;
-  top: 27px;
-  width: 110px;
-  font-size: 13px;
-}
-/* line 148, ../../stylesheets/ui.scss */
-div.popover span.drop-top {
-  display: block;
-  margin: -7px 0 0;
-  padding: 7px 15px 0px;
-  background: url("/images/top-arrow.png") no-repeat center top;
-}
-/* line 155, ../../stylesheets/ui.scss */
-div.popover div.drop-wrapper {
-  -webkit-box-shadow: #c9c9c9 2px 2px 5px;
-  -moz-box-shadow: #c9c9c9 2px 2px 5px;
-  box-shadow: #c9c9c9 2px 2px 5px;
-  position: absolute;
-  top: 36px;
-  border: 1px solid #eeeeee;
-  background-color: white;
-  font-family: "Helvetica Neue", Hevetica, Arial, sans-serif;
-}
-/* line 164, ../../stylesheets/ui.scss */
-div.popover ul.popover-list {
-  overflow: auto;
-  margin: 0;
-  padding: 0;
-}
-/* line 169, ../../stylesheets/ui.scss */
-div.popover ul.popover-list li {
-  display: block;
-  float: none;
-  margin: 0;
-  padding: 18px 0px 18px 10px;
-  border-top: 1px solid #eeeeee;
-  background-image: none;
-}
-/* line 177, ../../stylesheets/ui.scss */
-div.popover ul.popover-list li a {
-  height: 15px;
-  line-height: 17px;
-  text-transform: uppercase;
-  font-size: 12px;
-  font-family: "proxima_nova_regular";
-  position: static;
-  display: block;
-  padding: 18px 0px 18px 18px;
-  color: #b9b9b9;
-  text-shadow: none;
-  font-weight: normal;
-}
-/* line 190, ../../stylesheets/ui.scss */
-div.popover ul.popover-list li a:active, div.popover ul.popover-list li a.active {
-  color: #6f6f6f;
-}
-/* line 195, ../../stylesheets/ui.scss */
-div.popover ul.popover-list li.header {
-  color: #7A7A7A;
-  text-align: center;
-  font-size: 16px;
-  font-family: "proxima_nova_regular";
-}
-/* line 203, ../../stylesheets/ui.scss */
-div.popover ul.popover-list li:first-child {
-  border-top: none;
-}
-
-/* line 209, ../../stylesheets/ui.scss */
-#filterDropdown {
-  right: -10px;
-}
-/* line 212, ../../stylesheets/ui.scss */
-#filterDropdown .drop-wrapper {
-  left: -26px;
-}
-/* line 215, ../../stylesheets/ui.scss */
-#filterDropdown .drop-wrapper .drop-top {
-  margin-left: 70px;
-  padding-right: 30px;
-}
-/* line 221, ../../stylesheets/ui.scss */
-#filterDropdown ul.popover-list li {
-  padding: 0;
-}
-/* line 224, ../../stylesheets/ui.scss */
-#filterDropdown ul.popover-list li a {
-  vertical-align: top;
-}
-/* line 227, ../../stylesheets/ui.scss */
-#filterDropdown ul.popover-list li a.dropdown:after {
-  display: inline-block;
-  padding-right: 16px;
-  width: 15px;
-  height: 15px;
-}
-/* line 234, ../../stylesheets/ui.scss */
-#filterDropdown ul.popover-list li a.view-all span {
-  background: url(/images/view-all-icon.png) no-repeat left top;
-}
-/* line 235, ../../stylesheets/ui.scss */
-#filterDropdown ul.popover-list li a.shop span {
-  background: url(/images/shop-icon.png) no-repeat left top;
-}
-/* line 236, ../../stylesheets/ui.scss */
-#filterDropdown ul.popover-list li a.read span {
-  background: url(/images/read-icon.png) no-repeat left top;
-}
-/* line 237, ../../stylesheets/ui.scss */
-#filterDropdown ul.popover-list li a.photo span {
-  background: url(/images/photo-icon.png) no-repeat left top;
-}
-/* line 240, ../../stylesheets/ui.scss */
-#filterDropdown ul.popover-list li a:active span, #filterDropdown ul.popover-list li a.active span {
-  background-position-y: bottom;
-}
-
-/* line 246, ../../stylesheets/ui.scss */
-#collectionDropdown {
-  left: 50%;
-  margin-left: -151px;
-}
-/* line 250, ../../stylesheets/ui.scss */
-#collectionDropdown .drop-wrapper {
-  width: 300px;
-  min-height: 94px;
-}
-/* line 254, ../../stylesheets/ui.scss */
-#collectionDropdown .drop-wrapper li {
-  padding: 0;
-}
-/* line 257, ../../stylesheets/ui.scss */
-#collectionDropdown .drop-wrapper li.header {
-  padding: 10px 0px;
-}
-/* line 258, ../../stylesheets/ui.scss */
-#collectionDropdown .drop-wrapper li a {
-  height: 18px;
-  color: #6F6F6F;
-  font-size: 13px;
-  line-height: 20px;
-}
-/* line 265, ../../stylesheets/ui.scss */
-#collectionDropdown .drop-wrapper li a.active {
-  background-color: #f3f3f3;
-}
-
-/* line 272, ../../stylesheets/ui.scss */
-#shareDropdown {
-  right: -10px;
-}
-/* line 275, ../../stylesheets/ui.scss */
-#shareDropdown .drop-wrapper {
-  left: -26px;
-}
-/* line 278, ../../stylesheets/ui.scss */
-#shareDropdown .drop-wrapper .drop-top {
-  margin-left: 70px;
-  padding-right: 30px;
-}
-/* line 284, ../../stylesheets/ui.scss */
-#shareDropdown .drop-wrapper .popover-list a {
-  display: inline;
-  padding: 0;
-  border: none;
-  color: #6f6f6f;
-  vertical-align: bottom;
-}
-/* line 291, ../../stylesheets/ui.scss */
-#shareDropdown .drop-wrapper .popover-list a i {
-  width: 28px;
-  font-size: 19px;
-}
-
-/*      Discover menu   */
-/* line 304, ../../stylesheets/ui.scss */
-#discover {
-  background: white;
-  position: absolute;
-  z-index: 100;
-  height: 1000px;
-  width: 100%;
-}
-/* line 311, ../../stylesheets/ui.scss */
-#discover header {
-  padding: 40px 20px;
-  background: white;
-  position: relative;
-  z-index: 1;
-}
-/* line 317, ../../stylesheets/ui.scss */
-#discover header input[type=search] {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
-  border-radius: 5px;
-  font-family: Georgia;
-  font-style: italic;
-  font-size: 16px;
-  padding: 10px 20px;
-  border: 1px solid #dddddd;
-  width: 100%;
-}
-/* line 327, ../../stylesheets/ui.scss */
-#discover header input[type=search]:focus {
-  box-shadow: 0 0 5px #0064ff;
-  outline: 0;
-}
-/* line 335, ../../stylesheets/ui.scss */
-#discover ul#category {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  width: 220px;
-  height: 100%;
-  background: #eee;
-  float: left;
-  position: relative;
-}
-/* line 345, ../../stylesheets/ui.scss */
-#discover ul#category li {
-  position: relative;
-  font-size: 14px;
-  font-family: "HelveticaNeue-Light";
-  letter-spacing: 0.8px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  height: 44px;
-  line-height: 44px;
-  padding: 0 25px;
-  border-top: 1px solid #dddddd;
-}
-/* line 358, ../../stylesheets/ui.scss */
-#discover ul#category a {
-  display: block;
-  color: #444;
-}
-/* line 363, ../../stylesheets/ui.scss */
-#discover ul#category li:hover {
-  background: #e6e6e6;
-}
-/* line 367, ../../stylesheets/ui.scss */
-#discover ul#category li.active {
-  background: #ccc;
-}
-/* line 371, ../../stylesheets/ui.scss */
-#discover ul#category li.active:after {
-  content: "";
-  position: absolute;
-  right: -6px;
-  top: 50%;
-  margin-top: -6px;
-  border-color: transparent #cccccc;
-  border-style: solid;
-  border-width: 8px 0px 8px 8px;
-  height: 0px;
-  width: 0px;
-}
-/* line 385, ../../stylesheets/ui.scss */
-#discover ul#category > ul li {
-  padding-left: 40px;
-  font-weight: normal;
-}
-/* line 389, ../../stylesheets/ui.scss */
-#discover ul#category > ul li a {
-  color: #ccc;
-}
-
-/* line 397, ../../stylesheets/ui.scss */
-ul.channels {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  height: 100%;
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
-  padding-top: 120;
-  left: 240px;
-  top: 0;
-  border-top: 200px;
-  position: absolute;
-  bottom: 0;
-  padding-bottom: 50%;
-}
-/* line 416, ../../stylesheets/ui.scss */
-ul.channels li {
-  position: relative;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  float: left;
-  color: white;
-  font-size: 14px;
-  padding: 15px;
-  width: 240px;
-  height: 170px;
-  background: #999;
-  margin-right: 20px;
-  margin-bottom: 20px;
-  background-color: rgba(0, 0, 0, 0.5);
-  background-size: cover;
-}
-/* line 434, ../../stylesheets/ui.scss */
-ul.channels .action {
-  font-family: "Georgia";
-  position: absolute;
-  top: 30%;
-  left: 30px;
-  float: left;
-  margin-right: 10px;
-  text-align: center;
-  display: block;
-  font-size: 24px;
-  font-weight: bold;
-  line-height: 70px;
-  width: 70px;
-  height: 70px;
-  -webkit-border-radius: 40px;
-  -moz-border-radius: 40px;
-  -ms-border-radius: 40px;
-  -o-border-radius: 40px;
-  border-radius: 40px;
-  color: white;
-  border: 1.5px solid rgba(255, 255, 255, 0.3);
-}
-/* line 454, ../../stylesheets/ui.scss */
-ul.channels .action.followed {
-  background: rgba(240, 69, 0, 0.2);
-}
-/* line 458, ../../stylesheets/ui.scss */
-ul.channels .action:hover {
-  background: rgba(255, 255, 255, 0.2);
-}
-/* line 462, ../../stylesheets/ui.scss */
-ul.channels .action.view {
-  left: 130px;
-}
+Backtrace:
+./stylesheets/ui.scss:163:in `clearfix'
+./stylesheets/ui.scss:163
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:251:in `visit_mixin'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:98:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:53:in `map'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:107:in `block in visit_children'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:119:in `with_environment'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:106:in `visit_children'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:318:in `visit_rule'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:98:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:53:in `map'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:107:in `block in visit_children'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:119:in `with_environment'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:106:in `visit_children'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:126:in `visit_root'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:98:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:7:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/root_node.rb:20:in `render'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/engine.rb:315:in `_render'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/engine.rb:262:in `render'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/haml-3.1.6/vendor/sass/lib/sass/plugin/compiler.rb:339:in `update_stylesheet'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/haml-3.1.6/vendor/sass/lib/sass/plugin/compiler.rb:202:in `block in update_stylesheets'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/haml-3.1.6/vendor/sass/lib/sass/plugin/compiler.rb:200:in `each'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/haml-3.1.6/vendor/sass/lib/sass/plugin/compiler.rb:200:in `update_stylesheets'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/haml-3.1.6/vendor/sass/lib/sass/plugin.rb:81:in `update_stylesheets'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/haml-3.1.6/vendor/sass/lib/sass/plugin.rb:54:in `check_for_updates'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/haml-3.1.6/vendor/sass/lib/sass/plugin/rack.rb:51:in `call'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/rack-1.4.1/lib/rack/lint.rb:48:in `_call'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/rack-1.4.1/lib/rack/lint.rb:36:in `call'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/rack-1.4.1/lib/rack/showexceptions.rb:24:in `call'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/rack-1.4.1/lib/rack/commonlogger.rb:20:in `call'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/rack-1.4.1/lib/rack/chunked.rb:43:in `call'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/rack-1.4.1/lib/rack/content_length.rb:14:in `call'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/rack-1.4.1/lib/rack/handler/webrick.rb:59:in `service'
+/Users/taylorluk/.rvm/rubies/ruby-1.9.3-p362/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+/Users/taylorluk/.rvm/rubies/ruby-1.9.3-p362/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+/Users/taylorluk/.rvm/rubies/ruby-1.9.3-p362/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: Undefined mixin 'clearfix'.\A         on line 163 of ./stylesheets/ui.scss, in `clearfix'\A         from line 163 of ./stylesheets/ui.scss\A \A 158:     background-position-y: bottom;\A 159:   }\A 160: }\A 161: \A 162: nav.tab-menu {\A 163:   @include clearfix;\A 164:   \A 165:   ul {\A 166:     list-style: none;\A 167:     padding: 0;\A 168:     border:1px solid #ccc;"; }

@@ -1,5 +1,7 @@
 # Application bootstrap
-this.App ||= {
+this.App || = {}
+
+_.extend(App, {
   standalone: window.navigator.standalone
   touch: !!('ontouchstart' in window)
 
@@ -53,15 +55,15 @@ this.App ||= {
         setTimeout =>
           $('.popover:visible').hide()
         , 0
-}
+})
 
 class App.Router extends Backbone.Router
   routes:
     "stream":                     "home"
-    "section":                    "home"
-    
+    "issue":                      "issue"
     "signup":                     "signup"
-    
+    "gallery":                    "gallery"
+    "gallery/:index":             "gallery"
     "items/:handle":              "content"
 
     "discover":                   "discover"
@@ -72,7 +74,37 @@ class App.Router extends Backbone.Router
   initialize: (options)->
     this.route(/.*\?type=(\w+)/, "filter")
 
+  issue: ->
+    App.gallery.close() if App.gallery
+    App.menu.toggle(false)
+    $('#issue').show()
+    $('#discover').hide()
+    App.streamView.hide()
+    App.contentView.hide()
+    $('.start-button').click => $("#issue .cover").hide()
+
+    
+    App.issue ||= new App.SwipeView(el: "#issue .swipe-paging", clearPage: false)
+    
+    $('#issue .toolbar').show();
+    
+    App.issue.on 'slideTo',   (page)=>
+      $(document.body).toggleClass("dark-theme", $(page).is('.dark'))
+
+  gallery: ()->
+    App.gallery = new App.GalleryView($('#issue .current.page .gallery a'))
+    
+    App.gallery.on "open", (page)=>
+      $(document.body).toggleClass("dark-theme", $(page).is('.dark'))
+      $('#issue .toolbar').hide()
+      
+    App.gallery.on "close", =>
+      $('#issue .toolbar').show()
+
+    App.gallery.render()
+    
   signup: ->
+    $('#issue').hide()
     # App.toolbar.hide()
     $('.landing').hide()
 
@@ -86,7 +118,9 @@ class App.Router extends Backbone.Router
 
   # View a channel in a stream format
   channel: (type, handle)->
-    
+    $('.landing').hide()
+    $('#issue').hide()
+
     App.menu.toggle(false)
     App.contentView.hide()
 
@@ -126,16 +160,15 @@ class App.Router extends Backbone.Router
     App.discover.render(category)
     App.menu.render()
 
-  issue: ->
-
-
   content: (handle) ->
+    # App.contentView.$('.pages').html("")
     
     App.streamView.hide()
     App.contentView.show()
 
     # Might need to delay rendering when page is loading
     renderer = (c)->
+      console.log(c)
       App.contentView.reset()
       App.contentView.model = c
       App.contentView.render()
@@ -153,7 +186,9 @@ class App.Router extends Backbone.Router
       })
 
   url_for: (path)->
-    "http://shop2.com/#{path}.json"
+    host = App.api_host || "shop2.com"
+    
+    "http://#{host}/#{path}.json"
 
   # Set view to default state
   # This is a work around when we change between different view containers.

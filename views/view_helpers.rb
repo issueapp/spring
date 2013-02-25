@@ -71,6 +71,12 @@ eos
     #no-op
   end
   
+  def image_holder(size)
+    width, height = size.split("x")
+    
+    image_tag "http://placehold.it/#{width}/#{height}"
+  end
+  
   # Add your own helpers below...
   
 end

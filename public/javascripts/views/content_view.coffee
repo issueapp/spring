@@ -36,6 +36,7 @@ class App.ContentView extends Backbone.View
     @view.on('destroy',         this.destroy)
     
   reset: ->
+    this.$('.swipe-paging').html('')
     @view.updatePos(0)
     @streamLength = App.stream.size()
     @currentIndex = 0
@@ -46,8 +47,11 @@ class App.ContentView extends Backbone.View
 
   render: (model)->
     @model = model if model
-
+    console.log(@model)
+    
     @model.attributes.published_at = prettyDate(@model.get('published_at'))
+
+
 
     # render content page node
     if @model.get('type') == 'Article'
@@ -57,6 +61,8 @@ class App.ContentView extends Backbone.View
 
     if this.$('.page').length == 0
       source.addClass('current')
+    
+    console.log(content)
     
     # Render single model, return node
     @toolbar.typeBtn = false
