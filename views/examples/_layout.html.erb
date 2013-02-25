@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="/stylesheets/application.css"/>
   <link rel="stylesheet" href="/stylesheets/swipe-view.css"/>
   <link rel="stylesheet" href="/stylesheets/item.css"/>
+  <link rel="stylesheet" href="/stylesheets/gallery.css"/>
 
   <link rel="stylesheet" href="/stylesheets/font-awesome.css"/>
 
@@ -27,26 +28,25 @@
 </head>
 
 <body class="hint">
-  
-  <nav class="toolbar" role="navigation">
+
+  <!-- <nav class="toolbar" role="navigation"> -->
     <!-- <a class="menu button" ontouchstart="$('#menu-select')[0].open(); return false"></a> -->
-    <h1>TOP CONTENT</h1>
+    <!-- <h1>TOP CONTENT</h1> -->
     <!-- <a class="button blue next-version"></a> -->
-  </nav>
-  
+  <!-- </nav> -->
+
   <div role="main">
     <%= yield %>
   </div>
-  
+
 </body>
-<script src="/javascripts/vendor/zepto.js"></script>  
-<script src="/javascripts/vendor/underscore.js"></script>  
-<script src="/javascripts/vendor/backbone.js"></script>  
-<script src="/javascripts/vendor/mustache.js"></script>  
+<script src="/javascripts/vendor/zepto.js"></script>
+<script src="/javascripts/vendor/underscore.js"></script>
+<script src="/javascripts/vendor/backbone.js"></script>
+<script src="/javascripts/vendor/mustache.js"></script>
 <script src="/javascripts/vendor/clamp.js"></script>
 <script src="/javascripts/vendor/scrollability2.js"></script>
 <script src="/javascripts/vendor/h5bp-helper.js"></script>
-
 
 <%= yield :js %>
 </html>

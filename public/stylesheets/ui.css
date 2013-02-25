@@ -259,7 +259,7 @@ div.popover div.drop-wrapper {
   box-shadow: #c9c9c9 2px 2px 5px;
   position: absolute;
   top: 36px;
-  border: 1px solid #eee;
+  border: 1px solid #eeeeee;
   background-color: white;
   font-family: "Helvetica Neue", Hevetica, Arial, sans-serif;
 }
@@ -275,7 +275,7 @@ div.popover ul.popover-list li {
   float: none;
   margin: 0;
   padding: 18px 0px 18px 10px;
-  border-top: 1px solid #eee;
+  border-top: 1px solid #eeeeee;
   background-image: none;
 }
 /* line 177, ../../stylesheets/ui.scss */
@@ -330,7 +330,7 @@ div.popover ul.popover-list li:first-child {
   vertical-align: top;
 }
 /* line 227, ../../stylesheets/ui.scss */
-#filterDropdown ul.popover-list li a span {
+#filterDropdown ul.popover-list li a.dropdown:after {
   display: inline-block;
   padding-right: 16px;
   width: 15px;
@@ -444,7 +444,7 @@ div.popover ul.popover-list li:first-child {
   font-style: italic;
   font-size: 16px;
   padding: 10px 20px;
-  border: 1px solid #ddd;
+  border: 1px solid #dddddd;
   width: 100%;
 }
 /* line 327, ../../stylesheets/ui.scss */
@@ -475,7 +475,7 @@ div.popover ul.popover-list li:first-child {
   height: 44px;
   line-height: 44px;
   padding: 0 25px;
-  border-top: 1px solid #ddd;
+  border-top: 1px solid #dddddd;
 }
 /* line 358, ../../stylesheets/ui.scss */
 #discover ul#category a {
@@ -497,7 +497,7 @@ div.popover ul.popover-list li:first-child {
   right: -6px;
   top: 50%;
   margin-top: -6px;
-  border-color: transparent #ccc;
+  border-color: transparent #cccccc;
   border-style: solid;
   border-width: 8px 0px 8px 8px;
   height: 0px;

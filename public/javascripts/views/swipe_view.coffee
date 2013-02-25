@@ -50,11 +50,18 @@ class App.SwipeView extends Backbone.View
 
     # Set current page
     @currentPage = this.$('.current').eq(0)
+
     if @currentPage.length == 0
       @currentPage = $(@el).children(":not(.padding)").first().addClass('current')
 
     this.getViewport()
     
+    # if expandMenu = $('body.expand-menu')[0]
+    #   @viewport ||= expandMenu.offsetWidth
+    # else
+    #   @viewport ||= @el.parentNode.offsetWidth
+
+
     $(document).on 'keydown', (e)=>
       switch (e.which || e.keyCode)
         when 190 then this.moveRight()
