@@ -1,0 +1,40 @@
+/* line 3, ../../../stylesheets/ui/swipe-view.scss */
+.swipe-paging {
+  position: absolute;
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 0;
+}
+
+/* line 10, ../../../stylesheets/ui/swipe-view.scss */
+.animate {
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
+/* line 26, ../../../stylesheets/ui/swipe-view.scss */
+.page {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  margin: 0;
+  padding: 5px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  white-space: normal;
+  overflow: hidden;
+}
+
+/* line 38, ../../../stylesheets/ui/swipe-view.scss */
+.page {
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+}
+
+/* line 43, ../../../stylesheets/ui/swipe-view.scss */
+.page.padding {
+  width: 0;
+}

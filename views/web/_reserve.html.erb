@@ -1,0 +1,70 @@
+
+<form id="reserve_edition" class="clearfix">
+  <header>
+    <a href="#" class="close icon-cross"></a>
+    <h1>Reserve your edition</h1>
+  </header>
+      
+  <div class="edition_handle centered">
+    <label for="edition_handle" class="handle-field large" style="font-family: Georgia; font-style: italic">http://issue.by/</label>
+    <input id="edition_handle" type="text" class="large" name="edition[handle]" placeholder="myedition" length="8">
+  </div>
+  
+  <div class="row">
+    <div class="col x6">
+      <input type="text" name="edition[owner][name]" placeholder="your name">
+    </div>
+  
+    <div class="publisher-type col x6">
+      <label class="hint">Are you a...</label>
+      
+      <div class="publisher-type">
+      <label>
+        <input type="radio" name="edition[owner][type]" value="brand">
+        Brand
+      </label>
+    
+      <label>
+        <input type="radio" name="edition[owner][type]" value="brand">
+        Blogger or stylist
+      </label>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col x6">
+      <input type="email" name="edition[owner][email]" placeholder="email">
+    </div>
+  
+    <div class="col x6">
+      <input type="phone" name="edition[owner][phone]" placeholder="phone">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col x6">
+      <input type="text" name="edition[owner][website]" placeholder="website">
+    </div>
+  
+    <div class="col x6">
+      <select name="edition[category]">
+        <option>Art &amp; Craft</option>
+        <option>Fashion</option>
+        <option>Mens fashion</option>
+        <option>Street style</option>
+        <option>Food</option>
+        <option>Tech</option>
+        <option>Design</option>
+        <option>Photography</option>
+        <option>Home decor</option>
+        <option>Travel</option>
+      </select>
+    </div>
+  </div>
+
+  <footer class="actions">
+    <input type="submit" class="button" value="reserve now">
+    <a class="close button" href="">back</a>
+  </footer>
+</form>

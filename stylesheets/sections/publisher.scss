@@ -1,0 +1,51 @@
+form#reserve_edition {
+
+
+  .row {
+    margin-bottom: 10px;
+  }
+}
+
+.modal {
+  .edition_handle {  
+    margin-bottom: 2em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .publisher-type {
+    margin-top: -0.5em
+  }
+  
+  footer .button {
+/*    margin-top: -3px;*/
+    background: #000;
+    color: white;
+    font-size: 18px;
+    font-weight: normal;
+    @include text-shadow(initial);
+    @include border-radius(initial);
+    height: 70px;
+    border: none;
+    padding: 0 30px;
+    margin: 0;
+  }
+  
+  footer .button:hover {
+    background: #111;
+  }
+}
+
+
+
+
+#edition_handle {
+  margin-left: 2px;
+  width: 7em;
+
+  
+  @include input-placeholder {
+    font-size: 24px;
+    font-weight: normal !important;
+  }
+}

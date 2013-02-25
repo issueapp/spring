@@ -1,0 +1,122 @@
+<% content_for :header do %>
+  <header class="page-head">
+    <div class="container">
+      <%= render "nav" %>
+      
+      <h1>Form</h1>
+      <h3 class="subtitle">
+        Form styles, Validations
+      </h3>
+    </div>
+  </header>
+<% end %>
+
+<form id="new_edition" class="clearfix">
+  <div class="col x8">
+    <h2>Reserve your edition</h2>
+    
+    <div class="edition_handle">
+      <label for="edition_handle" class="handle-field large" style="font-family: Georgia; font-style: italic">http://issue.by/</label>
+      <input id="edition_handle" type="text" class="large" name="edition[handle]" placeholder="myedition" length="8">
+    </div>
+    
+    <div class="row">
+      <div class="col x6">
+        <input type="text" name="edition[owner][name]" placeholder="your name">
+      </div>
+    
+      <div class="col x6">
+        <label class="hint">Are you a...</label><br/>
+      
+        <label>
+          <input type="radio" name="edition[owner][type]" value="brand">
+          Brand
+        </label>
+      
+        <label>
+          <input type="radio" name="edition[owner][type]" value="brand">
+          Blogger or stylist
+        </label>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col x6">
+        <input type="email" name="edition[owner][email]" placeholder="email">
+      </div>
+    
+      <div class="col x6">
+        <input type="phone" name="edition[owner][phone]" placeholder="phone">
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class="col x6">
+        <input type="text" name="edition[owner][website]" placeholder="website">
+      </div>
+    
+      <div class="col x6">
+        <select name="edition[category]">
+          <option>Art &amp; Craft</option>
+          <option>Fashion</option>
+          <option>Mens fashion</option>
+          <option>Street style</option>
+          <option>Food</option>
+          <option>Tech</option>
+          <option>Design</option>
+          <option>Photography</option>
+          <option>Home decor</option>
+          <option>Travel</option>
+        </select>
+      </div>
+    </div>
+  
+    <footer class="row actions">
+      <input type="submit" value="Confirm">
+      <a href="">back</a>
+    </footer>
+  </div>
+</form>
+  
+<form action="#" method="get" class="form">
+  <h3>Signup form</h3>
+  <div>
+    <label class="label">Subject</label>
+    <input type="text" class="text_field">
+  </div>
+  
+  <div>
+    <label class="label">Content</label>
+    <textarea class="text_area" rows="10" cols="80"></textarea>
+  </div>
+  
+  <div>
+    <label class="label">Select</label>
+    <select><option value="1">Choose...</option></select>
+  </div>
+  
+  <div>
+    <label class="label">Check box</label>
+    <div>
+      <input type="checkbox" name="checkbox" id="checkbox_1" class="checkbox" value="1"> <label for="checkbox_1" class="checkbox">Option 1</label>
+    </div>
+    <div>
+      <input type="checkbox" name="checkbox" id="checkbox_2" class="checkbox" value="2"> <label for="checkbox_2" class="checkbox">Option 2</label>
+    </div>
+  </div>
+  
+  <div>
+    <label class="label">Radio</label>
+    <div>
+      <input type="radio" name="radio" id="radio_1" class="checkbox" value="1"> <label for="radio_1" class="radio">Option 1</label>
+    </div>
+    <div>
+      <input type="radio" name="radio" id="radio_2" class="checkbox" value="2"> <label for="radio_2" class="radio">Option 2</label>
+    </div>
+  </div>
+  
+  <footer class="actions">
+    <input type="submit"/>
+    <input type="reset"/>
+  </footer>
+</form>

@@ -1,0 +1,116 @@
+@charset "UTF-8";
+@import "compass/css3/box-sizing";
+@import "compass/utilities/general/clearfix";
+
+/*======================================================
+    Layout and rendering
+    ---
+    
+    No style or presentation code should be in this stylesheet
+
+    Default style for 320px
+
+    Structure (menu/main)
+    Grid (row/col)
+  ======================================================*/
+
+.col {
+  @include box-sizing(border-box);
+  position: relative;
+  width: 100%;            // this should be default
+/*  height: 99.9%;          // why*/
+  float: left;
+  
+  .item:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.row {
+  @include box-sizing(border-box);
+  clear: both;
+  position: relative;
+  
+/*  width: 100%;            // ???*/
+  @include clearfix;      // ???
+
+  &:last-child {
+    background: none;     // ???
+  }
+}
+
+/*======================================================
+    Divided width
+  ======================================================*/
+
+.col, .item {
+  &.full { width: 100% }
+  
+  &.half { width: 48%; }
+  &.third { width: 31.333% }
+  &.third-2 { width: 64.667% }
+
+  &.fourty { width: 39% }
+  &.sixty { width: 59% }
+
+  &:last-child { margin-right: 0 }
+}
+
+.no-gutter {
+  .col, .item {
+  
+    &.half { width: 49.9%; }
+    &.third { width: 33.3% }
+    &.third-2 { width: 66.6% }
+    &.sixth { width: 15.02% }
+  
+    &.fourty { width: 39% }
+    &.sixty { width: 59% }
+  }
+}
+
+col.centred {
+  float: none !important;
+  margin: 0 auto !important;
+}
+
+//  Vertical height
+.row, .col, .item {
+  &.v-full { height: 100% }
+  &.v-half { height: 49.40% }
+  &.v-third { height: 35.03% }
+  &.v-third-2 { height: 64% }
+}
+
+/*======================================================
+        12 column grid collapsed for mobile
+  ======================================================*/
+
+.x1,.x2,.x3,.x4, .x5, .x6, .x7, .x8, .x9, .x10, .x11, .x12  { 
+  width: 100% 
+}
+
+@media only screen and (min-width: 768px) {
+  
+  .col {
+    float: left;
+    margin-right: 2%;
+    
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  
+  .x1   { width: 6.333%   }
+  .x2   { width: 14.667%  }
+  .x3   { width: 23.0%    }
+  .x4   { width: 31.333%  }
+  .x5   { width: 39.667%  }
+  .x6   { width: 48.0%    }
+  .x7   { width: 56.333% }
+  .x8   { width: 64.667% }
+  .x9   { width: 73.0% }
+  .x10  { width: 81.333% }
+  .x11  { width: 89.667% }
+  .x12  { width: 100% }
+}
