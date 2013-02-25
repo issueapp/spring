@@ -1,18 +1,31 @@
 @charset "UTF-8";
 
 // 1. ROOT 					==============================
+// 2. TYPOGRAPHY 			==============================
+// 3. COLOUR 				==============================
+// 4. TEXTURE 				==============================
+// 5. ELEMENTS 				==============================
+// 6. LAYOUT 				==============================
+// 7. VENDOR-SPECIFIC 		==============================
+// 8. MODERNIZR 			==============================
+// 9. TEMPLATE SPECIFICS 	==============================
 
+
+// 1. ROOT 					==============================
+@import 'vendor/normalize';
 @import 'vendor/h5bp';
+@import "vendor/media-queries";
+
 @import 'compass';
 
-
 //    1.1 HTML/BODY
+
+body, html {
+  height: 100%;
+  width: 100%;
+}
 html{
   -webkit-font-smoothing: antialiased;
-}
-
-body {
-//  min-width: 320px;
 }
 
 //    1.2 VARIABLES
@@ -23,11 +36,25 @@ $text_color: #333;
 // 2. TYPOGRAPHY 			==============================
 @import 'typography';
 
-// 3. LAYOUT     			==============================
+// 3. ELEMENT/LAYOUT     			==============================
+
+
+nav ol, nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+
+@import 'grid';
 @import 'layout';
 
 // 4. UI         			==============================
+@import 'vendor/issue-icons';
+
 @import 'ui';
+@import "ui/cover";
+@import "form";
 
 // UI/menu
 
@@ -37,20 +64,29 @@ $text_color: #333;
 // 6. PAGE       			==============================
 @import 'page';
 
-// 7. RESPONSIVE 			==============================
+@import "sections/home";
+@import "sections/publisher";
 
-// 768px
-@media only screen and (min-width: 768px) {
-//  @import "768";
+
+// 7. RESPONSIVE 			==============================
+.container {
+  margin:0 auto;
+  width: 85%;
 }
+
+@media only screen and (min-width: 768px) {
+  
+  .container {
+    margin:0 auto;
+    max-width: 980px
+  }
+}
+
+
 
 /*
-    Utility
+    Helpers Utility
 */
-
-div.container {
-  background: #ffc; margin:0 auto; overflow:hidden; width:96%;
-}
 
 .ipad {
   height: 1024px;

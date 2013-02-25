@@ -7,16 +7,18 @@ ContentView
 
  1. ContentView#fetchNext does too much, it should simply fetch a new page
  2. image protocol should be part of json resource
+ 3. It doesn't go backward
 
 Cover page 
 
  1. it needs better picture
  2. it should support swipe action
+ 3. it should be a reusable view.
 
 Menu
 
  1. We only have men/women category for now, there isn't enough channels for other categories
- 2. Visual distinction between a live feed and a separate issue
+ 2. Visual distinction between a live stream and a separate issue
 
 
 ----
