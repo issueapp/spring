@@ -824,6 +824,18 @@ nav ol, nav ul {
   list-style: none;
 }
 
+/* line 49, ../../stylesheets/application.scss */
+.attribution {
+  display: inline;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 3px 10px;
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  font-size: 12px;
+}
+
 /*======================================================
     Layout and rendering
     ---
@@ -2965,7 +2977,7 @@ article.page .description {
   padding-top: 3%;
   background-size: cover;
   background-repeat: no-repeat;
-  background-image: url('../images/home/home-background.jpg?1361611111');
+  background-image: url('../images/site/home-background.jpg?1361611111');
 }
 /* line 11, ../../stylesheets/sections/home.scss */
 #hero .logo {
@@ -3005,7 +3017,7 @@ article.page .description {
   height: 30px;
   display: block;
   margin: 0 auto;
-  background: url('../images/icons-sprite.png') no-repeat;
+  background: url('../images/icons-sprite.png?1360293764') no-repeat;
 }
 
 /* line 53, ../../stylesheets/sections/home.scss */
@@ -3092,12 +3104,12 @@ section.tour .box:hover .hover {
 /* line 126, ../../stylesheets/sections/home.scss */
 section.tour .box.brand {
   background-size: cover;
-  background-image: url('../images/home/tour-brand.png?1360293764');
+  background-image: url('../images/site/tour-brand.png?1360293764');
 }
 /* line 131, ../../stylesheets/sections/home.scss */
 section.tour .box.blogger {
   background-size: cover;
-  background-image: url('../images/home/tour-blogger.png?1360293764');
+  background-image: url('../images/site/tour-blogger.png?1360293764');
 }
 
 /* ====
@@ -3157,14 +3169,14 @@ form#reserve_edition .row {
   font-weight: normal !important;
 }
 
-/* line 71, ../../stylesheets/application.scss */
+/* line 83, ../../stylesheets/application.scss */
 .container {
   margin: 0 auto;
   width: 85%;
 }
 
 @media only screen and (min-width: 768px) {
-  /* line 78, ../../stylesheets/application.scss */
+  /* line 90, ../../stylesheets/application.scss */
   .container {
     margin: 0 auto;
     max-width: 980px;
