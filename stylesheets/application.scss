@@ -67,7 +67,6 @@ nav ol, nav ul {
 @import "sections/home";
 @import "sections/publisher";
 
-
 // 7. RESPONSIVE 			==============================
 .container {
   margin:0 auto;
@@ -80,36 +79,6 @@ nav ol, nav ul {
     margin:0 auto;
     max-width: 980px
   }
-}
-
-
-
-/*
-    Helpers Utility
-*/
-
-.ipad {
-  height: 1024px;
-  width: 768px;
-  
-  &.landscape {
-    width: 1024px;
-    height: 768px;
-  }
-}
-
-.iphone {
-  width: 320px;
-  height: 480px;
-  
-  &.landscape {
-    height: 480px;
-    weight: 320px;
-  }
-}
-
-.grid-item .item {
-  height: 40px;
 }
 
 

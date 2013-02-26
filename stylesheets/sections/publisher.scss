@@ -1,6 +1,4 @@
 form#reserve_edition {
-
-
   .row {
     margin-bottom: 10px;
   }
@@ -16,26 +14,7 @@ form#reserve_edition {
   .publisher-type {
     margin-top: -0.5em
   }
-  
-  footer .button {
-/*    margin-top: -3px;*/
-    background: #000;
-    color: white;
-    font-size: 18px;
-    font-weight: normal;
-    @include text-shadow(initial);
-    @include border-radius(initial);
-    height: 70px;
-    border: none;
-    padding: 0 30px;
-    margin: 0;
-  }
-  
-  footer .button:hover {
-    background: #111;
-  }
 }
-
 
 
 
