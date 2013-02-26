@@ -1,24 +1,31 @@
 /*
-Syntax error: Undefined mixin 'min-screen'.
-        on line 158 of ./stylesheets/typography.scss, in `min-screen'
-        from line 158 of ./stylesheets/typography.scss
+Syntax error: Undefined mixin 'box-sizing'.
+        on line 3 of ./stylesheets/site/home.scss, in `box-sizing'
+        from line 3 of ./stylesheets/site/home.scss
 
-153: /* ====
-154:       Responsive (larger screen)
-155:   ====*/
-156:   
-157:   
-158: @include min-screen(768) {
-159:   
-160:   h1 {
-161:     font-size: 30px;
-162:     font-size: 1.875em;
-163:     font-size: 3rem;
+1: 
+2: #hero {
+3:   @include box-sizing(border-box);
+4:   
+5:   height: 100%;
+6:   padding-top: 3%;
+7:   background-size: cover;
+8:   background-repeat: no-repeat;
 
 Backtrace:
-./stylesheets/typography.scss:158:in `min-screen'
-./stylesheets/typography.scss:158
+./stylesheets/site/home.scss:3:in `box-sizing'
+./stylesheets/site/home.scss:3
 /Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:251:in `visit_mixin'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:98:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:53:in `map'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:107:in `block in visit_children'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:119:in `with_environment'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:106:in `visit_children'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:318:in `visit_rule'
 /Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:37:in `visit'
 /Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:98:in `visit'
 /Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
@@ -56,4 +63,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined mixin 'min-screen'.\A         on line 158 of ./stylesheets/typography.scss, in `min-screen'\A         from line 158 of ./stylesheets/typography.scss\A \A 153: /* ====\A 154:       Responsive (larger screen)\A 155:   ====*/\A 156:   \A 157:   \A 158: @include min-screen(768) {\A 159:   \A 160:   h1 {\A 161:     font-size: 30px;\A 162:     font-size: 1.875em;\A 163:     font-size: 3rem;"; }
+  content: "Syntax error: Undefined mixin 'box-sizing'.\A         on line 3 of ./stylesheets/site/home.scss, in `box-sizing'\A         from line 3 of ./stylesheets/site/home.scss\A \A 1: \A 2: #hero {\A 3:   @include box-sizing(border-box);\A 4:   \A 5:   height: 100%;\A 6:   padding-top: 3%;\A 7:   background-size: cover;\A 8:   background-repeat: no-repeat;"; }
