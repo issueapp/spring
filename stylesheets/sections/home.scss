@@ -6,7 +6,7 @@
   padding-top: 3%;
   background-size: cover;
   background-repeat: no-repeat;
-  background-image: image-url("home/home-background.jpg");
+  background-image: image-url("site/home-background.jpg");
 
   .logo {
     float: none;
@@ -125,12 +125,12 @@ section.tour {
 
   .box.brand {
     background-size: cover;
-    background-image: image-url("home/tour-brand.png")
+    background-image: image-url("site/tour-brand.png")
   }
 
   .box.blogger {
     background-size: cover;
-    background-image: image-url("home/tour-blogger.png")
+    background-image: image-url("site/tour-blogger.png")
   }
 }
 
