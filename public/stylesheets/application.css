@@ -1442,6 +1442,28 @@ you can use the generic selector below, but it's slower:
   line-height: 70px;
   color: white;
 }
+/* line 67, ../../stylesheets/ui/modal.scss */
+.modal footer .button {
+  /*    margin-top: -3px;*/
+  background: #000;
+  color: white;
+  font-size: 18px;
+  font-weight: normal;
+  text-shadow: initial;
+  -webkit-border-radius: initial;
+  -moz-border-radius: initial;
+  -ms-border-radius: initial;
+  -o-border-radius: initial;
+  border-radius: initial;
+  height: 70px;
+  border: none;
+  padding: 0 30px;
+  margin: 0;
+}
+/* line 81, ../../stylesheets/ui/modal.scss */
+.modal footer .button:hover {
+  background: #111;
+}
 
 /* line 23, ../../stylesheets/ui.scss */
 body.expand-menu .navigation li.active:after {
@@ -1844,14 +1866,8 @@ input[type="button"]::-moz-focus-inner, button::-moz-focus-inner {
 }
 /* line 66, ../../stylesheets/ui/button.scss */
 .button:active, button:active, input[type="button"]:active {
-  background-color: #ecf1f1;
-  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2VjZjFmMSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2ZiZmJmYiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
-  background-size: 100%;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ecf1f1), color-stop(100%, #fbfbfb));
-  background-image: -webkit-linear-gradient(top center, #ecf1f1, #fbfbfb);
-  background-image: -moz-linear-gradient(top center, #ecf1f1, #fbfbfb);
-  background-image: -o-linear-gradient(top center, #ecf1f1, #fbfbfb);
-  background-image: linear-gradient(top center, #ecf1f1, #fbfbfb);
+  background-color: white;
+  /*    @include background-image(linear-gradient(top center, $end, $start));*/
 }
 /* line 71, ../../stylesheets/ui/button.scss */
 .button [class^="icon-"], .button [class*=" icon-"], button [class^="icon-"], button [class*=" icon-"], input[type="button"] [class^="icon-"], input[type="button"] [class*=" icon-"] {
@@ -1920,7 +1936,7 @@ button[disabled]:active {
   font-size: 24px;
 }
 
-/* line 138, ../../stylesheets/ui/button.scss */
+/* line 136, ../../stylesheets/ui/button.scss */
 .button.black, button.black {
   background-color: #3c3d3c;
   /*    @include background-image(linear-gradient(top center, #3c3d3c, #0e0e0e));*/
@@ -1928,17 +1944,17 @@ button[disabled]:active {
   border: 1px solid #2b2b2b;
   text-shadow: 0px 1px 1px black;
 }
-/* line 145, ../../stylesheets/ui/button.scss */
+/* line 143, ../../stylesheets/ui/button.scss */
 .button.black:hover, .button.black .hover, button.black:hover, button.black .hover {
   background-color: #4B4C4B;
   /*      @include background-image(linear-gradient(top center, #4B4C4B, #1D1D1D));*/
 }
-/* line 150, ../../stylesheets/ui/button.scss */
+/* line 148, ../../stylesheets/ui/button.scss */
 .button.black:active, button.black:active {
   background-color: #0e0e0e;
   /*      @include background-image(linear-gradient(top center, #0e0e0e, #3c3d3c));*/
 }
-/* line 156, ../../stylesheets/ui/button.scss */
+/* line 154, ../../stylesheets/ui/button.scss */
 .button.orange, button.orange {
   background: #f04500;
   border: none;
@@ -1951,8 +1967,12 @@ button[disabled]:active {
 .button.orange:hover, button.orange:hover {
   background: #ff510a;
 }
+/* line 171, ../../stylesheets/ui/button.scss */
+.button.orange:active, button.orange:active {
+  background: #8a2800;
+}
 
-/* line 176, ../../stylesheets/ui/button.scss */
+/* line 180, ../../stylesheets/ui/button.scss */
 .button.facebook, button.facebook {
   background: #4363a6;
   color: white;
@@ -1960,37 +1980,37 @@ button[disabled]:active {
   text-shadow: 0px 1px #375697;
   border: 1px solid #4363a6;
 }
-/* line 185, ../../stylesheets/ui/button.scss */
+/* line 189, ../../stylesheets/ui/button.scss */
 .button.facebook i, button.facebook i {
   font-size: 21px;
 }
-/* line 189, ../../stylesheets/ui/button.scss */
+/* line 193, ../../stylesheets/ui/button.scss */
 .button.facebook span, button.facebook span {
   vertical-align: top;
   padding-left: 10px;
   color: white;
 }
-/* line 195, ../../stylesheets/ui/button.scss */
+/* line 199, ../../stylesheets/ui/button.scss */
 .button.facebook.large span, button.facebook.large span {
   font-size: 13px;
   height: 45px;
   line-height: 45px;
 }
-/* line 201, ../../stylesheets/ui/button.scss */
+/* line 205, ../../stylesheets/ui/button.scss */
 .button.facebook.small span, button.facebook.small span {
   height: 20px;
   line-height: 18px;
 }
-/* line 206, ../../stylesheets/ui/button.scss */
+/* line 210, ../../stylesheets/ui/button.scss */
 .button.facebook:hover, button.facebook:hover {
   background: #5e7dbe;
 }
-/* line 210, ../../stylesheets/ui/button.scss */
+/* line 214, ../../stylesheets/ui/button.scss */
 .button.facebook:active, button.facebook:active {
   background: #4363a6;
 }
 
-/* line 215, ../../stylesheets/ui/button.scss */
+/* line 219, ../../stylesheets/ui/button.scss */
 .button.twitter, button.twitter {
   font-family: proxima-nova, "Helvetica Neue", pragmatica-web, Hevetica, Arial, sans-serif;
   background: #36a3d4;
@@ -1999,32 +2019,32 @@ button[disabled]:active {
   text-shadow: 0px 1px #375697;
   border: 1px solid #36a3d4;
 }
-/* line 226, ../../stylesheets/ui/button.scss */
+/* line 230, ../../stylesheets/ui/button.scss */
 .button.twitter i, button.twitter i {
   font-size: 21px;
 }
-/* line 230, ../../stylesheets/ui/button.scss */
+/* line 234, ../../stylesheets/ui/button.scss */
 .button.twitter span, button.twitter span {
   vertical-align: top;
   padding-left: 10px;
   color: white;
 }
-/* line 236, ../../stylesheets/ui/button.scss */
+/* line 240, ../../stylesheets/ui/button.scss */
 .button.twitter.large span, button.twitter.large span {
   font-size: 13px;
   height: 37px;
   line-height: 35px;
 }
-/* line 242, ../../stylesheets/ui/button.scss */
+/* line 246, ../../stylesheets/ui/button.scss */
 .button.twitter.small span, button.twitter.small span {
   height: 20px;
   line-height: 18px;
 }
-/* line 247, ../../stylesheets/ui/button.scss */
+/* line 251, ../../stylesheets/ui/button.scss */
 .button.twitter:hover, button.twitter:hover {
   background: #60b6dd;
 }
-/* line 251, ../../stylesheets/ui/button.scss */
+/* line 255, ../../stylesheets/ui/button.scss */
 .button.twitter:active, button.twitter:active {
   background: #36a3d4;
 }
@@ -2936,58 +2956,6 @@ article.page .description {
   width: 100% !important;
 }
 
-/* line 281, ../../stylesheets/page.scss */
-#signup.page ul.channels {
-  top: 100px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  width: 100%;
-  border-top: 90px;
-  padding: 0 0;
-  left: 20px;
-}
-/* line 289, ../../stylesheets/page.scss */
-#signup.page ul.channels a.follow {
-  position: absolute;
-  -webkit-border-radius: 80px;
-  -moz-border-radius: 80px;
-  -ms-border-radius: 80px;
-  -o-border-radius: 80px;
-  border-radius: 80px;
-  left: 50%;
-  font-weight: bold;
-  line-height: 120px;
-  margin-left: -60px;
-  text-align: center;
-  width: 120px;
-  height: 120px;
-}
-/* line 301, ../../stylesheets/page.scss */
-#signup.page ul.channels li {
-  width: 315px;
-  height: 260px;
-}
-/* line 307, ../../stylesheets/page.scss */
-#signup.page h1 {
-  margin-top: 40px;
-  text-align: center;
-  font-size: 18px;
-  color: #666;
-  font-weight: normal;
-  text-transform: uppercase;
-}
-/* line 316, ../../stylesheets/page.scss */
-#signup.page a.complete {
-  font-family: "proxima_nova", "Helvetica Neue";
-  position: absolute;
-  font-weight: bold;
-  bottom: 0;
-  right: 20px;
-  padding: 0 30px;
-  line-height: 50x;
-}
-
 /* line 2, ../../stylesheets/sections/home.scss */
 #hero {
   -webkit-box-sizing: border-box;
@@ -3037,7 +3005,7 @@ article.page .description {
   height: 30px;
   display: block;
   margin: 0 auto;
-  background: url('../images/icons-sprite.png?1360293764') no-repeat;
+  background: url('../images/icons-sprite.png') no-repeat;
 }
 
 /* line 53, ../../stylesheets/sections/home.scss */
@@ -3146,45 +3114,23 @@ section.tour .box.blogger {
   }
 }
 
-/* line 4, ../../stylesheets/sections/publisher.scss */
+/* line 2, ../../stylesheets/sections/publisher.scss */
 form#reserve_edition .row {
   margin-bottom: 10px;
 }
 
-/* line 10, ../../stylesheets/sections/publisher.scss */
+/* line 8, ../../stylesheets/sections/publisher.scss */
 .modal .edition_handle {
   margin-bottom: 2em;
   padding-bottom: 1em;
   border-bottom: 1px solid #cccccc;
 }
-/* line 16, ../../stylesheets/sections/publisher.scss */
+/* line 14, ../../stylesheets/sections/publisher.scss */
 .modal .publisher-type {
   margin-top: -0.5em;
 }
-/* line 20, ../../stylesheets/sections/publisher.scss */
-.modal footer .button {
-  /*    margin-top: -3px;*/
-  background: #000;
-  color: white;
-  font-size: 18px;
-  font-weight: normal;
-  text-shadow: initial;
-  -webkit-border-radius: initial;
-  -moz-border-radius: initial;
-  -ms-border-radius: initial;
-  -o-border-radius: initial;
-  border-radius: initial;
-  height: 70px;
-  border: none;
-  padding: 0 30px;
-  margin: 0;
-}
-/* line 34, ../../stylesheets/sections/publisher.scss */
-.modal footer .button:hover {
-  background: #111;
-}
 
-/* line 42, ../../stylesheets/sections/publisher.scss */
+/* line 21, ../../stylesheets/sections/publisher.scss */
 #edition_handle {
   margin-left: 2px;
   width: 7em;
@@ -3211,45 +3157,16 @@ form#reserve_edition .row {
   font-weight: normal !important;
 }
 
-/* line 72, ../../stylesheets/application.scss */
+/* line 71, ../../stylesheets/application.scss */
 .container {
   margin: 0 auto;
   width: 85%;
 }
 
 @media only screen and (min-width: 768px) {
-  /* line 79, ../../stylesheets/application.scss */
+  /* line 78, ../../stylesheets/application.scss */
   .container {
     margin: 0 auto;
     max-width: 980px;
   }
-}
-/*
-    Helpers Utility
-*/
-/* line 91, ../../stylesheets/application.scss */
-.ipad {
-  height: 1024px;
-  width: 768px;
-}
-/* line 95, ../../stylesheets/application.scss */
-.ipad.landscape {
-  width: 1024px;
-  height: 768px;
-}
-
-/* line 101, ../../stylesheets/application.scss */
-.iphone {
-  width: 320px;
-  height: 480px;
-}
-/* line 105, ../../stylesheets/application.scss */
-.iphone.landscape {
-  height: 480px;
-  weight: 320px;
-}
-
-/* line 111, ../../stylesheets/application.scss */
-.grid-item .item {
-  height: 40px;
 }
