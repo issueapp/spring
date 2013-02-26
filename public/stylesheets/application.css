@@ -1756,550 +1756,547 @@ button[disabled]:active {
   width: 85%;
 }
 
-@font-face {
-  font-family: 'issue-icons';
-  src: url("../../fonts/issue-icons.eot");
-  src: url("../../fonts/issue-icons.eot?#iefix") format("embedded-opentype"), url("../../fonts/issue-icons.woff") format("woff"), url("../../fonts/issue-icons.ttf") format("truetype"), url("../../fonts/issue-icons.svg#issue-icons") format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
-
-/* Use the following CSS code if you want to use data attributes for inserting your icons */
-/* line 13, ../../stylesheets/ui/icons.scss */
-[data-icon]:before {
-  font-family: 'issue-icons';
-  content: attr(data-icon);
-  speak: none;
-  font-weight: normal;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* Use the following CSS code if you want to have a class per icon */
 /*
-Instead of a list of all class selectors,
-you can use the generic selector below, but it's slower:
-[class*="icon-"]:before {
+.cover {
+  position:relative;
+  height: 200%;
+  width: 200%;
+  top: -50%;
+  left: -50%;
+}
+
+.cover img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  min-width: 51%;
+  min-height: 50%;
+}
 */
-/* line 28, ../../stylesheets/ui/icons.scss */
-.icon-export:before, .icon-heart:before, .icon-earth:before, .icon-network:before, .icon-docs:before, .icon-twitter:before, .icon-facebook:before, .icon-googleplus:before, .icon-pinterest:before, .icon-camera:before, .icon-link:before, .icon-comment:before, .icon-cog:before, .icon-arrow-left:before, .icon-arrow-right:before, .icon-arrow-left-2:before, .icon-arrow-right-2:before, .icon-pictures:before, .icon-video:before, .icon-music:before, .icon-list:before, .icon-plus:before, .icon-minus:before, .icon-read:before, .icon-shop:before, .icon-book:before, .icon-layout:before, .icon-ccw:before, .icon-info:before, .icon-question:before, .icon-user:before, .icon-tag:before, .icon-search:before, .icon-stackoverflow:before, .icon-stream:before, .icon-play:before, .icon-checkmark:before, .icon-cross:before {
-  font-family: 'issue-icons';
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-}
+/*.image.bottom {
+  background-position: bottom !important;
+}*/
+/*
+    Item
 
-/* line 36, ../../stylesheets/ui/icons.scss */
-.icon-export:before {
-  content: "\e000";
-}
+    define layout and positioning of a rendering unit
 
-/* line 39, ../../stylesheets/ui/icons.scss */
-.icon-heart:before {
-  content: "\e001";
-}
+*/
+/* line 33, ../../stylesheets/app/item.scss */
+.page {
+  /*
 
-/* line 42, ../../stylesheets/ui/icons.scss */
-.icon-earth:before {
-  content: "\e002";
-}
+        Product Styles
 
-/* line 45, ../../stylesheets/ui/icons.scss */
-.icon-network:before {
-  content: "\e003";
+  */
+  /*
+      Product split view
+  */
 }
-
-/* line 48, ../../stylesheets/ui/icons.scss */
-.icon-docs:before {
-  content: "\e004";
-}
-
-/* line 51, ../../stylesheets/ui/icons.scss */
-.icon-twitter:before {
-  content: "\e007";
-}
-
-/* line 54, ../../stylesheets/ui/icons.scss */
-.icon-facebook:before {
-  content: "\e008";
-}
-
-/* line 57, ../../stylesheets/ui/icons.scss */
-.icon-googleplus:before {
-  content: "\e005";
-}
-
-/* line 60, ../../stylesheets/ui/icons.scss */
-.icon-pinterest:before {
-  content: "\e009";
-}
-
-/* line 63, ../../stylesheets/ui/icons.scss */
-.icon-camera:before {
-  content: "\e006";
-}
-
-/* line 66, ../../stylesheets/ui/icons.scss */
-.icon-link:before {
-  content: "\e00a";
-}
-
-/* line 69, ../../stylesheets/ui/icons.scss */
-.icon-comment:before {
-  content: "\e00b";
-}
-
-/* line 72, ../../stylesheets/ui/icons.scss */
-.icon-cog:before {
-  content: "\e00c";
-}
-
-/* line 75, ../../stylesheets/ui/icons.scss */
-.icon-arrow-left:before {
-  content: "\e00d";
-}
-
-/* line 78, ../../stylesheets/ui/icons.scss */
-.icon-arrow-right:before {
-  content: "\e00e";
-}
-
-/* line 81, ../../stylesheets/ui/icons.scss */
-.icon-arrow-left-2:before {
-  content: "\e00f";
-}
-
-/* line 84, ../../stylesheets/ui/icons.scss */
-.icon-arrow-right-2:before {
-  content: "\e010";
-}
-
-/* line 87, ../../stylesheets/ui/icons.scss */
-.icon-pictures:before {
-  content: "\e011";
-}
-
-/* line 90, ../../stylesheets/ui/icons.scss */
-.icon-video:before {
-  content: "\e012";
-}
-
-/* line 93, ../../stylesheets/ui/icons.scss */
-.icon-music:before {
-  content: "\e013";
-}
-
-/* line 96, ../../stylesheets/ui/icons.scss */
-.icon-list:before {
-  content: "\e014";
-}
-
-/* line 99, ../../stylesheets/ui/icons.scss */
-.icon-plus:before {
-  content: "\e015";
-}
-
-/* line 102, ../../stylesheets/ui/icons.scss */
-.icon-minus:before {
-  content: "\e016";
-}
-
-/* line 105, ../../stylesheets/ui/icons.scss */
-.icon-read:before {
-  content: "\e017";
-}
-
-/* line 108, ../../stylesheets/ui/icons.scss */
-.icon-shop:before {
-  content: "\e01b";
-}
-
-/* line 111, ../../stylesheets/ui/icons.scss */
-.icon-book:before {
-  content: "\e01c";
-}
-
-/* line 114, ../../stylesheets/ui/icons.scss */
-.icon-layout:before {
-  content: "\e01d";
-}
-
-/* line 117, ../../stylesheets/ui/icons.scss */
-.icon-ccw:before {
-  content: "\e01e";
-}
-
-/* line 120, ../../stylesheets/ui/icons.scss */
-.icon-info:before {
-  content: "\e01f";
-}
-
-/* line 123, ../../stylesheets/ui/icons.scss */
-.icon-question:before {
-  content: "\e020";
-}
-
-/* line 126, ../../stylesheets/ui/icons.scss */
-.icon-user:before {
-  content: "\e02a";
-}
-
-/* line 129, ../../stylesheets/ui/icons.scss */
-.icon-tag:before {
-  content: "\e018";
-}
-
-/* line 132, ../../stylesheets/ui/icons.scss */
-.icon-search:before {
-  content: "\e019";
-}
-
-/* line 135, ../../stylesheets/ui/icons.scss */
-.icon-stackoverflow:before {
-  content: "\e01a";
-}
-
-/* line 138, ../../stylesheets/ui/icons.scss */
-.icon-stream:before {
-  content: "\e021";
-}
-
-/* line 141, ../../stylesheets/ui/icons.scss */
-.icon-play:before {
-  content: "\e022";
-}
-
-/* line 144, ../../stylesheets/ui/icons.scss */
-.icon-checkmark:before {
-  content: "\e023";
-}
-
-/* line 147, ../../stylesheets/ui/icons.scss */
-.icon-cross:before {
-  content: "\e024";
-}
-
-/* =========================================
-    Mobile first layout
-    ========================================*/
-/* line 23, ../../stylesheets/site.scss */
-nav[role=navigation] {
-  width: auto;
-  height: 50px;
-  line-height: 50px;
-  float: right;
-}
-/* line 29, ../../stylesheets/site.scss */
-nav[role=navigation] .links li {
-  list-style: none;
-  float: left;
-  line-height: 50px;
-}
-/* line 35, ../../stylesheets/site.scss */
-nav[role=navigation] .links a {
-  letter-spacing: 0px;
-  font-weight: bold;
-  text-transform: uppercase;
-  padding: 8px 15px;
-}
-/* line 42, ../../stylesheets/site.scss */
-nav[role=navigation] .links a.active {
-  border: 1px solid #999999;
-}
-
-/* ========================================
-        Page head
-   ========================================*/
-/* line 50, ../../stylesheets/site.scss */
-body > header {
+/* line 35, ../../stylesheets/app/item.scss */
+.page .item {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
-  min-height: 150px;
-  margin: 0 0 20px;
-  padding: 1px;
-  padding-top: 20px;
-}
-/* line 58, ../../stylesheets/site.scss */
-body > header h1.logo {
-  text-indent: -20000px;
-  margin: 0;
-  padding: 0;
+  position: relative;
   float: left;
-  width: 200px;
-  height: 80px;
+  margin: 0 0 2% 0;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  border: 1px solid #eeeeee;
+  border-width: 0 1px 1px 0;
 }
-/* line 67, ../../stylesheets/site.scss */
-body > header h1 {
-  text-transform: uppercase;
-  margin: 0 0 0.2em;
-  padding-top: 50px;
+/* line 52, ../../stylesheets/app/item.scss */
+.page .item .image {
+  height: 60%;
 }
-/* line 73, ../../stylesheets/site.scss */
-body > header a {
+/* line 56, ../../stylesheets/app/item.scss */
+.page .item .link {
+  cursor: pointer;
   color: #222;
 }
-
-/* line 78, ../../stylesheets/site.scss */
-header.cover-image {
-  height: 300px;
+/* line 63, ../../stylesheets/app/item.scss */
+.page .item .info {
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+  right: 20px;
+  background: #fff;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  display: inline-block;
+  vertical-align: top;
+  padding: 1.25em 0 1.25em;
+  color: #333;
 }
-/* line 81, ../../stylesheets/site.scss */
-header.cover-image h1 {
-  padding-top: 130px;
+/* line 83, ../../stylesheets/app/item.scss */
+.page .item .description {
+  font-size: 13px;
+  margin: 0.5em 0 0.5em;
+  max-height: 62px;
+  color: #777;
 }
-
-/* line 87, ../../stylesheets/site.scss */
-.logo {
-  float: left;
-  width: 200px;
-  height: 80px;
-  background: url('../images/issue-logo.png?1361755644') 0 -80px no-repeat;
+/* line 91, ../../stylesheets/app/item.scss */
+.page .item .via {
+  font-size: 12px;
+  color: #999;
 }
-/* line 94, ../../stylesheets/site.scss */
-.logo.small {
-  width: 180px;
-  height: 50px;
-  background-position: -200px -80px;
+/* line 95, ../../stylesheets/app/item.scss */
+.page .item .via img {
+  vertical-align: middle;
+  margin-right: 5px;
 }
-/* line 100, ../../stylesheets/site.scss */
-.dark-theme .logo {
-  background-position: 0 0px;
+/* line 101, ../../stylesheets/app/item.scss */
+.page .item .title {
+  /*    Style   */
+  position: relative;
+  font-family: "proxima_nova", "Helvetica Neue";
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #2c2c2c;
+  font-size: 12px;
+  margin: 0 0 0.75em;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-/* line 104, ../../stylesheets/site.scss */
-.dark-theme .logo.small {
-  background-position: -200px 0px;
+/* line 121, ../../stylesheets/app/item.scss */
+.page .row .item:last-child {
+  border-right: 0;
 }
-
-/* ========================================
-        Footer
-   ========================================*/
-/* line 113, ../../stylesheets/site.scss */
-footer[role=contentinfo] {
-  clear: both;
-  padding: 50px 0;
-  border-top: 1px solid #eeeeee;
+/* line 126, ../../stylesheets/app/item.scss */
+.page .row .item:first-child {
+  border-right-width: 1px;
+  border-right-color: #EEE;
+  border-right-style: solid;
 }
-/* line 118, ../../stylesheets/site.scss */
-footer[role=contentinfo] .copyright {
-  padding: 0;
+/* line 132, ../../stylesheets/app/item.scss */
+.page .row .col:first-child .product.item .price {
+  margin-bottom: 43px;
+}
+/* line 143, ../../stylesheets/app/item.scss */
+.page .product .overlay, .page .no-description .overlay {
+  height: 90%;
+}
+/* line 147, ../../stylesheets/app/item.scss */
+.page .product .image, .page .no-description .image {
+  display: block;
+  height: 90%;
+}
+/* line 162, ../../stylesheets/app/item.scss */
+.page .no-image .title {
+  font-size: 200%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3 !important;
+}
+/* line 169, ../../stylesheets/app/item.scss */
+.page .no-image .overlay {
+  height: 100%;
+}
+/* line 173, ../../stylesheets/app/item.scss */
+.page .no-image .image {
+  display: none;
+}
+/* line 177, ../../stylesheets/app/item.scss */
+.page .no-image .description {
+  font-weight: 200;
+  font-size: 150%;
+  max-height: none;
+  visibility: visible !important;
+  display: block;
+  -webkit-line-clamp: 8 !important;
+  height: 10em !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+/* line 196, ../../stylesheets/app/item.scss */
+.page .product .price {
+  display: block;
+  position: absolute;
+  font-size: 12px;
+  top: 20px;
+  left: 20px;
+  padding: 6px 18px;
+  height: 20px;
+  line-height: 20px;
+  margin-bottom: 13px;
+  font-weight: bold;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+}
+/* line 217, ../../stylesheets/app/item.scss */
+.page .product .price:before {
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  width: 0;
+  height: 0;
+  border: solid transparent;
+  content: " ";
+  margin-left: -7px;
+  border-width: 7px;
+  border-top-color: rgba(0, 0, 0, 0.8);
+}
+/* line 231, ../../stylesheets/app/item.scss */
+.page .product .description {
+  display: none;
+}
+/* line 236, ../../stylesheets/app/item.scss */
+.page .product .counters {
+  color: #DF5454;
+  font-size: 14px;
+  position: absolute;
+  top: 2%;
+  right: 6%;
+  z-index: 1;
+  line-height: 12px;
+}
+/* line 251, ../../stylesheets/app/item.scss */
+.page .item.split .overlay {
+  height: 100%;
+}
+/* line 255, ../../stylesheets/app/item.scss */
+.page .item.split a.action.love, .page .item.split a.action.collect {
+  top: 50%;
+}
+/* line 259, ../../stylesheets/app/item.scss */
+.page .item.split .image {
+  overflow: hidden;
+  display: inline-block;
+  width: 49%;
+  left: 0;
+  height: 100%;
+  top: initial;
+  vertical-align: middle;
+}
+/* line 269, ../../stylesheets/app/item.scss */
+.page .item.split .info:before {
+  position: absolute;
+  bottom: 60%;
+  right: 100%;
+  width: 0;
+  height: 0;
+  border: solid transparent;
+  content: " ";
+  margin-left: -10px;
+  border-width: 10px;
+  border-right-color: #fff;
+}
+/* line 282, ../../stylesheets/app/item.scss */
+.page .item.split .info {
   margin: 0;
+  width: 49%;
+  height: auto;
+  vertical-align: middle;
+  padding: 10% 2% 0;
+  position: relative;
+  height: 100%;
+  font-weight: 200;
+  left: auto;
+}
+/* line 292, ../../stylesheets/app/item.scss */
+.page .item.split .info > p {
+  font-size: 150%;
+  visibility: visible;
+  white-space: normal;
+  max-height: inherit;
+  text-overflow: ellipsis;
+}
+/* line 312, ../../stylesheets/app/item.scss */
+.page .item.split .via {
+  position: absolute;
+  bottom: 0;
+  left: 10px;
+}
+
+/*  different page styles   */
+/*  Full screen background  */
+/* line 6, ../../stylesheets/app/page.scss */
+body.dark-theme .toolbar {
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0icmdiYSgwLCAwLCAwLCAwLjYpIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSJyZ2JhKDAsIDAsIDAsIDApIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
+  background-size: 100%;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(0, 0, 0, 0.6)), color-stop(100%, rgba(0, 0, 0, 0)));
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
+  background-image: -moz-linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
+  background-image: -o-linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
+  color: white;
+  border: transparent;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+/* line 12, ../../stylesheets/app/page.scss */
+body.dark-theme .toolbar .title {
+  color: white;
+}
+/* line 17, ../../stylesheets/app/page.scss */
+body.dark-theme .toolbar a {
+  color: white;
+}
+
+/* line 22, ../../stylesheets/app/page.scss */
+.page.dark.full {
+  color: white;
+}
+/* line 25, ../../stylesheets/app/page.scss */
+.page.dark.full .left-content {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+/* line 31, ../../stylesheets/app/page.scss */
+.page.full .left-content {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 20px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+/* line 39, ../../stylesheets/app/page.scss */
+body .page {
+  margin: 0 0 0;
+  max-height: 100%;
+  padding-top: 70px;
+  font-size: 14px;
+}
+/* line 46, ../../stylesheets/app/page.scss */
+body .page .row:last-child {
+  margin-bottom: 0;
+}
+
+/* line 58, ../../stylesheets/app/page.scss */
+article.page blockquote {
+  font-family: Georgia, serif;
+  font-size: 18px;
+  font-style: italic;
+  width: 500px;
+  margin: 0.25em 0;
+  padding: 0.25em 40px;
+  line-height: 1.45;
+  position: relative;
+}
+/* line 69, ../../stylesheets/app/page.scss */
+article.page blockquote:before {
+  display: block;
+  content: "\201C";
+  font-size: 80px;
+  position: absolute;
+  left: -10px;
+  top: -20px;
+  color: #7a7a7a;
+}
+/* line 79, ../../stylesheets/app/page.scss */
+article.page blockquote cite {
+  color: #999999;
+  font-size: 14px;
+  display: block;
+  margin-top: 5px;
+}
+/* line 85, ../../stylesheets/app/page.scss */
+article.page blockquote cite:before {
+  content: "\2014 \2009";
+}
+/* line 90, ../../stylesheets/app/page.scss */
+article.page .image.cover {
+  position: relative;
+  height: 200%;
+  width: 200%;
+  top: -50%;
+  left: -50%;
+}
+/* line 98, ../../stylesheets/app/page.scss */
+article.page .price, article.page .store {
+  display: inline-block;
+}
+/* line 102, ../../stylesheets/app/page.scss */
+article.page .price {
+  float: left;
+  line-height: 37px;
+}
+/* line 107, ../../stylesheets/app/page.scss */
+article.page .button.store {
+  margin-bottom: 1em;
+  display: block;
   float: right;
+  margin: 0;
 }
-/* line 124, ../../stylesheets/site.scss */
-footer[role=contentinfo] .footer-links {
-  list-style: none;
+/* line 114, ../../stylesheets/app/page.scss */
+article.page .description {
+  display: block;
+  clear: both;
 }
-/* line 127, ../../stylesheets/site.scss */
-footer[role=contentinfo] .footer-links li {
-  padding-right: 40px;
-  display: inline;
+
+@media screen and (orientation: portrait) {
+  /* line 122, ../../stylesheets/app/page.scss */
+  article.page .col.half {
+    height: 49%;
+    width: 100%;
+    background: white;
+  }
+  /* line 127, ../../stylesheets/app/page.scss */
+  article.page .col.half .image {
+    left: 25%;
+    position: relative;
+    width: 50%;
+  }
+  /* line 133, ../../stylesheets/app/page.scss */
+  article.page .col.half .info {
+    text-align: center;
+  }
+  /* line 135, ../../stylesheets/app/page.scss */
+  article.page .col.half .info .store {
+    margin: 0;
+  }
+  /* line 139, ../../stylesheets/app/page.scss */
+  article.page .col.half .info .price {
+    line-height: 37px;
+    vertical-align: middle;
+  }
+  /* line 144, ../../stylesheets/app/page.scss */
+  article.page .col.half .info p {
+    margin-top: 10px;
+    text-align: left;
+  }
+}
+/* line 154, ../../stylesheets/app/page.scss */
+.page {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
+  padding: 72px 22px 22px 22px;
+  overflow: hidden;
+  font-family: 'proxima_nova_regular';
+}
+/* line 162, ../../stylesheets/app/page.scss */
+.page .info {
+  margin: 20px 22px 0;
+}
+/* line 166, ../../stylesheets/app/page.scss */
+.page .title {
+  margin: 0 90px 10px 0;
+  font-weight: normal;
+  font-size: 24px;
+  font-family: 'proxima_nova_bold';
+  text-transform: uppercase;
+}
+/* line 175, ../../stylesheets/app/page.scss */
+.page .price span:first-child {
+  font-size: 24px;
+  font-family: 'proxima_nova_bold';
+}
+/* line 182, ../../stylesheets/app/page.scss */
+.page .store {
+  position: absolute;
+  top: 20px;
+  right: -24px;
+  letter-spacing: 1.5px;
+  padding: 17px 13px 17px 20px;
+  background-color: #F04500;
+  color: white;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-family: 'proxima_nova_bold';
+}
+/* line 195, ../../stylesheets/app/page.scss */
+.page .source {
+  margin: 0;
+  color: #666;
+  font-size: 12px;
+}
+/* line 199, ../../stylesheets/app/page.scss */
+.page .source span {
+  color: #2c2c2c;
+}
+/* line 203, ../../stylesheets/app/page.scss */
+.page .description {
+  padding-top: 25px;
+  font-size: 16px;
+}
+
+/* line 209, ../../stylesheets/app/page.scss */
+.content.page {
+  overflow: auto;
+}
+/* line 212, ../../stylesheets/app/page.scss */
+.content.page header {
+  margin: 0 0 18px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eeeeee;
+  text-align: center;
+}
+/* line 220, ../../stylesheets/app/page.scss */
+.content.page header, .content.page .body.one-column {
+  width: 90%;
+  margin: 0 auto;
+}
+/* line 226, ../../stylesheets/app/page.scss */
+.content.page .title {
+  text-transform: uppercase;
+  font-size: 24px;
+  font-weight: normal;
+}
+/* line 234, ../../stylesheets/app/page.scss */
+.content.page .author, .content.page .published-at {
+  color: #333;
+  font-family: Georgia;
+  font-style: italic;
+}
+/* line 240, ../../stylesheets/app/page.scss */
+.content.page .body {
+  font-size: 16px;
+  line-height: 22px;
+  color: #333;
+  text-align: justify;
+  -webkit-hyphens: auto;
+}
+/* line 252, ../../stylesheets/app/page.scss */
+.content.page .body p {
+  margin: 1.2em 0 !important;
+}
+/* line 256, ../../stylesheets/app/page.scss */
+.content.page .body a[href] {
+  color: #d93e00;
+}
+/* line 260, ../../stylesheets/app/page.scss */
+.content.page .body img {
+  box-sizing: border-box;
+  clear: both;
+  display: block;
+  float: none;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+}
+/* line 270, ../../stylesheets/app/page.scss */
+.content.page .body ul {
+  list-style-type: none;
+}
+/* line 274, ../../stylesheets/app/page.scss */
+.content.page iframe {
+  width: 100% !important;
+}
+
+/* line 15, ../../stylesheets/application.scss */
+.container {
+  margin: 0 auto;
+  width: 85%;
 }
 
 @media only screen and (min-width: 768px) {
-  /* line 138, ../../stylesheets/site.scss */
+  /* line 22, ../../stylesheets/application.scss */
   .container {
     margin: 0 auto;
     max-width: 980px;
   }
-}
-/* line 2, ../../stylesheets/site/home.scss */
-#hero {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  height: 100%;
-  padding-top: 3%;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-image: url('../images/site/home-background.jpg?1361611111');
-}
-/* line 11, ../../stylesheets/site/home.scss */
-#hero .logo {
-  float: none;
-  margin-top: 5%;
-}
-/* line 16, ../../stylesheets/site/home.scss */
-#hero h2 {
-  font-family: georgia;
-  font-weight: normal;
-  line-height: 1.8;
-  margin: 0em 0 1em;
-  /*    font: 2em/1.5em Georgia;
-  */
-  font-style: italic;
-  text-transform: none;
-}
-/* line 28, ../../stylesheets/site/home.scss */
-#hero #ipad-screen {
-  position: relative;
-  top: -20px;
-  left: -2%;
-}
-/* line 34, ../../stylesheets/site/home.scss */
-#hero .learn-more {
-  font-size: 16px;
-  font-weight: bold;
-  text-transform: uppercase;
-  margin-left: 20px;
-}
-/* line 41, ../../stylesheets/site/home.scss */
-#hero .more-arrow {
-  position: absolute;
-  left: 49%;
-  bottom: 20px;
-  width: 50px;
-  height: 30px;
-  display: block;
-  margin: 0 auto;
-  background: url('../images/icons-sprite.png?1360293764') no-repeat;
-}
-
-/* line 53, ../../stylesheets/site/home.scss */
-section.tour {
-  overflow: hidden;
-  *zoom: 1;
-  padding: 40px 0;
-}
-/* line 57, ../../stylesheets/site/home.scss */
-section.tour.odd {
-  background: #f6f9f9;
-}
-/* line 59, ../../stylesheets/site/home.scss */
-section.tour h2 {
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  /*    margin: 0 0 0;*/
-}
-/* line 65, ../../stylesheets/site/home.scss */
-section.tour .subtitle {
-  font: 16px Georgia;
-  color: #555;
-  font-style: italic;
-  text-align: center;
-}
-/* line 72, ../../stylesheets/site/home.scss */
-section.tour figure {
-  text-align: center;
-}
-/* line 76, ../../stylesheets/site/home.scss */
-section.tour .box {
-  display: -moz-inline-stack;
-  display: inline-block;
-  vertical-align: middle;
-  *vertical-align: auto;
-  zoom: 1;
-  *display: inline;
-  background: #222;
-  color: white;
-  position: relative;
-  /*    width: 430px;*/
-  height: 300px;
-  margin: 0 2% 60px 0;
-}
-/* line 86, ../../stylesheets/site/home.scss */
-section.tour .box h3 {
-  font-family: "proxima_nova_regular", "Helvetica Neue";
-  letter-spacing: 2px;
-  position: absolute;
-  font-size: 18px;
-  margin-top: 140px;
-  text-align: center;
-  text-transform: uppercase;
-  /*      font-weight: bold;*/
-  vertical-align: middle;
-  text-shadow: 0px 0px 1px #aaaaaa;
-  width: 100%;
-  visibility: visible;
-  z-index: 2;
-}
-/* line 103, ../../stylesheets/site/home.scss */
-section.tour .box .hover {
-  position: absolute;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  width: 100%;
-  height: 100%;
-  padding: 40px;
-  font-size: 16px;
-  font-weight: bold;
-  display: none;
-  background: black;
-  opacity: 0.8;
-}
-/* line 117, ../../stylesheets/site/home.scss */
-section.tour .box:hover h3 {
-  /*        visibility: hidden;*/
-}
-/* line 120, ../../stylesheets/site/home.scss */
-section.tour .box:hover .hover {
-  display: block;
-}
-/* line 126, ../../stylesheets/site/home.scss */
-section.tour .box.brand {
-  background-size: cover;
-  background-image: url('../images/site/tour-brand.png?1360293764');
-}
-/* line 131, ../../stylesheets/site/home.scss */
-section.tour .box.blogger {
-  background-size: cover;
-  background-image: url('../images/site/tour-blogger.png?1360293764');
-}
-
-/* ====
-
-=== */
-@media screen and (min-width: 768px) {
-  /* line 146, ../../stylesheets/site/home.scss */
-  section.tour.blogger .col:first-child {
-    left: 50%;
-  }
-  /* line 150, ../../stylesheets/site/home.scss */
-  section.tour.blogger .col:last-child {
-    right: 50%;
-  }
-}
-
-/* line 2, ../../stylesheets/site/publisher.scss */
-form#reserve_edition .row {
-  margin-bottom: 10px;
-}
-
-/* line 8, ../../stylesheets/site/publisher.scss */
-.modal .edition_handle {
-  margin-bottom: 2em;
-  padding-bottom: 1em;
-  border-bottom: 1px solid #cccccc;
-}
-/* line 14, ../../stylesheets/site/publisher.scss */
-.modal .publisher-type {
-  margin-top: -0.5em;
-}
-
-/* line 21, ../../stylesheets/site/publisher.scss */
-#edition_handle {
-  margin-left: 2px;
-  width: 7em;
-  /* ie */
-}
-/* line 4, ../../stylesheets/base/form.scss */
-#edition_handle.placeholder {
-  font-size: 24px;
-  font-weight: normal !important;
-}
-/* line 5, ../../stylesheets/base/form.scss */
-#edition_handle:-moz-placeholder {
-  font-size: 24px;
-  font-weight: normal !important;
-}
-/* line 6, ../../stylesheets/base/form.scss */
-#edition_handle::-webkit-input-placeholder {
-  font-size: 24px;
-  font-weight: normal !important;
-}
-/* line 7, ../../stylesheets/base/form.scss */
-#edition_handle:-ms-input-placeholder {
-  font-size: 24px;
-  font-weight: normal !important;
 }

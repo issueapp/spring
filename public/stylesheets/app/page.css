@@ -1,23 +1,23 @@
 /*
-Syntax error: Undefined mixin 'clearfix'.
-        on line 21 of ./stylesheets/ui.scss, in `clearfix'
-        from line 21 of ./stylesheets/ui.scss
+Syntax error: Undefined mixin 'background-image'.
+        on line 7 of ./stylesheets/app/page.scss, in `background-image'
+        from line 7 of ./stylesheets/app/page.scss
 
-16: @import 'ui/icons';
-17: 
-18: //------ ui/menu
-19: 
-20: nav.tab-menu {
-21:   @include clearfix;
-22:   
-23:   ul {
-24:     list-style: none;
-25:     padding: 0;
-26:     border:1px solid #ccc;
+2: /*  different page styles   */
+3: 
+4: /*  Full screen background  */
+5: 
+6: body.dark-theme .toolbar {
+7:   @include background-image(linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0)));  
+8:   color: white;
+9:   border: transparent;
+10:   @include text-shadow(1px 1px 1px rgba(0,0,0,0.3));
+11: 
+12:   .title {
 
 Backtrace:
-./stylesheets/ui.scss:21:in `clearfix'
-./stylesheets/ui.scss:21
+./stylesheets/app/page.scss:7:in `background-image'
+./stylesheets/app/page.scss:7
 /Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:251:in `visit_mixin'
 /Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:37:in `visit'
 /Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:98:in `visit'
@@ -66,4 +66,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined mixin 'clearfix'.\A         on line 21 of ./stylesheets/ui.scss, in `clearfix'\A         from line 21 of ./stylesheets/ui.scss\A \A 16: @import 'ui/icons';\A 17: \A 18: //------ ui/menu\A 19: \A 20: nav.tab-menu {\A 21:   @include clearfix;\A 22:   \A 23:   ul {\A 24:     list-style: none;\A 25:     padding: 0;\A 26:     border:1px solid #ccc;"; }
+  content: "Syntax error: Undefined mixin 'background-image'.\A         on line 7 of ./stylesheets/app/page.scss, in `background-image'\A         from line 7 of ./stylesheets/app/page.scss\A \A 2: /*  different page styles   */\A 3: \A 4: /*  Full screen background  */\A 5: \A 6: body.dark-theme .toolbar {\A 7:   @include background-image(linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0)));  \A 8:   color: white;\A 9:   border: transparent;\A 10:   @include text-shadow(1px 1px 1px rgba(0,0,0,0.3));\A 11: \A 12:   .title {"; }
