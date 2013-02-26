@@ -5,17 +5,21 @@
     <h1 class="logo"><a href="/web">Issue</a></h1>
     <h2>Your edition of curated magazine</h2>
   
-    <%= image_tag "images/home/ipad.png", id: "ipad-screen", :class => "x7" %>
+    <%= image_tag "site/ipad.png", id: "ipad-screen", :class => "x7" %>
     
     <div>
       <a class="open-modal" href="#signup-modal">
-        <img alt="Appstore" height="48" src="/images/home/appstore.png" width="160" />
+        <%= image_tag "site/appstore.png", size: "160x40", alt: "Appstore" %>
       </a>
+      
       <a class="scroll-to learn-more" href="#see-more">Learn more</a>
     </div>
   
     <a class="scroll-to more-arrow" title="Scroll down to view more" href="#see-more"></a>
   </div>
+  <span class="attribution">
+    by Daniele Zedda
+  </span>
 </header>
 <% end %>
 
