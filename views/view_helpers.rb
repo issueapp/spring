@@ -71,6 +71,11 @@ eos
     #no-op
   end
   
+  def image_tag(src, *args)
+    src = "/images/#{src}"
+    super
+  end
+  
   def image_holder(size)
     width, height = size.split("x")
     

@@ -760,31 +760,10 @@ p.center {
   text-align: center;
 }
 
-/* ======================================================
-       Type settings for dark theme
-   ======================================================*/
-/* line 144, ../../stylesheets/typography.scss */
-.dark-theme {
-  color: white;
-}
-/* line 147, ../../stylesheets/typography.scss */
-.dark-theme .subtitle {
-  color: #ccc;
-}
-/* line 151, ../../stylesheets/typography.scss */
-.dark-theme a {
-  color: white;
-  text-decoration: none;
-}
-/* line 156, ../../stylesheets/typography.scss */
-.dark-theme a:hover {
-  color: #f04500;
-}
-
 /*======================================================
       Helpers
   ======================================================*/
-/* line 168, ../../stylesheets/typography.scss */
+/* line 148, ../../stylesheets/typography.scss */
 .centered {
   text-align: center;
 }
@@ -793,7 +772,7 @@ p.center {
       Responsive (larger screen)
   ====*/
 @media screen and (min-width: 768px) {
-  /* line 180, ../../stylesheets/typography.scss */
+  /* line 160, ../../stylesheets/typography.scss */
   h1 {
     font-size: 30px;
     font-size: 1.875em;
@@ -801,7 +780,7 @@ p.center {
     line-height: 1.2;
   }
 
-  /* line 188, ../../stylesheets/typography.scss */
+  /* line 168, ../../stylesheets/typography.scss */
   h2 {
     font-size: 24px;
     font-size: 1.5em;
@@ -809,7 +788,7 @@ p.center {
     line-height: 1.2;
   }
 
-  /* line 195, ../../stylesheets/typography.scss */
+  /* line 175, ../../stylesheets/typography.scss */
   h3 {
     font-size: 18px;
     font-size: 1.115em;
@@ -822,6 +801,18 @@ nav ol, nav ul {
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+/* line 49, ../../stylesheets/application.scss */
+.attribution {
+  display: inline;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 3px 10px;
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  font-size: 12px;
 }
 
 /*======================================================
@@ -1025,133 +1016,6 @@ col.centred {
     width: 100%;
   }
 }
-/* =========================================
-    Mobile first layout
-    ========================================*/
-/* line 5, ../../stylesheets/layout.scss */
-nav[role=navigation] {
-  width: auto;
-  height: 50px;
-  line-height: 50px;
-  float: right;
-}
-
-/* line 12, ../../stylesheets/layout.scss */
-.links li {
-  list-style: none;
-  float: left;
-  line-height: 50px;
-}
-
-/* line 18, ../../stylesheets/layout.scss */
-.links a {
-  letter-spacing: 0px;
-  font-weight: bold;
-  text-transform: uppercase;
-  padding: 8px 15px;
-}
-
-/* line 25, ../../stylesheets/layout.scss */
-nav[role=navigation] .links a.active {
-  border: 1px solid #999999;
-}
-
-/* ========================================
-        Page head
-   ========================================*/
-/* line 34, ../../stylesheets/layout.scss */
-body > header {
-  box-sizing: border-box;
-  min-height: 150px;
-  margin: 0 0 20px;
-  padding: 1px;
-  padding-top: 20px;
-  /*  h1.logo {
-      font-size: 30px;
-      padding-top: 20px;
-      font-size: 24px;
-      float: left;
-      width: 80px;
-      padding: 0;
-    }*/
-}
-/* line 51, ../../stylesheets/layout.scss */
-body > header h1.logo {
-  text-indent: -20000px;
-  margin: 0;
-  padding: 0;
-  float: left;
-  width: 200px;
-  height: 80px;
-  /*    background: image-url("issue-logo.png") -15px -90px no-repeat;*/
-}
-/* line 61, ../../stylesheets/layout.scss */
-body > header h1 {
-  text-transform: uppercase;
-  margin: 0 0 0.2em;
-  padding-top: 50px;
-}
-/* line 67, ../../stylesheets/layout.scss */
-body > header a {
-  color: #222;
-}
-
-/* line 72, ../../stylesheets/layout.scss */
-header.cover-image {
-  height: 300px;
-}
-/* line 75, ../../stylesheets/layout.scss */
-header.cover-image h1 {
-  padding-top: 130px;
-}
-
-/* line 81, ../../stylesheets/layout.scss */
-.logo {
-  float: left;
-  width: 200px;
-  height: 80px;
-  background: url('../images/issue-logo.png?1361755644') 0 -80px no-repeat;
-}
-/* line 88, ../../stylesheets/layout.scss */
-.logo.small {
-  width: 180px;
-  height: 50px;
-  background-position: -200px -80px;
-}
-/* line 94, ../../stylesheets/layout.scss */
-.dark-theme .logo {
-  background-position: 0 0px;
-}
-/* line 98, ../../stylesheets/layout.scss */
-.dark-theme .logo.small {
-  background-position: -200px 0px;
-}
-
-/* ========================================
-        Footer
-   ========================================*/
-/* line 107, ../../stylesheets/layout.scss */
-footer[role=contentinfo] {
-  clear: both;
-  padding: 50px 0;
-  border-top: 1px solid #eeeeee;
-}
-/* line 112, ../../stylesheets/layout.scss */
-footer[role=contentinfo] .copyright {
-  padding: 0;
-  margin: 0;
-  float: right;
-}
-/* line 118, ../../stylesheets/layout.scss */
-footer[role=contentinfo] .footer-links {
-  list-style: none;
-}
-/* line 121, ../../stylesheets/layout.scss */
-footer[role=contentinfo] .footer-links li {
-  padding-right: 40px;
-  display: inline;
-}
-
 @font-face {
   font-family: 'issue-icons';
   src: url("../../fonts/issue-icons.eot");
@@ -2956,215 +2820,14 @@ article.page .description {
   width: 100% !important;
 }
 
-/* line 2, ../../stylesheets/sections/home.scss */
-#hero {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  height: 100%;
-  padding-top: 3%;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-image: url('../images/home/home-background.jpg?1361611111');
-}
-/* line 11, ../../stylesheets/sections/home.scss */
-#hero .logo {
-  float: none;
-  margin-top: 5%;
-}
-/* line 16, ../../stylesheets/sections/home.scss */
-#hero h2 {
-  font-family: georgia;
-  font-weight: normal;
-  line-height: 1.8;
-  margin: 0em 0 1em;
-  /*    font: 2em/1.5em Georgia;
-  */
-  font-style: italic;
-  text-transform: none;
-}
-/* line 28, ../../stylesheets/sections/home.scss */
-#hero #ipad-screen {
-  position: relative;
-  top: -20px;
-  left: -2%;
-}
-/* line 34, ../../stylesheets/sections/home.scss */
-#hero .learn-more {
-  font-size: 16px;
-  font-weight: bold;
-  text-transform: uppercase;
-  margin-left: 20px;
-}
-/* line 41, ../../stylesheets/sections/home.scss */
-#hero .more-arrow {
-  position: absolute;
-  left: 49%;
-  bottom: 20px;
-  width: 50px;
-  height: 30px;
-  display: block;
-  margin: 0 auto;
-  background: url('../images/icons-sprite.png') no-repeat;
-}
-
-/* line 53, ../../stylesheets/sections/home.scss */
-section.tour {
-  overflow: hidden;
-  *zoom: 1;
-  padding: 40px 0;
-}
-/* line 57, ../../stylesheets/sections/home.scss */
-section.tour.odd {
-  background: #f6f9f9;
-}
-/* line 59, ../../stylesheets/sections/home.scss */
-section.tour h2 {
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  /*    margin: 0 0 0;*/
-}
-/* line 65, ../../stylesheets/sections/home.scss */
-section.tour .subtitle {
-  font: 16px Georgia;
-  color: #555;
-  font-style: italic;
-  text-align: center;
-}
-/* line 72, ../../stylesheets/sections/home.scss */
-section.tour figure {
-  text-align: center;
-}
-/* line 76, ../../stylesheets/sections/home.scss */
-section.tour .box {
-  display: -moz-inline-stack;
-  display: inline-block;
-  vertical-align: middle;
-  *vertical-align: auto;
-  zoom: 1;
-  *display: inline;
-  background: #222;
-  color: white;
-  position: relative;
-  /*    width: 430px;*/
-  height: 300px;
-  margin: 0 2% 60px 0;
-}
-/* line 86, ../../stylesheets/sections/home.scss */
-section.tour .box h3 {
-  font-family: "proxima_nova_regular", "Helvetica Neue";
-  letter-spacing: 2px;
-  position: absolute;
-  font-size: 18px;
-  margin-top: 140px;
-  text-align: center;
-  text-transform: uppercase;
-  /*      font-weight: bold;*/
-  vertical-align: middle;
-  text-shadow: 0px 0px 1px #aaaaaa;
-  width: 100%;
-  visibility: visible;
-  z-index: 2;
-}
-/* line 103, ../../stylesheets/sections/home.scss */
-section.tour .box .hover {
-  position: absolute;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  width: 100%;
-  height: 100%;
-  padding: 40px;
-  font-size: 16px;
-  font-weight: bold;
-  display: none;
-  background: black;
-  opacity: 0.8;
-}
-/* line 117, ../../stylesheets/sections/home.scss */
-section.tour .box:hover h3 {
-  /*        visibility: hidden;*/
-}
-/* line 120, ../../stylesheets/sections/home.scss */
-section.tour .box:hover .hover {
-  display: block;
-}
-/* line 126, ../../stylesheets/sections/home.scss */
-section.tour .box.brand {
-  background-size: cover;
-  background-image: url('../images/home/tour-brand.png?1360293764');
-}
-/* line 131, ../../stylesheets/sections/home.scss */
-section.tour .box.blogger {
-  background-size: cover;
-  background-image: url('../images/home/tour-blogger.png?1360293764');
-}
-
-/* ====
-
-=== */
-@media screen and (min-width: 768px) {
-  /* line 146, ../../stylesheets/sections/home.scss */
-  section.tour.blogger .col:first-child {
-    left: 50%;
-  }
-  /* line 150, ../../stylesheets/sections/home.scss */
-  section.tour.blogger .col:last-child {
-    right: 50%;
-  }
-}
-
-/* line 2, ../../stylesheets/sections/publisher.scss */
-form#reserve_edition .row {
-  margin-bottom: 10px;
-}
-
-/* line 8, ../../stylesheets/sections/publisher.scss */
-.modal .edition_handle {
-  margin-bottom: 2em;
-  padding-bottom: 1em;
-  border-bottom: 1px solid #cccccc;
-}
-/* line 14, ../../stylesheets/sections/publisher.scss */
-.modal .publisher-type {
-  margin-top: -0.5em;
-}
-
-/* line 21, ../../stylesheets/sections/publisher.scss */
-#edition_handle {
-  margin-left: 2px;
-  width: 7em;
-  /* ie */
-}
-/* line 4, ../../stylesheets/form.scss */
-#edition_handle.placeholder {
-  font-size: 24px;
-  font-weight: normal !important;
-}
-/* line 5, ../../stylesheets/form.scss */
-#edition_handle:-moz-placeholder {
-  font-size: 24px;
-  font-weight: normal !important;
-}
-/* line 6, ../../stylesheets/form.scss */
-#edition_handle::-webkit-input-placeholder {
-  font-size: 24px;
-  font-weight: normal !important;
-}
-/* line 7, ../../stylesheets/form.scss */
-#edition_handle:-ms-input-placeholder {
-  font-size: 24px;
-  font-weight: normal !important;
-}
-
-/* line 71, ../../stylesheets/application.scss */
+/* line 81, ../../stylesheets/application.scss */
 .container {
   margin: 0 auto;
   width: 85%;
 }
 
 @media only screen and (min-width: 768px) {
-  /* line 78, ../../stylesheets/application.scss */
+  /* line 88, ../../stylesheets/application.scss */
   .container {
     margin: 0 auto;
     max-width: 980px;

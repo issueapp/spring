@@ -1,8 +1,115 @@
-/* line 1, ../../stylesheets/docs.scss */
+/* =========================================
+    Mobile first layout
+    ========================================*/
+/* line 7, ../../stylesheets/docs.scss */
+nav[role=navigation] {
+  width: auto;
+  height: 50px;
+  line-height: 50px;
+  float: right;
+}
+/* line 13, ../../stylesheets/docs.scss */
+nav[role=navigation] .links li {
+  list-style: none;
+  float: left;
+  line-height: 50px;
+}
+/* line 19, ../../stylesheets/docs.scss */
+nav[role=navigation] .links a {
+  letter-spacing: 0px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 8px 15px;
+}
+/* line 26, ../../stylesheets/docs.scss */
+nav[role=navigation] .links a.active {
+  border: 1px solid #999999;
+}
+
+/* ========================================
+        Page head
+   ========================================*/
+/* line 34, ../../stylesheets/docs.scss */
+body > header {
+  box-sizing: border-box;
+  min-height: 150px;
+  margin: 0 0 20px;
+  padding: 1px;
+  padding-top: 20px;
+}
+/* line 42, ../../stylesheets/docs.scss */
+body > header h1.logo {
+  text-indent: -20000px;
+  margin: 0;
+  padding: 0;
+  float: left;
+  width: 200px;
+  height: 80px;
+}
+/* line 51, ../../stylesheets/docs.scss */
+body > header h1 {
+  text-transform: uppercase;
+  margin: 0 0 0.2em;
+  padding-top: 50px;
+}
+/* line 57, ../../stylesheets/docs.scss */
+body > header a {
+  color: #222;
+}
+
+/* line 62, ../../stylesheets/docs.scss */
+header.cover-image {
+  height: 300px;
+}
+/* line 65, ../../stylesheets/docs.scss */
+header.cover-image h1 {
+  padding-top: 130px;
+}
+
+/* line 70, ../../stylesheets/docs.scss */
 .logo {
+  float: left;
   width: 200px;
   height: 30px;
   background: none !important;
-  float: left;
   font-size: 24px;
+}
+/* line 77, ../../stylesheets/docs.scss */
+.logo.small {
+  width: 180px;
+  height: 50px;
+  background-position: -200px -80px;
+}
+/* line 83, ../../stylesheets/docs.scss */
+.dark-theme .logo {
+  background-position: 0 0px;
+}
+/* line 87, ../../stylesheets/docs.scss */
+.dark-theme .logo.small {
+  background-position: -200px 0px;
+}
+
+/* ========================================
+        Footer
+   ========================================*/
+/* line 96, ../../stylesheets/docs.scss */
+footer[role=contentinfo] {
+  clear: both;
+  padding: 50px 0;
+  border-top: 1px solid #eeeeee;
+}
+/* line 101, ../../stylesheets/docs.scss */
+footer[role=contentinfo] .copyright {
+  padding: 0;
+  margin: 0;
+  float: right;
+}
+/* line 107, ../../stylesheets/docs.scss */
+footer[role=contentinfo] .footer-links {
+  list-style: none;
+}
+/* line 110, ../../stylesheets/docs.scss */
+footer[role=contentinfo] .footer-links li {
+  padding-right: 40px;
+  display: inline;
 }

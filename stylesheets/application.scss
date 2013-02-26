@@ -45,9 +45,20 @@ nav ol, nav ul {
   list-style: none;
 }
 
+// Attribution
+.attribution {
+  display: inline;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 3px 10px;
+  color: white;
+  background: rgba(0,0,0, 0.5);
+  font-size: 12px;
+}
+
 
 @import 'grid';
-@import 'layout';
 
 // 4. UI         			==============================
 @import 'vendor/issue-icons';
@@ -64,10 +75,9 @@ nav ol, nav ul {
 // 6. PAGE       			==============================
 @import 'page';
 
-@import "sections/home";
-@import "sections/publisher";
 
 // 7. RESPONSIVE 			==============================
+
 .container {
   margin:0 auto;
   width: 85%;

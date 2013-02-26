@@ -2,20 +2,24 @@
 <header id="hero" class="dark-theme">
   <div class="container">
   
-    <h1 class="logo"><a href="/web">Issue</a></h1>
+    <h1 class="logo"><a href="/site">Issue</a></h1>
     <h2>Your edition of curated magazine</h2>
   
-    <%= image_tag "images/home/ipad.png", id: "ipad-screen", :class => "x7" %>
+    <%= image_tag "site/ipad.png", id: "ipad-screen", :class => "x7" %>
     
     <div>
       <a class="open-modal" href="#signup-modal">
-        <img alt="Appstore" height="48" src="/images/home/appstore.png" width="160" />
+        <%= image_tag "site/appstore.png", size: "160x40", alt: "Appstore" %>
       </a>
+      
       <a class="scroll-to learn-more" href="#see-more">Learn more</a>
     </div>
   
     <a class="scroll-to more-arrow" title="Scroll down to view more" href="#see-more"></a>
   </div>
+  <span class="attribution">
+    by Daniele Zedda
+  </span>
 </header>
 <% end %>
 
@@ -23,14 +27,14 @@
   <div class="container centered">
     <h2>Taking brand &amp; style publishing to the next level</h2>
   
-    <a class="col x6 box brand open-modal" href="/web/publisher">
+    <a class="col x6 box brand open-modal" href="/site/publisher">
       <h3>forward thinking brand</h3>
       <div class="hover">
 
       </div>
     </a>
   
-    <a class="col x6 box blogger  open-modal" href="/web/publisher">
+    <a class="col x6 box blogger  open-modal" href="/site/publisher">
       <h3>blogger &amp; influencer</h3>
       <div class="hover">
 
@@ -73,7 +77,7 @@
   <hr/>
   <div class="publisher-signup">
     <h2 class="title">
-      <a href="/web/publisher">Are you a brand or style publisher?</a>
+      <a href="/site/publisher">Are you a brand or style publisher?</a>
     </h2>
   </div>
   
