@@ -1,34 +1,23 @@
 /*
-Syntax error: Undefined mixin 'text-shadow'.
-        on line 26 of ./stylesheets/sections/publisher.scss, in `text-shadow'
+Syntax error: Undefined mixin 'input-placeholder'.
+        on line 26 of ./stylesheets/sections/publisher.scss, in `input-placeholder'
         from line 26 of ./stylesheets/sections/publisher.scss
 
-21: /*    margin-top: -3px;*/
-22:     background: #000;
-23:     color: white;
-24:     font-size: 18px;
-25:     font-weight: normal;
-26:     @include text-shadow(initial);
-27:     @include border-radius(initial);
-28:     height: 70px;
-29:     border: none;
-30:     padding: 0 30px;
-31:     margin: 0;
+21: #edition_handle {
+22:   margin-left: 2px;
+23:   width: 7em;
+24: 
+25:   
+26:   @include input-placeholder {
+27:     font-size: 24px;
+28:     font-weight: normal !important;
+29:   }
+30: }
 
 Backtrace:
-./stylesheets/sections/publisher.scss:26:in `text-shadow'
+./stylesheets/sections/publisher.scss:26:in `input-placeholder'
 ./stylesheets/sections/publisher.scss:26
 /Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:251:in `visit_mixin'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:37:in `visit'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:98:in `visit'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:53:in `map'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:53:in `visit_children'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:107:in `block in visit_children'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:119:in `with_environment'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:106:in `visit_children'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:37:in `block in visit'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:318:in `visit_rule'
 /Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:37:in `visit'
 /Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:98:in `visit'
 /Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
@@ -76,4 +65,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined mixin 'text-shadow'.\A         on line 26 of ./stylesheets/sections/publisher.scss, in `text-shadow'\A         from line 26 of ./stylesheets/sections/publisher.scss\A \A 21: /*    margin-top: -3px;*/\A 22:     background: #000;\A 23:     color: white;\A 24:     font-size: 18px;\A 25:     font-weight: normal;\A 26:     @include text-shadow(initial);\A 27:     @include border-radius(initial);\A 28:     height: 70px;\A 29:     border: none;\A 30:     padding: 0 30px;\A 31:     margin: 0;"; }
+  content: "Syntax error: Undefined mixin 'input-placeholder'.\A         on line 26 of ./stylesheets/sections/publisher.scss, in `input-placeholder'\A         from line 26 of ./stylesheets/sections/publisher.scss\A \A 21: #edition_handle {\A 22:   margin-left: 2px;\A 23:   width: 7em;\A 24: \A 25:   \A 26:   @include input-placeholder {\A 27:     font-size: 24px;\A 28:     font-weight: normal !important;\A 29:   }\A 30: }"; }
