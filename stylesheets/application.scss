@@ -1,79 +1,13 @@
-@charset "UTF-8";
-
-// 1. ROOT 					==============================
-// 2. TYPOGRAPHY 			==============================
-// 3. COLOUR 				==============================
-// 4. TEXTURE 				==============================
-// 5. ELEMENTS 				==============================
-// 6. LAYOUT 				==============================
-// 7. VENDOR-SPECIFIC 		==============================
-// 8. MODERNIZR 			==============================
-// 9. TEMPLATE SPECIFICS 	==============================
-
-
-// 1. ROOT 					==============================
-@import 'vendor/normalize';
-@import 'vendor/h5bp';
-@import "vendor/media-queries";
-
-@import 'compass';
-
-//    1.1 HTML/BODY
-
-body, html {
-  height: 100%;
-  width: 100%;
-}
-html{
-  -webkit-font-smoothing: antialiased;
-}
-
-//    1.2 VARIABLES
-$bg_color: #f8fafa;
-$text_color: #333;
-
-
-// 2. TYPOGRAPHY 			==============================
-@import 'typography';
-
-// 3. ELEMENT/LAYOUT     			==============================
-
-
-nav ol, nav ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-// Attribution
-.attribution {
-  display: inline;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  padding: 3px 10px;
-  color: white;
-  background: rgba(0,0,0, 0.5);
-  font-size: 12px;
-}
-
-
-@import 'grid';
-
-// 4. UI         			==============================
-@import 'vendor/issue-icons';
-
-@import 'ui';
-@import "ui/cover";
-@import "form";
+@import "spring";
 
 // UI/menu
 
 // 5. ITEM       			==============================
-@import 'item';
+@import 'app/item';
 
 // 6. PAGE       			==============================
-@import 'page';
+@import 'app/page';
+
 
 
 // 7. RESPONSIVE 			==============================
