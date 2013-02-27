@@ -1,10 +1,10 @@
 @font-face {
 	font-family: 'issue-icons';
-	src:url('../../fonts/issue-icons.eot');
-	src:url('../../fonts/issue-icons.eot?#iefix') format('embedded-opentype'),
-		url('../../fonts/issue-icons.woff') format('woff'),
-		url('../../fonts/issue-icons.ttf') format('truetype'),
-		url('../../fonts/issue-icons.svg#issue-icons') format('svg');
+	src:font-url('issue-icons.eot');
+	src:font-url('issue-icons.eot?#iefix') format('embedded-opentype'),
+		font-url('issue-icons.woff') format('woff'),
+		font-url('issue-icons.ttf') format('truetype'),
+		font-url('issue-icons.svg#issue-icons') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
