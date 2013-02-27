@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'issue-icons';
-  src: url("../../fonts/issue-icons.eot");
-  src: url("../../fonts/issue-icons.eot?#iefix") format("embedded-opentype"), url("../../fonts/issue-icons.woff") format("woff"), url("../../fonts/issue-icons.ttf") format("truetype"), url("../../fonts/issue-icons.svg#issue-icons") format("svg");
+  src: url('../fonts/issue-icons.eot');
+  src: url('../fonts/issue-icons.eot?#iefix') format("embedded-opentype"), url('../fonts/issue-icons.woff') format("woff"), url('../fonts/issue-icons.ttf') format("truetype"), url('../fonts/issue-icons.svg#issue-icons') format("svg");
   font-weight: normal;
   font-style: normal;
 }
