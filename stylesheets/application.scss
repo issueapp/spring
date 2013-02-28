@@ -8,7 +8,158 @@
 // 6. PAGE       			==============================
 @import 'app/page';
 
+@import 'app/menu';
+@import 'app/toolbar';
 
+
+.logo {
+  float: left;
+  width: 200px;
+  height: 80px;
+  
+  background: image-url("issue-logo.png") -0 -80px no-repeat;
+  
+  &.small {
+    width: 180px;
+    height: 50px;
+    background-position: -200px -80px;
+  }
+  
+  .dark-theme & {
+    background-position: 0 0px;
+  }
+  
+  .dark-theme &.small {
+    background-position: -200px 0px;
+  }
+}
+
+#sidebar {
+  background: #f6f9fa;
+  border-right: 1px solid #ccc;
+}
+
+
+.edition-overlay {
+  color: white;
+  background:#0c0c0c;
+  width:100%;
+  height:100%;
+  position:fixed;
+  z-index:9999;
+  
+  
+  footer {
+    color: #999;
+    font-family: georgia;
+    font-style: italic; 
+  }
+}
+
+
+#preview_edition {
+  position: relative;
+  top: 10%;
+  margin: 0 auto 300px;
+}
+
+.addthis_toolbox.addthis_32x32_style span {
+  position: relative;
+  top: -30px;
+  visibility: hidden;
+}
+
+.edition-item {
+  @include box-sizing(border-box);
+  
+  @include box-shadow(1px 1px 3px rgba(0,0,0, 0.8));
+  @include border-radius(3px);
+  
+  padding:20px;
+  width: 200px; 
+  height: 278px;
+  background: #333;
+  background-position: center;
+  background-size: cover;
+  
+  margin-right: 20px;
+  margin-bottom: 20px;
+  position: relative;
+  float: left;
+  overflow: hidden;
+  
+  &.moveup {
+    .content {
+      @include transition(bottom 0.3s ease-in);
+      position: relative;
+      height: 100%;
+      bottom: -150px;
+      
+    }
+    
+    &:hover .content {
+      bottom: 0;
+    }
+    
+    .subscribe {
+      display: block;
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+      text-align: center;
+    }
+  }
+  
+  
+  &.with-icon {
+    .subscribe {
+      display: block;
+      position: absolute;
+      bottom: -10px;
+      right: 35px;
+      width: 20px;
+
+      &:before {
+        font-size: 30px;
+        line-height: 0px;
+      }
+      @extend .icon-plus;
+    }
+  }
+  
+  .content {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+  }
+  
+  .title {
+    font-family: "proxima_nova_regular", "Hevetica Neue";
+    font-size: 2em;
+    font-weight: bold;
+    text-transform: uppercase;
+    
+    @include text-shadow(0px 1px 2px rgba(0,0,0, 0.5));
+  }
+  
+  .author {
+    font-family: georgia;
+    font-style: italic;
+    padding: 0;
+    margin: 0;
+    @include text-shadow(0px 1px 2px rgba(0,0,0, 0.5));
+  }
+
+}
+
+.edition-list {
+  list-style: none;
+  margin-top: 100px;
+  
+  li {
+    @extend .edition-item;
+  }
+}
 
 // 7. RESPONSIVE 			==============================
 

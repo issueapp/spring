@@ -20,7 +20,7 @@ body.expand-menu .navigation {
 nav#menu {
   width: 260px;
   background: rgba(12,12,12, 1);
-
+  position: relative;
   .logo {
     height: 120px !important;
     background: url("/images/logo.png") no-repeat center center;
@@ -45,9 +45,15 @@ nav#menu {
       position: relative;
     }
 
+    // Menu items
     a {
       display: block;
       color: white;
+    }
+
+
+    li:hover a, li.active a {
+      @include text-shadow(0px 0px 10px #ccc)
     }
 
     li.active {
@@ -58,36 +64,20 @@ nav#menu {
       color: white;
     }
 
-    // Level two menu
-    & > ul li {
-      padding-left: 30px;
-      font-weight: normal;
-
-      a {
-        color: #ccc;
-      }
-    }
-
-    & > ul li a:before {
-      font-size: 12px;
-      content: '→';
-      width: 10px;
-      overflow: none;
-      margin-right: 5px;
-      color: #666;
-    }
-
     .counter {
       position: absolute;
       right: 24px;
       font-size: 12px;
     }
 
+    [class^="icon-"], [class*=" icon-"] {
+      font-size: 24px;
+/*      color: #444;*/
+    }
+
     .right-icon {
       position: absolute;
       right: 20px;
-      color: #444;
-      font-size: 24px;
     }
 
 
@@ -111,6 +101,41 @@ nav#menu {
         float: right;
         font-size: 24px;
       }
+    }
+    
+  
+    /*  
+            icons
+    */
+  
+    .icon-content:before {
+      content: "A ";
+      font-family: georgia;
+      font-size: 30px !important;
+    }
+    
+  
+    /*
+          Level 2 menu
+    */
+  
+
+    & > ul li {
+      padding-left: 30px;
+      font-weight: normal;
+
+      a {
+        color: #ccc;
+      }
+    }
+
+    & > ul li a:before {
+      font-size: 12px;
+      content: '→';
+      width: 10px;
+      overflow: none;
+      margin-right: 5px;
+      color: #666;
     }
   }
 }

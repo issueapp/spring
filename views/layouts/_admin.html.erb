@@ -18,25 +18,10 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     
     <link rel="stylesheet" href="/stylesheets/application.css" type="text/css">
-    <link rel="stylesheet" href="/stylesheets/docs.css" type="text/css">
-
-    <style>
-      .grid-sample .col {
-        background: #ccc;
-        text-align: center;
-        margin-bottom: 5px;
-      }
-    </style>
+    
   </head>
-
+  
   <body>
-    <nav role="primary"></nav>
-    <% if content_for?(:header) %>
-      <%= yield :header %>
-    <% end %>
-
-    <div role="main" class="container">
-      <%= yield %>
-    </div>
+  <%= yield %>
   </body>
 </html>

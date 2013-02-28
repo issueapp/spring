@@ -15,9 +15,8 @@
 </header>
 
 <section class="tour">
-  <form class="container centered">
-    <h2>
-     Reserve your edition</h2>
+  <form class="container text-centered">
+    <h2>Reserve your edition</h2>
     
   <div class="edition_handle">
     <label for="edition_handle" class="handle-field large" style="font-family: Georgia; font-style: italic">http://issue.by/</label>
@@ -75,7 +74,7 @@
 </section>
 
 <section class="tour odd">
-  <div class="container centered">
+  <div class="container text-centered">
   
     <h2>The perfect match</h2>
     <p class="subtitle">
@@ -89,7 +88,7 @@
 </section>
 
 <section class="tour">
-  <div class="container centered">
+  <div class="container text-centered">
     <h2>Capture, Curate &amp; publish</h2>
     <p class="subtitle">
       Beautify content around your brand, making it available as a Live stream or Issue. 
@@ -101,14 +100,16 @@
   </dov>
 </section>
 
-<section class="tour odd">
+<section class="tour odd text-centered">
   <div class="container">
     <div class=" col centered">
       <a class="open-modal button large orange x4 " href="#reserve-edition-modal">Reserve your issue now</a>
     </div>
   </div>
-<section>
+</section>
 
 <div id="reserve-edition-modal" class="modal" style="display:none">
+  <a href="#reserve-edition-modal" class="close-target icon-cross"></a>
+
   <%= render "reserve" %>
 </div>

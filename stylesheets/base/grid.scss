@@ -24,6 +24,12 @@
   .item:last-child {
     margin-bottom: 0;
   }
+  
+  &.centered {
+    clear:both;
+    float: none;
+    margin: 0 auto !important;
+  }
 }
 
 .row {

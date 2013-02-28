@@ -1,22 +1,27 @@
 
 <form id="reserve_edition" class="clearfix">
   <header>
-    <a href="#" class="close icon-cross"></a>
     <h1>Reserve your edition</h1>
   </header>
-      
-  <div class="edition_handle centered">
+  
+  <div class="row edition_handle text-centered">
     <label for="edition_handle" class="handle-field large" style="font-family: Georgia; font-style: italic">http://issue.by/</label>
     <input id="edition_handle" type="text" class="large" name="edition[handle]" placeholder="myedition" length="8">
   </div>
+
+  <div class="row">
+    <input type="text" placeholder="Describe your edition">
+    <span class="hint">Ex. Most inspiring read for busy entrepreneurs </span>
+  </div>
   
   <div class="row">
-    <div class="col x6">
+    <div class="col x6 field_with_errors">
       <input type="text" name="edition[owner][name]" placeholder="your name">
+      <span class="error">Something went wrong here</span>
     </div>
   
-    <div class="publisher-type col x6">
-      <label class="hint">Are you a...</label>
+    <div class="user-role edition_owner_role col x6">
+      <label class="radio_buttons">Are you a...</label>
       
       <div class="publisher-type">
       <label>
@@ -37,8 +42,8 @@
       <input type="email" name="edition[owner][email]" placeholder="email">
     </div>
   
-    <div class="col x6">
-      <input type="phone" name="edition[owner][phone]" placeholder="phone">
+    <div class="col x6 field_with_errors">
+      <input type="tel" name="edition[owner][phone]" placeholder="phone">
     </div>
   </div>
 

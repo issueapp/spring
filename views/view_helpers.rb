@@ -76,6 +76,10 @@ eos
     super
   end
   
+  def image_path(src)
+    src = "/images/#{src}"
+  end
+  
   def image_holder(size)
     width, height = size.split("x")
     

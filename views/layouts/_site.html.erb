@@ -46,7 +46,14 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 
     <script>
-      $('.modal a.close, .overlay').click(function() {
+    
+      $('a.close-target').on('click', function () {
+        var target = $(this).attr('href')
+        $(target).hide();
+        $('.overlay').hide();
+      })
+    
+      $('.overlay').click(function() {
         $('.overlay').hide();
         $('.modal').hide();
         return false;
