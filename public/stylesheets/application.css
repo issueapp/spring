@@ -852,6 +852,18 @@ nav li a {
   font-size: 12px;
 }
 
+/* line 49, ../../stylesheets/application.scss */
+.attribution {
+  display: inline;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 3px 10px;
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  font-size: 12px;
+}
+
 /*======================================================
     Layout and rendering
     ---
@@ -2872,9 +2884,22 @@ header.toolbar div.actions .share {
   right: 0px;
 }
 
+<<<<<<< HEAD
 /* line 154, ../../stylesheets/app/toolbar.scss */
 ul.popover-list li {
   padding: 0;
+=======
+/* line 2, ../../stylesheets/sections/home.scss */
+#hero {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 100%;
+  padding-top: 3%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url('../images/site/home-background.jpg?1361611111');
+>>>>>>> 594e4ca60d5770c6a6b414fbdb875d537c83566c
 }
 /* line 157, ../../stylesheets/app/toolbar.scss */
 ul.popover-list li a {
@@ -2895,6 +2920,7 @@ ul.popover-list li a.view-all span {
 ul.popover-list li a.shop span {
   background: url(/images/shop-icon.png) no-repeat left top;
 }
+<<<<<<< HEAD
 /* line 169, ../../stylesheets/app/toolbar.scss */
 ul.popover-list li a.read span {
   background: url(/images/read-icon.png) no-repeat left top;
@@ -2906,6 +2932,18 @@ ul.popover-list li a.photo span {
 /* line 173, ../../stylesheets/app/toolbar.scss */
 ul.popover-list li a:active span, ul.popover-list li a.active span {
   background-position-y: bottom;
+=======
+/* line 41, ../../stylesheets/sections/home.scss */
+#hero .more-arrow {
+  position: absolute;
+  left: 49%;
+  bottom: 20px;
+  width: 50px;
+  height: 30px;
+  display: block;
+  margin: 0 auto;
+  background: url('../images/icons-sprite.png?1360293764') no-repeat;
+>>>>>>> 594e4ca60d5770c6a6b414fbdb875d537c83566c
 }
 
 /* line 15, ../../stylesheets/application.scss */
@@ -3013,6 +3051,7 @@ ul.popover-list li a:active span, ul.popover-list li a.active span {
   bottom: 0;
   text-align: center;
 }
+<<<<<<< HEAD
 /* line 115, ../../stylesheets/application.scss */
 .edition-item.with-icon .subscribe, .edition-list li.with-icon .subscribe {
   display: block;
@@ -3020,6 +3059,17 @@ ul.popover-list li a:active span, ul.popover-list li a.active span {
   bottom: -10px;
   right: 35px;
   width: 20px;
+=======
+/* line 126, ../../stylesheets/sections/home.scss */
+section.tour .box.brand {
+  background-size: cover;
+  background-image: url('../images/site/tour-brand.png?1360293764');
+}
+/* line 131, ../../stylesheets/sections/home.scss */
+section.tour .box.blogger {
+  background-size: cover;
+  background-image: url('../images/site/tour-blogger.png?1360293764');
+>>>>>>> 594e4ca60d5770c6a6b414fbdb875d537c83566c
 }
 /* line 122, ../../stylesheets/application.scss */
 .edition-item.with-icon .subscribe:before, .edition-list li.with-icon .subscribe:before {
@@ -3055,14 +3105,22 @@ ul.popover-list li a:active span, ul.popover-list li a.active span {
   margin-top: 100px;
 }
 
+<<<<<<< HEAD
 /* line 166, ../../stylesheets/application.scss */
+=======
+/* line 83, ../../stylesheets/application.scss */
+>>>>>>> 594e4ca60d5770c6a6b414fbdb875d537c83566c
 .container {
   margin: 0 auto;
   width: 85%;
 }
 
 @media only screen and (min-width: 768px) {
+<<<<<<< HEAD
   /* line 173, ../../stylesheets/application.scss */
+=======
+  /* line 90, ../../stylesheets/application.scss */
+>>>>>>> 594e4ca60d5770c6a6b414fbdb875d537c83566c
   .container {
     margin: 0 auto;
     max-width: 980px;
