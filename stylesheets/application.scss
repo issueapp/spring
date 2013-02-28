@@ -39,6 +39,18 @@
   border-right: 1px solid #ccc;
 }
 
+// Attribution
+.attribution {
+  display: inline;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 3px 10px;
+  color: white;
+  background: rgba(0,0,0, 0.5);
+  font-size: 12px;
+}
+
 
 .edition-overlay {
   color: white;
