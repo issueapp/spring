@@ -1,23 +1,23 @@
 /*
 Syntax error: Undefined mixin 'min-screen'.
-        on line 158 of ./stylesheets/base/typography.scss, in `min-screen'
-        from line 158 of ./stylesheets/base/typography.scss
+        on line 170 of ./stylesheets/base/typography.scss, in `min-screen'
+        from line 170 of ./stylesheets/base/typography.scss
 
-153: /* ====
-154:       Responsive (larger screen)
-155:   ====*/
-156:   
-157:   
-158: @include min-screen(768) {
-159:   
-160:   h1 {
-161:     font-size: 30px;
-162:     font-size: 1.875em;
-163:     font-size: 3rem;
+165: /* ====
+166:       Responsive (larger screen)
+167:   ====*/
+168:   
+169:   
+170: @include min-screen(768) {
+171:   
+172:   h1 {
+173:     font-size: 30px;
+174:     font-size: 1.875em;
+175:     font-size: 3rem;
 
 Backtrace:
-./stylesheets/base/typography.scss:158:in `min-screen'
-./stylesheets/base/typography.scss:158
+./stylesheets/base/typography.scss:170:in `min-screen'
+./stylesheets/base/typography.scss:170
 /Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:251:in `visit_mixin'
 /Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:37:in `visit'
 /Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:98:in `visit'
@@ -56,4 +56,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined mixin 'min-screen'.\A         on line 158 of ./stylesheets/base/typography.scss, in `min-screen'\A         from line 158 of ./stylesheets/base/typography.scss\A \A 153: /* ====\A 154:       Responsive (larger screen)\A 155:   ====*/\A 156:   \A 157:   \A 158: @include min-screen(768) {\A 159:   \A 160:   h1 {\A 161:     font-size: 30px;\A 162:     font-size: 1.875em;\A 163:     font-size: 3rem;"; }
+  content: "Syntax error: Undefined mixin 'min-screen'.\A         on line 170 of ./stylesheets/base/typography.scss, in `min-screen'\A         from line 170 of ./stylesheets/base/typography.scss\A \A 165: /* ====\A 166:       Responsive (larger screen)\A 167:   ====*/\A 168:   \A 169:   \A 170: @include min-screen(768) {\A 171:   \A 172:   h1 {\A 173:     font-size: 30px;\A 174:     font-size: 1.875em;\A 175:     font-size: 3rem;"; }

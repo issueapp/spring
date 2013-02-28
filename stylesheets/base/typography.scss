@@ -44,7 +44,7 @@ html {
 }
 
 body {
-  font: 14px/28px "proxima_nova_regular", "Helvetica Neue";
+  font: 16px/28px "proxima_nova_regular", "Helvetica Neue";
   color: #222;
 }
 
@@ -62,11 +62,11 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
   font-weight: inherit; }
 
 h1 {
-  margin-bottom: 0.75em;
+  margin-bottom: 0;
   font-size: 24px;
   font-size: 1.5em;
   font-size: 2.4rem;
-  line-height: 1.2;
+  line-height: 1.5;
   letter-spacing: 2px;
 
   text-transform: uppercase;
@@ -84,6 +84,8 @@ h2 {
   line-height: 1.2; }
 
 h3 {
+  font-family: "proxima_nova_regular";
+
   margin-bottom: 1em;
   font-size: 16px;
   font-size: 1em;
@@ -92,6 +94,16 @@ h3 {
 
 h4 {
   text-transform: uppercase;
+}
+
+.content-body {
+  max-width: 50em;
+  margin: 0 auto;
+  
+  p {
+   
+    margin: 0 auto 1.5em;
+  }
 }
 
 .subtitle {
@@ -145,7 +157,7 @@ p.center {
   ======================================================*/
 
 
-.centered {
+.text-centered {
   text-align: center
 }
 

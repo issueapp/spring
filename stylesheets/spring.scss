@@ -43,21 +43,32 @@ $text_color: #333;
     color: #ccc;
   }
 
-  a {
+  a:not(.button) {
     color: white;
     text-decoration: none;
   }
 
-  a:hover {
+  a:not(.button):hover {
     color: #f04500;
   }
 }
 
 // 4. ELEMENTS 				==============================
-nav ol, nav ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+nav {
+  
+  ol, ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  li {
+    display: inline;
+    
+    a {
+      padding: 5px 15px;
+    }
+  }
 }
 
 // Attribution
