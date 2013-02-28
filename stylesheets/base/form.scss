@@ -9,7 +9,18 @@
 
 form {
   margin: 0 0 1.25em;
-
+  
+  
+  // Form grid
+  .col {
+    position: relative;
+  }
+  
+  .row {
+    position: relative;
+    padding-bottom: 1.6em;
+    margin-bottom: 0.5em;
+  }  
   
   /*================================================
           Label/hint
@@ -26,38 +37,33 @@ form {
       margin-right: 0.5em;
     }
   }
+  .hint_style {
+    color: #888;
+    font-style: italic;
+    line-height: 1.4;
+    font-size: 13px;
+    
+    position: absolute;
+  }
   
   .hint {
-    color: #666;
-    font-family: georgia;
-    font-style: italic;
+    @extend .hint_style;
+/*    bottom: -1.7em;*/
+/*    left: 0;*/
+    /*left: 0;
+    bottom: -1.7em;*/
   }
-  
-  /*================================================
-          Errors
-    ================================================*/
-  
-  .field_with_errors {
-    input.string, select.select {
-      border-color: lighten(#e84949, 20%);
-    }
-  }
-  
-  .error {
-    font-style: italic;
-    color: #e84949;
-  }
-  
+
   /*================================================
           Input fields
     ================================================*/
   .text_field {
     padding: 9px;
-    margin: 0px 0 12px 0px;
+    margin: 0px;
     line-height: 2em;
     height: auto;
     width: 100%;
-    max-width: 500px;
+    max-width: 600px;
 
     font-size: 14px;
     border: 1px solid #ccc;
@@ -92,7 +98,6 @@ form {
   
   select {
     width: auto;
-    
     background-color: #fff;
     border: 1px solid #cccccc;
     height: 2.5em;
@@ -111,4 +116,46 @@ form {
   input:focus, select:focus, textarea:focus {
     border: 1px solid #A1CFDE !important;
   }
+  
+  
+  /*================================================
+          Errors
+    ================================================*/
+  
+  .field_with_errors {
+    input.string, select.select {
+      border-color: lighten(#e84949, 20%);
+    }
+    
+    .hint {
+      display: none;
+    }
+  }
+  
+  .error {
+    @extend .hint_style;
+    color: #e84949;
+  }
+
 }
+
+  /*================================================
+        Notification
+  ================================================*/
+  
+  div.notification {
+    width: 100%;
+    padding: 20px;
+    margin: 20px 0 40px;
+    background: white;
+    color: #111;
+    
+    a.close {
+      float:right;
+      &:before {  font-size: 24px; color: #111; }
+      
+      width: 20px;
+      height: 20px;
+      @extend .icon-cross; 
+    }
+  }

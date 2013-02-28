@@ -25,7 +25,7 @@ Instead of a list of all class selectors,
 you can use the generic selector below, but it's slower:
 [class*="icon-"]:before {
 */
-.icon-export:before, .icon-heart:before, .icon-earth:before, .icon-network:before, .icon-docs:before, .icon-twitter:before, .icon-facebook:before, .icon-googleplus:before, .icon-pinterest:before, .icon-camera:before, .icon-link:before, .icon-comment:before, .icon-cog:before, .icon-arrow-left:before, .icon-arrow-right:before, .icon-arrow-left-2:before, .icon-arrow-right-2:before, .icon-pictures:before, .icon-video:before, .icon-music:before, .icon-list:before, .icon-plus:before, .icon-minus:before, .icon-read:before, .icon-shop:before, .icon-book:before, .icon-layout:before, .icon-ccw:before, .icon-info:before, .icon-question:before, .icon-user:before, .icon-tag:before, .icon-search:before, .icon-stackoverflow:before, .icon-stream:before, .icon-play:before, .icon-checkmark:before, .icon-cross:before {
+.icon-export:before, .icon-heart:before, .icon-earth:before, .icon-docs:before, .icon-twitter:before, .icon-facebook:before, .icon-googleplus:before, .icon-pinterest:before, .icon-camera:before, .icon-link:before, .icon-comment:before, .icon-cog:before, .icon-arrow-left:before, .icon-arrow-right:before, .icon-arrow-left-2:before, .icon-arrow-right-2:before, .icon-pictures:before, .icon-video:before, .icon-music:before, .icon-list:before, .icon-plus:before, .icon-minus:before, .icon-read:before, .icon-shop:before, .icon-book:before, .icon-layout:before, .icon-ccw:before, .icon-info:before, .icon-question:before, .icon-user:before, .icon-tag:before, .icon-search:before, .icon-stackoverflow:before, .icon-stream:before, .icon-play:before, .icon-gauge:before, .icon-eye:before, .icon-signal:before, .icon-statistics:before, .icon-brush:before, .icon-archive:before, .icon-plus-2:before, .icon-cross:before {
 	font-family: 'issue-icons';
 	speak: none;
 	font-style: normal;
@@ -41,9 +41,6 @@ you can use the generic selector below, but it's slower:
 }
 .icon-earth:before {
 	content: "\e002";
-}
-.icon-network:before {
-	content: "\e003";
 }
 .icon-docs:before {
 	content: "\e004";
@@ -141,9 +138,27 @@ you can use the generic selector below, but it's slower:
 .icon-play:before {
 	content: "\e022";
 }
-.icon-checkmark:before {
+.icon-gauge:before {
 	content: "\e023";
 }
-.icon-cross:before {
+.icon-eye:before {
 	content: "\e024";
+}
+.icon-signal:before {
+	content: "\e003";
+}
+.icon-statistics:before {
+	content: "\e025";
+}
+.icon-brush:before {
+	content: "\e026";
+}
+.icon-archive:before {
+	content: "\e027";
+}
+.icon-plus-2:before {
+	content: "\e028";
+}
+.icon-cross:before {
+	content: "\e029";
 }

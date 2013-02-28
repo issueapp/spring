@@ -36,11 +36,8 @@ input[type="button"]::-moz-focus-inner, button::-moz-focus-inner {
 */
 /* line 27, ../../../stylesheets/ui/button.scss */
 .button, button, input[type="button"] {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
   font-family: "proxima_nova_regular", "Helvetica Neue", Hevetica, Arial, sans-serif;
-  margin: 0;
+  margin: 0 8px 0 0;
   padding: 0px 15px;
   font-size: 12px;
   font-weight: bold;
@@ -55,13 +52,18 @@ input[type="button"]::-moz-focus-inner, button::-moz-focus-inner {
   vertical-align: middle;
   background-color: #fbfbfb;
   white-space: nowrap;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   -ms-border-radius: 3px;
   -o-border-radius: 3px;
   border-radius: 3px;
   /*  @include background-image(linear-gradient(top center, $start, $end));*/
-  /*  @include box-shadow(rgba(255,255,255, 0.5) 0 0 1px 0 inset);*/
+  -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 1px 0 inset;
+  -moz-box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 1px 0 inset;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 1px 0 inset;
 }
 /* line 58, ../../../stylesheets/ui/button.scss */
 .button:hover, .button .hover, button:hover, button .hover, input[type="button"]:hover, input[type="button"] .hover {
@@ -124,7 +126,7 @@ button[disabled]:active {
   line-height: 18px;
   font-size: 13px;
 }
-/* line 114, ../../../stylesheets/ui/button.scss */
+/* line 115, ../../../stylesheets/ui/button.scss */
 .button.large, button.large {
   /*    font-family: "proxima-nova-sc-osf-ext-cond", "Helvetica Neue", Hevetica, Arial, sans-serif;*/
   font-size: 14px;
@@ -136,70 +138,70 @@ button[disabled]:active {
   margin-bottom: 12px;
   letter-spacing: 2px;
 }
-/* line 125, ../../../stylesheets/ui/button.scss */
+/* line 126, ../../../stylesheets/ui/button.scss */
 .button.large [class^="icon-"], .button.large [class*=" icon-"], button.large [class^="icon-"], button.large [class*=" icon-"] {
   height: 45px;
   line-height: 50px;
   font-size: 24px;
 }
 
-/* line 136, ../../../stylesheets/ui/button.scss */
+/* line 137, ../../../stylesheets/ui/button.scss */
 .button.black, button.black {
   background-color: #3c3d3c;
   /*    @include background-image(linear-gradient(top center, #3c3d3c, #0e0e0e));*/
   color: white !important;
-  border: 1px solid #2b2b2b;
-  text-shadow: 0px 1px 1px black;
+  border: none;
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
 }
-/* line 143, ../../../stylesheets/ui/button.scss */
+/* line 144, ../../../stylesheets/ui/button.scss */
 .button.black:hover, .button.black .hover, button.black:hover, button.black .hover {
   background-color: #4B4C4B;
   /*      @include background-image(linear-gradient(top center, #4B4C4B, #1D1D1D));*/
 }
-/* line 148, ../../../stylesheets/ui/button.scss */
+/* line 149, ../../../stylesheets/ui/button.scss */
 .button.black:active, button.black:active {
   background-color: #0e0e0e;
   /*      @include background-image(linear-gradient(top center, #0e0e0e, #3c3d3c));*/
 }
-/* line 154, ../../../stylesheets/ui/button.scss */
+/* line 155, ../../../stylesheets/ui/button.scss */
 .button.orange, button.orange {
-  background: #f04500;
+  background: #ff6324;
   border: none;
-  text-transform: uppercase;
-  font-weight: bold;
-  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.4);
+  /*    text-transform: uppercase;*/
+  /*    font-weight: bold;*/
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
   color: white;
 }
-/* line 167, ../../../stylesheets/ui/button.scss */
+/* line 168, ../../../stylesheets/ui/button.scss */
 .button.orange:hover, button.orange:hover {
-  background: #ff510a;
+  background: #ff753e;
 }
-/* line 171, ../../../stylesheets/ui/button.scss */
+/* line 172, ../../../stylesheets/ui/button.scss */
 .button.orange:active, button.orange:active {
   background: #8a2800;
 }
 
-/* line 180, ../../../stylesheets/ui/button.scss */
+/* line 181, ../../../stylesheets/ui/button.scss */
 .button.facebook, button.facebook {
   background: #4363a6;
   color: white;
-  text-transform: none;
   text-shadow: 0px 1px #375697;
   border: 1px solid #4363a6;
 }
-/* line 189, ../../../stylesheets/ui/button.scss */
+/* line 188, ../../../stylesheets/ui/button.scss */
 .button.facebook i, button.facebook i {
   font-size: 21px;
 }
-/* line 193, ../../../stylesheets/ui/button.scss */
+/* line 192, ../../../stylesheets/ui/button.scss */
 .button.facebook span, button.facebook span {
   vertical-align: top;
   padding-left: 10px;
   color: white;
 }
-/* line 199, ../../../stylesheets/ui/button.scss */
+/* line 198, ../../../stylesheets/ui/button.scss */
 .button.facebook.large span, button.facebook.large span {
-  font-size: 13px;
+  /*    font-size: 13px;
+  */
   height: 45px;
   line-height: 45px;
 }
@@ -219,11 +221,11 @@ button[disabled]:active {
 
 /* line 219, ../../../stylesheets/ui/button.scss */
 .button.twitter, button.twitter {
-  font-family: proxima-nova, "Helvetica Neue", pragmatica-web, Hevetica, Arial, sans-serif;
+  /*  font-family: proxima-nova, 'Helvetica Neue', pragmatica-web, Hevetica, Arial, sans-serif;*/
   background: #36a3d4;
   color: white;
-  text-transform: none;
-  text-shadow: 0px 1px #375697;
+  /*  text-transform: none;*/
+  /*  text-shadow: 0px 1px #375697;*/
   border: 1px solid #36a3d4;
 }
 /* line 230, ../../../stylesheets/ui/button.scss */

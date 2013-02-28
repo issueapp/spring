@@ -18,6 +18,8 @@
 //------ ui/menu
 
 nav.tab-menu {
+  margin-bottom: 2%;
+  
   @include clearfix;
   
   ul {

@@ -23,8 +23,14 @@
 .col .item:last-child {
   margin-bottom: 0;
 }
+/* line 28, ../../../stylesheets/base/grid.scss */
+.col.centered {
+  clear: both;
+  float: none;
+  margin: 0 auto !important;
+}
 
-/* line 29, ../../../stylesheets/base/grid.scss */
+/* line 35, ../../../stylesheets/base/grid.scss */
 .row {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -35,7 +41,7 @@
   overflow: hidden;
   *zoom: 1;
 }
-/* line 37, ../../../stylesheets/base/grid.scss */
+/* line 43, ../../../stylesheets/base/grid.scss */
 .row:last-child {
   background: none;
 }
@@ -43,79 +49,79 @@
 /*======================================================
     Divided width
   ======================================================*/
-/* line 47, ../../../stylesheets/base/grid.scss */
+/* line 53, ../../../stylesheets/base/grid.scss */
 .col.full, .item.full {
   width: 100%;
 }
-/* line 49, ../../../stylesheets/base/grid.scss */
+/* line 55, ../../../stylesheets/base/grid.scss */
 .col.half, .item.half {
   width: 48%;
 }
-/* line 50, ../../../stylesheets/base/grid.scss */
+/* line 56, ../../../stylesheets/base/grid.scss */
 .col.third, .item.third {
   width: 31.333%;
 }
-/* line 51, ../../../stylesheets/base/grid.scss */
+/* line 57, ../../../stylesheets/base/grid.scss */
 .col.third-2, .item.third-2 {
   width: 64.667%;
 }
-/* line 53, ../../../stylesheets/base/grid.scss */
+/* line 59, ../../../stylesheets/base/grid.scss */
 .col.fourty, .item.fourty {
   width: 39%;
 }
-/* line 54, ../../../stylesheets/base/grid.scss */
+/* line 60, ../../../stylesheets/base/grid.scss */
 .col.sixty, .item.sixty {
   width: 59%;
 }
-/* line 56, ../../../stylesheets/base/grid.scss */
+/* line 62, ../../../stylesheets/base/grid.scss */
 .col:last-child, .item:last-child {
   margin-right: 0;
 }
 
-/* line 62, ../../../stylesheets/base/grid.scss */
+/* line 68, ../../../stylesheets/base/grid.scss */
 .no-gutter .col.half, .no-gutter .item.half {
   width: 49.9%;
 }
-/* line 63, ../../../stylesheets/base/grid.scss */
+/* line 69, ../../../stylesheets/base/grid.scss */
 .no-gutter .col.third, .no-gutter .item.third {
   width: 33.3%;
 }
-/* line 64, ../../../stylesheets/base/grid.scss */
+/* line 70, ../../../stylesheets/base/grid.scss */
 .no-gutter .col.third-2, .no-gutter .item.third-2 {
   width: 66.6%;
 }
-/* line 65, ../../../stylesheets/base/grid.scss */
+/* line 71, ../../../stylesheets/base/grid.scss */
 .no-gutter .col.sixth, .no-gutter .item.sixth {
   width: 15.02%;
 }
-/* line 67, ../../../stylesheets/base/grid.scss */
+/* line 73, ../../../stylesheets/base/grid.scss */
 .no-gutter .col.fourty, .no-gutter .item.fourty {
   width: 39%;
 }
-/* line 68, ../../../stylesheets/base/grid.scss */
+/* line 74, ../../../stylesheets/base/grid.scss */
 .no-gutter .col.sixty, .no-gutter .item.sixty {
   width: 59%;
 }
 
-/* line 72, ../../../stylesheets/base/grid.scss */
+/* line 78, ../../../stylesheets/base/grid.scss */
 col.centred {
   float: none !important;
   margin: 0 auto !important;
 }
 
-/* line 79, ../../../stylesheets/base/grid.scss */
+/* line 85, ../../../stylesheets/base/grid.scss */
 .row.v-full, .col.v-full, .item.v-full {
   height: 100%;
 }
-/* line 80, ../../../stylesheets/base/grid.scss */
+/* line 86, ../../../stylesheets/base/grid.scss */
 .row.v-half, .col.v-half, .item.v-half {
   height: 49.4%;
 }
-/* line 81, ../../../stylesheets/base/grid.scss */
+/* line 87, ../../../stylesheets/base/grid.scss */
 .row.v-third, .col.v-third, .item.v-third {
   height: 35.03%;
 }
-/* line 82, ../../../stylesheets/base/grid.scss */
+/* line 88, ../../../stylesheets/base/grid.scss */
 .row.v-third-2, .col.v-third-2, .item.v-third-2 {
   height: 64%;
 }
@@ -123,78 +129,78 @@ col.centred {
 /*======================================================
         12 column grid collapsed for mobile
   ======================================================*/
-/* line 89, ../../../stylesheets/base/grid.scss */
+/* line 95, ../../../stylesheets/base/grid.scss */
 .x1, .x2, .x3, .x4, .x5, .x6, .x7, .x8, .x9, .x10, .x11, .x12 {
   width: 100%;
 }
 
 @media only screen and (min-width: 768px) {
-  /* line 95, ../../../stylesheets/base/grid.scss */
+  /* line 101, ../../../stylesheets/base/grid.scss */
   .col {
     float: left;
     margin-right: 2%;
   }
-  /* line 99, ../../../stylesheets/base/grid.scss */
+  /* line 105, ../../../stylesheets/base/grid.scss */
   .col:last-child {
     margin-right: 0;
   }
 
-  /* line 104, ../../../stylesheets/base/grid.scss */
+  /* line 110, ../../../stylesheets/base/grid.scss */
   .x1 {
     width: 6.333%;
   }
 
-  /* line 105, ../../../stylesheets/base/grid.scss */
+  /* line 111, ../../../stylesheets/base/grid.scss */
   .x2 {
     width: 14.667%;
   }
 
-  /* line 106, ../../../stylesheets/base/grid.scss */
+  /* line 112, ../../../stylesheets/base/grid.scss */
   .x3 {
     width: 23%;
   }
 
-  /* line 107, ../../../stylesheets/base/grid.scss */
+  /* line 113, ../../../stylesheets/base/grid.scss */
   .x4 {
     width: 31.333%;
   }
 
-  /* line 108, ../../../stylesheets/base/grid.scss */
+  /* line 114, ../../../stylesheets/base/grid.scss */
   .x5 {
     width: 39.667%;
   }
 
-  /* line 109, ../../../stylesheets/base/grid.scss */
+  /* line 115, ../../../stylesheets/base/grid.scss */
   .x6 {
     width: 48%;
   }
 
-  /* line 110, ../../../stylesheets/base/grid.scss */
+  /* line 116, ../../../stylesheets/base/grid.scss */
   .x7 {
     width: 56.333%;
   }
 
-  /* line 111, ../../../stylesheets/base/grid.scss */
+  /* line 117, ../../../stylesheets/base/grid.scss */
   .x8 {
     width: 64.667%;
   }
 
-  /* line 112, ../../../stylesheets/base/grid.scss */
+  /* line 118, ../../../stylesheets/base/grid.scss */
   .x9 {
     width: 73%;
   }
 
-  /* line 113, ../../../stylesheets/base/grid.scss */
+  /* line 119, ../../../stylesheets/base/grid.scss */
   .x10 {
     width: 81.333%;
   }
 
-  /* line 114, ../../../stylesheets/base/grid.scss */
+  /* line 120, ../../../stylesheets/base/grid.scss */
   .x11 {
     width: 89.667%;
   }
 
-  /* line 115, ../../../stylesheets/base/grid.scss */
+  /* line 121, ../../../stylesheets/base/grid.scss */
   .x12 {
     width: 100%;
   }
