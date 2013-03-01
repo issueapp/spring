@@ -19,13 +19,11 @@ input[type="submit"] {border:1px solid rgba(0, 0, 0, 0.25);}
 input[type="button"], button {-moz-box-sizing: content-box;}/*fixes mozilla padding - mozilla only, doesn't need webkit or other values */
 input[type="button"]::-moz-focus-inner, button::-moz-focus-inner { padding:0;border:0 none; }/*fixes mozilla button padding - mozilla only, doesn't need webkit or other values */
 
-
-
 /*
     Default button style
 */
 .button, button, input[type="button"] {
-  $start: #fbfbfb;
+  $start: #eee;
   $end: #ecf1f1;
 
   // To enable SVG gradient support in Opera and IE9
@@ -53,7 +51,7 @@ input[type="button"]::-moz-focus-inner, button::-moz-focus-inner { padding:0;bor
   @include box-sizing(border-box);
 	@include border-radius(3px);
 /*  @include background-image(linear-gradient(top center, $start, $end));*/
-  @include box-shadow(rgba(0,0,0, 0.2) 0 -1px 1px 0 inset);
+/*  @include box-shadow(rgba(0,0,0, 0.2) 0 -1px 1px 0 inset);*/
 
   &:hover, .hover {
     cursor: pointer !important;
@@ -111,13 +109,12 @@ button[disabled]:active {
 	  }
   }
 
-
   &.large {
 /*    font-family: "proxima-nova-sc-osf-ext-cond", "Helvetica Neue", Hevetica, Arial, sans-serif;*/
-    font-size: 14px;
+    font-size: 12px;
     line-height: 45px;
     height: 45px;
-    padding: 0px 20px;
+    padding: 0px 10px;
     font-weight: normal;
     text-transform: uppercase;
     margin-bottom: 12px;
@@ -128,7 +125,14 @@ button[disabled]:active {
       line-height: 50px;
       font-size: 24px;
 	  }
+    
+    @include min-screen(768) {
+      font-size: 14px;
+      padding: 0px 20px;
+    }
   }
+  
+
 }
 
 // Button colors
