@@ -1224,22 +1224,26 @@ div.notification {
   color: #111;
 }
 /* line 152, ../../stylesheets/base/form.scss */
+div.notification a.close-target {
+  color: #222;
+}
+/* line 156, ../../stylesheets/base/form.scss */
 div.notification a.close {
   float: right;
   width: 20px;
   height: 20px;
 }
-/* line 154, ../../stylesheets/base/form.scss */
+/* line 158, ../../stylesheets/base/form.scss */
 div.notification a.close:before {
   font-size: 24px;
   color: #111;
 }
-/* line 162, ../../stylesheets/base/form.scss */
+/* line 166, ../../stylesheets/base/form.scss */
 .dark-theme div.notification {
   border: 1px solid #cccccc;
 }
 
-/* line 167, ../../stylesheets/base/form.scss */
+/* line 171, ../../stylesheets/base/form.scss */
 a.close-target {
   font-size: 28px;
   float: right;

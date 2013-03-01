@@ -1225,22 +1225,26 @@ div.notification {
   color: #111;
 }
 /* line 152, ../../stylesheets/base/form.scss */
+div.notification a.close-target {
+  color: #222;
+}
+/* line 156, ../../stylesheets/base/form.scss */
 div.notification a.close {
   float: right;
   width: 20px;
   height: 20px;
 }
-/* line 154, ../../stylesheets/base/form.scss */
+/* line 158, ../../stylesheets/base/form.scss */
 div.notification a.close:before {
   font-size: 24px;
   color: #111;
 }
-/* line 162, ../../stylesheets/base/form.scss */
+/* line 166, ../../stylesheets/base/form.scss */
 .dark-theme div.notification {
   border: 1px solid #cccccc;
 }
 
-/* line 167, ../../stylesheets/base/form.scss */
+/* line 171, ../../stylesheets/base/form.scss */
 a.close-target {
   font-size: 28px;
   float: right;
@@ -2974,21 +2978,26 @@ ul.popover-list li a:active span, ul.popover-list li a.active span {
 }
 
 /* line 12, ../../stylesheets/app/editions.scss */
-#editions-container {
+#preview_edition .edition-item, #preview_edition .edition-list li, .edition-list #preview_edition li {
+  margin-right: 4%;
+}
+
+/* line 17, ../../stylesheets/app/editions.scss */
+.editions-container {
   position: relative;
   z-index: 10000;
   padding-top: 10%;
   margin: 0 auto;
 }
-/* line 18, ../../stylesheets/app/editions.scss */
-#editions-container footer {
+/* line 23, ../../stylesheets/app/editions.scss */
+.editions-container footer {
   margin-top: 100px;
   color: #999;
   font-family: georgia;
   font-style: italic;
 }
 
-/* line 26, ../../stylesheets/app/editions.scss */
+/* line 31, ../../stylesheets/app/editions.scss */
 .edition-list {
   list-style: none;
   padding: 0;
@@ -2997,7 +3006,7 @@ ul.popover-list li a:active span, ul.popover-list li a.active span {
   *zoom: 1;
 }
 
-/* line 38, ../../stylesheets/app/editions.scss */
+/* line 43, ../../stylesheets/app/editions.scss */
 .edition-item, .edition-list li {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -3029,12 +3038,12 @@ ul.popover-list li a:active span, ul.popover-list li a.active span {
   position: relative;
   overflow: hidden;
 }
-/* line 62, ../../stylesheets/app/editions.scss */
+/* line 67, ../../stylesheets/app/editions.scss */
 .edition-item.subscribed, .edition-list li.subscribed {
   /*    border: 2px solid #3cf;
   */
 }
-/* line 66, ../../stylesheets/app/editions.scss */
+/* line 71, ../../stylesheets/app/editions.scss */
 .edition-item .content, .edition-list li .content {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -3044,13 +3053,13 @@ ul.popover-list li a:active span, ul.popover-list li a.active span {
   width: 100%;
   padding: 10px 20px;
 }
-/* line 75, ../../stylesheets/app/editions.scss */
+/* line 80, ../../stylesheets/app/editions.scss */
 .edition-item .title, .edition-list li .title {
   font-size: 1.5em;
   text-transform: uppercase;
   text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
 }
-/* line 81, ../../stylesheets/app/editions.scss */
+/* line 86, ../../stylesheets/app/editions.scss */
 .edition-item .author, .edition-list li .author {
   font-family: georgia;
   font-style: italic;
@@ -3058,12 +3067,12 @@ ul.popover-list li a:active span, ul.popover-list li a.active span {
   margin: 0;
   text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
 }
-/* line 89, ../../stylesheets/app/editions.scss */
+/* line 94, ../../stylesheets/app/editions.scss */
 .edition-item .button, .edition-list li .button {
   margin-bottom: 0;
 }
 @media screen and (min-width: 768px) {
-  /* line 38, ../../stylesheets/app/editions.scss */
+  /* line 43, ../../stylesheets/app/editions.scss */
   .edition-item, .edition-list li {
     font-size: 100%;
     width: 23%;
@@ -3072,12 +3081,12 @@ ul.popover-list li a:active span, ul.popover-list li a.active span {
         height: 278px;*/
   }
 }
-/* line 102, ../../stylesheets/app/editions.scss */
+/* line 107, ../../stylesheets/app/editions.scss */
 .edition-item .description, .edition-list li .description {
   font-size: 13px;
   line-height: 1.8;
 }
-/* line 108, ../../stylesheets/app/editions.scss */
+/* line 113, ../../stylesheets/app/editions.scss */
 .edition-item .extras, .edition-list li .extras {
   position: absolute;
   -webkit-box-sizing: border-box;
@@ -3088,7 +3097,7 @@ ul.popover-list li a:active span, ul.popover-list li a.active span {
   left: 20px;
   right: 20px;
 }
-/* line 117, ../../stylesheets/app/editions.scss */
+/* line 122, ../../stylesheets/app/editions.scss */
 .edition-item.new-edition a.icon-plus, .edition-list li.new-edition a.icon-plus, .edition-item.new-edition header.toolbar a.plus, header.toolbar .edition-item.new-edition a.plus, .edition-list li.new-edition header.toolbar a.plus, header.toolbar .edition-list li.new-edition a.plus, .edition-item.new-edition header.toolbar div.actions a.collect, header.toolbar div.actions .edition-item.new-edition a.collect, .edition-list li.new-edition header.toolbar div.actions a.collect, header.toolbar div.actions .edition-list li.new-edition a.collect, .edition-item.new-edition .edition-item.with-icon a.subscribe, .edition-item.with-icon .edition-item.new-edition a.subscribe, .edition-list li.new-edition .edition-item.with-icon a.subscribe, .edition-item.with-icon .edition-list li.new-edition a.subscribe, .edition-item.new-edition .edition-list li.with-icon a.subscribe, .edition-list li.with-icon .edition-item.new-edition a.subscribe, .edition-list li.new-edition li.with-icon a.subscribe, .edition-list li.with-icon li.new-edition a.subscribe {
   font-size: 150px;
   color: #666;
@@ -3097,14 +3106,14 @@ ul.popover-list li a:active span, ul.popover-list li a.active span {
   text-align: center;
   margin: 0 auto;
 }
-/* line 129, ../../stylesheets/app/editions.scss */
+/* line 134, ../../stylesheets/app/editions.scss */
 .edition-item.moveup .content, .edition-list li.moveup .content {
   -webkit-transition: bottom 0.3s ease-out;
   -moz-transition: bottom 0.3s ease-out;
   -o-transition: bottom 0.3s ease-out;
   transition: bottom 0.3s ease-out;
 }
-/* line 133, ../../stylesheets/app/editions.scss */
+/* line 138, ../../stylesheets/app/editions.scss */
 .edition-item.moveup:before, .edition-list li.moveup:before {
   content: " ";
   display: block;
@@ -3116,12 +3125,12 @@ ul.popover-list li a:active span, ul.popover-list li a.active span {
   width: 200%;
   height: 100%;
 }
-/* line 144, ../../stylesheets/app/editions.scss */
+/* line 149, ../../stylesheets/app/editions.scss */
 .edition-item.moveup:hover .content, .edition-list li.moveup:hover .content {
   bottom: 55%;
   /*      bottom: -110px; */
 }
-/* line 149, ../../stylesheets/app/editions.scss */
+/* line 154, ../../stylesheets/app/editions.scss */
 .edition-item.moveup .subscribe, .edition-list li.moveup .subscribe {
   display: block;
   /*      position: absolute;
@@ -3130,7 +3139,7 @@ ul.popover-list li a:active span, ul.popover-list li a.active span {
   /*      bottom: 0;*/
   text-align: center;
 }
-/* line 160, ../../stylesheets/app/editions.scss */
+/* line 165, ../../stylesheets/app/editions.scss */
 .edition-item.with-icon .subscribe, .edition-list li.with-icon .subscribe {
   display: block;
   position: absolute;
@@ -3138,7 +3147,7 @@ ul.popover-list li a:active span, ul.popover-list li a.active span {
   right: 20px;
   width: 20px;
 }
-/* line 167, ../../stylesheets/app/editions.scss */
+/* line 172, ../../stylesheets/app/editions.scss */
 .edition-item.with-icon .subscribe:before, .edition-list li.with-icon .subscribe:before {
   font-size: 30px;
   line-height: 0px;

@@ -8,8 +8,13 @@
   overflow: auto;
 }
 
+#preview_edition {
+  .edition-item {
+    margin-right: 4%;
+  }
+}
 
-#editions-container {
+.editions-container {
   position: relative;
   z-index: 10000;
   padding-top: 10%;

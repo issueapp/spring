@@ -44,34 +44,7 @@
     
     <div class="overlay" style="display:none"></div>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="/javascripts/site.js"></script>
 
-    <script>
-    
-      $('a.close-target').on('click', function () {
-        var target = $(this).attr('href')
-        $(target).hide();
-        $('.overlay').hide();
-      })
-    
-      $('.overlay').click(function() {
-        $('.overlay').hide();
-        $('.modal').hide();
-        return false;
-      })
-      
-      $('.open-modal').click(function() {
-        $($(this).attr('href')).show();
-        $('.overlay').show();
-        return false;
-      })
-      
-      $(".scroll-to").click(function() {
-           $('html, body').animate({
-               scrollTop: $($(this).attr("href")).offset().top
-           }, 1000);
-           
-           return false;
-       });
-    </script>
   </body>
 </html>

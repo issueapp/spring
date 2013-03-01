@@ -1,23 +1,23 @@
 /*
 Syntax error: Undefined mixin 'clearfix'.
-        on line 31 of ./stylesheets/app/editions.scss, in `clearfix'
-        from line 31 of ./stylesheets/app/editions.scss
+        on line 36 of ./stylesheets/app/editions.scss, in `clearfix'
+        from line 36 of ./stylesheets/app/editions.scss
 
-26: .edition-list {
-27:   list-style: none;
-28:   padding: 0;
-29:   margin-right: -2%;
-30:   
-31:   @include clearfix;
-32:   
-33:   li {
-34:     @extend .edition-item;
-35:   }
-36: }
+31: .edition-list {
+32:   list-style: none;
+33:   padding: 0;
+34:   margin-right: -2%;
+35:   
+36:   @include clearfix;
+37:   
+38:   li {
+39:     @extend .edition-item;
+40:   }
+41: }
 
 Backtrace:
-./stylesheets/app/editions.scss:31:in `clearfix'
-./stylesheets/app/editions.scss:31
+./stylesheets/app/editions.scss:36:in `clearfix'
+./stylesheets/app/editions.scss:36
 /Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:251:in `visit_mixin'
 /Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:37:in `visit'
 /Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:98:in `visit'
@@ -66,4 +66,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined mixin 'clearfix'.\A         on line 31 of ./stylesheets/app/editions.scss, in `clearfix'\A         from line 31 of ./stylesheets/app/editions.scss\A \A 26: .edition-list {\A 27:   list-style: none;\A 28:   padding: 0;\A 29:   margin-right: -2%;\A 30:   \A 31:   @include clearfix;\A 32:   \A 33:   li {\A 34:     @extend .edition-item;\A 35:   }\A 36: }"; }
+  content: "Syntax error: Undefined mixin 'clearfix'.\A         on line 36 of ./stylesheets/app/editions.scss, in `clearfix'\A         from line 36 of ./stylesheets/app/editions.scss\A \A 31: .edition-list {\A 32:   list-style: none;\A 33:   padding: 0;\A 34:   margin-right: -2%;\A 35:   \A 36:   @include clearfix;\A 37:   \A 38:   li {\A 39:     @extend .edition-item;\A 40:   }\A 41: }"; }
