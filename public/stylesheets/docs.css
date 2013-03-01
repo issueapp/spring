@@ -727,45 +727,44 @@ h4 {
   text-transform: none;
   font-weight: normal;
   color: #666;
-  margin: 0 0 0.75em;
 }
 
 /* =======================================================
         Links
    =======================================================*/
-/* line 122, ../../stylesheets/base/typography.scss */
+/* line 121, ../../stylesheets/base/typography.scss */
 a {
   color: #4a90a6;
   text-decoration: none;
 }
-/* line 126, ../../stylesheets/base/typography.scss */
+/* line 125, ../../stylesheets/base/typography.scss */
 a:visited {
   color: #333;
 }
 
-/* line 131, ../../stylesheets/base/typography.scss */
+/* line 130, ../../stylesheets/base/typography.scss */
 .toolbar, a {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-/* line 134, ../../stylesheets/base/typography.scss */
+/* line 133, ../../stylesheets/base/typography.scss */
 a, a:active, a:visited {
   color: #666;
   text-decoration: none;
 }
 
-/* line 139, ../../stylesheets/base/typography.scss */
+/* line 138, ../../stylesheets/base/typography.scss */
 a:hover {
   color: #f04500;
 }
 
-/* line 143, ../../stylesheets/base/typography.scss */
+/* line 142, ../../stylesheets/base/typography.scss */
 a.large {
   font-size: 18px;
   text-transform: uppercase;
 }
 
-/* line 148, ../../stylesheets/base/typography.scss */
+/* line 147, ../../stylesheets/base/typography.scss */
 p.center {
   text-align: center;
 }
@@ -773,7 +772,7 @@ p.center {
 /*======================================================
       Helpers
   ======================================================*/
-/* line 160, ../../stylesheets/base/typography.scss */
+/* line 157, ../../stylesheets/base/typography.scss */
 .text-centered {
   text-align: center;
 }
@@ -782,7 +781,7 @@ p.center {
       Responsive (larger screen)
   ====*/
 @media screen and (min-width: 768px) {
-  /* line 172, ../../stylesheets/base/typography.scss */
+  /* line 169, ../../stylesheets/base/typography.scss */
   h1 {
     font-size: 30px;
     font-size: 1.875em;
@@ -790,7 +789,7 @@ p.center {
     line-height: 1.2;
   }
 
-  /* line 180, ../../stylesheets/base/typography.scss */
+  /* line 177, ../../stylesheets/base/typography.scss */
   h2 {
     font-size: 24px;
     font-size: 1.5em;
@@ -798,7 +797,7 @@ p.center {
     line-height: 1.2;
   }
 
-  /* line 187, ../../stylesheets/base/typography.scss */
+  /* line 184, ../../stylesheets/base/typography.scss */
   h3 {
     font-size: 18px;
     font-size: 1.115em;
@@ -1074,30 +1073,30 @@ form {
           Errors
     ================================================*/
 }
-/* line 15, ../../stylesheets/base/form.scss */
+/* line 14, ../../stylesheets/base/form.scss */
 form .col {
   position: relative;
 }
-/* line 19, ../../stylesheets/base/form.scss */
+/* line 18, ../../stylesheets/base/form.scss */
 form .row {
   position: relative;
   padding-bottom: 1.6em;
   margin-bottom: 0.5em;
 }
-/* line 28, ../../stylesheets/base/form.scss */
+/* line 27, ../../stylesheets/base/form.scss */
 form p.large, form label.large {
   font-size: 24px;
   line-height: 45px;
 }
-/* line 33, ../../stylesheets/base/form.scss */
+/* line 32, ../../stylesheets/base/form.scss */
 form label.radio {
   padding-right: 1em;
 }
-/* line 36, ../../stylesheets/base/form.scss */
+/* line 35, ../../stylesheets/base/form.scss */
 form label.radio input {
   margin-right: 0.5em;
 }
-/* line 40, ../../stylesheets/base/form.scss */
+/* line 39, ../../stylesheets/base/form.scss */
 form .hint_style, form .hint, form .error {
   color: #888;
   font-style: italic;
@@ -1105,14 +1104,14 @@ form .hint_style, form .hint, form .error {
   font-size: 13px;
   position: absolute;
 }
-/* line 49, ../../stylesheets/base/form.scss */
+/* line 48, ../../stylesheets/base/form.scss */
 form .hint {
   /*    bottom: -1.7em;*/
   /*    left: 0;*/
   /*left: 0;
   bottom: -1.7em;*/
 }
-/* line 60, ../../stylesheets/base/form.scss */
+/* line 59, ../../stylesheets/base/form.scss */
 form .text_field, form input[type="text"], form input[type="password"], form input[type="tel"], form input[type="email"],
 form input[type="search"], form input[type="url"], form textarea, form select {
   padding: 9px;
@@ -1137,13 +1136,13 @@ form input[type="search"], form input[type="url"], form textarea, form select {
   -moz-box-shadow: 1px 1px 2px #eeeeee inset;
   box-shadow: 1px 1px 2px #eeeeee inset;
 }
-/* line 78, ../../stylesheets/base/form.scss */
-form input.large {
+/* line 77, ../../stylesheets/base/form.scss */
+form input.large:not(.button) {
   font-size: 24px !important;
   line-height: 45px;
   height: 45px;
 }
-/* line 85, ../../stylesheets/base/form.scss */
+/* line 84, ../../stylesheets/base/form.scss */
 form input[type="text"], form input[type="password"], form input[type="tel"], form input[type="email"],
 form input[type="search"], form input[type="url"], form textarea, form select {
   font-size: 100%;
@@ -1182,7 +1181,7 @@ form input[type="search"]:-ms-input-placeholder, form input[type="url"]:-ms-inpu
   font-style: italic;
   font-size: 15px;
 }
-/* line 99, ../../stylesheets/base/form.scss */
+/* line 98, ../../stylesheets/base/form.scss */
 form select {
   width: auto;
   background-color: #fff;
@@ -1190,25 +1189,25 @@ form select {
   height: 2.5em;
   line-height: 2.5em;
 }
-/* line 107, ../../stylesheets/base/form.scss */
+/* line 106, ../../stylesheets/base/form.scss */
 form input[type=submit], form input[type=button], form button[type=submit] {
   line-height: 2em;
   padding: 3px 15px;
   margin-right: 5px;
 }
-/* line 116, ../../stylesheets/base/form.scss */
+/* line 115, ../../stylesheets/base/form.scss */
 form input:focus, form select:focus, form textarea:focus {
   border: 1px solid #a1cfde !important;
 }
-/* line 126, ../../stylesheets/base/form.scss */
+/* line 125, ../../stylesheets/base/form.scss */
 form .field_with_errors input.string, form .field_with_errors select.select {
   border-color: #f3a4a4;
 }
-/* line 130, ../../stylesheets/base/form.scss */
+/* line 129, ../../stylesheets/base/form.scss */
 form .field_with_errors .hint {
   display: none;
 }
-/* line 135, ../../stylesheets/base/form.scss */
+/* line 134, ../../stylesheets/base/form.scss */
 form .error {
   color: #e84949;
 }
@@ -1216,24 +1215,34 @@ form .error {
 /*================================================
       Notification
 ================================================*/
-/* line 146, ../../stylesheets/base/form.scss */
+/* line 145, ../../stylesheets/base/form.scss */
 div.notification {
-  width: 100%;
   padding: 20px;
   margin: 20px 0 40px;
   background: white;
+  border: 1px solid #cccccc;
   color: #111;
 }
-/* line 153, ../../stylesheets/base/form.scss */
+/* line 152, ../../stylesheets/base/form.scss */
 div.notification a.close {
   float: right;
   width: 20px;
   height: 20px;
 }
-/* line 155, ../../stylesheets/base/form.scss */
+/* line 154, ../../stylesheets/base/form.scss */
 div.notification a.close:before {
   font-size: 24px;
   color: #111;
+}
+/* line 162, ../../stylesheets/base/form.scss */
+.dark-theme div.notification {
+  border: 1px solid #cccccc;
+}
+
+/* line 167, ../../stylesheets/base/form.scss */
+a.close-target {
+  font-size: 28px;
+  float: right;
 }
 
 /* line 3, ../../stylesheets/ui/modal.scss */
@@ -1263,12 +1272,7 @@ div.notification a.close:before {
   background: #fff;
   padding: 20px 20px 50px;
 }
-/* line 27, ../../stylesheets/ui/modal.scss */
-.modal a.close-target {
-  font-size: 28px;
-  float: right;
-}
-/* line 32, ../../stylesheets/ui/modal.scss */
+/* line 28, ../../stylesheets/ui/modal.scss */
 .modal h1, .modal h2 {
   font-family: "proxima_nova_regular", "Helvetica Neue";
   margin: 0 0 1em;
@@ -1278,13 +1282,13 @@ div.notification a.close:before {
   font-weight: normal;
   text-align: center;
 }
-/* line 42, ../../stylesheets/ui/modal.scss */
+/* line 38, ../../stylesheets/ui/modal.scss */
 .modal p.subtitle {
   font: 16px/1.5em Georgia;
   color: #666;
   font-style: italic;
 }
-/* line 48, ../../stylesheets/ui/modal.scss */
+/* line 44, ../../stylesheets/ui/modal.scss */
 .modal footer {
   position: absolute;
   bottom: 0;
@@ -1295,13 +1299,13 @@ div.notification a.close:before {
   text-align: center;
   color: white;
 }
-/* line 58, ../../stylesheets/ui/modal.scss */
+/* line 54, ../../stylesheets/ui/modal.scss */
 .modal footer a {
   font-size: 18px;
   line-height: 70px;
   color: white;
 }
-/* line 65, ../../stylesheets/ui/modal.scss */
+/* line 61, ../../stylesheets/ui/modal.scss */
 .modal footer .button {
   /*    margin-top: -3px;*/
   background: #000;
@@ -1319,7 +1323,7 @@ div.notification a.close:before {
   padding: 0 30px;
   margin: 0;
 }
-/* line 79, ../../stylesheets/ui/modal.scss */
+/* line 75, ../../stylesheets/ui/modal.scss */
 .modal footer .button:hover {
   background: #111;
 }
@@ -1350,7 +1354,7 @@ you can use the generic selector below, but it's slower:
 [class*="icon-"]:before {
 */
 /* line 28, ../../stylesheets/ui/icons.scss */
-.icon-export:before, .icon-heart:before, .icon-earth:before, .icon-docs:before, .icon-twitter:before, .icon-facebook:before, .icon-googleplus:before, .icon-pinterest:before, .icon-camera:before, .icon-link:before, .icon-comment:before, .icon-cog:before, .icon-arrow-left:before, .icon-arrow-right:before, .icon-arrow-left-2:before, .icon-arrow-right-2:before, .icon-pictures:before, .icon-video:before, .icon-music:before, .icon-list:before, .icon-plus:before, .icon-minus:before, .icon-read:before, .icon-shop:before, .icon-book:before, .icon-layout:before, .icon-ccw:before, .icon-info:before, .icon-question:before, .icon-user:before, .icon-tag:before, .icon-search:before, .icon-stackoverflow:before, .icon-stream:before, .icon-play:before, .icon-gauge:before, .icon-eye:before, .icon-signal:before, .icon-statistics:before, .icon-brush:before, .icon-archive:before, .icon-plus-2:before, .icon-cross:before, div.notification a.close:before {
+.icon-export:before, .icon-heart:before, .icon-earth:before, .icon-docs:before, .icon-twitter:before, .icon-facebook:before, .icon-googleplus:before, .icon-pinterest:before, .icon-camera:before, .icon-link:before, .icon-comment:before, .icon-cog:before, .icon-arrow-left:before, .icon-arrow-right:before, .icon-arrow-left-2:before, .icon-arrow-right-2:before, .icon-pictures:before, .icon-video:before, .icon-music:before, .icon-list:before, .icon-plus:before, .icon-minus:before, .icon-read:before, .icon-shop:before, .icon-book:before, .icon-layout:before, .icon-ccw:before, .icon-info:before, .icon-question:before, .icon-user:before, .icon-tag:before, .icon-search:before, .icon-stackoverflow:before, .icon-stream:before, .icon-play:before, .icon-gauge:before, .icon-eye:before, .icon-signal:before, .icon-statistics:before, .icon-brush:before, .icon-archive:before, .icon-plus-2:before, .icon-cross:before, div.notification a.close:before, a.close-target:before {
   font-family: 'issue-icons';
   speak: none;
   font-style: normal;
@@ -1570,7 +1574,7 @@ you can use the generic selector below, but it's slower:
 }
 
 /* line 162, ../../stylesheets/ui/icons.scss */
-.icon-cross:before, div.notification a.close:before {
+.icon-cross:before, div.notification a.close:before, a.close-target:before {
   content: "\e029";
 }
 
@@ -1618,6 +1622,11 @@ nav.tab-menu a:hover {
   }
 }
 
+/* line 62, ../../stylesheets/ui.scss */
+footer {
+  clear: both;
+}
+
 /*
     Reset button style
 
@@ -1654,7 +1663,7 @@ input[type="button"]::-moz-focus-inner, button::-moz-focus-inner {
 /*
     Default button style
 */
-/* line 27, ../../stylesheets/ui/button.scss */
+/* line 25, ../../stylesheets/ui/button.scss */
 .button, button, input[type="button"] {
   font-family: "proxima_nova_regular", "Helvetica Neue", Hevetica, Arial, sans-serif;
   margin: 0 8px 0 0;
@@ -1670,7 +1679,7 @@ input[type="button"]::-moz-focus-inner, button::-moz-focus-inner {
   cursor: pointer;
   display: inline-block;
   vertical-align: middle;
-  background-color: #fbfbfb;
+  background-color: #eeeeee;
   white-space: nowrap;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -1681,11 +1690,9 @@ input[type="button"]::-moz-focus-inner, button::-moz-focus-inner {
   -o-border-radius: 3px;
   border-radius: 3px;
   /*  @include background-image(linear-gradient(top center, $start, $end));*/
-  -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 1px 0 inset;
-  -moz-box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 1px 0 inset;
-  box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 1px 0 inset;
+  /*  @include box-shadow(rgba(0,0,0, 0.2) 0 -1px 1px 0 inset);*/
 }
-/* line 58, ../../stylesheets/ui/button.scss */
+/* line 56, ../../stylesheets/ui/button.scss */
 .button:hover, .button .hover, button:hover, button .hover, input[type="button"]:hover, input[type="button"] .hover {
   cursor: pointer !important;
   color: #515555;
@@ -1693,12 +1700,12 @@ input[type="button"]::-moz-focus-inner, button::-moz-focus-inner {
   /*    border-color: #A1CFDE;*/
   /*    @include background-image(linear-gradient(top center, lighten($start, 3%), lighten($end, 3%)));*/
 }
-/* line 66, ../../stylesheets/ui/button.scss */
+/* line 64, ../../stylesheets/ui/button.scss */
 .button:active, button:active, input[type="button"]:active {
   background-color: white;
   /*    @include background-image(linear-gradient(top center, $end, $start));*/
 }
-/* line 71, ../../stylesheets/ui/button.scss */
+/* line 69, ../../stylesheets/ui/button.scss */
 .button [class^="icon-"], .button [class*=" icon-"], button [class^="icon-"], button [class*=" icon-"], input[type="button"] [class^="icon-"], input[type="button"] [class*=" icon-"] {
   float: left;
   display: inline-block;
@@ -1706,7 +1713,7 @@ input[type="button"]::-moz-focus-inner, button::-moz-focus-inner {
   line-height: 27px;
   font-size: 17px;
 }
-/* line 79, ../../stylesheets/ui/button.scss */
+/* line 77, ../../stylesheets/ui/button.scss */
 .button span, button span, input[type="button"] span {
   padding-left: 5px;
   height: 29px;
@@ -1714,7 +1721,7 @@ input[type="button"]::-moz-focus-inner, button::-moz-focus-inner {
   display: inline-block;
 }
 
-/* line 89, ../../stylesheets/ui/button.scss */
+/* line 87, ../../stylesheets/ui/button.scss */
 .button.disabled,
 button[disabled],
 button[disabled]:active {
@@ -1732,7 +1739,7 @@ button[disabled]:active {
   cursor: default;
 }
 
-/* line 100, ../../stylesheets/ui/button.scss */
+/* line 98, ../../stylesheets/ui/button.scss */
 .button.small, .button.small span, button.small, button.small span {
   font-size: 11px;
   font-weight: bold;
@@ -1740,32 +1747,39 @@ button[disabled]:active {
   line-height: 18px;
   padding: 0px 10px;
 }
-/* line 107, ../../stylesheets/ui/button.scss */
+/* line 105, ../../stylesheets/ui/button.scss */
 .button.small [class^="icon-"], .button.small [class*=" icon-"], .button.small span [class^="icon-"], .button.small span [class*=" icon-"], button.small [class^="icon-"], button.small [class*=" icon-"], button.small span [class^="icon-"], button.small span [class*=" icon-"] {
   height: 20px;
   line-height: 18px;
   font-size: 13px;
 }
-/* line 115, ../../stylesheets/ui/button.scss */
+/* line 112, ../../stylesheets/ui/button.scss */
 .button.large, button.large {
   /*    font-family: "proxima-nova-sc-osf-ext-cond", "Helvetica Neue", Hevetica, Arial, sans-serif;*/
-  font-size: 14px;
+  font-size: 12px;
   line-height: 45px;
   height: 45px;
-  padding: 0px 20px;
+  padding: 0px 10px;
   font-weight: normal;
   text-transform: uppercase;
   margin-bottom: 12px;
   letter-spacing: 2px;
 }
-/* line 126, ../../stylesheets/ui/button.scss */
+/* line 123, ../../stylesheets/ui/button.scss */
 .button.large [class^="icon-"], .button.large [class*=" icon-"], button.large [class^="icon-"], button.large [class*=" icon-"] {
   height: 45px;
   line-height: 50px;
   font-size: 24px;
 }
+@media screen and (min-width: 768px) {
+  /* line 112, ../../stylesheets/ui/button.scss */
+  .button.large, button.large {
+    font-size: 14px;
+    padding: 0px 20px;
+  }
+}
 
-/* line 137, ../../stylesheets/ui/button.scss */
+/* line 141, ../../stylesheets/ui/button.scss */
 .button.black, button.black {
   background-color: #3c3d3c;
   /*    @include background-image(linear-gradient(top center, #3c3d3c, #0e0e0e));*/
@@ -1773,17 +1787,17 @@ button[disabled]:active {
   border: none;
   text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
 }
-/* line 144, ../../stylesheets/ui/button.scss */
+/* line 148, ../../stylesheets/ui/button.scss */
 .button.black:hover, .button.black .hover, button.black:hover, button.black .hover {
   background-color: #4B4C4B;
   /*      @include background-image(linear-gradient(top center, #4B4C4B, #1D1D1D));*/
 }
-/* line 149, ../../stylesheets/ui/button.scss */
+/* line 153, ../../stylesheets/ui/button.scss */
 .button.black:active, button.black:active {
   background-color: #0e0e0e;
   /*      @include background-image(linear-gradient(top center, #0e0e0e, #3c3d3c));*/
 }
-/* line 155, ../../stylesheets/ui/button.scss */
+/* line 159, ../../stylesheets/ui/button.scss */
 .button.orange, button.orange {
   background: #ff6324;
   border: none;
@@ -1792,54 +1806,54 @@ button[disabled]:active {
   text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
   color: white;
 }
-/* line 168, ../../stylesheets/ui/button.scss */
+/* line 172, ../../stylesheets/ui/button.scss */
 .button.orange:hover, button.orange:hover {
   background: #ff753e;
 }
-/* line 172, ../../stylesheets/ui/button.scss */
+/* line 176, ../../stylesheets/ui/button.scss */
 .button.orange:active, button.orange:active {
   background: #8a2800;
 }
 
-/* line 181, ../../stylesheets/ui/button.scss */
+/* line 185, ../../stylesheets/ui/button.scss */
 .button.facebook, button.facebook {
   background: #4363a6;
   color: white;
   text-shadow: 0px 1px #375697;
   border: 1px solid #4363a6;
 }
-/* line 188, ../../stylesheets/ui/button.scss */
+/* line 192, ../../stylesheets/ui/button.scss */
 .button.facebook i, button.facebook i {
   font-size: 21px;
 }
-/* line 192, ../../stylesheets/ui/button.scss */
+/* line 196, ../../stylesheets/ui/button.scss */
 .button.facebook span, button.facebook span {
   vertical-align: top;
   padding-left: 10px;
   color: white;
 }
-/* line 198, ../../stylesheets/ui/button.scss */
+/* line 202, ../../stylesheets/ui/button.scss */
 .button.facebook.large span, button.facebook.large span {
   /*    font-size: 13px;
   */
   height: 45px;
   line-height: 45px;
 }
-/* line 205, ../../stylesheets/ui/button.scss */
+/* line 209, ../../stylesheets/ui/button.scss */
 .button.facebook.small span, button.facebook.small span {
   height: 20px;
   line-height: 18px;
 }
-/* line 210, ../../stylesheets/ui/button.scss */
+/* line 214, ../../stylesheets/ui/button.scss */
 .button.facebook:hover, button.facebook:hover {
   background: #5e7dbe;
 }
-/* line 214, ../../stylesheets/ui/button.scss */
+/* line 218, ../../stylesheets/ui/button.scss */
 .button.facebook:active, button.facebook:active {
   background: #4363a6;
 }
 
-/* line 219, ../../stylesheets/ui/button.scss */
+/* line 223, ../../stylesheets/ui/button.scss */
 .button.twitter, button.twitter {
   /*  font-family: proxima-nova, 'Helvetica Neue', pragmatica-web, Hevetica, Arial, sans-serif;*/
   background: #36a3d4;
@@ -1848,32 +1862,32 @@ button[disabled]:active {
   /*  text-shadow: 0px 1px #375697;*/
   border: 1px solid #36a3d4;
 }
-/* line 230, ../../stylesheets/ui/button.scss */
+/* line 234, ../../stylesheets/ui/button.scss */
 .button.twitter i, button.twitter i {
   font-size: 21px;
 }
-/* line 234, ../../stylesheets/ui/button.scss */
+/* line 238, ../../stylesheets/ui/button.scss */
 .button.twitter span, button.twitter span {
   vertical-align: top;
   padding-left: 10px;
   color: white;
 }
-/* line 240, ../../stylesheets/ui/button.scss */
+/* line 244, ../../stylesheets/ui/button.scss */
 .button.twitter.large span, button.twitter.large span {
   font-size: 13px;
   height: 37px;
   line-height: 35px;
 }
-/* line 246, ../../stylesheets/ui/button.scss */
+/* line 250, ../../stylesheets/ui/button.scss */
 .button.twitter.small span, button.twitter.small span {
   height: 20px;
   line-height: 18px;
 }
-/* line 251, ../../stylesheets/ui/button.scss */
+/* line 255, ../../stylesheets/ui/button.scss */
 .button.twitter:hover, button.twitter:hover {
   background: #60b6dd;
 }
-/* line 255, ../../stylesheets/ui/button.scss */
+/* line 259, ../../stylesheets/ui/button.scss */
 .button.twitter:active, button.twitter:active {
   background: #36a3d4;
 }

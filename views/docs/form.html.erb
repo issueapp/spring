@@ -13,12 +13,7 @@
 
 <form id="new_edition" class="clearfix">
   <div class="col x8">
-    <h2>Reserve your edition</h2>
-    
-    <div class="edition_handle">
-      <label for="edition_handle" class="handle-field large" style="font-family: Georgia; font-style: italic">http://issue.by/</label>
-      <input id="edition_handle" type="text" class="large" name="edition[handle]" placeholder="myedition" length="8">
-    </div>
+    <h2>2 Column inlined forms</h2>
     
     <div class="row">
       <div class="col x6">
@@ -26,7 +21,7 @@
       </div>
     
       <div class="col x6">
-        <label class="hint">Are you a...</label><br/>
+        <label>Are you a...</label> <br/>
       
         <label>
           <input type="radio" name="edition[owner][type]" value="brand">
@@ -46,7 +41,7 @@
       </div>
     
       <div class="col x6">
-        <input type="phone" name="edition[owner][phone]" placeholder="phone">
+        <input type="tel" name="edition[owner][phone]" placeholder="phone">
       </div>
     </div>
   
@@ -72,7 +67,7 @@
     </div>
   
     <footer class="row actions">
-      <input type="submit" value="Confirm">
+      <input type="submit" class="button large" value="Confirm">
       <a href="">back</a>
     </footer>
   </div>
@@ -81,25 +76,24 @@
 
 
 <div id="flash_notification" class="notification">
-  <a href="#flash_notification">close</a>
+  <a href="#flash_notification" class="close-target"></a>
   
-  close you have reserved "inspired", the one that is most liked secures it
-  
-</div>
-
-<div id="flash_notification_0" class="error notification">
-  <a href="#flash_notification_0">close</a>
-  
-  close you have reserved "inspired", the one that is most liked secures it
+  Notice flash, Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
   
 </div>
 
-<div id="flash_notification_1" class="notification">
-  <a href="#flash_notification_1">close</a>
+<div id="flash_notification_0" class="notice notification">
+  <a href="#flash_notification_0" class="close-target"></a>
   
-  close you have reserved "inspired", the one that is most liked secures it
-  
+   Notice flash, Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 </div>
+
+<div id="flash_notification_1" class="error notification">
+  <a href="#flash_notification_1" class="close-target"></a>
+  
+  Error flash, Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+</div>
+
 
 <form action="#" method="get" class="form">
   <h3>Signup form</h3>
