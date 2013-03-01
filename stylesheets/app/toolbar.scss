@@ -7,6 +7,15 @@ header.toolbar {
   border-bottom: 1px solid rgba(0,0,0, 0.1);
   text-align: center;
   position: relative;
+  color: #333;
+
+  .dark-theme & {
+    color: #fff;
+  }
+  
+  &.dark-theme {
+    color: #fff;
+  }
   
   a {
     cursor: pointer;
@@ -90,7 +99,6 @@ header.toolbar {
 
   .title {
 /*    position: absolute;*/
-    color: #333;
     display: inline;
 /*    left: 50%;*/
     text-transform: uppercase;

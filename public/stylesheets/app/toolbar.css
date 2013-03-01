@@ -1,23 +1,23 @@
 /*
 Syntax error: Undefined mixin 'inline-block'.
-        on line 126 of ./stylesheets/app/toolbar.scss, in `inline-block'
-        from line 126 of ./stylesheets/app/toolbar.scss
+        on line 134 of ./stylesheets/app/toolbar.scss, in `inline-block'
+        from line 134 of ./stylesheets/app/toolbar.scss
 
-121:     position: absolute;
-122:     top: 0px;
-123:     right: 0px;
-124: 
-125:     a {
-126:       @include inline-block;
-127:       font-size: 25px;
-128:       width: 56px;
-129:       // border-left: 1px solid #eee;
-130:     }
-131: 
+129:     position: absolute;
+130:     top: 0px;
+131:     right: 0px;
+132: 
+133:     a {
+134:       @include inline-block;
+135:       font-size: 25px;
+136:       width: 56px;
+137:       // border-left: 1px solid #eee;
+138:     }
+139: 
 
 Backtrace:
-./stylesheets/app/toolbar.scss:126:in `inline-block'
-./stylesheets/app/toolbar.scss:126
+./stylesheets/app/toolbar.scss:134:in `inline-block'
+./stylesheets/app/toolbar.scss:134
 /Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:251:in `visit_mixin'
 /Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:37:in `visit'
 /Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:98:in `visit'
@@ -86,4 +86,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined mixin 'inline-block'.\A         on line 126 of ./stylesheets/app/toolbar.scss, in `inline-block'\A         from line 126 of ./stylesheets/app/toolbar.scss\A \A 121:     position: absolute;\A 122:     top: 0px;\A 123:     right: 0px;\A 124: \A 125:     a {\A 126:       @include inline-block;\A 127:       font-size: 25px;\A 128:       width: 56px;\A 129:       // border-left: 1px solid #eee;\A 130:     }\A 131: "; }
+  content: "Syntax error: Undefined mixin 'inline-block'.\A         on line 134 of ./stylesheets/app/toolbar.scss, in `inline-block'\A         from line 134 of ./stylesheets/app/toolbar.scss\A \A 129:     position: absolute;\A 130:     top: 0px;\A 131:     right: 0px;\A 132: \A 133:     a {\A 134:       @include inline-block;\A 135:       font-size: 25px;\A 136:       width: 56px;\A 137:       // border-left: 1px solid #eee;\A 138:     }\A 139: "; }
