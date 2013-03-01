@@ -10,7 +10,6 @@
 form {
   margin: 0 0 1.25em;
   
-  
   // Form grid
   .col {
     position: relative;
@@ -75,7 +74,7 @@ form {
     @include box-shadow(1px 1px 2px #eee inset);
   }
   
-  input.large {
+  input.large:not(.button) {
     font-size: 24px !important;
     line-height: 45px;
     height: 45px;
@@ -144,10 +143,10 @@ form {
   ================================================*/
   
   div.notification {
-    width: 100%;
     padding: 20px;
     margin: 20px 0 40px;
     background: white;
+    border: 1px solid #ccc;
     color: #111;
     
     a.close {
@@ -158,4 +157,15 @@ form {
       height: 20px;
       @extend .icon-cross; 
     }
+    
+    
+    .dark-theme & {
+      border: 1px solid #ccc;
+    }
+  }
+  
+  a.close-target {
+    @extend .icon-cross;
+    font-size: 28px;
+    float: right;
   }
