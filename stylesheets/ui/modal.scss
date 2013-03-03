@@ -1,3 +1,7 @@
+@import "compass/css3/box-sizing";
+@import "compass/css3/text-shadow";
+@import "compass/css3/border-radius";
+
 // Model
 
 .overlay {
@@ -60,7 +64,7 @@
       line-height: 70px;
       color: white;
     }
-    
+
 
     .button {
     /*    margin-top: -3px;*/
