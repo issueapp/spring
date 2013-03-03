@@ -1,3 +1,7 @@
+@import "compass/css3/box-sizing";
+@import "compass/css3/text-shadow";
+@import "compass/css3/inline-block";
+@import "compass/css3/border-radius";
 //    Sidebar/discover menu
 //
 
@@ -102,23 +106,23 @@ nav#menu {
         font-size: 24px;
       }
     }
-    
-  
-    /*  
+
+
+    /*
             icons
     */
-  
+
     .icon-content:before {
       content: "A ";
       font-family: georgia;
       font-size: 30px !important;
     }
-    
-  
+
+
     /*
           Level 2 menu
     */
-  
+
 
     & > ul li {
       padding-left: 30px;
@@ -241,10 +245,10 @@ ul.channels {
   padding: 0;
   list-style: none;
   height: 100%;
-  
+
   overflow: auto;
   -webkit-overflow-scrolling:touch;
-  
+
   padding-top: 120;
   left: 240px;
   top: 0;
@@ -252,8 +256,8 @@ ul.channels {
   position: absolute;
   bottom: 0;
   padding-bottom: 50%;
-  
-  
+
+
   li {
     position: relative;
     @include box-sizing(border-box);

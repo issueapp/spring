@@ -639,7 +639,7 @@ html {
   src: url('../fonts/proximanova-regular-webfont.eot?#iefix') format("embedded-opentype"), url('../fonts/proximanova-regular-webfont.woff') format("woff"), url('../fonts/proximanova-regular-webfont.ttf') format("truetype"), url('../fonts/proximanova-regular-webfont.svg#proxima_nova_regular') format("svg");
 }
 
-/* line 35, ../../stylesheets/base/typography.scss */
+/* line 37, ../../stylesheets/base/typography.scss */
 html {
   -webkit-font-smoothing: antialiased;
   font-size: 16px;
@@ -650,7 +650,7 @@ html {
   -ms-text-size-adjust: 100%;
 }
 
-/* line 46, ../../stylesheets/base/typography.scss */
+/* line 48, ../../stylesheets/base/typography.scss */
 body {
   font: 16px/28px "proxima_nova_regular", "Helvetica Neue";
   color: #222;
@@ -658,7 +658,7 @@ body {
 
 /* #Typography
 ================================================== */
-/* line 53, ../../stylesheets/base/typography.scss */
+/* line 55, ../../stylesheets/base/typography.scss */
 h1, h2, h3, h4, h5, h6, .title {
   margin: 0;
   font-family: "proxima_nova_bold";
@@ -667,12 +667,12 @@ h1, h2, h3, h4, h5, h6, .title {
   text-rendering: optimizelegibility;
 }
 
-/* line 61, ../../stylesheets/base/typography.scss */
+/* line 63, ../../stylesheets/base/typography.scss */
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
   font-weight: inherit;
 }
 
-/* line 64, ../../stylesheets/base/typography.scss */
+/* line 66, ../../stylesheets/base/typography.scss */
 h1 {
   margin-bottom: 0;
   font-size: 24px;
@@ -683,7 +683,7 @@ h1 {
   text-transform: uppercase;
 }
 
-/* line 75, ../../stylesheets/base/typography.scss */
+/* line 77, ../../stylesheets/base/typography.scss */
 h2 {
   font-family: "proxima_nova_ltregular";
   text-transform: uppercase;
@@ -695,7 +695,7 @@ h2 {
   line-height: 1.2;
 }
 
-/* line 86, ../../stylesheets/base/typography.scss */
+/* line 88, ../../stylesheets/base/typography.scss */
 h3 {
   font-family: "proxima_nova_regular";
   margin-bottom: 1em;
@@ -705,22 +705,22 @@ h3 {
   line-height: 1.3;
 }
 
-/* line 95, ../../stylesheets/base/typography.scss */
+/* line 97, ../../stylesheets/base/typography.scss */
 h4 {
   text-transform: uppercase;
 }
 
-/* line 99, ../../stylesheets/base/typography.scss */
+/* line 101, ../../stylesheets/base/typography.scss */
 .content-body {
   max-width: 50em;
   margin: 0 auto;
 }
-/* line 103, ../../stylesheets/base/typography.scss */
+/* line 105, ../../stylesheets/base/typography.scss */
 .content-body p {
   margin: 0 auto 1.5em;
 }
 
-/* line 109, ../../stylesheets/base/typography.scss */
+/* line 111, ../../stylesheets/base/typography.scss */
 .subtitle {
   font-family: georgia;
   font-style: italic;
@@ -733,39 +733,39 @@ h4 {
 /* =======================================================
         Links
    =======================================================*/
-/* line 122, ../../stylesheets/base/typography.scss */
+/* line 124, ../../stylesheets/base/typography.scss */
 a {
   color: #4a90a6;
   text-decoration: none;
 }
-/* line 126, ../../stylesheets/base/typography.scss */
+/* line 128, ../../stylesheets/base/typography.scss */
 a:visited {
   color: #333;
 }
 
-/* line 131, ../../stylesheets/base/typography.scss */
+/* line 133, ../../stylesheets/base/typography.scss */
 .toolbar, a {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-/* line 134, ../../stylesheets/base/typography.scss */
+/* line 136, ../../stylesheets/base/typography.scss */
 a, a:active, a:visited {
   color: #666;
   text-decoration: none;
 }
 
-/* line 139, ../../stylesheets/base/typography.scss */
+/* line 141, ../../stylesheets/base/typography.scss */
 a:hover {
   color: #f04500;
 }
 
-/* line 143, ../../stylesheets/base/typography.scss */
+/* line 145, ../../stylesheets/base/typography.scss */
 a.large {
   font-size: 18px;
   text-transform: uppercase;
 }
 
-/* line 148, ../../stylesheets/base/typography.scss */
+/* line 150, ../../stylesheets/base/typography.scss */
 p.center {
   text-align: center;
 }
@@ -773,7 +773,7 @@ p.center {
 /*======================================================
       Helpers
   ======================================================*/
-/* line 160, ../../stylesheets/base/typography.scss */
+/* line 162, ../../stylesheets/base/typography.scss */
 .text-centered {
   text-align: center;
 }
@@ -782,7 +782,7 @@ p.center {
       Responsive (larger screen)
   ====*/
 @media screen and (min-width: 768px) {
-  /* line 172, ../../stylesheets/base/typography.scss */
+  /* line 174, ../../stylesheets/base/typography.scss */
   h1 {
     font-size: 30px;
     font-size: 1.875em;
@@ -790,7 +790,7 @@ p.center {
     line-height: 1.2;
   }
 
-  /* line 180, ../../stylesheets/base/typography.scss */
+  /* line 182, ../../stylesheets/base/typography.scss */
   h2 {
     font-size: 24px;
     font-size: 1.5em;
@@ -798,7 +798,7 @@ p.center {
     line-height: 1.2;
   }
 
-  /* line 187, ../../stylesheets/base/typography.scss */
+  /* line 189, ../../stylesheets/base/typography.scss */
   h3 {
     font-size: 18px;
     font-size: 1.115em;
@@ -1236,7 +1236,7 @@ div.notification a.close:before {
   color: #111;
 }
 
-/* line 3, ../../stylesheets/ui/modal.scss */
+/* line 7, ../../stylesheets/ui/modal.scss */
 .overlay {
   top: 0;
   left: 0;
@@ -1247,7 +1247,7 @@ div.notification a.close:before {
   background: rgba(0, 0, 0, 0.6);
 }
 
-/* line 12, ../../stylesheets/ui/modal.scss */
+/* line 16, ../../stylesheets/ui/modal.scss */
 .modal {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -1263,12 +1263,12 @@ div.notification a.close:before {
   background: #fff;
   padding: 20px 20px 50px;
 }
-/* line 27, ../../stylesheets/ui/modal.scss */
+/* line 31, ../../stylesheets/ui/modal.scss */
 .modal a.close-target {
   font-size: 28px;
   float: right;
 }
-/* line 32, ../../stylesheets/ui/modal.scss */
+/* line 36, ../../stylesheets/ui/modal.scss */
 .modal h1, .modal h2 {
   font-family: "proxima_nova_regular", "Helvetica Neue";
   margin: 0 0 1em;
@@ -1278,13 +1278,13 @@ div.notification a.close:before {
   font-weight: normal;
   text-align: center;
 }
-/* line 42, ../../stylesheets/ui/modal.scss */
+/* line 46, ../../stylesheets/ui/modal.scss */
 .modal p.subtitle {
   font: 16px/1.5em Georgia;
   color: #666;
   font-style: italic;
 }
-/* line 48, ../../stylesheets/ui/modal.scss */
+/* line 52, ../../stylesheets/ui/modal.scss */
 .modal footer {
   position: absolute;
   bottom: 0;
@@ -1295,13 +1295,13 @@ div.notification a.close:before {
   text-align: center;
   color: white;
 }
-/* line 58, ../../stylesheets/ui/modal.scss */
+/* line 62, ../../stylesheets/ui/modal.scss */
 .modal footer a {
   font-size: 18px;
   line-height: 70px;
   color: white;
 }
-/* line 65, ../../stylesheets/ui/modal.scss */
+/* line 69, ../../stylesheets/ui/modal.scss */
 .modal footer .button {
   /*    margin-top: -3px;*/
   background: #000;
@@ -1319,7 +1319,7 @@ div.notification a.close:before {
   padding: 0 30px;
   margin: 0;
 }
-/* line 79, ../../stylesheets/ui/modal.scss */
+/* line 83, ../../stylesheets/ui/modal.scss */
 .modal footer .button:hover {
   background: #111;
 }
@@ -1574,43 +1574,43 @@ you can use the generic selector below, but it's slower:
   content: "\e029";
 }
 
-/* line 20, ../../stylesheets/ui.scss */
+/* line 22, ../../stylesheets/ui.scss */
 nav.tab-menu {
   margin-bottom: 2%;
   overflow: hidden;
   *zoom: 1;
 }
-/* line 25, ../../stylesheets/ui.scss */
+/* line 27, ../../stylesheets/ui.scss */
 nav.tab-menu ul {
   list-style: none;
   padding: 0;
   border: 1px solid #cccccc;
   clear: left;
 }
-/* line 32, ../../stylesheets/ui.scss */
+/* line 34, ../../stylesheets/ui.scss */
 nav.tab-menu li {
   border-bottom: 1px solid #cccccc;
   border-right: 0;
 }
-/* line 36, ../../stylesheets/ui.scss */
+/* line 38, ../../stylesheets/ui.scss */
 nav.tab-menu li:last-child {
   border: 0;
 }
-/* line 41, ../../stylesheets/ui.scss */
+/* line 43, ../../stylesheets/ui.scss */
 nav.tab-menu a {
   padding: 10px 10px;
   display: block;
 }
-/* line 44, ../../stylesheets/ui.scss */
+/* line 46, ../../stylesheets/ui.scss */
 nav.tab-menu a:hover {
   background: #eee;
 }
 @media screen and (min-width: 768px) {
-  /* line 50, ../../stylesheets/ui.scss */
+  /* line 52, ../../stylesheets/ui.scss */
   nav.tab-menu ul {
     float: left;
   }
-  /* line 53, ../../stylesheets/ui.scss */
+  /* line 55, ../../stylesheets/ui.scss */
   nav.tab-menu li {
     border-right: 1px solid #cccccc;
     border-bottom: 0;
@@ -1957,7 +1957,7 @@ header.cover-image h1 {
   float: left;
   width: 200px;
   height: 80px;
-  background: url('../images/issue-logo.png?1361755644') 0 -80px no-repeat;
+  background: url('../images/issue-logo.png?1362278480') 0 -80px no-repeat;
 }
 /* line 93, ../../stylesheets/site.scss */
 .logo.small {
@@ -2006,7 +2006,7 @@ footer[role=contentinfo] .footer-links li {
     max-width: 980px;
   }
 }
-/* line 2, ../../stylesheets/site/home.scss */
+/* line 7, ../../stylesheets/site/home.scss */
 #hero {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -2015,14 +2015,14 @@ footer[role=contentinfo] .footer-links li {
   padding-top: 3%;
   background-size: cover;
   background-repeat: no-repeat;
-  background-image: url('../images/site/home-background.jpg?1361938659');
+  background-image: url('../images/site/home-background.jpg?1362279060');
 }
-/* line 11, ../../stylesheets/site/home.scss */
+/* line 16, ../../stylesheets/site/home.scss */
 #hero .logo {
   float: none;
   margin-top: 5%;
 }
-/* line 16, ../../stylesheets/site/home.scss */
+/* line 21, ../../stylesheets/site/home.scss */
 #hero h2 {
   font-family: georgia;
   font-weight: normal;
@@ -2033,20 +2033,20 @@ footer[role=contentinfo] .footer-links li {
   font-style: italic;
   text-transform: none;
 }
-/* line 28, ../../stylesheets/site/home.scss */
+/* line 33, ../../stylesheets/site/home.scss */
 #hero #ipad-screen {
   position: relative;
   top: -20px;
   left: -2%;
 }
-/* line 34, ../../stylesheets/site/home.scss */
+/* line 39, ../../stylesheets/site/home.scss */
 #hero .learn-more {
   font-size: 16px;
   font-weight: bold;
   text-transform: uppercase;
   margin-left: 20px;
 }
-/* line 41, ../../stylesheets/site/home.scss */
+/* line 46, ../../stylesheets/site/home.scss */
 #hero .more-arrow {
   position: absolute;
   left: 49%;
@@ -2055,37 +2055,37 @@ footer[role=contentinfo] .footer-links li {
   height: 30px;
   display: block;
   margin: 0 auto;
-  background: url('../images/icons-sprite.png?1360293764') no-repeat;
+  background: url('../images/icons-sprite.png?1362279060') no-repeat;
 }
 
-/* line 53, ../../stylesheets/site/home.scss */
+/* line 58, ../../stylesheets/site/home.scss */
 section.tour {
   overflow: hidden;
   *zoom: 1;
   padding: 40px 0;
 }
-/* line 57, ../../stylesheets/site/home.scss */
+/* line 62, ../../stylesheets/site/home.scss */
 section.tour.odd {
   background: #f6f9f9;
 }
-/* line 59, ../../stylesheets/site/home.scss */
+/* line 64, ../../stylesheets/site/home.scss */
 section.tour h2 {
   text-transform: uppercase;
   letter-spacing: 2px;
   /*    margin: 0 0 0;*/
 }
-/* line 65, ../../stylesheets/site/home.scss */
+/* line 70, ../../stylesheets/site/home.scss */
 section.tour .subtitle {
   font: 16px Georgia;
   color: #555;
   font-style: italic;
   text-align: center;
 }
-/* line 72, ../../stylesheets/site/home.scss */
+/* line 77, ../../stylesheets/site/home.scss */
 section.tour figure {
   text-align: center;
 }
-/* line 76, ../../stylesheets/site/home.scss */
+/* line 81, ../../stylesheets/site/home.scss */
 section.tour .box {
   display: -moz-inline-stack;
   display: inline-block;
@@ -2100,7 +2100,7 @@ section.tour .box {
   height: 300px;
   margin: 0 2% 60px 0;
 }
-/* line 86, ../../stylesheets/site/home.scss */
+/* line 91, ../../stylesheets/site/home.scss */
 section.tour .box h3 {
   font-family: "proxima_nova_regular", "Helvetica Neue";
   letter-spacing: 2px;
@@ -2116,7 +2116,7 @@ section.tour .box h3 {
   visibility: visible;
   z-index: 2;
 }
-/* line 103, ../../stylesheets/site/home.scss */
+/* line 108, ../../stylesheets/site/home.scss */
 section.tour .box .hover {
   position: absolute;
   -webkit-box-sizing: border-box;
@@ -2131,118 +2131,296 @@ section.tour .box .hover {
   background: black;
   opacity: 0.8;
 }
-/* line 117, ../../stylesheets/site/home.scss */
+/* line 122, ../../stylesheets/site/home.scss */
 section.tour .box:hover h3 {
   /*        visibility: hidden;*/
 }
-/* line 120, ../../stylesheets/site/home.scss */
+/* line 125, ../../stylesheets/site/home.scss */
 section.tour .box:hover .hover {
   display: block;
 }
-/* line 126, ../../stylesheets/site/home.scss */
+/* line 131, ../../stylesheets/site/home.scss */
 section.tour .box.brand {
   background-size: cover;
-  background-image: url('../images/site/tour-brand.png?1361938659');
+  background-image: url('../images/site/tour-brand.png?1362279060');
 }
-/* line 131, ../../stylesheets/site/home.scss */
+/* line 136, ../../stylesheets/site/home.scss */
 section.tour .box.blogger {
   background-size: cover;
-  background-image: url('../images/site/tour-blogger.png?1361938659');
+  background-image: url('../images/site/tour-blogger.png?1362279060');
 }
 
 /* ====
 
 === */
 @media screen and (min-width: 768px) {
-  /* line 146, ../../stylesheets/site/home.scss */
+  /* line 151, ../../stylesheets/site/home.scss */
   section.tour.blogger .col:first-child {
     left: 50%;
   }
-  /* line 150, ../../stylesheets/site/home.scss */
+  /* line 155, ../../stylesheets/site/home.scss */
   section.tour.blogger .col:last-child {
     right: 50%;
   }
 }
 
-/* line 1, ../../stylesheets/site/publisher.scss */
+/* line 10, /Users/gkwrh/workspace/spring/stylesheets/base/form.scss */
+form {
+  margin: 0 0 1.25em;
+  /*================================================
+          Label/hint
+    ================================================*/
+  /*================================================
+          Input fields
+    ================================================*/
+  /*
+      Focus state
+  */
+  /*================================================
+          Errors
+    ================================================*/
+}
+/* line 15, /Users/gkwrh/workspace/spring/stylesheets/base/form.scss */
+form .col {
+  position: relative;
+}
+/* line 19, /Users/gkwrh/workspace/spring/stylesheets/base/form.scss */
+form .row {
+  position: relative;
+  padding-bottom: 1.6em;
+  margin-bottom: 0.5em;
+}
+/* line 28, /Users/gkwrh/workspace/spring/stylesheets/base/form.scss */
+form p.large, form label.large {
+  font-size: 24px;
+  line-height: 45px;
+}
+/* line 33, /Users/gkwrh/workspace/spring/stylesheets/base/form.scss */
+form label.radio {
+  padding-right: 1em;
+}
+/* line 36, /Users/gkwrh/workspace/spring/stylesheets/base/form.scss */
+form label.radio input {
+  margin-right: 0.5em;
+}
+/* line 40, /Users/gkwrh/workspace/spring/stylesheets/base/form.scss */
+form .hint_style, form .hint, form .error {
+  color: #888;
+  font-style: italic;
+  line-height: 1.4;
+  font-size: 13px;
+  position: absolute;
+}
+/* line 49, /Users/gkwrh/workspace/spring/stylesheets/base/form.scss */
+form .hint {
+  /*    bottom: -1.7em;*/
+  /*    left: 0;*/
+  /*left: 0;
+  bottom: -1.7em;*/
+}
+/* line 60, /Users/gkwrh/workspace/spring/stylesheets/base/form.scss */
+form .text_field, form input[type="text"], form input[type="password"], form input[type="tel"], form input[type="email"],
+form input[type="search"], form input[type="url"], form textarea, form select {
+  padding: 9px;
+  margin: 0px;
+  line-height: 2em;
+  height: auto;
+  width: 100%;
+  max-width: 600px;
+  font-size: 14px;
+  border: 1px solid #cccccc;
+  background: white;
+  vertical-align: top;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-box-shadow: 1px 1px 2px #eeeeee inset;
+  -moz-box-shadow: 1px 1px 2px #eeeeee inset;
+  box-shadow: 1px 1px 2px #eeeeee inset;
+}
+/* line 78, /Users/gkwrh/workspace/spring/stylesheets/base/form.scss */
+form input.large {
+  font-size: 24px !important;
+  line-height: 45px;
+  height: 45px;
+}
+/* line 85, /Users/gkwrh/workspace/spring/stylesheets/base/form.scss */
+form input[type="text"], form input[type="password"], form input[type="tel"], form input[type="email"],
+form input[type="search"], form input[type="url"], form textarea, form select {
+  font-size: 100%;
+  line-height: normal;
+  /* ie */
+}
+/* line 4, /Users/gkwrh/workspace/spring/stylesheets/base/form.scss */
+form input[type="text"].placeholder, form input[type="password"].placeholder, form input[type="tel"].placeholder, form input[type="email"].placeholder,
+form input[type="search"].placeholder, form input[type="url"].placeholder, form textarea.placeholder, form select.placeholder {
+  font-family: georgia;
+  font-weight: normal !important;
+  font-style: italic;
+  font-size: 15px;
+}
+/* line 5, /Users/gkwrh/workspace/spring/stylesheets/base/form.scss */
+form input[type="text"]:-moz-placeholder, form input[type="password"]:-moz-placeholder, form input[type="tel"]:-moz-placeholder, form input[type="email"]:-moz-placeholder,
+form input[type="search"]:-moz-placeholder, form input[type="url"]:-moz-placeholder, form textarea:-moz-placeholder, form select:-moz-placeholder {
+  font-family: georgia;
+  font-weight: normal !important;
+  font-style: italic;
+  font-size: 15px;
+}
+/* line 6, /Users/gkwrh/workspace/spring/stylesheets/base/form.scss */
+form input[type="text"]::-webkit-input-placeholder, form input[type="password"]::-webkit-input-placeholder, form input[type="tel"]::-webkit-input-placeholder, form input[type="email"]::-webkit-input-placeholder,
+form input[type="search"]::-webkit-input-placeholder, form input[type="url"]::-webkit-input-placeholder, form textarea::-webkit-input-placeholder, form select::-webkit-input-placeholder {
+  font-family: georgia;
+  font-weight: normal !important;
+  font-style: italic;
+  font-size: 15px;
+}
+/* line 7, /Users/gkwrh/workspace/spring/stylesheets/base/form.scss */
+form input[type="text"]:-ms-input-placeholder, form input[type="password"]:-ms-input-placeholder, form input[type="tel"]:-ms-input-placeholder, form input[type="email"]:-ms-input-placeholder,
+form input[type="search"]:-ms-input-placeholder, form input[type="url"]:-ms-input-placeholder, form textarea:-ms-input-placeholder, form select:-ms-input-placeholder {
+  font-family: georgia;
+  font-weight: normal !important;
+  font-style: italic;
+  font-size: 15px;
+}
+/* line 99, /Users/gkwrh/workspace/spring/stylesheets/base/form.scss */
+form select {
+  width: auto;
+  background-color: #fff;
+  border: 1px solid #cccccc;
+  height: 2.5em;
+  line-height: 2.5em;
+}
+/* line 107, /Users/gkwrh/workspace/spring/stylesheets/base/form.scss */
+form input[type=submit], form input[type=button], form button[type=submit] {
+  line-height: 2em;
+  padding: 3px 15px;
+  margin-right: 5px;
+}
+/* line 116, /Users/gkwrh/workspace/spring/stylesheets/base/form.scss */
+form input:focus, form select:focus, form textarea:focus {
+  border: 1px solid #a1cfde !important;
+}
+/* line 126, /Users/gkwrh/workspace/spring/stylesheets/base/form.scss */
+form .field_with_errors input.string, form .field_with_errors select.select {
+  border-color: #f3a4a4;
+}
+/* line 130, /Users/gkwrh/workspace/spring/stylesheets/base/form.scss */
+form .field_with_errors .hint {
+  display: none;
+}
+/* line 135, /Users/gkwrh/workspace/spring/stylesheets/base/form.scss */
+form .error {
+  color: #e84949;
+}
+
+/*================================================
+      Notification
+================================================*/
+/* line 146, /Users/gkwrh/workspace/spring/stylesheets/base/form.scss */
+div.notification {
+  width: 100%;
+  padding: 20px;
+  margin: 20px 0 40px;
+  background: white;
+  color: #111;
+}
+/* line 153, /Users/gkwrh/workspace/spring/stylesheets/base/form.scss */
+div.notification a.close {
+  float: right;
+  width: 20px;
+  height: 20px;
+}
+/* line 155, /Users/gkwrh/workspace/spring/stylesheets/base/form.scss */
+div.notification a.close:before {
+  font-size: 24px;
+  color: #111;
+}
+
+/* line 3, ../../stylesheets/site/publisher.scss */
 form#reserve_edition {
-  /*  
+  /*
     .publisher-type {
       margin-top: -0.5em
     }*/
 }
-/* line 2, ../../stylesheets/site/publisher.scss */
+/* line 4, ../../stylesheets/site/publisher.scss */
 form#reserve_edition .row {
   min-height: 55px;
 }
-/* line 5, ../../stylesheets/site/publisher.scss */
+/* line 7, ../../stylesheets/site/publisher.scss */
 form#reserve_edition .row input.string, form#reserve_edition .row select.select {
   margin-bottom: 0;
 }
-/* line 10, ../../stylesheets/site/publisher.scss */
+/* line 12, ../../stylesheets/site/publisher.scss */
 form#reserve_edition .col {
   position: relative;
 }
-/* line 14, ../../stylesheets/site/publisher.scss */
+/* line 16, ../../stylesheets/site/publisher.scss */
 form#reserve_edition .error {
   /*    position: absolute;
       left: 0;
       bottom: -1.7em;
   */
 }
-/* line 21, ../../stylesheets/site/publisher.scss */
+/* line 23, ../../stylesheets/site/publisher.scss */
 form#reserve_edition .edition_handle {
   margin-bottom: 2em;
   padding-bottom: 1em;
   border-bottom: 1px solid #cccccc;
 }
-/* line 26, ../../stylesheets/site/publisher.scss */
+/* line 28, ../../stylesheets/site/publisher.scss */
 form#reserve_edition .edition_handle .error {
   position: absolute;
   left: initial;
   bottom: initial;
 }
-/* line 34, ../../stylesheets/site/publisher.scss */
+/* line 36, ../../stylesheets/site/publisher.scss */
 form#reserve_edition .edition_owner_role {
   height: 35px;
 }
-/* line 37, ../../stylesheets/site/publisher.scss */
+/* line 39, ../../stylesheets/site/publisher.scss */
 form#reserve_edition .edition_owner_role label.radio_buttons {
   display: block;
   margin-top: -8px;
   margin-bottom: -8px;
 }
-/* line 44, ../../stylesheets/site/publisher.scss */
+/* line 46, ../../stylesheets/site/publisher.scss */
 form#reserve_edition .edition_owner_role .error {
   bottom: -1.3em;
 }
 
-/* line 56, ../../stylesheets/site/publisher.scss */
+/* line 58, ../../stylesheets/site/publisher.scss */
 #edition_handle,
 #edition_handle_outside {
   margin-left: 2px;
   width: 7em;
   /* ie */
 }
-/* line 4, ../../stylesheets/base/form.scss */
+/* line 4, /Users/gkwrh/workspace/spring/stylesheets/base/form.scss */
 #edition_handle.placeholder,
 #edition_handle_outside.placeholder {
   font-size: 24px;
   font-weight: normal !important;
 }
-/* line 5, ../../stylesheets/base/form.scss */
+/* line 5, /Users/gkwrh/workspace/spring/stylesheets/base/form.scss */
 #edition_handle:-moz-placeholder,
 #edition_handle_outside:-moz-placeholder {
   font-size: 24px;
   font-weight: normal !important;
 }
-/* line 6, ../../stylesheets/base/form.scss */
+/* line 6, /Users/gkwrh/workspace/spring/stylesheets/base/form.scss */
 #edition_handle::-webkit-input-placeholder,
 #edition_handle_outside::-webkit-input-placeholder {
   font-size: 24px;
   font-weight: normal !important;
 }
-/* line 7, ../../stylesheets/base/form.scss */
+/* line 7, /Users/gkwrh/workspace/spring/stylesheets/base/form.scss */
 #edition_handle:-ms-input-placeholder,
 #edition_handle_outside:-ms-input-placeholder {
   font-size: 24px;
