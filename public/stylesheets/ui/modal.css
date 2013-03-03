@@ -1,69 +1,87 @@
-/*
-Syntax error: Undefined mixin 'box-sizing'.
-        on line 13 of ./stylesheets/ui/modal.scss, in `box-sizing'
-        from line 13 of ./stylesheets/ui/modal.scss
+/* line 7, ../../../stylesheets/ui/modal.scss */
+.overlay {
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.6);
+}
 
-8:   z-index: 9999;
-9:   background: rgba(0,0,0, 0.6);
-10: }
-11: 
-12: .modal {
-13:   @include box-sizing(border-box);
-14:   position: fixed;
-15:   z-index: 10000;
-16:   left: 50%;
-17:   top: 50%;
-18:   margin-top: -300px;
-
-Backtrace:
-./stylesheets/ui/modal.scss:13:in `box-sizing'
-./stylesheets/ui/modal.scss:13
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:251:in `visit_mixin'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:37:in `visit'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:98:in `visit'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:53:in `map'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:53:in `visit_children'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:107:in `block in visit_children'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:119:in `with_environment'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:106:in `visit_children'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:37:in `block in visit'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:318:in `visit_rule'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:37:in `visit'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:98:in `visit'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:53:in `map'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:53:in `visit_children'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:107:in `block in visit_children'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:119:in `with_environment'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:106:in `visit_children'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:37:in `block in visit'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:126:in `visit_root'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:37:in `visit'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:98:in `visit'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:7:in `visit'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/root_node.rb:20:in `render'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/engine.rb:315:in `_render'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/engine.rb:262:in `render'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/haml-3.1.6/vendor/sass/lib/sass/plugin/compiler.rb:339:in `update_stylesheet'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/haml-3.1.6/vendor/sass/lib/sass/plugin/compiler.rb:202:in `block in update_stylesheets'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/haml-3.1.6/vendor/sass/lib/sass/plugin/compiler.rb:200:in `each'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/haml-3.1.6/vendor/sass/lib/sass/plugin/compiler.rb:200:in `update_stylesheets'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/haml-3.1.6/vendor/sass/lib/sass/plugin.rb:81:in `update_stylesheets'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/haml-3.1.6/vendor/sass/lib/sass/plugin.rb:54:in `check_for_updates'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/haml-3.1.6/vendor/sass/lib/sass/plugin/rack.rb:51:in `call'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/rack-1.4.1/lib/rack/lint.rb:48:in `_call'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/rack-1.4.1/lib/rack/lint.rb:36:in `call'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/rack-1.4.1/lib/rack/showexceptions.rb:24:in `call'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/rack-1.4.1/lib/rack/commonlogger.rb:20:in `call'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/rack-1.4.1/lib/rack/chunked.rb:43:in `call'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/rack-1.4.1/lib/rack/content_length.rb:14:in `call'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/rack-1.4.1/lib/rack/handler/webrick.rb:59:in `service'
-/Users/taylorluk/.rvm/rubies/ruby-1.9.3-p362/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
-/Users/taylorluk/.rvm/rubies/ruby-1.9.3-p362/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
-/Users/taylorluk/.rvm/rubies/ruby-1.9.3-p362/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Syntax error: Undefined mixin 'box-sizing'.\A         on line 13 of ./stylesheets/ui/modal.scss, in `box-sizing'\A         from line 13 of ./stylesheets/ui/modal.scss\A \A 8:   z-index: 9999;\A 9:   background: rgba(0,0,0, 0.6);\A 10: }\A 11: \A 12: .modal {\A 13:   @include box-sizing(border-box);\A 14:   position: fixed;\A 15:   z-index: 10000;\A 16:   left: 50%;\A 17:   top: 50%;\A 18:   margin-top: -300px;"; }
+/* line 16, ../../../stylesheets/ui/modal.scss */
+.modal {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: fixed;
+  z-index: 10000;
+  left: 50%;
+  top: 50%;
+  margin-top: -300px;
+  margin-left: -300px;
+  width: 600px;
+  min-height: 450px;
+  background: #fff;
+  padding: 20px 20px 50px;
+}
+/* line 31, ../../../stylesheets/ui/modal.scss */
+.modal a.close-target {
+  font-size: 28px;
+  float: right;
+}
+/* line 36, ../../../stylesheets/ui/modal.scss */
+.modal h1, .modal h2 {
+  font-family: "proxima_nova_regular", "Helvetica Neue";
+  margin: 0 0 1em;
+  text-transform: uppercase;
+  /*    letter-spacing: 2px;*/
+  font-size: 24px;
+  font-weight: normal;
+  text-align: center;
+}
+/* line 46, ../../../stylesheets/ui/modal.scss */
+.modal p.subtitle {
+  font: 16px/1.5em Georgia;
+  color: #666;
+  font-style: italic;
+}
+/* line 52, ../../../stylesheets/ui/modal.scss */
+.modal footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: black;
+  height: 70px;
+  margin-left: -20px;
+  text-align: center;
+  color: white;
+}
+/* line 62, ../../../stylesheets/ui/modal.scss */
+.modal footer a {
+  font-size: 18px;
+  line-height: 70px;
+  color: white;
+}
+/* line 69, ../../../stylesheets/ui/modal.scss */
+.modal footer .button {
+  /*    margin-top: -3px;*/
+  background: #000;
+  color: white;
+  font-size: 18px;
+  font-weight: normal;
+  text-shadow: initial;
+  -webkit-border-radius: initial;
+  -moz-border-radius: initial;
+  -ms-border-radius: initial;
+  -o-border-radius: initial;
+  border-radius: initial;
+  height: 70px;
+  border: none;
+  padding: 0 30px;
+  margin: 0;
+}
+/* line 83, ../../../stylesheets/ui/modal.scss */
+.modal footer .button:hover {
+  background: #111;
+}
