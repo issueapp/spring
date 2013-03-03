@@ -1,59 +1,190 @@
-/*
-Syntax error: Undefined mixin 'min-screen'.
-        on line 167 of ./stylesheets/base/typography.scss, in `min-screen'
-        from line 167 of ./stylesheets/base/typography.scss
+@font-face {
+  font-family: 'proxima_nova_ltregular';
+  font-weight: normal;
+  font-style: normal;
+  src: url('../../fonts/proximanova-light-webfont.eot');
+  src: url('../../fonts/proximanova-light-webfont.eot?#iefix') format("embedded-opentype"), url('../../fonts/proximanova-light-webfont.woff') format("woff"), url('../../fonts/proximanova-light-webfont.ttf') format("truetype"), url('../../fonts/proximanova-light-webfont.svg#proxima_nova_ltregular') format("svg");
+}
 
-162: /* ====
-163:       Responsive (larger screen)
-164:   ====*/
-165:   
-166:   
-167: @include min-screen(768) {
-168:   
-169:   h1 {
-170:     font-size: 30px;
-171:     font-size: 1.875em;
-172:     font-size: 3rem;
+@font-face {
+  font-family: 'proxima_nova_bold';
+  font-weight: normal;
+  font-style: normal;
+  src: url('../../fonts/proximanova-bold-webfont.eot');
+  src: url('../../fonts/proximanova-bold-webfont.eot?#iefix') format("embedded-opentype"), url('../../fonts/proximanova-bold-webfont.woff') format("woff"), url('../../fonts/proximanova-bold-webfont.ttf') format("truetype"), url('../../fonts/proximanova-bold-webfont.svg#proxima_nova_bold') format("svg");
+}
 
-Backtrace:
-./stylesheets/base/typography.scss:167:in `min-screen'
-./stylesheets/base/typography.scss:167
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:251:in `visit_mixin'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:37:in `visit'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:98:in `visit'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:53:in `map'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:53:in `visit_children'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:107:in `block in visit_children'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:119:in `with_environment'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:106:in `visit_children'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:37:in `block in visit'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:126:in `visit_root'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:37:in `visit'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:98:in `visit'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:7:in `visit'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/root_node.rb:20:in `render'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/engine.rb:315:in `_render'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/engine.rb:262:in `render'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/haml-3.1.6/vendor/sass/lib/sass/plugin/compiler.rb:339:in `update_stylesheet'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/haml-3.1.6/vendor/sass/lib/sass/plugin/compiler.rb:202:in `block in update_stylesheets'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/haml-3.1.6/vendor/sass/lib/sass/plugin/compiler.rb:200:in `each'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/haml-3.1.6/vendor/sass/lib/sass/plugin/compiler.rb:200:in `update_stylesheets'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/haml-3.1.6/vendor/sass/lib/sass/plugin.rb:81:in `update_stylesheets'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/haml-3.1.6/vendor/sass/lib/sass/plugin.rb:54:in `check_for_updates'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/haml-3.1.6/vendor/sass/lib/sass/plugin/rack.rb:51:in `call'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/rack-1.4.1/lib/rack/lint.rb:48:in `_call'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/rack-1.4.1/lib/rack/lint.rb:36:in `call'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/rack-1.4.1/lib/rack/showexceptions.rb:24:in `call'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/rack-1.4.1/lib/rack/commonlogger.rb:20:in `call'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/rack-1.4.1/lib/rack/chunked.rb:43:in `call'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/rack-1.4.1/lib/rack/content_length.rb:14:in `call'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/rack-1.4.1/lib/rack/handler/webrick.rb:59:in `service'
-/Users/taylorluk/.rvm/rubies/ruby-1.9.3-p362/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
-/Users/taylorluk/.rvm/rubies/ruby-1.9.3-p362/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
-/Users/taylorluk/.rvm/rubies/ruby-1.9.3-p362/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Syntax error: Undefined mixin 'min-screen'.\A         on line 167 of ./stylesheets/base/typography.scss, in `min-screen'\A         from line 167 of ./stylesheets/base/typography.scss\A \A 162: /* ====\A 163:       Responsive (larger screen)\A 164:   ====*/\A 165:   \A 166:   \A 167: @include min-screen(768) {\A 168:   \A 169:   h1 {\A 170:     font-size: 30px;\A 171:     font-size: 1.875em;\A 172:     font-size: 3rem;"; }
+@font-face {
+  font-family: 'proxima_nova_regular';
+  font-weight: normal;
+  font-style: normal;
+  src: url('../../fonts/proximanova-regular-webfont.eot');
+  src: url('../../fonts/proximanova-regular-webfont.eot?#iefix') format("embedded-opentype"), url('../../fonts/proximanova-regular-webfont.woff') format("woff"), url('../../fonts/proximanova-regular-webfont.ttf') format("truetype"), url('../../fonts/proximanova-regular-webfont.svg#proxima_nova_regular') format("svg");
+}
+
+/* line 37, ../../../stylesheets/base/typography.scss */
+html {
+  -webkit-font-smoothing: antialiased;
+  font-size: 16px;
+  font-size: 62.5%;
+  -webkit-overflow-scrolling: touch;
+  -webkit-tap-highlight-color: #f3f5f6;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+/* line 48, ../../../stylesheets/base/typography.scss */
+body {
+  font: 16px/28px "proxima_nova_regular", "Helvetica Neue";
+  color: #222;
+}
+
+/* #Typography
+================================================== */
+/* line 55, ../../../stylesheets/base/typography.scss */
+h1, h2, h3, h4, h5, h6, .title {
+  margin: 0;
+  font-family: "proxima_nova_bold";
+  /*  font-family: "Georgia","Times New Roman",serif;*/
+  font-weight: bold;
+  text-rendering: optimizelegibility;
+}
+
+/* line 63, ../../../stylesheets/base/typography.scss */
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+  font-weight: inherit;
+}
+
+/* line 66, ../../../stylesheets/base/typography.scss */
+h1 {
+  margin-bottom: 0;
+  font-size: 24px;
+  font-size: 1.5em;
+  font-size: 2.4rem;
+  line-height: 1.5;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* line 77, ../../../stylesheets/base/typography.scss */
+h2 {
+  font-family: "proxima_nova_ltregular";
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 0.75em;
+  font-size: 18px;
+  font-size: 1.115em;
+  font-size: 1.8rem;
+  line-height: 1.2;
+}
+
+/* line 88, ../../../stylesheets/base/typography.scss */
+h3 {
+  font-family: "proxima_nova_regular";
+  margin-bottom: 1em;
+  font-size: 16px;
+  font-size: 1em;
+  font-size: 1.6rem;
+  line-height: 1.3;
+}
+
+/* line 97, ../../../stylesheets/base/typography.scss */
+h4 {
+  text-transform: uppercase;
+}
+
+/* line 101, ../../../stylesheets/base/typography.scss */
+.content-body {
+  max-width: 50em;
+  margin: 0 auto;
+}
+/* line 105, ../../../stylesheets/base/typography.scss */
+.content-body p {
+  margin: 0 auto 1.5em;
+}
+
+/* line 111, ../../../stylesheets/base/typography.scss */
+.subtitle {
+  font-family: georgia;
+  font-style: italic;
+  text-transform: none;
+  font-weight: normal;
+  color: #666;
+}
+
+/* =======================================================
+        Links
+   =======================================================*/
+/* line 123, ../../../stylesheets/base/typography.scss */
+a {
+  color: #4a90a6;
+  text-decoration: none;
+}
+/* line 127, ../../../stylesheets/base/typography.scss */
+a:visited {
+  color: #333;
+}
+
+/* line 132, ../../../stylesheets/base/typography.scss */
+.toolbar, a {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/* line 135, ../../../stylesheets/base/typography.scss */
+a, a:active, a:visited {
+  color: #666;
+  text-decoration: none;
+}
+
+/* line 140, ../../../stylesheets/base/typography.scss */
+a:hover {
+  color: #f04500;
+}
+
+/* line 144, ../../../stylesheets/base/typography.scss */
+a.large {
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+/* line 149, ../../../stylesheets/base/typography.scss */
+p.center {
+  text-align: center;
+}
+
+/*======================================================
+      Helpers
+  ======================================================*/
+/* line 159, ../../../stylesheets/base/typography.scss */
+.text-centered {
+  text-align: center;
+}
+
+/* ====
+      Responsive (larger screen)
+  ====*/
+@media screen and (min-width: 768px) {
+  /* line 171, ../../../stylesheets/base/typography.scss */
+  h1 {
+    font-size: 30px;
+    font-size: 1.875em;
+    font-size: 3rem;
+    line-height: 1.2;
+  }
+
+  /* line 179, ../../../stylesheets/base/typography.scss */
+  h2 {
+    font-size: 24px;
+    font-size: 1.5em;
+    font-size: 2.4rem;
+    line-height: 1.2;
+  }
+
+  /* line 186, ../../../stylesheets/base/typography.scss */
+  h3 {
+    font-size: 18px;
+    font-size: 1.115em;
+    font-size: 1.8rem;
+    line-height: 1.3;
+  }
+}

@@ -1,19 +1,22 @@
 @import "compass/css3/box-sizing";
+@import "compass/css3/images";
+@import "compass/css3/text-shadow";
+
 /*  different page styles   */
 
 /*  Full screen background  */
 
 body.dark-theme .toolbar {
-  @include background-image(linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0)));  
+  @include background-image(linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0)));
   color: white;
   border: transparent;
   @include text-shadow(1px 1px 1px rgba(0,0,0,0.3));
 
   .title {
     color: white;
-    
+
   }
-  
+
   a {
     color: white;
   }
@@ -21,7 +24,7 @@ body.dark-theme .toolbar {
 
 .page.dark.full {
     color: white;
-    
+
     .left-content {
       background: rgba(0,0,0, 0.7)
     }
@@ -40,9 +43,9 @@ body .page {
   margin: 0 0 0;
   max-height: 100%;
   padding-top: 70px;
-  
+
   font-size: 14px;
-  
+
   .row:last-child {
     margin-bottom: 0;
   }
@@ -65,7 +68,7 @@ article.page {
     line-height: 1.45;
     position: relative;
   }
-  
+
   blockquote:before {
     display: block;
     content: "\201C";
@@ -75,13 +78,13 @@ article.page {
     top: -20px;
     color: #7a7a7a;
   }
-  
+
   blockquote cite {
     color: #999999;
     font-size: 14px;
     display: block;
     margin-top: 5px;
-    
+
     &:before {
       content: "\2014 \2009";
     }

@@ -1,8 +1,15 @@
-/*
-Syntax error: Undefined mixin 'box-sizing'.
-        on line 13 of ./stylesheets/ui/modal.scss, in `box-sizing'
-        from line 13 of ./stylesheets/ui/modal.scss
+/* line 7, ../../../stylesheets/ui/modal.scss */
+.overlay {
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.6);
+}
 
+<<<<<<< HEAD
 8:   z-index: 9999;
 9:   background: rgba(0,0,0, 0.6);
 10: }
@@ -67,3 +74,81 @@ body:before {
   white-space: pre;
   font-family: monospace;
   content: "Syntax error: Undefined mixin 'box-sizing'.\A         on line 13 of ./stylesheets/ui/modal.scss, in `box-sizing'\A         from line 13 of ./stylesheets/ui/modal.scss\A \A 8:   z-index: 9999;\A 9:   background: rgba(0,0,0, 0.6);\A 10: }\A 11: \A 12: .modal {\A 13:   @include box-sizing(border-box);\A 14:   z-index: 10000;\A 15:   position: absolute;\A 16:   top: 50%;\A 17:   margin-top: -300px;\A 18:   left: 5%;"; }
+=======
+/* line 16, ../../../stylesheets/ui/modal.scss */
+.modal {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: fixed;
+  z-index: 10000;
+  left: 50%;
+  top: 50%;
+  margin-top: -300px;
+  margin-left: -300px;
+  width: 600px;
+  min-height: 450px;
+  background: #fff;
+  padding: 20px 20px 50px;
+}
+/* line 31, ../../../stylesheets/ui/modal.scss */
+.modal a.close-target {
+  font-size: 28px;
+  float: right;
+}
+/* line 36, ../../../stylesheets/ui/modal.scss */
+.modal h1, .modal h2 {
+  font-family: "proxima_nova_regular", "Helvetica Neue";
+  margin: 0 0 1em;
+  text-transform: uppercase;
+  /*    letter-spacing: 2px;*/
+  font-size: 24px;
+  font-weight: normal;
+  text-align: center;
+}
+/* line 46, ../../../stylesheets/ui/modal.scss */
+.modal p.subtitle {
+  font: 16px/1.5em Georgia;
+  color: #666;
+  font-style: italic;
+}
+/* line 52, ../../../stylesheets/ui/modal.scss */
+.modal footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: black;
+  height: 70px;
+  margin-left: -20px;
+  text-align: center;
+  color: white;
+}
+/* line 62, ../../../stylesheets/ui/modal.scss */
+.modal footer a {
+  font-size: 18px;
+  line-height: 70px;
+  color: white;
+}
+/* line 69, ../../../stylesheets/ui/modal.scss */
+.modal footer .button {
+  /*    margin-top: -3px;*/
+  background: #000;
+  color: white;
+  font-size: 18px;
+  font-weight: normal;
+  text-shadow: initial;
+  -webkit-border-radius: initial;
+  -moz-border-radius: initial;
+  -ms-border-radius: initial;
+  -o-border-radius: initial;
+  border-radius: initial;
+  height: 70px;
+  border: none;
+  padding: 0 30px;
+  margin: 0;
+}
+/* line 83, ../../../stylesheets/ui/modal.scss */
+.modal footer .button:hover {
+  background: #111;
+}
+>>>>>>> 4cb2a6f2439d938b271c270f313d3da4ef6fbf6e

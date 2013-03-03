@@ -1,4 +1,420 @@
+/* line 7, ../../stylesheets/ui/modal.scss */
+.overlay {
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+/* line 16, ../../stylesheets/ui/modal.scss */
+.modal {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: fixed;
+  z-index: 10000;
+  left: 50%;
+  top: 50%;
+  margin-top: -300px;
+  margin-left: -300px;
+  width: 600px;
+  min-height: 450px;
+  background: #fff;
+  padding: 20px 20px 50px;
+}
+/* line 31, ../../stylesheets/ui/modal.scss */
+.modal a.close-target {
+  font-size: 28px;
+  float: right;
+}
+/* line 36, ../../stylesheets/ui/modal.scss */
+.modal h1, .modal h2 {
+  font-family: "proxima_nova_regular", "Helvetica Neue";
+  margin: 0 0 1em;
+  text-transform: uppercase;
+  /*    letter-spacing: 2px;*/
+  font-size: 24px;
+  font-weight: normal;
+  text-align: center;
+}
+/* line 46, ../../stylesheets/ui/modal.scss */
+.modal p.subtitle {
+  font: 16px/1.5em Georgia;
+  color: #666;
+  font-style: italic;
+}
+/* line 52, ../../stylesheets/ui/modal.scss */
+.modal footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: black;
+  height: 70px;
+  margin-left: -20px;
+  text-align: center;
+  color: white;
+}
+/* line 62, ../../stylesheets/ui/modal.scss */
+.modal footer a {
+  font-size: 18px;
+  line-height: 70px;
+  color: white;
+}
+/* line 69, ../../stylesheets/ui/modal.scss */
+.modal footer .button {
+  /*    margin-top: -3px;*/
+  background: #000;
+  color: white;
+  font-size: 18px;
+  font-weight: normal;
+  text-shadow: initial;
+  -webkit-border-radius: initial;
+  -moz-border-radius: initial;
+  -ms-border-radius: initial;
+  -o-border-radius: initial;
+  border-radius: initial;
+  height: 70px;
+  border: none;
+  padding: 0 30px;
+  margin: 0;
+}
+/* line 83, ../../stylesheets/ui/modal.scss */
+.modal footer .button:hover {
+  background: #111;
+}
+
+@font-face {
+  font-family: 'issue-icons';
+  src: url('../fonts/issue-icons.eot');
+  src: url('../fonts/issue-icons.eot?#iefix') format("embedded-opentype"), url('../fonts/issue-icons.woff') format("woff"), url('../fonts/issue-icons.ttf') format("truetype"), url('../fonts/issue-icons.svg#issue-icons') format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Use the following CSS code if you want to use data attributes for inserting your icons */
+/* line 13, ../../stylesheets/ui/icons.scss */
+[data-icon]:before {
+  font-family: 'issue-icons';
+  content: attr(data-icon);
+  speak: none;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Use the following CSS code if you want to have a class per icon */
 /*
+Instead of a list of all class selectors,
+you can use the generic selector below, but it's slower:
+[class*="icon-"]:before {
+*/
+/* line 28, ../../stylesheets/ui/icons.scss */
+.icon-export:before, .icon-heart:before, .icon-earth:before, .icon-docs:before, .icon-twitter:before, .icon-facebook:before, .icon-googleplus:before, .icon-pinterest:before, .icon-camera:before, .icon-link:before, .icon-comment:before, .icon-cog:before, .icon-arrow-left:before, .icon-arrow-right:before, .icon-arrow-left-2:before, .icon-arrow-right-2:before, .icon-pictures:before, .icon-video:before, .icon-music:before, .icon-list:before, .icon-plus:before, .icon-minus:before, .icon-read:before, .icon-shop:before, .icon-book:before, .icon-layout:before, .icon-ccw:before, .icon-info:before, .icon-question:before, .icon-user:before, .icon-tag:before, .icon-search:before, .icon-stackoverflow:before, .icon-stream:before, .icon-play:before, .icon-gauge:before, .icon-eye:before, .icon-signal:before, .icon-statistics:before, .icon-brush:before, .icon-archive:before, .icon-plus-2:before, .icon-cross:before {
+  font-family: 'issue-icons';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* line 36, ../../stylesheets/ui/icons.scss */
+.icon-export:before {
+  content: "\e000";
+}
+
+/* line 39, ../../stylesheets/ui/icons.scss */
+.icon-heart:before {
+  content: "\e001";
+}
+
+/* line 42, ../../stylesheets/ui/icons.scss */
+.icon-earth:before {
+  content: "\e002";
+}
+
+/* line 45, ../../stylesheets/ui/icons.scss */
+.icon-docs:before {
+  content: "\e004";
+}
+
+/* line 48, ../../stylesheets/ui/icons.scss */
+.icon-twitter:before {
+  content: "\e007";
+}
+
+/* line 51, ../../stylesheets/ui/icons.scss */
+.icon-facebook:before {
+  content: "\e008";
+}
+
+/* line 54, ../../stylesheets/ui/icons.scss */
+.icon-googleplus:before {
+  content: "\e005";
+}
+
+/* line 57, ../../stylesheets/ui/icons.scss */
+.icon-pinterest:before {
+  content: "\e009";
+}
+
+/* line 60, ../../stylesheets/ui/icons.scss */
+.icon-camera:before {
+  content: "\e006";
+}
+
+/* line 63, ../../stylesheets/ui/icons.scss */
+.icon-link:before {
+  content: "\e00a";
+}
+
+/* line 66, ../../stylesheets/ui/icons.scss */
+.icon-comment:before {
+  content: "\e00b";
+}
+
+/* line 69, ../../stylesheets/ui/icons.scss */
+.icon-cog:before {
+  content: "\e00c";
+}
+
+/* line 72, ../../stylesheets/ui/icons.scss */
+.icon-arrow-left:before {
+  content: "\e00d";
+}
+
+/* line 75, ../../stylesheets/ui/icons.scss */
+.icon-arrow-right:before {
+  content: "\e00e";
+}
+
+/* line 78, ../../stylesheets/ui/icons.scss */
+.icon-arrow-left-2:before {
+  content: "\e00f";
+}
+
+/* line 81, ../../stylesheets/ui/icons.scss */
+.icon-arrow-right-2:before {
+  content: "\e010";
+}
+
+/* line 84, ../../stylesheets/ui/icons.scss */
+.icon-pictures:before {
+  content: "\e011";
+}
+
+/* line 87, ../../stylesheets/ui/icons.scss */
+.icon-video:before {
+  content: "\e012";
+}
+
+/* line 90, ../../stylesheets/ui/icons.scss */
+.icon-music:before {
+  content: "\e013";
+}
+
+/* line 93, ../../stylesheets/ui/icons.scss */
+.icon-list:before {
+  content: "\e014";
+}
+
+/* line 96, ../../stylesheets/ui/icons.scss */
+.icon-plus:before {
+  content: "\e015";
+}
+
+/* line 99, ../../stylesheets/ui/icons.scss */
+.icon-minus:before {
+  content: "\e016";
+}
+
+/* line 102, ../../stylesheets/ui/icons.scss */
+.icon-read:before {
+  content: "\e017";
+}
+
+/* line 105, ../../stylesheets/ui/icons.scss */
+.icon-shop:before {
+  content: "\e01b";
+}
+
+/* line 108, ../../stylesheets/ui/icons.scss */
+.icon-book:before {
+  content: "\e01c";
+}
+
+/* line 111, ../../stylesheets/ui/icons.scss */
+.icon-layout:before {
+  content: "\e01d";
+}
+
+/* line 114, ../../stylesheets/ui/icons.scss */
+.icon-ccw:before {
+  content: "\e01e";
+}
+
+/* line 117, ../../stylesheets/ui/icons.scss */
+.icon-info:before {
+  content: "\e01f";
+}
+
+/* line 120, ../../stylesheets/ui/icons.scss */
+.icon-question:before {
+  content: "\e020";
+}
+
+/* line 123, ../../stylesheets/ui/icons.scss */
+.icon-user:before {
+  content: "\e02a";
+}
+
+/* line 126, ../../stylesheets/ui/icons.scss */
+.icon-tag:before {
+  content: "\e018";
+}
+
+/* line 129, ../../stylesheets/ui/icons.scss */
+.icon-search:before {
+  content: "\e019";
+}
+
+/* line 132, ../../stylesheets/ui/icons.scss */
+.icon-stackoverflow:before {
+  content: "\e01a";
+}
+
+/* line 135, ../../stylesheets/ui/icons.scss */
+.icon-stream:before {
+  content: "\e021";
+}
+
+/* line 138, ../../stylesheets/ui/icons.scss */
+.icon-play:before {
+  content: "\e022";
+}
+
+/* line 141, ../../stylesheets/ui/icons.scss */
+.icon-gauge:before {
+  content: "\e023";
+}
+
+/* line 144, ../../stylesheets/ui/icons.scss */
+.icon-eye:before {
+  content: "\e024";
+}
+
+/* line 147, ../../stylesheets/ui/icons.scss */
+.icon-signal:before {
+  content: "\e003";
+}
+
+/* line 150, ../../stylesheets/ui/icons.scss */
+.icon-statistics:before {
+  content: "\e025";
+}
+
+/* line 153, ../../stylesheets/ui/icons.scss */
+.icon-brush:before {
+  content: "\e026";
+}
+
+/* line 156, ../../stylesheets/ui/icons.scss */
+.icon-archive:before {
+  content: "\e027";
+}
+
+/* line 159, ../../stylesheets/ui/icons.scss */
+.icon-plus-2:before {
+  content: "\e028";
+}
+
+/* line 162, ../../stylesheets/ui/icons.scss */
+.icon-cross:before {
+  content: "\e029";
+}
+
+/* line 22, ../../stylesheets/ui.scss */
+nav.tab-menu {
+  margin-bottom: 2%;
+  overflow: hidden;
+  *zoom: 1;
+}
+/* line 27, ../../stylesheets/ui.scss */
+nav.tab-menu ul {
+  list-style: none;
+  padding: 0;
+  border: 1px solid #cccccc;
+  clear: left;
+}
+/* line 34, ../../stylesheets/ui.scss */
+nav.tab-menu li {
+  border-bottom: 1px solid #cccccc;
+  border-right: 0;
+}
+/* line 38, ../../stylesheets/ui.scss */
+nav.tab-menu li:last-child {
+  border: 0;
+}
+/* line 43, ../../stylesheets/ui.scss */
+nav.tab-menu a {
+  padding: 10px 10px;
+  display: block;
+}
+/* line 46, ../../stylesheets/ui.scss */
+nav.tab-menu a:hover {
+  background: #eee;
+}
+@media screen and (min-width: 768px) {
+  /* line 52, ../../stylesheets/ui.scss */
+  nav.tab-menu ul {
+    float: left;
+  }
+  /* line 55, ../../stylesheets/ui.scss */
+  nav.tab-menu li {
+    border-right: 1px solid #cccccc;
+    border-bottom: 0;
+    float: left;
+  }
+}
+
+/*
+    Reset button style
+
+*/
+/* line 13, ../../stylesheets/ui/button.scss */
+input[type="button"], button {
+  border: 0 none;
+  font: inherit;
+}
+
+/* line 17, ../../stylesheets/ui/button.scss */
+*:focus {
+  outline: 0 none;
+}
+
+/* line 18, ../../stylesheets/ui/button.scss */
+input[type="submit"] {
+  border: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+/* line 19, ../../stylesheets/ui/button.scss */
+input[type="button"], button {
+  -moz-box-sizing: content-box;
+}
+
+/*fixes mozilla padding - mozilla only, doesn't need webkit or other values */
+/* line 20, ../../stylesheets/ui/button.scss */
+input[type="button"]::-moz-focus-inner, button::-moz-focus-inner {
+  padding: 0;
+  border: 0 none;
+}
+
+/*fixes mozilla button padding - mozilla only, doesn't need webkit or other values */
+/*
+<<<<<<< HEAD
 Syntax error: Undefined mixin 'min-screen'.
         on line 24 of ./stylesheets/ui/modal.scss, in `min-screen'
         from line 24 of ./stylesheets/ui/modal.scss
@@ -74,3 +490,230 @@ body:before {
   white-space: pre;
   font-family: monospace;
   content: "Syntax error: Undefined mixin 'min-screen'.\A         on line 24 of ./stylesheets/ui/modal.scss, in `min-screen'\A         from line 24 of ./stylesheets/ui/modal.scss\A         from line 15 of ./stylesheets/ui.scss\A \A 19: \A 20: nav.tab-menu {\A 21:   margin-bottom: 2%;\A 22:   \A 23:   @include clearfix;\A 24:   \A 25:   ul {\A 26:     list-style: none;\A 27:     padding: 0;\A 28:     border:1px solid #ccc;\A 29:     clear: left;"; }
+=======
+    Default button style
+*/
+/* line 27, ../../stylesheets/ui/button.scss */
+.button, button, input[type="button"] {
+  font-family: "proxima_nova_regular", "Helvetica Neue", Hevetica, Arial, sans-serif;
+  margin: 0 8px 0 0;
+  padding: 0px 15px;
+  font-size: 12px;
+  font-weight: bold;
+  height: 29px;
+  line-height: 27px;
+  color: #383B3B;
+  border: 1px solid #d5dcdc;
+  text-align: center;
+  text-shadow: 0px 1px 1px white;
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+  background-color: #fbfbfb;
+  white-space: nowrap;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  /*  @include background-image(linear-gradient(top center, $start, $end));*/
+  -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 1px 0 inset;
+  -moz-box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 1px 0 inset;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 1px 0 inset;
+}
+/* line 58, ../../stylesheets/ui/button.scss */
+.button:hover, .button .hover, button:hover, button .hover, input[type="button"]:hover, input[type="button"] .hover {
+  cursor: pointer !important;
+  color: #515555;
+  background-color: #ecf1f1;
+  /*    border-color: #A1CFDE;*/
+  /*    @include background-image(linear-gradient(top center, lighten($start, 3%), lighten($end, 3%)));*/
+}
+/* line 66, ../../stylesheets/ui/button.scss */
+.button:active, button:active, input[type="button"]:active {
+  background-color: white;
+  /*    @include background-image(linear-gradient(top center, $end, $start));*/
+}
+/* line 71, ../../stylesheets/ui/button.scss */
+.button [class^="icon-"], .button [class*=" icon-"], button [class^="icon-"], button [class*=" icon-"], input[type="button"] [class^="icon-"], input[type="button"] [class*=" icon-"] {
+  float: left;
+  display: inline-block;
+  height: 29px;
+  line-height: 27px;
+  font-size: 17px;
+}
+/* line 79, ../../stylesheets/ui/button.scss */
+.button span, button span, input[type="button"] span {
+  padding-left: 5px;
+  height: 29px;
+  line-height: 27px;
+  display: inline-block;
+}
+
+/* line 89, ../../stylesheets/ui/button.scss */
+.button.disabled,
+button[disabled],
+button[disabled]:active {
+  color: #999999 !important;
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Y2ZjZmNiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2UxZTFlMSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background-size: 100%;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f6f6f6), color-stop(100%, #e1e1e1));
+  background-image: -webkit-linear-gradient(top center, #f6f6f6, #e1e1e1);
+  background-image: -moz-linear-gradient(top center, #f6f6f6, #e1e1e1);
+  background-image: -o-linear-gradient(top center, #f6f6f6, #e1e1e1);
+  background-image: linear-gradient(top center, #f6f6f6, #e1e1e1);
+  border-color: #d4d4d4;
+  border-top-color: #dedede;
+  border-bottom-color: #c9c9c9;
+  cursor: default;
+}
+
+/* line 100, ../../stylesheets/ui/button.scss */
+.button.small, .button.small span, button.small, button.small span {
+  font-size: 11px;
+  font-weight: bold;
+  height: 20px;
+  line-height: 18px;
+  padding: 0px 10px;
+}
+/* line 107, ../../stylesheets/ui/button.scss */
+.button.small [class^="icon-"], .button.small [class*=" icon-"], .button.small span [class^="icon-"], .button.small span [class*=" icon-"], button.small [class^="icon-"], button.small [class*=" icon-"], button.small span [class^="icon-"], button.small span [class*=" icon-"] {
+  height: 20px;
+  line-height: 18px;
+  font-size: 13px;
+}
+/* line 115, ../../stylesheets/ui/button.scss */
+.button.large, button.large {
+  /*    font-family: "proxima-nova-sc-osf-ext-cond", "Helvetica Neue", Hevetica, Arial, sans-serif;*/
+  font-size: 14px;
+  line-height: 45px;
+  height: 45px;
+  padding: 0px 20px;
+  font-weight: normal;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  letter-spacing: 2px;
+}
+/* line 126, ../../stylesheets/ui/button.scss */
+.button.large [class^="icon-"], .button.large [class*=" icon-"], button.large [class^="icon-"], button.large [class*=" icon-"] {
+  height: 45px;
+  line-height: 50px;
+  font-size: 24px;
+}
+
+/* line 137, ../../stylesheets/ui/button.scss */
+.button.black, button.black {
+  background-color: #3c3d3c;
+  /*    @include background-image(linear-gradient(top center, #3c3d3c, #0e0e0e));*/
+  color: white !important;
+  border: none;
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+}
+/* line 144, ../../stylesheets/ui/button.scss */
+.button.black:hover, .button.black .hover, button.black:hover, button.black .hover {
+  background-color: #4B4C4B;
+  /*      @include background-image(linear-gradient(top center, #4B4C4B, #1D1D1D));*/
+}
+/* line 149, ../../stylesheets/ui/button.scss */
+.button.black:active, button.black:active {
+  background-color: #0e0e0e;
+  /*      @include background-image(linear-gradient(top center, #0e0e0e, #3c3d3c));*/
+}
+/* line 155, ../../stylesheets/ui/button.scss */
+.button.orange, button.orange {
+  background: #ff6324;
+  border: none;
+  /*    text-transform: uppercase;*/
+  /*    font-weight: bold;*/
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+  color: white;
+}
+/* line 168, ../../stylesheets/ui/button.scss */
+.button.orange:hover, button.orange:hover {
+  background: #ff753e;
+}
+/* line 172, ../../stylesheets/ui/button.scss */
+.button.orange:active, button.orange:active {
+  background: #8a2800;
+}
+
+/* line 181, ../../stylesheets/ui/button.scss */
+.button.facebook, button.facebook {
+  background: #4363a6;
+  color: white;
+  text-shadow: 0px 1px #375697;
+  border: 1px solid #4363a6;
+}
+/* line 188, ../../stylesheets/ui/button.scss */
+.button.facebook i, button.facebook i {
+  font-size: 21px;
+}
+/* line 192, ../../stylesheets/ui/button.scss */
+.button.facebook span, button.facebook span {
+  vertical-align: top;
+  padding-left: 10px;
+  color: white;
+}
+/* line 198, ../../stylesheets/ui/button.scss */
+.button.facebook.large span, button.facebook.large span {
+  /*    font-size: 13px;
+  */
+  height: 45px;
+  line-height: 45px;
+}
+/* line 205, ../../stylesheets/ui/button.scss */
+.button.facebook.small span, button.facebook.small span {
+  height: 20px;
+  line-height: 18px;
+}
+/* line 210, ../../stylesheets/ui/button.scss */
+.button.facebook:hover, button.facebook:hover {
+  background: #5e7dbe;
+}
+/* line 214, ../../stylesheets/ui/button.scss */
+.button.facebook:active, button.facebook:active {
+  background: #4363a6;
+}
+
+/* line 219, ../../stylesheets/ui/button.scss */
+.button.twitter, button.twitter {
+  /*  font-family: proxima-nova, 'Helvetica Neue', pragmatica-web, Hevetica, Arial, sans-serif;*/
+  background: #36a3d4;
+  color: white;
+  /*  text-transform: none;*/
+  /*  text-shadow: 0px 1px #375697;*/
+  border: 1px solid #36a3d4;
+}
+/* line 230, ../../stylesheets/ui/button.scss */
+.button.twitter i, button.twitter i {
+  font-size: 21px;
+}
+/* line 234, ../../stylesheets/ui/button.scss */
+.button.twitter span, button.twitter span {
+  vertical-align: top;
+  padding-left: 10px;
+  color: white;
+}
+/* line 240, ../../stylesheets/ui/button.scss */
+.button.twitter.large span, button.twitter.large span {
+  font-size: 13px;
+  height: 37px;
+  line-height: 35px;
+}
+/* line 246, ../../stylesheets/ui/button.scss */
+.button.twitter.small span, button.twitter.small span {
+  height: 20px;
+  line-height: 18px;
+}
+/* line 251, ../../stylesheets/ui/button.scss */
+.button.twitter:hover, button.twitter:hover {
+  background: #60b6dd;
+}
+/* line 255, ../../stylesheets/ui/button.scss */
+.button.twitter:active, button.twitter:active {
+  background: #36a3d4;
+}
+>>>>>>> 4cb2a6f2439d938b271c270f313d3da4ef6fbf6e
