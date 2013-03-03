@@ -9,11 +9,11 @@ Syntax error: Undefined mixin 'box-sizing'.
 11: 
 12: .modal {
 13:   @include box-sizing(border-box);
-14:   position: fixed;
-15:   z-index: 10000;
-16:   left: 50%;
-17:   top: 50%;
-18:   margin-top: -300px;
+14:   z-index: 10000;
+15:   position: absolute;
+16:   top: 50%;
+17:   margin-top: -300px;
+18:   left: 5%;
 
 Backtrace:
 ./stylesheets/ui/modal.scss:13:in `box-sizing'
@@ -66,4 +66,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined mixin 'box-sizing'.\A         on line 13 of ./stylesheets/ui/modal.scss, in `box-sizing'\A         from line 13 of ./stylesheets/ui/modal.scss\A \A 8:   z-index: 9999;\A 9:   background: rgba(0,0,0, 0.6);\A 10: }\A 11: \A 12: .modal {\A 13:   @include box-sizing(border-box);\A 14:   position: fixed;\A 15:   z-index: 10000;\A 16:   left: 50%;\A 17:   top: 50%;\A 18:   margin-top: -300px;"; }
+  content: "Syntax error: Undefined mixin 'box-sizing'.\A         on line 13 of ./stylesheets/ui/modal.scss, in `box-sizing'\A         from line 13 of ./stylesheets/ui/modal.scss\A \A 8:   z-index: 9999;\A 9:   background: rgba(0,0,0, 0.6);\A 10: }\A 11: \A 12: .modal {\A 13:   @include box-sizing(border-box);\A 14:   z-index: 10000;\A 15:   position: absolute;\A 16:   top: 50%;\A 17:   margin-top: -300px;\A 18:   left: 5%;"; }

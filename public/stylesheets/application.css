@@ -1077,27 +1077,23 @@ form {
 /* line 14, ../../stylesheets/base/form.scss */
 form .col {
   position: relative;
-}
-/* line 18, ../../stylesheets/base/form.scss */
-form .row {
-  position: relative;
-  padding-bottom: 1.6em;
+  padding-bottom: 1.2em;
   margin-bottom: 0.5em;
 }
-/* line 27, ../../stylesheets/base/form.scss */
+/* line 23, ../../stylesheets/base/form.scss */
 form p.large, form label.large {
-  font-size: 24px;
-  line-height: 45px;
+  font-size: 18px;
+  line-height: 32px;
 }
-/* line 32, ../../stylesheets/base/form.scss */
+/* line 28, ../../stylesheets/base/form.scss */
 form label.radio {
   padding-right: 1em;
 }
-/* line 35, ../../stylesheets/base/form.scss */
+/* line 31, ../../stylesheets/base/form.scss */
 form label.radio input {
   margin-right: 0.5em;
 }
-/* line 39, ../../stylesheets/base/form.scss */
+/* line 35, ../../stylesheets/base/form.scss */
 form .hint_style, form .hint, form .error {
   color: #888;
   font-style: italic;
@@ -1105,14 +1101,14 @@ form .hint_style, form .hint, form .error {
   font-size: 13px;
   position: absolute;
 }
-/* line 48, ../../stylesheets/base/form.scss */
+/* line 44, ../../stylesheets/base/form.scss */
 form .hint {
   /*    bottom: -1.7em;*/
   /*    left: 0;*/
   /*left: 0;
   bottom: -1.7em;*/
 }
-/* line 59, ../../stylesheets/base/form.scss */
+/* line 55, ../../stylesheets/base/form.scss */
 form .text_field, form input[type="text"], form input[type="password"], form input[type="tel"], form input[type="email"],
 form input[type="search"], form input[type="url"], form textarea, form select {
   padding: 9px;
@@ -1137,13 +1133,13 @@ form input[type="search"], form input[type="url"], form textarea, form select {
   -moz-box-shadow: 1px 1px 2px #eeeeee inset;
   box-shadow: 1px 1px 2px #eeeeee inset;
 }
-/* line 77, ../../stylesheets/base/form.scss */
+/* line 73, ../../stylesheets/base/form.scss */
 form input.large:not(.button) {
-  font-size: 24px !important;
-  line-height: 45px;
-  height: 45px;
+  font-size: 18px !important;
+  line-height: 35px;
+  height: 35px;
 }
-/* line 84, ../../stylesheets/base/form.scss */
+/* line 80, ../../stylesheets/base/form.scss */
 form input[type="text"], form input[type="password"], form input[type="tel"], form input[type="email"],
 form input[type="search"], form input[type="url"], form textarea, form select {
   font-size: 100%;
@@ -1182,7 +1178,7 @@ form input[type="search"]:-ms-input-placeholder, form input[type="url"]:-ms-inpu
   font-style: italic;
   font-size: 15px;
 }
-/* line 98, ../../stylesheets/base/form.scss */
+/* line 94, ../../stylesheets/base/form.scss */
 form select {
   width: auto;
   background-color: #fff;
@@ -1190,61 +1186,94 @@ form select {
   height: 2.5em;
   line-height: 2.5em;
 }
-/* line 106, ../../stylesheets/base/form.scss */
+/* line 102, ../../stylesheets/base/form.scss */
 form input[type=submit], form input[type=button], form button[type=submit] {
   line-height: 2em;
   padding: 3px 15px;
   margin-right: 5px;
 }
-/* line 115, ../../stylesheets/base/form.scss */
+/* line 111, ../../stylesheets/base/form.scss */
 form input:focus, form select:focus, form textarea:focus {
   border: 1px solid #a1cfde !important;
 }
-/* line 125, ../../stylesheets/base/form.scss */
+/* line 121, ../../stylesheets/base/form.scss */
 form .field_with_errors input.string, form .field_with_errors select.select {
   border-color: #f3a4a4;
 }
-/* line 129, ../../stylesheets/base/form.scss */
+/* line 125, ../../stylesheets/base/form.scss */
 form .field_with_errors .hint {
   display: none;
 }
-/* line 134, ../../stylesheets/base/form.scss */
+/* line 130, ../../stylesheets/base/form.scss */
 form .error {
   color: #e84949;
+}
+@media screen and (min-width: 768px) {
+  /* line 139, ../../stylesheets/base/form.scss */
+  form p.large, form label.large {
+    font-size: 24px;
+    line-height: 40px;
+  }
+  /* line 144, ../../stylesheets/base/form.scss */
+  form input.large:not(.button) {
+    font-size: 24px !important;
+    line-height: 45px;
+    height: 45px;
+  }
 }
 
 /*================================================
       Notification
 ================================================*/
-/* line 145, ../../stylesheets/base/form.scss */
+/* line 158, ../../stylesheets/base/form.scss */
 div.notification {
-  padding: 20px;
+  position: absolute;
+  left: 7.5%;
+  right: 7.5%;
+  top: 0;
+  z-index: 10000;
+  padding: 10px 20px;
   margin: 20px 0 40px;
   background: white;
   border: 1px solid #cccccc;
   color: #111;
 }
-/* line 152, ../../stylesheets/base/form.scss */
+/* line 165, ../../stylesheets/base/form.scss */
+.overlay-active div.notification {
+  left: 7.5%;
+  right: 7.5%;
+  top: 0;
+}
+@media screen and (min-width: 768px) {
+  /* line 158, ../../stylesheets/base/form.scss */
+  div.notification {
+    left: initial;
+    top: 0;
+    right: 20px;
+    min-width: 20%;
+  }
+}
+/* line 187, ../../stylesheets/base/form.scss */
 div.notification a.close-target {
   color: #222;
 }
-/* line 156, ../../stylesheets/base/form.scss */
+/* line 191, ../../stylesheets/base/form.scss */
 div.notification a.close {
   float: right;
   width: 20px;
   height: 20px;
 }
-/* line 158, ../../stylesheets/base/form.scss */
+/* line 193, ../../stylesheets/base/form.scss */
 div.notification a.close:before {
   font-size: 24px;
   color: #111;
 }
-/* line 166, ../../stylesheets/base/form.scss */
+/* line 201, ../../stylesheets/base/form.scss */
 .dark-theme div.notification {
   border: 1px solid #cccccc;
 }
 
-/* line 171, ../../stylesheets/base/form.scss */
+/* line 206, ../../stylesheets/base/form.scss */
 a.close-target {
   font-size: 28px;
   float: right;
@@ -1266,34 +1295,45 @@ a.close-target {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  position: fixed;
   z-index: 10000;
-  left: 50%;
+  position: absolute;
   top: 50%;
   margin-top: -300px;
-  margin-left: -300px;
-  width: 600px;
-  min-height: 450px;
+  left: 5%;
+  right: 5%;
+  max-width: 600px;
+  min-height: 400px;
   background: #fff;
   padding: 20px 20px 50px;
 }
-/* line 28, ../../stylesheets/ui/modal.scss */
+@media screen and (min-width: 768px) {
+  /* line 12, ../../stylesheets/ui/modal.scss */
+  .modal {
+    position: fixed;
+    width: 100%;
+    left: 50%;
+    top: 50%;
+    margin-left: -300px;
+    min-height: 450px;
+  }
+}
+/* line 38, ../../stylesheets/ui/modal.scss */
 .modal h1, .modal h2 {
   font-family: "proxima_nova_regular", "Helvetica Neue";
   margin: 0 0 1em;
   text-transform: uppercase;
   /*    letter-spacing: 2px;*/
-  font-size: 24px;
+  font-size: 18px;
   font-weight: normal;
   text-align: center;
 }
-/* line 38, ../../stylesheets/ui/modal.scss */
+/* line 52, ../../stylesheets/ui/modal.scss */
 .modal p.subtitle {
   font: 16px/1.5em Georgia;
   color: #666;
   font-style: italic;
 }
-/* line 44, ../../stylesheets/ui/modal.scss */
+/* line 58, ../../stylesheets/ui/modal.scss */
 .modal footer {
   position: absolute;
   bottom: 0;
@@ -1304,13 +1344,13 @@ a.close-target {
   text-align: center;
   color: white;
 }
-/* line 54, ../../stylesheets/ui/modal.scss */
+/* line 68, ../../stylesheets/ui/modal.scss */
 .modal footer a {
   font-size: 18px;
   line-height: 70px;
   color: white;
 }
-/* line 61, ../../stylesheets/ui/modal.scss */
+/* line 75, ../../stylesheets/ui/modal.scss */
 .modal footer .button {
   /*    margin-top: -3px;*/
   background: #000;
@@ -1328,7 +1368,7 @@ a.close-target {
   padding: 0 30px;
   margin: 0;
 }
-/* line 75, ../../stylesheets/ui/modal.scss */
+/* line 89, ../../stylesheets/ui/modal.scss */
 .modal footer .button:hover {
   background: #111;
 }
@@ -1359,7 +1399,7 @@ you can use the generic selector below, but it's slower:
 [class*="icon-"]:before {
 */
 /* line 28, ../../stylesheets/ui/icons.scss */
-.icon-export:before, header.toolbar div.actions .share:before, .icon-heart:before, header.toolbar div.actions .heart:before, .icon-earth:before, .icon-docs:before, .icon-twitter:before, .icon-facebook:before, .icon-googleplus:before, .icon-pinterest:before, .icon-camera:before, .icon-link:before, .icon-comment:before, .icon-cog:before, .icon-arrow-left:before, header.toolbar a.back:before, .icon-arrow-right:before, .icon-arrow-left-2:before, .icon-arrow-right-2:before, .icon-pictures:before, .icon-video:before, .icon-music:before, .icon-list:before, header.toolbar a.menu:before, .icon-plus:before, header.toolbar a.plus:before, header.toolbar div.actions .collect:before, .edition-item.with-icon .subscribe:before, .edition-list li.with-icon .subscribe:before, .icon-minus:before, .icon-read:before, .icon-shop:before, .icon-book:before, .icon-layout:before, .icon-ccw:before, .icon-info:before, .icon-question:before, .icon-user:before, .icon-tag:before, .icon-search:before, .icon-stackoverflow:before, .icon-stream:before, .icon-play:before, .icon-gauge:before, .icon-eye:before, .icon-signal:before, .icon-statistics:before, .icon-brush:before, .icon-archive:before, .icon-plus-2:before, .icon-cross:before, div.notification a.close:before, a.close-target:before {
+.icon-export:before, header.toolbar div.actions .share:before, .icon-heart:before, header.toolbar div.actions .heart:before, .icon-earth:before, .icon-docs:before, .icon-twitter:before, .icon-facebook:before, .icon-googleplus:before, .icon-pinterest:before, .icon-camera:before, .icon-link:before, .icon-comment:before, .icon-cog:before, .icon-arrow-left:before, header.toolbar a.back:before, .icon-arrow-right:before, .icon-arrow-left-2:before, .icon-arrow-right-2:before, .icon-pictures:before, .icon-video:before, .icon-music:before, .icon-list:before, header.toolbar a.menu:before, .icon-plus:before, header.toolbar a.plus:before, header.toolbar div.actions .collect:before, .edition-item.with-icon .subscribe:before, .edition-list > li.with-icon .subscribe:before, .icon-minus:before, .icon-read:before, .icon-shop:before, .icon-book:before, .icon-layout:before, .icon-ccw:before, .icon-info:before, .icon-question:before, .icon-user:before, .icon-tag:before, .icon-search:before, .icon-stackoverflow:before, .icon-stream:before, .icon-play:before, .icon-gauge:before, .icon-eye:before, .icon-signal:before, .icon-statistics:before, .icon-brush:before, .icon-archive:before, .icon-plus-2:before, .icon-cross:before, div.notification a.close:before, a.close-target:before {
   font-family: 'issue-icons';
   speak: none;
   font-style: normal;
@@ -1469,7 +1509,7 @@ you can use the generic selector below, but it's slower:
 }
 
 /* line 96, ../../stylesheets/ui/icons.scss */
-.icon-plus:before, header.toolbar a.plus:before, header.toolbar div.actions .collect:before, .edition-item.with-icon .subscribe:before, .edition-list li.with-icon .subscribe:before {
+.icon-plus:before, header.toolbar a.plus:before, header.toolbar div.actions .collect:before, .edition-item.with-icon .subscribe:before, .edition-list > li.with-icon .subscribe:before {
   content: "\e015";
 }
 
@@ -1820,45 +1860,60 @@ button[disabled]:active {
   background: #8a2800;
 }
 
-/* line 185, ../../stylesheets/ui/button.scss */
+/* line 183, ../../stylesheets/ui/button.scss */
+.button.mobile-block,
+button.mobile-block {
+  margin-top: 10px;
+  width: 100%;
+}
+@media screen and (min-width: 768px) {
+  /* line 183, ../../stylesheets/ui/button.scss */
+  .button.mobile-block,
+  button.mobile-block {
+    margin-top: 0;
+    width: auto;
+  }
+}
+
+/* line 194, ../../stylesheets/ui/button.scss */
 .button.facebook, button.facebook {
   background: #4363a6;
   color: white;
   text-shadow: 0px 1px #375697;
   border: 1px solid #4363a6;
 }
-/* line 192, ../../stylesheets/ui/button.scss */
+/* line 201, ../../stylesheets/ui/button.scss */
 .button.facebook i, button.facebook i {
   font-size: 21px;
 }
-/* line 196, ../../stylesheets/ui/button.scss */
+/* line 205, ../../stylesheets/ui/button.scss */
 .button.facebook span, button.facebook span {
   vertical-align: top;
   padding-left: 10px;
   color: white;
 }
-/* line 202, ../../stylesheets/ui/button.scss */
+/* line 211, ../../stylesheets/ui/button.scss */
 .button.facebook.large span, button.facebook.large span {
   /*    font-size: 13px;
   */
   height: 45px;
   line-height: 45px;
 }
-/* line 209, ../../stylesheets/ui/button.scss */
+/* line 218, ../../stylesheets/ui/button.scss */
 .button.facebook.small span, button.facebook.small span {
   height: 20px;
   line-height: 18px;
 }
-/* line 214, ../../stylesheets/ui/button.scss */
+/* line 223, ../../stylesheets/ui/button.scss */
 .button.facebook:hover, button.facebook:hover {
   background: #5e7dbe;
 }
-/* line 218, ../../stylesheets/ui/button.scss */
+/* line 227, ../../stylesheets/ui/button.scss */
 .button.facebook:active, button.facebook:active {
   background: #4363a6;
 }
 
-/* line 223, ../../stylesheets/ui/button.scss */
+/* line 232, ../../stylesheets/ui/button.scss */
 .button.twitter, button.twitter {
   /*  font-family: proxima-nova, 'Helvetica Neue', pragmatica-web, Hevetica, Arial, sans-serif;*/
   background: #36a3d4;
@@ -1867,34 +1922,167 @@ button[disabled]:active {
   /*  text-shadow: 0px 1px #375697;*/
   border: 1px solid #36a3d4;
 }
-/* line 234, ../../stylesheets/ui/button.scss */
+/* line 243, ../../stylesheets/ui/button.scss */
 .button.twitter i, button.twitter i {
   font-size: 21px;
 }
-/* line 238, ../../stylesheets/ui/button.scss */
+/* line 247, ../../stylesheets/ui/button.scss */
 .button.twitter span, button.twitter span {
   vertical-align: top;
   padding-left: 10px;
   color: white;
 }
-/* line 244, ../../stylesheets/ui/button.scss */
+/* line 253, ../../stylesheets/ui/button.scss */
 .button.twitter.large span, button.twitter.large span {
   font-size: 13px;
   height: 37px;
   line-height: 35px;
 }
-/* line 250, ../../stylesheets/ui/button.scss */
+/* line 259, ../../stylesheets/ui/button.scss */
 .button.twitter.small span, button.twitter.small span {
   height: 20px;
   line-height: 18px;
 }
-/* line 255, ../../stylesheets/ui/button.scss */
+/* line 264, ../../stylesheets/ui/button.scss */
 .button.twitter:hover, button.twitter:hover {
   background: #60b6dd;
 }
-/* line 259, ../../stylesheets/ui/button.scss */
+/* line 268, ../../stylesheets/ui/button.scss */
 .button.twitter:active, button.twitter:active {
   background: #36a3d4;
+}
+
+/*=====================================
+      Button group with split icon    
+  =====================================*/
+/* line 277, ../../stylesheets/ui/button.scss */
+.button-group {
+  vertical-align: middle;
+  display: inline-block;
+  position: relative;
+  z-index: 99999;
+}
+/* line 283, ../../stylesheets/ui/button.scss */
+.button-group .button {
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  -ms-border-radius: 0px;
+  -o-border-radius: 0px;
+  border-radius: 0px;
+  position: relative;
+  float: left;
+  margin-left: -1px;
+}
+/* line 290, ../../stylesheets/ui/button.scss */
+.button-group .button:first-child {
+  margin-left: 0px;
+  margin-right: 0;
+  -moz-border-radius-bottomleft: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  -moz-border-radius-topleft: 3px;
+  -webkit-border-top-left-radius: 3px;
+  border-top-left-radius: 3px;
+}
+/* line 297, ../../stylesheets/ui/button.scss */
+.button-group .dropdown {
+  padding: 0px 6px;
+  -moz-border-radius-bottomright: 3px;
+  -webkit-border-bottom-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  -moz-border-radius-topright: 3px;
+  -webkit-border-top-right-radius: 3px;
+  border-top-right-radius: 3px;
+  -webkit-box-shadow: inset 1px 0 0 rgba(255, 255, 255, 0.125), inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: inset 1px 0 0 rgba(255, 255, 255, 0.125), inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 1px 0 0 rgba(255, 255, 255, 0.125), inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+/* line 303, ../../stylesheets/ui/button.scss */
+.button-group .dropdown .caret {
+  height: 0px;
+  margin-top: -3px;
+  padding: 0;
+}
+/* line 311, ../../stylesheets/ui/button.scss */
+.button-group.toggle > .dropdown-menu {
+  display: block;
+}
+
+/* line 318, ../../stylesheets/ui/button.scss */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 99999;
+  display: none;
+  float: left;
+  min-width: 120px;
+  padding: 4px 0;
+  margin: 1px 0 0;
+  list-style: none;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  *border-right-width: 2px;
+  *border-bottom-width: 2px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  -webkit-background-clip: padding;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+}
+/* line 338, ../../stylesheets/ui/button.scss */
+.dropdown-menu.buttonHover {
+  display: block;
+}
+/* line 342, ../../stylesheets/ui/button.scss */
+.dropdown-menu a {
+  cursor: pointer;
+  text-align: left;
+  display: block;
+  padding: 3px 15px;
+  clear: both;
+  font-weight: normal;
+  line-height: 18px;
+  color: #333;
+  white-space: nowrap;
+}
+/* line 356, ../../stylesheets/ui/button.scss */
+.dropdown-menu li > a:hover,
+.dropdown-menu .active > a,
+.dropdown-menu .active > a:hover {
+  text-decoration: none;
+  background-color: #eee;
+}
+/* line 361, ../../stylesheets/ui/button.scss */
+.dropdown-menu .divider {
+  height: 1px;
+  margin: 8px 1px;
+  overflow: hidden;
+  background-color: #E5E5E5;
+  border-bottom: 1px solid white;
+}
+/* line 368, ../../stylesheets/ui/button.scss */
+.dropdown-menu .divider + li > a {
+  color: #999;
+}
+
+/* line 374, ../../stylesheets/ui/button.scss */
+.caret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  vertical-align: middle;
+  border-top: 4px solid black;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+  content: "";
 }
 
 /* line 93, ../../stylesheets/spring.scss */
@@ -2987,7 +3175,7 @@ ul.popover-list li a:active span, ul.popover-list li a.active span {
 }
 
 /* line 13, ../../stylesheets/app/editions.scss */
-#preview_edition .edition-item, #preview_edition .edition-list li, .edition-list #preview_edition li {
+#preview_edition .edition-item, #preview_edition .edition-list > li {
   margin-right: 4%;
 }
 
@@ -3024,7 +3212,7 @@ ul.popover-list li a:active span, ul.popover-list li a.active span {
 }
 
 /* line 52, ../../stylesheets/app/editions.scss */
-.edition-item, .edition-list li {
+.edition-item, .edition-list > li {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -3057,21 +3245,14 @@ ul.popover-list li a:active span, ul.popover-list li a.active span {
 }
 @media screen and (min-width: 768px) {
   /* line 52, ../../stylesheets/app/editions.scss */
-  .edition-item, .edition-list li {
+  .edition-item, .edition-list > li {
     font-size: 100%;
     width: 22%;
     padding-bottom: 30.5%;
-    /*    width: 200px; 
-        height: 278px;*/
   }
 }
-/* line 85, ../../stylesheets/app/editions.scss */
-.edition-item.subscribed, .edition-list li.subscribed {
-  /*    border: 2px solid #3cf;
-  */
-}
-/* line 89, ../../stylesheets/app/editions.scss */
-.edition-item .content, .edition-list li .content {
+/* line 82, ../../stylesheets/app/editions.scss */
+.edition-item .content, .edition-list > li .content {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -3080,31 +3261,35 @@ ul.popover-list li a:active span, ul.popover-list li a.active span {
   width: 100%;
   padding: 10px 20px;
 }
-/* line 98, ../../stylesheets/app/editions.scss */
-.edition-item .title, .edition-list li .title {
+/* line 90, ../../stylesheets/app/editions.scss */
+.edition-item .title, .edition-list > li .title {
   font-size: 1.5em;
   text-transform: uppercase;
   text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
 }
-/* line 104, ../../stylesheets/app/editions.scss */
-.edition-item .author, .edition-list li .author {
+/* line 95, ../../stylesheets/app/editions.scss */
+.edition-item .title a, .edition-list > li .title a {
+  color: #fff;
+}
+/* line 100, ../../stylesheets/app/editions.scss */
+.edition-item .author, .edition-list > li .author {
   font-family: georgia;
   font-style: italic;
   padding: 0;
   margin: 0;
   text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
 }
-/* line 112, ../../stylesheets/app/editions.scss */
-.edition-item .button, .edition-list li .button {
+/* line 108, ../../stylesheets/app/editions.scss */
+.edition-item .button, .edition-list > li .button {
   margin-bottom: 0;
 }
-/* line 116, ../../stylesheets/app/editions.scss */
-.edition-item .description, .edition-list li .description {
+/* line 112, ../../stylesheets/app/editions.scss */
+.edition-item .description, .edition-list > li .description {
   font-size: 13px;
   line-height: 1.8;
 }
-/* line 122, ../../stylesheets/app/editions.scss */
-.edition-item .extras, .edition-list li .extras {
+/* line 117, ../../stylesheets/app/editions.scss */
+.edition-item .extras, .edition-list > li .extras {
   position: absolute;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -3114,8 +3299,8 @@ ul.popover-list li a:active span, ul.popover-list li a.active span {
   left: 20px;
   right: 20px;
 }
-/* line 131, ../../stylesheets/app/editions.scss */
-.edition-item.new-edition a.icon-plus, .edition-list li.new-edition a.icon-plus, .edition-item.new-edition header.toolbar a.plus, header.toolbar .edition-item.new-edition a.plus, .edition-list li.new-edition header.toolbar a.plus, header.toolbar .edition-list li.new-edition a.plus, .edition-item.new-edition header.toolbar div.actions a.collect, header.toolbar div.actions .edition-item.new-edition a.collect, .edition-list li.new-edition header.toolbar div.actions a.collect, header.toolbar div.actions .edition-list li.new-edition a.collect, .edition-item.new-edition .edition-item.with-icon a.subscribe, .edition-item.with-icon .edition-item.new-edition a.subscribe, .edition-list li.new-edition .edition-item.with-icon a.subscribe, .edition-item.with-icon .edition-list li.new-edition a.subscribe, .edition-item.new-edition .edition-list li.with-icon a.subscribe, .edition-list li.with-icon .edition-item.new-edition a.subscribe, .edition-list li.new-edition li.with-icon a.subscribe, .edition-list li.with-icon li.new-edition a.subscribe {
+/* line 126, ../../stylesheets/app/editions.scss */
+.edition-item.new-edition a.icon-plus, .edition-list > li.new-edition a.icon-plus, .edition-item.new-edition header.toolbar a.plus, header.toolbar .edition-item.new-edition a.plus, .edition-list > li.new-edition header.toolbar a.plus, header.toolbar .edition-list > li.new-edition a.plus, .edition-item.new-edition header.toolbar div.actions a.collect, header.toolbar div.actions .edition-item.new-edition a.collect, .edition-list > li.new-edition header.toolbar div.actions a.collect, header.toolbar div.actions .edition-list > li.new-edition a.collect, .edition-item.new-edition .edition-item.with-icon a.subscribe, .edition-item.with-icon .edition-item.new-edition a.subscribe, .edition-list > li.new-edition .edition-item.with-icon a.subscribe, .edition-item.with-icon .edition-list > li.new-edition a.subscribe, .edition-item.new-edition .edition-list > li.with-icon a.subscribe, .edition-list > li.with-icon .edition-item.new-edition a.subscribe, .edition-list > li.new-edition .edition-list > li.with-icon a.subscribe, .edition-list > li.with-icon .edition-list > li.new-edition a.subscribe {
   font-size: 150px;
   color: #666;
   width: 100%;
@@ -3123,49 +3308,49 @@ ul.popover-list li a:active span, ul.popover-list li a.active span {
   text-align: center;
   margin: 0 auto;
 }
-/* line 143, ../../stylesheets/app/editions.scss */
-.edition-item.moveup .content, .edition-list li.moveup .content {
+/* line 138, ../../stylesheets/app/editions.scss */
+.edition-item.moveup .content, .edition-list > li.moveup .content {
   -webkit-transition: bottom 0.3s ease-out;
   -moz-transition: bottom 0.3s ease-out;
   -o-transition: bottom 0.3s ease-out;
   transition: bottom 0.3s ease-out;
 }
-/* line 147, ../../stylesheets/app/editions.scss */
-.edition-item.moveup:before, .edition-list li.moveup:before {
+/* line 142, ../../stylesheets/app/editions.scss */
+.edition-item.moveup:before, .edition-list > li.moveup:before {
   content: " ";
   display: block;
   position: absolute;
-  background: rgba(0, 0, 0, 0.6);
   left: 0;
   top: 0;
   right: -2px;
   width: 200%;
   height: 100%;
 }
-/* line 158, ../../stylesheets/app/editions.scss */
-.edition-item.moveup:hover .content, .edition-list li.moveup:hover .content {
-  bottom: 55%;
-  /*      bottom: -110px; */
+/* line 153, ../../stylesheets/app/editions.scss */
+.edition-item.moveup:hover:before, .edition-list > li.moveup:hover:before {
+  background: rgba(0, 0, 0, 0.4);
 }
-/* line 163, ../../stylesheets/app/editions.scss */
-.edition-item.moveup .subscribe, .edition-list li.moveup .subscribe {
+/* line 157, ../../stylesheets/app/editions.scss */
+.edition-item.moveup:hover .content, .edition-list > li.moveup:hover .content {
+  bottom: 55%;
+}
+/* line 161, ../../stylesheets/app/editions.scss */
+.edition-item.moveup .subscribe, .edition-list > li.moveup .subscribe {
   display: block;
-  /*      position: absolute;
-  */
   width: 100%;
-  /*      bottom: 0;*/
   text-align: center;
 }
-/* line 174, ../../stylesheets/app/editions.scss */
-.edition-item.with-icon .subscribe, .edition-list li.with-icon .subscribe {
+/* line 170, ../../stylesheets/app/editions.scss */
+.edition-item.with-icon .subscribe, .edition-list > li.with-icon .subscribe {
   display: block;
   position: absolute;
   bottom: 0px;
   right: 20px;
   width: 20px;
+  color: white;
 }
-/* line 181, ../../stylesheets/app/editions.scss */
-.edition-item.with-icon .subscribe:before, .edition-list li.with-icon .subscribe:before {
+/* line 178, ../../stylesheets/app/editions.scss */
+.edition-item.with-icon .subscribe:before, .edition-list > li.with-icon .subscribe:before {
   font-size: 30px;
   line-height: 0px;
 }

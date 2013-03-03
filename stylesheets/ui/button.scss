@@ -179,7 +179,16 @@ button[disabled]:active {
   }
 }
 
-
+.button.mobile-block,
+button.mobile-block {
+  margin-top: 10px;
+  width: 100%;
+  
+  @include min-screen(768) {
+    margin-top: 0;
+    width: auto
+  }
+}
 
 // actions
 .button.facebook, button.facebook {
@@ -259,4 +268,116 @@ button[disabled]:active {
   &:active {
     background: $color;
   }
+}
+
+
+/*=====================================
+      Button group with split icon    
+  =====================================*/
+.button-group {
+  vertical-align: middle;
+  display: inline-block;
+  position: relative;
+  z-index: 99999;
+
+  .button {
+  	@include border-radius(0px);
+  	position: relative;
+    float: left;
+    margin-left: -1px;
+  }
+
+  .button:first-child {
+    margin-left: 0px;
+    margin-right: 0;
+    @include border-corner-radius(bottom, left, 3px);
+    @include border-corner-radius(top, left, 3px);
+  }
+
+  .dropdown {
+    padding: 0px 6px;
+    @include border-corner-radius(bottom, right, 3px);
+    @include border-corner-radius(top, right, 3px);
+    @include box-shadow(inset 1px 0 0 rgba(255, 255, 255, 0.125), inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05));
+
+    .caret {
+      height: 0px;
+      margin-top: -3px;
+      padding: 0;
+    }
+  }
+
+  &.toggle {
+    & > .dropdown-menu {
+      display: block;
+    }
+  }
+}
+
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 99999;
+  display: none;
+  float: left;
+  min-width: 120px;
+  padding: 4px 0;
+  margin: 1px 0 0;
+  list-style: none;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  *border-right-width: 2px;
+  *border-bottom-width: 2px;
+  @include border-radius(3px);
+  @include box-shadow(0 5px 10px rgba(0, 0, 0, 0.2));
+  @include background-clip(padding-box);
+
+  &.buttonHover {
+    display: block;
+  }
+
+  a {
+    cursor: pointer;
+    text-align: left;
+    display: block;
+    padding: 3px 15px;
+    clear: both;
+    font-weight: normal;
+    line-height: 18px;
+    color: #333;
+    white-space: nowrap;
+  }
+
+  li > a:hover,
+  .active > a,
+  .active > a:hover {
+    text-decoration: none;
+    background-color: #eee;
+  }
+
+  .divider {
+    height: 1px;
+    margin: 8px 1px;
+    overflow: hidden;
+    background-color: #E5E5E5;
+    border-bottom: 1px solid white;
+
+    & + li > a {
+      color: #999;
+    }
+  }
+}
+
+.caret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  vertical-align: middle;
+  border-top: 4px solid black;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+  content: "";
 }
