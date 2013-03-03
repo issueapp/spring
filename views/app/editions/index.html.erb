@@ -1,7 +1,5 @@
 <div class="edition-overlay" style=""></div>
 
-
-
 <div id="" class="editions-container container">
   <header class="toolbar dark-theme">
     <h1 class="title">my editions</h1>
@@ -37,7 +35,21 @@
               Most inspiring read for busy entrepreneurs
             </p>
 
-            <a href="" class="button orange  subscribe"><i class="icon-plus"></i>subscribe</a>
+            <div class="button-group">
+              <button class="button orange">Subscribe</button>
+              <button class="button orange dropdown">
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <li><a>item1</a></li>
+                <li><a>item2</a></li>
+                <li><a>item3</a></li>
+                <li class="divider"></li>
+                <li><a>item4</a></li>
+                <li><a>item5</a></li>
+              </ul>
+            </div>
+            
           </div>
         </div>
       </li>
@@ -45,7 +57,7 @@
       <li class="" style="background-image: url(<%= image_path "site/edition-bg-3.jpg" %>)">
         <div class="content">
           <h3 class="title">LEVIS Men</h3>
-          <p class="author">by Levis</p>
+          <p class="author">by Levis&trade;</p>
         </div>
       </li>
 

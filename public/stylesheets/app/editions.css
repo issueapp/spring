@@ -10,7 +10,7 @@ Syntax error: Undefined mixin 'clearfix'.
 44:   
 45:   @include clearfix;
 46:   
-47:   li {
+47:   & > li {
 48:     @extend .edition-item;
 49:   }
 50: }
@@ -66,4 +66,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined mixin 'clearfix'.\A         on line 45 of ./stylesheets/app/editions.scss, in `clearfix'\A         from line 45 of ./stylesheets/app/editions.scss\A \A 40: .edition-list {\A 41:   list-style: none;\A 42:   padding: 0;\A 43:   margin-right: -3%;\A 44:   \A 45:   @include clearfix;\A 46:   \A 47:   li {\A 48:     @extend .edition-item;\A 49:   }\A 50: }"; }
+  content: "Syntax error: Undefined mixin 'clearfix'.\A         on line 45 of ./stylesheets/app/editions.scss, in `clearfix'\A         from line 45 of ./stylesheets/app/editions.scss\A \A 40: .edition-list {\A 41:   list-style: none;\A 42:   padding: 0;\A 43:   margin-right: -3%;\A 44:   \A 45:   @include clearfix;\A 46:   \A 47:   & > li {\A 48:     @extend .edition-item;\A 49:   }\A 50: }"; }
