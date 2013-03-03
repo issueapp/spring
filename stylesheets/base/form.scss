@@ -13,20 +13,16 @@ form {
   // Form grid
   .col {
     position: relative;
-  }
-  
-  .row {
-    position: relative;
-    padding-bottom: 1.6em;
+    padding-bottom: 1.2em;
     margin-bottom: 0.5em;
-  }  
-  
+  }
+
   /*================================================
           Label/hint
     ================================================*/
   p.large, label.large {
-    font-size: 24px;
-    line-height: 45px;
+    font-size: 18px;
+    line-height: 32px;
   }
   
   label.radio {
@@ -75,9 +71,9 @@ form {
   }
   
   input.large:not(.button) {
-    font-size: 24px !important;
-    line-height: 45px;
-    height: 45px;
+    font-size: 18px !important;
+    line-height: 35px;
+    height: 35px;
   }
   
   input[type="text"], input[type="password"], input[type="tel"], input[type="email"], 
@@ -135,41 +131,80 @@ form {
     @extend .hint_style;
     color: #e84949;
   }
+  
+  
+  
+  // Responsive desktop
+  @include min-screen(768) {
+    p.large, label.large {
+      font-size: 24px;
+      line-height: 40px;
+    }
+    
+    input.large:not(.button) {
+      font-size: 24px !important;
+      line-height: 45px;
+      height: 45px;
+    }
+  }
+
 
 }
 
-  /*================================================
-        Notification
-  ================================================*/
+/*================================================
+      Notification
+================================================*/
+
+div.notification {
+  position: absolute;
   
-  div.notification {
-    padding: 20px;
-    margin: 20px 0 40px;
-    background: white;
-    border: 1px solid #ccc;
-    color: #111;
-    
-    a.close-target {
-      color: #222;
-    }
-    
-    a.close {
-      float:right;
-      &:before {  font-size: 24px; color: #111; }
-      
-      width: 20px;
-      height: 20px;
-      @extend .icon-cross; 
-    }
-    
-    
-    .dark-theme & {
-      border: 1px solid #ccc;
-    }
+  left: 7.5%;
+  right: 7.5%;
+  top: 0;
+  
+  .overlay-active & {
+    left: 7.5%;
+    right: 7.5%;
+    top: 0;
   }
+  
+  // Responsive
+  @include min-screen(768) {
+    left: initial;
+    top: 0;
+    right: 20px;
+    min-width: 20%;
+  }
+
+  z-index:10000;
+  
+  padding: 10px 20px;
+  margin: 20px 0 40px;
+  background: white;
+  border: 1px solid #ccc;
+  color: #111;
   
   a.close-target {
-    @extend .icon-cross;
-    font-size: 28px;
-    float: right;
+    color: #222;
   }
+  
+  a.close {
+    float:right;
+    &:before {  font-size: 24px; color: #111; }
+    
+    width: 20px;
+    height: 20px;
+    @extend .icon-cross; 
+  }
+  
+  
+  .dark-theme & {
+    border: 1px solid #ccc;
+  }
+}
+
+a.close-target {
+  @extend .icon-cross;
+  font-size: 28px;
+  float: right;
+}

@@ -9,7 +9,7 @@
     
     <div>
       <a class="open-modal" href="#signup-modal">
-        <%= image_tag "site/appstore.png", size: "160x40", alt: "Appstore" %>
+        <%= image_tag "site/appstore.png", height: 50, width:160, alt: "Appstore" %>
       </a>
       
       <a class="scroll-to learn-more" href="#see-more">Learn more</a>
@@ -29,23 +29,19 @@
   
     <a class="col x6 box brand open-modal" href="/site/publisher">
       <h3>forward thinking brand</h3>
-      <div class="hover">
-
-      </div>
+      <div class="hover"></div>
     </a>
   
     <a class="col x6 box blogger  open-modal" href="/site/publisher">
       <h3>blogger &amp; influencer</h3>
-      <div class="hover">
-
-      </div>
+      <div class="hover"></div>
     </a>
   </div>
 </section>
 
 
 <section class="tour odd">
-  <div class="container centered">
+  <div class="container text-centered">
   
     <h2>Spread the love</h2>
     <p class="subtitle">
@@ -60,12 +56,13 @@
 
 <div id="signup-modal" class="modal" style="display:none">
   <header>
-    <a href="#" class="close icon-cross"></a>
+    <a href="#signup-modal" class="close-target icon-cross"></a>
     <h1>get notified</h1>
   </header>
   
-  <p class="subtitle">Our private beta is coming soon with limited users. Get invited for
-  insider access. Issue is going to be your new best friend
+  <p class="subtitle">
+    Our private beta is coming soon with limited users. Get invited for
+    insider access. Issue is going to be your new best friend
   </p>
   
   <p class="center">

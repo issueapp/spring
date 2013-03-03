@@ -11,15 +11,25 @@
 
 .modal {
   @include box-sizing(border-box);
-  position: fixed;
   z-index: 10000;
-  left: 50%;
+  position: absolute;
   top: 50%;
   margin-top: -300px;
-  margin-left: -300px;
-
-  width: 600px;
-  min-height: 450px;
+  left: 5%;
+  right: 5%;
+  max-width: 600px;
+  min-height: 400px;
+  
+  // Responsive desktop
+  @include min-screen(768) {
+    position: fixed;
+    width: 100%;
+    left: 50%;
+    top: 50%;
+    margin-left: -300px;
+    min-height: 450px;
+  }
+  
 
   background: #fff;
   padding: 20px 20px 50px;
@@ -30,7 +40,11 @@
     margin: 0 0 1em;
     text-transform: uppercase;
 /*    letter-spacing: 2px;*/
-    font-size: 24px;
+
+
+    font-size: 18px;
+    
+    
     font-weight: normal;
     text-align: center;
   }

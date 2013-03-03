@@ -1,9 +1,9 @@
 /*
-Syntax error: Undefined mixin 'clearfix'.
-        on line 23 of ./stylesheets/ui.scss, in `clearfix'
-        from line 23 of ./stylesheets/ui.scss
+Syntax error: Undefined mixin 'min-screen'.
+        on line 24 of ./stylesheets/ui/modal.scss, in `min-screen'
+        from line 24 of ./stylesheets/ui/modal.scss
+        from line 15 of ./stylesheets/ui.scss
 
-18: //------ ui/menu
 19: 
 20: nav.tab-menu {
 21:   margin-bottom: 2%;
@@ -14,10 +14,12 @@ Syntax error: Undefined mixin 'clearfix'.
 26:     list-style: none;
 27:     padding: 0;
 28:     border:1px solid #ccc;
+29:     clear: left;
 
 Backtrace:
-./stylesheets/ui.scss:23:in `clearfix'
-./stylesheets/ui.scss:23
+./stylesheets/ui/modal.scss:24:in `min-screen'
+./stylesheets/ui/modal.scss:24
+./stylesheets/ui.scss:15
 /Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:251:in `visit_mixin'
 /Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:37:in `visit'
 /Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:98:in `visit'
@@ -29,6 +31,11 @@ Backtrace:
 /Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:106:in `visit_children'
 /Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:37:in `block in visit'
 /Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:318:in `visit_rule'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:98:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:225:in `block in visit_import'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:225:in `map'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:225:in `visit_import'
 /Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:37:in `visit'
 /Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:98:in `visit'
 /Users/taylorluk/.rvm/gems/ruby-1.9.3-p362/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
@@ -66,4 +73,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined mixin 'clearfix'.\A         on line 23 of ./stylesheets/ui.scss, in `clearfix'\A         from line 23 of ./stylesheets/ui.scss\A \A 18: //------ ui/menu\A 19: \A 20: nav.tab-menu {\A 21:   margin-bottom: 2%;\A 22:   \A 23:   @include clearfix;\A 24:   \A 25:   ul {\A 26:     list-style: none;\A 27:     padding: 0;\A 28:     border:1px solid #ccc;"; }
+  content: "Syntax error: Undefined mixin 'min-screen'.\A         on line 24 of ./stylesheets/ui/modal.scss, in `min-screen'\A         from line 24 of ./stylesheets/ui/modal.scss\A         from line 15 of ./stylesheets/ui.scss\A \A 19: \A 20: nav.tab-menu {\A 21:   margin-bottom: 2%;\A 22:   \A 23:   @include clearfix;\A 24:   \A 25:   ul {\A 26:     list-style: none;\A 27:     padding: 0;\A 28:     border:1px solid #ccc;\A 29:     clear: left;"; }
