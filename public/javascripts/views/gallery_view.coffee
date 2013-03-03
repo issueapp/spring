@@ -1,5 +1,6 @@
 class App.GalleryView extends App.SwipeView
   el: '#gallery .swipe-paging'
+  images: { 'collection': [] }
 
   events:
     'touchend span.prev': 'prev'
@@ -34,12 +35,13 @@ class App.GalleryView extends App.SwipeView
     '
   )
 
-  initialize: (data)->
+  initialize: (selector)->
     # inherit swipe events from SwipeView
     swipe_events = _.result(@constructor.__super__, 'events')
     _.extend(@constructor.prototype.events, swipe_events)
 
     @galleryWrapper = $('#gallery')
+    @selector = selector || $('.gallery a')
 
     $('#gallery a.back').live 'click', (e)=>
       this.close()
@@ -68,10 +70,12 @@ class App.GalleryView extends App.SwipeView
 
   # render gallery view markup, set corresponding attributes
   render: ->
-    @images = { 'collection': [] }
     # grab all image link, store them into images collection
-    $('.page.current .gallery').find('a').forEach (item)=>
-      @images.collection.push { 'source': $(item).attr('href') }
+    @selector.forEach (item)=>
+      @images.collection.push {
+        'source': $(item).attr('href')
+        'caption': $(item).attr('title')
+      }
 
     @galleryWrapper.html @template(@images)
     this.setElement('#gallery .swipe-paging')
@@ -89,6 +93,7 @@ class App.GalleryView extends App.SwipeView
     this.$el.find('img').forEach (item)->
       $(item).attr('src', '/images/blank.gif')
     @galleryWrapper.html('')
+    @images.collection = []
 
   # overwrite SwipeView#moveRight, adds page number update
   moveRight: ->

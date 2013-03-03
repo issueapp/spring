@@ -137,9 +137,10 @@
   })
 
   // Gallery View Start
-  $('.page.current').append(galleryPage);
+  var currentPage = $('.page.current');
+  currentPage.append(galleryPage);
 
-  var gallery = new App.GalleryView;
+  var gallery = new App.GalleryView(currentPage.find('.gallery a'));
 
   $('.current.page .gallery a, .current.page .gallery .icon-fullscreen').live('click', function(e) {
     gallery.render();
