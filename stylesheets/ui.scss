@@ -5,6 +5,8 @@
 @import "compass/css3/border-radius";
 @import "compass/css3/text-shadow";
 @import "compass/css3/box-shadow";
+@import "compass/utilities/general/clearfix";
+@import "base/media-queries";
 
 //      User interface
 //------ ui/menu
@@ -19,25 +21,25 @@
 
 nav.tab-menu {
   margin-bottom: 2%;
-  
+
   @include clearfix;
-  
+
   ul {
     list-style: none;
     padding: 0;
     border:1px solid #ccc;
     clear: left;
   }
-  
+
   li {
     border-bottom:1px solid #ccc;
     border-right: 0;
-    
+
     &:last-child {
       border:0;
     }
   }
-  
+
   a {
     padding: 10px 10px;
     display:block;
@@ -45,7 +47,7 @@ nav.tab-menu {
       background: #eee;
     }
   }
-  
+
   @include min-screen(768) {
     ul {
       float: left;
