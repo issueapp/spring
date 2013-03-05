@@ -1,0 +1,132 @@
+/* line 6, ../../stylesheets/admin.scss */
+[role=main] {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+  margin-left: 80px;
+  padding-top: 50px;
+}
+/* line 12, ../../stylesheets/admin.scss */
+[role=main] > .content {
+  margin: 20px 40px;
+}
+/* line 16, ../../stylesheets/admin.scss */
+#sidebar + [role=main] {
+  margin-left: 400px;
+}
+
+/* line 21, ../../stylesheets/admin.scss */
+#sidebar {
+  background: #f4f6f7;
+  border-right: 1px solid #eeeeee;
+  position: fixed;
+  left: 80px;
+  top: 0;
+  padding-top: 50px;
+  overflow-y: scroll;
+  width: 320px;
+  height: 100%;
+  float: left;
+}
+/* line 36, ../../stylesheets/admin.scss */
+#sidebar li a {
+  overflow: hidden;
+  *zoom: 1;
+  display: block;
+  padding: 10px 20px;
+  color: #333;
+}
+/* line 44, ../../stylesheets/admin.scss */
+#sidebar li:hover {
+  background: #fff;
+}
+/* line 49, ../../stylesheets/admin.scss */
+#sidebar .item {
+  display: block;
+  font-size: 13px;
+  border-bottom: 1px solid #eeeeee;
+  position: relative;
+}
+/* line 57, ../../stylesheets/admin.scss */
+#sidebar .item figure {
+  float: left;
+  margin: 10px 10px 10px 0;
+  vertical-align: top;
+}
+/* line 62, ../../stylesheets/admin.scss */
+#sidebar .item figure img {
+  vertical-align: text-top;
+}
+/* line 67, ../../stylesheets/admin.scss */
+#sidebar .item a {
+  color: #666;
+}
+/* line 71, ../../stylesheets/admin.scss */
+#sidebar .item .description {
+  margin: 10px 0 0;
+  line-height: 1.3;
+}
+/* line 76, ../../stylesheets/admin.scss */
+#sidebar .item .title {
+  font-size: 18px;
+  color: #333;
+  font-weight: normal;
+  margin-top: 10px;
+}
+/* line 83, ../../stylesheets/admin.scss */
+#sidebar .item .info {
+  margin-top: 5px;
+  clear: left;
+  font-style: italic;
+}
+/* line 89, ../../stylesheets/admin.scss */
+#sidebar .item .time {
+  float: right;
+}
+/* line 97, ../../stylesheets/admin.scss */
+#sidebar .item .actions {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+/* line 102, ../../stylesheets/admin.scss */
+#sidebar .item .actions .button {
+  opacity: 0.01;
+}
+/* line 108, ../../stylesheets/admin.scss */
+#sidebar .item:hover .button, #sidebar .item.hover .button {
+  opacity: 1;
+}
+/* line 115, ../../stylesheets/admin.scss */
+#sidebar form {
+  padding: 20px 20px 80px;
+}
+/* line 121, ../../stylesheets/admin.scss */
+#sidebar .filter-container {
+  border-bottom: 1px dashed #cccccc;
+  margin: 30px 20px 20px;
+  position: relative;
+}
+/* line 126, ../../stylesheets/admin.scss */
+#sidebar .filter-container .caret {
+  position: absolute;
+  right: 15px;
+  background: #F4F6F7;
+  z-index: 999;
+}
+/* line 133, ../../stylesheets/admin.scss */
+#sidebar .filter-container select.filter {
+  position: absolute;
+  right: 10px;
+  bottom: -0.7em;
+  border: none;
+  background: #F4F6F7;
+  color: #666;
+  font-size: 14px;
+  text-align: center;
+  text-align: -webkit-center;
+  -webkit-appearance: none;
+  width: 110px;
+  padding: 0 10px;
+}

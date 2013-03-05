@@ -34,9 +34,63 @@
   }
 }
 
-#sidebar {
-  background: #f6f9fa;
-  border-right: 1px solid #ccc;
+//.item {
+//  @include clearfix;
+//  padding-bottom: 1em;
+//  border-bottom: 1px solid #ccc;
+//  margin-bottom: 1em;
+//  
+//  h3 {
+//    font-family: "proxima_nova_ltregular";
+//    margin-bottom: 0.5em;
+//  }
+//  
+//  p {
+//    font-size: 14px;
+//    color: #555;
+//    margin-top: 0;
+//  }
+//  
+//  .actions {
+//    margin-left: 10px;
+//    float: right;
+//  }
+//  
+//  
+//  figure {
+//    float: left;
+//    margin: 0 10px 10px 0;
+//  }
+//  
+//  .extras {
+//    font-size: 13px;
+//    font-style: italic;
+//    color: #999;
+//    clear: left;
+//  }
+//}
+
+#menu {
+  position: fixed;
+  top: 0;
+  
+  .text {
+    display: none;
+  }
+}
+
+[role=main] {
+  @include box-sizing(border-box);
+  position: relative;
+//  margin-left: 80px;
+  
+  & > .content {
+    margin: 20px;
+  }
+  
+  #sidebar + & {
+//    margin-left: 400px;
+  }
 }
 
 // Attribution

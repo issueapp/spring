@@ -1,0 +1,86 @@
+<%= render "nav" %>
+
+<div id="sidebar" style="width: 400px">
+  <header class="toolbar">
+    <a href="/app/admin" class="left back"></a>
+    <h3 class="title">New article</h3>
+    <a href="#" class="right"></a>
+    
+    <!-- <a href="#" class="plus right"></a> -->
+  </header>
+  
+  <form>
+    <div class="item_edition col">
+      <h3 style="width:8em; display: inline-block">
+        Post article in
+      </h3>
+        
+      <select id="item_edition" style="width:150px; display: inline-block">
+        <option>Inspire</option>
+        <option>The highlight</option>
+      </select>
+    </div>
+  
+    <div class="row">
+      <div class="col">
+        <input type="text" placeholder="Post title" class="preview-target" data-target="[role=main] .content h1" data-event="keyup">
+        
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col">
+        <textarea class="preview-target" placeholder="content body" rows="15" data-target="[role=main] .content-body" data-event="keyup"></textarea>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col">
+        <img src="http://placehold.it/150x150">
+      </div>
+    </div>
+    
+    <div class="row">
+      <p><a href="#">specify a publish date</a></p>
+      <p><a href="#">click to add tags</a></p>
+      <p><a href="#"></a></p>
+    </div>
+    
+    <div class="row">
+      <a href="#" class="button large black">Create</a>
+      <a href="#" class="button large">Publish</a>
+    </div>
+        
+  </form>
+</div>
+
+<div role="main" style="margin-left: 480px;">
+  <header class="toolbar">
+    <!-- <a href="#" class="back"></a> -->
+    <h3 class="title">Content</h3>
+    
+    <div class="right">
+      <%= link_to "add", "", class:"black button" %>
+      <%= link_to "edit", "", class:" button" %>
+    </div>
+  </header>
+  
+  <div class="content">
+    <h1 class="title">Lorem ipsum dolor sit amet, consectetur adipisicing elit</h1>
+    <div class="extras">
+      <div class="col x8"> from hypebeast.com by Taylor Luk</div>
+      <div class="col x4">3 hours ago</div>
+    </div>
+    
+    <div class="content-body">
+    <img src="http://lorempixel.com/1024/600/fashion/3" width="100%">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    
+    <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
+    <img src="http://lorempixel.com/g/300/300/nature/4">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+  </div>
+</div>

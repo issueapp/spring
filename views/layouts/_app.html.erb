@@ -1,15 +1,8 @@
-<%
-  api_host = if 'production' == ENV['RACK_ENV']
-               'shop2.com'
-             else
-               'shop2.com'
-             end
-%>
-
-<!-- HTML5 Mobile Boilerplate -->
-<!--[if IEMobile 7]><html class="no-js iem7"><![endif]-->
-<!--[if (gt IEMobile 7)|!(IEMobile)]><!--><html class="no-js" lang="en"><!--<![endif]-->
-
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"><![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]-->
   <head>
     <meta charset="utf-8">
     <title>issue</title>
@@ -18,364 +11,62 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
     <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0" />
-
-    <!-- <link rel="stylesheet" href="http://deyf8doogqx67.cloudfront.net/assets/components/_button.css"> -->
-    <link rel="stylesheet" href="/stylesheets/application.css"/>
-    <link rel="stylesheet" href="/stylesheets/swipe-view.css"/>
-    <link rel="stylesheet" href="/stylesheets/gallery.css"/>
-    
-    
-    <link rel="stylesheet" href="/stylesheets/vendor/add2home.css"/>
-
-
-    <!-- For iPhone 4 -->
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://cl.ly/image/0543211s3u3T/apple-touch-icon-144.png">
-    <!-- <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon.png"> -->
-    <!-- For everything else -->
     <link rel="shortcut icon" href="/favicon.ico">
-    <!-- For iPhone 4 -->
-    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon.png">
-    <!-- For everything else -->
-    <link rel="shortcut icon" href="/favicon.ico">
-
-    <script>(function(){var p,l,r=window.devicePixelRatio;if(navigator.platform==="iPad"){p=r===2?"img/startup/startup-tablet-portrait-retina.png":"images/startup/tablet-portrait.png";l=r===2?"images/startup/startup-tablet-landscape-retina.png":"images/startup/tablet-landscape.png";document.write('<link rel="apple-touch-startup-image" href="'+l+'" media="screen and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="'+p+'" media="screen and (orientation: portrait)"/>');}else{p=r===2?"img/startup/startup-retina.png":"img/startup/startup.png";document.write('<link rel="apple-touch-startup-image" href="'+p+'"/>');}})()</script>
-
-    <meta http-equiv="cleartype" content="on">
-
-    <script>(function(){var p,l,r=window.devicePixelRatio;if(navigator.platform==="iPad"){p=r===2?"img/startup/startup-tablet-portrait-retina.png":"images/startup/tablet-portrait.png";l=r===2?"images/startup/startup-tablet-landscape-retina.png":"images/startup/tablet-landscape.png";document.write('<link rel="apple-touch-startup-image" href="'+l+'" media="screen and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="'+p+'" media="screen and (orientation: portrait)"/>');}else{p=r===2?"img/startup/startup-retina.png":"img/startup/startup.png";document.write('<link rel="apple-touch-startup-image" href="'+p+'"/>');}})()</script>
-
-    <script>
-      App = {
-        api_host: "<%= api_host %>"
-      }
-    </script>
-
-    <meta http-equiv="cleartype" content="on">
-
+    
     <!--iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-
-    <style>
-      html, body {
-        overflow: hidden;
-      }
-
-      body {
-        position: relative;
-        margin-left: -260px;
-        /* diable tap highlighting! */
-        /*-webkit-tap-highlight-color: rgba(0,0,0,0);*/
-      }
-
-      body.expand-menu {
-        z-index: 0;
-        margin-left: 0;
-      }
-
-      nav[role=navigation] {
-        position: fixed;
-        top:0;
-        left:0;
-        width:100%;
-      }
-
-      [role=main] {
-        position: relative;
-      }
-
-      #sections .pages {
-        position: absolute;
-        white-space: nowrap;
-        overflow: hidden;
-      }
-
-      #sections .spinner {
-        top: 300px;
-        left: 50%;
-      }
-
-      #sections #noContent {
-        position: absolute;
-        top: 300px;
-        left: 50%;
-        margin-left: -233px;
-        font-size: 14px;
-        font-family: Georgia;
-      }
-
-      #content {
-        white-space: nowrap;
-      }
-
-      .transition {
-        -webkit-transition:opacity 0.5s ease;
-      }
-
-      .zoom:hover {
-         -moz-transform: scale(1.4);
-         -webkit-transform: scale(1.4);
-         -o-transform: scale(1.4);
-         transform: scale(1.4);
-         -ms-transform: scale(1.4);
-         filter: progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=2, M12=-0, M21=0, M22=2);
-      }
-      .page.padding {
-        width: 0;
-      }
-
-      #signup {
-        background: white;
-        height: 93%;
-      }
-
-      .vertical-scroll {
-        /* IPHONE 
-         hack: height: 104%; */
-        overflow-y: scroll;
-        -webkit-overflow-scrolling: touch;
-      }
-    </style>
+    
+    <link rel="stylesheet" href="/stylesheets/application.css" type="text/css">
+    
   </head>
+  
   <body>
-    <div class="cover landing transition" style="opacity:0">
-      <h1 class="logo"></h1>
+   <!-- <nav id="menu">
+     <ul class="navigation">
+       <li class="logo"><a href="/users/taylorluk"></a></li>
 
-      <div class="featured">
-        <h3>Featured</h3>
-        <ul>
-          <li>Preview: Adventure issue </li>
-          <li>Topman is here </li>
-          <li>Profresh style</li>
-      </div>
+       <li>
+         <a href="/discover">
+           <span class="text">Discover</span>
+           <span class="right-icon icon-globe"></span>
+         </a>
+       </li>
+       
+       <li class="active">
+         <a href="/stream">
+           <span class="text">My Edition</span>
+           <span class="right-icon icon-book"></span>
+         </a>
+       </li>
+       
+       <ul class="subscribed">
+         <li><a href="/interests/mens">Mens wear</a></li>
+         <li><a href="/interests/womens">Women's</a></li>
+         <li><a href="/interests/tech">Tech</a></li>
+         <li><a href="/interests/home">xHome</a></li>
+         <li><a href="/interests/media">Media</a></li>
+         <li><a href="/interests/media">Art &amp; design</a></li>
+       </ul>
+       
+       <li class="user">
+         <a class="right-icon settings" href="/settings">
+           <i class="icon-cog"></i>
+         </a>
 
-      <div class="welcome">
-        <h1>your edition</h1>
-        <h2>of personalized magazine</h2>
-        <a href="stream" rel="app">browse  &rarr;</a>
-      </div>
+         <a href="/taylorluk/items">
+           <div class="thumb">
+             <img width=30 height=30 src="https://en.gravatar.com/userimage/3750669/11f87325e01820f4350d21db1fb429c8.jpeg">
+           </div>
+           Taylor Luk
+         </a>
+       </li>
+     </ul>
+   </nav> -->
+   
+  <%= yield %>
 
-      <div class="footer">
-        <i class="icon-facebook"></i>
-        <!-- <a rel="external" href="http://<%= api_host %>/connect/facebook?return_to=<%= request.url %>">
-          Sign in or request an invite
-        </a> -->
-        
-        <a rel="" href="/signup">
-          Facebook connect
-        </a>
-      </div>
-    </div>
-
-    <nav id="menu" class="animate" style="position:absolute;top:0;left:0;height:100%;z-index:999">
-      <ul class="navigation">
-        <li class="logo"><a href="/users/taylorluk"></a></li>
-
-        <li><a href="/discover">Discover<span class="right-icon icon-globe"></span></a></li>
-        <li class="active"><a href="/stream">My Edition<span class="right-icon icon-book"></span></a></li>
-        <!-- Category -->
-        <ul class="subscribed">
-          <li><a href="/interests/mens">Mens wear</a></li>
-          <li><a href="/interests/womens">Women's</a></li>
-          <li><a href="/interests/tech">Tech</a></li>
-          <li><a href="/interests/home">xHome</a></li>
-          <li><a href="/interests/media">Media</a></li>
-          <li><a href="/interests/media">Art &amp; design</a></li>
-        </ul>
-        <li class="user">
-
-          <a class="right-icon settings" href="/settings">
-            <i class="icon-cog"></i>
-          </a>
-
-          <a href="/taylorluk/items">
-            <div class="thumb">
-              <img width=30 height=30 src="https://en.gravatar.com/userimage/3750669/11f87325e01820f4350d21db1fb429c8.jpeg">
-            </div>
-            Taylor Luk
-          </a>
-        </li>
-      </ul>
-    </nav>
-
-    <div role="main" style="margin-left:260px">
-      
-      <div id="signup" class="page transition" style="display:none" data-path="signup">
-        <h1>Choose channels that interest you</h1>
-        <ul class="channels">
-          <li class="large">
-            Men's clothes <a class="action follow" href="">+</a>
-          </li>
-          <li class="large">Arts & Crafts <a class="action follow" href="">+</a></li>
-          <li class="large">Men's shoes <a class="action follow" href="">+</a></li>
-          <li class="large">Cars <a class="action follow" href="">+</a></li>
-          <li class="large">Home <a class="action follow" href="">+</a></li>
-          <li class="large">Media <a class="action follow" href="">+</a></li>
-        </ul>
-        
-        <a class="complete button orange" href="#/stream">Done > </a>
-      </div>
-      
-      <section id="discover" style="display:none">
-        <header>
-          <input type="search" placeholder="Search">
-        </header>
-
-        <ul id="category">
-          <li class="active"><a href="/discover">Featured</a></li>
-          <li><a href="/discover/men">Men</a></li>
-          <li><a href="/discover/women">Women</a></li>
-          <li><a href="/discover/tech">Tech</a></li>
-          <li><a href="/discover/home">Home</a></li>
-          <li><a href="/discover/media">Media</a></li>
-          <li><a href="/discover/design">Art &amp; design</a></li>
-        </ul>
-
-        <ul class="channels"></ul>
-      </section>
-      
-      <%= render '/templates/issue' %>
-  
-      <div id="sections">
-        <header class="toolbar">
-          <a class="icon menu"></a>
-          <a href="#" class="back" style="display: none;">Back</a>
-          <a href="#" class="icon reload follow" onclick="window.location.reload(true); return false">reload</a>
-          <a href="#" class="icon follow" >Follow</a>
-
-          <a class="title" rel="popover" href="#collectionDropdown"><span>TOP CONTENT</span></a>
-          
-          <!-- <a href="#filterDropdown" rel="popover" id="switch-mode" class="filter" style=""></a> -->
-          <a href="#filterDropdown" class="icon filter" rel="popover"></a>
-          
-          <div id="filter-dropdown" class="drop-down" style="display:none">
-            <div class="drop-wrapper">
-              <span class="drop-top"></span>
-              <ul class="popover-list">
-                  <li><a class="view-all active" href="?type=all">view all</a></li>
-                  <li><a class="shop" href="?type=product">shop</a></li>
-                  <li><a class="read" href="?type=article">read</a></li>
-                  <li><a class="photo" href="?type=picture">photo</a></li>
-              </ul>
-            </div>
-          </div>
-          
-          <div class="popover" id="filterDropdown" style="display:none">
-            <div class="drop-wrapper">
-              <span class="drop-top"></span>
-              <ul class="popover-list">
-                  <li><a class="view-all active" href="?type=all"><span></span>view all</a></li>
-                  <li><a class="shop" href="?type=product"><span></span>shop</a></li>
-                  <li><a class="read" href="?type=article"><span></span>read</a></li>
-                  <li><a class="photo" href="?type=picture"><span></span>photo</a></li>
-              </ul>
-            </div>
-          </div>
-        </header>
-        <%= yield %>
-      </div>
-
-      <div id="content" style="display:none">
-        <header class="toolbar">
-          <a class="icon menu"></a>
-          <a href="#" class="back" style="display: none;">Back</a>
-          <a href="" class="icon reload follow" onclick="window.location.reload(true); return false">reload</a>
-
-          <div class="title"><span>Page content</span></div>
-          
-          <div class="actions" style="">
-            <a class="heart"> </a>
-            <a class="collect"> </a>
-            
-            <a class="share" rel="popover" href="#shareDropdown"></a>
-          </div>
-          
-          <div class="popover" id="shareDropdown" style="display:none">
-            <div class="drop-wrapper">
-              <span class="drop-top"></span>
-              <ul class="popover-list">
-                  <li><a class="facebook" href="#"><i class="icon-facebook"></i>Facebook</a></li>
-                  <li><a class="twitter" href="#"><i class="icon-twitter"></i>Twitter</a></li>
-                  <li><a class="pinterest" href="#"><i class="icon-pinterest"></i>Pinterest</a></li>
-              </ul>
-            </div>
-          </div>
-        </header>
-        
-        <div class="pages swipe-paging"></div>
-      </div>
-      
-      <div id="gallery"><div class="swipe-paging"></div></div>
-    </div>
   </body>
-
-  <%= render '/templates/new' %>
-  <script src="/javascripts/vendor/zepto.js"></script>
-  <script src="/javascripts/vendor/zepto.cookie.js"></script>
-  <script src="/javascripts/vendor/underscore.js"></script>
-  <script src="/javascripts/vendor/backbone.js"></script>
-  <script src="/javascripts/vendor/mustache.js"></script>
-  <script src="/javascripts/vendor/clamp.js"></script>
-  <script src="/javascripts/vendor/h5bp-helper.js"></script>
-  <script src="/javascripts/vendor/spin.min.js"></script>
-  <script src="/javascripts/vendor/relative_date.js"></script>
-
-  <script src="/javascripts/app.js"></script>
-  <script src="/javascripts/models.js"></script>
-  <script src="/javascripts/channels.js"></script>
-
-  <script src="/javascripts/views/layout.js"></script>
-  <script src="/javascripts/views/toolbar.js"></script>
-  <script src="/javascripts/views/menu_view.js"></script>
-  <script src="/javascripts/views/content_view.js"></script>
-
-
-  <script src="/javascripts/views/swipe_view.js"></script>
-  <script src="/javascripts/views/gallery_view.js"></script>
-  
-  <script src="/javascripts/views/page_view.js"></script>
-  <script src="/javascripts/views/list_view.js"></script>
-  <script src="/javascripts/views/stream_view.js"></script>
-  <script src="/javascripts/views/discover_menu.js"></script>
-  <script src="/javascripts/views/popover_view.js"></script>
-
-  <script src="/javascripts/misc.js"></script>
-
-  <script type="text/javascript">
-  var addToHomeConfig = {
-  	animationIn: 'bubble',
-  	animationOut: 'drop',
-  	lifespan:10000,
-  	expire:2,
-  	touchIcon:true
-  };
-  </script>
-  <script src="/javascripts/vendor/add2home.js"></script>
-
-  <script>
-    MBP.hideUrlBarOnLoad()
-
-    App.init()
-  </script>
-
-  <%= yield :js %>
-
-  <script>
-    if($.fn.cookie("notice") != null) {
-      var div = document.createElement("div");
-      div.innerHTML = $.fn.cookie("notice").replace(/\+/g, " ");
-      div.className = 'notice';
-      document.body.appendChild(div);
-
-      setTimeout(function() {
-        $(div).animate({ opacity : 0 }, {duration: 500, complete: function () {
-          $(div).hide();
-        }});
-      }, 3500);
-
-      $.fn.cookie("notice", null, {domain: ".<%= api_host %>"});
-    }
-
-  </script>
-
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <script src="/javascripts/spring.ui.js"></script>
 </html>
