@@ -14,10 +14,17 @@ header.toolbar {
   
   .dark-theme & {
     color: #fff;
+
+    a:hover {
+      color: white;
+    }
   }
   
   &.dark-theme {
     color: #fff;
+    a:hover {
+      color: white;
+    }
   }
   
   .left {
@@ -32,19 +39,28 @@ header.toolbar {
     top: 0;
   }
   
+  // For extension
+  .icon-style {
+    font-size: 24px;
+    line-height: 50px;
+    font-weight: normal;
+    margin-right: 5px;
+    width: 50px;
+  }
+  
   a {
     &:before {
-      font-size: 24px;
-      line-height: 50px;
-      font-weight: normal;
-      margin-right: 5px;
-      width: 50px;
+      @extend .icon-style;
     }
     
     vertical-align: top;
     line-height: 50px;
     cursor: pointer;
     color: #444;
+    
+    &:hover {
+      color: #444;
+    }
   }
   
   .button {
@@ -52,6 +68,7 @@ header.toolbar {
     line-height: 29px;
   }
   
+  //    Specific menu
   a.menu, a.back, a.channel, a.follow {
     float: left;
   }
@@ -69,25 +86,28 @@ header.toolbar {
   }
 
   a.back {
+    font-family: georgia;
+    font-style: italic;
+    
     &:before {
-      font-size: 32px;
-      line-height: 50px;
-      font-weight: normal;
-      margin-right: 5px;
-      width: 50px;
+      @extend .icon-style;
     }
     @extend .icon-arrow-left;
   }
 
   a.plus {
     &:before {
-      font-size: 32px;
-      line-height: 50px;
-      font-weight: normal;
-      margin-right: 5px;
-      width: 50px;
+      @extend .icon-style;
     }
     @extend .icon-plus;
+  }
+  
+  a.search {
+    &:before {
+      @extend .icon-style;
+    }
+    
+    @extend .icon-search;
   }
 
   a.follow {

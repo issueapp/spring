@@ -1399,7 +1399,7 @@ you can use the generic selector below, but it's slower:
 [class*="icon-"]:before {
 */
 /* line 28, ../../stylesheets/ui/icons.scss */
-.icon-export:before, header.toolbar div.actions .share:before, .icon-heart:before, header.toolbar div.actions .heart:before, .icon-earth:before, .icon-docs:before, .icon-twitter:before, .icon-facebook:before, .icon-googleplus:before, .icon-pinterest:before, .icon-camera:before, .icon-link:before, .icon-comment:before, .icon-cog:before, .icon-arrow-left:before, header.toolbar a.back:before, .icon-arrow-right:before, .icon-arrow-left-2:before, .icon-arrow-right-2:before, .icon-pictures:before, .icon-video:before, .icon-music:before, .icon-plus:before, header.toolbar a.plus:before, header.toolbar div.actions .collect:before, .edition-item.with-icon .subscribe:before, .edition-list > li.with-icon .subscribe:before, .icon-minus:before, .icon-read:before, .icon-shop:before, .icon-book:before, .icon-ccw:before, .icon-info:before, .icon-question:before, .icon-user:before, .icon-tag:before, .icon-search:before, .icon-stackoverflow:before, .icon-stream:before, .icon-play:before, .icon-gauge:before, .icon-eye:before, .icon-statistics:before, .icon-brush:before, .icon-archive:before, .icon-plus-2:before, .icon-cross:before, div.notification a.close:before, a.close-target:before, .icon-grid:before, #edition-switch span:before, .icon-list:before, header.toolbar a.menu:before, .icon-rss:before {
+.icon-export:before, header.toolbar div.actions .share:before, .icon-heart:before, header.toolbar div.actions .heart:before, .icon-earth:before, .icon-docs:before, .icon-twitter:before, .icon-facebook:before, .icon-googleplus:before, .icon-pinterest:before, .icon-camera:before, .icon-link:before, .icon-comment:before, .icon-cog:before, .icon-arrow-left:before, header.toolbar a.back:before, .icon-arrow-right:before, .icon-arrow-left-2:before, .icon-arrow-right-2:before, .icon-pictures:before, .icon-video:before, .icon-music:before, .icon-plus:before, header.toolbar a.plus:before, header.toolbar div.actions .collect:before, .edition-item.with-icon .subscribe:before, .edition-list > li.with-icon .subscribe:before, .icon-minus:before, .icon-read:before, .icon-shop:before, .icon-book:before, .icon-ccw:before, .icon-info:before, .icon-question:before, .icon-user:before, .icon-tag:before, .icon-search:before, header.toolbar a.search:before, .icon-stackoverflow:before, .icon-stream:before, .icon-play:before, .icon-gauge:before, .icon-eye:before, .icon-statistics:before, .icon-brush:before, .icon-archive:before, .icon-plus-2:before, .icon-cross:before, div.notification a.close:before, a.close-target:before, .icon-grid:before, #edition-switch span:before, .icon-list:before, header.toolbar a.menu:before, .icon-rss:before {
   font-family: 'issue-icons';
   speak: none;
   font-style: normal;
@@ -1554,7 +1554,7 @@ you can use the generic selector below, but it's slower:
 }
 
 /* line 123, ../../stylesheets/ui/icons.scss */
-.icon-search:before {
+.icon-search:before, header.toolbar a.search:before {
   content: "\e019";
 }
 
@@ -2889,74 +2889,75 @@ header.toolbar {
 .dark-theme header.toolbar {
   color: #fff;
 }
-/* line 19, ../../stylesheets/app/toolbar.scss */
+/* line 18, ../../stylesheets/app/toolbar.scss */
+.dark-theme header.toolbar a:hover {
+  color: white;
+}
+/* line 23, ../../stylesheets/app/toolbar.scss */
 header.toolbar.dark-theme {
   color: #fff;
 }
-/* line 23, ../../stylesheets/app/toolbar.scss */
+/* line 25, ../../stylesheets/app/toolbar.scss */
+header.toolbar.dark-theme a:hover {
+  color: white;
+}
+/* line 30, ../../stylesheets/app/toolbar.scss */
 header.toolbar .left {
   position: absolute;
   left: 10px;
   top: 0;
 }
-/* line 29, ../../stylesheets/app/toolbar.scss */
+/* line 36, ../../stylesheets/app/toolbar.scss */
 header.toolbar .right {
   position: absolute;
   right: 10px;
   top: 0;
 }
-/* line 35, ../../stylesheets/app/toolbar.scss */
-header.toolbar a {
-  vertical-align: top;
-  line-height: 50px;
-  cursor: pointer;
-  color: #444;
-}
-/* line 36, ../../stylesheets/app/toolbar.scss */
-header.toolbar a:before {
+/* line 43, ../../stylesheets/app/toolbar.scss */
+header.toolbar .icon-style, header.toolbar a:before, header.toolbar a.back:before, header.toolbar a.plus:before, header.toolbar a.search:before {
   font-size: 24px;
   line-height: 50px;
   font-weight: normal;
   margin-right: 5px;
   width: 50px;
 }
-/* line 50, ../../stylesheets/app/toolbar.scss */
+/* line 51, ../../stylesheets/app/toolbar.scss */
+header.toolbar a {
+  vertical-align: top;
+  line-height: 50px;
+  cursor: pointer;
+  color: #444;
+}
+/* line 61, ../../stylesheets/app/toolbar.scss */
+header.toolbar a:hover {
+  color: #444;
+}
+/* line 66, ../../stylesheets/app/toolbar.scss */
 header.toolbar .button {
   margin-top: 10px;
   line-height: 29px;
 }
-/* line 55, ../../stylesheets/app/toolbar.scss */
+/* line 72, ../../stylesheets/app/toolbar.scss */
 header.toolbar a.menu, header.toolbar a.back, header.toolbar a.channel, header.toolbar a.follow {
   float: left;
 }
-/* line 59, ../../stylesheets/app/toolbar.scss */
+/* line 76, ../../stylesheets/app/toolbar.scss */
 header.toolbar a.menu {
   width: 64px;
   padding-left: 10px;
 }
-/* line 65, ../../stylesheets/app/toolbar.scss */
+/* line 82, ../../stylesheets/app/toolbar.scss */
 header.toolbar a.filter {
   float: right;
   width: 64px;
   background: url("/images/icon-filter.png") no-repeat center;
 }
-/* line 72, ../../stylesheets/app/toolbar.scss */
-header.toolbar a.back:before {
-  font-size: 32px;
-  line-height: 50px;
-  font-weight: normal;
-  margin-right: 5px;
-  width: 50px;
+/* line 88, ../../stylesheets/app/toolbar.scss */
+header.toolbar a.back {
+  font-family: georgia;
+  font-style: italic;
 }
-/* line 83, ../../stylesheets/app/toolbar.scss */
-header.toolbar a.plus:before {
-  font-size: 32px;
-  line-height: 50px;
-  font-weight: normal;
-  margin-right: 5px;
-  width: 50px;
-}
-/* line 93, ../../stylesheets/app/toolbar.scss */
+/* line 113, ../../stylesheets/app/toolbar.scss */
 header.toolbar a.follow {
   margin-left: 13px;
   padding-left: 14px;
@@ -2969,7 +2970,7 @@ header.toolbar a.follow {
   font-family: Georgia, "proxima_nova_regular";
   line-height: 50px;
 }
-/* line 107, ../../stylesheets/app/toolbar.scss */
+/* line 127, ../../stylesheets/app/toolbar.scss */
 header.toolbar .title {
   /*    position: absolute;*/
   display: inline;
@@ -2984,12 +2985,12 @@ header.toolbar .title {
   line-height: 50px;
   cursor: pointer;
 }
-/* line 121, ../../stylesheets/app/toolbar.scss */
+/* line 141, ../../stylesheets/app/toolbar.scss */
 header.toolbar .title span {
   position: relative;
   left: -50%;
 }
-/* line 125, ../../stylesheets/app/toolbar.scss */
+/* line 145, ../../stylesheets/app/toolbar.scss */
 header.toolbar .title span:after {
   display: inline-block;
   width: 18px;
@@ -2997,64 +2998,64 @@ header.toolbar .title span:after {
   background: url("/images/down-arrow.png") no-repeat center;
   content: "";
 }
-/* line 135, ../../stylesheets/app/toolbar.scss */
+/* line 155, ../../stylesheets/app/toolbar.scss */
 header.toolbar div.actions {
   position: absolute;
 }
-/* line 147, ../../stylesheets/app/toolbar.scss */
+/* line 167, ../../stylesheets/app/toolbar.scss */
 header.toolbar div.actions .heart {
   right: 114px;
 }
-/* line 153, ../../stylesheets/app/toolbar.scss */
+/* line 173, ../../stylesheets/app/toolbar.scss */
 header.toolbar div.actions .collect {
   right: 57px;
 }
-/* line 160, ../../stylesheets/app/toolbar.scss */
+/* line 180, ../../stylesheets/app/toolbar.scss */
 header.toolbar div.actions .share {
   right: 0px;
 }
 
-/* line 168, ../../stylesheets/app/toolbar.scss */
+/* line 188, ../../stylesheets/app/toolbar.scss */
 #edition-switch {
   margin-left: 2px;
 }
-/* line 171, ../../stylesheets/app/toolbar.scss */
+/* line 191, ../../stylesheets/app/toolbar.scss */
 #edition-switch span:before {
   font-size: 22px;
 }
 
-/* line 186, ../../stylesheets/app/toolbar.scss */
+/* line 206, ../../stylesheets/app/toolbar.scss */
 ul.popover-list li {
   padding: 0;
 }
-/* line 189, ../../stylesheets/app/toolbar.scss */
+/* line 209, ../../stylesheets/app/toolbar.scss */
 ul.popover-list li a {
   vertical-align: top;
 }
-/* line 192, ../../stylesheets/app/toolbar.scss */
+/* line 212, ../../stylesheets/app/toolbar.scss */
 ul.popover-list li a.dropdown:after {
   display: inline-block;
   padding-right: 16px;
   width: 15px;
   height: 15px;
 }
-/* line 199, ../../stylesheets/app/toolbar.scss */
+/* line 219, ../../stylesheets/app/toolbar.scss */
 ul.popover-list li a.view-all span {
   background: url(/images/view-all-icon.png) no-repeat left top;
 }
-/* line 200, ../../stylesheets/app/toolbar.scss */
+/* line 220, ../../stylesheets/app/toolbar.scss */
 ul.popover-list li a.shop span {
   background: url(/images/shop-icon.png) no-repeat left top;
 }
-/* line 201, ../../stylesheets/app/toolbar.scss */
+/* line 221, ../../stylesheets/app/toolbar.scss */
 ul.popover-list li a.read span {
   background: url(/images/read-icon.png) no-repeat left top;
 }
-/* line 202, ../../stylesheets/app/toolbar.scss */
+/* line 222, ../../stylesheets/app/toolbar.scss */
 ul.popover-list li a.photo span {
   background: url(/images/photo-icon.png) no-repeat left top;
 }
-/* line 205, ../../stylesheets/app/toolbar.scss */
+/* line 225, ../../stylesheets/app/toolbar.scss */
 ul.popover-list li a:active span, ul.popover-list li a.active span {
   background-position-y: bottom;
 }
