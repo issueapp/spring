@@ -1,321 +1,89 @@
-@charset "UTF-8";
-/* line 9, ../../../stylesheets/app/menu.scss */
-body.expand-menu .navigation li.active:after {
-  content: "";
-  position: absolute;
-  right: -6px;
-  top: 50%;
-  margin-top: -6px;
-  border-color: transparent #141414;
-  border-style: solid;
-  border-width: 8px 0px 8px 8px;
-  height: 0px;
-  width: 0px;
-}
+/*
+Syntax error: Undefined mixin 'clearfix'.
+        on line 104 of ./stylesheets/app/menu.scss, in `clearfix'
+        from line 104 of ./stylesheets/app/menu.scss
 
-/* line 24, ../../../stylesheets/app/menu.scss */
-nav#menu {
-  width: 260px;
-  background: #0c0c0c;
-  position: relative;
-}
-/* line 28, ../../../stylesheets/app/menu.scss */
-nav#menu .logo {
-  height: 120px !important;
-  background: url("/images/logo.png") no-repeat center center;
-}
-/* line 31, ../../../stylesheets/app/menu.scss */
-nav#menu .logo a {
-  margin-left: -25px;
-  height: 120px;
-  width: 220px;
-}
-/* line 38, ../../../stylesheets/app/menu.scss */
-nav#menu .navigation {
-  /*
-          icons
-  */
-  /*
-        Level 2 menu
-  */
-}
-/* line 39, ../../../stylesheets/app/menu.scss */
-nav#menu .navigation li {
-  font-size: 15px;
-  font-family: "HelveticaNeue";
-  letter-spacing: 0.8px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  height: 44px;
-  line-height: 44px;
-  padding: 0 25px;
-  border-top: 1px solid #0f0f0f;
-  border-bottom: 1px solid #0a0a0a;
-  position: relative;
-}
-/* line 53, ../../../stylesheets/app/menu.scss */
-nav#menu .navigation a {
-  display: block;
-  color: white;
-}
-/* line 59, ../../../stylesheets/app/menu.scss */
-nav#menu .navigation li:hover a, nav#menu .navigation li.active a {
-  text-shadow: 0px 0px 10px #cccccc;
-}
-/* line 63, ../../../stylesheets/app/menu.scss */
-nav#menu .navigation li.active {
-  background: #141414;
-}
-/* line 67, ../../../stylesheets/app/menu.scss */
-nav#menu .navigation li.active span.right-icon {
-  color: white;
-}
-/* line 71, ../../../stylesheets/app/menu.scss */
-nav#menu .navigation .counter {
-  position: absolute;
-  right: 24px;
-  font-size: 12px;
-}
-/* line 77, ../../../stylesheets/app/menu.scss */
-nav#menu .navigation [class^="icon-"], nav#menu .navigation [class*=" icon-"] {
-  font-size: 24px;
-  /*      color: #444;*/
-}
-/* line 82, ../../../stylesheets/app/menu.scss */
-nav#menu .navigation .right-icon {
-  position: absolute;
-  right: 20px;
-}
-/* line 88, ../../../stylesheets/app/menu.scss */
-nav#menu .navigation li.user {
-  position: absolute;
-  bottom: 10px;
-  width: 100%;
-}
-/* line 93, ../../../stylesheets/app/menu.scss */
-nav#menu .navigation li.user a {
-  font-size: 12px;
-}
-/* line 97, ../../../stylesheets/app/menu.scss */
-nav#menu .navigation li.user .thumb {
-  display: -moz-inline-stack;
-  display: inline-block;
-  vertical-align: middle;
-  *vertical-align: auto;
-  zoom: 1;
-  *display: inline;
-  -webkit-border-radius: 20;
-  -moz-border-radius: 20;
-  -ms-border-radius: 20;
-  -o-border-radius: 20;
-  border-radius: 20;
-  overflow: hidden;
-}
-/* line 103, ../../../stylesheets/app/menu.scss */
-nav#menu .navigation li.user .settings {
-  display: -moz-inline-stack;
-  display: inline-block;
-  vertical-align: middle;
-  *vertical-align: auto;
-  zoom: 1;
-  *display: inline;
-  float: right;
-  font-size: 24px;
-}
-/* line 115, ../../../stylesheets/app/menu.scss */
-nav#menu .navigation .icon-content:before {
-  content: "A ";
-  font-family: georgia;
-  font-size: 30px !important;
-}
-/* line 127, ../../../stylesheets/app/menu.scss */
-nav#menu .navigation > ul li {
-  padding-left: 30px;
-  font-weight: normal;
-}
-/* line 131, ../../../stylesheets/app/menu.scss */
-nav#menu .navigation > ul li a {
-  color: #ccc;
-}
-/* line 136, ../../../stylesheets/app/menu.scss */
-nav#menu .navigation > ul li a:before {
-  font-size: 12px;
-  content: '→';
-  width: 10px;
-  overflow: none;
-  margin-right: 5px;
-  color: #666;
-}
+99:       right: 20px;
+100:     }
+101: 
+102: 
+103:     li.user {
+104:       @include clearfix;
+105:       height: auto;
+106:       position: absolute;
+107:       bottom: 10px;
+108:       width: 100%;
+109: 
 
-/*      Discover menu   */
-/* line 149, ../../../stylesheets/app/menu.scss */
-#discover {
-  background: white;
-  position: absolute;
-  z-index: 100;
-  height: 1000px;
-  width: 100%;
-}
-/* line 156, ../../../stylesheets/app/menu.scss */
-#discover header {
-  padding: 40px 20px;
-  background: white;
-  position: relative;
-  z-index: 1;
-}
-/* line 162, ../../../stylesheets/app/menu.scss */
-#discover header input[type=search] {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
-  border-radius: 5px;
-  font-family: Georgia;
-  font-style: italic;
-  font-size: 16px;
-  padding: 10px 20px;
-  border: 1px solid #dddddd;
-  width: 100%;
-}
-/* line 172, ../../../stylesheets/app/menu.scss */
-#discover header input[type=search]:focus {
-  box-shadow: 0 0 5px #0064ff;
-  outline: 0;
-}
-/* line 180, ../../../stylesheets/app/menu.scss */
-#discover ul#category {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  width: 220px;
-  height: 100%;
-  background: #eee;
-  float: left;
-  position: relative;
-}
-/* line 190, ../../../stylesheets/app/menu.scss */
-#discover ul#category li {
-  position: relative;
-  font-size: 14px;
-  font-family: "HelveticaNeue-Light";
-  letter-spacing: 0.8px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  height: 44px;
-  line-height: 44px;
-  padding: 0 25px;
-  border-top: 1px solid #dddddd;
-}
-/* line 203, ../../../stylesheets/app/menu.scss */
-#discover ul#category a {
-  display: block;
-  color: #444;
-}
-/* line 208, ../../../stylesheets/app/menu.scss */
-#discover ul#category li:hover {
-  background: #e6e6e6;
-}
-/* line 212, ../../../stylesheets/app/menu.scss */
-#discover ul#category li.active {
-  background: #ccc;
-}
-/* line 216, ../../../stylesheets/app/menu.scss */
-#discover ul#category li.active:after {
-  content: "";
-  position: absolute;
-  right: -6px;
-  top: 50%;
-  margin-top: -6px;
-  border-color: transparent #cccccc;
-  border-style: solid;
-  border-width: 8px 0px 8px 8px;
-  height: 0px;
-  width: 0px;
-}
-/* line 230, ../../../stylesheets/app/menu.scss */
-#discover ul#category > ul li {
-  padding-left: 40px;
-  font-weight: normal;
-}
-/* line 234, ../../../stylesheets/app/menu.scss */
-#discover ul#category > ul li a {
-  color: #ccc;
-}
-
-/* line 242, ../../../stylesheets/app/menu.scss */
-ul.channels {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  height: 100%;
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
-  padding-top: 120;
-  left: 240px;
-  top: 0;
-  border-top: 200px;
-  position: absolute;
-  bottom: 0;
-  padding-bottom: 50%;
-}
-/* line 261, ../../../stylesheets/app/menu.scss */
-ul.channels li {
-  position: relative;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  float: left;
-  color: white;
-  font-size: 14px;
-  padding: 15px;
-  width: 240px;
-  height: 170px;
-  background: #999;
-  margin-right: 20px;
-  margin-bottom: 20px;
-  background-color: rgba(0, 0, 0, 0.5);
-  background-size: cover;
-}
-/* line 279, ../../../stylesheets/app/menu.scss */
-ul.channels .action {
-  font-family: "Georgia";
-  position: absolute;
-  top: 30%;
-  left: 30px;
-  float: left;
-  margin-right: 10px;
-  text-align: center;
-  display: block;
-  font-size: 24px;
-  font-weight: bold;
-  line-height: 70px;
-  width: 70px;
-  height: 70px;
-  -webkit-border-radius: 40px;
-  -moz-border-radius: 40px;
-  -ms-border-radius: 40px;
-  -o-border-radius: 40px;
-  border-radius: 40px;
-  color: white;
-  border: 1.5px solid rgba(255, 255, 255, 0.3);
-}
-/* line 299, ../../../stylesheets/app/menu.scss */
-ul.channels .action.followed {
-  background: rgba(240, 69, 0, 0.2);
-}
-/* line 303, ../../../stylesheets/app/menu.scss */
-ul.channels .action:hover {
-  background: rgba(255, 255, 255, 0.2);
-}
-/* line 307, ../../../stylesheets/app/menu.scss */
-ul.channels .action.view {
-  left: 130px;
-}
+Backtrace:
+./stylesheets/app/menu.scss:104:in `clearfix'
+./stylesheets/app/menu.scss:104
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:251:in `visit_mixin'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:98:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:53:in `map'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:107:in `block in visit_children'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:119:in `with_environment'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:106:in `visit_children'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:318:in `visit_rule'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:98:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:53:in `map'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:107:in `block in visit_children'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:119:in `with_environment'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:106:in `visit_children'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:318:in `visit_rule'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:98:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:53:in `map'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:107:in `block in visit_children'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:119:in `with_environment'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:106:in `visit_children'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:318:in `visit_rule'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:98:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:53:in `map'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:107:in `block in visit_children'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:119:in `with_environment'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:106:in `visit_children'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:126:in `visit_root'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:98:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:7:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/root_node.rb:20:in `render'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/engine.rb:315:in `_render'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/engine.rb:262:in `render'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/haml-3.1.6/vendor/sass/lib/sass/plugin/compiler.rb:339:in `update_stylesheet'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/haml-3.1.6/vendor/sass/lib/sass/plugin/compiler.rb:202:in `block in update_stylesheets'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/haml-3.1.6/vendor/sass/lib/sass/plugin/compiler.rb:200:in `each'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/haml-3.1.6/vendor/sass/lib/sass/plugin/compiler.rb:200:in `update_stylesheets'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/haml-3.1.6/vendor/sass/lib/sass/plugin.rb:81:in `update_stylesheets'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/haml-3.1.6/vendor/sass/lib/sass/plugin.rb:54:in `check_for_updates'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/haml-3.1.6/vendor/sass/lib/sass/plugin/rack.rb:51:in `call'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/rack-1.4.1/lib/rack/lint.rb:48:in `_call'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/rack-1.4.1/lib/rack/lint.rb:36:in `call'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/rack-1.4.1/lib/rack/showexceptions.rb:24:in `call'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/rack-1.4.1/lib/rack/commonlogger.rb:20:in `call'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/rack-1.4.1/lib/rack/chunked.rb:43:in `call'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/rack-1.4.1/lib/rack/content_length.rb:14:in `call'
+/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/rack-1.4.1/lib/rack/handler/webrick.rb:59:in `service'
+/Users/taylorluk/.rvm/rubies/ruby-1.9.3-p125-perf/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+/Users/taylorluk/.rvm/rubies/ruby-1.9.3-p125-perf/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+/Users/taylorluk/.rvm/rubies/ruby-1.9.3-p125-perf/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: Undefined mixin 'clearfix'.\A         on line 104 of ./stylesheets/app/menu.scss, in `clearfix'\A         from line 104 of ./stylesheets/app/menu.scss\A \A 99:       right: 20px;\A 100:     }\A 101: \A 102: \A 103:     li.user {\A 104:       @include clearfix;\A 105:       height: auto;\A 106:       position: absolute;\A 107:       bottom: 10px;\A 108:       width: 100%;\A 109: "; }

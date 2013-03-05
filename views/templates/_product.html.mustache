@@ -1,0 +1,28 @@
+<article class="{{ type }} page dark" data-handle="{{ handle }}">
+  <div class="col half">
+    {{#image_url}}
+    <!-- <div class="image">
+      <img width="{{ image_width }}" height="{{ image_height }}" src="{{image_url}}"/>
+    </div> -->
+    <div class="image" style="background-image: url({{ image_url }}); background-size: cover; background-position: center; height: 100%;"></div>
+    {{/image_url}}
+  </div>
+
+  <div class="col half">
+    <div class="info">
+      <h3 class="title">{{ title }}</h3>
+      {{#brand}}
+        <p class="source">via: <span>{{ brand }}</span></p>
+      {{/brand}}
+      <p class="price">
+        <span>{{ price }}</span>
+      </p>
+      <a class="store" rel="external" href="{{ url }}" target="_blank">buy now ></a>
+
+      <p class="description">
+      {{ #description }}
+        {{ description }}
+      {{ /description }}
+    </div>
+  </div>
+</article>

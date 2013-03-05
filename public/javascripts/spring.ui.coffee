@@ -38,3 +38,21 @@ $ ->
          scrollTop: $($(this).attr("href")).offset().top
      }, 1000)
      false
+
+
+  # Update preview target when input field gets updated
+  #   Save original text in data attribute
+  #   Revert to original text when preview text is empty
+  $('.preview-target').each ->
+    target = $($(this).data('target'))
+    event = $(this).data('event') || "change"
+
+    
+    $(this).on event, => 
+      text = $(this).val()
+      
+      if text.length > 0
+        target.data('original', target.html()) unless target.data('original')
+        target.html( text.replace(/\n/g, "<br/>") ) 
+      else
+        target.html(target.data('original'))

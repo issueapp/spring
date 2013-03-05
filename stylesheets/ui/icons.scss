@@ -25,7 +25,7 @@ Instead of a list of all class selectors,
 you can use the generic selector below, but it's slower:
 [class*="icon-"]:before {
 */
-.icon-export:before, .icon-heart:before, .icon-earth:before, .icon-docs:before, .icon-twitter:before, .icon-facebook:before, .icon-googleplus:before, .icon-pinterest:before, .icon-camera:before, .icon-link:before, .icon-comment:before, .icon-cog:before, .icon-arrow-left:before, .icon-arrow-right:before, .icon-arrow-left-2:before, .icon-arrow-right-2:before, .icon-pictures:before, .icon-video:before, .icon-music:before, .icon-list:before, .icon-plus:before, .icon-minus:before, .icon-read:before, .icon-shop:before, .icon-book:before, .icon-layout:before, .icon-ccw:before, .icon-info:before, .icon-question:before, .icon-user:before, .icon-tag:before, .icon-search:before, .icon-stackoverflow:before, .icon-stream:before, .icon-play:before, .icon-gauge:before, .icon-eye:before, .icon-signal:before, .icon-statistics:before, .icon-brush:before, .icon-archive:before, .icon-plus-2:before, .icon-cross:before {
+.icon-export:before, .icon-heart:before, .icon-earth:before, .icon-docs:before, .icon-twitter:before, .icon-facebook:before, .icon-googleplus:before, .icon-pinterest:before, .icon-camera:before, .icon-link:before, .icon-comment:before, .icon-cog:before, .icon-arrow-left:before, .icon-arrow-right:before, .icon-arrow-left-2:before, .icon-arrow-right-2:before, .icon-pictures:before, .icon-video:before, .icon-music:before, .icon-plus:before, .icon-minus:before, .icon-read:before, .icon-shop:before, .icon-book:before, .icon-ccw:before, .icon-info:before, .icon-question:before, .icon-user:before, .icon-tag:before, .icon-search:before, .icon-stackoverflow:before, .icon-stream:before, .icon-play:before, .icon-gauge:before, .icon-eye:before, .icon-statistics:before, .icon-brush:before, .icon-archive:before, .icon-plus-2:before, .icon-cross:before, .icon-grid:before, .icon-list:before, .icon-rss:before {
 	font-family: 'issue-icons';
 	speak: none;
 	font-style: normal;
@@ -90,9 +90,6 @@ you can use the generic selector below, but it's slower:
 .icon-music:before {
 	content: "\e013";
 }
-.icon-list:before {
-	content: "\e014";
-}
 .icon-plus:before {
 	content: "\e015";
 }
@@ -107,9 +104,6 @@ you can use the generic selector below, but it's slower:
 }
 .icon-book:before {
 	content: "\e01c";
-}
-.icon-layout:before {
-	content: "\e01d";
 }
 .icon-ccw:before {
 	content: "\e01e";
@@ -144,9 +138,6 @@ you can use the generic selector below, but it's slower:
 .icon-eye:before {
 	content: "\e024";
 }
-.icon-signal:before {
-	content: "\e003";
-}
 .icon-statistics:before {
 	content: "\e025";
 }
@@ -162,3 +153,13 @@ you can use the generic selector below, but it's slower:
 .icon-cross:before {
 	content: "\e029";
 }
+.icon-grid:before {
+	content: "\f009";
+}
+.icon-list:before {
+	content: "\f0c9";
+}
+.icon-rss:before {
+	content: "\e014";
+}
+

@@ -24,7 +24,7 @@ you can use the generic selector below, but it's slower:
 [class*="icon-"]:before {
 */
 /* line 28, ../../../stylesheets/ui/icons.scss */
-.icon-export:before, .icon-heart:before, .icon-earth:before, .icon-docs:before, .icon-twitter:before, .icon-facebook:before, .icon-googleplus:before, .icon-pinterest:before, .icon-camera:before, .icon-link:before, .icon-comment:before, .icon-cog:before, .icon-arrow-left:before, .icon-arrow-right:before, .icon-arrow-left-2:before, .icon-arrow-right-2:before, .icon-pictures:before, .icon-video:before, .icon-music:before, .icon-list:before, .icon-plus:before, .icon-minus:before, .icon-read:before, .icon-shop:before, .icon-book:before, .icon-layout:before, .icon-ccw:before, .icon-info:before, .icon-question:before, .icon-user:before, .icon-tag:before, .icon-search:before, .icon-stackoverflow:before, .icon-stream:before, .icon-play:before, .icon-gauge:before, .icon-eye:before, .icon-signal:before, .icon-statistics:before, .icon-brush:before, .icon-archive:before, .icon-plus-2:before, .icon-cross:before {
+.icon-export:before, .icon-heart:before, .icon-earth:before, .icon-docs:before, .icon-twitter:before, .icon-facebook:before, .icon-googleplus:before, .icon-pinterest:before, .icon-camera:before, .icon-link:before, .icon-comment:before, .icon-cog:before, .icon-arrow-left:before, .icon-arrow-right:before, .icon-arrow-left-2:before, .icon-arrow-right-2:before, .icon-pictures:before, .icon-video:before, .icon-music:before, .icon-plus:before, .icon-minus:before, .icon-read:before, .icon-shop:before, .icon-book:before, .icon-ccw:before, .icon-info:before, .icon-question:before, .icon-user:before, .icon-tag:before, .icon-search:before, .icon-stackoverflow:before, .icon-stream:before, .icon-play:before, .icon-gauge:before, .icon-eye:before, .icon-statistics:before, .icon-brush:before, .icon-archive:before, .icon-plus-2:before, .icon-cross:before, .icon-grid:before, .icon-list:before, .icon-rss:before {
   font-family: 'issue-icons';
   speak: none;
   font-style: normal;
@@ -129,121 +129,121 @@ you can use the generic selector below, but it's slower:
 }
 
 /* line 93, ../../../stylesheets/ui/icons.scss */
-.icon-list:before {
-  content: "\e014";
-}
-
-/* line 96, ../../../stylesheets/ui/icons.scss */
 .icon-plus:before {
   content: "\e015";
 }
 
-/* line 99, ../../../stylesheets/ui/icons.scss */
+/* line 96, ../../../stylesheets/ui/icons.scss */
 .icon-minus:before {
   content: "\e016";
 }
 
-/* line 102, ../../../stylesheets/ui/icons.scss */
+/* line 99, ../../../stylesheets/ui/icons.scss */
 .icon-read:before {
   content: "\e017";
 }
 
-/* line 105, ../../../stylesheets/ui/icons.scss */
+/* line 102, ../../../stylesheets/ui/icons.scss */
 .icon-shop:before {
   content: "\e01b";
 }
 
-/* line 108, ../../../stylesheets/ui/icons.scss */
+/* line 105, ../../../stylesheets/ui/icons.scss */
 .icon-book:before {
   content: "\e01c";
 }
 
-/* line 111, ../../../stylesheets/ui/icons.scss */
-.icon-layout:before {
-  content: "\e01d";
-}
-
-/* line 114, ../../../stylesheets/ui/icons.scss */
+/* line 108, ../../../stylesheets/ui/icons.scss */
 .icon-ccw:before {
   content: "\e01e";
 }
 
-/* line 117, ../../../stylesheets/ui/icons.scss */
+/* line 111, ../../../stylesheets/ui/icons.scss */
 .icon-info:before {
   content: "\e01f";
 }
 
-/* line 120, ../../../stylesheets/ui/icons.scss */
+/* line 114, ../../../stylesheets/ui/icons.scss */
 .icon-question:before {
   content: "\e020";
 }
 
-/* line 123, ../../../stylesheets/ui/icons.scss */
+/* line 117, ../../../stylesheets/ui/icons.scss */
 .icon-user:before {
   content: "\e02a";
 }
 
-/* line 126, ../../../stylesheets/ui/icons.scss */
+/* line 120, ../../../stylesheets/ui/icons.scss */
 .icon-tag:before {
   content: "\e018";
 }
 
-/* line 129, ../../../stylesheets/ui/icons.scss */
+/* line 123, ../../../stylesheets/ui/icons.scss */
 .icon-search:before {
   content: "\e019";
 }
 
-/* line 132, ../../../stylesheets/ui/icons.scss */
+/* line 126, ../../../stylesheets/ui/icons.scss */
 .icon-stackoverflow:before {
   content: "\e01a";
 }
 
-/* line 135, ../../../stylesheets/ui/icons.scss */
+/* line 129, ../../../stylesheets/ui/icons.scss */
 .icon-stream:before {
   content: "\e021";
 }
 
-/* line 138, ../../../stylesheets/ui/icons.scss */
+/* line 132, ../../../stylesheets/ui/icons.scss */
 .icon-play:before {
   content: "\e022";
 }
 
-/* line 141, ../../../stylesheets/ui/icons.scss */
+/* line 135, ../../../stylesheets/ui/icons.scss */
 .icon-gauge:before {
   content: "\e023";
 }
 
-/* line 144, ../../../stylesheets/ui/icons.scss */
+/* line 138, ../../../stylesheets/ui/icons.scss */
 .icon-eye:before {
   content: "\e024";
 }
 
-/* line 147, ../../../stylesheets/ui/icons.scss */
-.icon-signal:before {
-  content: "\e003";
-}
-
-/* line 150, ../../../stylesheets/ui/icons.scss */
+/* line 141, ../../../stylesheets/ui/icons.scss */
 .icon-statistics:before {
   content: "\e025";
 }
 
-/* line 153, ../../../stylesheets/ui/icons.scss */
+/* line 144, ../../../stylesheets/ui/icons.scss */
 .icon-brush:before {
   content: "\e026";
 }
 
-/* line 156, ../../../stylesheets/ui/icons.scss */
+/* line 147, ../../../stylesheets/ui/icons.scss */
 .icon-archive:before {
   content: "\e027";
 }
 
-/* line 159, ../../../stylesheets/ui/icons.scss */
+/* line 150, ../../../stylesheets/ui/icons.scss */
 .icon-plus-2:before {
   content: "\e028";
 }
 
-/* line 162, ../../../stylesheets/ui/icons.scss */
+/* line 153, ../../../stylesheets/ui/icons.scss */
 .icon-cross:before {
   content: "\e029";
+}
+
+/* line 156, ../../../stylesheets/ui/icons.scss */
+.icon-grid:before {
+  content: "\f009";
+}
+
+/* line 159, ../../../stylesheets/ui/icons.scss */
+.icon-list:before {
+  content: "\f0c9";
+}
+
+/* line 162, ../../../stylesheets/ui/icons.scss */
+.icon-rss:before {
+  content: "\e014";
 }
