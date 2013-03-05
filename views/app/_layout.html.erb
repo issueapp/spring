@@ -1,1 +1,6 @@
-<%= render '/layouts/admin' %>
+
+<% if request.path =~ /admin/ %>
+  <%= render '/layouts/admin' %>
+<% else %>
+  <%= render '/layouts/app' %>
+<% end %>

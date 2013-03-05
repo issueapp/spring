@@ -53,7 +53,7 @@ eos
     end
     p.dimension = size(p.image_width, p.image_height) if p.image_width && !p.dimension
           
-    render 'product', locals: { product: p, dimension: p.dimension}.merge(options)
+    render 'templates/product', locals: { product: p, dimension: p.dimension}.merge(options)
   end
   
   # Calculate the years for a copyright

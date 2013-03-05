@@ -1,0 +1,154 @@
+@import 'compass/css3/box-sizing';
+@import 'compass/css3/box-shadow';
+
+@import 'compass/utilities/general/clearfix';
+
+[role=main] {
+  @include box-sizing(border-box);
+  position: relative;
+  margin-left: 80px;
+  padding-top: 50px;
+  
+  & > .content {
+    margin: 20px 40px;
+  }
+  
+  #sidebar + & {
+    margin-left: 400px;
+  }
+}
+
+#sidebar {
+  background: #f4f6f7;
+  border-right: 1px solid #eee;
+  position: fixed;
+  left: 80px;
+  top: 0;
+  padding-top: 50px;
+  
+  overflow-y: scroll;
+  width:320px;
+  height:100%;
+  float:left;
+  
+  
+  // Item
+  li a { 
+    @include clearfix;
+    display: block;
+    padding: 10px 20px;
+    color: #333;
+
+  }
+    
+  li:hover {
+    background: #fff;
+  }
+  
+  
+  .item {
+    display: block;
+    font-size: 13px;
+    border-bottom: 1px solid #eee;
+    position :relative;
+    
+    
+    // Images
+    figure {
+      float: left;
+      margin: 10px 10px 10px 0;
+      vertical-align: top;
+      
+      img {
+        vertical-align: text-top;
+      }
+    }
+    
+    a {
+      color: #666;
+    }
+    
+    .description { 
+      margin: 10px 0 0;
+      line-height: 1.3;
+    }
+    
+    .title {
+      font-size: 18px;
+      color: #333;
+      font-weight: normal;
+      margin-top:10px;
+    }
+    
+    .info {
+      margin-top: 5px;
+      clear: left;
+      font-style: italic;
+    }
+    
+    .time {
+      float: right;
+    }
+
+  }
+  
+    
+  // Actions
+  .item .actions {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    
+    .button {
+      opacity: 0.01;
+    }
+  }
+  
+  .item:hover, .item.hover{
+    .button {
+      opacity: 1;
+    } 
+  }
+  
+  
+  // Form
+  form {
+    padding: 20px 20px 80px;
+  }
+  
+  // Filters
+  
+  .filter-container {
+    border-bottom: 1px dashed #ccc;
+    margin: 30px 20px 20px;
+    position: relative;
+    
+    .caret {
+      position: absolute;
+      right: 15px;
+      background: #F4F6F7;
+      z-index: 999;
+    }
+    
+    select.filter {
+      position: absolute;
+      right: 10px;
+      bottom: -0.7em;
+      border: none;
+      background: #F4F6F7;
+      color: #666;
+      font-size: 14px;
+      text-align: center;
+      text-align: -webkit-center;
+      -webkit-appearance: none;
+      width: 110px;
+      padding: 0 10px;
+    }
+  }
+  
+
+}
+
+#sidebar.wide {
+  //  width: 500px;
+}

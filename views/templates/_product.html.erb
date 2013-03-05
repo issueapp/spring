@@ -1,28 +1,19 @@
-<article class="{{ type }} page dark" data-handle="{{ handle }}">
-  <div class="col half">
-    {{#image_url}}
-    <!-- <div class="image">
-      <img width="{{ image_width }}" height="{{ image_height }}" src="{{image_url}}"/>
-    </div> -->
-    <div class="image" style="background-image: url({{ image_url }}); background-size: cover; background-position: center; height: 100%;"></div>
-    {{/image_url}}
-  </div>
+<a class="link" href="/items/{{ handle }}">
+  <div class="image" style="background-image: url(<%= product.image_url %>);"></div>
+</a>
 
-  <div class="col half">
-    <div class="info">
-      <h3 class="title">{{ title }}</h3>
-      {{#brand}}
-        <p class="source">via: <span>{{ brand }}</span></p>
-      {{/brand}}
-      <p class="price">
-        <span>{{ price }}</span>
-      </p>
-      <a class="store" rel="external" href="{{ url }}" target="_blank">buy now ></a>
+<div class="info">
+  <a class="link" href="/items/{{ handle }}">
+    <h3 class="title"><%= product.title %></h3>
+  </a>
+  
+  <p class="description"><%= product.description %></p>
 
-      <p class="description">
-      {{ #description }}
-        {{ description }}
-      {{ /description }}
-    </div>
-  </div>
-</article>
+  <a href="{{ path }}" class="via user">
+    <!-- 
+    <img alt="Profile_image?screen_name=nkechinjaka&amp;size=bigger" height="16" src="http://api.twitter.com/1/users/profile_image?screen_name=NkechiNjaka&amp;size=bigger" width="16">
+    -->
+    by <span><%= product.brand %></span>
+  </a>
+</div>
+<a class="price"><%= product.price %></a>
