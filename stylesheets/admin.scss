@@ -7,7 +7,6 @@
   @include box-sizing(border-box);
   position: relative;
   margin-left: 80px;
-  padding-top: 50px;
   
   & > .content {
     margin: 20px 40px;
@@ -18,40 +17,52 @@
   }
 }
 
+
+/*
+  Sidebar
+  
+  
+*/
+
 #sidebar {
   background: #f4f6f7;
   border-right: 1px solid #eee;
   position: fixed;
   left: 80px;
   top: 0;
-  padding-top: 50px;
   
   overflow-y: scroll;
   width:320px;
   height:100%;
   float:left;
+}
+
+/*
+  Sidebar item
   
+  .item
   
-  // Item
-  li a { 
+*/
+
+#sidebar .nav li {
+  
+  & > a { 
     @include clearfix;
     display: block;
     padding: 10px 20px;
     color: #333;
 
   }
-    
-  li:hover {
+  
+  &:hover {
     background: #fff;
   }
   
-  
-  .item {
+  &.item {
     display: block;
     font-size: 13px;
     border-bottom: 1px solid #eee;
     position :relative;
-    
     
     // Images
     figure {
@@ -92,9 +103,8 @@
 
   }
   
-    
   // Actions
-  .item .actions {
+  &.item .actions {
     position: absolute;
     right: 20px;
     top: 20px;
@@ -104,20 +114,23 @@
     }
   }
   
-  .item:hover, .item.hover{
+  &.item:hover, .item.hover{
     .button {
       opacity: 1;
     } 
   }
+}
+
+
+// Sidebar form
+
+#sidebar {
   
-  
-  // Form
   form {
     padding: 20px 20px 80px;
   }
   
   // Filters
-  
   .filter-container {
     border-bottom: 1px dashed #ccc;
     margin: 30px 20px 20px;
@@ -141,12 +154,14 @@
       text-align: center;
       text-align: -webkit-center;
       -webkit-appearance: none;
+      -webkit-appearance: button;
+      -moz-appearance: button;
       width: 110px;
       padding: 0 10px;
+      outline: none;
+      -moz-appearance: window;
     }
   }
-  
-
 }
 
 #sidebar.wide {

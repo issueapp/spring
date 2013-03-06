@@ -1,23 +1,23 @@
 /*
 Syntax error: Undefined mixin 'clearfix'.
-        on line 45 of ./stylesheets/app/editions.scss, in `clearfix'
-        from line 45 of ./stylesheets/app/editions.scss
+        on line 17 of ./stylesheets/app/editions.scss, in `clearfix'
+        from line 17 of ./stylesheets/app/editions.scss
 
-40: .edition-list {
-41:   list-style: none;
-42:   padding: 0;
-43:   margin-right: -3%;
-44:   
-45:   @include clearfix;
-46:   
-47:   & > li {
-48:     @extend .edition-item;
-49:   }
-50: }
+12:     font-style: italic; 
+13:   }
+14: }
+15: 
+16: .edition-list {
+17:   @include clearfix;
+18: 
+19:   position: relative;
+20:   list-style: none;
+21:   padding: 0;
+22:   margin-right: -3%;
 
 Backtrace:
-./stylesheets/app/editions.scss:45:in `clearfix'
-./stylesheets/app/editions.scss:45
+./stylesheets/app/editions.scss:17:in `clearfix'
+./stylesheets/app/editions.scss:17
 /Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:251:in `visit_mixin'
 /Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:37:in `visit'
 /Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:98:in `visit'
@@ -66,4 +66,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined mixin 'clearfix'.\A         on line 45 of ./stylesheets/app/editions.scss, in `clearfix'\A         from line 45 of ./stylesheets/app/editions.scss\A \A 40: .edition-list {\A 41:   list-style: none;\A 42:   padding: 0;\A 43:   margin-right: -3%;\A 44:   \A 45:   @include clearfix;\A 46:   \A 47:   & > li {\A 48:     @extend .edition-item;\A 49:   }\A 50: }"; }
+  content: "Syntax error: Undefined mixin 'clearfix'.\A         on line 17 of ./stylesheets/app/editions.scss, in `clearfix'\A         from line 17 of ./stylesheets/app/editions.scss\A \A 12:     font-style: italic; \A 13:   }\A 14: }\A 15: \A 16: .edition-list {\A 17:   @include clearfix;\A 18: \A 19:   position: relative;\A 20:   list-style: none;\A 21:   padding: 0;\A 22:   margin-right: -3%;"; }

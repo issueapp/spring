@@ -806,40 +806,65 @@ p.center {
     line-height: 1.3;
   }
 }
-/* line 39, ../../stylesheets/spring.scss */
-.dark-theme {
+/*
+
+  Dark theme
+  
+*/
+/* line 6, ../../stylesheets/base/colors.scss */
+.dark-theme, .dark-container {
   color: white;
 }
-/* line 42, ../../stylesheets/spring.scss */
-.dark-theme .subtitle {
+/* line 9, ../../stylesheets/base/colors.scss */
+.dark-theme .subtitle, .dark-container .subtitle {
   color: #ccc;
 }
-/* line 46, ../../stylesheets/spring.scss */
-.dark-theme a:not(.button) {
+/* line 13, ../../stylesheets/base/colors.scss */
+.dark-theme a:not(.button), .dark-container a:not(.button) {
   color: white;
   text-decoration: none;
 }
-/* line 51, ../../stylesheets/spring.scss */
-.dark-theme a:not(.button):hover {
-  color: #f04500;
+/* line 18, ../../stylesheets/base/colors.scss */
+.dark-theme a:not(.button):hover, .dark-container a:not(.button):hover {
+  color: #ff753e;
 }
 
-/* line 59, ../../stylesheets/spring.scss */
+/*
+
+  Dark container extends a dark theme, used in editions, login and gallery.
+  
+*/
+/* line 28, ../../stylesheets/base/colors.scss */
+.dark-container {
+  background: #0c0c0c;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 9999;
+  overflow: auto;
+  padding: 1px;
+}
+/* line 38, ../../stylesheets/base/colors.scss */
+.dark-container .container {
+  padding-top: 10%;
+}
+
+/* line 42, ../../stylesheets/spring.scss */
 nav ol, nav ul {
   margin: 0;
   padding: 0;
   list-style: none;
 }
-/* line 65, ../../stylesheets/spring.scss */
+/* line 48, ../../stylesheets/spring.scss */
 nav li {
   display: inline;
 }
-/* line 68, ../../stylesheets/spring.scss */
+/* line 51, ../../stylesheets/spring.scss */
 nav li a {
   padding: 5px 15px;
 }
 
-/* line 75, ../../stylesheets/spring.scss */
+/* line 58, ../../stylesheets/spring.scss */
 .attribution {
   display: inline;
   position: absolute;
@@ -1075,25 +1100,25 @@ form {
     ================================================*/
 }
 /* line 14, ../../stylesheets/base/form.scss */
-form .col {
+form input.col, form .col {
   position: relative;
   padding-bottom: 1.2em;
   margin-bottom: 0.5em;
 }
-/* line 23, ../../stylesheets/base/form.scss */
+/* line 24, ../../stylesheets/base/form.scss */
 form p.large, form label.large {
   font-size: 18px;
   line-height: 32px;
 }
-/* line 28, ../../stylesheets/base/form.scss */
+/* line 29, ../../stylesheets/base/form.scss */
 form label.radio {
   padding-right: 1em;
 }
-/* line 31, ../../stylesheets/base/form.scss */
+/* line 32, ../../stylesheets/base/form.scss */
 form label.radio input {
   margin-right: 0.5em;
 }
-/* line 35, ../../stylesheets/base/form.scss */
+/* line 36, ../../stylesheets/base/form.scss */
 form .hint_style, form .hint, form .error {
   color: #888;
   font-style: italic;
@@ -1101,14 +1126,14 @@ form .hint_style, form .hint, form .error {
   font-size: 13px;
   position: absolute;
 }
-/* line 44, ../../stylesheets/base/form.scss */
+/* line 45, ../../stylesheets/base/form.scss */
 form .hint {
   /*    bottom: -1.7em;*/
   /*    left: 0;*/
   /*left: 0;
   bottom: -1.7em;*/
 }
-/* line 55, ../../stylesheets/base/form.scss */
+/* line 56, ../../stylesheets/base/form.scss */
 form .text_field, form input[type="text"], form input[type="password"], form input[type="tel"], form input[type="email"],
 form input[type="search"], form input[type="url"], form textarea, form select {
   padding: 9px;
@@ -1133,13 +1158,13 @@ form input[type="search"], form input[type="url"], form textarea, form select {
   -moz-box-shadow: 1px 1px 2px #eeeeee inset;
   box-shadow: 1px 1px 2px #eeeeee inset;
 }
-/* line 73, ../../stylesheets/base/form.scss */
+/* line 74, ../../stylesheets/base/form.scss */
 form input.large:not(.button) {
   font-size: 18px !important;
   line-height: 35px;
   height: 35px;
 }
-/* line 80, ../../stylesheets/base/form.scss */
+/* line 81, ../../stylesheets/base/form.scss */
 form input[type="text"], form input[type="password"], form input[type="tel"], form input[type="email"],
 form input[type="search"], form input[type="url"], form textarea, form select {
   font-size: 100%;
@@ -1178,7 +1203,7 @@ form input[type="search"]:-ms-input-placeholder, form input[type="url"]:-ms-inpu
   font-style: italic;
   font-size: 15px;
 }
-/* line 94, ../../stylesheets/base/form.scss */
+/* line 95, ../../stylesheets/base/form.scss */
 form select {
   width: auto;
   background-color: #fff;
@@ -1186,35 +1211,35 @@ form select {
   height: 2.5em;
   line-height: 2.5em;
 }
-/* line 102, ../../stylesheets/base/form.scss */
+/* line 103, ../../stylesheets/base/form.scss */
 form input[type=submit], form input[type=button], form button[type=submit] {
   line-height: 2em;
   padding: 3px 15px;
   margin-right: 5px;
 }
-/* line 111, ../../stylesheets/base/form.scss */
+/* line 112, ../../stylesheets/base/form.scss */
 form input:focus, form select:focus, form textarea:focus {
   border: 1px solid #a1cfde !important;
 }
-/* line 121, ../../stylesheets/base/form.scss */
+/* line 122, ../../stylesheets/base/form.scss */
 form .field_with_errors input.string, form .field_with_errors select.select {
   border-color: #f3a4a4;
 }
-/* line 125, ../../stylesheets/base/form.scss */
+/* line 126, ../../stylesheets/base/form.scss */
 form .field_with_errors .hint {
   display: none;
 }
-/* line 130, ../../stylesheets/base/form.scss */
+/* line 131, ../../stylesheets/base/form.scss */
 form .error {
   color: #e84949;
 }
 @media screen and (min-width: 768px) {
-  /* line 139, ../../stylesheets/base/form.scss */
+  /* line 140, ../../stylesheets/base/form.scss */
   form p.large, form label.large {
     font-size: 24px;
     line-height: 40px;
   }
-  /* line 144, ../../stylesheets/base/form.scss */
+  /* line 145, ../../stylesheets/base/form.scss */
   form input.large:not(.button) {
     font-size: 24px !important;
     line-height: 45px;
@@ -1225,7 +1250,7 @@ form .error {
 /*================================================
       Notification
 ================================================*/
-/* line 158, ../../stylesheets/base/form.scss */
+/* line 159, ../../stylesheets/base/form.scss */
 div.notification {
   position: absolute;
   left: 7.5%;
@@ -1238,14 +1263,14 @@ div.notification {
   border: 1px solid #cccccc;
   color: #111;
 }
-/* line 165, ../../stylesheets/base/form.scss */
+/* line 166, ../../stylesheets/base/form.scss */
 .overlay-active div.notification {
   left: 7.5%;
   right: 7.5%;
   top: 0;
 }
 @media screen and (min-width: 768px) {
-  /* line 158, ../../stylesheets/base/form.scss */
+  /* line 159, ../../stylesheets/base/form.scss */
   div.notification {
     left: initial;
     top: 0;
@@ -1253,27 +1278,27 @@ div.notification {
     min-width: 20%;
   }
 }
-/* line 187, ../../stylesheets/base/form.scss */
+/* line 188, ../../stylesheets/base/form.scss */
 div.notification a.close-target {
   color: #222;
 }
-/* line 191, ../../stylesheets/base/form.scss */
+/* line 192, ../../stylesheets/base/form.scss */
 div.notification a.close {
   float: right;
   width: 20px;
   height: 20px;
 }
-/* line 193, ../../stylesheets/base/form.scss */
+/* line 194, ../../stylesheets/base/form.scss */
 div.notification a.close:before {
   font-size: 24px;
   color: #111;
 }
-/* line 201, ../../stylesheets/base/form.scss */
-.dark-theme div.notification {
+/* line 202, ../../stylesheets/base/form.scss */
+.dark-theme div.notification, .dark-container div.notification {
   border: 1px solid #cccccc;
 }
 
-/* line 206, ../../stylesheets/base/form.scss */
+/* line 207, ../../stylesheets/base/form.scss */
 a.close-target {
   font-size: 28px;
   float: right;
@@ -1297,10 +1322,9 @@ a.close-target {
   box-sizing: border-box;
   z-index: 10000;
   position: absolute;
-  top: 50%;
-  margin-top: -300px;
-  left: 5%;
-  right: 5%;
+  top: 0;
+  left: 0%;
+  right: 0%;
   max-width: 600px;
   min-height: 400px;
   background: #fff;
@@ -1317,7 +1341,7 @@ a.close-target {
     min-height: 450px;
   }
 }
-/* line 42, ../../stylesheets/ui/modal.scss */
+/* line 41, ../../stylesheets/ui/modal.scss */
 .modal h1, .modal h2 {
   font-family: "proxima_nova_regular", "Helvetica Neue";
   margin: 0 0 1em;
@@ -1327,13 +1351,13 @@ a.close-target {
   font-weight: normal;
   text-align: center;
 }
-/* line 56, ../../stylesheets/ui/modal.scss */
+/* line 55, ../../stylesheets/ui/modal.scss */
 .modal p.subtitle {
   font: 16px/1.5em Georgia;
   color: #666;
   font-style: italic;
 }
-/* line 62, ../../stylesheets/ui/modal.scss */
+/* line 61, ../../stylesheets/ui/modal.scss */
 .modal footer {
   position: absolute;
   bottom: 0;
@@ -1344,13 +1368,13 @@ a.close-target {
   text-align: center;
   color: white;
 }
-/* line 72, ../../stylesheets/ui/modal.scss */
+/* line 71, ../../stylesheets/ui/modal.scss */
 .modal footer a {
   font-size: 18px;
   line-height: 70px;
   color: white;
 }
-/* line 79, ../../stylesheets/ui/modal.scss */
+/* line 78, ../../stylesheets/ui/modal.scss */
 .modal footer .button {
   /*    margin-top: -3px;*/
   background: #000;
@@ -1368,7 +1392,7 @@ a.close-target {
   padding: 0 30px;
   margin: 0;
 }
-/* line 93, ../../stylesheets/ui/modal.scss */
+/* line 92, ../../stylesheets/ui/modal.scss */
 .modal footer .button:hover {
   background: #111;
 }
@@ -1399,7 +1423,7 @@ you can use the generic selector below, but it's slower:
 [class*="icon-"]:before {
 */
 /* line 28, ../../stylesheets/ui/icons.scss */
-.icon-export:before, header.toolbar div.actions .share:before, .icon-heart:before, header.toolbar div.actions .heart:before, .icon-earth:before, .icon-docs:before, .icon-twitter:before, .icon-facebook:before, .icon-googleplus:before, .icon-pinterest:before, .icon-camera:before, .icon-link:before, .icon-comment:before, .icon-cog:before, .icon-arrow-left:before, header.toolbar a.back:before, .icon-arrow-right:before, .icon-arrow-left-2:before, .icon-arrow-right-2:before, .icon-pictures:before, .icon-video:before, .icon-music:before, .icon-plus:before, header.toolbar a.plus:before, header.toolbar div.actions .collect:before, .edition-item.with-icon .subscribe:before, .edition-list > li.with-icon .subscribe:before, .icon-minus:before, .icon-read:before, .icon-shop:before, .icon-book:before, .icon-ccw:before, .icon-info:before, .icon-question:before, .icon-user:before, .icon-tag:before, .icon-search:before, header.toolbar a.search:before, .icon-stackoverflow:before, .icon-stream:before, .icon-play:before, .icon-gauge:before, .icon-eye:before, .icon-statistics:before, .icon-brush:before, .icon-archive:before, .icon-plus-2:before, .icon-cross:before, div.notification a.close:before, a.close-target:before, .icon-grid:before, #edition-switch span:before, .icon-list:before, header.toolbar a.menu:before, .icon-rss:before {
+.icon-export:before, header.toolbar div.actions .share:before, .icon-heart:before, header.toolbar div.actions .heart:before, .icon-earth:before, .icon-docs:before, .icon-twitter:before, .icon-facebook:before, .icon-googleplus:before, .icon-pinterest:before, .icon-camera:before, .icon-link:before, .icon-comment:before, .icon-cog:before, .icon-arrow-left:before, header.toolbar a.back:before, .icon-arrow-right:before, .icon-arrow-left-2:before, .icon-arrow-right-2:before, .icon-pictures:before, .icon-video:before, .icon-music:before, .icon-plus:before, header.toolbar a.plus:before, header.toolbar div.actions .collect:before, .edition-item.with-icon .subscribe:before, .edition-list > li.with-icon .subscribe:before, .icon-minus:before, .icon-shop:before, .icon-book:before, .icon-ccw:before, .icon-info:before, .icon-question:before, .icon-user:before, .icon-tag:before, .icon-search:before, header.toolbar a.search:before, .icon-stackoverflow:before, .icon-stream:before, .icon-play:before, .icon-gauge:before, .icon-eye:before, .icon-statistics:before, .icon-brush:before, .icon-archive:before, .icon-plus-2:before, .icon-cross:before, div.notification a.close:before, a.close-target:before, .icon-grid:before, #edition-switch .icon:before, .icon-list:before, header.toolbar a.menu:before, .icon-rss:before, .icon-profile:before, .icon-off:before {
   font-family: 'issue-icons';
   speak: none;
   font-style: normal;
@@ -1514,113 +1538,118 @@ you can use the generic selector below, but it's slower:
 }
 
 /* line 99, ../../stylesheets/ui/icons.scss */
-.icon-read:before {
-  content: "\e017";
-}
-
-/* line 102, ../../stylesheets/ui/icons.scss */
 .icon-shop:before {
   content: "\e01b";
 }
 
-/* line 105, ../../stylesheets/ui/icons.scss */
+/* line 102, ../../stylesheets/ui/icons.scss */
 .icon-book:before {
   content: "\e01c";
 }
 
-/* line 108, ../../stylesheets/ui/icons.scss */
+/* line 105, ../../stylesheets/ui/icons.scss */
 .icon-ccw:before {
   content: "\e01e";
 }
 
-/* line 111, ../../stylesheets/ui/icons.scss */
+/* line 108, ../../stylesheets/ui/icons.scss */
 .icon-info:before {
   content: "\e01f";
 }
 
-/* line 114, ../../stylesheets/ui/icons.scss */
+/* line 111, ../../stylesheets/ui/icons.scss */
 .icon-question:before {
   content: "\e020";
 }
 
-/* line 117, ../../stylesheets/ui/icons.scss */
+/* line 114, ../../stylesheets/ui/icons.scss */
 .icon-user:before {
   content: "\e02a";
 }
 
-/* line 120, ../../stylesheets/ui/icons.scss */
+/* line 117, ../../stylesheets/ui/icons.scss */
 .icon-tag:before {
   content: "\e018";
 }
 
-/* line 123, ../../stylesheets/ui/icons.scss */
+/* line 120, ../../stylesheets/ui/icons.scss */
 .icon-search:before, header.toolbar a.search:before {
   content: "\e019";
 }
 
-/* line 126, ../../stylesheets/ui/icons.scss */
+/* line 123, ../../stylesheets/ui/icons.scss */
 .icon-stackoverflow:before {
   content: "\e01a";
 }
 
-/* line 129, ../../stylesheets/ui/icons.scss */
+/* line 126, ../../stylesheets/ui/icons.scss */
 .icon-stream:before {
   content: "\e021";
 }
 
-/* line 132, ../../stylesheets/ui/icons.scss */
+/* line 129, ../../stylesheets/ui/icons.scss */
 .icon-play:before {
   content: "\e022";
 }
 
-/* line 135, ../../stylesheets/ui/icons.scss */
+/* line 132, ../../stylesheets/ui/icons.scss */
 .icon-gauge:before {
   content: "\e023";
 }
 
-/* line 138, ../../stylesheets/ui/icons.scss */
+/* line 135, ../../stylesheets/ui/icons.scss */
 .icon-eye:before {
   content: "\e024";
 }
 
-/* line 141, ../../stylesheets/ui/icons.scss */
+/* line 138, ../../stylesheets/ui/icons.scss */
 .icon-statistics:before {
   content: "\e025";
 }
 
-/* line 144, ../../stylesheets/ui/icons.scss */
+/* line 141, ../../stylesheets/ui/icons.scss */
 .icon-brush:before {
   content: "\e026";
 }
 
-/* line 147, ../../stylesheets/ui/icons.scss */
+/* line 144, ../../stylesheets/ui/icons.scss */
 .icon-archive:before {
   content: "\e027";
 }
 
-/* line 150, ../../stylesheets/ui/icons.scss */
+/* line 147, ../../stylesheets/ui/icons.scss */
 .icon-plus-2:before {
   content: "\e028";
 }
 
-/* line 153, ../../stylesheets/ui/icons.scss */
+/* line 150, ../../stylesheets/ui/icons.scss */
 .icon-cross:before, div.notification a.close:before, a.close-target:before {
   content: "\e029";
 }
 
-/* line 156, ../../stylesheets/ui/icons.scss */
-.icon-grid:before, #edition-switch span:before {
+/* line 153, ../../stylesheets/ui/icons.scss */
+.icon-grid:before, #edition-switch .icon:before {
   content: "\f009";
 }
 
-/* line 159, ../../stylesheets/ui/icons.scss */
+/* line 156, ../../stylesheets/ui/icons.scss */
 .icon-list:before, header.toolbar a.menu:before {
   content: "\f0c9";
 }
 
-/* line 162, ../../stylesheets/ui/icons.scss */
+/* line 159, ../../stylesheets/ui/icons.scss */
 .icon-rss:before {
   content: "\e014";
+}
+
+/* line 162, ../../stylesheets/ui/icons.scss */
+.icon-profile:before {
+  content: "\e003";
+}
+
+/* line 165, ../../stylesheets/ui/icons.scss */
+.icon-off:before {
+  content: "\f011";
 }
 
 /* line 22, ../../stylesheets/ui.scss */
@@ -1720,11 +1749,11 @@ input[type="button"]::-moz-focus-inner, button::-moz-focus-inner {
   color: #383B3B;
   border: 1px solid #d5dcdc;
   text-align: center;
-  text-shadow: 0px 1px 1px white;
+  text-shadow: 0px 1px 1px #cccccc;
   cursor: pointer;
   display: inline-block;
   vertical-align: middle;
-  background-color: #eeeeee;
+  background-color: #ecf1f1;
   white-space: nowrap;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -1741,13 +1770,13 @@ input[type="button"]::-moz-focus-inner, button::-moz-focus-inner {
 .button:hover, .button .hover, button:hover, button .hover, input[type="button"]:hover, input[type="button"] .hover {
   cursor: pointer !important;
   color: #515555;
-  background-color: #ecf1f1;
+  background-color: white;
   /*    border-color: #A1CFDE;*/
   /*    @include background-image(linear-gradient(top center, lighten($start, 3%), lighten($end, 3%)));*/
 }
 /* line 64, ../../stylesheets/ui/button.scss */
 .button:active, button:active, input[type="button"]:active {
-  background-color: white;
+  background-color: #dde6e6;
   /*    @include background-image(linear-gradient(top center, $end, $start));*/
 }
 /* line 69, ../../stylesheets/ui/button.scss */
@@ -1844,7 +1873,7 @@ button[disabled]:active {
 }
 /* line 159, ../../stylesheets/ui/button.scss */
 .button.orange, button.orange {
-  background: #ff6324;
+  background: #ff6a2e;
   border: none;
   /*    text-transform: uppercase;*/
   /*    font-weight: bold;*/
@@ -1885,36 +1914,38 @@ button.mobile-block {
 /* line 201, ../../stylesheets/ui/button.scss */
 .button.facebook i, button.facebook i {
   font-size: 21px;
+  padding-right: 5px;
 }
-/* line 205, ../../stylesheets/ui/button.scss */
+/* line 206, ../../stylesheets/ui/button.scss */
 .button.facebook span, button.facebook span {
   vertical-align: top;
-  padding-left: 10px;
+  padding-left: 20px;
   color: white;
 }
-/* line 211, ../../stylesheets/ui/button.scss */
+/* line 212, ../../stylesheets/ui/button.scss */
 .button.facebook.large span, button.facebook.large span {
   /*    font-size: 13px;
   */
   height: 45px;
   line-height: 45px;
 }
-/* line 218, ../../stylesheets/ui/button.scss */
+/* line 219, ../../stylesheets/ui/button.scss */
 .button.facebook.small span, button.facebook.small span {
   height: 20px;
   line-height: 18px;
 }
-/* line 223, ../../stylesheets/ui/button.scss */
+/* line 224, ../../stylesheets/ui/button.scss */
 .button.facebook:hover, button.facebook:hover {
   background: #5e7dbe;
 }
-/* line 227, ../../stylesheets/ui/button.scss */
+/* line 228, ../../stylesheets/ui/button.scss */
 .button.facebook:active, button.facebook:active {
   background: #4363a6;
 }
 
-/* line 232, ../../stylesheets/ui/button.scss */
+/* line 233, ../../stylesheets/ui/button.scss */
 .button.twitter, button.twitter {
+  text-shadow: 0px 1px #2686b1;
   /*  font-family: proxima-nova, 'Helvetica Neue', pragmatica-web, Hevetica, Arial, sans-serif;*/
   background: #36a3d4;
   color: white;
@@ -1922,32 +1953,33 @@ button.mobile-block {
   /*  text-shadow: 0px 1px #375697;*/
   border: 1px solid #36a3d4;
 }
-/* line 243, ../../stylesheets/ui/button.scss */
+/* line 245, ../../stylesheets/ui/button.scss */
 .button.twitter i, button.twitter i {
   font-size: 21px;
+  padding-right: 5px;
 }
-/* line 247, ../../stylesheets/ui/button.scss */
+/* line 250, ../../stylesheets/ui/button.scss */
 .button.twitter span, button.twitter span {
   vertical-align: top;
-  padding-left: 10px;
+  padding-left: 15px;
   color: white;
 }
-/* line 253, ../../stylesheets/ui/button.scss */
+/* line 256, ../../stylesheets/ui/button.scss */
 .button.twitter.large span, button.twitter.large span {
   font-size: 13px;
   height: 37px;
   line-height: 35px;
 }
-/* line 259, ../../stylesheets/ui/button.scss */
+/* line 262, ../../stylesheets/ui/button.scss */
 .button.twitter.small span, button.twitter.small span {
   height: 20px;
   line-height: 18px;
 }
-/* line 264, ../../stylesheets/ui/button.scss */
+/* line 267, ../../stylesheets/ui/button.scss */
 .button.twitter:hover, button.twitter:hover {
   background: #60b6dd;
 }
-/* line 268, ../../stylesheets/ui/button.scss */
+/* line 271, ../../stylesheets/ui/button.scss */
 .button.twitter:active, button.twitter:active {
   background: #36a3d4;
 }
@@ -1955,14 +1987,14 @@ button.mobile-block {
 /*=====================================
       Button group with split icon    
   =====================================*/
-/* line 277, ../../stylesheets/ui/button.scss */
+/* line 280, ../../stylesheets/ui/button.scss */
 .button-group {
   vertical-align: middle;
   display: inline-block;
   position: relative;
   z-index: 99999;
 }
-/* line 283, ../../stylesheets/ui/button.scss */
+/* line 286, ../../stylesheets/ui/button.scss */
 .button-group .button {
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
@@ -1973,7 +2005,7 @@ button.mobile-block {
   float: left;
   margin-left: -1px;
 }
-/* line 290, ../../stylesheets/ui/button.scss */
+/* line 293, ../../stylesheets/ui/button.scss */
 .button-group .button:first-child {
   margin-left: 0px;
   margin-right: 0;
@@ -1984,7 +2016,7 @@ button.mobile-block {
   -webkit-border-top-left-radius: 3px;
   border-top-left-radius: 3px;
 }
-/* line 297, ../../stylesheets/ui/button.scss */
+/* line 300, ../../stylesheets/ui/button.scss */
 .button-group .dropdown {
   padding: 0px 6px;
   -moz-border-radius-bottomright: 3px;
@@ -1997,18 +2029,18 @@ button.mobile-block {
   -moz-box-shadow: inset 1px 0 0 rgba(255, 255, 255, 0.125), inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
   box-shadow: inset 1px 0 0 rgba(255, 255, 255, 0.125), inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
 }
-/* line 303, ../../stylesheets/ui/button.scss */
+/* line 306, ../../stylesheets/ui/button.scss */
 .button-group .dropdown .caret {
   height: 0px;
   margin-top: -3px;
   padding: 0;
 }
-/* line 311, ../../stylesheets/ui/button.scss */
+/* line 314, ../../stylesheets/ui/button.scss */
 .button-group.toggle > .dropdown-menu {
   display: block;
 }
 
-/* line 318, ../../stylesheets/ui/button.scss */
+/* line 321, ../../stylesheets/ui/button.scss */
 .dropdown-menu {
   position: absolute;
   top: 100%;
@@ -2037,11 +2069,11 @@ button.mobile-block {
   -moz-background-clip: padding;
   background-clip: padding-box;
 }
-/* line 338, ../../stylesheets/ui/button.scss */
+/* line 341, ../../stylesheets/ui/button.scss */
 .dropdown-menu.buttonHover {
   display: block;
 }
-/* line 342, ../../stylesheets/ui/button.scss */
+/* line 345, ../../stylesheets/ui/button.scss */
 .dropdown-menu a {
   cursor: pointer;
   text-align: left;
@@ -2053,14 +2085,14 @@ button.mobile-block {
   color: #333;
   white-space: nowrap;
 }
-/* line 356, ../../stylesheets/ui/button.scss */
+/* line 359, ../../stylesheets/ui/button.scss */
 .dropdown-menu li > a:hover,
 .dropdown-menu .active > a,
 .dropdown-menu .active > a:hover {
   text-decoration: none;
   background-color: #eee;
 }
-/* line 361, ../../stylesheets/ui/button.scss */
+/* line 364, ../../stylesheets/ui/button.scss */
 .dropdown-menu .divider {
   height: 1px;
   margin: 8px 1px;
@@ -2068,12 +2100,12 @@ button.mobile-block {
   background-color: #E5E5E5;
   border-bottom: 1px solid white;
 }
-/* line 368, ../../stylesheets/ui/button.scss */
+/* line 371, ../../stylesheets/ui/button.scss */
 .dropdown-menu .divider + li > a {
   color: #999;
 }
 
-/* line 374, ../../stylesheets/ui/button.scss */
+/* line 377, ../../stylesheets/ui/button.scss */
 .caret {
   display: inline-block;
   width: 0;
@@ -2085,7 +2117,7 @@ button.mobile-block {
   content: "";
 }
 
-/* line 93, ../../stylesheets/spring.scss */
+/* line 76, ../../stylesheets/spring.scss */
 .container {
   margin: 0 auto;
   width: 85%;
@@ -2391,7 +2423,7 @@ button.mobile-block {
 /*  different page styles   */
 /*  Full screen background  */
 /* line 9, ../../stylesheets/app/page.scss */
-body.dark-theme .toolbar {
+body.dark-theme .toolbar, body.dark-container .toolbar {
   background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0icmdiYSgwLCAwLCAwLCAwLjYpIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSJyZ2JhKDAsIDAsIDAsIDApIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
   background-size: 100%;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(0, 0, 0, 0.6)), color-stop(100%, rgba(0, 0, 0, 0)));
@@ -2404,11 +2436,11 @@ body.dark-theme .toolbar {
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
 }
 /* line 15, ../../stylesheets/app/page.scss */
-body.dark-theme .toolbar .title {
+body.dark-theme .toolbar .title, body.dark-container .toolbar .title {
   color: white;
 }
 /* line 20, ../../stylesheets/app/page.scss */
-body.dark-theme .toolbar a {
+body.dark-theme .toolbar a, body.dark-container .toolbar a {
   color: white;
 }
 
@@ -2537,64 +2569,57 @@ article.page .description {
     text-align: left;
   }
 }
-/* line 9, ../../stylesheets/app/menu.scss */
-body.expand-menu .navigation li.active:after {
-  content: "";
-  position: absolute;
-  right: -6px;
-  top: 50%;
-  margin-top: -6px;
-  border-color: transparent #141414;
-  border-style: solid;
-  border-width: 8px 0px 8px 8px;
-  height: 0px;
-  width: 0px;
-}
+/*
+  Sidebar style menu (width: 260px)
 
-/* line 24, ../../stylesheets/app/menu.scss */
+  .thin             - Thin version has 80px width
+  .off-canvas menu  - negative margin 
+  .page
+  
+*/
+/* line 13, ../../stylesheets/app/menu.scss */
 nav#menu {
   width: 260px;
   background: #0c0c0c;
   height: 100%;
 }
-/* line 31, ../../stylesheets/app/menu.scss */
+/* line 19, ../../stylesheets/app/menu.scss */
 nav#menu.thin {
   width: 80px;
 }
-/* line 34, ../../stylesheets/app/menu.scss */
-nav#menu.thin .navigation .right-icon {
+/* line 22, ../../stylesheets/app/menu.scss */
+nav#menu.thin .nav .icon {
   position: static;
   right: auto;
 }
-/* line 40, ../../stylesheets/app/menu.scss */
-nav#menu .logo {
-  height: 120px !important;
-  background: url("/images/logo.png") no-repeat center center;
+/* line 27, ../../stylesheets/app/menu.scss */
+nav#menu.thin .nav .text {
+  display: none;
 }
-/* line 43, ../../stylesheets/app/menu.scss */
-nav#menu .logo a {
-  margin-left: -25px;
-  height: 120px;
-  width: 220px;
+/* line 33, ../../stylesheets/app/menu.scss */
+.offcanvas nav#menu {
+  margin-left: 100%;
 }
-/* line 50, ../../stylesheets/app/menu.scss */
-nav#menu .navigation {
-  /*
-          icons
-  */
-  /*
-        Level 2 menu
-  */
+/* line 37, ../../stylesheets/app/menu.scss */
+.offcanvas.active nav#menu {
+  margin-left: 0;
 }
+
+/*
+  Menu item
+  
+  :hover, .hover
+  .active
+  li > .icon          - right aligned icons
+  li > .counter       - right aligned counter bubble
+  .bottom             - user, settings icon aligned to the bottom
+*/
 /* line 51, ../../stylesheets/app/menu.scss */
-nav#menu .navigation li {
-  display: block;
-  font-size: 15px;
-  font-family: "HelveticaNeue";
-  letter-spacing: 0.8px;
+#menu .nav li {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  display: block;
   height: 70px;
   line-height: 70px;
   padding: 0 25px;
@@ -2602,43 +2627,42 @@ nav#menu .navigation li {
   border-bottom: 1px solid #0a0a0a;
   position: relative;
 }
-/* line 66, ../../stylesheets/app/menu.scss */
-nav#menu .navigation a {
+/* line 62, ../../stylesheets/app/menu.scss */
+#menu .nav li a {
   padding: 0;
   display: block;
   color: #ccc;
 }
-/* line 73, ../../stylesheets/app/menu.scss */
-nav#menu .navigation li:hover a, nav#menu .navigation li.active a {
+/* line 69, ../../stylesheets/app/menu.scss */
+#menu .nav li:hover a, #menu .nav li.active a {
   color: #fff;
-  text-shadow: 0px 0px 20px #cccccc;
+  text-shadow: 0px 0px 20px #bef7ff;
 }
-/* line 78, ../../stylesheets/app/menu.scss */
-nav#menu .navigation li.active {
+/* line 74, ../../stylesheets/app/menu.scss */
+#menu .nav li.active {
   background: #141414;
 }
-/* line 82, ../../stylesheets/app/menu.scss */
-nav#menu .navigation li.active span.right-icon {
+/* line 79, ../../stylesheets/app/menu.scss */
+#menu .nav li [class^="icon-"], #menu .nav li [class*=" icon-"] {
+  font-size: 24px;
+}
+/* line 83, ../../stylesheets/app/menu.scss */
+#menu .nav li .icon {
+  position: absolute;
+  right: 35px;
+}
+/* line 89, ../../stylesheets/app/menu.scss */
+#menu .nav li.active .icon {
   color: white;
 }
-/* line 86, ../../stylesheets/app/menu.scss */
-nav#menu .navigation .counter {
+/* line 93, ../../stylesheets/app/menu.scss */
+#menu .nav li .counter {
   position: absolute;
   right: 24px;
   font-size: 12px;
 }
-/* line 92, ../../stylesheets/app/menu.scss */
-nav#menu .navigation [class^="icon-"], nav#menu .navigation [class*=" icon-"] {
-  font-size: 24px;
-  /*      color: #444;*/
-}
-/* line 97, ../../stylesheets/app/menu.scss */
-nav#menu .navigation .right-icon {
-  position: absolute;
-  right: 20px;
-}
-/* line 103, ../../stylesheets/app/menu.scss */
-nav#menu .navigation li.user {
+/* line 100, ../../stylesheets/app/menu.scss */
+#menu .nav li.bottom {
   overflow: hidden;
   *zoom: 1;
   height: auto;
@@ -2646,12 +2670,12 @@ nav#menu .navigation li.user {
   bottom: 10px;
   width: 100%;
 }
-/* line 110, ../../stylesheets/app/menu.scss */
-nav#menu .navigation li.user a {
+/* line 107, ../../stylesheets/app/menu.scss */
+#menu .nav li.bottom a {
   font-size: 12px;
 }
-/* line 114, ../../stylesheets/app/menu.scss */
-nav#menu .navigation li.user .thumb {
+/* line 111, ../../stylesheets/app/menu.scss */
+#menu .nav li.bottom .thumb {
   display: -moz-inline-stack;
   display: inline-block;
   vertical-align: middle;
@@ -2666,8 +2690,8 @@ nav#menu .navigation li.user .thumb {
   overflow: hidden;
   line-height: 0;
 }
-/* line 121, ../../stylesheets/app/menu.scss */
-nav#menu .navigation li.user .settings {
+/* line 118, ../../stylesheets/app/menu.scss */
+#menu .nav li.bottom .settings {
   display: -moz-inline-stack;
   display: inline-block;
   vertical-align: middle;
@@ -2677,23 +2701,17 @@ nav#menu .navigation li.user .settings {
   font-size: 24px;
   height: 20px;
 }
-/* line 134, ../../stylesheets/app/menu.scss */
-nav#menu .navigation .icon-content:before {
-  content: "A ";
-  font-family: georgia;
-  font-size: 30px !important;
-}
-/* line 145, ../../stylesheets/app/menu.scss */
-nav#menu .navigation > ul li {
+/* line 126, ../../stylesheets/app/menu.scss */
+#menu .nav li .nav li ul li {
   padding-left: 30px;
   font-weight: normal;
 }
-/* line 149, ../../stylesheets/app/menu.scss */
-nav#menu .navigation > ul li a {
+/* line 130, ../../stylesheets/app/menu.scss */
+#menu .nav li .nav li ul li a {
   color: #ccc;
 }
-/* line 154, ../../stylesheets/app/menu.scss */
-nav#menu .navigation > ul li a:before {
+/* line 134, ../../stylesheets/app/menu.scss */
+#menu .nav li .nav li ul li a:before {
   font-size: 12px;
   content: '→';
   width: 10px;
@@ -2702,218 +2720,90 @@ nav#menu .navigation > ul li a:before {
   color: #666;
 }
 
-/*      Discover menu   */
-/* line 167, ../../stylesheets/app/menu.scss */
-#discover {
-  background: white;
-  position: absolute;
-  z-index: 100;
-  height: 1000px;
-  width: 100%;
-}
-/* line 174, ../../stylesheets/app/menu.scss */
-#discover header {
-  padding: 40px 20px;
-  background: white;
-  position: relative;
-  z-index: 1;
-}
-/* line 180, ../../stylesheets/app/menu.scss */
-#discover header input[type=search] {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
-  border-radius: 5px;
-  font-family: Georgia;
-  font-style: italic;
-  font-size: 16px;
-  padding: 10px 20px;
-  border: 1px solid #dddddd;
-  width: 100%;
-}
-/* line 190, ../../stylesheets/app/menu.scss */
-#discover header input[type=search]:focus {
-  box-shadow: 0 0 5px #0064ff;
-  outline: 0;
-}
-/* line 198, ../../stylesheets/app/menu.scss */
-#discover ul#category {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  width: 220px;
-  height: 100%;
-  background: #eee;
-  float: left;
-  position: relative;
-}
-/* line 208, ../../stylesheets/app/menu.scss */
-#discover ul#category li {
-  position: relative;
-  font-size: 14px;
-  font-family: "HelveticaNeue-Light";
-  letter-spacing: 0.8px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  height: 44px;
-  line-height: 44px;
-  padding: 0 25px;
-  border-top: 1px solid #dddddd;
-}
-/* line 221, ../../stylesheets/app/menu.scss */
-#discover ul#category a {
-  display: block;
-  color: #444;
-}
-/* line 226, ../../stylesheets/app/menu.scss */
-#discover ul#category li:hover {
-  background: #e6e6e6;
-}
-/* line 230, ../../stylesheets/app/menu.scss */
-#discover ul#category li.active {
-  background: #ccc;
-}
-/* line 234, ../../stylesheets/app/menu.scss */
-#discover ul#category li.active:after {
+/* line 147, ../../stylesheets/app/menu.scss */
+body.expand-menu .navigation li.active:after {
   content: "";
   position: absolute;
   right: -6px;
   top: 50%;
   margin-top: -6px;
-  border-color: transparent #cccccc;
+  border-color: transparent #141414;
   border-style: solid;
   border-width: 8px 0px 8px 8px;
   height: 0px;
   width: 0px;
 }
-/* line 248, ../../stylesheets/app/menu.scss */
-#discover ul#category > ul li {
-  padding-left: 40px;
-  font-weight: normal;
+
+/* line 161, ../../stylesheets/app/menu.scss */
+#edition-switch {
+  margin-left: 2px;
 }
-/* line 252, ../../stylesheets/app/menu.scss */
-#discover ul#category > ul li a {
-  color: #ccc;
+/* line 166, ../../stylesheets/app/menu.scss */
+#edition-switch .icon:before {
+  font-size: 22px;
 }
 
-/* line 260, ../../stylesheets/app/menu.scss */
-ul.channels {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  height: 100%;
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
-  padding-top: 120;
-  left: 240px;
-  top: 0;
-  border-top: 200px;
-  position: absolute;
-  bottom: 0;
-  padding-bottom: 50%;
+/* line 174, ../../stylesheets/app/menu.scss */
+#menu .logo {
+  height: 120px !important;
+  background: url("/images/logo.png") no-repeat center center;
 }
-/* line 279, ../../stylesheets/app/menu.scss */
-ul.channels li {
-  position: relative;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  float: left;
-  color: white;
-  font-size: 14px;
-  padding: 15px;
-  width: 240px;
-  height: 170px;
-  background: #999;
-  margin-right: 20px;
-  margin-bottom: 20px;
-  background-color: rgba(0, 0, 0, 0.5);
-  background-size: cover;
-}
-/* line 297, ../../stylesheets/app/menu.scss */
-ul.channels .action {
-  font-family: "Georgia";
-  position: absolute;
-  top: 30%;
-  left: 30px;
-  float: left;
-  margin-right: 10px;
-  text-align: center;
-  display: block;
-  font-size: 24px;
-  font-weight: bold;
-  line-height: 70px;
-  width: 70px;
-  height: 70px;
-  -webkit-border-radius: 40px;
-  -moz-border-radius: 40px;
-  -ms-border-radius: 40px;
-  -o-border-radius: 40px;
-  border-radius: 40px;
-  color: white;
-  border: 1.5px solid rgba(255, 255, 255, 0.3);
-}
-/* line 317, ../../stylesheets/app/menu.scss */
-ul.channels .action.followed {
-  background: rgba(240, 69, 0, 0.2);
-}
-/* line 321, ../../stylesheets/app/menu.scss */
-ul.channels .action:hover {
-  background: rgba(255, 255, 255, 0.2);
-}
-/* line 325, ../../stylesheets/app/menu.scss */
-ul.channels .action.view {
-  left: 130px;
+/* line 177, ../../stylesheets/app/menu.scss */
+#menu .logo a {
+  margin-left: -25px;
+  height: 120px;
+  width: 220px;
 }
 
-/* line 4, ../../stylesheets/app/toolbar.scss */
+/*
+    
+  Toolbar is a top bar that can be used both as navbar or toolbar
+
+
+  .fullscreen             -   Toolbar for fullscreen style content like images
+                              fullscreen-toolbar-container required
+                              to set nesassry padding.
+  .dark-theme             -   dark theme uses white text and icon style
+  
+*/
+/* line 14, ../../stylesheets/app/toolbar.scss */
 header.toolbar {
   height: 50px;
   z-index: 2;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   text-align: center;
-  position: absolute;
-  top: 0;
   width: 100%;
   color: #333;
 }
-/* line 15, ../../stylesheets/app/toolbar.scss */
-.dark-theme header.toolbar {
+/* line 24, ../../stylesheets/app/toolbar.scss */
+.dark-theme header.toolbar, .dark-container header.toolbar {
   color: #fff;
 }
-/* line 18, ../../stylesheets/app/toolbar.scss */
-.dark-theme header.toolbar a:hover {
+/* line 27, ../../stylesheets/app/toolbar.scss */
+.dark-theme header.toolbar a:hover, .dark-container header.toolbar a:hover {
   color: white;
 }
-/* line 23, ../../stylesheets/app/toolbar.scss */
-header.toolbar.dark-theme {
+/* line 32, ../../stylesheets/app/toolbar.scss */
+header.toolbar.dark-theme, header.toolbar.dark-container {
   color: #fff;
 }
-/* line 25, ../../stylesheets/app/toolbar.scss */
-header.toolbar.dark-theme a:hover {
+/* line 34, ../../stylesheets/app/toolbar.scss */
+header.toolbar.dark-theme a:hover, header.toolbar.dark-container a:hover {
   color: white;
 }
-/* line 30, ../../stylesheets/app/toolbar.scss */
+/* line 39, ../../stylesheets/app/toolbar.scss */
 header.toolbar .left {
   position: absolute;
   left: 10px;
   top: 0;
 }
-/* line 36, ../../stylesheets/app/toolbar.scss */
+/* line 45, ../../stylesheets/app/toolbar.scss */
 header.toolbar .right {
   position: absolute;
   right: 10px;
   top: 0;
 }
-/* line 43, ../../stylesheets/app/toolbar.scss */
+/* line 52, ../../stylesheets/app/toolbar.scss */
 header.toolbar .icon-style, header.toolbar a:before, header.toolbar a.back:before, header.toolbar a.plus:before, header.toolbar a.search:before {
   font-size: 24px;
   line-height: 50px;
@@ -2921,43 +2811,43 @@ header.toolbar .icon-style, header.toolbar a:before, header.toolbar a.back:befor
   margin-right: 5px;
   width: 50px;
 }
-/* line 51, ../../stylesheets/app/toolbar.scss */
+/* line 60, ../../stylesheets/app/toolbar.scss */
 header.toolbar a {
   vertical-align: top;
   line-height: 50px;
   cursor: pointer;
   color: #444;
 }
-/* line 61, ../../stylesheets/app/toolbar.scss */
+/* line 70, ../../stylesheets/app/toolbar.scss */
 header.toolbar a:hover {
   color: #444;
 }
-/* line 66, ../../stylesheets/app/toolbar.scss */
+/* line 75, ../../stylesheets/app/toolbar.scss */
 header.toolbar .button {
   margin-top: 10px;
   line-height: 29px;
 }
-/* line 72, ../../stylesheets/app/toolbar.scss */
+/* line 81, ../../stylesheets/app/toolbar.scss */
 header.toolbar a.menu, header.toolbar a.back, header.toolbar a.channel, header.toolbar a.follow {
   float: left;
 }
-/* line 76, ../../stylesheets/app/toolbar.scss */
+/* line 85, ../../stylesheets/app/toolbar.scss */
 header.toolbar a.menu {
   width: 64px;
   padding-left: 10px;
 }
-/* line 82, ../../stylesheets/app/toolbar.scss */
+/* line 91, ../../stylesheets/app/toolbar.scss */
 header.toolbar a.filter {
   float: right;
   width: 64px;
   background: url("/images/icon-filter.png") no-repeat center;
 }
-/* line 88, ../../stylesheets/app/toolbar.scss */
+/* line 97, ../../stylesheets/app/toolbar.scss */
 header.toolbar a.back {
   font-family: georgia;
   font-style: italic;
 }
-/* line 113, ../../stylesheets/app/toolbar.scss */
+/* line 122, ../../stylesheets/app/toolbar.scss */
 header.toolbar a.follow {
   margin-left: 13px;
   padding-left: 14px;
@@ -2970,11 +2860,9 @@ header.toolbar a.follow {
   font-family: Georgia, "proxima_nova_regular";
   line-height: 50px;
 }
-/* line 127, ../../stylesheets/app/toolbar.scss */
+/* line 136, ../../stylesheets/app/toolbar.scss */
 header.toolbar .title {
-  /*    position: absolute;*/
   display: inline;
-  /*    left: 50%;*/
   text-transform: uppercase;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -2985,12 +2873,12 @@ header.toolbar .title {
   line-height: 50px;
   cursor: pointer;
 }
-/* line 141, ../../stylesheets/app/toolbar.scss */
+/* line 148, ../../stylesheets/app/toolbar.scss */
 header.toolbar .title span {
   position: relative;
   left: -50%;
 }
-/* line 145, ../../stylesheets/app/toolbar.scss */
+/* line 152, ../../stylesheets/app/toolbar.scss */
 header.toolbar .title span:after {
   display: inline-block;
   width: 18px;
@@ -2998,113 +2886,112 @@ header.toolbar .title span:after {
   background: url("/images/down-arrow.png") no-repeat center;
   content: "";
 }
-/* line 155, ../../stylesheets/app/toolbar.scss */
+/* line 162, ../../stylesheets/app/toolbar.scss */
 header.toolbar div.actions {
   position: absolute;
 }
-/* line 167, ../../stylesheets/app/toolbar.scss */
+/* line 165, ../../stylesheets/app/toolbar.scss */
 header.toolbar div.actions .heart {
   right: 114px;
 }
-/* line 173, ../../stylesheets/app/toolbar.scss */
+/* line 171, ../../stylesheets/app/toolbar.scss */
 header.toolbar div.actions .collect {
   right: 57px;
 }
-/* line 180, ../../stylesheets/app/toolbar.scss */
+/* line 177, ../../stylesheets/app/toolbar.scss */
 header.toolbar div.actions .share {
   right: 0px;
 }
 
-/* line 188, ../../stylesheets/app/toolbar.scss */
-#edition-switch {
-  margin-left: 2px;
-}
-/* line 191, ../../stylesheets/app/toolbar.scss */
-#edition-switch span:before {
-  font-size: 22px;
+/* line 186, ../../stylesheets/app/toolbar.scss */
+header.toolbar.fullscreen {
+  position: absolute;
+  top: 0;
 }
 
-/* line 206, ../../stylesheets/app/toolbar.scss */
+/* line 191, ../../stylesheets/app/toolbar.scss */
+.fullscreen-toolbar-container {
+  padding-bottom: 50px;
+}
+
+/* line 195, ../../stylesheets/app/toolbar.scss */
 ul.popover-list li {
   padding: 0;
 }
-/* line 209, ../../stylesheets/app/toolbar.scss */
+/* line 198, ../../stylesheets/app/toolbar.scss */
 ul.popover-list li a {
   vertical-align: top;
 }
-/* line 212, ../../stylesheets/app/toolbar.scss */
+/* line 201, ../../stylesheets/app/toolbar.scss */
 ul.popover-list li a.dropdown:after {
   display: inline-block;
   padding-right: 16px;
   width: 15px;
   height: 15px;
 }
-/* line 219, ../../stylesheets/app/toolbar.scss */
+/* line 208, ../../stylesheets/app/toolbar.scss */
 ul.popover-list li a.view-all span {
   background: url(/images/view-all-icon.png) no-repeat left top;
 }
-/* line 220, ../../stylesheets/app/toolbar.scss */
+/* line 209, ../../stylesheets/app/toolbar.scss */
 ul.popover-list li a.shop span {
   background: url(/images/shop-icon.png) no-repeat left top;
 }
-/* line 221, ../../stylesheets/app/toolbar.scss */
+/* line 210, ../../stylesheets/app/toolbar.scss */
 ul.popover-list li a.read span {
   background: url(/images/read-icon.png) no-repeat left top;
 }
-/* line 222, ../../stylesheets/app/toolbar.scss */
+/* line 211, ../../stylesheets/app/toolbar.scss */
 ul.popover-list li a.photo span {
   background: url(/images/photo-icon.png) no-repeat left top;
 }
-/* line 225, ../../stylesheets/app/toolbar.scss */
+/* line 214, ../../stylesheets/app/toolbar.scss */
 ul.popover-list li a:active span, ul.popover-list li a.active span {
   background-position-y: bottom;
 }
 
-/* line 15, ../../stylesheets/application.scss */
+/* line 14, ../../stylesheets/application.scss */
 .logo {
   float: left;
   width: 200px;
   height: 80px;
   background: url('../images/issue-logo.png?1362291986') 0 -80px no-repeat;
+  text-indent: -111111px;
 }
-/* line 22, ../../stylesheets/application.scss */
+/* line 21, ../../stylesheets/application.scss */
 .logo.small {
   width: 180px;
   height: 50px;
   background-position: -200px -80px;
 }
-/* line 28, ../../stylesheets/application.scss */
-.dark-theme .logo {
+/* line 27, ../../stylesheets/application.scss */
+.dark-theme .logo, .dark-container .logo {
   background-position: 0 0px;
 }
-/* line 32, ../../stylesheets/application.scss */
-.dark-theme .logo.small {
+/* line 31, ../../stylesheets/application.scss */
+.dark-theme .logo.small, .dark-container .logo.small {
   background-position: -200px 0px;
 }
 
-/* line 73, ../../stylesheets/application.scss */
+/* line 72, ../../stylesheets/application.scss */
 #menu {
   position: fixed;
   top: 0;
 }
-/* line 77, ../../stylesheets/application.scss */
-#menu .text {
-  display: none;
-}
 
-/* line 82, ../../stylesheets/application.scss */
+/* line 77, ../../stylesheets/application.scss */
 [role=main] {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   position: relative;
 }
-/* line 87, ../../stylesheets/application.scss */
+/* line 82, ../../stylesheets/application.scss */
 [role=main] > .content {
   margin: 20px;
 }
 
-/* line 97, ../../stylesheets/application.scss */
+/* line 92, ../../stylesheets/application.scss */
 .attribution {
   display: inline;
   position: absolute;
@@ -3116,56 +3003,36 @@ ul.popover-list li a:active span, ul.popover-list li a.active span {
   font-size: 12px;
 }
 
-/* line 1, ../../stylesheets/app/editions.scss */
-.edition-overlay {
-  color: white;
-  background: #0c0c0c;
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  z-index: 9999;
-  overflow: auto;
-  padding: 1px;
-}
-
-/* line 13, ../../stylesheets/app/editions.scss */
+/* line 2, ../../stylesheets/app/editions.scss */
 #preview_edition .edition-item, #preview_edition .edition-list > li {
   margin-right: 4%;
 }
 
-/* line 18, ../../stylesheets/app/editions.scss */
-.editions-container {
-  position: relative;
-  z-index: 10000;
-  /*  padding-top: 10%;*/
-  margin: 0 auto;
-}
-/* line 24, ../../stylesheets/app/editions.scss */
-.editions-container .centered {
-  padding-top: 10%;
-}
-/* line 28, ../../stylesheets/app/editions.scss */
-.editions-container .edition-list {
-  position: relative;
-}
-/* line 32, ../../stylesheets/app/editions.scss */
-.editions-container footer {
+/* line 8, ../../stylesheets/app/editions.scss */
+#edition_list footer {
   margin-top: 100px;
   color: #999;
   font-family: georgia;
   font-style: italic;
 }
 
-/* line 40, ../../stylesheets/app/editions.scss */
+/* line 16, ../../stylesheets/app/editions.scss */
 .edition-list {
+  overflow: hidden;
+  *zoom: 1;
+  position: relative;
   list-style: none;
   padding: 0;
   margin-right: -3%;
-  overflow: hidden;
-  *zoom: 1;
 }
 
-/* line 52, ../../stylesheets/app/editions.scss */
+/*
+  Edition item
+  
+  :hover, .hover
+  .moveup:hover, .hover      -     moveup on hover
+*/
+/* line 36, ../../stylesheets/app/editions.scss */
 .edition-item, .edition-list > li {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -3198,20 +3065,20 @@ ul.popover-list li a:active span, ul.popover-list li a.active span {
   overflow: hidden;
 }
 @media screen and (min-width: 768px) {
-  /* line 52, ../../stylesheets/app/editions.scss */
+  /* line 36, ../../stylesheets/app/editions.scss */
   .edition-item, .edition-list > li {
     font-size: 100%;
     width: 22%;
     padding-bottom: 30.5%;
   }
 }
-/* line 82, ../../stylesheets/app/editions.scss */
+/* line 66, ../../stylesheets/app/editions.scss */
 .edition-item .link, .edition-list > li .link {
   position: absolute;
   width: 100%;
   height: 100%;
 }
-/* line 88, ../../stylesheets/app/editions.scss */
+/* line 72, ../../stylesheets/app/editions.scss */
 .edition-item .content, .edition-list > li .content {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -3221,17 +3088,17 @@ ul.popover-list li a:active span, ul.popover-list li a.active span {
   width: 100%;
   padding: 10px 20px;
 }
-/* line 96, ../../stylesheets/app/editions.scss */
+/* line 80, ../../stylesheets/app/editions.scss */
 .edition-item .title, .edition-list > li .title {
   font-size: 1.5em;
   text-transform: uppercase;
   text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
 }
-/* line 101, ../../stylesheets/app/editions.scss */
+/* line 85, ../../stylesheets/app/editions.scss */
 .edition-item .title a, .edition-list > li .title a {
   color: #fff;
 }
-/* line 106, ../../stylesheets/app/editions.scss */
+/* line 90, ../../stylesheets/app/editions.scss */
 .edition-item .author, .edition-list > li .author {
   font-family: georgia;
   font-style: italic;
@@ -3239,16 +3106,16 @@ ul.popover-list li a:active span, ul.popover-list li a.active span {
   margin: 0;
   text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
 }
-/* line 114, ../../stylesheets/app/editions.scss */
+/* line 98, ../../stylesheets/app/editions.scss */
 .edition-item .button, .edition-list > li .button {
   margin-bottom: 0;
 }
-/* line 118, ../../stylesheets/app/editions.scss */
+/* line 102, ../../stylesheets/app/editions.scss */
 .edition-item .description, .edition-list > li .description {
   font-size: 13px;
   line-height: 1.8;
 }
-/* line 123, ../../stylesheets/app/editions.scss */
+/* line 107, ../../stylesheets/app/editions.scss */
 .edition-item .extras, .edition-list > li .extras {
   position: absolute;
   -webkit-box-sizing: border-box;
@@ -3259,7 +3126,7 @@ ul.popover-list li a:active span, ul.popover-list li a.active span {
   left: 20px;
   right: 20px;
 }
-/* line 132, ../../stylesheets/app/editions.scss */
+/* line 116, ../../stylesheets/app/editions.scss */
 .edition-item.new-edition a.icon-plus, .edition-list > li.new-edition a.icon-plus, .edition-item.new-edition header.toolbar a.plus, header.toolbar .edition-item.new-edition a.plus, .edition-list > li.new-edition header.toolbar a.plus, header.toolbar .edition-list > li.new-edition a.plus, .edition-item.new-edition header.toolbar div.actions a.collect, header.toolbar div.actions .edition-item.new-edition a.collect, .edition-list > li.new-edition header.toolbar div.actions a.collect, header.toolbar div.actions .edition-list > li.new-edition a.collect, .edition-item.new-edition .edition-item.with-icon a.subscribe, .edition-item.with-icon .edition-item.new-edition a.subscribe, .edition-list > li.new-edition .edition-item.with-icon a.subscribe, .edition-item.with-icon .edition-list > li.new-edition a.subscribe, .edition-item.new-edition .edition-list > li.with-icon a.subscribe, .edition-list > li.with-icon .edition-item.new-edition a.subscribe, .edition-list > li.new-edition .edition-list > li.with-icon a.subscribe, .edition-list > li.with-icon .edition-list > li.new-edition a.subscribe {
   font-size: 150px;
   color: #666;
@@ -3268,14 +3135,14 @@ ul.popover-list li a:active span, ul.popover-list li a.active span {
   text-align: center;
   margin: 0 auto;
 }
-/* line 144, ../../stylesheets/app/editions.scss */
+/* line 128, ../../stylesheets/app/editions.scss */
 .edition-item.moveup .content, .edition-list > li.moveup .content {
   -webkit-transition: bottom 0.3s ease-out;
   -moz-transition: bottom 0.3s ease-out;
   -o-transition: bottom 0.3s ease-out;
   transition: bottom 0.3s ease-out;
 }
-/* line 148, ../../stylesheets/app/editions.scss */
+/* line 132, ../../stylesheets/app/editions.scss */
 .edition-item.moveup:before, .edition-list > li.moveup:before {
   content: " ";
   display: block;
@@ -3286,21 +3153,21 @@ ul.popover-list li a:active span, ul.popover-list li a.active span {
   width: 200%;
   height: 100%;
 }
-/* line 159, ../../stylesheets/app/editions.scss */
+/* line 143, ../../stylesheets/app/editions.scss */
 .edition-item.moveup:hover:before, .edition-list > li.moveup:hover:before {
   background: rgba(0, 0, 0, 0.4);
 }
-/* line 163, ../../stylesheets/app/editions.scss */
+/* line 147, ../../stylesheets/app/editions.scss */
 .edition-item.moveup:hover .content, .edition-list > li.moveup:hover .content {
   bottom: 55%;
 }
-/* line 167, ../../stylesheets/app/editions.scss */
+/* line 151, ../../stylesheets/app/editions.scss */
 .edition-item.moveup .subscribe, .edition-list > li.moveup .subscribe {
   display: block;
   width: 100%;
   text-align: center;
 }
-/* line 176, ../../stylesheets/app/editions.scss */
+/* line 160, ../../stylesheets/app/editions.scss */
 .edition-item.with-icon .subscribe, .edition-list > li.with-icon .subscribe {
   display: block;
   position: absolute;
@@ -3309,20 +3176,45 @@ ul.popover-list li a:active span, ul.popover-list li a.active span {
   width: 20px;
   color: white;
 }
-/* line 184, ../../stylesheets/app/editions.scss */
+/* line 168, ../../stylesheets/app/editions.scss */
 .edition-item.with-icon .subscribe:before, .edition-list > li.with-icon .subscribe:before {
   font-size: 30px;
   line-height: 0px;
 }
 
-/* line 116, ../../stylesheets/application.scss */
+/* line 2, ../../stylesheets/app/signin.scss */
+#login_page .logo {
+  float: none;
+  display: block;
+  margin: 0 auto;
+}
+
+/* line 3, ../../stylesheets/app/users.scss */
+.user img.thumb {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  border-radius: 20px;
+  overflow: hidden;
+  line-height: 0;
+  margin-right: 5px;
+}
+
+/* line 113, ../../stylesheets/application.scss */
 .container {
   margin: 0 auto;
   width: 85%;
 }
 
 @media only screen and (min-width: 768px) {
-  /* line 123, ../../stylesheets/application.scss */
+  /* line 120, ../../stylesheets/application.scss */
   .container {
     margin: 0 auto;
     max-width: 980px;

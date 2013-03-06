@@ -23,7 +23,7 @@ input[type="button"]::-moz-focus-inner, button::-moz-focus-inner { padding:0;bor
     Default button style
 */
 .button, button, input[type="button"] {
-  $start: #eee;
+  $start: #ecf1f1;
   $end: #ecf1f1;
 
   // To enable SVG gradient support in Opera and IE9
@@ -41,7 +41,7 @@ input[type="button"]::-moz-focus-inner, button::-moz-focus-inner { padding:0;bor
 	color: #383B3B;
 	border: 1px solid #D5DCDC;
 	text-align: center;
-	text-shadow: 0px 1px 1px #fff;
+	text-shadow: 0px 1px 1px #ccc;
 	cursor: pointer;
 	display: inline-block;
 	vertical-align: middle;
@@ -56,13 +56,13 @@ input[type="button"]::-moz-focus-inner, button::-moz-focus-inner { padding:0;bor
   &:hover, .hover {
     cursor: pointer !important;
     color: lighten(#383B3B, 10%);
-    background-color: $end;
+    background-color: lighten($end, 10%);
 /*    border-color: #A1CFDE;*/
     /*    @include background-image(linear-gradient(top center, lighten($start, 3%), lighten($end, 3%)));*/
   }
 
   &:active {
-    background-color: lighten($end, 20%);
+    background-color: darken($end, 5%);
 /*    @include background-image(linear-gradient(top center, $end, $start));*/
   }
 
@@ -159,7 +159,7 @@ button[disabled]:active {
   &.orange {
     $color: #F04500;
     
-    background: lighten($color, 10%);
+    background: lighten($color, 12%);
     
     border: none;
 /*    text-transform: uppercase;*/
@@ -195,16 +195,17 @@ button.mobile-block {
   $color: #4363a6;
   background: $color;
   color: white;
-  text-shadow: 0px 1px #375697;
+  @include text-shadow(0px 1px #375697);
   border: 1px solid $color;
 
   i {
     font-size: 21px;
+    padding-right: 5px;
   }
 
   span {
     vertical-align: top;
-    padding-left: 10px;
+    padding-left: 20px;
     color: white;
   }
 
@@ -231,6 +232,7 @@ button.mobile-block {
 
 .button.twitter, button.twitter {
   $color: #36A3D4;
+  @include text-shadow(0px 1px darken($color, 10%));
 
 /*  font-family: proxima-nova, 'Helvetica Neue', pragmatica-web, Hevetica, Arial, sans-serif;*/
   background: $color;
@@ -242,11 +244,12 @@ button.mobile-block {
 
   i {
     font-size: 21px;
+    padding-right: 5px;
   }
 
   span {
     vertical-align: top;
-    padding-left: 10px;
+    padding-left: 15px;
     color: white;
   }
 

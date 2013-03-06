@@ -1,0 +1,42 @@
+/*
+
+  Dark theme
+  
+*/
+/* line 6, ../../../stylesheets/base/colors.scss */
+.dark-theme, .dark-container {
+  color: white;
+}
+/* line 9, ../../../stylesheets/base/colors.scss */
+.dark-theme .subtitle, .dark-container .subtitle {
+  color: #ccc;
+}
+/* line 13, ../../../stylesheets/base/colors.scss */
+.dark-theme a:not(.button), .dark-container a:not(.button) {
+  color: white;
+  text-decoration: none;
+}
+/* line 18, ../../../stylesheets/base/colors.scss */
+.dark-theme a:not(.button):hover, .dark-container a:not(.button):hover {
+  color: #ff753e;
+}
+
+/*
+
+  Dark container extends a dark theme, used in editions, login and gallery.
+  
+*/
+/* line 28, ../../../stylesheets/base/colors.scss */
+.dark-container {
+  background: #0c0c0c;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 9999;
+  overflow: auto;
+  padding: 1px;
+}
+/* line 38, ../../../stylesheets/base/colors.scss */
+.dark-container .container {
+  padding-top: 10%;
+}

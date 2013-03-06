@@ -11,11 +11,12 @@ form {
   margin: 0 0 1.25em;
   
   // Form grid
-  .col {
+  input.col, .col {
     position: relative;
     padding-bottom: 1.2em;
     margin-bottom: 0.5em;
   }
+  
 
   /*================================================
           Label/hint

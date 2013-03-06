@@ -11,13 +11,12 @@
 @import 'app/menu';
 @import 'app/toolbar';
 
-
 .logo {
   float: left;
   width: 200px;
   height: 80px;
-  
   background: image-url("issue-logo.png") -0 -80px no-repeat;
+  text-indent: -111111px;
   
   &.small {
     width: 180px;
@@ -73,10 +72,6 @@
 #menu {
   position: fixed;
   top: 0;
-  
-  .text {
-    display: none;
-  }
 }
 
 [role=main] {
@@ -109,6 +104,8 @@
 // 6. Different Sections
 
 @import 'app/editions';
+@import 'app/signin';
+@import 'app/users';
 
 
 // 7. RESPONSIVE 			==============================
