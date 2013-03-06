@@ -27,7 +27,6 @@ window.onload = function() {
 			'icon-music' : '&#xe013;',
 			'icon-plus' : '&#xe015;',
 			'icon-minus' : '&#xe016;',
-			'icon-read' : '&#xe017;',
 			'icon-shop' : '&#xe01b;',
 			'icon-book' : '&#xe01c;',
 			'icon-ccw' : '&#xe01e;',
@@ -48,7 +47,9 @@ window.onload = function() {
 			'icon-cross' : '&#xe029;',
 			'icon-grid' : '&#xf009;',
 			'icon-list' : '&#xf0c9;',
-			'icon-rss' : '&#xe014;'
+			'icon-rss' : '&#xe014;',
+			'icon-profile' : '&#xe003;',
+			'icon-off' : '&#xf011;'
 		},
 		els = document.getElementsByTagName('*'),
 		i, attr, html, c, el;

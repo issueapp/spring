@@ -16,10 +16,9 @@
   box-sizing: border-box;
   z-index: 10000;
   position: absolute;
-  top: 50%;
-  margin-top: -300px;
-  left: 5%;
-  right: 5%;
+  top: 0;
+  left: 0%;
+  right: 0%;
   max-width: 600px;
   min-height: 400px;
   background: #fff;
@@ -36,7 +35,7 @@
     min-height: 450px;
   }
 }
-/* line 42, ../../stylesheets/ui/modal.scss */
+/* line 41, ../../stylesheets/ui/modal.scss */
 .modal h1, .modal h2 {
   font-family: "proxima_nova_regular", "Helvetica Neue";
   margin: 0 0 1em;
@@ -46,13 +45,13 @@
   font-weight: normal;
   text-align: center;
 }
-/* line 56, ../../stylesheets/ui/modal.scss */
+/* line 55, ../../stylesheets/ui/modal.scss */
 .modal p.subtitle {
   font: 16px/1.5em Georgia;
   color: #666;
   font-style: italic;
 }
-/* line 62, ../../stylesheets/ui/modal.scss */
+/* line 61, ../../stylesheets/ui/modal.scss */
 .modal footer {
   position: absolute;
   bottom: 0;
@@ -63,13 +62,13 @@
   text-align: center;
   color: white;
 }
-/* line 72, ../../stylesheets/ui/modal.scss */
+/* line 71, ../../stylesheets/ui/modal.scss */
 .modal footer a {
   font-size: 18px;
   line-height: 70px;
   color: white;
 }
-/* line 79, ../../stylesheets/ui/modal.scss */
+/* line 78, ../../stylesheets/ui/modal.scss */
 .modal footer .button {
   /*    margin-top: -3px;*/
   background: #000;
@@ -87,7 +86,7 @@
   padding: 0 30px;
   margin: 0;
 }
-/* line 93, ../../stylesheets/ui/modal.scss */
+/* line 92, ../../stylesheets/ui/modal.scss */
 .modal footer .button:hover {
   background: #111;
 }
@@ -118,7 +117,7 @@ you can use the generic selector below, but it's slower:
 [class*="icon-"]:before {
 */
 /* line 28, ../../stylesheets/ui/icons.scss */
-.icon-export:before, .icon-heart:before, .icon-earth:before, .icon-docs:before, .icon-twitter:before, .icon-facebook:before, .icon-googleplus:before, .icon-pinterest:before, .icon-camera:before, .icon-link:before, .icon-comment:before, .icon-cog:before, .icon-arrow-left:before, .icon-arrow-right:before, .icon-arrow-left-2:before, .icon-arrow-right-2:before, .icon-pictures:before, .icon-video:before, .icon-music:before, .icon-plus:before, .icon-minus:before, .icon-read:before, .icon-shop:before, .icon-book:before, .icon-ccw:before, .icon-info:before, .icon-question:before, .icon-user:before, .icon-tag:before, .icon-search:before, .icon-stackoverflow:before, .icon-stream:before, .icon-play:before, .icon-gauge:before, .icon-eye:before, .icon-statistics:before, .icon-brush:before, .icon-archive:before, .icon-plus-2:before, .icon-cross:before, .icon-grid:before, .icon-list:before, .icon-rss:before {
+.icon-export:before, .icon-heart:before, .icon-earth:before, .icon-docs:before, .icon-twitter:before, .icon-facebook:before, .icon-googleplus:before, .icon-pinterest:before, .icon-camera:before, .icon-link:before, .icon-comment:before, .icon-cog:before, .icon-arrow-left:before, .icon-arrow-right:before, .icon-arrow-left-2:before, .icon-arrow-right-2:before, .icon-pictures:before, .icon-video:before, .icon-music:before, .icon-plus:before, .icon-minus:before, .icon-shop:before, .icon-book:before, .icon-ccw:before, .icon-info:before, .icon-question:before, .icon-user:before, .icon-tag:before, .icon-search:before, .icon-stackoverflow:before, .icon-stream:before, .icon-play:before, .icon-gauge:before, .icon-eye:before, .icon-statistics:before, .icon-brush:before, .icon-archive:before, .icon-plus-2:before, .icon-cross:before, .icon-grid:before, .icon-list:before, .icon-rss:before, .icon-profile:before, .icon-off:before {
   font-family: 'issue-icons';
   speak: none;
   font-style: normal;
@@ -233,113 +232,118 @@ you can use the generic selector below, but it's slower:
 }
 
 /* line 99, ../../stylesheets/ui/icons.scss */
-.icon-read:before {
-  content: "\e017";
-}
-
-/* line 102, ../../stylesheets/ui/icons.scss */
 .icon-shop:before {
   content: "\e01b";
 }
 
-/* line 105, ../../stylesheets/ui/icons.scss */
+/* line 102, ../../stylesheets/ui/icons.scss */
 .icon-book:before {
   content: "\e01c";
 }
 
-/* line 108, ../../stylesheets/ui/icons.scss */
+/* line 105, ../../stylesheets/ui/icons.scss */
 .icon-ccw:before {
   content: "\e01e";
 }
 
-/* line 111, ../../stylesheets/ui/icons.scss */
+/* line 108, ../../stylesheets/ui/icons.scss */
 .icon-info:before {
   content: "\e01f";
 }
 
-/* line 114, ../../stylesheets/ui/icons.scss */
+/* line 111, ../../stylesheets/ui/icons.scss */
 .icon-question:before {
   content: "\e020";
 }
 
-/* line 117, ../../stylesheets/ui/icons.scss */
+/* line 114, ../../stylesheets/ui/icons.scss */
 .icon-user:before {
   content: "\e02a";
 }
 
-/* line 120, ../../stylesheets/ui/icons.scss */
+/* line 117, ../../stylesheets/ui/icons.scss */
 .icon-tag:before {
   content: "\e018";
 }
 
-/* line 123, ../../stylesheets/ui/icons.scss */
+/* line 120, ../../stylesheets/ui/icons.scss */
 .icon-search:before {
   content: "\e019";
 }
 
-/* line 126, ../../stylesheets/ui/icons.scss */
+/* line 123, ../../stylesheets/ui/icons.scss */
 .icon-stackoverflow:before {
   content: "\e01a";
 }
 
-/* line 129, ../../stylesheets/ui/icons.scss */
+/* line 126, ../../stylesheets/ui/icons.scss */
 .icon-stream:before {
   content: "\e021";
 }
 
-/* line 132, ../../stylesheets/ui/icons.scss */
+/* line 129, ../../stylesheets/ui/icons.scss */
 .icon-play:before {
   content: "\e022";
 }
 
-/* line 135, ../../stylesheets/ui/icons.scss */
+/* line 132, ../../stylesheets/ui/icons.scss */
 .icon-gauge:before {
   content: "\e023";
 }
 
-/* line 138, ../../stylesheets/ui/icons.scss */
+/* line 135, ../../stylesheets/ui/icons.scss */
 .icon-eye:before {
   content: "\e024";
 }
 
-/* line 141, ../../stylesheets/ui/icons.scss */
+/* line 138, ../../stylesheets/ui/icons.scss */
 .icon-statistics:before {
   content: "\e025";
 }
 
-/* line 144, ../../stylesheets/ui/icons.scss */
+/* line 141, ../../stylesheets/ui/icons.scss */
 .icon-brush:before {
   content: "\e026";
 }
 
-/* line 147, ../../stylesheets/ui/icons.scss */
+/* line 144, ../../stylesheets/ui/icons.scss */
 .icon-archive:before {
   content: "\e027";
 }
 
-/* line 150, ../../stylesheets/ui/icons.scss */
+/* line 147, ../../stylesheets/ui/icons.scss */
 .icon-plus-2:before {
   content: "\e028";
 }
 
-/* line 153, ../../stylesheets/ui/icons.scss */
+/* line 150, ../../stylesheets/ui/icons.scss */
 .icon-cross:before {
   content: "\e029";
 }
 
-/* line 156, ../../stylesheets/ui/icons.scss */
+/* line 153, ../../stylesheets/ui/icons.scss */
 .icon-grid:before {
   content: "\f009";
 }
 
-/* line 159, ../../stylesheets/ui/icons.scss */
+/* line 156, ../../stylesheets/ui/icons.scss */
 .icon-list:before {
   content: "\f0c9";
 }
 
-/* line 162, ../../stylesheets/ui/icons.scss */
+/* line 159, ../../stylesheets/ui/icons.scss */
 .icon-rss:before {
   content: "\e014";
+}
+
+/* line 162, ../../stylesheets/ui/icons.scss */
+.icon-profile:before {
+  content: "\e003";
+}
+
+/* line 165, ../../stylesheets/ui/icons.scss */
+.icon-off:before {
+  content: "\f011";
 }
 
 /* line 22, ../../stylesheets/ui.scss */
@@ -439,11 +443,11 @@ input[type="button"]::-moz-focus-inner, button::-moz-focus-inner {
   color: #383B3B;
   border: 1px solid #d5dcdc;
   text-align: center;
-  text-shadow: 0px 1px 1px white;
+  text-shadow: 0px 1px 1px #cccccc;
   cursor: pointer;
   display: inline-block;
   vertical-align: middle;
-  background-color: #eeeeee;
+  background-color: #ecf1f1;
   white-space: nowrap;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -460,13 +464,13 @@ input[type="button"]::-moz-focus-inner, button::-moz-focus-inner {
 .button:hover, .button .hover, button:hover, button .hover, input[type="button"]:hover, input[type="button"] .hover {
   cursor: pointer !important;
   color: #515555;
-  background-color: #ecf1f1;
+  background-color: white;
   /*    border-color: #A1CFDE;*/
   /*    @include background-image(linear-gradient(top center, lighten($start, 3%), lighten($end, 3%)));*/
 }
 /* line 64, ../../stylesheets/ui/button.scss */
 .button:active, button:active, input[type="button"]:active {
-  background-color: white;
+  background-color: #dde6e6;
   /*    @include background-image(linear-gradient(top center, $end, $start));*/
 }
 /* line 69, ../../stylesheets/ui/button.scss */
@@ -563,7 +567,7 @@ button[disabled]:active {
 }
 /* line 159, ../../stylesheets/ui/button.scss */
 .button.orange, button.orange {
-  background: #ff6324;
+  background: #ff6a2e;
   border: none;
   /*    text-transform: uppercase;*/
   /*    font-weight: bold;*/
@@ -604,36 +608,38 @@ button.mobile-block {
 /* line 201, ../../stylesheets/ui/button.scss */
 .button.facebook i, button.facebook i {
   font-size: 21px;
+  padding-right: 5px;
 }
-/* line 205, ../../stylesheets/ui/button.scss */
+/* line 206, ../../stylesheets/ui/button.scss */
 .button.facebook span, button.facebook span {
   vertical-align: top;
-  padding-left: 10px;
+  padding-left: 20px;
   color: white;
 }
-/* line 211, ../../stylesheets/ui/button.scss */
+/* line 212, ../../stylesheets/ui/button.scss */
 .button.facebook.large span, button.facebook.large span {
   /*    font-size: 13px;
   */
   height: 45px;
   line-height: 45px;
 }
-/* line 218, ../../stylesheets/ui/button.scss */
+/* line 219, ../../stylesheets/ui/button.scss */
 .button.facebook.small span, button.facebook.small span {
   height: 20px;
   line-height: 18px;
 }
-/* line 223, ../../stylesheets/ui/button.scss */
+/* line 224, ../../stylesheets/ui/button.scss */
 .button.facebook:hover, button.facebook:hover {
   background: #5e7dbe;
 }
-/* line 227, ../../stylesheets/ui/button.scss */
+/* line 228, ../../stylesheets/ui/button.scss */
 .button.facebook:active, button.facebook:active {
   background: #4363a6;
 }
 
-/* line 232, ../../stylesheets/ui/button.scss */
+/* line 233, ../../stylesheets/ui/button.scss */
 .button.twitter, button.twitter {
+  text-shadow: 0px 1px #2686b1;
   /*  font-family: proxima-nova, 'Helvetica Neue', pragmatica-web, Hevetica, Arial, sans-serif;*/
   background: #36a3d4;
   color: white;
@@ -641,32 +647,33 @@ button.mobile-block {
   /*  text-shadow: 0px 1px #375697;*/
   border: 1px solid #36a3d4;
 }
-/* line 243, ../../stylesheets/ui/button.scss */
+/* line 245, ../../stylesheets/ui/button.scss */
 .button.twitter i, button.twitter i {
   font-size: 21px;
+  padding-right: 5px;
 }
-/* line 247, ../../stylesheets/ui/button.scss */
+/* line 250, ../../stylesheets/ui/button.scss */
 .button.twitter span, button.twitter span {
   vertical-align: top;
-  padding-left: 10px;
+  padding-left: 15px;
   color: white;
 }
-/* line 253, ../../stylesheets/ui/button.scss */
+/* line 256, ../../stylesheets/ui/button.scss */
 .button.twitter.large span, button.twitter.large span {
   font-size: 13px;
   height: 37px;
   line-height: 35px;
 }
-/* line 259, ../../stylesheets/ui/button.scss */
+/* line 262, ../../stylesheets/ui/button.scss */
 .button.twitter.small span, button.twitter.small span {
   height: 20px;
   line-height: 18px;
 }
-/* line 264, ../../stylesheets/ui/button.scss */
+/* line 267, ../../stylesheets/ui/button.scss */
 .button.twitter:hover, button.twitter:hover {
   background: #60b6dd;
 }
-/* line 268, ../../stylesheets/ui/button.scss */
+/* line 271, ../../stylesheets/ui/button.scss */
 .button.twitter:active, button.twitter:active {
   background: #36a3d4;
 }
@@ -674,14 +681,14 @@ button.mobile-block {
 /*=====================================
       Button group with split icon    
   =====================================*/
-/* line 277, ../../stylesheets/ui/button.scss */
+/* line 280, ../../stylesheets/ui/button.scss */
 .button-group {
   vertical-align: middle;
   display: inline-block;
   position: relative;
   z-index: 99999;
 }
-/* line 283, ../../stylesheets/ui/button.scss */
+/* line 286, ../../stylesheets/ui/button.scss */
 .button-group .button {
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
@@ -692,7 +699,7 @@ button.mobile-block {
   float: left;
   margin-left: -1px;
 }
-/* line 290, ../../stylesheets/ui/button.scss */
+/* line 293, ../../stylesheets/ui/button.scss */
 .button-group .button:first-child {
   margin-left: 0px;
   margin-right: 0;
@@ -703,7 +710,7 @@ button.mobile-block {
   -webkit-border-top-left-radius: 3px;
   border-top-left-radius: 3px;
 }
-/* line 297, ../../stylesheets/ui/button.scss */
+/* line 300, ../../stylesheets/ui/button.scss */
 .button-group .dropdown {
   padding: 0px 6px;
   -moz-border-radius-bottomright: 3px;
@@ -716,18 +723,18 @@ button.mobile-block {
   -moz-box-shadow: inset 1px 0 0 rgba(255, 255, 255, 0.125), inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
   box-shadow: inset 1px 0 0 rgba(255, 255, 255, 0.125), inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
 }
-/* line 303, ../../stylesheets/ui/button.scss */
+/* line 306, ../../stylesheets/ui/button.scss */
 .button-group .dropdown .caret {
   height: 0px;
   margin-top: -3px;
   padding: 0;
 }
-/* line 311, ../../stylesheets/ui/button.scss */
+/* line 314, ../../stylesheets/ui/button.scss */
 .button-group.toggle > .dropdown-menu {
   display: block;
 }
 
-/* line 318, ../../stylesheets/ui/button.scss */
+/* line 321, ../../stylesheets/ui/button.scss */
 .dropdown-menu {
   position: absolute;
   top: 100%;
@@ -756,11 +763,11 @@ button.mobile-block {
   -moz-background-clip: padding;
   background-clip: padding-box;
 }
-/* line 338, ../../stylesheets/ui/button.scss */
+/* line 341, ../../stylesheets/ui/button.scss */
 .dropdown-menu.buttonHover {
   display: block;
 }
-/* line 342, ../../stylesheets/ui/button.scss */
+/* line 345, ../../stylesheets/ui/button.scss */
 .dropdown-menu a {
   cursor: pointer;
   text-align: left;
@@ -772,14 +779,14 @@ button.mobile-block {
   color: #333;
   white-space: nowrap;
 }
-/* line 356, ../../stylesheets/ui/button.scss */
+/* line 359, ../../stylesheets/ui/button.scss */
 .dropdown-menu li > a:hover,
 .dropdown-menu .active > a,
 .dropdown-menu .active > a:hover {
   text-decoration: none;
   background-color: #eee;
 }
-/* line 361, ../../stylesheets/ui/button.scss */
+/* line 364, ../../stylesheets/ui/button.scss */
 .dropdown-menu .divider {
   height: 1px;
   margin: 8px 1px;
@@ -787,12 +794,12 @@ button.mobile-block {
   background-color: #E5E5E5;
   border-bottom: 1px solid white;
 }
-/* line 368, ../../stylesheets/ui/button.scss */
+/* line 371, ../../stylesheets/ui/button.scss */
 .dropdown-menu .divider + li > a {
   color: #999;
 }
 
-/* line 374, ../../stylesheets/ui/button.scss */
+/* line 377, ../../stylesheets/ui/button.scss */
 .caret {
   display: inline-block;
   width: 0;

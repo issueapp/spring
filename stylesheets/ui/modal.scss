@@ -17,10 +17,9 @@
   @include box-sizing(border-box);
   z-index: 10000;
   position: absolute;
-  top: 50%;
-  margin-top: -300px;
-  left: 5%;
-  right: 5%;
+  top:0;
+  left: 0%;
+  right: 0%;
   max-width: 600px;
   min-height: 400px;
   
