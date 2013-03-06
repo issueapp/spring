@@ -1,14 +1,23 @@
 @import "compass/css3/inline-block";
 
-// Toolbar
+/*
+    
+  Toolbar is a top bar that can be used both as navbar or toolbar
+
+
+  .fullscreen             -   Toolbar for fullscreen style content like images
+                              fullscreen-toolbar-container required
+                              to set nesassry padding.
+  .dark-theme             -   dark theme uses white text and icon style
+  
+*/
 header.toolbar {
 //  width:100%;
   height: 50px;
   z-index: 2;
   border-bottom: 1px solid rgba(0,0,0, 0.1);
   text-align: center;
-  position: absolute;
-  top: 0;
+//  position: absolute;
   width: 100%;
   color: #333;
   
@@ -125,9 +134,7 @@ header.toolbar {
   }
 
   .title {
-/*    position: absolute;*/
     display: inline;
-/*    left: 50%;*/
     text-transform: uppercase;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -154,15 +161,6 @@ header.toolbar {
 
   div.actions {
     position: absolute;
-//    top: 0px;
-//    right: 0px;
-
-    a {
-//      @include inline-block;
-//      font-size: 25px;
-//      width: 56px;
-      // border-left: 1px solid #eee;
-    }
 
     .heart {
       @extend .icon-heart;
@@ -172,7 +170,6 @@ header.toolbar {
 
     .collect {
       @extend .icon-plus;
-
       right: 57px;
 //      background: url('/images/action-collect.png') no-repeat center;
     }
@@ -185,22 +182,14 @@ header.toolbar {
   }
 }
 
-#edition-switch {
-  margin-left: 2px;
-  span {
-    &:before {
-      font-size: 22px;
-//      font-size: 32px;
-    }
-    @extend .icon-grid;
-  }
+// Fullscreen toolbar
+header.toolbar.fullscreen {
+  position: absolute;
+  top: 0;
+}
 
-//  position: relative; 
-//  display: block; 
-//  width: 33px; 
-//  height: 44px; 
-//  border-radius: 4px; 
-//  background: #ccc; left: -5px; top: 20px; background-sizing: cover;background-position: center; background-image: url(/images/site/edition-bg-2.jpg);
+.fullscreen-toolbar-container {
+  padding-bottom: 50px;
 }
 
 ul.popover-list li {

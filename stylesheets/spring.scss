@@ -35,27 +35,10 @@ $text_color: #333;
 @import 'base/typography';
 
 // 3. COLOUR 				  ==============================
-
-.dark-theme {
-  color: white;
-
-  .subtitle {
-    color: #ccc;
-  }
-
-  a:not(.button) {
-    color: white;
-    text-decoration: none;
-  }
-
-  a:not(.button):hover {
-    color: #f04500;
-  }
-}
+@import "base/colors";
 
 // 4. ELEMENTS 				==============================
 nav {
-  
   ol, ul {
     margin: 0;
     padding: 0;

@@ -11,10 +11,7 @@
   
   <form>
     <div class="item_edition col">
-      <h3 style="width:8em; display: inline-block">
-        Post article in
-      </h3>
-        
+      <label class="large">Post article in</label>
       <select id="item_edition" style="width:150px; display: inline-block">
         <option>Inspire</option>
         <option>The highlight</option>
@@ -35,22 +32,30 @@
     </div>
     
     <div class="row">
-      <div class="col">
+      <div class="col half">
         <img src="http://placehold.it/150x150">
+      </div>
+      <div class="col half">
+        <label>Image style</label>
+        <select>
+          <option>Default</option>
+          <option>Full background</option>
+          <option>Full background (right aligned text)</option>
+          <option>Full header</option>
+        </select>
+        <span class="hint">Try a different style of image</span>
       </div>
     </div>
     
-    <div class="row">
-      <p><a href="#">specify a publish date</a></p>
-      <p><a href="#">click to add tags</a></p>
-      <p><a href="#"></a></p>
+    <div class="col">
+      <a href="#">specify a publish date</a> </br>
+      <a href="#">click to add tags</a> </br>
     </div>
     
     <div class="row">
-      <a href="#" class="button large black">Create</a>
+      <a href="#" class="button large orange">Create</a>
       <a href="#" class="button large">Publish</a>
     </div>
-        
   </form>
 </div>
 

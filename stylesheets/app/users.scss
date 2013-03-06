@@ -1,0 +1,10 @@
+
+.user {
+  img.thumb {
+    @include inline-block;
+    @include border-radius(20px);
+    overflow:hidden;
+    line-height: 0;
+    margin-right: 5px;
+  }
+}

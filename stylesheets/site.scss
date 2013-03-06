@@ -24,7 +24,7 @@ nav[role=navigation] {
   height: 50px;
   line-height: 50px;
   float: right;
-  
+  margin-top: 20px;
   .links li {
     list-style: none;
     float: left;
@@ -41,6 +41,17 @@ nav[role=navigation] {
   .links a.active {
     border: 1px solid #999;
   }
+  
+  .logout {
+    text-transform: none;
+    &:before {
+      color: #bbb;
+      font-weight: normal !important;
+      font-size: 24px;
+      height: 20px;
+      line-height: 20px;
+    }
+  }
 }
 
 /* ========================================
@@ -52,11 +63,10 @@ body > header {
   margin: 0 0 20px;
   
   padding: 1px;
-  padding-top: 20px;
   
   h1.logo {
     text-indent: -20000px;
-    margin: 0;
+    margin: 20px 0 0;
     padding: 0;
     float: left;
     width: 200px;
@@ -144,4 +154,6 @@ footer[role=contentinfo] {
 
 @import "site/home";
 @import "site/publisher";
+@import 'app/users';
+
 

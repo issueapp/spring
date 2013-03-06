@@ -1,34 +1,10 @@
-.edition-overlay {
-  color: white;
-  background:#0c0c0c;
-  width:100%;
-  height:100%;
-  position:fixed;
-  z-index:9999;
-  overflow: auto;
-  padding: 1px;
-}
-
 #preview_edition {
   .edition-item {
     margin-right: 4%;
   }
 }
 
-.editions-container {
-  position: relative;
-  z-index: 10000;
-/*  padding-top: 10%;*/
-  margin: 0 auto;
-  
-  .centered {
-    padding-top: 10%;
-  }
-  
-  .edition-list {
-    position: relative;
-  }
-  
+#edition_list {
   footer {
     margin-top: 100px;
     color: #999;
@@ -38,17 +14,25 @@
 }
 
 .edition-list {
+  @include clearfix;
+
+  position: relative;
   list-style: none;
   padding: 0;
   margin-right: -3%;
   
-  @include clearfix;
   
   & > li {
     @extend .edition-item;
   }
 }
 
+/*
+  Edition item
+  
+  :hover, .hover
+  .moveup:hover, .hover      -     moveup on hover
+*/
 .edition-item {
   @include box-sizing(border-box);
   @include box-shadow(1px 1px 3px rgba(0,0,0, 0.8));
