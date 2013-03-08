@@ -13,7 +13,7 @@ Syntax error: Undefined mixin 'min-screen'.
 29:     width: 100%;
 30:     left: 50%;
 31:     top: 50%;
-32:     margin-left: -300px;
+32:     margin-top: -300px;
 
 Backtrace:
 ./stylesheets/ui/modal.scss:27:in `min-screen'
@@ -66,4 +66,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined mixin 'min-screen'.\A         on line 27 of ./stylesheets/ui/modal.scss, in `min-screen'\A         from line 27 of ./stylesheets/ui/modal.scss\A \A 22:   right: 0%;\A 23:   max-width: 600px;\A 24:   min-height: 400px;\A 25:   \A 26:   // Responsive desktop\A 27:   @include min-screen(768) {\A 28:     position: fixed;\A 29:     width: 100%;\A 30:     left: 50%;\A 31:     top: 50%;\A 32:     margin-left: -300px;"; }
+  content: "Syntax error: Undefined mixin 'min-screen'.\A         on line 27 of ./stylesheets/ui/modal.scss, in `min-screen'\A         from line 27 of ./stylesheets/ui/modal.scss\A \A 22:   right: 0%;\A 23:   max-width: 600px;\A 24:   min-height: 400px;\A 25:   \A 26:   // Responsive desktop\A 27:   @include min-screen(768) {\A 28:     position: fixed;\A 29:     width: 100%;\A 30:     left: 50%;\A 31:     top: 50%;\A 32:     margin-top: -300px;"; }

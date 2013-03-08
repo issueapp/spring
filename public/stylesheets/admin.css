@@ -1,4 +1,3461 @@
-/* line 6, ../../stylesheets/admin.scss */
+@charset "UTF-8";
+/* normalize.css v2.1.0 | MIT License | git.io/normalize */
+/* ==========================================================================
+   HTML5 display definitions
+   ========================================================================== */
+/**
+ * Correct `block` display not defined in IE 8/9.
+ */
+/* line 22, ../../stylesheets/base/normalize.scss */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+  display: block;
+}
+
+/**
+ * Correct `inline-block` display not defined in IE 8/9.
+ */
+/* line 32, ../../stylesheets/base/normalize.scss */
+audio,
+canvas,
+video {
+  display: inline-block;
+}
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+/* line 41, ../../stylesheets/base/normalize.scss */
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/**
+ * Address styling not present in IE 8/9.
+ */
+/* line 50, ../../stylesheets/base/normalize.scss */
+[hidden] {
+  display: none;
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+/**
+ * 1. Set default font family to sans-serif.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+/* line 64, ../../stylesheets/base/normalize.scss */
+html {
+  font-family: sans-serif;
+  /* 1 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+  -ms-text-size-adjust: 100%;
+  /* 2 */
+}
+
+/**
+ * Remove default margin.
+ */
+/* line 74, ../../stylesheets/base/normalize.scss */
+body {
+  margin: 0;
+}
+
+/* ==========================================================================
+   Links
+   ========================================================================== */
+/**
+ * Address `outline` inconsistency between Chrome and other browsers.
+ */
+/* line 86, ../../stylesheets/base/normalize.scss */
+a:focus {
+  outline: thin dotted;
+}
+
+/**
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
+/* line 95, ../../stylesheets/base/normalize.scss */
+a:active,
+a:hover {
+  outline: 0;
+}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+/**
+ * Address variable `h1` font-size and margin within `section` and `article`
+ * contexts in Firefox 4+, Safari 5, and Chrome.
+ */
+/* line 108, ../../stylesheets/base/normalize.scss */
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/**
+ * Address styling not present in IE 8/9, Safari 5, and Chrome.
+ */
+/* line 117, ../../stylesheets/base/normalize.scss */
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari 5, and Chrome.
+ */
+/* line 126, ../../stylesheets/base/normalize.scss */
+b,
+strong {
+  font-weight: bold;
+}
+
+/**
+ * Address styling not present in Safari 5 and Chrome.
+ */
+/* line 134, ../../stylesheets/base/normalize.scss */
+dfn {
+  font-style: italic;
+}
+
+/**
+ * Address differences between Firefox and other browsers.
+ */
+/* line 142, ../../stylesheets/base/normalize.scss */
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+
+/**
+ * Address styling not present in IE 8/9.
+ */
+/* line 152, ../../stylesheets/base/normalize.scss */
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+/**
+ * Correct font family set oddly in Safari 5 and Chrome.
+ */
+/* line 164, ../../stylesheets/base/normalize.scss */
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, serif;
+  font-size: 1em;
+}
+
+/**
+ * Improve readability of pre-formatted text in all browsers.
+ */
+/* line 173, ../../stylesheets/base/normalize.scss */
+pre {
+  white-space: pre-wrap;
+}
+
+/**
+ * Set consistent quote types.
+ */
+/* line 181, ../../stylesheets/base/normalize.scss */
+q {
+  quotes: "\201C" "\201D" "\2018" "\2019";
+}
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+/* line 189, ../../stylesheets/base/normalize.scss */
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+/* line 198, ../../stylesheets/base/normalize.scss */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+/* line 205, ../../stylesheets/base/normalize.scss */
+sup {
+  top: -0.5em;
+}
+
+/* line 209, ../../stylesheets/base/normalize.scss */
+sub {
+  bottom: -0.25em;
+}
+
+/* ==========================================================================
+   Embedded content
+   ========================================================================== */
+/**
+ * Remove border when inside `a` element in IE 8/9.
+ */
+/* line 221, ../../stylesheets/base/normalize.scss */
+img {
+  border: 0;
+}
+
+/**
+ * Correct overflow displayed oddly in IE 9.
+ */
+/* line 229, ../../stylesheets/base/normalize.scss */
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   Figures
+   ========================================================================== */
+/**
+ * Address margin not present in IE 8/9 and Safari 5.
+ */
+/* line 241, ../../stylesheets/base/normalize.scss */
+figure {
+  margin: 0;
+}
+
+/* ==========================================================================
+   Forms
+   ========================================================================== */
+/**
+ * Define consistent border, margin, and padding.
+ */
+/* line 253, ../../stylesheets/base/normalize.scss */
+fieldset {
+  border: 1px solid silver;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+/**
+ * 1. Correct `color` not being inherited in IE 8/9.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ */
+/* line 264, ../../stylesheets/base/normalize.scss */
+legend {
+  border: 0;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+
+/**
+ * 1. Correct font family not being inherited in all browsers.
+ * 2. Correct font size not being inherited in all browsers.
+ * 3. Address margins set differently in Firefox 4+, Safari 5, and Chrome.
+ */
+/* line 278, ../../stylesheets/base/normalize.scss */
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  /* 1 */
+  font-size: 100%;
+  /* 2 */
+  margin: 0;
+  /* 3 */
+}
+
+/**
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+/* line 290, ../../stylesheets/base/normalize.scss */
+button,
+input {
+  line-height: normal;
+}
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Chrome, Safari 5+, and IE 8+.
+ * Correct `select` style inheritance in Firefox 4+ and Opera.
+ */
+/* line 302, ../../stylesheets/base/normalize.scss */
+button,
+select {
+  text-transform: none;
+}
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ */
+/* line 317, ../../stylesheets/base/normalize.scss */
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  /* 2 */
+  cursor: pointer;
+  /* 3 */
+}
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+/* line 327, ../../stylesheets/base/normalize.scss */
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+/**
+ * 1. Address box sizing set to `content-box` in IE 8/9.
+ * 2. Remove excess padding in IE 8/9.
+ */
+/* line 337, ../../stylesheets/base/normalize.scss */
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
+ *    (include `-moz` to future-proof).
+ */
+/* line 348, ../../stylesheets/base/normalize.scss */
+input[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  /* 2 */
+  box-sizing: content-box;
+}
+
+/**
+ * Remove inner padding and search cancel button in Safari 5 and Chrome
+ * on OS X.
+ */
+/* line 361, ../../stylesheets/base/normalize.scss */
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * Remove inner padding and border in Firefox 4+.
+ */
+/* line 370, ../../stylesheets/base/normalize.scss */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/**
+ * 1. Remove default vertical scrollbar in IE 8/9.
+ * 2. Improve readability and alignment in all browsers.
+ */
+/* line 380, ../../stylesheets/base/normalize.scss */
+textarea {
+  overflow: auto;
+  /* 1 */
+  vertical-align: top;
+  /* 2 */
+}
+
+/* ==========================================================================
+   Tables
+   ========================================================================== */
+/**
+ * Remove most spacing between table cells.
+ */
+/* line 393, ../../stylesheets/base/normalize.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/*
+ * HTML5 Boilerplate
+ *
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+/* line 17, ../../stylesheets/base/h5bp.scss */
+html,
+button,
+input,
+select,
+textarea {
+  color: #222;
+}
+
+/* line 21, ../../stylesheets/base/h5bp.scss */
+body {
+  font-size: 1em;
+  line-height: 1.4;
+}
+
+/* line 26, ../../stylesheets/base/h5bp.scss */
+a {
+  color: #00e;
+}
+
+/* line 30, ../../stylesheets/base/h5bp.scss */
+a:visited {
+  color: #551a8b;
+}
+
+/* line 34, ../../stylesheets/base/h5bp.scss */
+a:hover {
+  color: #06e;
+}
+
+/*
+ * Remove the gap between images and the bottom of their containers: h5bp.com/i/440
+ */
+/* line 42, ../../stylesheets/base/h5bp.scss */
+img {
+  vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+/* line 50, ../../stylesheets/base/h5bp.scss */
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+/* line 60, ../../stylesheets/base/h5bp.scss */
+textarea {
+  resize: vertical;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+/* Prevent callout */
+/* line 91, ../../stylesheets/base/h5bp.scss */
+.nocallout {
+  -webkit-touch-callout: none;
+}
+
+/* line 95, ../../stylesheets/base/h5bp.scss */
+.pressed {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* A hack for HTML5 contenteditable attribute on mobile */
+/* line 101, ../../stylesheets/base/h5bp.scss */
+textarea[contenteditable] {
+  -webkit-appearance: none;
+}
+
+/* A workaround for S60 3.x and 5.0 devices which do not animated gif images if
+   they have been set as display: none */
+/* line 108, ../../stylesheets/base/h5bp.scss */
+.gifhidden {
+  position: absolute;
+  left: -100%;
+}
+
+/*
+ * Image replacement
+ */
+/* line 117, ../../stylesheets/base/h5bp.scss */
+.ir {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: 0;
+  direction: ltr;
+  display: block;
+  overflow: hidden;
+  text-align: left;
+  text-indent: -999em;
+}
+
+/* line 128, ../../stylesheets/base/h5bp.scss */
+.ir br {
+  display: none;
+}
+
+/*
+ * Hide from both screenreaders and browsers: h5bp.com/u
+ */
+/* line 136, ../../stylesheets/base/h5bp.scss */
+.hidden {
+  display: none !important;
+  visibility: hidden;
+}
+
+/*
+ * Hide only visually, but have it available for screenreaders: h5bp.com/v
+ */
+/* line 145, ../../stylesheets/base/h5bp.scss */
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+/*
+ * Extends the .visuallyhidden class to allow the element to be focusable
+ * when navigated to via the keyboard: h5bp.com/p
+ */
+/* line 162, ../../stylesheets/base/h5bp.scss */
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+}
+
+/*
+ * Hide visually and from screenreaders, but maintain layout
+ */
+/* line 175, ../../stylesheets/base/h5bp.scss */
+.invisible {
+  visibility: hidden;
+}
+
+/**
+ * Clearfix helper
+ * Used to contain floats: h5bp.com/q
+ */
+/* line 185, ../../stylesheets/base/h5bp.scss */
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: table;
+}
+
+/* line 190, ../../stylesheets/base/h5bp.scss */
+.clearfix:after {
+  clear: both;
+}
+
+/*
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+/* line 199, ../../stylesheets/base/h5bp.scss */
+.clearfix {
+  *zoom: 1;
+}
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   Theses examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+@media only screen and (min-width: 800px) {
+  /* Style adjustments for viewports that meet the condition */
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 144dpi) {
+  /* Style adjustments for viewports that meet the condition */
+}
+/* line 21, ../../stylesheets/spring.scss */
+body, html {
+  height: 100%;
+  width: 100%;
+}
+
+/* line 25, ../../stylesheets/spring.scss */
+html {
+  -webkit-font-smoothing: antialiased;
+}
+
+@font-face {
+  font-family: 'proxima_nova_ltregular';
+  font-weight: normal;
+  font-style: normal;
+  src: url('../fonts/proximanova-light-webfont.eot');
+  src: url('../fonts/proximanova-light-webfont.eot?#iefix') format("embedded-opentype"), url('../fonts/proximanova-light-webfont.woff') format("woff"), url('../fonts/proximanova-light-webfont.ttf') format("truetype"), url('../fonts/proximanova-light-webfont.svg#proxima_nova_ltregular') format("svg");
+}
+
+@font-face {
+  font-family: 'proxima_nova_bold';
+  font-weight: normal;
+  font-style: normal;
+  src: url('../fonts/proximanova-bold-webfont.eot');
+  src: url('../fonts/proximanova-bold-webfont.eot?#iefix') format("embedded-opentype"), url('../fonts/proximanova-bold-webfont.woff') format("woff"), url('../fonts/proximanova-bold-webfont.ttf') format("truetype"), url('../fonts/proximanova-bold-webfont.svg#proxima_nova_bold') format("svg");
+}
+
+@font-face {
+  font-family: 'proxima_nova_regular';
+  font-weight: normal;
+  font-style: normal;
+  src: url('../fonts/proximanova-regular-webfont.eot');
+  src: url('../fonts/proximanova-regular-webfont.eot?#iefix') format("embedded-opentype"), url('../fonts/proximanova-regular-webfont.woff') format("woff"), url('../fonts/proximanova-regular-webfont.ttf') format("truetype"), url('../fonts/proximanova-regular-webfont.svg#proxima_nova_regular') format("svg");
+}
+
+/* line 37, ../../stylesheets/base/typography.scss */
+html {
+  -webkit-font-smoothing: antialiased;
+  font-size: 16px;
+  font-size: 62.5%;
+  -webkit-overflow-scrolling: touch;
+  -webkit-tap-highlight-color: #f3f5f6;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+/* line 48, ../../stylesheets/base/typography.scss */
+body {
+  font: 16px/28px "proxima_nova_regular", "Helvetica Neue";
+  color: #222;
+}
+
+/* #Typography
+================================================== */
+/* line 55, ../../stylesheets/base/typography.scss */
+h1, h2, h3, h4, h5, h6, .title {
+  margin: 0;
+  font-family: "proxima_nova_bold";
+  /*  font-family: "Georgia","Times New Roman",serif;*/
+  font-weight: bold;
+  text-rendering: optimizelegibility;
+}
+
+/* line 63, ../../stylesheets/base/typography.scss */
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+  font-weight: inherit;
+}
+
+/* line 66, ../../stylesheets/base/typography.scss */
+h1 {
+  margin-bottom: 0;
+  font-size: 24px;
+  font-size: 1.5em;
+  font-size: 2.4rem;
+  line-height: 1.5;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* line 77, ../../stylesheets/base/typography.scss */
+h2 {
+  font-family: "proxima_nova_ltregular";
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 0.75em;
+  font-size: 18px;
+  font-size: 1.115em;
+  font-size: 1.8rem;
+  line-height: 1.2;
+}
+
+/* line 88, ../../stylesheets/base/typography.scss */
+h3 {
+  font-family: "proxima_nova_regular";
+  margin-bottom: 1em;
+  font-size: 16px;
+  font-size: 1em;
+  font-size: 1.6rem;
+  line-height: 1.3;
+}
+
+/* line 97, ../../stylesheets/base/typography.scss */
+h4 {
+  text-transform: uppercase;
+}
+
+/* line 101, ../../stylesheets/base/typography.scss */
+.content-body {
+  max-width: 50em;
+  margin: 0 auto;
+}
+/* line 105, ../../stylesheets/base/typography.scss */
+.content-body p {
+  margin: 0 auto 1.5em;
+}
+
+/* line 111, ../../stylesheets/base/typography.scss */
+.subtitle {
+  font-family: georgia;
+  font-style: italic;
+  text-transform: none;
+  font-weight: normal;
+  color: #666;
+}
+
+/* =======================================================
+        Links
+   =======================================================*/
+/* line 123, ../../stylesheets/base/typography.scss */
+a {
+  color: #4a90a6;
+  text-decoration: none;
+}
+/* line 127, ../../stylesheets/base/typography.scss */
+a:visited {
+  color: #333;
+}
+
+/* line 132, ../../stylesheets/base/typography.scss */
+.toolbar, a {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/* line 135, ../../stylesheets/base/typography.scss */
+a, a:active, a:visited {
+  color: #666;
+  text-decoration: none;
+}
+
+/* line 140, ../../stylesheets/base/typography.scss */
+a:hover {
+  color: #f04500;
+}
+
+/* line 144, ../../stylesheets/base/typography.scss */
+a.large {
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+/* line 149, ../../stylesheets/base/typography.scss */
+p.center {
+  text-align: center;
+}
+
+/*======================================================
+      Helpers
+  ======================================================*/
+/* line 159, ../../stylesheets/base/typography.scss */
+.text-centered {
+  text-align: center;
+}
+
+/* ====
+      Responsive (larger screen)
+  ====*/
+@media screen and (min-width: 768px) {
+  /* line 171, ../../stylesheets/base/typography.scss */
+  h1 {
+    font-size: 30px;
+    font-size: 1.875em;
+    font-size: 3rem;
+    line-height: 1.2;
+  }
+
+  /* line 179, ../../stylesheets/base/typography.scss */
+  h2 {
+    font-size: 24px;
+    font-size: 1.5em;
+    font-size: 2.4rem;
+    line-height: 1.2;
+  }
+
+  /* line 186, ../../stylesheets/base/typography.scss */
+  h3 {
+    font-size: 18px;
+    font-size: 1.115em;
+    font-size: 1.8rem;
+    line-height: 1.3;
+  }
+}
+/*
+
+  Dark theme
+  
+*/
+/* line 6, ../../stylesheets/base/colors.scss */
+.dark-theme, .dark-container {
+  color: white;
+}
+/* line 9, ../../stylesheets/base/colors.scss */
+.dark-theme .subtitle, .dark-container .subtitle {
+  color: #ccc;
+}
+/* line 13, ../../stylesheets/base/colors.scss */
+.dark-theme a:not(.button), .dark-container a:not(.button) {
+  color: white;
+  text-decoration: none;
+}
+/* line 18, ../../stylesheets/base/colors.scss */
+.dark-theme a:not(.button):hover, .dark-container a:not(.button):hover {
+  color: #ff753e;
+}
+
+/*
+
+  Dark container extends a dark theme, used in editions, login and gallery.
+  
+*/
+/* line 28, ../../stylesheets/base/colors.scss */
+.dark-container {
+  background: #0c0c0c;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 9999;
+  overflow: auto;
+  padding: 1px;
+}
+/* line 38, ../../stylesheets/base/colors.scss */
+.dark-container .container {
+  padding-top: 10%;
+}
+
+/* line 42, ../../stylesheets/spring.scss */
+nav ol, nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+/* line 48, ../../stylesheets/spring.scss */
+nav li {
+  display: inline;
+}
+/* line 51, ../../stylesheets/spring.scss */
+nav li a {
+  padding: 5px 15px;
+}
+
+/* line 58, ../../stylesheets/spring.scss */
+.attribution {
+  display: inline;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 3px 10px;
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  font-size: 12px;
+}
+
+/*======================================================
+    Layout and rendering
+    ---
+    
+    No style or presentation code should be in this stylesheet
+
+    Default style for 320px
+
+    Structure (menu/main)
+    Grid (row/col)
+  ======================================================*/
+/* line 17, ../../stylesheets/base/grid.scss */
+.col {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  /*  height: 99.9%;          // why*/
+  float: left;
+}
+/* line 24, ../../stylesheets/base/grid.scss */
+.col .item:last-child {
+  margin-bottom: 0;
+}
+/* line 28, ../../stylesheets/base/grid.scss */
+.col.centered {
+  clear: both;
+  float: none;
+  margin: 0 auto !important;
+}
+
+/* line 35, ../../stylesheets/base/grid.scss */
+.row {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  clear: both;
+  position: relative;
+  /*  width: 100%;            // ???*/
+  overflow: hidden;
+  *zoom: 1;
+}
+/* line 43, ../../stylesheets/base/grid.scss */
+.row:last-child {
+  background: none;
+}
+
+/*======================================================
+    Divided width
+  ======================================================*/
+/* line 53, ../../stylesheets/base/grid.scss */
+.col.full, .item.full {
+  width: 100%;
+}
+/* line 55, ../../stylesheets/base/grid.scss */
+.col.half, .item.half {
+  width: 48%;
+}
+/* line 56, ../../stylesheets/base/grid.scss */
+.col.third, .item.third {
+  width: 31.333%;
+}
+/* line 57, ../../stylesheets/base/grid.scss */
+.col.third-2, .item.third-2 {
+  width: 64.667%;
+}
+/* line 59, ../../stylesheets/base/grid.scss */
+.col.fourty, .item.fourty {
+  width: 39%;
+}
+/* line 60, ../../stylesheets/base/grid.scss */
+.col.sixty, .item.sixty {
+  width: 59%;
+}
+/* line 62, ../../stylesheets/base/grid.scss */
+.col:last-child, .item:last-child {
+  margin-right: 0;
+}
+
+/* line 68, ../../stylesheets/base/grid.scss */
+.no-gutter .col.half, .no-gutter .item.half {
+  width: 49.9%;
+}
+/* line 69, ../../stylesheets/base/grid.scss */
+.no-gutter .col.third, .no-gutter .item.third {
+  width: 33.3%;
+}
+/* line 70, ../../stylesheets/base/grid.scss */
+.no-gutter .col.third-2, .no-gutter .item.third-2 {
+  width: 66.6%;
+}
+/* line 71, ../../stylesheets/base/grid.scss */
+.no-gutter .col.sixth, .no-gutter .item.sixth {
+  width: 15.02%;
+}
+/* line 73, ../../stylesheets/base/grid.scss */
+.no-gutter .col.fourty, .no-gutter .item.fourty {
+  width: 39%;
+}
+/* line 74, ../../stylesheets/base/grid.scss */
+.no-gutter .col.sixty, .no-gutter .item.sixty {
+  width: 59%;
+}
+
+/* line 78, ../../stylesheets/base/grid.scss */
+col.centred {
+  float: none !important;
+  margin: 0 auto !important;
+}
+
+/* line 85, ../../stylesheets/base/grid.scss */
+.row.v-full, .col.v-full, .item.v-full {
+  height: 100%;
+}
+/* line 86, ../../stylesheets/base/grid.scss */
+.row.v-half, .col.v-half, .item.v-half {
+  height: 49.4%;
+}
+/* line 87, ../../stylesheets/base/grid.scss */
+.row.v-third, .col.v-third, .item.v-third {
+  height: 35.03%;
+}
+/* line 88, ../../stylesheets/base/grid.scss */
+.row.v-third-2, .col.v-third-2, .item.v-third-2 {
+  height: 64%;
+}
+
+/*======================================================
+        12 column grid collapsed for mobile
+  ======================================================*/
+/* line 95, ../../stylesheets/base/grid.scss */
+.x1, .x2, .x3, .x4, .x5, .x6, .x7, .x8, .x9, .x10, .x11, .x12 {
+  width: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+  /* line 101, ../../stylesheets/base/grid.scss */
+  .col {
+    float: left;
+    margin-right: 2%;
+  }
+  /* line 105, ../../stylesheets/base/grid.scss */
+  .col:last-child {
+    margin-right: 0;
+  }
+
+  /* line 110, ../../stylesheets/base/grid.scss */
+  .x1 {
+    width: 6.333%;
+  }
+
+  /* line 111, ../../stylesheets/base/grid.scss */
+  .x2 {
+    width: 14.667%;
+  }
+
+  /* line 112, ../../stylesheets/base/grid.scss */
+  .x3 {
+    width: 23%;
+  }
+
+  /* line 113, ../../stylesheets/base/grid.scss */
+  .x4 {
+    width: 31.333%;
+  }
+
+  /* line 114, ../../stylesheets/base/grid.scss */
+  .x5 {
+    width: 39.667%;
+  }
+
+  /* line 115, ../../stylesheets/base/grid.scss */
+  .x6 {
+    width: 48%;
+  }
+
+  /* line 116, ../../stylesheets/base/grid.scss */
+  .x7 {
+    width: 56.333%;
+  }
+
+  /* line 117, ../../stylesheets/base/grid.scss */
+  .x8 {
+    width: 64.667%;
+  }
+
+  /* line 118, ../../stylesheets/base/grid.scss */
+  .x9 {
+    width: 73%;
+  }
+
+  /* line 119, ../../stylesheets/base/grid.scss */
+  .x10 {
+    width: 81.333%;
+  }
+
+  /* line 120, ../../stylesheets/base/grid.scss */
+  .x11 {
+    width: 89.667%;
+  }
+
+  /* line 121, ../../stylesheets/base/grid.scss */
+  .x12 {
+    width: 100%;
+  }
+}
+/* line 10, ../../stylesheets/base/form.scss */
+form {
+  margin: 0 0 1.25em;
+  /*================================================
+          Label/hint
+    ================================================*/
+  /*================================================
+          Input fields
+    ================================================*/
+  /*
+      Focus state
+  */
+  /*================================================
+          Errors
+    ================================================*/
+}
+/* line 14, ../../stylesheets/base/form.scss */
+form input.col, form .col {
+  position: relative;
+  padding-bottom: 1.2em;
+  margin-bottom: 0.5em;
+}
+/* line 24, ../../stylesheets/base/form.scss */
+form p.large, form label.large {
+  font-size: 18px;
+  line-height: 32px;
+}
+/* line 29, ../../stylesheets/base/form.scss */
+form label.radio {
+  padding-right: 1em;
+}
+/* line 32, ../../stylesheets/base/form.scss */
+form label.radio input {
+  margin-right: 0.5em;
+}
+/* line 36, ../../stylesheets/base/form.scss */
+form .hint_style, form .hint, form .error {
+  color: #888;
+  font-style: italic;
+  line-height: 1.4;
+  font-size: 13px;
+  position: absolute;
+}
+/* line 45, ../../stylesheets/base/form.scss */
+form .hint {
+  /*    bottom: -1.7em;*/
+  /*    left: 0;*/
+  /*left: 0;
+  bottom: -1.7em;*/
+}
+/* line 56, ../../stylesheets/base/form.scss */
+form .text_field, form input[type="text"], form input[type="password"], form input[type="tel"], form input[type="email"],
+form input[type="search"], form input[type="url"], form textarea, form select {
+  padding: 9px;
+  margin: 0px;
+  line-height: 2em;
+  height: auto;
+  width: 100%;
+  max-width: 600px;
+  font-size: 14px;
+  border: 1px solid #cccccc;
+  background: white;
+  vertical-align: top;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-box-shadow: 1px 1px 2px #eeeeee inset;
+  -moz-box-shadow: 1px 1px 2px #eeeeee inset;
+  box-shadow: 1px 1px 2px #eeeeee inset;
+}
+/* line 74, ../../stylesheets/base/form.scss */
+form input.large:not(.button) {
+  font-size: 18px !important;
+  line-height: 35px;
+  height: 35px;
+}
+/* line 81, ../../stylesheets/base/form.scss */
+form input[type="text"], form input[type="password"], form input[type="tel"], form input[type="email"],
+form input[type="search"], form input[type="url"], form textarea, form select {
+  font-size: 100%;
+  line-height: normal;
+  /* ie */
+}
+/* line 4, ../../stylesheets/base/form.scss */
+form input[type="text"].placeholder, form input[type="password"].placeholder, form input[type="tel"].placeholder, form input[type="email"].placeholder,
+form input[type="search"].placeholder, form input[type="url"].placeholder, form textarea.placeholder, form select.placeholder {
+  font-family: georgia;
+  font-weight: normal !important;
+  font-style: italic;
+  font-size: 15px;
+}
+/* line 5, ../../stylesheets/base/form.scss */
+form input[type="text"]:-moz-placeholder, form input[type="password"]:-moz-placeholder, form input[type="tel"]:-moz-placeholder, form input[type="email"]:-moz-placeholder,
+form input[type="search"]:-moz-placeholder, form input[type="url"]:-moz-placeholder, form textarea:-moz-placeholder, form select:-moz-placeholder {
+  font-family: georgia;
+  font-weight: normal !important;
+  font-style: italic;
+  font-size: 15px;
+}
+/* line 6, ../../stylesheets/base/form.scss */
+form input[type="text"]::-webkit-input-placeholder, form input[type="password"]::-webkit-input-placeholder, form input[type="tel"]::-webkit-input-placeholder, form input[type="email"]::-webkit-input-placeholder,
+form input[type="search"]::-webkit-input-placeholder, form input[type="url"]::-webkit-input-placeholder, form textarea::-webkit-input-placeholder, form select::-webkit-input-placeholder {
+  font-family: georgia;
+  font-weight: normal !important;
+  font-style: italic;
+  font-size: 15px;
+}
+/* line 7, ../../stylesheets/base/form.scss */
+form input[type="text"]:-ms-input-placeholder, form input[type="password"]:-ms-input-placeholder, form input[type="tel"]:-ms-input-placeholder, form input[type="email"]:-ms-input-placeholder,
+form input[type="search"]:-ms-input-placeholder, form input[type="url"]:-ms-input-placeholder, form textarea:-ms-input-placeholder, form select:-ms-input-placeholder {
+  font-family: georgia;
+  font-weight: normal !important;
+  font-style: italic;
+  font-size: 15px;
+}
+/* line 95, ../../stylesheets/base/form.scss */
+form select {
+  width: auto;
+  background-color: #fff;
+  border: 1px solid #cccccc;
+  height: 2.5em;
+  line-height: 2.5em;
+}
+/* line 103, ../../stylesheets/base/form.scss */
+form input[type=submit], form input[type=button], form button[type=submit] {
+  line-height: 2em;
+  padding: 3px 15px;
+  margin-right: 5px;
+}
+/* line 112, ../../stylesheets/base/form.scss */
+form input:focus, form select:focus, form textarea:focus {
+  border: 1px solid #a1cfde !important;
+}
+/* line 122, ../../stylesheets/base/form.scss */
+form .field_with_errors input.string, form .field_with_errors select.select {
+  border-color: #f3a4a4;
+}
+/* line 126, ../../stylesheets/base/form.scss */
+form .field_with_errors .hint {
+  display: none;
+}
+/* line 131, ../../stylesheets/base/form.scss */
+form .error {
+  color: #e84949;
+}
+@media screen and (min-width: 768px) {
+  /* line 140, ../../stylesheets/base/form.scss */
+  form p.large, form label.large {
+    font-size: 24px;
+    line-height: 40px;
+  }
+  /* line 145, ../../stylesheets/base/form.scss */
+  form input.large:not(.button) {
+    font-size: 24px !important;
+    line-height: 45px;
+    height: 45px;
+  }
+}
+
+/*================================================
+      Notification
+================================================*/
+/* line 159, ../../stylesheets/base/form.scss */
+div.notification {
+  position: absolute;
+  left: 7.5%;
+  right: 7.5%;
+  top: 0;
+  z-index: 10000;
+  padding: 10px 20px;
+  margin: 20px 0 40px;
+  background: white;
+  border: 1px solid #cccccc;
+  color: #111;
+}
+/* line 166, ../../stylesheets/base/form.scss */
+.overlay-active div.notification {
+  left: 7.5%;
+  right: 7.5%;
+  top: 0;
+}
+@media screen and (min-width: 768px) {
+  /* line 159, ../../stylesheets/base/form.scss */
+  div.notification {
+    left: initial;
+    top: 0;
+    right: 20px;
+    min-width: 20%;
+  }
+}
+/* line 188, ../../stylesheets/base/form.scss */
+div.notification a.close-target {
+  color: #222;
+}
+/* line 192, ../../stylesheets/base/form.scss */
+div.notification a.close {
+  float: right;
+  width: 20px;
+  height: 20px;
+}
+/* line 194, ../../stylesheets/base/form.scss */
+div.notification a.close:before {
+  font-size: 24px;
+  color: #111;
+}
+/* line 202, ../../stylesheets/base/form.scss */
+.dark-theme div.notification, .dark-container div.notification {
+  border: 1px solid #cccccc;
+}
+
+/* line 207, ../../stylesheets/base/form.scss */
+a.close-target {
+  font-size: 28px;
+  float: right;
+}
+
+/* line 7, ../../stylesheets/ui/modal.scss */
+.overlay {
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+/* line 16, ../../stylesheets/ui/modal.scss */
+.modal {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  z-index: 10000;
+  position: absolute;
+  top: 0;
+  left: 0%;
+  right: 0%;
+  max-width: 600px;
+  min-height: 400px;
+  background: #fff;
+  padding: 20px 20px 50px;
+}
+@media screen and (min-width: 768px) {
+  /* line 16, ../../stylesheets/ui/modal.scss */
+  .modal {
+    position: fixed;
+    width: 100%;
+    left: 50%;
+    top: 50%;
+    margin-top: -300px;
+    margin-left: -300px;
+    min-height: 450px;
+  }
+}
+/* line 42, ../../stylesheets/ui/modal.scss */
+.modal h1, .modal h2 {
+  font-family: "proxima_nova_regular", "Helvetica Neue";
+  margin: 0 0 1em;
+  text-transform: uppercase;
+  /*    letter-spacing: 2px;*/
+  font-size: 18px;
+  font-weight: normal;
+  text-align: center;
+}
+/* line 56, ../../stylesheets/ui/modal.scss */
+.modal p.subtitle {
+  font: 16px/1.5em Georgia;
+  color: #666;
+  font-style: italic;
+}
+/* line 62, ../../stylesheets/ui/modal.scss */
+.modal footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: black;
+  height: 70px;
+  margin-left: -20px;
+  text-align: center;
+  color: white;
+}
+/* line 72, ../../stylesheets/ui/modal.scss */
+.modal footer a {
+  font-size: 18px;
+  line-height: 70px;
+  color: white;
+}
+/* line 79, ../../stylesheets/ui/modal.scss */
+.modal footer .button {
+  /*    margin-top: -3px;*/
+  background: #000;
+  color: white;
+  font-size: 18px;
+  font-weight: normal;
+  text-shadow: initial;
+  -webkit-border-radius: initial;
+  -moz-border-radius: initial;
+  -ms-border-radius: initial;
+  -o-border-radius: initial;
+  border-radius: initial;
+  height: 70px;
+  border: none;
+  padding: 0 30px;
+  margin: 0;
+}
+/* line 93, ../../stylesheets/ui/modal.scss */
+.modal footer .button:hover {
+  background: #111;
+}
+
+@font-face {
+  font-family: 'issue-icons';
+  src: url('../fonts/issue-icons.eot');
+  src: url('../fonts/issue-icons.eot?#iefix') format("embedded-opentype"), url('../fonts/issue-icons.woff') format("woff"), url('../fonts/issue-icons.ttf') format("truetype"), url('../fonts/issue-icons.svg#issue-icons') format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Use the following CSS code if you want to use data attributes for inserting your icons */
+/* line 13, ../../stylesheets/ui/icons.scss */
+[data-icon]:before {
+  font-family: 'issue-icons';
+  content: attr(data-icon);
+  speak: none;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Use the following CSS code if you want to have a class per icon */
+/*
+Instead of a list of all class selectors,
+you can use the generic selector below, but it's slower:
+[class*="icon-"]:before {
+*/
+/* line 30, ../../stylesheets/ui/icons.scss */
+.icon-export:before, header.toolbar div.actions .share:before, .icon-heart:before, header.toolbar div.actions .heart:before, .icon-earth:before, .icon-docs:before, .icon-twitter:before, .icon-facebook:before, .icon-googleplus:before, .icon-pinterest:before, .icon-camera:before, .icon-link:before, .icon-comment:before, .icon-cog:before, .icon-arrow-left:before, header.toolbar a.back:before, .icon-arrow-right:before, .icon-arrow-left-2:before, .icon-arrow-right-2:before, .icon-pictures:before, .icon-video:before, .icon-music:before, .icon-plus:before, header.toolbar a.plus:before, header.toolbar div.actions .collect:before, .edition-item.with-icon .subscribe:before, .edition-list > li.with-icon .subscribe:before, .icon-minus:before, .icon-shop:before, .icon-book:before, .icon-ccw:before, .icon-info:before, .icon-question:before, .icon-user:before, .icon-tag:before, #sidebar .nav li.product:before, .icon-search:before, header.toolbar a.search:before, .icon-stackoverflow:before, .icon-stream:before, .icon-play:before, .icon-gauge:before, .icon-eye:before, .icon-statistics:before, .icon-brush:before, .icon-archive:before, .icon-plus-2:before, .icon-cross:before, div.notification a.close:before, a.close-target:before, .icon-grid:before, #edition-switch .icon:before, .icon-list:before, header.toolbar a.menu:before, .icon-rss:before, .icon-profile:before, .icon-off:before, .icon-edit:before, #sidebar .nav li.article:before {
+  font-family: 'issue-icons';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* line 40, ../../stylesheets/ui/icons.scss */
+.icon-export:before, header.toolbar div.actions .share:before {
+  content: "\e000";
+}
+
+/* line 43, ../../stylesheets/ui/icons.scss */
+.icon-heart:before, header.toolbar div.actions .heart:before {
+  content: "\e001";
+}
+
+/* line 46, ../../stylesheets/ui/icons.scss */
+.icon-earth:before {
+  content: "\e002";
+}
+
+/* line 49, ../../stylesheets/ui/icons.scss */
+.icon-docs:before {
+  content: "\e004";
+}
+
+/* line 52, ../../stylesheets/ui/icons.scss */
+.icon-twitter:before {
+  content: "\e007";
+}
+
+/* line 55, ../../stylesheets/ui/icons.scss */
+.icon-facebook:before {
+  content: "\e008";
+}
+
+/* line 58, ../../stylesheets/ui/icons.scss */
+.icon-googleplus:before {
+  content: "\e005";
+}
+
+/* line 61, ../../stylesheets/ui/icons.scss */
+.icon-pinterest:before {
+  content: "\e009";
+}
+
+/* line 64, ../../stylesheets/ui/icons.scss */
+.icon-camera:before {
+  content: "\e006";
+}
+
+/* line 67, ../../stylesheets/ui/icons.scss */
+.icon-link:before {
+  content: "\e00a";
+}
+
+/* line 70, ../../stylesheets/ui/icons.scss */
+.icon-comment:before {
+  content: "\e00b";
+}
+
+/* line 73, ../../stylesheets/ui/icons.scss */
+.icon-cog:before {
+  content: "\e00c";
+}
+
+/* line 76, ../../stylesheets/ui/icons.scss */
+.icon-arrow-left:before, header.toolbar a.back:before {
+  content: "\e00d";
+}
+
+/* line 79, ../../stylesheets/ui/icons.scss */
+.icon-arrow-right:before {
+  content: "\e00e";
+}
+
+/* line 82, ../../stylesheets/ui/icons.scss */
+.icon-arrow-left-2:before {
+  content: "\e00f";
+}
+
+/* line 85, ../../stylesheets/ui/icons.scss */
+.icon-arrow-right-2:before {
+  content: "\e010";
+}
+
+/* line 88, ../../stylesheets/ui/icons.scss */
+.icon-pictures:before {
+  content: "\e011";
+}
+
+/* line 91, ../../stylesheets/ui/icons.scss */
+.icon-video:before {
+  content: "\e012";
+}
+
+/* line 94, ../../stylesheets/ui/icons.scss */
+.icon-music:before {
+  content: "\e013";
+}
+
+/* line 97, ../../stylesheets/ui/icons.scss */
+.icon-plus:before, header.toolbar a.plus:before, header.toolbar div.actions .collect:before, .edition-item.with-icon .subscribe:before, .edition-list > li.with-icon .subscribe:before {
+  content: "\e015";
+}
+
+/* line 100, ../../stylesheets/ui/icons.scss */
+.icon-minus:before {
+  content: "\e016";
+}
+
+/* line 103, ../../stylesheets/ui/icons.scss */
+.icon-shop:before {
+  content: "\e01b";
+}
+
+/* line 106, ../../stylesheets/ui/icons.scss */
+.icon-book:before {
+  content: "\e01c";
+}
+
+/* line 109, ../../stylesheets/ui/icons.scss */
+.icon-ccw:before {
+  content: "\e01e";
+}
+
+/* line 112, ../../stylesheets/ui/icons.scss */
+.icon-info:before {
+  content: "\e01f";
+}
+
+/* line 115, ../../stylesheets/ui/icons.scss */
+.icon-question:before {
+  content: "\e020";
+}
+
+/* line 118, ../../stylesheets/ui/icons.scss */
+.icon-user:before {
+  content: "\e02a";
+}
+
+/* line 121, ../../stylesheets/ui/icons.scss */
+.icon-tag:before, #sidebar .nav li.product:before {
+  content: "\e018";
+}
+
+/* line 124, ../../stylesheets/ui/icons.scss */
+.icon-search:before, header.toolbar a.search:before {
+  content: "\e019";
+}
+
+/* line 127, ../../stylesheets/ui/icons.scss */
+.icon-stackoverflow:before {
+  content: "\e01a";
+}
+
+/* line 130, ../../stylesheets/ui/icons.scss */
+.icon-stream:before {
+  content: "\e021";
+}
+
+/* line 133, ../../stylesheets/ui/icons.scss */
+.icon-play:before {
+  content: "\e022";
+}
+
+/* line 136, ../../stylesheets/ui/icons.scss */
+.icon-gauge:before {
+  content: "\e023";
+}
+
+/* line 139, ../../stylesheets/ui/icons.scss */
+.icon-eye:before {
+  content: "\e024";
+}
+
+/* line 142, ../../stylesheets/ui/icons.scss */
+.icon-statistics:before {
+  content: "\e025";
+}
+
+/* line 145, ../../stylesheets/ui/icons.scss */
+.icon-brush:before {
+  content: "\e026";
+}
+
+/* line 148, ../../stylesheets/ui/icons.scss */
+.icon-archive:before {
+  content: "\e027";
+}
+
+/* line 151, ../../stylesheets/ui/icons.scss */
+.icon-plus-2:before {
+  content: "\e028";
+}
+
+/* line 154, ../../stylesheets/ui/icons.scss */
+.icon-cross:before, div.notification a.close:before, a.close-target:before {
+  content: "\e029";
+}
+
+/* line 157, ../../stylesheets/ui/icons.scss */
+.icon-grid:before, #edition-switch .icon:before {
+  content: "\f009";
+}
+
+/* line 160, ../../stylesheets/ui/icons.scss */
+.icon-list:before, header.toolbar a.menu:before {
+  content: "\f0c9";
+}
+
+/* line 163, ../../stylesheets/ui/icons.scss */
+.icon-rss:before {
+  content: "\e014";
+}
+
+/* line 166, ../../stylesheets/ui/icons.scss */
+.icon-profile:before {
+  content: "\e003";
+}
+
+/* line 169, ../../stylesheets/ui/icons.scss */
+.icon-off:before {
+  content: "\f011";
+}
+
+/* line 172, ../../stylesheets/ui/icons.scss */
+.icon-edit:before, #sidebar .nav li.article:before {
+  content: "\f044";
+}
+
+/* line 22, ../../stylesheets/ui.scss */
+nav.tab-menu {
+  margin-bottom: 2%;
+  overflow: hidden;
+  *zoom: 1;
+}
+/* line 27, ../../stylesheets/ui.scss */
+nav.tab-menu ul {
+  list-style: none;
+  padding: 0;
+  border: 1px solid #cccccc;
+  clear: left;
+}
+/* line 34, ../../stylesheets/ui.scss */
+nav.tab-menu li {
+  border-bottom: 1px solid #cccccc;
+  border-right: 0;
+}
+/* line 38, ../../stylesheets/ui.scss */
+nav.tab-menu li:last-child {
+  border: 0;
+}
+/* line 43, ../../stylesheets/ui.scss */
+nav.tab-menu a {
+  padding: 10px 10px;
+  display: block;
+}
+/* line 46, ../../stylesheets/ui.scss */
+nav.tab-menu a:hover {
+  background: #eee;
+}
+@media screen and (min-width: 768px) {
+  /* line 52, ../../stylesheets/ui.scss */
+  nav.tab-menu ul {
+    float: left;
+  }
+  /* line 55, ../../stylesheets/ui.scss */
+  nav.tab-menu li {
+    border-right: 1px solid #cccccc;
+    border-bottom: 0;
+    float: left;
+  }
+}
+
+/* line 64, ../../stylesheets/ui.scss */
+footer {
+  clear: both;
+}
+
+/*
+    Reset button style
+
+*/
+/* line 13, ../../stylesheets/ui/button.scss */
+input[type="button"], button {
+  border: 0 none;
+  font: inherit;
+}
+
+/* line 17, ../../stylesheets/ui/button.scss */
+*:focus {
+  outline: 0 none;
+}
+
+/* line 18, ../../stylesheets/ui/button.scss */
+input[type="submit"] {
+  border: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+/* line 19, ../../stylesheets/ui/button.scss */
+input[type="button"], button {
+  -moz-box-sizing: content-box;
+}
+
+/*fixes mozilla padding - mozilla only, doesn't need webkit or other values */
+/* line 20, ../../stylesheets/ui/button.scss */
+input[type="button"]::-moz-focus-inner, button::-moz-focus-inner {
+  padding: 0;
+  border: 0 none;
+}
+
+/*fixes mozilla button padding - mozilla only, doesn't need webkit or other values */
+/*
+    Default button style
+*/
+/* line 25, ../../stylesheets/ui/button.scss */
+.button, button, input[type="button"] {
+  font-family: "proxima_nova_regular", "Helvetica Neue", Hevetica, Arial, sans-serif;
+  margin: 0 8px 0 0;
+  padding: 0px 20px;
+  font-size: 13px;
+  font-weight: bold;
+  height: 30px;
+  line-height: 21px;
+  color: #383B3B;
+  border: 1px solid #d5dcdc;
+  text-align: center;
+  text-shadow: 0px 1px 1px white;
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+  background-color: #ecf1f1;
+  white-space: nowrap;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  /*  @include background-image(linear-gradient(top center, $start, $end));*/
+  /*  @include box-shadow(rgba(0,0,0, 0.2) 0 -1px 1px 0 inset);*/
+}
+/* line 56, ../../stylesheets/ui/button.scss */
+.button:hover, .button .hover, button:hover, button .hover, input[type="button"]:hover, input[type="button"] .hover {
+  cursor: pointer !important;
+  color: #515555;
+  background-color: white;
+  /*    border-color: #A1CFDE;*/
+  /*    @include background-image(linear-gradient(top center, lighten($start, 3%), lighten($end, 3%)));*/
+}
+/* line 64, ../../stylesheets/ui/button.scss */
+.button:active, button:active, input[type="button"]:active {
+  background-color: #dde6e6;
+  /*    @include background-image(linear-gradient(top center, $end, $start));*/
+}
+/* line 69, ../../stylesheets/ui/button.scss */
+.button [class^="icon-"], .button [class*=" icon-"], button [class^="icon-"], button [class*=" icon-"], input[type="button"] [class^="icon-"], input[type="button"] [class*=" icon-"] {
+  float: left;
+  display: inline-block;
+  height: 29px;
+  line-height: 27px;
+  font-size: 17px;
+}
+/* line 77, ../../stylesheets/ui/button.scss */
+.button span, button span, input[type="button"] span {
+  padding-left: 5px;
+  height: 29px;
+  line-height: 27px;
+  display: inline-block;
+}
+
+/* line 87, ../../stylesheets/ui/button.scss */
+.button.disabled,
+button[disabled],
+button[disabled]:active {
+  color: #999999 !important;
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Y2ZjZmNiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2UxZTFlMSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background-size: 100%;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f6f6f6), color-stop(100%, #e1e1e1));
+  background-image: -webkit-linear-gradient(top center, #f6f6f6, #e1e1e1);
+  background-image: -moz-linear-gradient(top center, #f6f6f6, #e1e1e1);
+  background-image: -o-linear-gradient(top center, #f6f6f6, #e1e1e1);
+  background-image: linear-gradient(top center, #f6f6f6, #e1e1e1);
+  border-color: #d4d4d4;
+  border-top-color: #dedede;
+  border-bottom-color: #c9c9c9;
+  cursor: default;
+}
+
+/* line 98, ../../stylesheets/ui/button.scss */
+.button.small, .button.small span, button.small, button.small span {
+  font-size: 11px;
+  font-weight: bold;
+  height: 20px;
+  line-height: 18px;
+  padding: 0px 10px;
+}
+/* line 105, ../../stylesheets/ui/button.scss */
+.button.small [class^="icon-"], .button.small [class*=" icon-"], .button.small span [class^="icon-"], .button.small span [class*=" icon-"], button.small [class^="icon-"], button.small [class*=" icon-"], button.small span [class^="icon-"], button.small span [class*=" icon-"] {
+  height: 20px;
+  line-height: 18px;
+  font-size: 13px;
+}
+/* line 112, ../../stylesheets/ui/button.scss */
+.button.large, button.large {
+  /*    font-family: "proxima-nova-sc-osf-ext-cond", "Helvetica Neue", Hevetica, Arial, sans-serif;*/
+  font-size: 12px;
+  line-height: 45px;
+  height: 45px;
+  padding: 0px 10px;
+  font-weight: normal;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  letter-spacing: 2px;
+}
+/* line 123, ../../stylesheets/ui/button.scss */
+.button.large [class^="icon-"], .button.large [class*=" icon-"], button.large [class^="icon-"], button.large [class*=" icon-"] {
+  height: 45px;
+  line-height: 50px;
+  font-size: 24px;
+}
+@media screen and (min-width: 768px) {
+  /* line 112, ../../stylesheets/ui/button.scss */
+  .button.large, button.large {
+    font-size: 14px;
+    padding: 0px 20px;
+  }
+}
+
+/* line 141, ../../stylesheets/ui/button.scss */
+.button.black, button.black {
+  background-color: #3c3d3c;
+  /*    @include background-image(linear-gradient(top center, #3c3d3c, #0e0e0e));*/
+  color: white !important;
+  border: none;
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+}
+/* line 148, ../../stylesheets/ui/button.scss */
+.button.black:hover, .button.black .hover, button.black:hover, button.black .hover {
+  background-color: #4B4C4B;
+  /*      @include background-image(linear-gradient(top center, #4B4C4B, #1D1D1D));*/
+}
+/* line 153, ../../stylesheets/ui/button.scss */
+.button.black:active, button.black:active {
+  background-color: #0e0e0e;
+  /*      @include background-image(linear-gradient(top center, #0e0e0e, #3c3d3c));*/
+}
+/* line 159, ../../stylesheets/ui/button.scss */
+.button.orange, button.orange {
+  background: #ff6a2e;
+  border: none;
+  /*    text-transform: uppercase;*/
+  /*    font-weight: bold;*/
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+  color: white;
+}
+/* line 172, ../../stylesheets/ui/button.scss */
+.button.orange:hover, button.orange:hover {
+  background: #ff753e;
+}
+/* line 176, ../../stylesheets/ui/button.scss */
+.button.orange:active, button.orange:active {
+  background: #8a2800;
+}
+
+/* line 183, ../../stylesheets/ui/button.scss */
+.button.mobile-block,
+button.mobile-block {
+  margin-top: 10px;
+  width: 100%;
+}
+@media screen and (min-width: 768px) {
+  /* line 183, ../../stylesheets/ui/button.scss */
+  .button.mobile-block,
+  button.mobile-block {
+    margin-top: 0;
+    width: auto;
+  }
+}
+
+/* line 194, ../../stylesheets/ui/button.scss */
+.button.facebook, button.facebook {
+  background: #4363a6;
+  color: white;
+  text-shadow: 0px 1px #375697;
+  border: 1px solid #4363a6;
+}
+/* line 201, ../../stylesheets/ui/button.scss */
+.button.facebook i, button.facebook i {
+  font-size: 21px;
+  padding-right: 5px;
+}
+/* line 206, ../../stylesheets/ui/button.scss */
+.button.facebook span, button.facebook span {
+  vertical-align: top;
+  padding-left: 20px;
+  color: white;
+}
+/* line 212, ../../stylesheets/ui/button.scss */
+.button.facebook.large span, button.facebook.large span {
+  /*    font-size: 13px;
+  */
+  height: 45px;
+  line-height: 45px;
+}
+/* line 219, ../../stylesheets/ui/button.scss */
+.button.facebook.small span, button.facebook.small span {
+  height: 20px;
+  line-height: 18px;
+}
+/* line 224, ../../stylesheets/ui/button.scss */
+.button.facebook:hover, button.facebook:hover {
+  background: #5e7dbe;
+}
+/* line 228, ../../stylesheets/ui/button.scss */
+.button.facebook:active, button.facebook:active {
+  background: #4363a6;
+}
+
+/* line 233, ../../stylesheets/ui/button.scss */
+.button.twitter, button.twitter {
+  text-shadow: 0px 1px #2686b1;
+  /*  font-family: proxima-nova, 'Helvetica Neue', pragmatica-web, Hevetica, Arial, sans-serif;*/
+  background: #36a3d4;
+  color: white;
+  /*  text-transform: none;*/
+  /*  text-shadow: 0px 1px #375697;*/
+  border: 1px solid #36a3d4;
+}
+/* line 245, ../../stylesheets/ui/button.scss */
+.button.twitter i, button.twitter i {
+  font-size: 21px;
+  padding-right: 5px;
+}
+/* line 250, ../../stylesheets/ui/button.scss */
+.button.twitter span, button.twitter span {
+  vertical-align: top;
+  padding-left: 15px;
+  color: white;
+}
+/* line 256, ../../stylesheets/ui/button.scss */
+.button.twitter.large span, button.twitter.large span {
+  font-size: 13px;
+  height: 37px;
+  line-height: 35px;
+}
+/* line 262, ../../stylesheets/ui/button.scss */
+.button.twitter.small span, button.twitter.small span {
+  height: 20px;
+  line-height: 18px;
+}
+/* line 267, ../../stylesheets/ui/button.scss */
+.button.twitter:hover, button.twitter:hover {
+  background: #60b6dd;
+}
+/* line 271, ../../stylesheets/ui/button.scss */
+.button.twitter:active, button.twitter:active {
+  background: #36a3d4;
+}
+
+/*=====================================
+      Button group with split icon    
+  =====================================*/
+/* line 280, ../../stylesheets/ui/button.scss */
+.button-group {
+  vertical-align: middle;
+  display: inline-block;
+  position: relative;
+  z-index: 99999;
+}
+/* line 286, ../../stylesheets/ui/button.scss */
+.button-group .button {
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  -ms-border-radius: 0px;
+  -o-border-radius: 0px;
+  border-radius: 0px;
+  position: relative;
+  float: left;
+  margin-left: -1px;
+}
+/* line 293, ../../stylesheets/ui/button.scss */
+.button-group .button:first-child {
+  margin-left: 0px;
+  margin-right: 0;
+  -moz-border-radius-bottomleft: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  -moz-border-radius-topleft: 3px;
+  -webkit-border-top-left-radius: 3px;
+  border-top-left-radius: 3px;
+}
+/* line 300, ../../stylesheets/ui/button.scss */
+.button-group .dropdown {
+  padding: 0px 6px;
+  -moz-border-radius-bottomright: 3px;
+  -webkit-border-bottom-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  -moz-border-radius-topright: 3px;
+  -webkit-border-top-right-radius: 3px;
+  border-top-right-radius: 3px;
+  -webkit-box-shadow: inset 1px 0 0 rgba(255, 255, 255, 0.125), inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: inset 1px 0 0 rgba(255, 255, 255, 0.125), inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 1px 0 0 rgba(255, 255, 255, 0.125), inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+/* line 306, ../../stylesheets/ui/button.scss */
+.button-group .dropdown .caret {
+  height: 0px;
+  margin-top: -3px;
+  padding: 0;
+}
+/* line 314, ../../stylesheets/ui/button.scss */
+.button-group.toggle > .dropdown-menu {
+  display: block;
+}
+
+/* line 321, ../../stylesheets/ui/button.scss */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 99999;
+  display: none;
+  float: left;
+  min-width: 120px;
+  padding: 4px 0;
+  margin: 1px 0 0;
+  list-style: none;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  *border-right-width: 2px;
+  *border-bottom-width: 2px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  -webkit-background-clip: padding;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+}
+/* line 341, ../../stylesheets/ui/button.scss */
+.dropdown-menu.buttonHover {
+  display: block;
+}
+/* line 345, ../../stylesheets/ui/button.scss */
+.dropdown-menu a {
+  cursor: pointer;
+  text-align: left;
+  display: block;
+  padding: 3px 15px;
+  clear: both;
+  font-weight: normal;
+  line-height: 20px !important;
+  color: #333;
+  white-space: nowrap;
+}
+/* line 359, ../../stylesheets/ui/button.scss */
+.dropdown-menu li > a:hover,
+.dropdown-menu .active > a,
+.dropdown-menu .active > a:hover {
+  text-decoration: none;
+  background-color: #eee;
+}
+/* line 364, ../../stylesheets/ui/button.scss */
+.dropdown-menu .divider {
+  height: 1px;
+  margin: 8px 1px;
+  overflow: hidden;
+  background-color: #E5E5E5;
+  border-bottom: 1px solid white;
+}
+/* line 371, ../../stylesheets/ui/button.scss */
+.dropdown-menu .divider + li > a {
+  color: #999;
+}
+
+/* line 377, ../../stylesheets/ui/button.scss */
+.caret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  vertical-align: middle;
+  border-top: 4px solid black;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+  content: "";
+}
+
+/* line 3, ../../stylesheets/ui/dropdown.scss */
+.popover-wrap {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+}
+
+/* line 8, ../../stylesheets/ui/dropdown.scss */
+div.popover {
+  position: absolute;
+  top: 27px;
+  width: 110px;
+  font-size: 13px;
+  z-index: 1000000;
+  text-align: left;
+}
+/* line 16, ../../stylesheets/ui/dropdown.scss */
+div.popover span.drop-top {
+  display: block;
+  margin: -7px 0 0;
+  padding: 7px 15px 0px;
+  background: url('../images/ui/top-arrow.png?1362291986') no-repeat center top;
+}
+/* line 23, ../../stylesheets/ui/dropdown.scss */
+div.popover div.drop-wrapper {
+  -webkit-box-shadow: #c9c9c9 2px 2px 5px;
+  -moz-box-shadow: #c9c9c9 2px 2px 5px;
+  box-shadow: #c9c9c9 2px 2px 5px;
+  position: absolute;
+  top: 36px;
+  border: 1px solid #eeeeee;
+  background-color: white;
+  font-family: "Helvetica Neue", Hevetica, Arial, sans-serif;
+}
+/* line 32, ../../stylesheets/ui/dropdown.scss */
+div.popover ul.popover-list {
+  overflow: auto;
+  margin: 0;
+  padding: 0;
+}
+/* line 37, ../../stylesheets/ui/dropdown.scss */
+div.popover ul.popover-list li {
+  display: block;
+  float: none;
+  margin: 0;
+  padding: 18px 0px 18px 10px;
+  border-top: 1px solid #eeeeee;
+  background-image: none;
+}
+/* line 45, ../../stylesheets/ui/dropdown.scss */
+div.popover ul.popover-list li a {
+  height: 15px;
+  line-height: 17px;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-family: "proxima_nova_regular";
+  position: static;
+  display: block;
+  padding: 18px 0px 18px 18px;
+  color: #b9b9b9;
+  text-shadow: none;
+  font-weight: normal;
+}
+/* line 58, ../../stylesheets/ui/dropdown.scss */
+div.popover ul.popover-list li a:active, div.popover ul.popover-list li a.active {
+  color: #6f6f6f;
+}
+/* line 63, ../../stylesheets/ui/dropdown.scss */
+div.popover ul.popover-list li.header {
+  color: #7A7A7A;
+  text-align: center;
+  font-size: 16px;
+  font-family: "proxima_nova_regular";
+}
+/* line 71, ../../stylesheets/ui/dropdown.scss */
+div.popover ul.popover-list li:hover a {
+  background: #eee;
+  color: #555;
+}
+/* line 76, ../../stylesheets/ui/dropdown.scss */
+div.popover ul.popover-list li:first-child {
+  border-top: none;
+}
+
+/* line 82, ../../stylesheets/ui/dropdown.scss */
+#filterDropdown {
+  right: -10px;
+}
+/* line 85, ../../stylesheets/ui/dropdown.scss */
+#filterDropdown .drop-wrapper {
+  left: -26px;
+}
+/* line 88, ../../stylesheets/ui/dropdown.scss */
+#filterDropdown .drop-wrapper .drop-top {
+  margin-left: 70px;
+  padding-right: 30px;
+}
+/* line 94, ../../stylesheets/ui/dropdown.scss */
+#filterDropdown ul.popover-list li {
+  padding: 0;
+}
+/* line 97, ../../stylesheets/ui/dropdown.scss */
+#filterDropdown ul.popover-list li a {
+  vertical-align: top;
+}
+/* line 100, ../../stylesheets/ui/dropdown.scss */
+#filterDropdown ul.popover-list li a span {
+  display: inline-block;
+  padding-right: 16px;
+  width: 15px;
+  height: 15px;
+}
+/* line 107, ../../stylesheets/ui/dropdown.scss */
+#filterDropdown ul.popover-list li a.view-all span {
+  background: url(/images/view-all-icon.png) no-repeat left top;
+}
+/* line 108, ../../stylesheets/ui/dropdown.scss */
+#filterDropdown ul.popover-list li a.shop span {
+  background: url(/images/shop-icon.png) no-repeat left top;
+}
+/* line 109, ../../stylesheets/ui/dropdown.scss */
+#filterDropdown ul.popover-list li a.read span {
+  background: url(/images/read-icon.png) no-repeat left top;
+}
+/* line 110, ../../stylesheets/ui/dropdown.scss */
+#filterDropdown ul.popover-list li a.photo span {
+  background: url(/images/photo-icon.png) no-repeat left top;
+}
+/* line 113, ../../stylesheets/ui/dropdown.scss */
+#filterDropdown ul.popover-list li a:active span, #filterDropdown ul.popover-list li a.active span {
+  background-position-y: bottom;
+}
+
+/* line 119, ../../stylesheets/ui/dropdown.scss */
+#collectionDropdown {
+  left: 50%;
+  margin-left: -151px;
+}
+/* line 123, ../../stylesheets/ui/dropdown.scss */
+#collectionDropdown .drop-wrapper {
+  width: 300px;
+  min-height: 94px;
+}
+/* line 127, ../../stylesheets/ui/dropdown.scss */
+#collectionDropdown .drop-wrapper li {
+  padding: 0;
+}
+/* line 130, ../../stylesheets/ui/dropdown.scss */
+#collectionDropdown .drop-wrapper li.header {
+  padding: 10px 0px;
+}
+/* line 131, ../../stylesheets/ui/dropdown.scss */
+#collectionDropdown .drop-wrapper li a {
+  height: 18px;
+  color: #6F6F6F;
+  font-size: 13px;
+  line-height: 20px;
+}
+/* line 138, ../../stylesheets/ui/dropdown.scss */
+#collectionDropdown .drop-wrapper li a.active {
+  background-color: #f3f3f3;
+}
+
+/* line 145, ../../stylesheets/ui/dropdown.scss */
+#new_content_button {
+  right: 20px;
+}
+/* line 148, ../../stylesheets/ui/dropdown.scss */
+#new_content_button .drop-top {
+  margin-left: 80px;
+  padding-right: 25px;
+}
+/* line 153, ../../stylesheets/ui/dropdown.scss */
+#new_content_button a i {
+  font-size: 18px;
+  padding-right: 10px;
+}
+/* line 158, ../../stylesheets/ui/dropdown.scss */
+#new_content_button li {
+  padding: 0;
+}
+/* line 163, ../../stylesheets/ui/dropdown.scss */
+#new_content_button li.header {
+  padding: 10px;
+}
+
+/* line 168, ../../stylesheets/ui/dropdown.scss */
+#shareDropdown {
+  right: -10px;
+}
+/* line 171, ../../stylesheets/ui/dropdown.scss */
+#shareDropdown .drop-wrapper {
+  left: -26px;
+}
+/* line 174, ../../stylesheets/ui/dropdown.scss */
+#shareDropdown .drop-wrapper .drop-top {
+  margin-left: 70px;
+  padding-right: 30px;
+}
+/* line 180, ../../stylesheets/ui/dropdown.scss */
+#shareDropdown .drop-wrapper .popover-list a {
+  display: inline;
+  padding: 0;
+  border: none;
+  color: #6f6f6f;
+  vertical-align: bottom;
+}
+/* line 187, ../../stylesheets/ui/dropdown.scss */
+#shareDropdown .drop-wrapper .popover-list a i {
+  width: 28px;
+  font-size: 19px;
+}
+
+/* line 76, ../../stylesheets/spring.scss */
+.container {
+  margin: 0 auto;
+  width: 85%;
+}
+
+/*
+.cover {
+  position:relative;
+  height: 200%;
+  width: 200%;
+  top: -50%;
+  left: -50%;
+}
+
+.cover img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  min-width: 51%;
+  min-height: 50%;
+}
+*/
+/*.image.bottom {
+  background-position: bottom !important;
+}*/
+/*
+    Item
+
+    define layout and positioning of a rendering unit
+
+*/
+/* line 33, ../../stylesheets/app/item.scss */
+.page {
+  /*
+
+        Product Styles
+
+  */
+  /*
+      Product split view
+  */
+}
+/* line 35, ../../stylesheets/app/item.scss */
+.page .half, .page .third, .page .third-2 {
+  width: 100%;
+}
+@media screen and (min-width: 768px) {
+  /* line 41, ../../stylesheets/app/item.scss */
+  .page .col.full, .page .item.full {
+    width: 100%;
+  }
+  /* line 43, ../../stylesheets/app/item.scss */
+  .page .col.half, .page .item.half {
+    width: 48%;
+  }
+  /* line 44, ../../stylesheets/app/item.scss */
+  .page .col.third, .page .item.third {
+    width: 31.333%;
+  }
+  /* line 45, ../../stylesheets/app/item.scss */
+  .page .col.third-2, .page .item.third-2 {
+    width: 64.667%;
+  }
+  /* line 47, ../../stylesheets/app/item.scss */
+  .page .col.fourty, .page .item.fourty {
+    width: 39%;
+  }
+  /* line 48, ../../stylesheets/app/item.scss */
+  .page .col.sixty, .page .item.sixty {
+    width: 59%;
+  }
+  /* line 50, ../../stylesheets/app/item.scss */
+  .page .col:last-child, .page .item:last-child {
+    margin-right: 0;
+  }
+}
+/* line 54, ../../stylesheets/app/item.scss */
+.page .item {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+  float: left;
+  margin: 0 0 2% 0;
+  overflow: hidden;
+  height: 100%;
+  padding: 20px;
+}
+/* line 72, ../../stylesheets/app/item.scss */
+.page .item .image {
+  height: 60%;
+  background-size: cover;
+  background-position: center;
+  min-height: 350px;
+}
+/* line 79, ../../stylesheets/app/item.scss */
+.page .item .link {
+  cursor: pointer;
+  color: #222;
+}
+/* line 86, ../../stylesheets/app/item.scss */
+.page .item .info {
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+  right: 20px;
+  background: #fff;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  display: inline-block;
+  vertical-align: top;
+  padding: 1.25em 0 1.25em;
+  color: #333;
+}
+/* line 105, ../../stylesheets/app/item.scss */
+.page .item .description {
+  font-size: 13px;
+  margin: 0.5em 0 0.5em;
+  max-height: 62px;
+  color: #777;
+}
+/* line 113, ../../stylesheets/app/item.scss */
+.page .item .via {
+  font-size: 12px;
+  color: #999;
+}
+/* line 117, ../../stylesheets/app/item.scss */
+.page .item .via img {
+  vertical-align: middle;
+  margin-right: 5px;
+}
+/* line 123, ../../stylesheets/app/item.scss */
+.page .item .title {
+  /*    Style   */
+  position: relative;
+  font-family: "proxima_nova", "Helvetica Neue";
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #2c2c2c;
+  font-size: 12px;
+  margin: 0 0 0.75em;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/* line 143, ../../stylesheets/app/item.scss */
+.page .row .item:last-child {
+  border-right: 0;
+}
+/* line 148, ../../stylesheets/app/item.scss */
+.page .row .item:first-child {
+  border-right-width: 1px;
+  border-right-color: #EEE;
+  border-right-style: solid;
+}
+/* line 154, ../../stylesheets/app/item.scss */
+.page .row .col:first-child .product.item .price {
+  margin-bottom: 43px;
+}
+/* line 165, ../../stylesheets/app/item.scss */
+.page .product .overlay, .page .no-description .overlay {
+  height: 90%;
+}
+/* line 169, ../../stylesheets/app/item.scss */
+.page .product .image, .page .no-description .image {
+  display: block;
+  height: 90%;
+}
+/* line 184, ../../stylesheets/app/item.scss */
+.page .no-image .title {
+  font-size: 200%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3 !important;
+}
+/* line 191, ../../stylesheets/app/item.scss */
+.page .no-image .overlay {
+  height: 100%;
+}
+/* line 195, ../../stylesheets/app/item.scss */
+.page .no-image .image {
+  display: none;
+}
+/* line 199, ../../stylesheets/app/item.scss */
+.page .no-image .description {
+  font-weight: 200;
+  font-size: 150%;
+  max-height: none;
+  visibility: visible !important;
+  display: block;
+  -webkit-line-clamp: 8 !important;
+  height: 10em !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+/* line 218, ../../stylesheets/app/item.scss */
+.page .product .price {
+  display: block;
+  position: absolute;
+  font-size: 12px;
+  top: 20px;
+  left: 20px;
+  padding: 6px 18px;
+  height: 20px;
+  line-height: 20px;
+  margin-bottom: 13px;
+  font-weight: bold;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+}
+/* line 239, ../../stylesheets/app/item.scss */
+.page .product .price:before {
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  width: 0;
+  height: 0;
+  border: solid transparent;
+  content: " ";
+  margin-left: -7px;
+  border-width: 7px;
+  border-top-color: rgba(0, 0, 0, 0.8);
+}
+/* line 253, ../../stylesheets/app/item.scss */
+.page .product .description {
+  display: none;
+}
+/* line 258, ../../stylesheets/app/item.scss */
+.page .product .counters {
+  color: #DF5454;
+  font-size: 14px;
+  position: absolute;
+  top: 2%;
+  right: 6%;
+  z-index: 1;
+  line-height: 12px;
+}
+/* line 273, ../../stylesheets/app/item.scss */
+.page .item.split .overlay {
+  height: 100%;
+}
+/* line 277, ../../stylesheets/app/item.scss */
+.page .item.split a.action.love, .page .item.split a.action.collect {
+  top: 50%;
+}
+/* line 281, ../../stylesheets/app/item.scss */
+.page .item.split .image {
+  overflow: hidden;
+  display: inline-block;
+  width: 49%;
+  left: 0;
+  height: 100%;
+  top: initial;
+  vertical-align: middle;
+}
+/* line 291, ../../stylesheets/app/item.scss */
+.page .item.split .info:before {
+  position: absolute;
+  bottom: 60%;
+  right: 100%;
+  width: 0;
+  height: 0;
+  border: solid transparent;
+  content: " ";
+  margin-left: -10px;
+  border-width: 10px;
+  border-right-color: #fff;
+}
+/* line 304, ../../stylesheets/app/item.scss */
+.page .item.split .info {
+  margin: 0;
+  width: 49%;
+  height: auto;
+  vertical-align: middle;
+  padding: 10% 2% 0;
+  position: relative;
+  height: 100%;
+  font-weight: 200;
+  left: auto;
+}
+/* line 314, ../../stylesheets/app/item.scss */
+.page .item.split .info > p {
+  font-size: 150%;
+  visibility: visible;
+  white-space: normal;
+  max-height: inherit;
+  text-overflow: ellipsis;
+}
+/* line 334, ../../stylesheets/app/item.scss */
+.page .item.split .via {
+  position: absolute;
+  bottom: 0;
+  left: 10px;
+}
+
+/*  different page styles   */
+/*  Full screen background  */
+/* line 9, ../../stylesheets/app/page.scss */
+body.dark-theme .toolbar, body.dark-container .toolbar {
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0icmdiYSgwLCAwLCAwLCAwLjYpIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSJyZ2JhKDAsIDAsIDAsIDApIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
+  background-size: 100%;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(0, 0, 0, 0.6)), color-stop(100%, rgba(0, 0, 0, 0)));
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
+  background-image: -moz-linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
+  background-image: -o-linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
+  color: white;
+  border: transparent;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+/* line 15, ../../stylesheets/app/page.scss */
+body.dark-theme .toolbar .title, body.dark-container .toolbar .title {
+  color: white;
+}
+/* line 20, ../../stylesheets/app/page.scss */
+body.dark-theme .toolbar a, body.dark-container .toolbar a {
+  color: white;
+}
+
+/* line 25, ../../stylesheets/app/page.scss */
+.page.dark.full {
+  color: white;
+}
+/* line 28, ../../stylesheets/app/page.scss */
+.page.dark.full .left-content {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+/* line 34, ../../stylesheets/app/page.scss */
+.page.full .left-content {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 20px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+/* line 42, ../../stylesheets/app/page.scss */
+body .page {
+  margin: 0 0 0;
+  max-height: 100%;
+  padding-top: 70px;
+  font-size: 14px;
+}
+/* line 49, ../../stylesheets/app/page.scss */
+body .page .row:last-child {
+  margin-bottom: 0;
+}
+
+/* line 61, ../../stylesheets/app/page.scss */
+article.page blockquote {
+  font-family: Georgia, serif;
+  font-size: 18px;
+  font-style: italic;
+  width: 500px;
+  margin: 0.25em 0;
+  padding: 0.25em 40px;
+  line-height: 1.45;
+  position: relative;
+}
+/* line 72, ../../stylesheets/app/page.scss */
+article.page blockquote:before {
+  display: block;
+  content: "\201C";
+  font-size: 80px;
+  position: absolute;
+  left: -10px;
+  top: -20px;
+  color: #7a7a7a;
+}
+/* line 82, ../../stylesheets/app/page.scss */
+article.page blockquote cite {
+  color: #999999;
+  font-size: 14px;
+  display: block;
+  margin-top: 5px;
+}
+/* line 88, ../../stylesheets/app/page.scss */
+article.page blockquote cite:before {
+  content: "\2014 \2009";
+}
+/* line 93, ../../stylesheets/app/page.scss */
+article.page .image.cover {
+  position: relative;
+  height: 200%;
+  width: 200%;
+  top: -50%;
+  left: -50%;
+}
+/* line 101, ../../stylesheets/app/page.scss */
+article.page .price, article.page .store {
+  display: inline-block;
+}
+/* line 105, ../../stylesheets/app/page.scss */
+article.page .price {
+  float: left;
+  line-height: 37px;
+}
+/* line 110, ../../stylesheets/app/page.scss */
+article.page .button.store {
+  margin-bottom: 1em;
+  display: block;
+  float: right;
+  margin: 0;
+}
+/* line 117, ../../stylesheets/app/page.scss */
+article.page .description {
+  display: block;
+  clear: both;
+}
+
+@media screen and (orientation: portrait) {
+  /* line 125, ../../stylesheets/app/page.scss */
+  article.page .col.half {
+    height: 49%;
+    width: 100%;
+    background: white;
+  }
+  /* line 130, ../../stylesheets/app/page.scss */
+  article.page .col.half .image {
+    left: 25%;
+    position: relative;
+    width: 50%;
+  }
+  /* line 136, ../../stylesheets/app/page.scss */
+  article.page .col.half .info {
+    text-align: center;
+  }
+  /* line 138, ../../stylesheets/app/page.scss */
+  article.page .col.half .info .store {
+    margin: 0;
+  }
+  /* line 142, ../../stylesheets/app/page.scss */
+  article.page .col.half .info .price {
+    line-height: 37px;
+    vertical-align: middle;
+  }
+  /* line 147, ../../stylesheets/app/page.scss */
+  article.page .col.half .info p {
+    margin-top: 10px;
+    text-align: left;
+  }
+}
+/*
+  Sidebar style menu (width: 260px)
+
+  .thin             - Thin version has 80px width
+  .off-canvas menu  - negative margin 
+  .page
+  
+*/
+/* line 13, ../../stylesheets/app/menu.scss */
+nav#menu {
+  width: 260px;
+  background: #0c0c0c;
+  height: 100%;
+  top: 0;
+  position: fixed;
+}
+/* line 21, ../../stylesheets/app/menu.scss */
+nav#menu.thin {
+  width: 80px;
+}
+/* line 24, ../../stylesheets/app/menu.scss */
+nav#menu.thin .nav .icon {
+  position: static;
+  right: auto;
+}
+/* line 29, ../../stylesheets/app/menu.scss */
+nav#menu.thin .nav .text {
+  display: none;
+}
+/* line 35, ../../stylesheets/app/menu.scss */
+.offcanvas nav#menu {
+  float: left;
+  margin-left: -100%;
+}
+/* line 40, ../../stylesheets/app/menu.scss */
+.offcanvas.active nav#menu {
+  margin-left: 0;
+}
+
+/* line 47, ../../stylesheets/app/menu.scss */
+.offcanvas [role=main] {
+  float: right;
+  width: 100%;
+}
+
+/* line 53, ../../stylesheets/app/menu.scss */
+.offcanvas.active [role=main] {
+  margin-right: -260px;
+}
+
+/*
+  Menu item
+  
+  :hover, .hover
+  .active
+  li > .icon          - right aligned icons
+  li > .counter       - right aligned counter bubble
+  .bottom             - user, settings icon aligned to the bottom
+*/
+/* line 66, ../../stylesheets/app/menu.scss */
+#menu .nav li {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  display: block;
+  height: 70px;
+  line-height: 70px;
+  padding: 0 25px;
+  border-top: 1px solid #0f0f0f;
+  border-bottom: 1px solid #0a0a0a;
+  position: relative;
+}
+/* line 77, ../../stylesheets/app/menu.scss */
+#menu .nav li a {
+  padding: 0;
+  display: block;
+  color: #ccc;
+}
+/* line 84, ../../stylesheets/app/menu.scss */
+#menu .nav li:hover a, #menu .nav li.active a {
+  color: #fff;
+  text-shadow: 0px 0px 20px #bef7ff;
+}
+/* line 89, ../../stylesheets/app/menu.scss */
+#menu .nav li.active {
+  background: #141414;
+}
+/* line 94, ../../stylesheets/app/menu.scss */
+#menu .nav li [class^="icon-"], #menu .nav li [class*=" icon-"] {
+  font-size: 24px;
+}
+/* line 98, ../../stylesheets/app/menu.scss */
+#menu .nav li .icon {
+  position: absolute;
+  right: 35px;
+}
+/* line 104, ../../stylesheets/app/menu.scss */
+#menu .nav li.active .icon {
+  color: white;
+}
+/* line 108, ../../stylesheets/app/menu.scss */
+#menu .nav li .counter {
+  position: absolute;
+  right: 24px;
+  font-size: 12px;
+}
+/* line 115, ../../stylesheets/app/menu.scss */
+#menu .nav li.bottom {
+  overflow: hidden;
+  *zoom: 1;
+  height: auto;
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+}
+/* line 122, ../../stylesheets/app/menu.scss */
+#menu .nav li.bottom a {
+  font-size: 12px;
+}
+/* line 126, ../../stylesheets/app/menu.scss */
+#menu .nav li.bottom .thumb {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  border-radius: 20px;
+  overflow: hidden;
+  line-height: 0;
+}
+/* line 133, ../../stylesheets/app/menu.scss */
+#menu .nav li.bottom .settings {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  font-size: 24px;
+  height: 20px;
+}
+/* line 141, ../../stylesheets/app/menu.scss */
+#menu .nav li .nav li ul li {
+  padding-left: 30px;
+  font-weight: normal;
+}
+/* line 145, ../../stylesheets/app/menu.scss */
+#menu .nav li .nav li ul li a {
+  color: #ccc;
+}
+/* line 149, ../../stylesheets/app/menu.scss */
+#menu .nav li .nav li ul li a:before {
+  font-size: 12px;
+  content: '→';
+  width: 10px;
+  overflow: none;
+  margin-right: 5px;
+  color: #666;
+}
+
+/* line 162, ../../stylesheets/app/menu.scss */
+body.expand-menu .navigation li.active:after {
+  content: "";
+  position: absolute;
+  right: -6px;
+  top: 50%;
+  margin-top: -6px;
+  border-color: transparent #141414;
+  border-style: solid;
+  border-width: 8px 0px 8px 8px;
+  height: 0px;
+  width: 0px;
+}
+
+/* line 176, ../../stylesheets/app/menu.scss */
+#edition-switch {
+  margin-left: 2px;
+}
+/* line 181, ../../stylesheets/app/menu.scss */
+#edition-switch .icon:before {
+  font-size: 22px;
+}
+
+/* line 189, ../../stylesheets/app/menu.scss */
+#menu .logo {
+  height: 120px !important;
+  background: url("/images/logo.png") no-repeat center center;
+}
+/* line 192, ../../stylesheets/app/menu.scss */
+#menu .logo a {
+  margin-left: -25px;
+  height: 120px;
+  width: 220px;
+}
+
+/*
+    
+  Toolbar is a top bar that can be used both as navbar or toolbar
+
+
+  .fullscreen             -   Toolbar for fullscreen style content like images
+                              fullscreen-toolbar-container required
+                              to set nesassry padding.
+  .dark-theme             -   dark theme uses white text and icon style
+  
+*/
+/* line 14, ../../stylesheets/app/toolbar.scss */
+header.toolbar {
+  height: 50px;
+  z-index: 2;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 100%;
+  color: #333;
+}
+/* line 24, ../../stylesheets/app/toolbar.scss */
+.dark-theme header.toolbar, .dark-container header.toolbar {
+  color: #fff;
+}
+/* line 27, ../../stylesheets/app/toolbar.scss */
+.dark-theme header.toolbar a:hover, .dark-container header.toolbar a:hover {
+  color: white;
+}
+/* line 32, ../../stylesheets/app/toolbar.scss */
+header.toolbar.dark-theme, header.toolbar.dark-container {
+  color: #fff;
+}
+/* line 34, ../../stylesheets/app/toolbar.scss */
+header.toolbar.dark-theme a:hover, header.toolbar.dark-container a:hover {
+  color: white;
+}
+/* line 39, ../../stylesheets/app/toolbar.scss */
+header.toolbar .left {
+  position: absolute;
+  left: 10px;
+  top: 0;
+}
+/* line 45, ../../stylesheets/app/toolbar.scss */
+header.toolbar .right {
+  position: absolute;
+  right: 10px;
+  top: 0;
+}
+/* line 52, ../../stylesheets/app/toolbar.scss */
+header.toolbar .icon-style, header.toolbar a:before, header.toolbar a.back:before, header.toolbar a.plus:before, header.toolbar a.search:before {
+  font-size: 24px;
+  line-height: 50px;
+  font-weight: normal;
+  margin-right: 5px;
+  width: 50px;
+}
+/* line 60, ../../stylesheets/app/toolbar.scss */
+header.toolbar a {
+  vertical-align: top;
+  line-height: 50px;
+  cursor: pointer;
+  color: #444;
+}
+/* line 70, ../../stylesheets/app/toolbar.scss */
+header.toolbar a:hover {
+  color: #444;
+}
+/* line 75, ../../stylesheets/app/toolbar.scss */
+header.toolbar .button {
+  margin-top: 10px;
+  line-height: 29px;
+}
+/* line 81, ../../stylesheets/app/toolbar.scss */
+header.toolbar a.menu, header.toolbar a.back, header.toolbar a.channel, header.toolbar a.follow {
+  float: left;
+}
+/* line 85, ../../stylesheets/app/toolbar.scss */
+header.toolbar a.menu {
+  width: 64px;
+  padding-left: 10px;
+}
+/* line 91, ../../stylesheets/app/toolbar.scss */
+header.toolbar a.filter {
+  float: right;
+  width: 64px;
+  background: url("/images/icon-filter.png") no-repeat center;
+}
+/* line 97, ../../stylesheets/app/toolbar.scss */
+header.toolbar a.back {
+  font-family: georgia;
+  font-style: italic;
+}
+/* line 122, ../../stylesheets/app/toolbar.scss */
+header.toolbar a.follow {
+  margin-left: 13px;
+  padding-left: 14px;
+  width: 77px;
+  background: url("/images/action-collect.png") no-repeat 0% 50%;
+  color: #666;
+  text-align: center;
+  font-style: italic;
+  font-size: 12px;
+  font-family: Georgia, "proxima_nova_regular";
+  line-height: 50px;
+}
+/* line 136, ../../stylesheets/app/toolbar.scss */
+header.toolbar .title {
+  display: inline;
+  text-transform: uppercase;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  letter-spacing: 0.7px;
+  font-weight: normal;
+  font-size: 18px;
+  font-family: "proxima_nova_ltregular";
+  line-height: 50px;
+  cursor: pointer;
+}
+/* line 148, ../../stylesheets/app/toolbar.scss */
+header.toolbar .title span {
+  position: relative;
+  left: -50%;
+}
+/* line 152, ../../stylesheets/app/toolbar.scss */
+header.toolbar .title span:after {
+  display: inline-block;
+  width: 18px;
+  height: 11px;
+  background: url("/images/down-arrow.png") no-repeat center;
+  content: "";
+}
+/* line 162, ../../stylesheets/app/toolbar.scss */
+header.toolbar div.actions {
+  position: absolute;
+}
+/* line 165, ../../stylesheets/app/toolbar.scss */
+header.toolbar div.actions .heart {
+  right: 114px;
+}
+/* line 171, ../../stylesheets/app/toolbar.scss */
+header.toolbar div.actions .collect {
+  right: 57px;
+}
+/* line 177, ../../stylesheets/app/toolbar.scss */
+header.toolbar div.actions .share {
+  right: 0px;
+}
+
+/* line 186, ../../stylesheets/app/toolbar.scss */
+header.toolbar.fullscreen {
+  position: absolute;
+  top: 0;
+}
+
+/* line 191, ../../stylesheets/app/toolbar.scss */
+.fullscreen-toolbar-container {
+  padding-bottom: 50px;
+}
+
+/* line 195, ../../stylesheets/app/toolbar.scss */
+ul.popover-list li {
+  padding: 0;
+}
+/* line 198, ../../stylesheets/app/toolbar.scss */
+ul.popover-list li a {
+  vertical-align: top;
+}
+/* line 201, ../../stylesheets/app/toolbar.scss */
+ul.popover-list li a.dropdown:after {
+  display: inline-block;
+  padding-right: 16px;
+  width: 15px;
+  height: 15px;
+}
+/* line 208, ../../stylesheets/app/toolbar.scss */
+ul.popover-list li a.view-all span {
+  background: url(/images/view-all-icon.png) no-repeat left top;
+}
+/* line 209, ../../stylesheets/app/toolbar.scss */
+ul.popover-list li a.shop span {
+  background: url(/images/shop-icon.png) no-repeat left top;
+}
+/* line 210, ../../stylesheets/app/toolbar.scss */
+ul.popover-list li a.read span {
+  background: url(/images/read-icon.png) no-repeat left top;
+}
+/* line 211, ../../stylesheets/app/toolbar.scss */
+ul.popover-list li a.photo span {
+  background: url(/images/photo-icon.png) no-repeat left top;
+}
+/* line 214, ../../stylesheets/app/toolbar.scss */
+ul.popover-list li a:active span, ul.popover-list li a.active span {
+  background-position-y: bottom;
+}
+
+/* line 16, ../../stylesheets/application.scss */
+.logo {
+  float: left;
+  width: 200px;
+  height: 80px;
+  background: url('../images/issue-logo.png?1362291986') 0 -80px no-repeat;
+  text-indent: -111111px;
+}
+/* line 23, ../../stylesheets/application.scss */
+.logo.small {
+  width: 180px;
+  height: 50px;
+  background-position: -200px -80px;
+}
+/* line 29, ../../stylesheets/application.scss */
+.dark-theme .logo, .dark-container .logo {
+  background-position: 0 0px;
+}
+/* line 33, ../../stylesheets/application.scss */
+.dark-theme .logo.small, .dark-container .logo.small {
+  background-position: -200px 0px;
+}
+
+/* line 75, ../../stylesheets/application.scss */
+[role=main] {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+}
+/* line 79, ../../stylesheets/application.scss */
+[role=main] > .content {
+  margin: 20px;
+}
+
+/* line 89, ../../stylesheets/application.scss */
+.attribution {
+  display: inline;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 3px 10px;
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  font-size: 12px;
+}
+
+/* line 2, ../../stylesheets/app/editions.scss */
+#preview_edition .edition-item, #preview_edition .edition-list > li {
+  margin-right: 4%;
+}
+
+/* line 8, ../../stylesheets/app/editions.scss */
+#edition_list footer {
+  margin-top: 100px;
+  color: #999;
+  font-family: georgia;
+  font-style: italic;
+}
+
+/* line 16, ../../stylesheets/app/editions.scss */
+.edition-list {
+  overflow: hidden;
+  *zoom: 1;
+  position: relative;
+  list-style: none;
+  padding: 0;
+  margin-right: -3%;
+}
+
+/*
+  Edition item
+  
+  :hover, .hover
+  .moveup:hover, .hover      -     moveup on hover
+*/
+/* line 36, ../../stylesheets/app/editions.scss */
+.edition-item, .edition-list > li {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+  -moz-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  margin-right: 3%;
+  margin-bottom: 6%;
+  font-size: 120%;
+  width: 100%;
+  padding-bottom: 71.5%;
+  color: white;
+  float: left;
+  background: #333;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+}
+@media screen and (min-width: 768px) {
+  /* line 36, ../../stylesheets/app/editions.scss */
+  .edition-item, .edition-list > li {
+    font-size: 100%;
+    width: 22%;
+    padding-bottom: 30.5%;
+  }
+}
+/* line 66, ../../stylesheets/app/editions.scss */
+.edition-item .link, .edition-list > li .link {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+/* line 72, ../../stylesheets/app/editions.scss */
+.edition-item .content, .edition-list > li .content {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  padding: 10px 20px;
+}
+/* line 80, ../../stylesheets/app/editions.scss */
+.edition-item .title, .edition-list > li .title {
+  font-size: 1.5em;
+  text-transform: uppercase;
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
+}
+/* line 85, ../../stylesheets/app/editions.scss */
+.edition-item .title a, .edition-list > li .title a {
+  color: #fff;
+}
+/* line 90, ../../stylesheets/app/editions.scss */
+.edition-item .author, .edition-list > li .author {
+  font-family: georgia;
+  font-style: italic;
+  padding: 0;
+  margin: 0;
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
+}
+/* line 98, ../../stylesheets/app/editions.scss */
+.edition-item .button, .edition-list > li .button {
+  margin-bottom: 0;
+}
+/* line 102, ../../stylesheets/app/editions.scss */
+.edition-item .description, .edition-list > li .description {
+  font-size: 13px;
+  line-height: 1.8;
+}
+/* line 107, ../../stylesheets/app/editions.scss */
+.edition-item .extras, .edition-list > li .extras {
+  position: absolute;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding-top: 0%;
+  height: 50%;
+  left: 20px;
+  right: 20px;
+  z-index: 1;
+}
+/* line 117, ../../stylesheets/app/editions.scss */
+.edition-item.new-edition a.icon-plus, .edition-list > li.new-edition a.icon-plus, .edition-item.new-edition header.toolbar a.plus, header.toolbar .edition-item.new-edition a.plus, .edition-list > li.new-edition header.toolbar a.plus, header.toolbar .edition-list > li.new-edition a.plus, .edition-item.new-edition header.toolbar div.actions a.collect, header.toolbar div.actions .edition-item.new-edition a.collect, .edition-list > li.new-edition header.toolbar div.actions a.collect, header.toolbar div.actions .edition-list > li.new-edition a.collect, .edition-item.new-edition .edition-item.with-icon a.subscribe, .edition-item.with-icon .edition-item.new-edition a.subscribe, .edition-list > li.new-edition .edition-item.with-icon a.subscribe, .edition-item.with-icon .edition-list > li.new-edition a.subscribe, .edition-item.new-edition .edition-list > li.with-icon a.subscribe, .edition-list > li.with-icon .edition-item.new-edition a.subscribe, .edition-list > li.new-edition .edition-list > li.with-icon a.subscribe, .edition-list > li.with-icon .edition-list > li.new-edition a.subscribe {
+  font-size: 150px;
+  color: #666;
+  width: 100%;
+  position: absolute;
+  text-align: center;
+  margin: 0 auto;
+}
+/* line 129, ../../stylesheets/app/editions.scss */
+.edition-item.moveup .content, .edition-list > li.moveup .content {
+  -webkit-transition: bottom 0.3s ease-out;
+  -moz-transition: bottom 0.3s ease-out;
+  -o-transition: bottom 0.3s ease-out;
+  transition: bottom 0.3s ease-out;
+}
+/* line 133, ../../stylesheets/app/editions.scss */
+.edition-item.moveup:before, .edition-list > li.moveup:before {
+  content: " ";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: -2px;
+  width: 200%;
+  height: 100%;
+}
+/* line 144, ../../stylesheets/app/editions.scss */
+.edition-item.moveup:hover:before, .edition-list > li.moveup:hover:before {
+  background: rgba(0, 0, 0, 0.4);
+}
+/* line 148, ../../stylesheets/app/editions.scss */
+.edition-item.moveup:hover .content, .edition-list > li.moveup:hover .content {
+  bottom: 55%;
+}
+/* line 152, ../../stylesheets/app/editions.scss */
+.edition-item.moveup .subscribe, .edition-list > li.moveup .subscribe {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+/* line 161, ../../stylesheets/app/editions.scss */
+.edition-item.with-icon .subscribe, .edition-list > li.with-icon .subscribe {
+  display: block;
+  position: absolute;
+  bottom: 0px;
+  right: 20px;
+  width: 20px;
+  color: white;
+}
+/* line 169, ../../stylesheets/app/editions.scss */
+.edition-item.with-icon .subscribe:before, .edition-list > li.with-icon .subscribe:before {
+  font-size: 30px;
+  line-height: 0px;
+}
+
+/* line 2, ../../stylesheets/app/signin.scss */
+#login_page .logo {
+  float: none;
+  display: block;
+  margin: 0 auto;
+}
+
+/* line 3, ../../stylesheets/app/users.scss */
+.user img.thumb {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  border-radius: 20px;
+  overflow: hidden;
+  line-height: 0;
+  margin-right: 5px;
+}
+
+/* line 110, ../../stylesheets/application.scss */
+.container {
+  margin: 0 auto;
+  width: 85%;
+}
+
+@media only screen and (min-width: 768px) {
+  /* line 117, ../../stylesheets/application.scss */
+  .container {
+    margin: 0 auto;
+    max-width: 980px;
+  }
+}
+/* line 8, ../../stylesheets/admin.scss */
 [role=main] {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -6,11 +3463,11 @@
   position: relative;
   margin-left: 80px;
 }
-/* line 11, ../../stylesheets/admin.scss */
+/* line 13, ../../stylesheets/admin.scss */
 [role=main] > .content {
   margin: 20px 40px;
 }
-/* line 15, ../../stylesheets/admin.scss */
+/* line 17, ../../stylesheets/admin.scss */
 #sidebar + [role=main] {
   margin-left: 400px;
 }
@@ -20,7 +3477,7 @@
   
   
 */
-/* line 27, ../../stylesheets/admin.scss */
+/* line 29, ../../stylesheets/admin.scss */
 #sidebar {
   background: #f4f6f7;
   border-right: 1px solid #eeeeee;
@@ -39,94 +3496,103 @@
   .item
   
 */
-/* line 49, ../../stylesheets/admin.scss */
+/* line 51, ../../stylesheets/admin.scss */
 #sidebar .nav li > a {
   overflow: hidden;
   *zoom: 1;
   display: block;
-  padding: 10px 20px;
+  padding: 10px 10px 10px 30px;
   color: #333;
 }
-/* line 57, ../../stylesheets/admin.scss */
+/* line 59, ../../stylesheets/admin.scss */
 #sidebar .nav li:hover {
   background: #fff;
 }
-/* line 61, ../../stylesheets/admin.scss */
+/* line 65, ../../stylesheets/admin.scss */
+#sidebar .nav li.item:before {
+  font-size: 18px;
+  color: #ccc;
+  position: absolute;
+  top: 50%;
+  margin-top: -10px;
+  left: 5px;
+}
+/* line 87, ../../stylesheets/admin.scss */
 #sidebar .nav li.item {
   display: block;
   font-size: 13px;
   border-bottom: 1px solid #eeeeee;
   position: relative;
 }
-/* line 68, ../../stylesheets/admin.scss */
+/* line 95, ../../stylesheets/admin.scss */
 #sidebar .nav li.item figure {
   float: left;
   margin: 10px 10px 10px 0;
   vertical-align: top;
 }
-/* line 73, ../../stylesheets/admin.scss */
+/* line 100, ../../stylesheets/admin.scss */
 #sidebar .nav li.item figure img {
   vertical-align: text-top;
 }
-/* line 78, ../../stylesheets/admin.scss */
+/* line 105, ../../stylesheets/admin.scss */
 #sidebar .nav li.item a {
   color: #666;
 }
-/* line 82, ../../stylesheets/admin.scss */
+/* line 109, ../../stylesheets/admin.scss */
 #sidebar .nav li.item .description {
   margin: 10px 0 0;
   line-height: 1.3;
 }
-/* line 87, ../../stylesheets/admin.scss */
+/* line 114, ../../stylesheets/admin.scss */
 #sidebar .nav li.item .title {
   font-size: 18px;
   color: #333;
   font-weight: normal;
   margin-top: 10px;
 }
-/* line 94, ../../stylesheets/admin.scss */
+/* line 121, ../../stylesheets/admin.scss */
 #sidebar .nav li.item .info {
   margin-top: 5px;
   clear: left;
   font-style: italic;
 }
-/* line 100, ../../stylesheets/admin.scss */
+/* line 127, ../../stylesheets/admin.scss */
 #sidebar .nav li.item .time {
   float: right;
 }
-/* line 107, ../../stylesheets/admin.scss */
+/* line 134, ../../stylesheets/admin.scss */
 #sidebar .nav li.item .actions {
   position: absolute;
   right: 20px;
   top: 20px;
 }
-/* line 112, ../../stylesheets/admin.scss */
+/* line 139, ../../stylesheets/admin.scss */
 #sidebar .nav li.item .actions .button {
   opacity: 0.01;
 }
-/* line 118, ../../stylesheets/admin.scss */
-#sidebar .nav li.item:hover .button, #sidebar .nav li .item.hover .button {
+/* line 145, ../../stylesheets/admin.scss */
+#sidebar .nav li.item:hover .button {
   opacity: 1;
 }
 
-/* line 129, ../../stylesheets/admin.scss */
+/* line 157, ../../stylesheets/admin.scss */
 #sidebar form {
   padding: 20px 20px 80px;
 }
-/* line 134, ../../stylesheets/admin.scss */
+/* line 162, ../../stylesheets/admin.scss */
 #sidebar .filter-container {
   border-bottom: 1px dashed #cccccc;
   margin: 30px 20px 20px;
   position: relative;
 }
-/* line 139, ../../stylesheets/admin.scss */
+/* line 167, ../../stylesheets/admin.scss */
 #sidebar .filter-container .caret {
   position: absolute;
   right: 15px;
   background: #F4F6F7;
   z-index: 999;
 }
-/* line 146, ../../stylesheets/admin.scss */
+/* line 174, ../../stylesheets/admin.scss */
 #sidebar .filter-container select.filter {
   position: absolute;
   right: 10px;

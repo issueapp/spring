@@ -49,7 +49,8 @@ window.onload = function() {
 			'icon-list' : '&#xf0c9;',
 			'icon-rss' : '&#xe014;',
 			'icon-profile' : '&#xe003;',
-			'icon-off' : '&#xf011;'
+			'icon-off' : '&#xf011;',
+			'icon-edit' : '&#xf044;'
 		},
 		els = document.getElementsByTagName('*'),
 		i, attr, html, c, el;

@@ -31,11 +31,12 @@
     width: 100%;
     left: 50%;
     top: 50%;
+    margin-top: -300px;
     margin-left: -300px;
     min-height: 450px;
   }
 }
-/* line 41, ../../stylesheets/ui/modal.scss */
+/* line 42, ../../stylesheets/ui/modal.scss */
 .modal h1, .modal h2 {
   font-family: "proxima_nova_regular", "Helvetica Neue";
   margin: 0 0 1em;
@@ -45,13 +46,13 @@
   font-weight: normal;
   text-align: center;
 }
-/* line 55, ../../stylesheets/ui/modal.scss */
+/* line 56, ../../stylesheets/ui/modal.scss */
 .modal p.subtitle {
   font: 16px/1.5em Georgia;
   color: #666;
   font-style: italic;
 }
-/* line 61, ../../stylesheets/ui/modal.scss */
+/* line 62, ../../stylesheets/ui/modal.scss */
 .modal footer {
   position: absolute;
   bottom: 0;
@@ -62,13 +63,13 @@
   text-align: center;
   color: white;
 }
-/* line 71, ../../stylesheets/ui/modal.scss */
+/* line 72, ../../stylesheets/ui/modal.scss */
 .modal footer a {
   font-size: 18px;
   line-height: 70px;
   color: white;
 }
-/* line 78, ../../stylesheets/ui/modal.scss */
+/* line 79, ../../stylesheets/ui/modal.scss */
 .modal footer .button {
   /*    margin-top: -3px;*/
   background: #000;
@@ -86,7 +87,7 @@
   padding: 0 30px;
   margin: 0;
 }
-/* line 92, ../../stylesheets/ui/modal.scss */
+/* line 93, ../../stylesheets/ui/modal.scss */
 .modal footer .button:hover {
   background: #111;
 }
@@ -106,6 +107,8 @@
   content: attr(data-icon);
   speak: none;
   font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
   line-height: 1;
   -webkit-font-smoothing: antialiased;
 }
@@ -116,234 +119,241 @@ Instead of a list of all class selectors,
 you can use the generic selector below, but it's slower:
 [class*="icon-"]:before {
 */
-/* line 28, ../../stylesheets/ui/icons.scss */
-.icon-export:before, .icon-heart:before, .icon-earth:before, .icon-docs:before, .icon-twitter:before, .icon-facebook:before, .icon-googleplus:before, .icon-pinterest:before, .icon-camera:before, .icon-link:before, .icon-comment:before, .icon-cog:before, .icon-arrow-left:before, .icon-arrow-right:before, .icon-arrow-left-2:before, .icon-arrow-right-2:before, .icon-pictures:before, .icon-video:before, .icon-music:before, .icon-plus:before, .icon-minus:before, .icon-shop:before, .icon-book:before, .icon-ccw:before, .icon-info:before, .icon-question:before, .icon-user:before, .icon-tag:before, .icon-search:before, .icon-stackoverflow:before, .icon-stream:before, .icon-play:before, .icon-gauge:before, .icon-eye:before, .icon-statistics:before, .icon-brush:before, .icon-archive:before, .icon-plus-2:before, .icon-cross:before, .icon-grid:before, .icon-list:before, .icon-rss:before, .icon-profile:before, .icon-off:before {
+/* line 30, ../../stylesheets/ui/icons.scss */
+.icon-export:before, .icon-heart:before, .icon-earth:before, .icon-docs:before, .icon-twitter:before, .icon-facebook:before, .icon-googleplus:before, .icon-pinterest:before, .icon-camera:before, .icon-link:before, .icon-comment:before, .icon-cog:before, .icon-arrow-left:before, .icon-arrow-right:before, .icon-arrow-left-2:before, .icon-arrow-right-2:before, .icon-pictures:before, .icon-video:before, .icon-music:before, .icon-plus:before, .icon-minus:before, .icon-shop:before, .icon-book:before, .icon-ccw:before, .icon-info:before, .icon-question:before, .icon-user:before, .icon-tag:before, .icon-search:before, .icon-stackoverflow:before, .icon-stream:before, .icon-play:before, .icon-gauge:before, .icon-eye:before, .icon-statistics:before, .icon-brush:before, .icon-archive:before, .icon-plus-2:before, .icon-cross:before, .icon-grid:before, .icon-list:before, .icon-rss:before, .icon-profile:before, .icon-off:before, .icon-edit:before {
   font-family: 'issue-icons';
   speak: none;
   font-style: normal;
   font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
   line-height: 1;
   -webkit-font-smoothing: antialiased;
 }
 
-/* line 36, ../../stylesheets/ui/icons.scss */
+/* line 40, ../../stylesheets/ui/icons.scss */
 .icon-export:before {
   content: "\e000";
 }
 
-/* line 39, ../../stylesheets/ui/icons.scss */
+/* line 43, ../../stylesheets/ui/icons.scss */
 .icon-heart:before {
   content: "\e001";
 }
 
-/* line 42, ../../stylesheets/ui/icons.scss */
+/* line 46, ../../stylesheets/ui/icons.scss */
 .icon-earth:before {
   content: "\e002";
 }
 
-/* line 45, ../../stylesheets/ui/icons.scss */
+/* line 49, ../../stylesheets/ui/icons.scss */
 .icon-docs:before {
   content: "\e004";
 }
 
-/* line 48, ../../stylesheets/ui/icons.scss */
+/* line 52, ../../stylesheets/ui/icons.scss */
 .icon-twitter:before {
   content: "\e007";
 }
 
-/* line 51, ../../stylesheets/ui/icons.scss */
+/* line 55, ../../stylesheets/ui/icons.scss */
 .icon-facebook:before {
   content: "\e008";
 }
 
-/* line 54, ../../stylesheets/ui/icons.scss */
+/* line 58, ../../stylesheets/ui/icons.scss */
 .icon-googleplus:before {
   content: "\e005";
 }
 
-/* line 57, ../../stylesheets/ui/icons.scss */
+/* line 61, ../../stylesheets/ui/icons.scss */
 .icon-pinterest:before {
   content: "\e009";
 }
 
-/* line 60, ../../stylesheets/ui/icons.scss */
+/* line 64, ../../stylesheets/ui/icons.scss */
 .icon-camera:before {
   content: "\e006";
 }
 
-/* line 63, ../../stylesheets/ui/icons.scss */
+/* line 67, ../../stylesheets/ui/icons.scss */
 .icon-link:before {
   content: "\e00a";
 }
 
-/* line 66, ../../stylesheets/ui/icons.scss */
+/* line 70, ../../stylesheets/ui/icons.scss */
 .icon-comment:before {
   content: "\e00b";
 }
 
-/* line 69, ../../stylesheets/ui/icons.scss */
+/* line 73, ../../stylesheets/ui/icons.scss */
 .icon-cog:before {
   content: "\e00c";
 }
 
-/* line 72, ../../stylesheets/ui/icons.scss */
+/* line 76, ../../stylesheets/ui/icons.scss */
 .icon-arrow-left:before {
   content: "\e00d";
 }
 
-/* line 75, ../../stylesheets/ui/icons.scss */
+/* line 79, ../../stylesheets/ui/icons.scss */
 .icon-arrow-right:before {
   content: "\e00e";
 }
 
-/* line 78, ../../stylesheets/ui/icons.scss */
+/* line 82, ../../stylesheets/ui/icons.scss */
 .icon-arrow-left-2:before {
   content: "\e00f";
 }
 
-/* line 81, ../../stylesheets/ui/icons.scss */
+/* line 85, ../../stylesheets/ui/icons.scss */
 .icon-arrow-right-2:before {
   content: "\e010";
 }
 
-/* line 84, ../../stylesheets/ui/icons.scss */
+/* line 88, ../../stylesheets/ui/icons.scss */
 .icon-pictures:before {
   content: "\e011";
 }
 
-/* line 87, ../../stylesheets/ui/icons.scss */
+/* line 91, ../../stylesheets/ui/icons.scss */
 .icon-video:before {
   content: "\e012";
 }
 
-/* line 90, ../../stylesheets/ui/icons.scss */
+/* line 94, ../../stylesheets/ui/icons.scss */
 .icon-music:before {
   content: "\e013";
 }
 
-/* line 93, ../../stylesheets/ui/icons.scss */
+/* line 97, ../../stylesheets/ui/icons.scss */
 .icon-plus:before {
   content: "\e015";
 }
 
-/* line 96, ../../stylesheets/ui/icons.scss */
+/* line 100, ../../stylesheets/ui/icons.scss */
 .icon-minus:before {
   content: "\e016";
 }
 
-/* line 99, ../../stylesheets/ui/icons.scss */
+/* line 103, ../../stylesheets/ui/icons.scss */
 .icon-shop:before {
   content: "\e01b";
 }
 
-/* line 102, ../../stylesheets/ui/icons.scss */
+/* line 106, ../../stylesheets/ui/icons.scss */
 .icon-book:before {
   content: "\e01c";
 }
 
-/* line 105, ../../stylesheets/ui/icons.scss */
+/* line 109, ../../stylesheets/ui/icons.scss */
 .icon-ccw:before {
   content: "\e01e";
 }
 
-/* line 108, ../../stylesheets/ui/icons.scss */
+/* line 112, ../../stylesheets/ui/icons.scss */
 .icon-info:before {
   content: "\e01f";
 }
 
-/* line 111, ../../stylesheets/ui/icons.scss */
+/* line 115, ../../stylesheets/ui/icons.scss */
 .icon-question:before {
   content: "\e020";
 }
 
-/* line 114, ../../stylesheets/ui/icons.scss */
+/* line 118, ../../stylesheets/ui/icons.scss */
 .icon-user:before {
   content: "\e02a";
 }
 
-/* line 117, ../../stylesheets/ui/icons.scss */
+/* line 121, ../../stylesheets/ui/icons.scss */
 .icon-tag:before {
   content: "\e018";
 }
 
-/* line 120, ../../stylesheets/ui/icons.scss */
+/* line 124, ../../stylesheets/ui/icons.scss */
 .icon-search:before {
   content: "\e019";
 }
 
-/* line 123, ../../stylesheets/ui/icons.scss */
+/* line 127, ../../stylesheets/ui/icons.scss */
 .icon-stackoverflow:before {
   content: "\e01a";
 }
 
-/* line 126, ../../stylesheets/ui/icons.scss */
+/* line 130, ../../stylesheets/ui/icons.scss */
 .icon-stream:before {
   content: "\e021";
 }
 
-/* line 129, ../../stylesheets/ui/icons.scss */
+/* line 133, ../../stylesheets/ui/icons.scss */
 .icon-play:before {
   content: "\e022";
 }
 
-/* line 132, ../../stylesheets/ui/icons.scss */
+/* line 136, ../../stylesheets/ui/icons.scss */
 .icon-gauge:before {
   content: "\e023";
 }
 
-/* line 135, ../../stylesheets/ui/icons.scss */
+/* line 139, ../../stylesheets/ui/icons.scss */
 .icon-eye:before {
   content: "\e024";
 }
 
-/* line 138, ../../stylesheets/ui/icons.scss */
+/* line 142, ../../stylesheets/ui/icons.scss */
 .icon-statistics:before {
   content: "\e025";
 }
 
-/* line 141, ../../stylesheets/ui/icons.scss */
+/* line 145, ../../stylesheets/ui/icons.scss */
 .icon-brush:before {
   content: "\e026";
 }
 
-/* line 144, ../../stylesheets/ui/icons.scss */
+/* line 148, ../../stylesheets/ui/icons.scss */
 .icon-archive:before {
   content: "\e027";
 }
 
-/* line 147, ../../stylesheets/ui/icons.scss */
+/* line 151, ../../stylesheets/ui/icons.scss */
 .icon-plus-2:before {
   content: "\e028";
 }
 
-/* line 150, ../../stylesheets/ui/icons.scss */
+/* line 154, ../../stylesheets/ui/icons.scss */
 .icon-cross:before {
   content: "\e029";
 }
 
-/* line 153, ../../stylesheets/ui/icons.scss */
+/* line 157, ../../stylesheets/ui/icons.scss */
 .icon-grid:before {
   content: "\f009";
 }
 
-/* line 156, ../../stylesheets/ui/icons.scss */
+/* line 160, ../../stylesheets/ui/icons.scss */
 .icon-list:before {
   content: "\f0c9";
 }
 
-/* line 159, ../../stylesheets/ui/icons.scss */
+/* line 163, ../../stylesheets/ui/icons.scss */
 .icon-rss:before {
   content: "\e014";
 }
 
-/* line 162, ../../stylesheets/ui/icons.scss */
+/* line 166, ../../stylesheets/ui/icons.scss */
 .icon-profile:before {
   content: "\e003";
 }
 
-/* line 165, ../../stylesheets/ui/icons.scss */
+/* line 169, ../../stylesheets/ui/icons.scss */
 .icon-off:before {
   content: "\f011";
+}
+
+/* line 172, ../../stylesheets/ui/icons.scss */
+.icon-edit:before {
+  content: "\f044";
 }
 
 /* line 22, ../../stylesheets/ui.scss */
@@ -443,7 +453,7 @@ input[type="button"]::-moz-focus-inner, button::-moz-focus-inner {
   color: #383B3B;
   border: 1px solid #d5dcdc;
   text-align: center;
-  text-shadow: 0px 1px 1px #cccccc;
+  text-shadow: 0px 1px 1px white;
   cursor: pointer;
   display: inline-block;
   vertical-align: middle;
@@ -809,4 +819,220 @@ button.mobile-block {
   border-right: 4px solid transparent;
   border-left: 4px solid transparent;
   content: "";
+}
+
+/* line 3, ../../stylesheets/ui/dropdown.scss */
+.popover-wrap {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+}
+
+/* line 8, ../../stylesheets/ui/dropdown.scss */
+div.popover {
+  position: absolute;
+  top: 27px;
+  width: 110px;
+  font-size: 13px;
+  z-index: 1000000;
+  text-align: left;
+}
+/* line 16, ../../stylesheets/ui/dropdown.scss */
+div.popover span.drop-top {
+  display: block;
+  margin: -7px 0 0;
+  padding: 7px 15px 0px;
+  background: url('../images/ui/top-arrow.png?1362291986') no-repeat center top;
+}
+/* line 23, ../../stylesheets/ui/dropdown.scss */
+div.popover div.drop-wrapper {
+  -webkit-box-shadow: #c9c9c9 2px 2px 5px;
+  -moz-box-shadow: #c9c9c9 2px 2px 5px;
+  box-shadow: #c9c9c9 2px 2px 5px;
+  position: absolute;
+  top: 36px;
+  border: 1px solid #eeeeee;
+  background-color: white;
+  font-family: "Helvetica Neue", Hevetica, Arial, sans-serif;
+}
+/* line 32, ../../stylesheets/ui/dropdown.scss */
+div.popover ul.popover-list {
+  overflow: auto;
+  margin: 0;
+  padding: 0;
+}
+/* line 37, ../../stylesheets/ui/dropdown.scss */
+div.popover ul.popover-list li {
+  display: block;
+  float: none;
+  margin: 0;
+  padding: 18px 0px 18px 10px;
+  border-top: 1px solid #eeeeee;
+  background-image: none;
+}
+/* line 45, ../../stylesheets/ui/dropdown.scss */
+div.popover ul.popover-list li a {
+  height: 15px;
+  line-height: 17px;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-family: "proxima_nova_regular";
+  position: static;
+  display: block;
+  padding: 18px 0px 18px 18px;
+  color: #b9b9b9;
+  text-shadow: none;
+  font-weight: normal;
+}
+/* line 58, ../../stylesheets/ui/dropdown.scss */
+div.popover ul.popover-list li a:active, div.popover ul.popover-list li a.active {
+  color: #6f6f6f;
+}
+/* line 63, ../../stylesheets/ui/dropdown.scss */
+div.popover ul.popover-list li.header {
+  color: #7A7A7A;
+  text-align: center;
+  font-size: 16px;
+  font-family: "proxima_nova_regular";
+}
+/* line 71, ../../stylesheets/ui/dropdown.scss */
+div.popover ul.popover-list li:hover a {
+  background: #eee;
+  color: #555;
+}
+/* line 76, ../../stylesheets/ui/dropdown.scss */
+div.popover ul.popover-list li:first-child {
+  border-top: none;
+}
+
+/* line 82, ../../stylesheets/ui/dropdown.scss */
+#filterDropdown {
+  right: -10px;
+}
+/* line 85, ../../stylesheets/ui/dropdown.scss */
+#filterDropdown .drop-wrapper {
+  left: -26px;
+}
+/* line 88, ../../stylesheets/ui/dropdown.scss */
+#filterDropdown .drop-wrapper .drop-top {
+  margin-left: 70px;
+  padding-right: 30px;
+}
+/* line 94, ../../stylesheets/ui/dropdown.scss */
+#filterDropdown ul.popover-list li {
+  padding: 0;
+}
+/* line 97, ../../stylesheets/ui/dropdown.scss */
+#filterDropdown ul.popover-list li a {
+  vertical-align: top;
+}
+/* line 100, ../../stylesheets/ui/dropdown.scss */
+#filterDropdown ul.popover-list li a span {
+  display: inline-block;
+  padding-right: 16px;
+  width: 15px;
+  height: 15px;
+}
+/* line 107, ../../stylesheets/ui/dropdown.scss */
+#filterDropdown ul.popover-list li a.view-all span {
+  background: url(/images/view-all-icon.png) no-repeat left top;
+}
+/* line 108, ../../stylesheets/ui/dropdown.scss */
+#filterDropdown ul.popover-list li a.shop span {
+  background: url(/images/shop-icon.png) no-repeat left top;
+}
+/* line 109, ../../stylesheets/ui/dropdown.scss */
+#filterDropdown ul.popover-list li a.read span {
+  background: url(/images/read-icon.png) no-repeat left top;
+}
+/* line 110, ../../stylesheets/ui/dropdown.scss */
+#filterDropdown ul.popover-list li a.photo span {
+  background: url(/images/photo-icon.png) no-repeat left top;
+}
+/* line 113, ../../stylesheets/ui/dropdown.scss */
+#filterDropdown ul.popover-list li a:active span, #filterDropdown ul.popover-list li a.active span {
+  background-position-y: bottom;
+}
+
+/* line 119, ../../stylesheets/ui/dropdown.scss */
+#collectionDropdown {
+  left: 50%;
+  margin-left: -151px;
+}
+/* line 123, ../../stylesheets/ui/dropdown.scss */
+#collectionDropdown .drop-wrapper {
+  width: 300px;
+  min-height: 94px;
+}
+/* line 127, ../../stylesheets/ui/dropdown.scss */
+#collectionDropdown .drop-wrapper li {
+  padding: 0;
+}
+/* line 130, ../../stylesheets/ui/dropdown.scss */
+#collectionDropdown .drop-wrapper li.header {
+  padding: 10px 0px;
+}
+/* line 131, ../../stylesheets/ui/dropdown.scss */
+#collectionDropdown .drop-wrapper li a {
+  height: 18px;
+  color: #6F6F6F;
+  font-size: 13px;
+  line-height: 20px;
+}
+/* line 138, ../../stylesheets/ui/dropdown.scss */
+#collectionDropdown .drop-wrapper li a.active {
+  background-color: #f3f3f3;
+}
+
+/* line 145, ../../stylesheets/ui/dropdown.scss */
+#new_content_button {
+  right: 20px;
+}
+/* line 148, ../../stylesheets/ui/dropdown.scss */
+#new_content_button .drop-top {
+  margin-left: 80px;
+  padding-right: 25px;
+}
+/* line 153, ../../stylesheets/ui/dropdown.scss */
+#new_content_button a i {
+  font-size: 18px;
+  padding-right: 10px;
+}
+/* line 158, ../../stylesheets/ui/dropdown.scss */
+#new_content_button li {
+  padding: 0;
+}
+/* line 163, ../../stylesheets/ui/dropdown.scss */
+#new_content_button li.header {
+  padding: 10px;
+}
+
+/* line 168, ../../stylesheets/ui/dropdown.scss */
+#shareDropdown {
+  right: -10px;
+}
+/* line 171, ../../stylesheets/ui/dropdown.scss */
+#shareDropdown .drop-wrapper {
+  left: -26px;
+}
+/* line 174, ../../stylesheets/ui/dropdown.scss */
+#shareDropdown .drop-wrapper .drop-top {
+  margin-left: 70px;
+  padding-right: 30px;
+}
+/* line 180, ../../stylesheets/ui/dropdown.scss */
+#shareDropdown .drop-wrapper .popover-list a {
+  display: inline;
+  padding: 0;
+  border: none;
+  color: #6f6f6f;
+  vertical-align: bottom;
+}
+/* line 187, ../../stylesheets/ui/dropdown.scss */
+#shareDropdown .drop-wrapper .popover-list a i {
+  width: 28px;
+  font-size: 19px;
 }
