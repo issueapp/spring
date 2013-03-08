@@ -1,23 +1,23 @@
 /*
 Syntax error: Undefined mixin 'clearfix'.
-        on line 101 of ./stylesheets/app/menu.scss, in `clearfix'
-        from line 101 of ./stylesheets/app/menu.scss
+        on line 116 of ./stylesheets/app/menu.scss, in `clearfix'
+        from line 116 of ./stylesheets/app/menu.scss
 
-96:     font-size: 12px;
-97:   }
-98:   
-99:   // Bottom
-100:   &.bottom {
-101:     @include clearfix;
-102:     height: auto;
-103:     position: absolute;
-104:     bottom: 10px;
-105:     width: 100%;
-106: 
+111:     font-size: 12px;
+112:   }
+113:   
+114:   // Bottom
+115:   &.bottom {
+116:     @include clearfix;
+117:     height: auto;
+118:     position: absolute;
+119:     bottom: 10px;
+120:     width: 100%;
+121: 
 
 Backtrace:
-./stylesheets/app/menu.scss:101:in `clearfix'
-./stylesheets/app/menu.scss:101
+./stylesheets/app/menu.scss:116:in `clearfix'
+./stylesheets/app/menu.scss:116
 /Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:251:in `visit_mixin'
 /Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:37:in `visit'
 /Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:98:in `visit'
@@ -76,4 +76,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined mixin 'clearfix'.\A         on line 101 of ./stylesheets/app/menu.scss, in `clearfix'\A         from line 101 of ./stylesheets/app/menu.scss\A \A 96:     font-size: 12px;\A 97:   }\A 98:   \A 99:   // Bottom\A 100:   &.bottom {\A 101:     @include clearfix;\A 102:     height: auto;\A 103:     position: absolute;\A 104:     bottom: 10px;\A 105:     width: 100%;\A 106: "; }
+  content: "Syntax error: Undefined mixin 'clearfix'.\A         on line 116 of ./stylesheets/app/menu.scss, in `clearfix'\A         from line 116 of ./stylesheets/app/menu.scss\A \A 111:     font-size: 12px;\A 112:   }\A 113:   \A 114:   // Bottom\A 115:   &.bottom {\A 116:     @include clearfix;\A 117:     height: auto;\A 118:     position: absolute;\A 119:     bottom: 10px;\A 120:     width: 100%;\A 121: "; }

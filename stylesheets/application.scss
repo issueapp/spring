@@ -1,3 +1,5 @@
+@charset "utf-8";
+
 @import "spring";
 
 // UI/menu
@@ -69,16 +71,11 @@
 //  }
 //}
 
-#menu {
-  position: fixed;
-  top: 0;
-}
 
 [role=main] {
   @include box-sizing(border-box);
+
   position: relative;
-//  margin-left: 80px;
-  
   & > .content {
     margin: 20px;
   }

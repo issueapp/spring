@@ -1,16 +1,23 @@
 @import "compass/css3/box-shadow";
 
+.popover-wrap {
+  @include inline-block;
+  
+}
+
 div.popover {
   position: absolute;
   top: 27px;
   width: 110px;
   font-size:13px;
-
+  z-index: 1000000;
+  text-align: left;
+  
   span.drop-top {
     display: block;
     margin: -7px 0 0;
     padding: 7px 15px 0px;
-    background: url("/images/top-arrow.png") no-repeat center top;
+    background: image-url("ui/top-arrow.png") no-repeat center top;
   }
 
   div.drop-wrapper {
@@ -59,6 +66,11 @@ div.popover {
         font-size: 16px;
         font-family: "proxima_nova_regular";
       }
+    }
+
+    li:hover a {
+     background: #eee;
+     color: #555;
     }
 
     li:first-child {
@@ -127,6 +139,29 @@ div.popover {
         background-color: #f3f3f3;
       }
     }
+  }
+}
+
+#new_content_button {
+  right: 20px;
+
+  .drop-top {
+    margin-left: 80px;
+    padding-right: 25px;
+  }
+  
+  a i {
+    font-size: 18px; 
+    padding-right: 10px;
+  }
+  
+  li {
+    padding: 0;
+  }
+  
+  
+  li.header {
+    padding: 10px;
   }
 }
 

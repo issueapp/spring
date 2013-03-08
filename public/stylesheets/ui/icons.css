@@ -13,6 +13,8 @@
   content: attr(data-icon);
   speak: none;
   font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
   line-height: 1;
   -webkit-font-smoothing: antialiased;
 }
@@ -23,232 +25,239 @@ Instead of a list of all class selectors,
 you can use the generic selector below, but it's slower:
 [class*="icon-"]:before {
 */
-/* line 28, ../../../stylesheets/ui/icons.scss */
-.icon-export:before, .icon-heart:before, .icon-earth:before, .icon-docs:before, .icon-twitter:before, .icon-facebook:before, .icon-googleplus:before, .icon-pinterest:before, .icon-camera:before, .icon-link:before, .icon-comment:before, .icon-cog:before, .icon-arrow-left:before, .icon-arrow-right:before, .icon-arrow-left-2:before, .icon-arrow-right-2:before, .icon-pictures:before, .icon-video:before, .icon-music:before, .icon-plus:before, .icon-minus:before, .icon-shop:before, .icon-book:before, .icon-ccw:before, .icon-info:before, .icon-question:before, .icon-user:before, .icon-tag:before, .icon-search:before, .icon-stackoverflow:before, .icon-stream:before, .icon-play:before, .icon-gauge:before, .icon-eye:before, .icon-statistics:before, .icon-brush:before, .icon-archive:before, .icon-plus-2:before, .icon-cross:before, .icon-grid:before, .icon-list:before, .icon-rss:before, .icon-profile:before, .icon-off:before {
+/* line 30, ../../../stylesheets/ui/icons.scss */
+.icon-export:before, .icon-heart:before, .icon-earth:before, .icon-docs:before, .icon-twitter:before, .icon-facebook:before, .icon-googleplus:before, .icon-pinterest:before, .icon-camera:before, .icon-link:before, .icon-comment:before, .icon-cog:before, .icon-arrow-left:before, .icon-arrow-right:before, .icon-arrow-left-2:before, .icon-arrow-right-2:before, .icon-pictures:before, .icon-video:before, .icon-music:before, .icon-plus:before, .icon-minus:before, .icon-shop:before, .icon-book:before, .icon-ccw:before, .icon-info:before, .icon-question:before, .icon-user:before, .icon-tag:before, .icon-search:before, .icon-stackoverflow:before, .icon-stream:before, .icon-play:before, .icon-gauge:before, .icon-eye:before, .icon-statistics:before, .icon-brush:before, .icon-archive:before, .icon-plus-2:before, .icon-cross:before, .icon-grid:before, .icon-list:before, .icon-rss:before, .icon-profile:before, .icon-off:before, .icon-edit:before {
   font-family: 'issue-icons';
   speak: none;
   font-style: normal;
   font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
   line-height: 1;
   -webkit-font-smoothing: antialiased;
 }
 
-/* line 36, ../../../stylesheets/ui/icons.scss */
+/* line 40, ../../../stylesheets/ui/icons.scss */
 .icon-export:before {
   content: "\e000";
 }
 
-/* line 39, ../../../stylesheets/ui/icons.scss */
+/* line 43, ../../../stylesheets/ui/icons.scss */
 .icon-heart:before {
   content: "\e001";
 }
 
-/* line 42, ../../../stylesheets/ui/icons.scss */
+/* line 46, ../../../stylesheets/ui/icons.scss */
 .icon-earth:before {
   content: "\e002";
 }
 
-/* line 45, ../../../stylesheets/ui/icons.scss */
+/* line 49, ../../../stylesheets/ui/icons.scss */
 .icon-docs:before {
   content: "\e004";
 }
 
-/* line 48, ../../../stylesheets/ui/icons.scss */
+/* line 52, ../../../stylesheets/ui/icons.scss */
 .icon-twitter:before {
   content: "\e007";
 }
 
-/* line 51, ../../../stylesheets/ui/icons.scss */
+/* line 55, ../../../stylesheets/ui/icons.scss */
 .icon-facebook:before {
   content: "\e008";
 }
 
-/* line 54, ../../../stylesheets/ui/icons.scss */
+/* line 58, ../../../stylesheets/ui/icons.scss */
 .icon-googleplus:before {
   content: "\e005";
 }
 
-/* line 57, ../../../stylesheets/ui/icons.scss */
+/* line 61, ../../../stylesheets/ui/icons.scss */
 .icon-pinterest:before {
   content: "\e009";
 }
 
-/* line 60, ../../../stylesheets/ui/icons.scss */
+/* line 64, ../../../stylesheets/ui/icons.scss */
 .icon-camera:before {
   content: "\e006";
 }
 
-/* line 63, ../../../stylesheets/ui/icons.scss */
+/* line 67, ../../../stylesheets/ui/icons.scss */
 .icon-link:before {
   content: "\e00a";
 }
 
-/* line 66, ../../../stylesheets/ui/icons.scss */
+/* line 70, ../../../stylesheets/ui/icons.scss */
 .icon-comment:before {
   content: "\e00b";
 }
 
-/* line 69, ../../../stylesheets/ui/icons.scss */
+/* line 73, ../../../stylesheets/ui/icons.scss */
 .icon-cog:before {
   content: "\e00c";
 }
 
-/* line 72, ../../../stylesheets/ui/icons.scss */
+/* line 76, ../../../stylesheets/ui/icons.scss */
 .icon-arrow-left:before {
   content: "\e00d";
 }
 
-/* line 75, ../../../stylesheets/ui/icons.scss */
+/* line 79, ../../../stylesheets/ui/icons.scss */
 .icon-arrow-right:before {
   content: "\e00e";
 }
 
-/* line 78, ../../../stylesheets/ui/icons.scss */
+/* line 82, ../../../stylesheets/ui/icons.scss */
 .icon-arrow-left-2:before {
   content: "\e00f";
 }
 
-/* line 81, ../../../stylesheets/ui/icons.scss */
+/* line 85, ../../../stylesheets/ui/icons.scss */
 .icon-arrow-right-2:before {
   content: "\e010";
 }
 
-/* line 84, ../../../stylesheets/ui/icons.scss */
+/* line 88, ../../../stylesheets/ui/icons.scss */
 .icon-pictures:before {
   content: "\e011";
 }
 
-/* line 87, ../../../stylesheets/ui/icons.scss */
+/* line 91, ../../../stylesheets/ui/icons.scss */
 .icon-video:before {
   content: "\e012";
 }
 
-/* line 90, ../../../stylesheets/ui/icons.scss */
+/* line 94, ../../../stylesheets/ui/icons.scss */
 .icon-music:before {
   content: "\e013";
 }
 
-/* line 93, ../../../stylesheets/ui/icons.scss */
+/* line 97, ../../../stylesheets/ui/icons.scss */
 .icon-plus:before {
   content: "\e015";
 }
 
-/* line 96, ../../../stylesheets/ui/icons.scss */
+/* line 100, ../../../stylesheets/ui/icons.scss */
 .icon-minus:before {
   content: "\e016";
 }
 
-/* line 99, ../../../stylesheets/ui/icons.scss */
+/* line 103, ../../../stylesheets/ui/icons.scss */
 .icon-shop:before {
   content: "\e01b";
 }
 
-/* line 102, ../../../stylesheets/ui/icons.scss */
+/* line 106, ../../../stylesheets/ui/icons.scss */
 .icon-book:before {
   content: "\e01c";
 }
 
-/* line 105, ../../../stylesheets/ui/icons.scss */
+/* line 109, ../../../stylesheets/ui/icons.scss */
 .icon-ccw:before {
   content: "\e01e";
 }
 
-/* line 108, ../../../stylesheets/ui/icons.scss */
+/* line 112, ../../../stylesheets/ui/icons.scss */
 .icon-info:before {
   content: "\e01f";
 }
 
-/* line 111, ../../../stylesheets/ui/icons.scss */
+/* line 115, ../../../stylesheets/ui/icons.scss */
 .icon-question:before {
   content: "\e020";
 }
 
-/* line 114, ../../../stylesheets/ui/icons.scss */
+/* line 118, ../../../stylesheets/ui/icons.scss */
 .icon-user:before {
   content: "\e02a";
 }
 
-/* line 117, ../../../stylesheets/ui/icons.scss */
+/* line 121, ../../../stylesheets/ui/icons.scss */
 .icon-tag:before {
   content: "\e018";
 }
 
-/* line 120, ../../../stylesheets/ui/icons.scss */
+/* line 124, ../../../stylesheets/ui/icons.scss */
 .icon-search:before {
   content: "\e019";
 }
 
-/* line 123, ../../../stylesheets/ui/icons.scss */
+/* line 127, ../../../stylesheets/ui/icons.scss */
 .icon-stackoverflow:before {
   content: "\e01a";
 }
 
-/* line 126, ../../../stylesheets/ui/icons.scss */
+/* line 130, ../../../stylesheets/ui/icons.scss */
 .icon-stream:before {
   content: "\e021";
 }
 
-/* line 129, ../../../stylesheets/ui/icons.scss */
+/* line 133, ../../../stylesheets/ui/icons.scss */
 .icon-play:before {
   content: "\e022";
 }
 
-/* line 132, ../../../stylesheets/ui/icons.scss */
+/* line 136, ../../../stylesheets/ui/icons.scss */
 .icon-gauge:before {
   content: "\e023";
 }
 
-/* line 135, ../../../stylesheets/ui/icons.scss */
+/* line 139, ../../../stylesheets/ui/icons.scss */
 .icon-eye:before {
   content: "\e024";
 }
 
-/* line 138, ../../../stylesheets/ui/icons.scss */
+/* line 142, ../../../stylesheets/ui/icons.scss */
 .icon-statistics:before {
   content: "\e025";
 }
 
-/* line 141, ../../../stylesheets/ui/icons.scss */
+/* line 145, ../../../stylesheets/ui/icons.scss */
 .icon-brush:before {
   content: "\e026";
 }
 
-/* line 144, ../../../stylesheets/ui/icons.scss */
+/* line 148, ../../../stylesheets/ui/icons.scss */
 .icon-archive:before {
   content: "\e027";
 }
 
-/* line 147, ../../../stylesheets/ui/icons.scss */
+/* line 151, ../../../stylesheets/ui/icons.scss */
 .icon-plus-2:before {
   content: "\e028";
 }
 
-/* line 150, ../../../stylesheets/ui/icons.scss */
+/* line 154, ../../../stylesheets/ui/icons.scss */
 .icon-cross:before {
   content: "\e029";
 }
 
-/* line 153, ../../../stylesheets/ui/icons.scss */
+/* line 157, ../../../stylesheets/ui/icons.scss */
 .icon-grid:before {
   content: "\f009";
 }
 
-/* line 156, ../../../stylesheets/ui/icons.scss */
+/* line 160, ../../../stylesheets/ui/icons.scss */
 .icon-list:before {
   content: "\f0c9";
 }
 
-/* line 159, ../../../stylesheets/ui/icons.scss */
+/* line 163, ../../../stylesheets/ui/icons.scss */
 .icon-rss:before {
   content: "\e014";
 }
 
-/* line 162, ../../../stylesheets/ui/icons.scss */
+/* line 166, ../../../stylesheets/ui/icons.scss */
 .icon-profile:before {
   content: "\e003";
 }
 
-/* line 165, ../../../stylesheets/ui/icons.scss */
+/* line 169, ../../../stylesheets/ui/icons.scss */
 .icon-off:before {
   content: "\f011";
+}
+
+/* line 172, ../../../stylesheets/ui/icons.scss */
+.icon-edit:before {
+  content: "\f044";
 }
