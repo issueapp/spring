@@ -1,10 +1,26 @@
 <%= render "nav" %>
-
 <div id="sidebar">
   <header class="toolbar">
     <!-- <a href="#" class="back"></a> -->
     <h3 class="title">Stream</h3>
-    <a href="/app/admin/edit" class="plus right"></a>
+    
+    <div class="popover-wrap">
+      <a href="#new_content_button" class="plus open-target right" rel="popover"></a>
+    
+      <div class="popover" id="new_content_button" style="display:none">
+        <div class="drop-wrapper">
+          <span class="drop-top"></span>
+          <ul class="popover-list">
+            <li class="header"><span>New post</span></li>
+            <li><a class="active"  href="#"><i class="icon-edit"> </i >Article</a></li>
+            <li><a class="active" href="#"><i class="icon-tag"> </i> Product</a></li>
+
+            <li><a class="active"  href="#"><i class="icon-pictures"> </i> Photo</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
   </header>
   
   <div class="filter-container">
@@ -19,7 +35,7 @@
   
   <nav class="nav">
     <ul>
-      <li class="item">
+      <li class="item product">
         <a href="#">
           <h3 class="title">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit
@@ -45,7 +61,7 @@
         </div>
       </li>
 
-      <li class="item">
+      <li class="item article">
         <a href="#">        
           <h3 class="title">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
@@ -70,7 +86,7 @@
         </div>
       </li>
 
-      <li class="item">
+      <li class="item article">
         <a href="#">
           <h3 class="title">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit
@@ -176,7 +192,6 @@
     </ul>
   </nav>
 </div>
-
 <div role="main" style="">
   <header class="toolbar">
     <h3 class="title">Content</h3>
@@ -217,3 +232,6 @@
 
   </div>
 </div>
+
+
+

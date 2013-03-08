@@ -3,6 +3,8 @@
 
 @import 'compass/utilities/general/clearfix';
 
+@import "application";
+
 [role=main] {
   @include box-sizing(border-box);
   position: relative;
@@ -49,7 +51,7 @@
   & > a { 
     @include clearfix;
     display: block;
-    padding: 10px 20px;
+    padding: 10px 10px 10px 30px;
     color: #333;
 
   }
@@ -58,11 +60,36 @@
     background: #fff;
   }
   
+    
+  &.item {
+    &:before {
+      font-size: 18px;
+      color: #ccc;
+      position: absolute;
+      top: 50%;
+      margin-top: -10px;
+      left: 5px;
+    }
+  }
+  
+  &.product {
+    @extend .icon-tag;    
+  }
+  
+  &.article {
+    @extend .icon-edit;
+  }
+  
+  &.photo {
+    @extend .icon-photo;
+  }
+  
   &.item {
     display: block;
     font-size: 13px;
     border-bottom: 1px solid #eee;
     position :relative;
+
     
     // Images
     figure {
@@ -114,10 +141,11 @@
     }
   }
   
-  &.item:hover, .item.hover{
+  &.item:hover {
     .button {
       opacity: 1;
-    } 
+    }
+    
   }
 }
 
