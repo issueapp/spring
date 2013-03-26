@@ -707,21 +707,26 @@ h3 {
 }
 
 /* line 97, ../../stylesheets/base/typography.scss */
-h4 {
-  text-transform: uppercase;
+h4, h5, h6 {
+  font-family: "proxima_nova_regular";
+  margin-bottom: 0.75em;
+  font-size: 14px;
+  font-size: 0.875em;
+  font-size: 1.4rem;
+  line-height: 1.3;
 }
 
-/* line 101, ../../stylesheets/base/typography.scss */
+/* line 107, ../../stylesheets/base/typography.scss */
 .content-body {
   max-width: 50em;
   margin: 0 auto;
 }
-/* line 105, ../../stylesheets/base/typography.scss */
+/* line 111, ../../stylesheets/base/typography.scss */
 .content-body p {
   margin: 0 auto 1.5em;
 }
 
-/* line 111, ../../stylesheets/base/typography.scss */
+/* line 117, ../../stylesheets/base/typography.scss */
 .subtitle {
   font-family: georgia;
   font-style: italic;
@@ -733,39 +738,39 @@ h4 {
 /* =======================================================
         Links
    =======================================================*/
-/* line 123, ../../stylesheets/base/typography.scss */
+/* line 129, ../../stylesheets/base/typography.scss */
 a {
   color: #4a90a6;
   text-decoration: none;
 }
-/* line 127, ../../stylesheets/base/typography.scss */
+/* line 133, ../../stylesheets/base/typography.scss */
 a:visited {
   color: #333;
 }
 
-/* line 132, ../../stylesheets/base/typography.scss */
+/* line 138, ../../stylesheets/base/typography.scss */
 .toolbar, a {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-/* line 135, ../../stylesheets/base/typography.scss */
+/* line 141, ../../stylesheets/base/typography.scss */
 a, a:active, a:visited {
   color: #666;
   text-decoration: none;
 }
 
-/* line 140, ../../stylesheets/base/typography.scss */
+/* line 146, ../../stylesheets/base/typography.scss */
 a:hover {
   color: #f04500;
 }
 
-/* line 144, ../../stylesheets/base/typography.scss */
+/* line 150, ../../stylesheets/base/typography.scss */
 a.large {
   font-size: 18px;
   text-transform: uppercase;
 }
 
-/* line 149, ../../stylesheets/base/typography.scss */
+/* line 155, ../../stylesheets/base/typography.scss */
 p.center {
   text-align: center;
 }
@@ -773,7 +778,7 @@ p.center {
 /*======================================================
       Helpers
   ======================================================*/
-/* line 159, ../../stylesheets/base/typography.scss */
+/* line 165, ../../stylesheets/base/typography.scss */
 .text-centered {
   text-align: center;
 }
@@ -782,7 +787,7 @@ p.center {
       Responsive (larger screen)
   ====*/
 @media screen and (min-width: 768px) {
-  /* line 171, ../../stylesheets/base/typography.scss */
+  /* line 177, ../../stylesheets/base/typography.scss */
   h1 {
     font-size: 30px;
     font-size: 1.875em;
@@ -790,7 +795,7 @@ p.center {
     line-height: 1.2;
   }
 
-  /* line 179, ../../stylesheets/base/typography.scss */
+  /* line 185, ../../stylesheets/base/typography.scss */
   h2 {
     font-size: 24px;
     font-size: 1.5em;
@@ -798,7 +803,7 @@ p.center {
     line-height: 1.2;
   }
 
-  /* line 186, ../../stylesheets/base/typography.scss */
+  /* line 192, ../../stylesheets/base/typography.scss */
   h3 {
     font-size: 18px;
     font-size: 1.115em;
@@ -2380,6 +2385,9 @@ div.popover ul.popover-list li:first-child {
 */
 /* line 33, ../../stylesheets/app/item.scss */
 .page {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   /*
 
         Product Styles
@@ -2389,41 +2397,41 @@ div.popover ul.popover-list li:first-child {
       Product split view
   */
 }
-/* line 35, ../../stylesheets/app/item.scss */
+/* line 36, ../../stylesheets/app/item.scss */
 .page .half, .page .third, .page .third-2 {
   width: 100%;
 }
 @media screen and (min-width: 768px) {
-  /* line 41, ../../stylesheets/app/item.scss */
+  /* line 42, ../../stylesheets/app/item.scss */
   .page .col.full, .page .item.full {
     width: 100%;
   }
-  /* line 43, ../../stylesheets/app/item.scss */
+  /* line 44, ../../stylesheets/app/item.scss */
   .page .col.half, .page .item.half {
     width: 48%;
   }
-  /* line 44, ../../stylesheets/app/item.scss */
+  /* line 45, ../../stylesheets/app/item.scss */
   .page .col.third, .page .item.third {
     width: 31.333%;
   }
-  /* line 45, ../../stylesheets/app/item.scss */
+  /* line 46, ../../stylesheets/app/item.scss */
   .page .col.third-2, .page .item.third-2 {
     width: 64.667%;
   }
-  /* line 47, ../../stylesheets/app/item.scss */
+  /* line 48, ../../stylesheets/app/item.scss */
   .page .col.fourty, .page .item.fourty {
     width: 39%;
   }
-  /* line 48, ../../stylesheets/app/item.scss */
+  /* line 49, ../../stylesheets/app/item.scss */
   .page .col.sixty, .page .item.sixty {
     width: 59%;
   }
-  /* line 50, ../../stylesheets/app/item.scss */
+  /* line 51, ../../stylesheets/app/item.scss */
   .page .col:last-child, .page .item:last-child {
     margin-right: 0;
   }
 }
-/* line 54, ../../stylesheets/app/item.scss */
+/* line 55, ../../stylesheets/app/item.scss */
 .page .item {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -2434,20 +2442,21 @@ div.popover ul.popover-list li:first-child {
   overflow: hidden;
   height: 100%;
   padding: 20px;
+  -webkit-hyphens: auto;
 }
-/* line 72, ../../stylesheets/app/item.scss */
+/* line 74, ../../stylesheets/app/item.scss */
 .page .item .image {
   height: 60%;
   background-size: cover;
   background-position: center;
   min-height: 350px;
 }
-/* line 79, ../../stylesheets/app/item.scss */
+/* line 81, ../../stylesheets/app/item.scss */
 .page .item .link {
   cursor: pointer;
   color: #222;
 }
-/* line 86, ../../stylesheets/app/item.scss */
+/* line 88, ../../stylesheets/app/item.scss */
 .page .item .info {
   position: absolute;
   bottom: 0;
@@ -2462,24 +2471,30 @@ div.popover ul.popover-list li:first-child {
   padding: 1.25em 0 1.25em;
   color: #333;
 }
-/* line 105, ../../stylesheets/app/item.scss */
+/* line 107, ../../stylesheets/app/item.scss */
 .page .item .description {
   font-size: 13px;
   margin: 0.5em 0 0.5em;
-  max-height: 62px;
+  line-height: 1.5;
+  max-height: 5em;
   color: #777;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
 }
-/* line 113, ../../stylesheets/app/item.scss */
+/* line 121, ../../stylesheets/app/item.scss */
 .page .item .via {
   font-size: 12px;
   color: #999;
 }
-/* line 117, ../../stylesheets/app/item.scss */
+/* line 125, ../../stylesheets/app/item.scss */
 .page .item .via img {
   vertical-align: middle;
   margin-right: 5px;
 }
-/* line 123, ../../stylesheets/app/item.scss */
+/* line 131, ../../stylesheets/app/item.scss */
 .page .item .title {
   /*    Style   */
   position: relative;
@@ -2494,59 +2509,57 @@ div.popover ul.popover-list li:first-child {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-/* line 143, ../../stylesheets/app/item.scss */
+/* line 151, ../../stylesheets/app/item.scss */
 .page .row .item:last-child {
   border-right: 0;
 }
-/* line 148, ../../stylesheets/app/item.scss */
-.page .row .item:first-child {
-  border-right-width: 1px;
-  border-right-color: #EEE;
-  border-right-style: solid;
-}
-/* line 154, ../../stylesheets/app/item.scss */
+/* line 162, ../../stylesheets/app/item.scss */
 .page .row .col:first-child .product.item .price {
   margin-bottom: 43px;
 }
-/* line 165, ../../stylesheets/app/item.scss */
+/* line 173, ../../stylesheets/app/item.scss */
 .page .product .overlay, .page .no-description .overlay {
   height: 90%;
 }
-/* line 169, ../../stylesheets/app/item.scss */
+/* line 177, ../../stylesheets/app/item.scss */
 .page .product .image, .page .no-description .image {
   display: block;
   height: 90%;
 }
-/* line 184, ../../stylesheets/app/item.scss */
+/* line 188, ../../stylesheets/app/item.scss */
 .page .no-image .title {
-  font-size: 200%;
+  font-size: 150%;
   overflow: hidden;
   text-overflow: ellipsis;
-  -webkit-line-clamp: 3 !important;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  -webkit-line-clamp: 2 !important;
+  white-space: normal;
 }
-/* line 191, ../../stylesheets/app/item.scss */
+/* line 198, ../../stylesheets/app/item.scss */
 .page .no-image .overlay {
   height: 100%;
 }
-/* line 195, ../../stylesheets/app/item.scss */
+/* line 202, ../../stylesheets/app/item.scss */
 .page .no-image .image {
   display: none;
 }
-/* line 199, ../../stylesheets/app/item.scss */
+/* line 206, ../../stylesheets/app/item.scss */
+.page .no-image .info {
+  position: relative;
+  left: 0;
+  height: 100%;
+}
+/* line 212, ../../stylesheets/app/item.scss */
 .page .no-image .description {
   font-weight: 200;
   font-size: 150%;
-  max-height: none;
+  max-height: 30%;
+  -webkit-line-clamp: 5 !important;
   visibility: visible !important;
   display: block;
-  -webkit-line-clamp: 8 !important;
-  height: 10em !important;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
 }
-/* line 218, ../../stylesheets/app/item.scss */
+/* line 226, ../../stylesheets/app/item.scss */
 .page .product .price {
   display: block;
   position: absolute;
@@ -2561,7 +2574,7 @@ div.popover ul.popover-list li:first-child {
   background: rgba(0, 0, 0, 0.8);
   color: white;
 }
-/* line 239, ../../stylesheets/app/item.scss */
+/* line 247, ../../stylesheets/app/item.scss */
 .page .product .price:before {
   position: absolute;
   left: 50%;
@@ -2574,11 +2587,11 @@ div.popover ul.popover-list li:first-child {
   border-width: 7px;
   border-top-color: rgba(0, 0, 0, 0.8);
 }
-/* line 253, ../../stylesheets/app/item.scss */
+/* line 261, ../../stylesheets/app/item.scss */
 .page .product .description {
   display: none;
 }
-/* line 258, ../../stylesheets/app/item.scss */
+/* line 266, ../../stylesheets/app/item.scss */
 .page .product .counters {
   color: #DF5454;
   font-size: 14px;
@@ -2588,15 +2601,19 @@ div.popover ul.popover-list li:first-child {
   z-index: 1;
   line-height: 12px;
 }
-/* line 273, ../../stylesheets/app/item.scss */
+/* line 281, ../../stylesheets/app/item.scss */
 .page .item.split .overlay {
   height: 100%;
 }
-/* line 277, ../../stylesheets/app/item.scss */
+/* line 285, ../../stylesheets/app/item.scss */
 .page .item.split a.action.love, .page .item.split a.action.collect {
   top: 50%;
 }
-/* line 281, ../../stylesheets/app/item.scss */
+/* line 289, ../../stylesheets/app/item.scss */
+.page .item.split .description {
+  -webkit-line-clamp: 5 !important;
+}
+/* line 293, ../../stylesheets/app/item.scss */
 .page .item.split .image {
   overflow: hidden;
   display: inline-block;
@@ -2606,7 +2623,7 @@ div.popover ul.popover-list li:first-child {
   top: initial;
   vertical-align: middle;
 }
-/* line 291, ../../stylesheets/app/item.scss */
+/* line 303, ../../stylesheets/app/item.scss */
 .page .item.split .info:before {
   position: absolute;
   bottom: 60%;
@@ -2619,19 +2636,18 @@ div.popover ul.popover-list li:first-child {
   border-width: 10px;
   border-right-color: #fff;
 }
-/* line 304, ../../stylesheets/app/item.scss */
+/* line 316, ../../stylesheets/app/item.scss */
 .page .item.split .info {
   margin: 0;
   width: 49%;
   height: auto;
-  vertical-align: middle;
-  padding: 10% 2% 0;
-  position: relative;
-  height: 100%;
+  padding: 10% 2% 31px;
   font-weight: 200;
   left: auto;
+  top: 20px;
+  bottom: 0;
 }
-/* line 314, ../../stylesheets/app/item.scss */
+/* line 326, ../../stylesheets/app/item.scss */
 .page .item.split .info > p {
   font-size: 150%;
   visibility: visible;
@@ -2639,10 +2655,10 @@ div.popover ul.popover-list li:first-child {
   max-height: inherit;
   text-overflow: ellipsis;
 }
-/* line 334, ../../stylesheets/app/item.scss */
+/* line 346, ../../stylesheets/app/item.scss */
 .page .item.split .via {
   position: absolute;
-  bottom: 0;
+  bottom: 20px;
   left: 10px;
 }
 
@@ -2665,21 +2681,21 @@ body.dark-theme .toolbar, body.dark-container .toolbar {
 body.dark-theme .toolbar .title, body.dark-container .toolbar .title {
   color: white;
 }
-/* line 20, ../../stylesheets/app/page.scss */
+/* line 19, ../../stylesheets/app/page.scss */
 body.dark-theme .toolbar a, body.dark-container .toolbar a {
   color: white;
 }
 
-/* line 25, ../../stylesheets/app/page.scss */
+/* line 24, ../../stylesheets/app/page.scss */
 .page.dark.full {
   color: white;
 }
-/* line 28, ../../stylesheets/app/page.scss */
+/* line 26, ../../stylesheets/app/page.scss */
 .page.dark.full .left-content {
   background: rgba(0, 0, 0, 0.7);
 }
 
-/* line 34, ../../stylesheets/app/page.scss */
+/* line 32, ../../stylesheets/app/page.scss */
 .page.full .left-content {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -2689,19 +2705,18 @@ body.dark-theme .toolbar a, body.dark-container .toolbar a {
   background: rgba(255, 255, 255, 0.7);
 }
 
-/* line 42, ../../stylesheets/app/page.scss */
+/* line 40, ../../stylesheets/app/page.scss */
 body .page {
   margin: 0 0 0;
   max-height: 100%;
-  padding-top: 70px;
-  font-size: 14px;
+  padding-top: 50px;
 }
-/* line 49, ../../stylesheets/app/page.scss */
+/* line 45, ../../stylesheets/app/page.scss */
 body .page .row:last-child {
   margin-bottom: 0;
 }
 
-/* line 61, ../../stylesheets/app/page.scss */
+/* line 54, ../../stylesheets/app/page.scss */
 article.page blockquote {
   font-family: Georgia, serif;
   font-size: 18px;
@@ -2712,7 +2727,7 @@ article.page blockquote {
   line-height: 1.45;
   position: relative;
 }
-/* line 72, ../../stylesheets/app/page.scss */
+/* line 65, ../../stylesheets/app/page.scss */
 article.page blockquote:before {
   display: block;
   content: "\201C";
@@ -2722,18 +2737,18 @@ article.page blockquote:before {
   top: -20px;
   color: #7a7a7a;
 }
-/* line 82, ../../stylesheets/app/page.scss */
+/* line 75, ../../stylesheets/app/page.scss */
 article.page blockquote cite {
   color: #999999;
   font-size: 14px;
   display: block;
   margin-top: 5px;
 }
-/* line 88, ../../stylesheets/app/page.scss */
+/* line 81, ../../stylesheets/app/page.scss */
 article.page blockquote cite:before {
   content: "\2014 \2009";
 }
-/* line 93, ../../stylesheets/app/page.scss */
+/* line 86, ../../stylesheets/app/page.scss */
 article.page .image.cover {
   position: relative;
   height: 200%;
@@ -2741,55 +2756,139 @@ article.page .image.cover {
   top: -50%;
   left: -50%;
 }
-/* line 101, ../../stylesheets/app/page.scss */
+/* line 94, ../../stylesheets/app/page.scss */
 article.page .price, article.page .store {
   display: inline-block;
 }
-/* line 105, ../../stylesheets/app/page.scss */
+/* line 98, ../../stylesheets/app/page.scss */
 article.page .price {
   float: left;
   line-height: 37px;
 }
-/* line 110, ../../stylesheets/app/page.scss */
+/* line 103, ../../stylesheets/app/page.scss */
 article.page .button.store {
   margin-bottom: 1em;
   display: block;
   float: right;
   margin: 0;
 }
-/* line 117, ../../stylesheets/app/page.scss */
+/* line 110, ../../stylesheets/app/page.scss */
 article.page .description {
   display: block;
   clear: both;
 }
+/* line 115, ../../stylesheets/app/page.scss */
+article.page footer {
+  float: none;
+  margin: 1em auto !important;
+}
+
+/* line 121, ../../stylesheets/app/page.scss */
+.content.page {
+  overflow: auto;
+  font: 16px/22px "proxima_nova_regular";
+  line-height: 1.6;
+}
+/* line 126, ../../stylesheets/app/page.scss */
+.content.page header {
+  margin: 0 0 18px;
+  padding-bottom: 15px;
+  text-align: center;
+}
+/* line 133, ../../stylesheets/app/page.scss */
+.content.page .title {
+  text-transform: uppercase;
+  font-size: 24px;
+  font-weight: normal;
+}
+/* line 140, ../../stylesheets/app/page.scss */
+.content.page .author, .content.page .published-at {
+  color: #333;
+  font-family: Georgia;
+  font-style: italic;
+}
+/* line 146, ../../stylesheets/app/page.scss */
+.content.page .body {
+  text-align: justify;
+  -webkit-hyphens: auto;
+}
+/* line 150, ../../stylesheets/app/page.scss */
+.content.page .body blockquote {
+  line-height: 1.45em;
+  margin: 2em 4em 1.5em;
+  position: relative;
+}
+/* line 156, ../../stylesheets/app/page.scss */
+.content.page .body blockquote:before {
+  display: block;
+  content: "\201C";
+  font-size: 80px;
+  position: absolute;
+  left: -40px;
+  top: 5px;
+  color: #ccc;
+}
+/* line 166, ../../stylesheets/app/page.scss */
+.content.page .body p {
+  margin: 1.5em 0 !important;
+}
+/* line 170, ../../stylesheets/app/page.scss */
+.content.page .body a[href] {
+  text-decoration: underline;
+}
+/* line 174, ../../stylesheets/app/page.scss */
+.content.page .body img {
+  box-sizing: border-box;
+  clear: both;
+  display: block;
+  float: none;
+  margin: 1em auto;
+  max-width: 100%;
+  height: auto;
+}
+/* line 184, ../../stylesheets/app/page.scss */
+.content.page .body ul li, .content.page .body ol li {
+  line-height: 1.6;
+}
+@media screen and (min-width: 768px) {
+  /* line 146, ../../stylesheets/app/page.scss */
+  .content.page .body {
+    width: 45em;
+    margin: 0 auto;
+  }
+}
+/* line 195, ../../stylesheets/app/page.scss */
+.content.page iframe {
+  width: 100% !important;
+}
 
 @media screen and (orientation: portrait) {
-  /* line 125, ../../stylesheets/app/page.scss */
+  /* line 203, ../../stylesheets/app/page.scss */
   article.page .col.half {
     height: 49%;
     width: 100%;
     background: white;
   }
-  /* line 130, ../../stylesheets/app/page.scss */
+  /* line 208, ../../stylesheets/app/page.scss */
   article.page .col.half .image {
     left: 25%;
     position: relative;
     width: 50%;
   }
-  /* line 136, ../../stylesheets/app/page.scss */
+  /* line 214, ../../stylesheets/app/page.scss */
   article.page .col.half .info {
     text-align: center;
   }
-  /* line 138, ../../stylesheets/app/page.scss */
+  /* line 216, ../../stylesheets/app/page.scss */
   article.page .col.half .info .store {
     margin: 0;
   }
-  /* line 142, ../../stylesheets/app/page.scss */
+  /* line 220, ../../stylesheets/app/page.scss */
   article.page .col.half .info .price {
     line-height: 37px;
     vertical-align: middle;
   }
-  /* line 147, ../../stylesheets/app/page.scss */
+  /* line 225, ../../stylesheets/app/page.scss */
   article.page .col.half .info p {
     margin-top: 10px;
     text-align: left;
@@ -3010,7 +3109,6 @@ body.expand-menu .navigation li.active:after {
 header.toolbar {
   height: 50px;
   z-index: 2;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   text-align: center;
   width: 100%;
   color: #333;

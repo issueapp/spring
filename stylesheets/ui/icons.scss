@@ -25,9 +25,9 @@
 /*
 Instead of a list of all class selectors,
 you can use the generic selector below, but it's slower:
-[class*="icon-"]:before {
+[class*="icon-"] {
 */
-.icon-export:before, .icon-heart:before, .icon-earth:before, .icon-docs:before, .icon-twitter:before, .icon-facebook:before, .icon-googleplus:before, .icon-pinterest:before, .icon-camera:before, .icon-link:before, .icon-comment:before, .icon-cog:before, .icon-arrow-left:before, .icon-arrow-right:before, .icon-arrow-left-2:before, .icon-arrow-right-2:before, .icon-pictures:before, .icon-video:before, .icon-music:before, .icon-plus:before, .icon-minus:before, .icon-shop:before, .icon-book:before, .icon-ccw:before, .icon-info:before, .icon-question:before, .icon-user:before, .icon-tag:before, .icon-search:before, .icon-stackoverflow:before, .icon-stream:before, .icon-play:before, .icon-gauge:before, .icon-eye:before, .icon-statistics:before, .icon-brush:before, .icon-archive:before, .icon-plus-2:before, .icon-cross:before, .icon-grid:before, .icon-list:before, .icon-rss:before, .icon-profile:before, .icon-off:before, .icon-edit:before {
+.icon-export, .icon-heart, .icon-earth, .icon-docs, .icon-twitter, .icon-facebook, .icon-link, .icon-comment, .icon-cog, .icon-arrow-left, .icon-arrow-right, .icon-pictures, .icon-music, .icon-shop, .icon-book, .icon-ccw, .icon-info, .icon-question, .icon-user, .icon-search, .icon-stream, .icon-play, .icon-gauge, .icon-eye, .icon-statistics, .icon-brush, .icon-archive, .icon-plus, .icon-cross, .icon-list, .icon-rss, .icon-profile, .icon-off, .icon-edit, .icon-minus, .icon-ellipsis, .icon-plus-2, .icon-arrow-left-2, .icon-arrow-right-2, .icon-grid, .icon-books, .icon-books-2, .icon-stack, .icon-play-2, .icon-menu, .icon-tag, .icon-cart, .icon-tshirt, .icon-checkmark-circle, .icon-clock {
 	font-family: 'issue-icons';
 	speak: none;
 	font-style: normal;
@@ -55,15 +55,6 @@ you can use the generic selector below, but it's slower:
 .icon-facebook:before {
 	content: "\e008";
 }
-.icon-googleplus:before {
-	content: "\e005";
-}
-.icon-pinterest:before {
-	content: "\e009";
-}
-.icon-camera:before {
-	content: "\e006";
-}
 .icon-link:before {
 	content: "\e00a";
 }
@@ -79,26 +70,11 @@ you can use the generic selector below, but it's slower:
 .icon-arrow-right:before {
 	content: "\e00e";
 }
-.icon-arrow-left-2:before {
-	content: "\e00f";
-}
-.icon-arrow-right-2:before {
-	content: "\e010";
-}
 .icon-pictures:before {
 	content: "\e011";
 }
-.icon-video:before {
-	content: "\e012";
-}
 .icon-music:before {
 	content: "\e013";
-}
-.icon-plus:before {
-	content: "\e015";
-}
-.icon-minus:before {
-	content: "\e016";
 }
 .icon-shop:before {
 	content: "\e01b";
@@ -118,14 +94,8 @@ you can use the generic selector below, but it's slower:
 .icon-user:before {
 	content: "\e02a";
 }
-.icon-tag:before {
-	content: "\e018";
-}
 .icon-search:before {
 	content: "\e019";
-}
-.icon-stackoverflow:before {
-	content: "\e01a";
 }
 .icon-stream:before {
 	content: "\e021";
@@ -148,14 +118,11 @@ you can use the generic selector below, but it's slower:
 .icon-archive:before {
 	content: "\e027";
 }
-.icon-plus-2:before {
+.icon-plus:before {
 	content: "\e028";
 }
 .icon-cross:before {
 	content: "\e029";
-}
-.icon-grid:before {
-	content: "\f009";
 }
 .icon-list:before {
 	content: "\f0c9";
@@ -172,3 +139,52 @@ you can use the generic selector below, but it's slower:
 .icon-edit:before {
 	content: "\f044";
 }
+.icon-minus:before {
+	content: "\f068";
+}
+.icon-ellipsis:before {
+	content: "\e005";
+}
+.icon-plus-2:before {
+	content: "\e009";
+}
+.icon-arrow-left-2:before {
+	content: "\e00f";
+}
+.icon-arrow-right-2:before {
+	content: "\e010";
+}
+.icon-grid:before {
+	content: "\e015";
+}
+.icon-books:before {
+	content: "\e016";
+}
+.icon-books-2:before {
+	content: "\e017";
+}
+.icon-stack:before {
+	content: "\e01d";
+}
+.icon-play-2:before {
+	content: "\e012";
+}
+.icon-menu:before {
+	content: "\e006";
+}
+.icon-tag:before {
+	content: "\e018";
+}
+.icon-cart:before {
+	content: "\e01a";
+}
+.icon-tshirt:before {
+	content: "\e02b";
+}
+.icon-checkmark-circle:before {
+	content: "\e02c";
+}
+.icon-clock:before {
+	content: "\e02d";
+}
+

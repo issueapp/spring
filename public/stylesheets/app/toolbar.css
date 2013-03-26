@@ -13,7 +13,6 @@
 header.toolbar {
   height: 50px;
   z-index: 2;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   text-align: center;
   width: 100%;
   color: #333;
