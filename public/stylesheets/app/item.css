@@ -1,23 +1,23 @@
 /*
 Syntax error: Undefined mixin 'min-screen'.
-        on line 39 of ./stylesheets/app/item.scss, in `min-screen'
-        from line 39 of ./stylesheets/app/item.scss
+        on line 40 of ./stylesheets/app/item.scss, in `min-screen'
+        from line 40 of ./stylesheets/app/item.scss
 
-34: 
-35:   .half, .third, .third-2 {
-36:     width: 100%;
-37:   }
-38: 
-39:   @include min-screen(768) {
-40:     .col, .item {
-41:       &.full { width: 100% }
-42: 
-43:       &.half { width: 48%; }
-44:       &.third { width: 31.333% }
+35:   
+36:   .half, .third, .third-2 {
+37:     width: 100%;
+38:   }
+39: 
+40:   @include min-screen(768) {
+41:     .col, .item {
+42:       &.full { width: 100% }
+43: 
+44:       &.half { width: 48%; }
+45:       &.third { width: 31.333% }
 
 Backtrace:
-./stylesheets/app/item.scss:39:in `min-screen'
-./stylesheets/app/item.scss:39
+./stylesheets/app/item.scss:40:in `min-screen'
+./stylesheets/app/item.scss:40
 /Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:251:in `visit_mixin'
 /Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:37:in `visit'
 /Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:98:in `visit'
@@ -66,4 +66,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined mixin 'min-screen'.\A         on line 39 of ./stylesheets/app/item.scss, in `min-screen'\A         from line 39 of ./stylesheets/app/item.scss\A \A 34: \A 35:   .half, .third, .third-2 {\A 36:     width: 100%;\A 37:   }\A 38: \A 39:   @include min-screen(768) {\A 40:     .col, .item {\A 41:       &.full { width: 100% }\A 42: \A 43:       &.half { width: 48%; }\A 44:       &.third { width: 31.333% }"; }
+  content: "Syntax error: Undefined mixin 'min-screen'.\A         on line 40 of ./stylesheets/app/item.scss, in `min-screen'\A         from line 40 of ./stylesheets/app/item.scss\A \A 35:   \A 36:   .half, .third, .third-2 {\A 37:     width: 100%;\A 38:   }\A 39: \A 40:   @include min-screen(768) {\A 41:     .col, .item {\A 42:       &.full { width: 100% }\A 43: \A 44:       &.half { width: 48%; }\A 45:       &.third { width: 31.333% }"; }
