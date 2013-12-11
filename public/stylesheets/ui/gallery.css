@@ -88,12 +88,12 @@
 #gallery .paginate .bullet {
   display: inline-block;
   margin: 20px;
-  border: solid #333333 4px;
+  border: solid #333 4px;
   border-radius: 5px;
 }
 /* line 87, ../../../stylesheets/ui/gallery.scss */
 #gallery .paginate .bullet.selected {
-  border: solid white 4px;
+  border: solid #fff 4px;
 }
 
 /* line 92, ../../../stylesheets/ui/gallery.scss */

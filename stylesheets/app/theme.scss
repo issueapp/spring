@@ -1,0 +1,23 @@
+/*
+    title font: BodoniSvtyTwo
+    Body font: EB Garamond
+
+*/
+.fashion-theme {
+  @import url(http://fonts.googleapis.com/css?family=EB+Garamond);
+  
+  font-family: "EB Garamond";  
+  font-size: 14px;
+  
+  .page {
+    font-family: "EB Garamond";
+    font-size: 16px;
+    
+  }
+
+  .page .title{
+    font-family: 'BodoniSvtyTwoITCTT-Book';
+    font-size: 36px;
+    letter-spacing: 1px;
+  }
+}

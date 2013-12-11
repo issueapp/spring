@@ -1,0 +1,102 @@
+<% 
+page = Hashie::Mash.new(
+  title: "SUMMER SURVIVAL GUIDE",
+  description: lorem_ipsum,
+  author_name: "Zyralyn Bacani",
+  has_image: true,
+  author_icon: "",
+  content_type: "article",
+  top_image: "http://31.media.tumblr.com/e8b9ca89ac00aaf1878b83d2ff5c9832/tumblr_mx3tsop3GI1st5lhmo1_1280.jpg",
+  published_at: 3.days.ago,
+  
+  content: <<-BLOCK,
+  <p>
+    I’m sure most of you can relate when I say that living in Australia makes you experience all four seasons in one day. From the switch to an intense winter to a scorching summer, it surely can’t be good for our skin or hair! Zyralyn from Issue tells you how to beat the heat this summer and give it the R&R that it deserves!
+  </p>
+
+  #{ 50.times.map{ "<p>#{lorem_ipsum(10)}</p>" }.join("") }
+BLOCK
+  
+  layout: params.fetch(:layout, {}).reverse_merge(
+    type: "three_column", 
+    image_align: "right",
+    image_style: "cover",
+  
+    content_overflow: "paginate"
+    )
+  )
+ %>
+
+<style>
+/*
+    Dynamic layout
+*/
+body {
+  background: #eee;
+}
+[role=main] .page { 
+  background: #fff;
+  width: 1024px;
+  height: 768px;
+}
+
+.two-column.paginate .body {
+  width: 1024px;
+}
+.two-column .top-image {
+  width: 512px;
+}
+</style>
+
+
+<% title_area = capture do %>
+  <hgroup>
+    <details>
+      <summary>Toggle Debug</summary>
+      <div class="debug">
+        <h3>Layout options</h3>
+        <ul>
+          <li>Cover image: <a href="?layout[image_align]=right">Align right</a> |  <a href="?layout[image_align]=left">Align left</a></li>
+          <li>Image style: <a href="?layout[image_style]=fit">Fit</a> | <a href="?layout[image_style]=cover">Cover</a></li>
+          <li>Content overflow: <a href="?layout[content_overflow]=scroll">scroll</a> | <a href="?layout[content_overflow]=paginate">paginate</a> </li>
+        </ul>
+        <pre><%=  page.layout.to_h %></pre>
+      </div>
+    </details>
+      
+    <h1 class="title preview_item_title"><%= page.title %></h1>
+
+    <div class="extras">
+      <img src="http://cl.ly/StPu/Image%202013.12.11%204%3A54%3A01%20pm.png" >
+      <em> by <%= page.author_name %></em>
+      <p><%= page.description %></p>
+    </div>
+  </hgroup>
+<% end %>
+
+<% cover_area = capture do %>
+  <div class="top-image <%= page.layout.image_style %>" style="background-image: url(<%= page.top_image %>)">
+</div>
+<% end %>
+
+<article class="three-column content page <%= page.layout.content_overflow %>">
+  
+  <% if page.layout.image_align == "right" %>
+    <section class="cover-area page">
+      <%= title_area %>
+      <%= cover_area if page.top_image %>
+    </section>
+  
+    <div class="body">
+      <%= page.content %>
+    </div>
+  
+  <% else %>
+    <%= cover_area if page.top_image %>
+
+    <div class="body">
+      <%= title_area %>
+      <%= page.content %>
+    </div>
+  <% end %>
+</article>

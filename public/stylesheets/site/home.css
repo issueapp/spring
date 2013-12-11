@@ -7,14 +7,13 @@
   padding-top: 3%;
   background-size: cover;
   background-repeat: no-repeat;
-  background-image: url('../../images/site/home-background.jpg?1362279060');
+  background-image: url('../../images/site/home-background.jpg?1362291986');
 }
 /* line 16, ../../../stylesheets/site/home.scss */
 #hero .logo {
   float: none;
-  margin-top: 5%;
 }
-/* line 21, ../../../stylesheets/site/home.scss */
+/* line 20, ../../../stylesheets/site/home.scss */
 #hero h2 {
   font-family: georgia;
   font-weight: normal;
@@ -25,20 +24,20 @@
   font-style: italic;
   text-transform: none;
 }
-/* line 33, ../../../stylesheets/site/home.scss */
+/* line 32, ../../../stylesheets/site/home.scss */
 #hero #ipad-screen {
   position: relative;
   top: -20px;
   left: -2%;
 }
-/* line 39, ../../../stylesheets/site/home.scss */
+/* line 38, ../../../stylesheets/site/home.scss */
 #hero .learn-more {
   font-size: 16px;
   font-weight: bold;
   text-transform: uppercase;
   margin-left: 20px;
 }
-/* line 46, ../../../stylesheets/site/home.scss */
+/* line 45, ../../../stylesheets/site/home.scss */
 #hero .more-arrow {
   position: absolute;
   left: 49%;
@@ -47,37 +46,37 @@
   height: 30px;
   display: block;
   margin: 0 auto;
-  background: url('../../images/icons-sprite.png?1362279060') no-repeat;
+  background: url('../../images/icons-sprite.png?1362291986') no-repeat;
 }
 
-/* line 58, ../../../stylesheets/site/home.scss */
+/* line 57, ../../../stylesheets/site/home.scss */
 section.tour {
   overflow: hidden;
   *zoom: 1;
   padding: 40px 0;
 }
-/* line 62, ../../../stylesheets/site/home.scss */
+/* line 61, ../../../stylesheets/site/home.scss */
 section.tour.odd {
   background: #f6f9f9;
 }
-/* line 64, ../../../stylesheets/site/home.scss */
+/* line 63, ../../../stylesheets/site/home.scss */
 section.tour h2 {
   text-transform: uppercase;
   letter-spacing: 2px;
   /*    margin: 0 0 0;*/
 }
-/* line 70, ../../../stylesheets/site/home.scss */
+/* line 69, ../../../stylesheets/site/home.scss */
 section.tour .subtitle {
   font: 16px Georgia;
   color: #555;
   font-style: italic;
   text-align: center;
 }
-/* line 77, ../../../stylesheets/site/home.scss */
+/* line 76, ../../../stylesheets/site/home.scss */
 section.tour figure {
   text-align: center;
 }
-/* line 81, ../../../stylesheets/site/home.scss */
+/* line 80, ../../../stylesheets/site/home.scss */
 section.tour .box {
   display: -moz-inline-stack;
   display: inline-block;
@@ -92,7 +91,7 @@ section.tour .box {
   height: 300px;
   margin: 0 2% 60px 0;
 }
-/* line 91, ../../../stylesheets/site/home.scss */
+/* line 90, ../../../stylesheets/site/home.scss */
 section.tour .box h3 {
   font-family: "proxima_nova_regular", "Helvetica Neue";
   letter-spacing: 2px;
@@ -108,7 +107,7 @@ section.tour .box h3 {
   visibility: visible;
   z-index: 2;
 }
-/* line 108, ../../../stylesheets/site/home.scss */
+/* line 107, ../../../stylesheets/site/home.scss */
 section.tour .box .hover {
   position: absolute;
   -webkit-box-sizing: border-box;
@@ -123,34 +122,34 @@ section.tour .box .hover {
   background: black;
   opacity: 0.8;
 }
-/* line 122, ../../../stylesheets/site/home.scss */
+/* line 121, ../../../stylesheets/site/home.scss */
 section.tour .box:hover h3 {
   /*        visibility: hidden;*/
 }
-/* line 125, ../../../stylesheets/site/home.scss */
+/* line 124, ../../../stylesheets/site/home.scss */
 section.tour .box:hover .hover {
   display: block;
 }
-/* line 131, ../../../stylesheets/site/home.scss */
+/* line 130, ../../../stylesheets/site/home.scss */
 section.tour .box.brand {
   background-size: cover;
-  background-image: url('../../images/site/tour-brand.png?1362279060');
+  background-image: url('../../images/site/tour-brand.png?1362291986');
 }
-/* line 136, ../../../stylesheets/site/home.scss */
+/* line 135, ../../../stylesheets/site/home.scss */
 section.tour .box.blogger {
   background-size: cover;
-  background-image: url('../../images/site/tour-blogger.png?1362279060');
+  background-image: url('../../images/site/tour-blogger.png?1362291986');
 }
 
 /* ====
 
 === */
 @media screen and (min-width: 768px) {
-  /* line 151, ../../../stylesheets/site/home.scss */
+  /* line 150, ../../../stylesheets/site/home.scss */
   section.tour.blogger .col:first-child {
     left: 50%;
   }
-  /* line 155, ../../../stylesheets/site/home.scss */
+  /* line 154, ../../../stylesheets/site/home.scss */
   section.tour.blogger .col:last-child {
     right: 50%;
   }
