@@ -1,0 +1,95 @@
+<%
+page = Hashie::Mash.new(
+  title: "Holiday Issue",
+  description: lorem_ipsum,
+  author_name: "Taylor Luk",
+  author_icon: "",
+  content_type: "photo",
+  top_image: "http://31.media.tumblr.com/e8b9ca89ac00aaf1878b83d2ff5c9832/tumblr_mx3tsop3GI1st5lhmo1_1280.jpg",
+  published_at: 3.days.ago,
+  
+  content: lorem_ipsum,
+  layout: params.fetch(:layout, {}).reverse_merge(
+    type: "toc", 
+    image_align: "left",
+    image_style: "background",
+    content_style: "black",
+    content_align: "left",
+    content_valign: "bottom",
+    content_overflow: "paginate"
+  )
+)
+%>
+<style>
+/*
+    Dynamic layout
+*/
+body {
+  background: #eee;
+}
+[role=main] .page { 
+  background: #fff;
+  width: 1024px;
+  height: 768px;
+}
+
+.two-column.paginate .body {
+  width: 1024px;
+}
+.two-column .top-image {
+  width: 512px;
+}
+</style>
+
+<% title_area = capture do %>
+  <hgroup>
+    <%= render 'debug', locals: { page: page } %>
+    <h1 class="title preview_item_title"><%= page.title %></h1>
+    <h3 class="subtitle description"><%= page.description %></h3>
+
+    <div class="extras">
+      <img src="http://cl.ly/StPu/Image%202013.12.11%204%3A54%3A01%20pm.png" >
+      <em> by <%= page.author_name %></em>
+      <p><%= page.description %></p>
+    </div>
+  </hgroup>
+<% end %>
+
+<% cover_area = capture do %>
+  <div class="top-image <%= page.layout.image_style %>" style="background-image: url(<%= page.top_image %>)">
+</div>
+<% end %>
+
+<article class="toc page <%= page.layout.content_overflow %>">
+  
+  <div class="col x8">
+    <% if page.layout.image_align == "right" %>
+      <section class="cover-area page">
+        <%= title_area %>
+        <%= cover_area if page.top_image %>
+      </section>
+  
+      <div class="body">
+        <%= page.content %>
+      </div>
+  
+    <% else %>
+      <%= cover_area if page.top_image %>
+
+      <div class="body">
+        <%= title_area %>
+        <%= page.content %>
+      </div>
+    <% end %>
+  </div>
+  
+  <div class="col x4">
+    <h3>Contents</h3>
+    <hr />
+    <ul>
+      <% issue_contents.each do |text, link| %>
+      <li><%= link_to text, link %></li>
+      <% end %>
+    </ul>
+  </div>
+</article>

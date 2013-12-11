@@ -19,20 +19,12 @@ class App.Layout extends Backbone.View
       body {
         height: #{dimension.height}px;
       }\n
-
+      
       .page {
         width: #{dimension.width}px;
         height: #{dimension.height}px;
       }\n
-
-      .landing {
-        width: #{dimension.width}px;
-      }\n
-
-      .landing .welcome {
-       width: #{dimension.width}px;
-      }
-      "
+    "
 
     style = document.createElement('style')
     style.type = 'text/css'

@@ -1,59 +1,27 @@
 @import "compass/css3/box-sizing";
-/*
-.cover {
-  position:relative;
-  height: 200%;
-  width: 200%;
-  top: -50%;
-  left: -50%;
-}
-
-.cover img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
-  min-width: 51%;
-  min-height: 50%;
-}
-*/
-/*.image.bottom {
-  background-position: bottom !important;
-}*/
 
 /*
     Item
 
     define layout and positioning of a rendering unit
+    
+    .item
+    .split              - Split view that has large image on the left
+    .no-image           - Item style without a image, this uses larger font
+    .no-description     - Increase image area without description
+    .product            - Product has a price tag
+
+
+    .admin .item        - Manage product items
+    .admin .published   - Show product that is published
+    .admin .archived    -
 
 */
-
 .page {
   @include box-sizing(border-box);
-  
-  .half, .third, .third-2 {
-    width: 100%;
-  }
-
-  @include min-screen(768) {
-    .col, .item {
-      &.full { width: 100% }
-
-      &.half { width: 48%; }
-      &.third { width: 31.333% }
-      &.third-2 { width: 64.667% }
-
-      &.fourty { width: 39% }
-      &.sixty { width: 59% }
-
-      &:last-child { margin-right: 0 }
-    }
-  }
 
   .item {
-
+    
     @include box-sizing(border-box);
     position: relative;
     float: left;
@@ -64,8 +32,8 @@
     padding: 20px;
     -webkit-hyphens: auto;
 
-//    border: 1px solid #eee;
-//    border-width: 0 1px 1px 0;
+    border: 1px solid #eee;
+    border-width: 0 1px 1px 0;
     
     //    300x280
     //    340x353
@@ -76,12 +44,38 @@
       background-size: cover;
       background-position: center;
       min-height: 350px;
+      
+      @include min-screen(768) {
+        min-height: inherit;
+      }
+    }
+
+    .fadein.image{
+      @include transition(opacity 0.15s);
+      opacity: 0.6;
+      background-image: none;
+      background-color: #eee;
+    }
+    
+    .fadein.image.hide {
+      visibility: hidden;
+    }
+    .fadein.shown.image {
+      visibility: visible;
+      background-color: none;
+      opacity: 1;
     }
 
     .link {
       cursor: pointer;
       color: #222;
-      // display: block;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      right: 20px;
+      bottom: 50px;
+      text-indent: -5000px;
+      z-index: 1;
     }
 
     // Info 40%
@@ -89,24 +83,23 @@
       position: absolute;
       bottom: 0;
       left: 20px;
-      right: 20px;
+      right:19px;
       background: #fff;
       
       // Layout
       @include box-sizing(border-box);
-
-      display: inline-block;
+      
 
       // Layout
       vertical-align: top;
-      padding: 1.25em 0 1.25em;
-
-      color: #333;
+      padding: 0.5em 0 0.5em;
+      font-size: 14px;
+      color: #444;
     }
 
     .description {
       font-size: 13px;
-      margin: 0.5em 0 0.5em;
+      margin: 0.5em 0 0em;
       line-height: 1.5;
       max-height: 5em;
       color: #777;
@@ -145,7 +138,27 @@
       overflow: hidden;
       text-overflow: ellipsis;
     }
+    
+    
+    
+    .admin & {
+      &:before {
+        content: " ";
+        border: 20px solid transparent;
+        position: absolute;
+        width: 0;
+        height: 0;
+        right: -2px;
+        top: -3px;
+        z-index: 1;
+        @include rotate(45deg);
+      }
 
+      &.published:before {
+        border-bottom: 20px solid lighten(#57ad68, 10%);
+      }
+    }
+  
   }
 
   .row .item:last-child {
@@ -163,6 +176,31 @@
     margin-bottom: 43px;
   }
 
+
+  /*
+  .cover {
+    position:relative;
+    height: 200%;
+    width: 200%;
+    top: -50%;
+    left: -50%;
+  }
+
+  .cover img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    min-width: 51%;
+    min-height: 50%;
+  }
+  */
+  /*.image.bottom {
+    background-position: bottom !important;
+  }*/
+
   /*
 
         Product Styles
@@ -171,12 +209,12 @@
   .product, .no-description {
 
     .overlay {
-      height: 90%;
+      height: 80%;
     }
 
     .image {
       display: block;
-      height: 90%;
+      height: 80%;
     }
     
     &.no-source {
@@ -184,19 +222,42 @@
     }
   }
   
- .no-image {
+  .no-description {
+    .description {
+      display: none;
+    }
+  }
+  
+  // Large style
+  
+  .large {
+    @include min-screen(768) {
+      .title {
+        font-size: 150%;
+        -webkit-line-clamp: 2 !important;
+      }
+
+      .description {
+        font-weight: 200;
+        font-size: 120%;
+        max-height: 30%;
+        -webkit-line-clamp: 5 !important;
+        white-space: normal;
+        max-height: inherit;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+  
+  .no-image {
+    @extend .large;
+    
     .title {
-      font-size: 150%;
       overflow : hidden;
       text-overflow: ellipsis;
       -webkit-box-orient: vertical;
       display: -webkit-box;
-      -webkit-line-clamp: 2 !important;
       white-space: normal;
-    }
-
-    .overlay {
-      height: 100%;
     }
 
     .image {
@@ -207,16 +268,7 @@
       position: relative;
 //      padding-top: 20%;
       left: 0;
-      height: 100%;
-    }
-    .description {
-      font-weight: 200;
-      font-size: 150%;
-      max-height: 30%;
-      -webkit-line-clamp: 5 !important;
-      
-      visibility: visible !important;
-      display: block;
+//      height: 100%;
     }
   }
 
@@ -278,57 +330,54 @@
       Product split view
   */
   .item.split {
-    .overlay {
-      height: 100%;
-    }
-
+    @extend .large;
+    
     a.action.love, a.action.collect {
       top: 50%;
     }
-    
-    .description {
-      -webkit-line-clamp: 5 !important;
-    }
 
-    .image {
-      overflow: hidden;
-      display: inline-block;
-      width: 49%;
-      left: 0;
-      height: 100%;
-      top: initial;
-      vertical-align: middle;
-    }
-
-    .info:before {
-      position: absolute;
-      bottom: 60%;
-      right: 100%;
-      width: 0;
-      height: 0;
-      border: solid transparent;
-      content: " ";
-      margin-left: -10px;
-      border-width: 10px;
-      border-right-color: #fff;
-    }
-
-    .info {
-      margin: 0;
-      width: 49%;
-      height: auto;
-      padding: 10% 2% 31px;
-      font-weight: 200;
-      left: auto;
-      top: 20px;
-      bottom: 0;
+    @include min-screen(480) {
       
-      & > p {
-        font-size: 150%;
-        visibility: visible;
-        white-space: normal;
-        max-height: inherit;
-        text-overflow: ellipsis;
+      .image {
+        overflow: hidden;
+        display: inline-block;
+        width: 49%;
+        left: 0;
+        height: 100%;
+        top: initial;
+        vertical-align: middle;
+      }
+
+      .info:before {
+        position: absolute;
+        bottom: 60%;
+        right: 100%;
+        width: 0;
+        height: 0;
+        border: solid transparent;
+        content: " ";
+        margin-left: -10px;
+        border-width: 7px;
+        border-right-color: #fff;
+      }
+
+      .info {
+        position: absolute;
+        margin: 0;
+        width: 49%;
+        height: auto;
+        padding: 10% 0 31px 20px;
+        font-weight: 200;
+        left: auto;
+        top: 0px;
+        bottom: 0;
+      }
+      
+      
+      .via {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
       }
     }
 
@@ -343,10 +392,6 @@
     //   border-left-color: rgba(0, 0, 0, 0.8);
     // }
 
-    .via {
-      position: absolute;
-      bottom: 20px;
-      left: 10px;
-    }
+
   }
 }

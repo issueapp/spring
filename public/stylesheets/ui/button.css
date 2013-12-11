@@ -1,79 +1,79 @@
 /*
-Syntax error: Undefined mixin 'min-screen'.
-        on line 129 of ./stylesheets/ui/button.scss, in `min-screen'
-        from line 129 of ./stylesheets/ui/button.scss
+Syntax error: Undefined mixin 'transition'.
+        on line 224 of ./stylesheets/ui/button.scss, in `transition'
+        from line 224 of ./stylesheets/ui/button.scss
 
-124:       height: 45px;
-125:       line-height: 50px;
-126:       font-size: 24px;
-127: 	  }
-128:     
-129:     @include min-screen(768) {
-130:       font-size: 14px;
-131:       padding: 0px 20px;
-132:     }
-133:   }
-134:   
+219:     color: $btn-text-colour;
+220:     border: 1px solid rgba(150, 150, 150, 0.8);
+221:     background: none;
+222: 
+223:     @include text-shadow(none);
+224:     @include transition(all .15s ease-out);
+225: 
+226:     .no-touch &:hover {
+227:       color: #fff;
+228:       background: rgba(0, 0, 0, 0.7);
+229:     }
 
 Backtrace:
-./stylesheets/ui/button.scss:129:in `min-screen'
-./stylesheets/ui/button.scss:129
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:251:in `visit_mixin'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:37:in `visit'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:98:in `visit'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:53:in `map'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:53:in `visit_children'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:107:in `block in visit_children'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:119:in `with_environment'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:106:in `visit_children'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:37:in `block in visit'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:318:in `visit_rule'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:37:in `visit'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:98:in `visit'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:53:in `map'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:53:in `visit_children'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:107:in `block in visit_children'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:119:in `with_environment'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:106:in `visit_children'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:37:in `block in visit'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:318:in `visit_rule'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:37:in `visit'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:98:in `visit'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:53:in `map'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:53:in `visit_children'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:107:in `block in visit_children'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:119:in `with_environment'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:106:in `visit_children'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:37:in `block in visit'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:126:in `visit_root'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:37:in `visit'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:98:in `visit'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:7:in `visit'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/tree/root_node.rb:20:in `render'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/engine.rb:315:in `_render'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/sass-3.2.5/lib/sass/engine.rb:262:in `render'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/haml-3.1.6/vendor/sass/lib/sass/plugin/compiler.rb:339:in `update_stylesheet'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/haml-3.1.6/vendor/sass/lib/sass/plugin/compiler.rb:202:in `block in update_stylesheets'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/haml-3.1.6/vendor/sass/lib/sass/plugin/compiler.rb:200:in `each'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/haml-3.1.6/vendor/sass/lib/sass/plugin/compiler.rb:200:in `update_stylesheets'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/haml-3.1.6/vendor/sass/lib/sass/plugin.rb:81:in `update_stylesheets'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/haml-3.1.6/vendor/sass/lib/sass/plugin.rb:54:in `check_for_updates'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/haml-3.1.6/vendor/sass/lib/sass/plugin/rack.rb:51:in `call'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/rack-1.4.1/lib/rack/lint.rb:48:in `_call'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/rack-1.4.1/lib/rack/lint.rb:36:in `call'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/rack-1.4.1/lib/rack/showexceptions.rb:24:in `call'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/rack-1.4.1/lib/rack/commonlogger.rb:20:in `call'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/rack-1.4.1/lib/rack/chunked.rb:43:in `call'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/rack-1.4.1/lib/rack/content_length.rb:14:in `call'
-/Users/taylorluk/.rvm/gems/ruby-1.9.3-p125-perf/gems/rack-1.4.1/lib/rack/handler/webrick.rb:59:in `service'
-/Users/taylorluk/.rvm/rubies/ruby-1.9.3-p125-perf/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
-/Users/taylorluk/.rvm/rubies/ruby-1.9.3-p125-perf/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
-/Users/taylorluk/.rvm/rubies/ruby-1.9.3-p125-perf/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+./stylesheets/ui/button.scss:224:in `transition'
+./stylesheets/ui/button.scss:224
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:253:in `visit_mixin'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:100:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:53:in `map'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:109:in `block in visit_children'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:121:in `with_environment'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:108:in `visit_children'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:320:in `visit_rule'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:100:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:53:in `map'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:109:in `block in visit_children'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:121:in `with_environment'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:108:in `visit_children'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:320:in `visit_rule'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:100:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:53:in `map'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:109:in `block in visit_children'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:121:in `with_environment'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:108:in `visit_children'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:128:in `visit_root'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:100:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:7:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/root_node.rb:20:in `render'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/engine.rb:315:in `_render'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/engine.rb:262:in `render'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/plugin/compiler.rb:362:in `update_stylesheet'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/plugin/compiler.rb:203:in `block in update_stylesheets'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/plugin/compiler.rb:201:in `each'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/plugin/compiler.rb:201:in `update_stylesheets'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/plugin.rb:81:in `update_stylesheets'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/plugin.rb:54:in `check_for_updates'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/plugin/rack.rb:51:in `call'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/rack-1.4.1/lib/rack/lint.rb:48:in `_call'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/rack-1.4.1/lib/rack/lint.rb:36:in `call'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/rack-1.4.1/lib/rack/showexceptions.rb:24:in `call'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/rack-1.4.1/lib/rack/commonlogger.rb:20:in `call'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/rack-1.4.1/lib/rack/chunked.rb:43:in `call'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/rack-1.4.1/lib/rack/content_length.rb:14:in `call'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/rack-1.4.1/lib/rack/handler/webrick.rb:59:in `service'
+/Users/taylorluk/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+/Users/taylorluk/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+/Users/taylorluk/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
 */
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined mixin 'min-screen'.\A         on line 129 of ./stylesheets/ui/button.scss, in `min-screen'\A         from line 129 of ./stylesheets/ui/button.scss\A \A 124:       height: 45px;\A 125:       line-height: 50px;\A 126:       font-size: 24px;\A 127: 	  }\A 128:     \A 129:     @include min-screen(768) {\A 130:       font-size: 14px;\A 131:       padding: 0px 20px;\A 132:     }\A 133:   }\A 134:   "; }
+  content: "Syntax error: Undefined mixin 'transition'.\A         on line 224 of ./stylesheets/ui/button.scss, in `transition'\A         from line 224 of ./stylesheets/ui/button.scss\A \A 219:     color: $btn-text-colour;\A 220:     border: 1px solid rgba(150, 150, 150, 0.8);\A 221:     background: none;\A 222: \A 223:     @include text-shadow(none);\A 224:     @include transition(all .15s ease-out);\A 225: \A 226:     .no-touch &:hover {\A 227:       color: #fff;\A 228:       background: rgba(0, 0, 0, 0.7);\A 229:     }"; }

@@ -5,6 +5,61 @@
 #
 module ViewHelpers
   require 'hashie/mash'
+  require 'forgery'
+  
+  def issue_contents
+    # <li><a href="/issue">Cover</a></li>
+    # <li><a href="/issue/contents">Contents</a></li>
+    # <li><a href="/issue/two-col">Two column</a></li>
+    # <li><a href="/issue/one-col">One Column</a></li>
+    # <li><a href="/issue/fullscreen">Fullscreen</a></li>
+    # <li><a href="/issue/one-third">Third</a></li>
+    # <li><a href="/issue/youtube">Youtube</a></li>
+    # <li><a href="/issue/vimeo">Vimeo</a></li>
+    # <li><a href="/issue/products-split">Products 1</a></li>
+    # <li><a href="/issue/products-collage">Collage</a></li>
+    {
+      "Two column" => "/issue/two-col",
+      "One Column" => "/issue/one-col",
+      "Fullscreen" => "/issue/fullscreen",
+      "Third" => "/issue/one-third",
+      "Youtube" => "/issue/youtube",
+      "Vimeo" => "/issue/vimeo",
+      "Products 1" => "/issue/products-split",
+      "Collage" => "/issue/products-collage"
+    }
+  end
+  
+  def embed_video url
+    case url
+      
+    when /player.vimeo.com\/video\/(.+)/, /http:\/\/vimeo.com\/(.+)/
+      vimeo_id = $1.strip
+      options = { autoplay: 1, byline: 0, portrait: 0 }
+
+      embed_url = "//player.vimeo.com/video/#{vimeo_id}?#{options.to_param}"
+
+    when /youtube.com\/watch\?v=(.+)/, /youtu.be\/(.+)/
+      youtube_id = $1.strip
+      options = { controls: 0, wmode: 'transparent', autoplay: 1,
+        iv_load_policy: 3, autohide: 1, hd: 1, color: 'white',
+        rel: 0, showinfo: 0, enablejsapi: 1,
+        origin: "http://issueapp.com"
+      }
+
+      embed_url = "//www.youtube.com/embed/#{youtube_id}?#{options.to_param}"
+
+    else
+      embed_url = url
+    end
+
+    %_<iframe src="#{embed_url}" frameborder="0" height="100%" width="100%" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>_.html_safe
+  end
+  
+  
+  def lorem_ipsum(sentences = 3)
+    Forgery(:lorem_ipsum).sentences(sentences)
+  end
   
   def cover_image(url)
 <<-eos

@@ -13,14 +13,19 @@ form {
   // Form grid
   input.col, .col {
     position: relative;
-    padding-bottom: 1.2em;
-    margin-bottom: 0.5em;
+//    padding-bottom: 1.2em;
+    margin-bottom: 1em;
   }
-  
 
   /*================================================
           Label/hint
     ================================================*/
+    
+  label { 
+    padding: 5px 0;
+    margin-right: 5px ;
+  }
+  
   p.large, label.large {
     font-size: 18px;
     line-height: 32px;
@@ -33,16 +38,19 @@ form {
       margin-right: 0.5em;
     }
   }
+
   .hint_style {
     color: #888;
     font-style: italic;
     line-height: 1.4;
     font-size: 13px;
-    
-    position: absolute;
   }
   
   .hint {
+    &:after {
+      content: none;
+    }
+    margin: 0 0 5px;
     @extend .hint_style;
 /*    bottom: -1.7em;*/
 /*    left: 0;*/
@@ -92,6 +100,12 @@ form {
     }
   }
   
+  // Checkbox, Radio
+  input[type="checkbox"],
+  input[type="radio"] {
+    margin-right: 5px;
+  }
+  
   select {
     width: auto;
     background-color: #fff;
@@ -102,7 +116,7 @@ form {
   
   input[type=submit], input[type=button], button[type=submit] {
     line-height: 2em;
-    padding: 3px 15px;
+//    padding: 3px 15px;
     margin-right: 5px;
   }
   
@@ -133,8 +147,6 @@ form {
     color: #e84949;
   }
   
-  
-  
   // Responsive desktop
   @include min-screen(768) {
     p.large, label.large {
@@ -157,11 +169,22 @@ form {
 ================================================*/
 
 div.notification {
-  position: absolute;
+  @include box-sizing(border-box);
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  margin-left: -35%;
+  font-size: 18px;
+  padding: 40px 30px 40px 30px;
+  border-radius: 10px;
+  width: 70%;
+  min-height: 80px;
+  line-height: 1.5;
+  text-align: center;
+  z-index: 10000;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
   
-  left: 7.5%;
-  right: 7.5%;
-  top: 0;
   
   .overlay-active & {
     left: 7.5%;
@@ -171,22 +194,14 @@ div.notification {
   
   // Responsive
   @include min-screen(768) {
-    left: initial;
-    top: 0;
-    right: 20px;
-    min-width: 20%;
+    max-width: 30%;
+    margin-left: -15%;
   }
-
-  z-index:10000;
-  
-  padding: 10px 20px;
-  margin: 20px 0 40px;
-  background: white;
-  border: 1px solid #ccc;
-  color: #111;
   
   a.close-target {
-    color: #222;
+    position: absolute;
+    right: 10px;
+    color: #eee;
   }
   
   a.close {
@@ -198,9 +213,32 @@ div.notification {
     @extend .icon-cross; 
   }
   
+
   
-  .dark-theme & {
-    border: 1px solid #ccc;
+  &.prev, &.next {
+    &:before {
+      color: #fff;
+      position: absolute;
+      top: 50%;
+//      text-align: center;
+      font-size: 40px;
+      line-height: 40px;
+      margin-top: -20px;
+    }
+  }
+  
+  &.prev {
+    &:before {
+      right: 8px;
+      content: "›";
+    }
+  }
+  
+  &.next {
+    &:before {
+      left: 8px;
+      content: "‹";
+    }
   }
 }
 

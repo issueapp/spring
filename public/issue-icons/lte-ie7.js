@@ -20,7 +20,6 @@ window.onload = function() {
 			'icon-pictures' : '&#xe011;',
 			'icon-music' : '&#xe013;',
 			'icon-shop' : '&#xe01b;',
-			'icon-book' : '&#xe01c;',
 			'icon-ccw' : '&#xe01e;',
 			'icon-info' : '&#xe01f;',
 			'icon-question' : '&#xe020;',
@@ -55,7 +54,16 @@ window.onload = function() {
 			'icon-cart' : '&#xe01a;',
 			'icon-tshirt' : '&#xe02b;',
 			'icon-checkmark-circle' : '&#xe02c;',
-			'icon-clock' : '&#xe02d;'
+			'icon-clock' : '&#xe02d;',
+			'icon-book' : '&#xe01c;',
+			'icon-resize-enlarge' : '&#xe02e;',
+			'icon-bold' : '&#xf032;',
+			'icon-italic' : '&#xf033;',
+			'icon-code' : '&#xe02f;',
+			'icon-palette' : '&#xe030;',
+			'icon-list-ul' : '&#xf0ca;',
+			'icon-list-ol' : '&#xf0cb;',
+			'icon-microphone' : '&#xe031;'
 		},
 		els = document.getElementsByTagName('*'),
 		i, attr, html, c, el;

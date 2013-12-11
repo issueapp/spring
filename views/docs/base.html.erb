@@ -22,6 +22,8 @@
   </nav>
 </aside>
 
+<article>
+
 <h2 id="typography">Typography</h2>
 <p>
   Proxima Nova is the primary font with Helvetica Neue as backup font. We aim to lower the amount of custom fonts that we see <a href="http://iosfonts.com">iosfonts.com</a> for mobile friendly fonts.
@@ -57,7 +59,10 @@
   </ul>
 </nav>
 
-<h3 id="theme">Base theme</h3>
+<hr>
+
+<h2>Colour themes</h2>
+<h3 id="theme">Default</h3>
 <div class="" style="border:1px solid; padding: 20px">
   <p>Text color primary light		2c2c2c	333333<p>
   <p>Text color secondary light		999999</p>
@@ -71,40 +76,70 @@
   <p><a href="#">Hyperlinks</a>					d93e00</p>
 </div>
 
+<hr>
+<h2 id="buttons">Buttons</h2>
 
-<h3 id="buttons">Buttons</h3>
-<table>
-  <tr>
-    <td><button>BUTTON</button> <a class="button">LINK</a></td>
-    <td><button class="black">Black</button></td>
-    <td><button class="orange">Orange</button></td>
-  </tr>
-  <tr>
-    <td><button class="small">small</button></td>
-    <td><button class="small black">black</button></td>
-    <td><button class="small orange">orange</button></td>
-  </tr>
-  <tr>
-    <td><button class="large">LARGE BUTTON</button></td>
-    <td><button class="large black">LARGE BLACK</button></td>
-    <td><button class="large orange">LARGE RED</button></td>
-  </tr>
-  <tr>
-    <td><button disabled="disabled">DISABLED</button></td>
-    <td><button class="facebook"><i class="icon-facebook"></i><span>Sign in with Facebook</span></button></td>
-    <td><button class="twitter"><i class="icon-twitter"></i><span>Sign in with Twitter</span></button></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td><button class="small facebook"><i class="icon-facebook"></i><span>Sign in with Facebook</span></button></td>
-    <td><button class="small twitter"><i class="icon-twitter"></i><span>Sign in with Twitter</span></button></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td><button class="large facebook"><i class="icon-facebook"></i><span>Sign in with Facebook</span></button></td>
-    <td><button class="large twitter"><i class="icon-twitter"></i><span>Sign in with Twitter</span></button></td>
-  </tr>
-</table>
+<h4>Small</h3>
+
+<p>
+  <button class="large">Issue</button> <button class="black large">Breath</button> <button class="orange large">Smile</button>
+  <button class="blue large">Focus</button>
+</p>
+
+<p>
+  <button>Issue</button> <button class="black">Breath</button> <button class="orange">Smile</button> 
+</p>
+
+<p>
+  <button class="small">Issue</button>
+  <button class="small black">Breath</button> <button class="small orange">Smile</button>  <button class="small blue">Focus</button>
+</p>
+
+<div class="row">
+  
+   <div class="col x6" style="background-size: cover; background-image:url(http://flickholdr.com/600/600/snow/bw)">
+     <p class="text-centered">
+       <button class="outline large">Focus</button>
+       <button class="outline">Focus</button>
+     </p>
+  </div>
+  
+  <div class="col x6" style="background-size: cover; background-image:url(http://flickholdr.com/600/600/city,night/bw)">
+    <div class="text-centered dark-theme">
+      <button class="outline large">Focus</button>
+       
+      <button class="outline">Focus</button>
+      
+      
+      <div class="button-group">
+        <button class="button outline">Collect</button>
+        <button class="button dropdown outline">
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a>item1</a></li>
+          <li><a>item2</a></li>
+          <li><a>item3</a></li>
+          <li class="divider"></li>
+          <li><a>item4</a></li>
+          <li><a>item5</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>
+  <button disabled="disabled">DISABLED</button>
+</p>
+<p>
+  <button class="facebook"><i class="icon-facebook"></i><span>Facebook</span></button>
+  <button class="twitter"><i class="icon-twitter"></i><span>Twitter</span></button>
+</p>
+<p>
+  <button class="large facebook"><i class="icon-facebook"></i><span>Facebook</span></button>
+  <button class="large twitter"><i class="icon-twitter"></i><span>Twitter</span></button>
+</p>
 
 
 <h3>Button group and dropdown</h3>
@@ -137,17 +172,6 @@
 
 
 <p>
-  <a class="button small love" ref="nofollow" original-title="">
-    <i class="icon-heart"></i>
-    <span>Love</span>
-  </a>
-  <a class="button small love loved red" ref="nofollow" original-title="">
-    <i class="icon-heart"></i>
-    <span>Loved</span>
-  </a>
-</p>
-
-<p>
   <a class="button love" ref="nofollow" original-title="">
     <i class="icon-heart"></i>
     <span>Love</span>
@@ -167,3 +191,4 @@
   </a>
 </p>
 
+</article>

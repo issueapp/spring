@@ -5,18 +5,10 @@
   overflow: hidden;
   font-size: 0;
 }
-
-/* line 10, ../../../stylesheets/ui/swipe-view.scss */
-.animate {
-  -webkit-transition: all 0.3s ease-out;
-  -moz-transition: all 0.3s ease-out;
-  -o-transition: all 0.3s ease-out;
-  -ms-transition: all 0.3s ease-out;
-  transition: all 0.3s ease-out;
-}
-
-/* line 26, ../../../stylesheets/ui/swipe-view.scss */
-.page {
+/* line 9, ../../../stylesheets/ui/swipe-view.scss */
+.swipe-paging .page {
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
   position: relative;
   display: inline-block;
   vertical-align: top;
@@ -27,14 +19,7 @@
   white-space: normal;
   overflow: hidden;
 }
-
-/* line 38, ../../../stylesheets/ui/swipe-view.scss */
-.page {
-  transform: translate3d(0, 0, 0);
-  -webkit-transform: translate3d(0, 0, 0);
-}
-
-/* line 43, ../../../stylesheets/ui/swipe-view.scss */
-.page.padding {
+/* line 25, ../../../stylesheets/ui/swipe-view.scss */
+.swipe-paging .page.padding {
   width: 0;
 }
