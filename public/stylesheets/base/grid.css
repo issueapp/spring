@@ -1,207 +1,59 @@
-/*======================================================
-    Layout and rendering
-    ---
-    
-    No style or presentation code should be in this stylesheet
+/*
+Syntax error: Undefined mixin 'min-screen'.
+        on line 56 of ./stylesheets/base/grid.scss, in `min-screen'
+        from line 56 of ./stylesheets/base/grid.scss
 
-    Default style for 320px
+51:   
+52: .half, .third, .third-2 {
+53:   width: 100%;
+54: }
+55: 
+56: @include min-screen(768) {
+57:   .col, .item {
+58:     &.full { width: 100% }
+59: 
+60:     &.half { width: 49.9%; }
+61:     &.third { width: 33.333% }
 
-    Structure (menu/main)
-    Grid (row/col)
-  ======================================================*/
-/* line 17, ../../../stylesheets/base/grid.scss */
-.col {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  position: relative;
-  width: 100%;
-  /*  height: 99.9%;          // why*/
-  float: left;
-}
-/* line 24, ../../../stylesheets/base/grid.scss */
-.col .item:last-child {
-  margin-bottom: 0;
-}
-/* line 28, ../../../stylesheets/base/grid.scss */
-.col.centered {
-  clear: both;
-  float: none;
-  margin: 0 auto !important;
-}
-
-/* line 35, ../../../stylesheets/base/grid.scss */
-.row {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  clear: both;
-  position: relative;
-  /*  width: 100%;            // ???*/
-  overflow: hidden;
-  *zoom: 1;
-}
-/* line 43, ../../../stylesheets/base/grid.scss */
-.row:last-child {
-  background: none;
-}
-
-/*======================================================
-    Divided width
-  ======================================================*/
-/* line 53, ../../../stylesheets/base/grid.scss */
-.col.full, .item.full {
-  width: 100%;
-}
-/* line 55, ../../../stylesheets/base/grid.scss */
-.col.half, .item.half {
-  width: 48%;
-}
-/* line 56, ../../../stylesheets/base/grid.scss */
-.col.third, .item.third {
-  width: 31.333%;
-}
-/* line 57, ../../../stylesheets/base/grid.scss */
-.col.third-2, .item.third-2 {
-  width: 64.667%;
-}
-/* line 59, ../../../stylesheets/base/grid.scss */
-.col.fourty, .item.fourty {
-  width: 39%;
-}
-/* line 60, ../../../stylesheets/base/grid.scss */
-.col.sixty, .item.sixty {
-  width: 59%;
-}
-/* line 62, ../../../stylesheets/base/grid.scss */
-.col:last-child, .item:last-child {
-  margin-right: 0;
-}
-
-/* line 68, ../../../stylesheets/base/grid.scss */
-.no-gutter .col.half, .no-gutter .item.half {
-  width: 49.9%;
-}
-/* line 69, ../../../stylesheets/base/grid.scss */
-.no-gutter .col.third, .no-gutter .item.third {
-  width: 33.3%;
-}
-/* line 70, ../../../stylesheets/base/grid.scss */
-.no-gutter .col.third-2, .no-gutter .item.third-2 {
-  width: 66.6%;
-}
-/* line 71, ../../../stylesheets/base/grid.scss */
-.no-gutter .col.sixth, .no-gutter .item.sixth {
-  width: 15.02%;
-}
-/* line 73, ../../../stylesheets/base/grid.scss */
-.no-gutter .col.fourty, .no-gutter .item.fourty {
-  width: 39%;
-}
-/* line 74, ../../../stylesheets/base/grid.scss */
-.no-gutter .col.sixty, .no-gutter .item.sixty {
-  width: 59%;
-}
-
-/* line 78, ../../../stylesheets/base/grid.scss */
-col.centred {
-  float: none !important;
-  margin: 0 auto !important;
-}
-
-/* line 85, ../../../stylesheets/base/grid.scss */
-.row.v-full, .col.v-full, .item.v-full {
-  height: 100%;
-}
-/* line 86, ../../../stylesheets/base/grid.scss */
-.row.v-half, .col.v-half, .item.v-half {
-  height: 49.4%;
-}
-/* line 87, ../../../stylesheets/base/grid.scss */
-.row.v-third, .col.v-third, .item.v-third {
-  height: 35.03%;
-}
-/* line 88, ../../../stylesheets/base/grid.scss */
-.row.v-third-2, .col.v-third-2, .item.v-third-2 {
-  height: 64%;
-}
-
-/*======================================================
-        12 column grid collapsed for mobile
-  ======================================================*/
-/* line 95, ../../../stylesheets/base/grid.scss */
-.x1, .x2, .x3, .x4, .x5, .x6, .x7, .x8, .x9, .x10, .x11, .x12 {
-  width: 100%;
-}
-
-@media only screen and (min-width: 768px) {
-  /* line 101, ../../../stylesheets/base/grid.scss */
-  .col {
-    float: left;
-    margin-right: 2%;
-  }
-  /* line 105, ../../../stylesheets/base/grid.scss */
-  .col:last-child {
-    margin-right: 0;
-  }
-
-  /* line 110, ../../../stylesheets/base/grid.scss */
-  .x1 {
-    width: 6.333%;
-  }
-
-  /* line 111, ../../../stylesheets/base/grid.scss */
-  .x2 {
-    width: 14.667%;
-  }
-
-  /* line 112, ../../../stylesheets/base/grid.scss */
-  .x3 {
-    width: 23%;
-  }
-
-  /* line 113, ../../../stylesheets/base/grid.scss */
-  .x4 {
-    width: 31.333%;
-  }
-
-  /* line 114, ../../../stylesheets/base/grid.scss */
-  .x5 {
-    width: 39.667%;
-  }
-
-  /* line 115, ../../../stylesheets/base/grid.scss */
-  .x6 {
-    width: 48%;
-  }
-
-  /* line 116, ../../../stylesheets/base/grid.scss */
-  .x7 {
-    width: 56.333%;
-  }
-
-  /* line 117, ../../../stylesheets/base/grid.scss */
-  .x8 {
-    width: 64.667%;
-  }
-
-  /* line 118, ../../../stylesheets/base/grid.scss */
-  .x9 {
-    width: 73%;
-  }
-
-  /* line 119, ../../../stylesheets/base/grid.scss */
-  .x10 {
-    width: 81.333%;
-  }
-
-  /* line 120, ../../../stylesheets/base/grid.scss */
-  .x11 {
-    width: 89.667%;
-  }
-
-  /* line 121, ../../../stylesheets/base/grid.scss */
-  .x12 {
-    width: 100%;
-  }
-}
+Backtrace:
+./stylesheets/base/grid.scss:56:in `min-screen'
+./stylesheets/base/grid.scss:56
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:253:in `visit_mixin'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:100:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:53:in `map'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:109:in `block in visit_children'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:121:in `with_environment'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:108:in `visit_children'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:128:in `visit_root'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:100:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:7:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/root_node.rb:20:in `render'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/engine.rb:315:in `_render'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/engine.rb:262:in `render'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/plugin/compiler.rb:362:in `update_stylesheet'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/plugin/compiler.rb:203:in `block in update_stylesheets'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/plugin/compiler.rb:201:in `each'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/plugin/compiler.rb:201:in `update_stylesheets'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/plugin.rb:81:in `update_stylesheets'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/plugin.rb:54:in `check_for_updates'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/plugin/rack.rb:51:in `call'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/rack-1.4.1/lib/rack/lint.rb:48:in `_call'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/rack-1.4.1/lib/rack/lint.rb:36:in `call'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/rack-1.4.1/lib/rack/showexceptions.rb:24:in `call'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/rack-1.4.1/lib/rack/commonlogger.rb:20:in `call'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/rack-1.4.1/lib/rack/chunked.rb:43:in `call'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/rack-1.4.1/lib/rack/content_length.rb:14:in `call'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/rack-1.4.1/lib/rack/handler/webrick.rb:59:in `service'
+/Users/taylorluk/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+/Users/taylorluk/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+/Users/taylorluk/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: Undefined mixin 'min-screen'.\A         on line 56 of ./stylesheets/base/grid.scss, in `min-screen'\A         from line 56 of ./stylesheets/base/grid.scss\A \A 51:   \A 52: .half, .third, .third-2 {\A 53:   width: 100%;\A 54: }\A 55: \A 56: @include min-screen(768) {\A 57:   .col, .item {\A 58:     &.full { width: 100% }\A 59: \A 60:     &.half { width: 49.9%; }\A 61:     &.third { width: 33.333% }"; }

@@ -27,7 +27,7 @@ Instead of a list of all class selectors,
 you can use the generic selector below, but it's slower:
 [class*="icon-"] {
 */
-.icon-export, .icon-heart, .icon-earth, .icon-docs, .icon-twitter, .icon-facebook, .icon-link, .icon-comment, .icon-cog, .icon-arrow-left, .icon-arrow-right, .icon-pictures, .icon-music, .icon-shop, .icon-book, .icon-ccw, .icon-info, .icon-question, .icon-user, .icon-search, .icon-stream, .icon-play, .icon-gauge, .icon-eye, .icon-statistics, .icon-brush, .icon-archive, .icon-plus, .icon-cross, .icon-list, .icon-rss, .icon-profile, .icon-off, .icon-edit, .icon-minus, .icon-ellipsis, .icon-plus-2, .icon-arrow-left-2, .icon-arrow-right-2, .icon-grid, .icon-books, .icon-books-2, .icon-stack, .icon-play-2, .icon-menu, .icon-tag, .icon-cart, .icon-tshirt, .icon-checkmark-circle, .icon-clock {
+.icon-export, .icon-heart, .icon-earth, .icon-docs, .icon-twitter, .icon-facebook, .icon-link, .icon-comment, .icon-cog, .icon-arrow-left, .icon-arrow-right, .icon-pictures, .icon-music, .icon-shop, .icon-ccw, .icon-info, .icon-question, .icon-user, .icon-search, .icon-stream, .icon-play, .icon-gauge, .icon-eye, .icon-statistics, .icon-brush, .icon-archive, .icon-plus, .icon-cross, .icon-list, .icon-rss, .icon-profile, .icon-off, .icon-edit, .icon-minus, .icon-ellipsis, .icon-plus-2, .icon-arrow-left-2, .icon-arrow-right-2, .icon-grid, .icon-books, .icon-books-2, .icon-stack, .icon-play-2, .icon-menu, .icon-tag, .icon-cart, .icon-tshirt, .icon-checkmark-circle, .icon-clock, .icon-book, .icon-resize-enlarge, .icon-bold, .icon-italic, .icon-code, .icon-palette, .icon-list-ul, .icon-list-ol, .icon-microphone {
 	font-family: 'issue-icons';
 	speak: none;
 	font-style: normal;
@@ -78,9 +78,6 @@ you can use the generic selector below, but it's slower:
 }
 .icon-shop:before {
 	content: "\e01b";
-}
-.icon-book:before {
-	content: "\e01c";
 }
 .icon-ccw:before {
 	content: "\e01e";
@@ -187,4 +184,30 @@ you can use the generic selector below, but it's slower:
 .icon-clock:before {
 	content: "\e02d";
 }
-
+.icon-book:before {
+	content: "\e01c";
+}
+.icon-resize-enlarge:before {
+	content: "\e02e";
+}
+.icon-bold:before {
+	content: "\f032";
+}
+.icon-italic:before {
+	content: "\f033";
+}
+.icon-code:before {
+	content: "\e02f";
+}
+.icon-palette:before {
+	content: "\e030";
+}
+.icon-list-ul:before {
+	content: "\f0ca";
+}
+.icon-list-ol:before {
+	content: "\f0cb";
+}
+.icon-microphone:before {
+	content: "\e031";
+}

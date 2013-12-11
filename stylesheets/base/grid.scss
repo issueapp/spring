@@ -38,7 +38,7 @@
   position: relative;
   
 /*  width: 100%;            // ???*/
-  @include clearfix;      // ???
+//  @include clearfix;      // ???
 
   &:last-child {
     background: none;     // ???
@@ -48,32 +48,38 @@
 /*======================================================
     Divided width
   ======================================================*/
-
-.col, .item {
-  &.full { width: 100% }
   
-  &.half { width: 48%; }
-  &.third { width: 31.333% }
-  &.third-2 { width: 64.667% }
-
-  &.fourty { width: 39% }
-  &.sixty { width: 59% }
-
-  &:last-child { margin-right: 0 }
+.half, .third, .third-2 {
+  width: 100%;
 }
 
-.no-gutter {
+@include min-screen(768) {
   .col, .item {
-  
+    &.full { width: 100% }
+
     &.half { width: 49.9%; }
-    &.third { width: 33.3% }
-    &.third-2 { width: 66.6% }
-    &.sixth { width: 15.02% }
-  
-    &.fourty { width: 39% }
-    &.sixty { width: 59% }
+    &.third { width: 33.333% }
+    &.third-2 { width: 66.666% }
+
+    &.fourty { width: 39.9% }
+    &.sixty { width: 59.9% }
+
+    &:last-child { margin-right: 0 }
   }
 }
+
+//.col, .item {
+//  &.full { width: 100% }
+//  
+//  &.half { width: 48%; }
+//  &.third { width: 31.333% }
+//  &.third-2 { width: 64.667% }
+//
+//  &.fourty { width: 39% }
+//  &.sixty { width: 59% }
+//
+//  &:last-child { margin-right: 0 }
+//}
 
 col.centred {
   float: none !important;

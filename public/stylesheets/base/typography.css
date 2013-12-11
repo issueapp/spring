@@ -27,13 +27,12 @@ html {
   -webkit-font-smoothing: antialiased;
   font-size: 16px;
   font-size: 62.5%;
-  -webkit-overflow-scrolling: touch;
   -webkit-tap-highlight-color: #f3f5f6;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
 }
 
-/* line 48, ../../../stylesheets/base/typography.scss */
+/* line 47, ../../../stylesheets/base/typography.scss */
 body {
   font: 16px/28px "proxima_nova_regular", "Helvetica Neue";
   color: #222;
@@ -41,7 +40,7 @@ body {
 
 /* #Typography
 ================================================== */
-/* line 55, ../../../stylesheets/base/typography.scss */
+/* line 54, ../../../stylesheets/base/typography.scss */
 h1, h2, h3, h4, h5, h6, .title {
   margin: 0;
   font-family: "proxima_nova_bold";
@@ -50,12 +49,12 @@ h1, h2, h3, h4, h5, h6, .title {
   text-rendering: optimizelegibility;
 }
 
-/* line 63, ../../../stylesheets/base/typography.scss */
+/* line 62, ../../../stylesheets/base/typography.scss */
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
   font-weight: inherit;
 }
 
-/* line 66, ../../../stylesheets/base/typography.scss */
+/* line 65, ../../../stylesheets/base/typography.scss */
 h1 {
   margin-bottom: 0;
   font-size: 24px;
@@ -66,7 +65,7 @@ h1 {
   text-transform: uppercase;
 }
 
-/* line 77, ../../../stylesheets/base/typography.scss */
+/* line 76, ../../../stylesheets/base/typography.scss */
 h2 {
   font-family: "proxima_nova_ltregular";
   text-transform: uppercase;
@@ -78,7 +77,7 @@ h2 {
   line-height: 1.2;
 }
 
-/* line 88, ../../../stylesheets/base/typography.scss */
+/* line 87, ../../../stylesheets/base/typography.scss */
 h3 {
   font-family: "proxima_nova_regular";
   margin-bottom: 1em;
@@ -88,7 +87,7 @@ h3 {
   line-height: 1.3;
 }
 
-/* line 97, ../../../stylesheets/base/typography.scss */
+/* line 96, ../../../stylesheets/base/typography.scss */
 h4, h5, h6 {
   font-family: "proxima_nova_regular";
   margin-bottom: 0.75em;
@@ -98,17 +97,17 @@ h4, h5, h6 {
   line-height: 1.3;
 }
 
-/* line 107, ../../../stylesheets/base/typography.scss */
+/* line 106, ../../../stylesheets/base/typography.scss */
 .content-body {
   max-width: 50em;
   margin: 0 auto;
 }
-/* line 111, ../../../stylesheets/base/typography.scss */
+/* line 110, ../../../stylesheets/base/typography.scss */
 .content-body p {
   margin: 0 auto 1.5em;
 }
 
-/* line 117, ../../../stylesheets/base/typography.scss */
+/* line 116, ../../../stylesheets/base/typography.scss */
 .subtitle {
   font-family: georgia;
   font-style: italic;
@@ -120,39 +119,39 @@ h4, h5, h6 {
 /* =======================================================
         Links
    =======================================================*/
-/* line 129, ../../../stylesheets/base/typography.scss */
+/* line 128, ../../../stylesheets/base/typography.scss */
 a {
   color: #4a90a6;
   text-decoration: none;
 }
-/* line 133, ../../../stylesheets/base/typography.scss */
+/* line 132, ../../../stylesheets/base/typography.scss */
 a:visited {
   color: #333;
 }
 
-/* line 138, ../../../stylesheets/base/typography.scss */
+/* line 137, ../../../stylesheets/base/typography.scss */
 .toolbar, a {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-/* line 141, ../../../stylesheets/base/typography.scss */
+/* line 140, ../../../stylesheets/base/typography.scss */
 a, a:active, a:visited {
   color: #666;
   text-decoration: none;
 }
 
-/* line 146, ../../../stylesheets/base/typography.scss */
+/* line 145, ../../../stylesheets/base/typography.scss */
 a:hover {
-  color: #f04500;
+  color: #e96b56;
 }
 
-/* line 150, ../../../stylesheets/base/typography.scss */
+/* line 149, ../../../stylesheets/base/typography.scss */
 a.large {
   font-size: 18px;
   text-transform: uppercase;
 }
 
-/* line 155, ../../../stylesheets/base/typography.scss */
+/* line 154, ../../../stylesheets/base/typography.scss */
 p.center {
   text-align: center;
 }
@@ -160,7 +159,7 @@ p.center {
 /*======================================================
       Helpers
   ======================================================*/
-/* line 165, ../../../stylesheets/base/typography.scss */
+/* line 164, ../../../stylesheets/base/typography.scss */
 .text-centered {
   text-align: center;
 }
@@ -169,7 +168,7 @@ p.center {
       Responsive (larger screen)
   ====*/
 @media screen and (min-width: 768px) {
-  /* line 177, ../../../stylesheets/base/typography.scss */
+  /* line 176, ../../../stylesheets/base/typography.scss */
   h1 {
     font-size: 30px;
     font-size: 1.875em;
@@ -177,7 +176,7 @@ p.center {
     line-height: 1.2;
   }
 
-  /* line 185, ../../../stylesheets/base/typography.scss */
+  /* line 184, ../../../stylesheets/base/typography.scss */
   h2 {
     font-size: 24px;
     font-size: 1.5em;
@@ -185,7 +184,7 @@ p.center {
     line-height: 1.2;
   }
 
-  /* line 192, ../../../stylesheets/base/typography.scss */
+  /* line 191, ../../../stylesheets/base/typography.scss */
   h3 {
     font-size: 18px;
     font-size: 1.115em;

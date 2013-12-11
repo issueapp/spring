@@ -1,0 +1,22 @@
+<%= render "one_column", locals: {
+  page: Hashie::Mash.new(
+    title: "SUMMER SURVIVAL GUIDE",
+    description: lorem_ipsum,
+    author_name: "Zyralyn Bacani",
+    has_image: true,
+    author_icon: "",
+    content_type: "video",
+    top_image: "http://31.media.tumblr.com/e8b9ca89ac00aaf1878b83d2ff5c9832/tumblr_mx3tsop3GI1st5lhmo1_1280.jpg",
+    published_at: 3.days.ago,
+    content: embed_video("http://vimeo.com/81183852"),
+  
+    layout: Hashie::Mash.new(params.fetch(:layout, {}).reverse_merge(
+      type: "one_column", 
+      image_align: "left",
+      image_style: "background",
+    
+      content_style: "dark",
+      content_overflow: "paginate"
+    ))
+  )}
+%>

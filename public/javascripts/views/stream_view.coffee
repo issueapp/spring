@@ -225,7 +225,7 @@ class App.StreamView extends Backbone.View
     if page = @pages[@currentIndex + 1]
       # Immediate next
       @currentIndex += 1
-      step = parseInt(@limit/2)
+      step = parseInt(@limit / 2)
 
       # Far next
       unless @pages[@currentIndex + step]
@@ -242,7 +242,7 @@ class App.StreamView extends Backbone.View
     if page = @pages[@currentIndex - 1]
       @currentIndex -= 1
 
-      step = parseInt(@limit/2)
+      step = parseInt(@limit / 2)
 
       # Far prev
       if this.$el.find('.padding').css('width') != '0px' && @currentIndex != 1

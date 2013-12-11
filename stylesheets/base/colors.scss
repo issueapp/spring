@@ -1,3 +1,5 @@
+@import 'compass/css3/transition';
+
 /*
 
   Dark theme
@@ -28,14 +30,9 @@
 .dark-container {
   @extend .dark-theme;
   background:#0c0c0c;
-  width:100%;
-  height:100%;
-  position:fixed;
-  z-index:9999;
-  overflow: auto;
-  padding: 1px;
-  
-  .container {
-    padding-top: 10%;
+  @include min-screen(768) {
+    .container {
+      padding-top: 10%;
+    }
   }
 }
