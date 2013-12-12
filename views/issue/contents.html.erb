@@ -1,25 +1,25 @@
 <%
-page = Hashie::Mash.new(
-  title: "Holiday Issue",
-  description: lorem_ipsum,
-  author_name: "Taylor Luk",
-  author_icon: "",
-  content_type: "photo",
-  top_image: "http://31.media.tumblr.com/e8b9ca89ac00aaf1878b83d2ff5c9832/tumblr_mx3tsop3GI1st5lhmo1_1280.jpg",
-  published_at: 3.days.ago,
-  
-  content: lorem_ipsum,
-  layout: params.fetch(:layout, {}).reverse_merge(
-    type: "toc", 
-    image_align: "left",
-    image_style: "background",
-    content_style: "black",
-    content_align: "left",
-    content_valign: "bottom",
-    content_overflow: "paginate"
+  page = Hashie::Mash.new(
+    title: "Holiday Issue",
+    description: lorem_ipsum,
+    author_name: "Taylor Luk",
+    author_icon: "",
+    content_type: "photo",
+    top_image: "http://31.media.tumblr.com/e8b9ca89ac00aaf1878b83d2ff5c9832/tumblr_mx3tsop3GI1st5lhmo1_1280.jpg",
+    published_at: 3.days.ago,
+    content: lorem_ipsum,
+    layout: params.fetch(:layout, {}).reverse_merge(
+      type: "toc",
+      image_align: "left",
+      image_style: "background",
+      content_style: "black",
+      content_align: "left",
+      content_valign: "bottom",
+      content_overflow: "paginate"
+    )
   )
-)
 %>
+
 <style>
 /*
     Dynamic layout
@@ -27,7 +27,8 @@ page = Hashie::Mash.new(
 body {
   background: #eee;
 }
-[role=main] .page { 
+
+[role=main] .page {
   background: #fff;
   width: 1024px;
   height: 768px;
@@ -36,6 +37,7 @@ body {
 .two-column.paginate .body {
   width: 1024px;
 }
+
 .two-column .top-image {
   width: 512px;
 }
@@ -61,18 +63,17 @@ body {
 <% end %>
 
 <article class="toc page <%= page.layout.content_overflow %>">
-  
   <div class="col x8">
     <% if page.layout.image_align == "right" %>
       <section class="cover-area page">
         <%= title_area %>
         <%= cover_area if page.top_image %>
       </section>
-  
+
       <div class="body">
         <%= page.content %>
       </div>
-  
+
     <% else %>
       <%= cover_area if page.top_image %>
 
@@ -82,7 +83,7 @@ body {
       </div>
     <% end %>
   </div>
-  
+
   <div class="col x4">
     <h3>Contents</h3>
     <hr />

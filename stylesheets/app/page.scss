@@ -142,7 +142,7 @@ article.page {
     margin: 0 0 18px;
     padding: 0 0 15px;
     text-align: center;
-    
+
     hgroup {
       padding-top: 50px;
     }
@@ -156,7 +156,7 @@ article.page {
       padding-top: 130px;
     }
   }
-  
+
   // TODO: MOVE TO ADMIN
   #preview_item_content {
     &.no-cover [data-cover], img[data-size=tiny] {
@@ -247,21 +247,21 @@ article.page {
   }
 
   .top-image {
-    box-sizing: border-box;
-    clear: both;
     display: block;
-    float: none;
+    float: left;
+    clear: both;
+    box-sizing: border-box;
     margin: 1em auto;
     max-width: 100%;
     height: auto;
     background-repeat: no-repeat;
   }
-  
+
   .top-image.fit {
     background-position: center;
     background-size: 100%;
   }
-  
+
   .top-image.cover {
     background-size: cover;
     background-position: center;
@@ -296,7 +296,7 @@ article.page {
   }
 
 
-  
+
   &.scroll .body {
     overflow: auto;
   }
@@ -527,12 +527,10 @@ article.two-column {
   padding-bottom: 0;
 
   .top-image {
-    white-space: normal;
-    display: inline-block;
-    // background: red;
+    clear: none;
     margin: 0;
     height: 100%;
-    clear: none;
+    white-space: normal;
   }
 
   .body {
@@ -599,16 +597,15 @@ article.three-column {
   position: relative;
   white-space: nowrap;
   padding-bottom: 0;
-  
+
   .top-image {
-    white-space: normal;
     display: inline-block;
-    // background: red;
+    clear: none;
     margin: 0;
     height: 100%;
-    clear: none;
+    white-space: normal;
   }
-  
+
   &.paginate .body {
     -webkit-column-count:3;
     -moz-column-count:3;
@@ -640,7 +637,7 @@ article.three-column {
       display: inline-block;
     }
   }
-  
+
   .cover-area {
     @include display-box;
     @include box-orient(horizontal);
@@ -666,15 +663,6 @@ article.three-column {
       width: 33.333%;
     }
   }
-//  &.paginate .body {
-//    -webkit-column-count:3;
-//    -moz-column-count:3;
-//    column-count:3;
-//    -webkit-column-gap: 40px;
-//    -moz-column-gap: 40px;
-//    column-gap: 40px;
-//
-//  }
 }
 
 .webview {
