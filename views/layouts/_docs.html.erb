@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"><![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <title>issue</title>
+
+    <!-- http://t.co/dKP3o1e -->
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0" />
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <!--iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <link rel="stylesheet" href="/stylesheets/docs.css" type="text/css">
+
+    <style>
+      .grid-sample .col {
+        background: #ccc;
+        text-align: center;
+        margin-bottom: 5px;
+      }
+    </style>
+    
+    <script>
+    if (!("ontouchstart" in document.documentElement)) 
+      document.documentElement.className += " no-touch";
+    </script>
+  </head>
+
+  <body>
+    <nav role="primary"></nav>
+    <% if content_for?(:header) %>
+      <%= yield :header %>
+    <% end %>
+
+    <div role="main" class="container">
+      <%= yield %>
+    </div>
+    
+    <footer role="contentinfo" class="container">
+      <nav>
+        <ul>
+          <li>About</li>
+          <li>Press</li>
+          <li>Team</li>
+        </ul>
+      </nav>
+    </footer>
+  </body>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <script src="/javascripts/spring.ui.js"></script>
+</html>

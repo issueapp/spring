@@ -1,0 +1,24 @@
+<article class="content page" data-handle="{{ handle }}">
+  <header style="">
+    <h3 class="title">{{ title }}</h3>
+    <p>
+      
+    <span class="author">
+      {{ #author }}By {{ author }}{{ /author }}
+      {{ ^author }}By {{ site.title }}{{ /author }}
+      
+      {{ #published_at }}
+        | <datetime class="">{{ published_at }}</datetime>
+      {{ /published_at }}
+      
+    </span>
+    <p>
+  </header>
+  <div class="body">
+    {{ #content }}
+      {{{ content }}}
+    {{ /content }}
+    
+    <a rel="external" target="_blank" href="{{ url }}">View original </a>
+  </div>
+</article>

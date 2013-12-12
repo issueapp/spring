@@ -1,0 +1,38 @@
+<% title_area = capture do %>
+  <hgroup>
+    <%= render 'debug', locals: { page: page } %>
+    <h1 class="title preview_item_title"><%= page.title %></h1>
+    <h3 class="subtitle description"><%= page.description %></h3>
+
+    <div class="extras">
+      <img src="http://cl.ly/StPu/Image%202013.12.11%204%3A54%3A01%20pm.png" class="avatar" >
+      <em> by <%= page.author_name %></em>
+      <p><%= page.description %></p>
+    </div>
+  </hgroup>
+<% end %>
+
+<% cover_area = capture do %>
+  <div class="top-image <%= page.layout.image_style %>" style="background-image: url(<%= page.top_image %>)"></div>
+<% end %>
+
+<article class="two-column content page <%= page.layout.content_overflow %>">
+  <% if page.layout.image_align == "right" %>
+    <section class="cover-area page">
+      <%= title_area %>
+      <%= cover_area if page.top_image %>
+    </section>
+
+    <div class="body">
+      <%= page.content %>
+    </div>
+
+  <% else %>
+    <%= cover_area if page.top_image %>
+
+    <div class="body">
+      <%= title_area %>
+      <%= page.content %>
+    </div>
+  <% end %>
+</article>

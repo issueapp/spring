@@ -1,0 +1,25 @@
+/* line 3, ../../../stylesheets/ui/swipe-view.scss */
+.swipe-paging {
+  position: absolute;
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 0;
+}
+/* line 9, ../../../stylesheets/ui/swipe-view.scss */
+.swipe-paging .page {
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  margin: 0;
+  padding: 5px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  white-space: normal;
+  overflow: hidden;
+}
+/* line 25, ../../../stylesheets/ui/swipe-view.scss */
+.swipe-paging .page.padding {
+  width: 0;
+}

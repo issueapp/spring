@@ -1,0 +1,156 @@
+/* line 7, ../../../stylesheets/site/home.scss */
+#hero {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 100%;
+  padding-top: 3%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url('../../images/site/home-background.jpg?1386837122');
+}
+/* line 16, ../../../stylesheets/site/home.scss */
+#hero .logo {
+  float: none;
+}
+/* line 20, ../../../stylesheets/site/home.scss */
+#hero h2 {
+  font-family: georgia;
+  font-weight: normal;
+  line-height: 1.8;
+  margin: 0em 0 1em;
+  /*    font: 2em/1.5em Georgia;
+  */
+  font-style: italic;
+  text-transform: none;
+}
+/* line 32, ../../../stylesheets/site/home.scss */
+#hero #ipad-screen {
+  position: relative;
+  top: -20px;
+  left: -2%;
+}
+/* line 38, ../../../stylesheets/site/home.scss */
+#hero .learn-more {
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-left: 20px;
+}
+/* line 45, ../../../stylesheets/site/home.scss */
+#hero .more-arrow {
+  position: absolute;
+  left: 49%;
+  bottom: 20px;
+  width: 50px;
+  height: 30px;
+  display: block;
+  margin: 0 auto;
+  background: url('../../images/icons-sprite.png?1386837122') no-repeat;
+}
+
+/* line 57, ../../../stylesheets/site/home.scss */
+section.tour {
+  overflow: hidden;
+  *zoom: 1;
+  padding: 40px 0;
+}
+/* line 61, ../../../stylesheets/site/home.scss */
+section.tour.odd {
+  background: #f6f9f9;
+}
+/* line 63, ../../../stylesheets/site/home.scss */
+section.tour h2 {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  /*    margin: 0 0 0;*/
+}
+/* line 69, ../../../stylesheets/site/home.scss */
+section.tour .subtitle {
+  font: 16px Georgia;
+  color: #555;
+  font-style: italic;
+  text-align: center;
+}
+/* line 76, ../../../stylesheets/site/home.scss */
+section.tour figure {
+  text-align: center;
+}
+/* line 80, ../../../stylesheets/site/home.scss */
+section.tour .box {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  background: #222;
+  color: white;
+  position: relative;
+  /*    width: 430px;*/
+  height: 300px;
+  margin: 0 2% 60px 0;
+}
+/* line 90, ../../../stylesheets/site/home.scss */
+section.tour .box h3 {
+  font-family: "proxima_nova_regular", "Helvetica Neue";
+  letter-spacing: 2px;
+  position: absolute;
+  font-size: 18px;
+  margin-top: 140px;
+  text-align: center;
+  text-transform: uppercase;
+  /*      font-weight: bold;*/
+  vertical-align: middle;
+  text-shadow: 0px 0px 1px #aaaaaa;
+  width: 100%;
+  visibility: visible;
+  z-index: 2;
+}
+/* line 107, ../../../stylesheets/site/home.scss */
+section.tour .box .hover {
+  position: absolute;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding: 40px;
+  font-size: 16px;
+  font-weight: bold;
+  display: none;
+  background: black;
+  opacity: 0.8;
+}
+/* line 121, ../../../stylesheets/site/home.scss */
+section.tour .box:hover h3 {
+  /*        visibility: hidden;*/
+}
+/* line 124, ../../../stylesheets/site/home.scss */
+section.tour .box:hover .hover {
+  display: block;
+}
+/* line 130, ../../../stylesheets/site/home.scss */
+section.tour .box.brand {
+  background-size: cover;
+  background-image: url('../../images/site/tour-brand.png?1386837122');
+}
+/* line 135, ../../../stylesheets/site/home.scss */
+section.tour .box.blogger {
+  background-size: cover;
+  background-image: url('../../images/site/tour-blogger.png?1386837122');
+}
+
+/* ====
+
+=== */
+@media screen and (min-width: 768px) {
+  /* line 150, ../../../stylesheets/site/home.scss */
+  section.tour.blogger .col:first-child {
+    left: 50%;
+  }
+  /* line 154, ../../../stylesheets/site/home.scss */
+  section.tour.blogger .col:last-child {
+    right: 50%;
+  }
+}

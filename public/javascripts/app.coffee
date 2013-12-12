@@ -1,166 +1,217 @@
 # Application bootstrap
-this.App ||= {
+this.App || = {}
+
+_.extend(App, {
   standalone: window.navigator.standalone
-  
-  streams: [
-    { title: "Top Content", "http://shop2.com/products.json?highres=true", default: true },
-    { title: "Editors choices", "http://shop2.com/taylorluk/products.json?highres=true" },
-    { title: "Mens", "http://shop2.com/interests/mens/products.json?highres=true" },
-    { title: "Womens", "http://shop2.com/interests/womens/products.json?highres=true" }
-  ]
-  
+  touch: !!('ontouchstart' in window)
+
   init: ->
-    this.layout = new App.Layout
-    this.router = new App.Router
-    Backbone.history.start({pushState: true, root: "/ipad/"})
-    
-}
+    @router = new App.Router
 
-class App.Layout extends Backbone.View
-  
-  initialize: ->
-    this.resize()
-    
-    $(window).on "orientationchange", => this.resize()
-    $(window).on "resize", => this.resize()
-  
-  resize: ->
-    dimension = {
-      width: window.innerWidth
-      height: window.innerHeight
-    }
-    
-    @viewport = $('#sections').width()
-    toolbar = { height:  $('header.toolbar').height() }
+    @layout = new App.Layout
+    @discover = new App.DiscoverMenu
 
-    css = "
-      .page { 
-        width: #{dimension.width}px;
-        height: #{dimension.height - toolbar.height}px;
-      }\n
-      "
-    
-    style = document.createElement('style')
-    style.type = 'text/css'
-    style.id = "touch-layout"
-    
-    if style.styleSheet
-      style.styleSheet.cssText = css
+    @menu = new App.MenuView
+
+    @stream = new App.StreamCollection
+    @streamView = new App.StreamView( layout: @layout, model: @stream )
+    @contentView ||= new App.ContentView
+    @popover = new App.PopoverView
+
+    Backbone.history.start()
+
+    if Backbone.history.fragment
+      $('.landing').hide()
     else
-      style.appendChild(document.createTextNode(css));
-    
-    # Remove and reset the style
-    $('#touch-layout').remove()
-    $(document.body).append(style)
+      $('.landing').css('opacity', '1')
 
-    # main view
-    if App.streamView
-      App.streamView.onResize()
-    
+    $('a[rel="popover"]').live "click", (e)=>
+      target = $(e.currentTarget)
+      id = target.attr('href') # id => #filterDropdown
+      return if !id
+
+      dropdown = $(id)
+      $('.popover:not('+id+'):visible').hide()
+
+      if dropdown.length == 0
+        method = id.replace('#', '') # method => filterDropdown
+        @popover[method](target) if typeof @popover[method] == "function" # popover.filterDropdown(target)
+        @popover.setElement('.popover')
+
+      else
+        dropdown.toggle()
+
+      false
+
+    # All link should be internal /!#/path # unless @silentClick
+    $('a:not([rel="external"]):not([rel="popover"])').live "click", (e) =>
+      link = $(e.currentTarget).attr('href')
+      App.router.navigate(link, { trigger: true }) if link != '#' && link != ''
+
+      false
+
+    $("body").live "click touchend", (e)=>
+      if $('.popover:visible').length > 0 && $(e.target).attr('rel') != 'popover' && $(e.target).parent().attr('rel') != 'popover'
+        setTimeout =>
+          $('.popover:visible').hide()
+        , 0
+})
 
 class App.Router extends Backbone.Router
   routes:
-    "ipad":             "home"
-    "section":          "home"
+    "stream":                     "home"
+    "issue":                      "issue"
+    "signup":                     "signup"
+    "gallery":                    "gallery"
+    "gallery/:index":             "gallery"
+    "items/:handle":              "content"
 
-    "interests/:handle": "products"
-    "products/:handle": "content"
-    ":name/products": "stream"
-  
-  stream: (name)->
-    if App.stream.owner != name
-      $('#sections .pages').removeAttr("style")
-      $('#sections .padding').width(0)
-      $('#sections .pages').html('')
+    "discover":                   "discover"
+    "discover/:category":         "discover"
+
+    ":type/:handle":              "channel"
+
+  initialize: (options)->
+    this.route(/.*\?type=(\w+)/, "filter")
+
+  issue: ->
+    App.gallery.close() if App.gallery
+    App.menu.toggle(false)
+    $('#issue').show()
+    $('#discover').hide()
+    App.streamView.hide()
+    App.contentView.hide()
+    $('.start-button').click => $("#issue .cover").hide()
+
     
-      spinner = new Spinner().spin()
-      $('#sections').append(spinner.el)
-      
-      App.router.navigate("#{name}/products", { trigger: true })
-      App.stream = new App.StreamCollection
-      App.streamView = new App.StreamView({ el: '#sections .pages', layout: App.layout, collection: App.stream })
+    App.issue ||= new App.SwipeView(el: "#issue .swipe-paging", clearPage: false)
     
-      App.stream.url = "http://shop2.com/#{name}/products.json?highres=true&sort=created_at"
-      App.stream.title = "#{name}'s favourites"
-      App.stream.owner = "#{name}"
-      App.stream.fetch({ dataType: "jsonp" })
-    else
-      $(App.streamView.el).animate({ opacity: 1}, 150)
+    $('#issue .toolbar').show();
+    
+    App.issue.on 'slideTo',   (page)=>
+      $(document.body).toggleClass("dark-theme", $(page).is('.dark'))
+
+  gallery: ()->
+    App.gallery = new App.GalleryView($('#issue .current.page .gallery a'))
+    
+    App.gallery.on "open", (page)=>
+      $(document.body).toggleClass("dark-theme", $(page).is('.dark'))
+      $('#issue .toolbar').hide()
       
-  products: (handle)->
-    if App.stream.title != handle
-      $('#sections .pages').removeAttr("style")
-      $('#sections .padding').width(0)
-      $('#sections .pages').html('')
-      $('#content .pages').html('')
-      
-      spinner = new Spinner().spin()
-      $('#sections').append(spinner.el)
-      
-      App.router.navigate("interests/#{handle}", { trigger: true })
-      App.stream = new App.StreamCollection
-      App.streamView = new App.StreamView({ el: '#sections .pages', layout: App.layout, collection: App.stream })
-          
-      App.stream.url = "http://shop2.com/interests/#{handle}.json"
-      App.stream.title = handle
-      App.stream.fetch({ dataType: "jsonp" })
-    else
-      $(App.streamView.el).animate({ opacity: 1}, 150)
-      
+    App.gallery.on "close", =>
+      $('#issue .toolbar').show()
+
+    App.gallery.render()
+    
+  signup: ->
+    $('#issue').hide()
+    # App.toolbar.hide()
+    $('.landing').hide()
+
+    $('#signup').show()
+
   home: ->
-    App.menu ||= new App.MenuView
-    App.stream ||= new App.StreamCollection
-    
-    pages = $('#sections .pages')
-    isMobile = this.isMobile()
-    
-    if isMobile
-      App.listView ||= new App.ListView({ el: '#sections .pages', collection: App.stream })
+    $('.landing').hide()
+        
+    App.stream.title = "My Edition"
+    this.channel("stream")
+
+  # View a channel in a stream format
+  channel: (type, handle)->
+    $('.landing').hide()
+    $('#issue').hide()
+
+    App.menu.toggle(false)
+    App.contentView.hide()
+
+    $('#discover').hide()
+    $('#signup').hide()
+
+    # Default to stream stream url
+    url = switch type
+      when "users"
+        this.url_for("#{handle}/items")
+      when "sites"
+        this.url_for("sites/#{handle}/items")
+      when "interests"
+        this.url_for("interests/#{handle}/items")
+      else
+        this.url_for("taylorluk/items")
+
+    if !App.stream || (App.stream && App.stream.url != url)
+      this.resetView(url, handle)
+
     else
-      pages.addClass('horizontal')
-      App.streamView ||= new App.StreamView({ el: '#sections .pages', layout: App.layout, collection: App.stream })
-    
-    if App.contentView
-      $(App.streamView.el).animate({ opacity: 1}, 150)
-      
-      $('#content .pages').html('')
-    
-    if App.stream.length == 0
-      App.stream.url = "http://shop2.com/taylorluk/products.json?highres=true&sort=created_at"
-      App.stream.title = "Taylorluk's favourites"
-      App.stream.fetch({ dataType: "jsonp" })
-      
-    else if isMobile
-      App.listView.render()
+      this.backToStream()
+
+  filter: (type)->
+    if type != undefined
+      url = App.stream.url.replace(/\.json(\?.*)/, '.json') + "?sort=published_at&type=" + type
     else
-      App.streamView.render()
+      url = App.stream.url + "?sort=published_at"
+    title = App.stream.title
+
+    this.resetView(url, title)
+
+  discover: (category)->
+    $('.landing').hide()
     
+    App.discover.collection = App.channels
+    App.discover.render(category)
+    App.menu.render()
+
   content: (handle) ->
-    $(App.streamView.el).css('opacity', "0")
-    content = App.stream.find (item)-> item.get('handle') == handle
+    # App.contentView.$('.pages').html("")
     
-    App.contentView ||= new App.ContentView
-    # App.contentView.view.offset = 0
-    App.contentView.model = content
-    App.contentView.render()
+    App.streamView.hide()
+    App.contentView.show()
+
+    # Might need to delay rendering when page is loading
+    renderer = (c)->
+      console.log(c)
+      App.contentView.reset()
+      App.contentView.model = c
+      App.contentView.render()
+
+    # fetch item from collection
+    if App.stream.length > 0
+      content = App.stream.find (e)-> e.get('handle') == handle
+      renderer(content)
+    else
+    # request a new item
+      product = new Backbone.Model
+      product.fetch({
+        dataType: "jsonp", url: this.url_for("items/#{handle}"),
+        success: (data)-> renderer(product)
+      })
+
+  url_for: (path)->
+    host = App.api_host || "shop2.com"
     
-    
-  isMobile: ->
-    uagent = navigator.userAgent.toLowerCase()
-    ismobile = false
-    
-    list = [
-        "midp","240x320","blackberry","netfront","nokia","panasonic",
-        "portalmmm","sharp","sie-","sonyericsson","symbian",
-        "windows ce","benq","mda","mot-","opera mini",
-        "philips","pocket pc","sagem","samsung","sda",
-        "sgh-","vodafone","xda","palm","iphone",
-        "ipod","android"
-      ]
-    
-    list.forEach (item)->
-      if uagent.indexOf(item) != -1
-        ismobile = true
-    
-    # ismobile
-    false
+    "http://#{host}/#{path}.json"
+
+  # Set view to default state
+  # This is a work around when we change between different view containers.
+  resetView: (url, title, type)->
+    $(document).off('keydown')
+
+    # Update stream content when URL is different
+    if url && url != App.stream.url
+      # App.streamView = new App.StreamView({ layout: App.layout, model: App.stream, title: title })
+      App.stream = new App.StreamCollection
+      App.stream.url = url
+      App.stream.title = title if title
+      
+      App.streamView.model = App.stream
+      App.streamView.reset()
+      # App.streamView.loading(true)
+      App.stream.fetch({ dataType: "jsonp" })
+    else
+      App.streamView.title = title
+      App.streamView.show()
+
+  backToStream: ->
+    App.contentView.hide()
+
+    App.streamView.show()
+

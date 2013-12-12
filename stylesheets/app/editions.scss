@@ -1,0 +1,547 @@
+//#preview_edition {
+//  position: relative;
+//  z-index: 1;
+//  .edition-item {
+//    margin-right: 4%;
+//  }
+//}
+//
+//// Preview edition inside modal dialog
+//.preview-edition {
+//  width: 150%;
+//
+//  @include min-screen(768) {
+//    width: 400%;
+//  }
+//}
+//
+//form .edition_handle {
+////  margin-bottom: 2em;
+////  border-bottom: 1px solid #ccc;
+//
+//  .error {
+//    position: absolute;
+//    left: initial;
+//    bottom: initial;
+//  }
+//
+//  label {
+//    font-family: Georgia; font-style: italic;
+//  }
+//
+//  #edition_handle,
+//  #edition_handle_outside {
+//    margin-left: 5px;
+//    width: 7em;
+//
+//    @include input-placeholder {
+//      font-size: 24px;
+//      font-weight: normal !important;
+//    }
+//  }
+//}
+//
+/*
+  Edition cover
+*/
+
+//
+//
+//// Overwride side margin gutter for edition listing
+//#edition_list {
+//  width: 100% !important;
+//  .webview & {
+//    padding-top: 74px;
+//
+//    @include min-screen(768) {
+//      padding-top: 70px;
+//    }
+//  }
+//}
+//
+//
+///* Add to edition modal */
+//
+//.selectable {
+//  z-index: 2;
+//}
+//
+//
+//// Highlight select edition on add to edition
+//input.edition {
+//  z-index: 1;
+//  display: none;
+//  opacity: 0;
+//
+//  &:checked ~ div {
+//    @extend .icon-checkmark-circle;
+//    @include transition(none);
+//
+//    box-shadow: inset 0 0 0 3px lighten(#e96b56, 2%);
+//
+//    &:after {
+//      background-position: 0 0;
+//    }
+//    &:before {
+//      color: white;
+//      font-size: 30px;
+//      text-align: center;
+//      line-height: 270px;
+//      background-color: rgba(0, 0, 0, 0.1);
+//    }
+//
+//    .content {
+//      opacity: 0.5;
+//    }
+//
+//    .no-touch &:hover {
+//      .content {
+//        bottom: 0 !important;
+//      }
+//    }
+//  }
+//}
+//
+//
+//#preview-editions {
+//  margin-bottom: 40px;
+//
+//  .container {
+//    overflow: scroll;
+//    width: 100%;
+//    max-width: 100%;
+//  }
+//
+//  .edition-list {
+//    margin: 20px 0 20px 3%;
+//    white-space: nowrap;
+//
+//    & > li {
+//      display: inline;
+//    }
+//
+//    .edition-item {
+//      margin: 0 40px 0 0;
+//      height: 270px;
+//      padding: 0;
+//      width: 200px;
+//      float: none;
+//      @include inline-block;
+//      .content {
+//        padding: 10px 5px 10px 20px;
+//
+//        .title, .author {
+//          overflow: hidden;
+//          white-space: nowrap;
+//          text-overflow: ellipsis;
+//        }
+//        .description {
+//          white-space: initial;
+//          overflow: hidden;
+//          text-overflow: ellipsis;
+//          display: -webkit-box;
+//          -webkit-line-clamp: 5;
+//          -webkit-box-orient: vertical;
+//        }
+//      }
+//    }
+//
+//  }
+//}
+//
+//#add_to_edition a.close {
+//  display: inline-block;
+//  background: #000;
+//  color: white;
+//  font-size: 18px;
+//  font-weight: bold;
+//  @include text-shadow(initial);
+//  @include border-radius(initial);
+//  border: none;
+//  padding: 0 30px;
+//  margin: 0;
+//  margin-left: -4px;
+//  &:hover {
+//    color: white;
+//    background: #111;
+//  }
+//}
+//
+///*#add_to_edition .edition-item {
+//  width: 215.8px;
+//  height: 300px;
+//  display: inline-block;
+//  float: none;
+//
+//  &.edition-list {
+//    white-space: nowrap;
+//  }
+//}
+//*/
+//
+//
+///*
+//  Edition item
+//
+//  :hover, .hover
+//  .moveup:hover, .hover      -     moveup on hover
+//*/
+//
+//.edition-list {
+//  @include box-sizing(border-box);
+//
+//  padding: 0;
+//  margin: 0;
+//  margin-left: 3%;
+//  list-style: none;
+//
+//  @include min-screen(768) {
+//    margin-left: 3%;
+//  }
+//}
+//
+//.edition-row {
+//  float: left;
+//  clear: left;
+//  height: 136px !important;
+//  width: 100%;
+//
+//  line-height: 20px;
+//  @include box-sizing(border-box);
+//
+//  padding-top: 20px;
+//
+//  img {
+//    @include border-radius(2px);
+//    float: left;
+//  }
+//
+//  .content {
+//    margin-left: 90px;
+//  }
+//
+//  .title {
+//    font-family: "proxima_nova_regular";
+//
+//    font-weight: normal;
+//    font-size: 16px;
+//  }
+//
+//  .description {
+//    margin-top: 0.5em;
+//    color: #ccc;
+//    font-size: 12px;
+//  }
+//
+//  .no-touch &:hover {
+//    background: #222;
+//  }
+//
+//  &:active {
+//
+//  }
+//}
+//
+//.edition-item {
+//  @include box-sizing(border-box);
+//
+//  font-size: 70%;
+//  margin: 0% 3% 3% 0%;
+//  width: 47%;
+//  padding-bottom: 66.72%;
+//  color: white;
+//  opacity: 1;
+//  float: left;
+//  background: #222;
+//  background-position: center;
+//  background-size: cover;
+//
+//  position: relative;
+//  overflow: hidden;
+//  @include transition(all 0.3s ease-in-out);
+//
+//// Show subscription status
+//  .show-subscription &:not(.hide-action):after {
+//    display: block;
+//    content: " ";
+//    position: absolute;
+//    top: -3px;
+//    right: 2%;
+//    height: 63px;
+//    width: 50px;
+//    background-position: 50px 0;
+//    zoom: 0.55;
+//    background-image: image-url('ui/edition-subscribed.png');
+//  }
+//
+//  &.subscribed {
+//    &:not(.hide-action):after {
+//      background-position: 0 0;
+//    }
+//
+//    a.subscribe {
+//      display: none;
+//    }
+//  }
+//
+////  input.subscribe
+//
+//  // Glare overlay
+////  &:before {
+////    content: '';
+////    z-index: 2;
+////    position: absolute;
+////    top: 0; left: 0; right: 0; bottom: 0;
+////    background: -webkit-linear-gradient(-30deg, rgba(255, 255, 255, .5), rgba(255, 255, 255, .17) 50%, rgba(255, 255, 255, 0) 50.1%) no-repeat;
+////  }
+//
+//
+//// Large display
+//
+//
+////  Featured edition
+////
+//  #signup &.featured {
+//    left: 0%;
+//    width: 96.8%;
+//    padding-bottom: 130.7%;
+//
+//    position: relative;
+//    line-height: 1.4;
+//    font-size: 100%;
+//
+//    // align subscribe on featured mag
+//    &:after {
+//      right: 15px;
+//    }
+//
+//    // Overlay
+//    &:before {
+//      content: "";
+//      display: block;
+//      position: absolute;
+//      @include box-sizing(border-box);
+//      left: 0; top: 0;
+//      right: -2px;
+//      bottom: 0;
+//      right: 0;
+//      background: rgba(0, 0, 0, 0.2);
+//    }
+//
+//    .title {
+//      font-size: 30px;
+//    }
+//
+//    .author {
+//      position: absolute;
+//      bottom: 20px;
+//      left: 20px;
+//      font-size: 12px;
+//    }
+//
+//    .description {
+//      font-size: 13px;
+//    }
+//
+//    .content {
+//      overflow: visible;
+//      bottom: 55%;
+//    }
+//  }
+//
+///*
+//    Actions
+//
+//    .link         -   View edition
+//    .subscribe    -   toggle subscription
+//*/
+//  .link {
+//    position: absolute;
+//    z-index: 1;
+//    width: 100%;
+//    height: 100%;
+//    cursor: pointer;
+//  }
+//
+//  .subscribe, .unsubscribe {
+//    position: absolute;
+//    right: 0;
+//    height: 60px;
+//    width: 40px;
+//    z-index: 999;
+//    text-indent: -10000px;
+//    color: transparent;
+//  }
+//
+//  .content {
+//    @include box-sizing(border-box);
+//    position: absolute;
+//    bottom: 0px;
+//    width: 100%;
+//    padding: 10px 20px 15px;
+//    overflow: hidden;
+//    p { color: white; }
+//  }
+//
+//  &:active {
+///*    opacity: 0;
+//    -webkit-transform: scale(1.3);*/
+//  }
+//
+//  //
+//  // Large screen
+//  @include min-screen(768) {
+//    &:after {
+//      zoom: 0.65;
+//    }
+//
+//    @include box-shadow(0px 1px 4px rgba(0,0,0,0.6), 0px -1px 0px rgba(255,255,255,0.2) inset);
+//    @include border-radius(3px);
+//
+//    font-size: 100%;
+//    margin: 0% 3% 3% 0%;
+//
+//    width: 22%;
+//    padding-bottom: 30.5%;
+//
+//    .content {
+//      @include box-sizing(border-box);
+//      position: absolute;
+//      bottom: 0px;
+//      width: 100%;
+//      padding: 10px 20px;
+//    }
+//
+//    #signup &.featured {
+//      left: 0%;
+//      width: 47%;
+//      padding-bottom: 64%;
+//
+//      .description {
+//        font-size: 16px;
+//      }
+//
+//      .author {
+//        font-size: 14px;
+//      }
+//    }
+//  }
+//
+//
+//  .title {
+//    font-size: 1.2em;
+//    line-height: 1.6;
+//    text-transform: uppercase;
+//    @include text-shadow(1px 1px 2px rgba(0,0,0, 0.3));
+//
+//    a {
+//      color: #fff;
+//    }
+//  }
+//
+//  .author {
+//    font-family: georgia;
+//    font-style: italic;
+//    padding: 0;
+//    margin: 0;
+//    line-height: 1.2;
+//    @include text-shadow(0px 1px 2px rgba(0,0,0, 0.3));
+//  }
+//
+//  .button {
+//    margin-bottom: 0;
+//  }
+//
+//  .description {
+//    font-size: 13px;
+//    line-height: 1.8;
+//  }
+//
+//  .extras {
+//    position: absolute;
+//    @include box-sizing(border-box);
+//    padding-top: 0%;
+//    height: 50%;
+//    left: 20px; right: 20px;
+//    z-index: 1;
+//  }
+//
+//  &.new-edition {
+//    a.new-edition {
+//      @extend .icon-plus-2;
+//
+//      font-size: 120px;
+//      color: #666;
+//      width: 100%;
+//      position: absolute;
+//      text-align: center;
+//
+//      margin: 0 auto;
+//      margin-top: 80px;
+//    }
+//  }
+//
+//  //  Option A: Move up to review action button
+//  &.moveup {
+//    .content {
+//      @include transition(bottom 0.3s ease-out);
+//    }
+//
+//    // Overlay
+//    &:before {
+//      content: "";
+//      display: block;
+//      position: absolute;
+//      @include box-sizing(border-box);
+//      left: 0; top: 0;
+//      right: -2px;
+//      bottom: 0;
+//      right: 0;
+//      background: rgba(0, 0, 0, 0.1);
+//    }
+//
+//    body:not(.webview) & {
+//
+//      @include min-screen(768) {
+//
+//        .no-touch &:hover, &.active {
+//
+//          &:before {
+//            background: rgba(0, 0, 0, 0.2);
+//          }
+//
+//          .content {
+//            overflow: visible;
+//            bottom: 55%;
+//          }
+//        }
+//      }
+//    }
+//
+//  }
+//}
+//
+//
+////  Subscription
+////
+//input.subscribe {
+//
+//  z-index: 1;
+//  display: none;
+//  opacity: 0;
+//
+//  &:checked ~ div {
+//    @include transition(none);
+////    box-shadow: inset 0 0 0 3px lighten(#e96b56, 2%);
+//
+//    .content {
+//      opacity: 0.5;
+//    }
+//
+//    .no-touch &:hover {
+//      .content {
+//        bottom: 0 !important;
+//      }
+//    }
+//  }
+//}

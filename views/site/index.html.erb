@@ -1,0 +1,97 @@
+
+
+<% content_for :header do %>
+<div class="dark-theme container">
+<nav role="navigation">
+  <ul class="links">
+    <li><a class="user" href="#">
+      <img class="thumb" width="30" height="30" src="https://en.gravatar.com/userimage/3750669/11f87325e01820f4350d21db1fb429c8.jpeg">
+      Taylor Luk</a></li>
+
+    <li><a class="hint--bottom" data-hint="Sign out" href="#"><i class="logout icon-off"></i></a></li>
+  </ul>
+</nav>
+</div>
+
+<header id="hero" class="dark-theme">
+  <div class="container">
+    <h1 class="logo"><a href="/site">Issue</a></h1>
+    <h2>Your edition of curated magazine</h2>
+  
+    <%= image_tag "site/ipad.png", id: "ipad-screen", :class => "x7" %>
+    
+    <div>
+      <a class="open-modal" href="#signup-modal">
+        <%= image_tag "site/appstore.png", height: 50, width:160, alt: "Appstore" %>
+      </a>
+      
+      <a class="scroll-to learn-more" href="#see-more">Learn more</a>
+    </div>
+  
+    <a class="scroll-to more-arrow" title="Scroll down to view more" href="#see-more"></a>
+  </div>
+  <span class="attribution">
+    by Daniele Zedda
+  </span>
+</header>
+<% end %>
+
+<section id="see-more" class="tour">
+  <div class="container centered">
+    <h2>Taking brand &amp; style publishing to the next level</h2>
+  
+    <a class="col x6 box brand open-modal" href="/site/publisher">
+      <h3>forward thinking brand</h3>
+      <div class="hover"></div>
+    </a>
+  
+    <a class="col x6 box blogger  open-modal" href="/site/publisher">
+      <h3>blogger &amp; influencer</h3>
+      <div class="hover"></div>
+    </a>
+  </div>
+</section>
+
+
+<section class="tour odd">
+  <div class="container text-centered">
+  
+    <h2>Spread the love</h2>
+    <p class="subtitle">
+      <!-- Beautify content around your brand, making it available as a Live stream or Issue.  -->
+    </p>
+    
+    <figure>
+      
+    <figure>
+  </dov>
+</section>
+
+<div id="signup-modal" class="modal" style="display:none">
+  <header>
+    <a href="#signup-modal" class="close-target icon-cross"></a>
+    <h1>get notified</h1>
+  </header>
+  
+  <p class="subtitle">
+    Our private beta is coming soon with limited users. Get invited for
+    insider access. Issue is going to be your new best friend
+  </p>
+  
+  <p class="center">
+    <a href="/connect/facebook" class="button large facebook invite-btn" id="request_button">
+      <i class="icon-facebook"> </i>
+      <span> Request an invite</span>
+</a>      </p>
+  
+  <hr/>
+  <div class="publisher-signup">
+    <h2 class="title">
+      <a href="/site/publisher">Are you a brand or style publisher?</a>
+    </h2>
+  </div>
+  
+  <footer>
+    <a href="" class="close">Continue</a>
+  </footer>
+</div>
