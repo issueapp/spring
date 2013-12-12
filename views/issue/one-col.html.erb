@@ -1,3 +1,7 @@
+<!--
+  http://localhost:3000/issue/one-col?layout[image_style]=fit&layout[image_align]=left
+ -->
+
 <%= render "one_column", locals: {
   page: Hashie::Mash.new(
     title: "SUMMER SURVIVAL GUIDE",
@@ -20,7 +24,6 @@
       type: "one_column",
       image_align: "left",
       image_style: "cover",
-
       content_overflow: "paginate"
     )
   )}

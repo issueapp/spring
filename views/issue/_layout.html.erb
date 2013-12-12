@@ -21,8 +21,8 @@
     <style>
 
       #issue-viewer {
-        overflow-x: scroll;
-        overflow-y: hidden;
+        position: relative;
+        overflow: auto;
         margin: 40px auto;
         width: 1024px;
         height: 768px;
@@ -133,7 +133,6 @@
     </nav>
 
     <div role=main class="content-view">
-      <!-- http://localhost:3000/issue/two-col?layout[image_align]=right&layout[image_style]=fit -->
       <div id="issue-viewer">
         <%= yield %>
       </div>
