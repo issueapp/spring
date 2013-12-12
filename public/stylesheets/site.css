@@ -2076,30 +2076,30 @@ input[type="button"]::-moz-focus-inner, button::-moz-focus-inner {
   -o-transition: all 0.15s ease-out;
   transition: all 0.15s ease-out;
 }
-/* line 227, ../../stylesheets/ui/button.scss */
+/* line 229, ../../stylesheets/ui/button.scss */
 .no-touch .button.outline:hover, .no-touch button.outline:hover {
   color: #fff;
   background: rgba(0, 0, 0, 0.7);
 }
-/* line 233, ../../stylesheets/ui/button.scss */
+/* line 235, ../../stylesheets/ui/button.scss */
 .dark-theme .button.outline, .dark-container .button.outline, article.fullscreen.black .body .button.outline, article.fullscreen.button.pointy .body .button.outline, .dark-theme button.outline, .dark-container button.outline, article.fullscreen.black .body button.outline, article.fullscreen.button.pointy .body button.outline {
   color: #fff;
-  border: 1px solid rgba(200, 200, 200, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.7);
 }
-/* line 237, ../../stylesheets/ui/button.scss */
+/* line 239, ../../stylesheets/ui/button.scss */
 .no-touch .dark-theme .button.outline:hover, .no-touch .dark-container .button.outline:hover, .no-touch article.fullscreen.black .body .button.outline:hover, article.fullscreen.black .no-touch .body .button.outline:hover, .no-touch article.fullscreen.button.pointy .body .button.outline:hover, article.fullscreen.button.pointy .no-touch .body .button.outline:hover, .no-touch .dark-theme button.outline:hover, .no-touch .dark-container button.outline:hover, .no-touch article.fullscreen.black .body button.outline:hover, article.fullscreen.black .no-touch .body button.outline:hover, .no-touch article.fullscreen.button.pointy .body button.outline:hover, article.fullscreen.button.pointy .no-touch .body button.outline:hover {
   color: white;
   background: rgba(200, 200, 200, 0.9);
 }
 
-/* line 245, ../../stylesheets/ui/button.scss */
+/* line 247, ../../stylesheets/ui/button.scss */
 .button.mobile-block,
 button.mobile-block {
   margin-top: 10px;
   width: 100%;
 }
 @media screen and (min-width: 768px) {
-  /* line 245, ../../stylesheets/ui/button.scss */
+  /* line 247, ../../stylesheets/ui/button.scss */
   .button.mobile-block,
   button.mobile-block {
     margin-top: 0;
@@ -2107,14 +2107,14 @@ button.mobile-block {
   }
 }
 
-/* line 255, ../../stylesheets/ui/button.scss */
+/* line 257, ../../stylesheets/ui/button.scss */
 .button.danger {
   color: #f04f4f;
   text-shadow: none;
 }
 
 @media screen and (max-width: 480px) {
-  /* line 261, ../../stylesheets/ui/button.scss */
+  /* line 263, ../../stylesheets/ui/button.scss */
   .button.pointy {
     margin-top: 10px;
     width: 100%;
@@ -2122,7 +2122,7 @@ button.mobile-block {
     line-height: 44px;
   }
 }
-/* line 271, ../../stylesheets/ui/button.scss */
+/* line 273, ../../stylesheets/ui/button.scss */
 .button.pointy:before {
   content: " ";
   position: absolute;
@@ -2132,7 +2132,7 @@ button.mobile-block {
   display: block;
 }
 
-/* line 286, ../../stylesheets/ui/button.scss */
+/* line 288, ../../stylesheets/ui/button.scss */
 .button.facebook, button.facebook {
   text-shadow: 0px 1px #375697;
   padding: 0 24px;
@@ -2140,39 +2140,39 @@ button.mobile-block {
   background: #4363a6;
   color: white;
 }
-/* line 294, ../../stylesheets/ui/button.scss */
+/* line 296, ../../stylesheets/ui/button.scss */
 .button.facebook i, button.facebook i {
   margin-left: -5px;
   font-size: 21px;
   padding-right: 5px;
   line-height: 44px;
 }
-/* line 301, ../../stylesheets/ui/button.scss */
+/* line 303, ../../stylesheets/ui/button.scss */
 .button.facebook span, button.facebook span {
   color: white;
 }
-/* line 305, ../../stylesheets/ui/button.scss */
+/* line 307, ../../stylesheets/ui/button.scss */
 .button.facebook.large span, .page .button.facebook.no-image span, .page .button.facebook.item.split span, button.facebook.large span, .page button.facebook.no-image span, .page button.facebook.item.split span {
   font-size: 13px;
   height: 44px;
   line-height: 44px;
 }
-/* line 312, ../../stylesheets/ui/button.scss */
+/* line 314, ../../stylesheets/ui/button.scss */
 .button.facebook.small span, button.facebook.small span {
   height: 20px;
   line-height: 18px;
 }
-/* line 317, ../../stylesheets/ui/button.scss */
+/* line 319, ../../stylesheets/ui/button.scss */
 .no-touch .button.facebook:hover, .no-touch button.facebook:hover {
   background: #5e7dbe;
   color: white;
 }
-/* line 322, ../../stylesheets/ui/button.scss */
+/* line 324, ../../stylesheets/ui/button.scss */
 .button.facebook:active, button.facebook:active {
   background: #4363a6;
 }
 
-/* line 327, ../../stylesheets/ui/button.scss */
+/* line 329, ../../stylesheets/ui/button.scss */
 .button.twitter, button.twitter {
   background: #36a3d4;
   color: white;
@@ -2180,25 +2180,25 @@ button.mobile-block {
   font-family: "proxima_nova_bold", "Helvetica Neue", Hevetica, Arial, sans-serif;
   text-shadow: 0px 1px #2686b1;
 }
-/* line 337, ../../stylesheets/ui/button.scss */
+/* line 339, ../../stylesheets/ui/button.scss */
 .button.twitter i, button.twitter i {
   line-height: 44px;
 }
-/* line 341, ../../stylesheets/ui/button.scss */
+/* line 343, ../../stylesheets/ui/button.scss */
 .button.twitter span, button.twitter span {
   color: white;
 }
-/* line 345, ../../stylesheets/ui/button.scss */
+/* line 347, ../../stylesheets/ui/button.scss */
 .button.twitter.small span, button.twitter.small span {
   height: 20px;
   line-height: 18px;
 }
-/* line 350, ../../stylesheets/ui/button.scss */
+/* line 352, ../../stylesheets/ui/button.scss */
 .no-touch .button.twitter:hover, .no-touch button.twitter:hover {
   background: #60b6dd;
   color: white;
 }
-/* line 355, ../../stylesheets/ui/button.scss */
+/* line 357, ../../stylesheets/ui/button.scss */
 .button.twitter:active, button.twitter:active {
   background: #36a3d4;
 }
@@ -2206,7 +2206,7 @@ button.mobile-block {
 /*
     Disabled state
 */
-/* line 366, ../../stylesheets/ui/button.scss */
+/* line 368, ../../stylesheets/ui/button.scss */
 .button.disabled,
 .button[disabled],
 button[disabled],
@@ -2230,14 +2230,14 @@ button[disabled]:active {
 /*=====================================
       Button group with split icon
   =====================================*/
-/* line 381, ../../stylesheets/ui/button.scss */
+/* line 383, ../../stylesheets/ui/button.scss */
 .button-group {
   vertical-align: middle;
   display: inline-block;
   position: relative;
   z-index: 99999;
 }
-/* line 387, ../../stylesheets/ui/button.scss */
+/* line 389, ../../stylesheets/ui/button.scss */
 .button-group .button {
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
@@ -2249,7 +2249,7 @@ button[disabled]:active {
   margin-left: -1px;
   margin-right: 0;
 }
-/* line 395, ../../stylesheets/ui/button.scss */
+/* line 397, ../../stylesheets/ui/button.scss */
 .button-group .button:first-child {
   margin-left: 0px;
   margin-right: 0;
@@ -2260,7 +2260,7 @@ button[disabled]:active {
   -webkit-border-top-left-radius: 3px;
   border-top-left-radius: 3px;
 }
-/* line 402, ../../stylesheets/ui/button.scss */
+/* line 404, ../../stylesheets/ui/button.scss */
 .button-group .button:last-child {
   margin-left: 0px;
   margin-right: 0;
@@ -2271,7 +2271,7 @@ button[disabled]:active {
   -webkit-border-top-right-radius: 3px;
   border-top-right-radius: 3px;
 }
-/* line 409, ../../stylesheets/ui/button.scss */
+/* line 411, ../../stylesheets/ui/button.scss */
 .button-group .dropdown {
   padding: 0px 6px;
   -moz-border-radius-bottomright: 3px;
@@ -2284,18 +2284,18 @@ button[disabled]:active {
   -moz-box-shadow: inset 1px 0 0 rgba(255, 255, 255, 0.125), inset 0 -1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
   box-shadow: inset 1px 0 0 rgba(255, 255, 255, 0.125), inset 0 -1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
 }
-/* line 415, ../../stylesheets/ui/button.scss */
+/* line 417, ../../stylesheets/ui/button.scss */
 .button-group .dropdown .caret {
   height: 0px;
   margin-top: -3px;
   padding: 0;
 }
-/* line 423, ../../stylesheets/ui/button.scss */
+/* line 425, ../../stylesheets/ui/button.scss */
 .button-group.toggle > .dropdown-menu {
   display: block;
 }
 
-/* line 429, ../../stylesheets/ui/button.scss */
+/* line 431, ../../stylesheets/ui/button.scss */
 .dropdown-menu {
   position: absolute;
   top: 100%;
@@ -2325,11 +2325,11 @@ button[disabled]:active {
   -moz-background-clip: padding;
   background-clip: padding-box;
 }
-/* line 452, ../../stylesheets/ui/button.scss */
+/* line 454, ../../stylesheets/ui/button.scss */
 .dropdown-menu.button-hover {
   display: block;
 }
-/* line 456, ../../stylesheets/ui/button.scss */
+/* line 458, ../../stylesheets/ui/button.scss */
 .dropdown-menu a:not(.button) {
   cursor: pointer;
   text-align: left;
@@ -2341,13 +2341,13 @@ button[disabled]:active {
   color: #333;
   white-space: nowrap;
 }
-/* line 470, ../../stylesheets/ui/button.scss */
+/* line 472, ../../stylesheets/ui/button.scss */
 .no-touch .dropdown-menu li > a:hover,
 .dropdown-menu .active > a, .no-touch .dropdown-menu .active > a:hover {
   text-decoration: none;
   background-color: #eee;
 }
-/* line 475, ../../stylesheets/ui/button.scss */
+/* line 477, ../../stylesheets/ui/button.scss */
 .dropdown-menu .divider {
   height: 1px;
   margin: 8px 1px;
@@ -2355,12 +2355,12 @@ button[disabled]:active {
   background-color: #E5E5E5;
   border-bottom: 1px solid white;
 }
-/* line 482, ../../stylesheets/ui/button.scss */
+/* line 484, ../../stylesheets/ui/button.scss */
 .dropdown-menu .divider + li > a {
   color: #999;
 }
 
-/* line 488, ../../stylesheets/ui/button.scss */
+/* line 490, ../../stylesheets/ui/button.scss */
 .caret {
   display: inline-block;
   width: 0;
@@ -2424,7 +2424,7 @@ div.popover span.drop-top {
   display: block;
   margin: -7px 0 0;
   padding: 7px 15px 0px;
-  background: url('../images/ui/top-arrow.png?1386805718') no-repeat center top;
+  background: url('../images/ui/top-arrow.png?1362291986') no-repeat center top;
 }
 /* line 54, ../../stylesheets/ui/dropdown.scss */
 div.popover div.drop-wrapper {
@@ -2800,7 +2800,7 @@ footer[role=contentinfo] .footer-links li {
   padding-top: 3%;
   background-size: cover;
   background-repeat: no-repeat;
-  background-image: url('../images/site/home-background.jpg?1386805718');
+  background-image: url('../images/site/home-background.jpg?1362291986');
 }
 /* line 16, ../../stylesheets/site/home.scss */
 #hero .logo {
@@ -2839,7 +2839,7 @@ footer[role=contentinfo] .footer-links li {
   height: 30px;
   display: block;
   margin: 0 auto;
-  background: url('../images/icons-sprite.png?1386805718') no-repeat;
+  background: url('../images/icons-sprite.png?1362291986') no-repeat;
 }
 
 /* line 57, ../../stylesheets/site/home.scss */
@@ -2926,12 +2926,12 @@ section.tour .box:hover .hover {
 /* line 130, ../../stylesheets/site/home.scss */
 section.tour .box.brand {
   background-size: cover;
-  background-image: url('../images/site/tour-brand.png?1386805718');
+  background-image: url('../images/site/tour-brand.png?1362291986');
 }
 /* line 135, ../../stylesheets/site/home.scss */
 section.tour .box.blogger {
   background-size: cover;
-  background-image: url('../images/site/tour-blogger.png?1386805718');
+  background-image: url('../images/site/tour-blogger.png?1362291986');
 }
 
 /* ====
@@ -2948,7 +2948,7 @@ section.tour .box.blogger {
   }
 }
 
-/* line 10, /Users/mark/workspace/spring/stylesheets/base/form.scss */
+/* line 10, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
 form {
   margin: 0 0 1.25em;
   /*================================================
@@ -2964,37 +2964,37 @@ form {
           Errors
     ================================================*/
 }
-/* line 14, /Users/mark/workspace/spring/stylesheets/base/form.scss */
+/* line 14, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
 form input.col, form .col {
   position: relative;
   margin-bottom: 1em;
 }
-/* line 24, /Users/mark/workspace/spring/stylesheets/base/form.scss */
+/* line 24, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
 form label {
   padding: 5px 0;
   margin-right: 5px;
 }
-/* line 29, /Users/mark/workspace/spring/stylesheets/base/form.scss */
+/* line 29, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
 form p.large, form .page p.no-image, .page form p.no-image, form .page p.item.split, .page form p.item.split, form label.large, form .page label.no-image, .page form label.no-image, form .page label.item.split, .page form label.item.split {
   font-size: 18px;
   line-height: 32px;
 }
-/* line 34, /Users/mark/workspace/spring/stylesheets/base/form.scss */
+/* line 34, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
 form label.radio {
   padding-right: 1em;
 }
-/* line 37, /Users/mark/workspace/spring/stylesheets/base/form.scss */
+/* line 37, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
 form label.radio input {
   margin-right: 0.5em;
 }
-/* line 42, /Users/mark/workspace/spring/stylesheets/base/form.scss */
+/* line 42, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
 form .hint_style, form .hint, form .error {
   color: #888;
   font-style: italic;
   line-height: 1.4;
   font-size: 13px;
 }
-/* line 49, /Users/mark/workspace/spring/stylesheets/base/form.scss */
+/* line 49, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
 form .hint {
   margin: 0 0 5px;
   /*    bottom: -1.7em;*/
@@ -3002,11 +3002,11 @@ form .hint {
   /*left: 0;
   bottom: -1.7em;*/
 }
-/* line 50, /Users/mark/workspace/spring/stylesheets/base/form.scss */
+/* line 50, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
 form .hint:after {
   content: none;
 }
-/* line 64, /Users/mark/workspace/spring/stylesheets/base/form.scss */
+/* line 64, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
 form .text_field, form input[type="text"], form input[type="password"], form input[type="tel"], form input[type="email"],
 form input[type="search"], form input[type="url"], form textarea, form select {
   padding: 9px;
@@ -3031,20 +3031,20 @@ form input[type="search"], form input[type="url"], form textarea, form select {
   -moz-box-shadow: 1px 1px 2px #eeeeee inset;
   box-shadow: 1px 1px 2px #eeeeee inset;
 }
-/* line 82, /Users/mark/workspace/spring/stylesheets/base/form.scss */
+/* line 82, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
 form input.large:not(.button), form .page input.no-image:not(.button), .page form input.no-image:not(.button), form .page input.item.split:not(.button), .page form input.item.split:not(.button) {
   font-size: 18px !important;
   line-height: 35px;
   height: 35px;
 }
-/* line 89, /Users/mark/workspace/spring/stylesheets/base/form.scss */
+/* line 89, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
 form input[type="text"], form input[type="password"], form input[type="tel"], form input[type="email"],
 form input[type="search"], form input[type="url"], form textarea, form select {
   font-size: 100%;
   line-height: normal;
   /* ie */
 }
-/* line 4, /Users/mark/workspace/spring/stylesheets/base/form.scss */
+/* line 4, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
 form input[type="text"].placeholder, form input[type="password"].placeholder, form input[type="tel"].placeholder, form input[type="email"].placeholder,
 form input[type="search"].placeholder, form input[type="url"].placeholder, form textarea.placeholder, form select.placeholder {
   font-family: georgia;
@@ -3052,7 +3052,7 @@ form input[type="search"].placeholder, form input[type="url"].placeholder, form 
   font-style: italic;
   font-size: 15px;
 }
-/* line 5, /Users/mark/workspace/spring/stylesheets/base/form.scss */
+/* line 5, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
 form input[type="text"]:-moz-placeholder, form input[type="password"]:-moz-placeholder, form input[type="tel"]:-moz-placeholder, form input[type="email"]:-moz-placeholder,
 form input[type="search"]:-moz-placeholder, form input[type="url"]:-moz-placeholder, form textarea:-moz-placeholder, form select:-moz-placeholder {
   font-family: georgia;
@@ -3060,7 +3060,7 @@ form input[type="search"]:-moz-placeholder, form input[type="url"]:-moz-placehol
   font-style: italic;
   font-size: 15px;
 }
-/* line 6, /Users/mark/workspace/spring/stylesheets/base/form.scss */
+/* line 6, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
 form input[type="text"]::-webkit-input-placeholder, form input[type="password"]::-webkit-input-placeholder, form input[type="tel"]::-webkit-input-placeholder, form input[type="email"]::-webkit-input-placeholder,
 form input[type="search"]::-webkit-input-placeholder, form input[type="url"]::-webkit-input-placeholder, form textarea::-webkit-input-placeholder, form select::-webkit-input-placeholder {
   font-family: georgia;
@@ -3068,7 +3068,7 @@ form input[type="search"]::-webkit-input-placeholder, form input[type="url"]::-w
   font-style: italic;
   font-size: 15px;
 }
-/* line 7, /Users/mark/workspace/spring/stylesheets/base/form.scss */
+/* line 7, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
 form input[type="text"]:-ms-input-placeholder, form input[type="password"]:-ms-input-placeholder, form input[type="tel"]:-ms-input-placeholder, form input[type="email"]:-ms-input-placeholder,
 form input[type="search"]:-ms-input-placeholder, form input[type="url"]:-ms-input-placeholder, form textarea:-ms-input-placeholder, form select:-ms-input-placeholder {
   font-family: georgia;
@@ -3076,12 +3076,12 @@ form input[type="search"]:-ms-input-placeholder, form input[type="url"]:-ms-inpu
   font-style: italic;
   font-size: 15px;
 }
-/* line 105, /Users/mark/workspace/spring/stylesheets/base/form.scss */
+/* line 105, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
 form input[type="checkbox"],
 form input[type="radio"] {
   margin-right: 5px;
 }
-/* line 109, /Users/mark/workspace/spring/stylesheets/base/form.scss */
+/* line 109, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
 form select {
   width: auto;
   background-color: #fff;
@@ -3089,34 +3089,34 @@ form select {
   height: 2.5em;
   line-height: 2.5em;
 }
-/* line 117, /Users/mark/workspace/spring/stylesheets/base/form.scss */
+/* line 117, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
 form input[type=submit], form input[type=button], form button[type=submit] {
   line-height: 2em;
   margin-right: 5px;
 }
-/* line 126, /Users/mark/workspace/spring/stylesheets/base/form.scss */
+/* line 126, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
 form input:focus, form select:focus, form textarea:focus {
   border: 1px solid #A1CFDE !important;
 }
-/* line 136, /Users/mark/workspace/spring/stylesheets/base/form.scss */
+/* line 136, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
 form .field_with_errors input.string, form .field_with_errors select.select {
   border-color: #f3a4a4;
 }
-/* line 140, /Users/mark/workspace/spring/stylesheets/base/form.scss */
+/* line 140, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
 form .field_with_errors .hint {
   display: none;
 }
-/* line 145, /Users/mark/workspace/spring/stylesheets/base/form.scss */
+/* line 145, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
 form .error {
   color: #e84949;
 }
 @media screen and (min-width: 768px) {
-  /* line 152, /Users/mark/workspace/spring/stylesheets/base/form.scss */
+  /* line 152, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
   form p.large, form .page p.no-image, .page form p.no-image, form .page p.item.split, .page form p.item.split, form label.large, form .page label.no-image, .page form label.no-image, form .page label.item.split, .page form label.item.split {
     font-size: 24px;
     line-height: 40px;
   }
-  /* line 157, /Users/mark/workspace/spring/stylesheets/base/form.scss */
+  /* line 157, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
   form input.large:not(.button), form .page input.no-image:not(.button), .page form input.no-image:not(.button), form .page input.item.split:not(.button), .page form input.item.split:not(.button) {
     font-size: 24px !important;
     line-height: 45px;
@@ -3127,7 +3127,7 @@ form .error {
 /*================================================
       Notification
 ================================================*/
-/* line 171, /Users/mark/workspace/spring/stylesheets/base/form.scss */
+/* line 171, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
 div.notification {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -3147,37 +3147,37 @@ div.notification {
   background: rgba(0, 0, 0, 0.8);
   color: #fff;
 }
-/* line 189, /Users/mark/workspace/spring/stylesheets/base/form.scss */
+/* line 189, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
 .overlay-active div.notification {
   left: 7.5%;
   right: 7.5%;
   top: 0;
 }
 @media screen and (min-width: 768px) {
-  /* line 171, /Users/mark/workspace/spring/stylesheets/base/form.scss */
+  /* line 171, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
   div.notification {
     max-width: 30%;
     margin-left: -15%;
   }
 }
-/* line 201, /Users/mark/workspace/spring/stylesheets/base/form.scss */
+/* line 201, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
 div.notification a.close-target {
   position: absolute;
   right: 10px;
   color: #eee;
 }
-/* line 207, /Users/mark/workspace/spring/stylesheets/base/form.scss */
+/* line 207, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
 div.notification a.close {
   float: right;
   width: 20px;
   height: 20px;
 }
-/* line 209, /Users/mark/workspace/spring/stylesheets/base/form.scss */
+/* line 209, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
 div.notification a.close:before {
   font-size: 24px;
   color: #111;
 }
-/* line 219, /Users/mark/workspace/spring/stylesheets/base/form.scss */
+/* line 219, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
 div.notification.prev:before, div.notification.next:before {
   color: #fff;
   position: absolute;
@@ -3186,18 +3186,18 @@ div.notification.prev:before, div.notification.next:before {
   line-height: 40px;
   margin-top: -20px;
 }
-/* line 231, /Users/mark/workspace/spring/stylesheets/base/form.scss */
+/* line 231, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
 div.notification.prev:before {
   right: 8px;
   content: "›";
 }
-/* line 238, /Users/mark/workspace/spring/stylesheets/base/form.scss */
+/* line 238, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
 div.notification.next:before {
   left: 8px;
   content: "‹";
 }
 
-/* line 245, /Users/mark/workspace/spring/stylesheets/base/form.scss */
+/* line 245, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
 a.close-target {
   font-size: 28px;
   float: right;
@@ -3263,25 +3263,25 @@ form#reserve_edition .edition_owner_role .error {
   width: 7em;
   /* ie */
 }
-/* line 4, /Users/mark/workspace/spring/stylesheets/base/form.scss */
+/* line 4, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
 #edition_handle.placeholder,
 #edition_handle_outside.placeholder {
   font-size: 24px;
   font-weight: normal !important;
 }
-/* line 5, /Users/mark/workspace/spring/stylesheets/base/form.scss */
+/* line 5, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
 #edition_handle:-moz-placeholder,
 #edition_handle_outside:-moz-placeholder {
   font-size: 24px;
   font-weight: normal !important;
 }
-/* line 6, /Users/mark/workspace/spring/stylesheets/base/form.scss */
+/* line 6, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
 #edition_handle::-webkit-input-placeholder,
 #edition_handle_outside::-webkit-input-placeholder {
   font-size: 24px;
   font-weight: normal !important;
 }
-/* line 7, /Users/mark/workspace/spring/stylesheets/base/form.scss */
+/* line 7, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
 #edition_handle:-ms-input-placeholder,
 #edition_handle_outside:-ms-input-placeholder {
   font-size: 24px;
@@ -3826,23 +3826,14 @@ article.page .body {
     margin: 0 auto;
   }
 }
-<<<<<<< Updated upstream
-/* line 186, ../../stylesheets/app/page.scss */
-article.page .extras .avatar {
-=======
-/* line 184, ../../stylesheets/app/page.scss */
+/* line 185, ../../stylesheets/app/page.scss */
 article.page .avatar {
->>>>>>> Stashed changes
   width: 78px;
   height: 78px;
   border: 2px solid #eee;
   border-radius: 50%;
 }
-<<<<<<< Updated upstream
-/* line 194, ../../stylesheets/app/page.scss */
-=======
-/* line 191, ../../stylesheets/app/page.scss */
->>>>>>> Stashed changes
+/* line 192, ../../stylesheets/app/page.scss */
 article.page blockquote {
   font-family: Georgia, serif;
   font-size: 18px;
@@ -3853,11 +3844,7 @@ article.page blockquote {
   line-height: 1.45;
   position: relative;
 }
-<<<<<<< Updated upstream
-/* line 205, ../../stylesheets/app/page.scss */
-=======
-/* line 202, ../../stylesheets/app/page.scss */
->>>>>>> Stashed changes
+/* line 203, ../../stylesheets/app/page.scss */
 article.page blockquote:before {
   display: block;
   content: "\201C";
@@ -3867,30 +3854,18 @@ article.page blockquote:before {
   top: -20px;
   color: #999;
 }
-<<<<<<< Updated upstream
-/* line 215, ../../stylesheets/app/page.scss */
-=======
-/* line 212, ../../stylesheets/app/page.scss */
->>>>>>> Stashed changes
+/* line 213, ../../stylesheets/app/page.scss */
 article.page blockquote cite {
   color: #999999;
   font-size: 14px;
   display: block;
   margin-top: 5px;
 }
-<<<<<<< Updated upstream
-/* line 221, ../../stylesheets/app/page.scss */
+/* line 219, ../../stylesheets/app/page.scss */
 article.page blockquote cite:before {
   content: "\2014 \2009";
 }
-/* line 226, ../../stylesheets/app/page.scss */
-=======
-/* line 218, ../../stylesheets/app/page.scss */
-article.page blockquote cite:before {
-  content: "\2014 \2009";
-}
-/* line 223, ../../stylesheets/app/page.scss */
->>>>>>> Stashed changes
+/* line 224, ../../stylesheets/app/page.scss */
 article.page .image.cover {
   position: relative;
   height: 200%;
@@ -3898,40 +3873,24 @@ article.page .image.cover {
   top: -50%;
   left: -50%;
 }
-<<<<<<< Updated upstream
-/* line 234, ../../stylesheets/app/page.scss */
-=======
-/* line 231, ../../stylesheets/app/page.scss */
->>>>>>> Stashed changes
+/* line 232, ../../stylesheets/app/page.scss */
 article.page .author, article.page .published-at {
   color: #333;
   font-family: Georgia;
   font-style: italic;
 }
-<<<<<<< Updated upstream
-/* line 240, ../../stylesheets/app/page.scss */
-=======
-/* line 237, ../../stylesheets/app/page.scss */
->>>>>>> Stashed changes
+/* line 238, ../../stylesheets/app/page.scss */
 article.page p {
   margin: 1.5em 0 !important;
   text-align: justify;
   -webkit-hyphens: auto;
   word-break: hyphenate;
 }
-<<<<<<< Updated upstream
-/* line 247, ../../stylesheets/app/page.scss */
+/* line 245, ../../stylesheets/app/page.scss */
 article.page a[href]:not(.button) {
   text-decoration: underline;
 }
-/* line 251, ../../stylesheets/app/page.scss */
-=======
-/* line 244, ../../stylesheets/app/page.scss */
-article.page a[href]:not(.button) {
-  text-decoration: underline;
-}
-/* line 248, ../../stylesheets/app/page.scss */
->>>>>>> Stashed changes
+/* line 249, ../../stylesheets/app/page.scss */
 article.page img.medium, article.page img.large, article.page img.no-image, article.page img.item.split {
   max-width: 100%;
   height: auto;
@@ -3939,11 +3898,7 @@ article.page img.medium, article.page img.large, article.page img.no-image, arti
   display: block;
   margin: 0 auto;
 }
-<<<<<<< Updated upstream
-/* line 259, ../../stylesheets/app/page.scss */
-=======
-/* line 256, ../../stylesheets/app/page.scss */
->>>>>>> Stashed changes
+/* line 257, ../../stylesheets/app/page.scss */
 article.page .top-image {
   display: block;
   float: left;
@@ -3954,45 +3909,25 @@ article.page .top-image {
   height: auto;
   background-repeat: no-repeat;
 }
-<<<<<<< Updated upstream
-/* line 270, ../../stylesheets/app/page.scss */
-=======
-/* line 267, ../../stylesheets/app/page.scss */
->>>>>>> Stashed changes
+/* line 268, ../../stylesheets/app/page.scss */
 article.page .top-image.fit {
   background-position: center;
   background-size: 100%;
 }
-<<<<<<< Updated upstream
-/* line 275, ../../stylesheets/app/page.scss */
-=======
-/* line 272, ../../stylesheets/app/page.scss */
->>>>>>> Stashed changes
+/* line 273, ../../stylesheets/app/page.scss */
 article.page .top-image.cover {
   background-size: cover;
   background-position: center;
 }
-<<<<<<< Updated upstream
-/* line 280, ../../stylesheets/app/page.scss */
+/* line 278, ../../stylesheets/app/page.scss */
 article.page ul li, article.page ol li {
   line-height: 1.6;
 }
-/* line 284, ../../stylesheets/app/page.scss */
+/* line 282, ../../stylesheets/app/page.scss */
 article.page video {
   -webkit-transform-style: preserve-3d;
 }
-/* line 288, ../../stylesheets/app/page.scss */
-=======
-/* line 277, ../../stylesheets/app/page.scss */
-article.page ul li, article.page ol li {
-  line-height: 1.6;
-}
-/* line 281, ../../stylesheets/app/page.scss */
-article.page video {
-  -webkit-transform-style: preserve-3d;
-}
-/* line 285, ../../stylesheets/app/page.scss */
->>>>>>> Stashed changes
+/* line 286, ../../stylesheets/app/page.scss */
 article.page .video-wrapper {
   /*    position: relative;*/
   padding-bottom: 56.25%;
@@ -4000,11 +3935,7 @@ article.page .video-wrapper {
   padding-top: 25px;
   height: 0;
 }
-<<<<<<< Updated upstream
-/* line 294, ../../stylesheets/app/page.scss */
-=======
-/* line 291, ../../stylesheets/app/page.scss */
->>>>>>> Stashed changes
+/* line 292, ../../stylesheets/app/page.scss */
 article.page .video-wrapper iframe, article.page .video-wrapper object, article.page .video-wrapper embed {
   position: absolute;
   top: 0;
@@ -4012,28 +3943,16 @@ article.page .video-wrapper iframe, article.page .video-wrapper object, article.
   width: 100%;
   height: 100%;
 }
-<<<<<<< Updated upstream
-/* line 303, ../../stylesheets/app/page.scss */
-=======
-/* line 300, ../../stylesheets/app/page.scss */
->>>>>>> Stashed changes
+/* line 301, ../../stylesheets/app/page.scss */
 article.page .description {
   display: block;
   clear: both;
 }
-<<<<<<< Updated upstream
-/* line 310, ../../stylesheets/app/page.scss */
+/* line 308, ../../stylesheets/app/page.scss */
 article.page.scroll .body {
   overflow: auto;
 }
-/* line 314, ../../stylesheets/app/page.scss */
-=======
-/* line 307, ../../stylesheets/app/page.scss */
-article.page.scroll .body {
-  overflow: auto;
-}
-/* line 311, ../../stylesheets/app/page.scss */
->>>>>>> Stashed changes
+/* line 312, ../../stylesheets/app/page.scss */
 article.page footer {
   clear: both;
   float: none;
@@ -4041,20 +3960,12 @@ article.page footer {
   min-height: 110px;
 }
 
-<<<<<<< Updated upstream
-/* line 322, ../../stylesheets/app/page.scss */
-=======
-/* line 319, ../../stylesheets/app/page.scss */
->>>>>>> Stashed changes
+/* line 320, ../../stylesheets/app/page.scss */
 article.page.no-header {
   height: 100%;
   text-align: center;
 }
-<<<<<<< Updated upstream
-/* line 326, ../../stylesheets/app/page.scss */
-=======
-/* line 323, ../../stylesheets/app/page.scss */
->>>>>>> Stashed changes
+/* line 324, ../../stylesheets/app/page.scss */
 article.page.no-header:before {
   content: '';
   display: inline-block;
@@ -4063,19 +3974,11 @@ article.page.no-header:before {
   margin-right: -0.25em;
   /* Adjusts for spacing */
 }
-<<<<<<< Updated upstream
-/* line 335, ../../stylesheets/app/page.scss */
+/* line 333, ../../stylesheets/app/page.scss */
 article.page.no-header header hgroup {
   display: none;
 }
-/* line 340, ../../stylesheets/app/page.scss */
-=======
-/* line 332, ../../stylesheets/app/page.scss */
-article.page.no-header header hgroup {
-  display: none;
-}
-/* line 337, ../../stylesheets/app/page.scss */
->>>>>>> Stashed changes
+/* line 338, ../../stylesheets/app/page.scss */
 article.page.no-header .body {
   position: relative;
   top: -50px;
@@ -4084,22 +3987,14 @@ article.page.no-header .body {
   vertical-align: middle;
 }
 
-<<<<<<< Updated upstream
-/* line 349, ../../stylesheets/app/page.scss */
-=======
-/* line 346, ../../stylesheets/app/page.scss */
->>>>>>> Stashed changes
+/* line 347, ../../stylesheets/app/page.scss */
 article.fullscreen {
   height: 100% !important;
   overflow: hidden;
   background-size: cover;
   background-repeat: no-repeat;
 }
-<<<<<<< Updated upstream
-/* line 354, ../../stylesheets/app/page.scss */
-=======
-/* line 351, ../../stylesheets/app/page.scss */
->>>>>>> Stashed changes
+/* line 352, ../../stylesheets/app/page.scss */
 article.fullscreen:before {
   content: '';
   display: inline-block;
@@ -4108,36 +4003,20 @@ article.fullscreen:before {
   margin-right: -0.25em;
   /* Adjusts for spacing */
 }
-<<<<<<< Updated upstream
-/* line 362, ../../stylesheets/app/page.scss */
+/* line 360, ../../stylesheets/app/page.scss */
 article.fullscreen .top-image {
   margin: 0;
 }
-/* line 366, ../../stylesheets/app/page.scss */
-=======
-/* line 359, ../../stylesheets/app/page.scss */
-article.fullscreen .top-image {
-  margin: 0;
-}
-/* line 363, ../../stylesheets/app/page.scss */
->>>>>>> Stashed changes
+/* line 364, ../../stylesheets/app/page.scss */
 article.fullscreen figure {
   height: 100%;
   width: 100%;
 }
-<<<<<<< Updated upstream
-/* line 372, ../../stylesheets/app/page.scss */
+/* line 370, ../../stylesheets/app/page.scss */
 article.fullscreen iframe {
   background: #000;
 }
-/* line 376, ../../stylesheets/app/page.scss */
-=======
-/* line 369, ../../stylesheets/app/page.scss */
-article.fullscreen iframe {
-  background: #000;
-}
-/* line 373, ../../stylesheets/app/page.scss */
->>>>>>> Stashed changes
+/* line 374, ../../stylesheets/app/page.scss */
 article.fullscreen figcaption {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -4161,27 +4040,15 @@ article.fullscreen figcaption {
   line-height: 35px;
   overflow: hidden;
 }
-<<<<<<< Updated upstream
-/* line 393, ../../stylesheets/app/page.scss */
+/* line 391, ../../stylesheets/app/page.scss */
 article.fullscreen.left {
   text-align: left;
 }
-/* line 397, ../../stylesheets/app/page.scss */
+/* line 395, ../../stylesheets/app/page.scss */
 article.fullscreen.right {
   text-align: right;
 }
-/* line 401, ../../stylesheets/app/page.scss */
-=======
-/* line 390, ../../stylesheets/app/page.scss */
-article.fullscreen.left {
-  text-align: left;
-}
-/* line 394, ../../stylesheets/app/page.scss */
-article.fullscreen.right {
-  text-align: right;
-}
-/* line 398, ../../stylesheets/app/page.scss */
->>>>>>> Stashed changes
+/* line 399, ../../stylesheets/app/page.scss */
 article.fullscreen .body {
   text-align: left;
   display: inline-block;
@@ -4196,65 +4063,37 @@ article.fullscreen .body {
   width: 45%;
   margin: 5% 0;
 }
-<<<<<<< Updated upstream
-/* line 414, ../../stylesheets/app/page.scss */
+/* line 412, ../../stylesheets/app/page.scss */
 article.fullscreen.top .body {
   vertical-align: top;
 }
-/* line 418, ../../stylesheets/app/page.scss */
+/* line 416, ../../stylesheets/app/page.scss */
 article.fullscreen.bottom .body {
   vertical-align: bottom;
 }
-/* line 422, ../../stylesheets/app/page.scss */
+/* line 420, ../../stylesheets/app/page.scss */
 article.fullscreen.black .body, article.fullscreen.button.pointy .body {
   background: rgba(0, 0, 0, 0.7);
 }
-/* line 427, ../../stylesheets/app/page.scss */
-=======
-/* line 411, ../../stylesheets/app/page.scss */
-article.fullscreen.top .body {
-  vertical-align: top;
-}
-/* line 415, ../../stylesheets/app/page.scss */
-article.fullscreen.bottom .body {
-  vertical-align: bottom;
-}
-/* line 419, ../../stylesheets/app/page.scss */
-article.fullscreen.black .body, article.fullscreen.button.pointy .body {
-  background: rgba(0, 0, 0, 0.7);
-}
-/* line 424, ../../stylesheets/app/page.scss */
->>>>>>> Stashed changes
+/* line 425, ../../stylesheets/app/page.scss */
 article.fullscreen.white .body {
   background: rgba(255, 255, 255, 0.9);
 }
 
-<<<<<<< Updated upstream
-/* line 534, ../../stylesheets/app/page.scss */
-=======
-/* line 531, ../../stylesheets/app/page.scss */
->>>>>>> Stashed changes
+/* line 532, ../../stylesheets/app/page.scss */
 article.two-column {
   position: relative;
   white-space: nowrap;
   padding-bottom: 0;
 }
-<<<<<<< Updated upstream
-/* line 539, ../../stylesheets/app/page.scss */
-=======
-/* line 536, ../../stylesheets/app/page.scss */
->>>>>>> Stashed changes
+/* line 537, ../../stylesheets/app/page.scss */
 article.two-column .top-image {
   clear: none;
   margin: 0;
   height: 100%;
   white-space: normal;
 }
-<<<<<<< Updated upstream
-/* line 546, ../../stylesheets/app/page.scss */
-=======
-/* line 543, ../../stylesheets/app/page.scss */
->>>>>>> Stashed changes
+/* line 544, ../../stylesheets/app/page.scss */
 article.two-column .body {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -4266,11 +4105,7 @@ article.two-column .body {
   height: 100%;
   padding: 60px 20px 20px;
 }
-<<<<<<< Updated upstream
-/* line 556, ../../stylesheets/app/page.scss */
-=======
-/* line 553, ../../stylesheets/app/page.scss */
->>>>>>> Stashed changes
+/* line 554, ../../stylesheets/app/page.scss */
 article.two-column .body img {
   max-height: 75%;
   -webkit-column-break-before: always;
@@ -4281,11 +4116,7 @@ article.two-column .body img {
   column-break-inside: avoid;
   display: inline-block;
 }
-<<<<<<< Updated upstream
-/* line 568, ../../stylesheets/app/page.scss */
-=======
-/* line 565, ../../stylesheets/app/page.scss */
->>>>>>> Stashed changes
+/* line 566, ../../stylesheets/app/page.scss */
 article.two-column.paginate .body {
   -webkit-column-count: 2;
   -moz-column-count: 2;
@@ -4294,11 +4125,7 @@ article.two-column.paginate .body {
   -moz-column-gap: 40px;
   column-gap: 40px;
 }
-<<<<<<< Updated upstream
-/* line 578, ../../stylesheets/app/page.scss */
-=======
-/* line 575, ../../stylesheets/app/page.scss */
->>>>>>> Stashed changes
+/* line 576, ../../stylesheets/app/page.scss */
 article.two-column .cover-area {
   display: -webkit-box;
   display: -moz-box;
@@ -4317,20 +4144,12 @@ article.two-column .cover-area {
   height: 100%;
   float: left;
 }
-<<<<<<< Updated upstream
-/* line 588, ../../stylesheets/app/page.scss */
-=======
-/* line 585, ../../stylesheets/app/page.scss */
->>>>>>> Stashed changes
+/* line 586, ../../stylesheets/app/page.scss */
 article.two-column .cover-area .top-image {
   float: none;
   background-image: url("http://farm6.staticflickr.com/5330/7167552168_7d80aef236_c.jpg");
 }
-<<<<<<< Updated upstream
-/* line 593, ../../stylesheets/app/page.scss */
-=======
-/* line 590, ../../stylesheets/app/page.scss */
->>>>>>> Stashed changes
+/* line 591, ../../stylesheets/app/page.scss */
 article.two-column .cover-area hgroup {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -4342,34 +4161,20 @@ article.two-column .cover-area hgroup {
   width: 50%;
 }
 
-<<<<<<< Updated upstream
-/* line 606, ../../stylesheets/app/page.scss */
-=======
-/* line 603, ../../stylesheets/app/page.scss */
->>>>>>> Stashed changes
+/* line 604, ../../stylesheets/app/page.scss */
 article.three-column {
   position: relative;
   white-space: nowrap;
   padding-bottom: 0;
 }
-<<<<<<< Updated upstream
-/* line 611, ../../stylesheets/app/page.scss */
+/* line 609, ../../stylesheets/app/page.scss */
 article.three-column .top-image {
-=======
-/* line 608, ../../stylesheets/app/page.scss */
-article.three-column .top-image {
-  display: inline-block;
->>>>>>> Stashed changes
   clear: none;
   margin: 0;
   height: 100%;
   white-space: normal;
 }
-<<<<<<< Updated upstream
-/* line 618, ../../stylesheets/app/page.scss */
-=======
 /* line 616, ../../stylesheets/app/page.scss */
->>>>>>> Stashed changes
 article.three-column.paginate .body {
   -webkit-column-count: 3;
   -moz-column-count: 3;
@@ -4378,11 +4183,7 @@ article.three-column.paginate .body {
   -moz-column-gap: 40px;
   column-gap: 40px;
 }
-<<<<<<< Updated upstream
-/* line 628, ../../stylesheets/app/page.scss */
-=======
 /* line 626, ../../stylesheets/app/page.scss */
->>>>>>> Stashed changes
 article.three-column .body {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -4394,11 +4195,7 @@ article.three-column .body {
   height: 100%;
   padding: 60px 20px 20px;
 }
-<<<<<<< Updated upstream
-/* line 638, ../../stylesheets/app/page.scss */
-=======
 /* line 636, ../../stylesheets/app/page.scss */
->>>>>>> Stashed changes
 article.three-column .body img {
   max-height: 75%;
   -webkit-column-break-before: always;
@@ -4409,11 +4206,7 @@ article.three-column .body img {
   column-break-inside: avoid;
   display: inline-block;
 }
-<<<<<<< Updated upstream
-/* line 650, ../../stylesheets/app/page.scss */
-=======
 /* line 648, ../../stylesheets/app/page.scss */
->>>>>>> Stashed changes
 article.three-column .cover-area {
   display: -webkit-box;
   display: -moz-box;
@@ -4432,20 +4225,12 @@ article.three-column .cover-area {
   height: 100%;
   float: left;
 }
-<<<<<<< Updated upstream
-/* line 660, ../../stylesheets/app/page.scss */
-=======
 /* line 658, ../../stylesheets/app/page.scss */
->>>>>>> Stashed changes
 article.three-column .cover-area .top-image {
   float: none;
   background-image: url("http://farm6.staticflickr.com/5330/7167552168_7d80aef236_c.jpg");
 }
-<<<<<<< Updated upstream
-/* line 665, ../../stylesheets/app/page.scss */
-=======
 /* line 663, ../../stylesheets/app/page.scss */
->>>>>>> Stashed changes
 article.three-column .cover-area hgroup {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -4457,47 +4242,24 @@ article.three-column .cover-area hgroup {
   width: 33.333%;
 }
 
-<<<<<<< Updated upstream
-/* line 678, ../../stylesheets/app/page.scss */
-=======
 /* line 676, ../../stylesheets/app/page.scss */
->>>>>>> Stashed changes
 .webview .page-head h1 {
   padding: 0;
 }
 
 @media screen and (orientation: portrait) {
-<<<<<<< Updated upstream
-  /* line 684, ../../stylesheets/app/page.scss */
-=======
   /* line 682, ../../stylesheets/app/page.scss */
->>>>>>> Stashed changes
   article.page .col.half {
     height: 49%;
     width: 100%;
     background: white;
   }
-<<<<<<< Updated upstream
-  /* line 689, ../../stylesheets/app/page.scss */
-=======
   /* line 687, ../../stylesheets/app/page.scss */
->>>>>>> Stashed changes
   article.page .col.half .image {
     left: 25%;
     position: relative;
     width: 50%;
   }
-<<<<<<< Updated upstream
-  /* line 695, ../../stylesheets/app/page.scss */
-  article.page .col.half .info {
-    text-align: center;
-  }
-  /* line 697, ../../stylesheets/app/page.scss */
-  article.page .col.half .info .store {
-    margin: 0;
-  }
-  /* line 701, ../../stylesheets/app/page.scss */
-=======
   /* line 693, ../../stylesheets/app/page.scss */
   article.page .col.half .info {
     text-align: center;
@@ -4507,16 +4269,11 @@ article.three-column .cover-area hgroup {
     margin: 0;
   }
   /* line 699, ../../stylesheets/app/page.scss */
->>>>>>> Stashed changes
   article.page .col.half .info .price {
     line-height: 37px;
     vertical-align: middle;
   }
-<<<<<<< Updated upstream
-  /* line 706, ../../stylesheets/app/page.scss */
-=======
   /* line 704, ../../stylesheets/app/page.scss */
->>>>>>> Stashed changes
   article.page .col.half .info p {
     margin-top: 10px;
     text-align: left;
