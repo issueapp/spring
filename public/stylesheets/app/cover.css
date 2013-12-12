@@ -1,24 +1,34 @@
 /*
-Syntax error: Undefined mixin 'text-shadow'.
-        on line 117 of ./stylesheets/app/cover.scss, in `text-shadow'
-        from line 117 of ./stylesheets/app/cover.scss
+Syntax error: Undefined mixin 'box-sizing'.
+        on line 61 of ./stylesheets/app/cover.scss, in `box-sizing'
+        from line 61 of ./stylesheets/app/cover.scss
 
-112:       width: 44%;
-113:     }
-114:   }
-115: 
-116:   .title {
-117:     @include text-shadow(1px 1px 5px rgba(0,0,0,0.3));
-118:     display: inline-block;
-119: 
-120:     padding-bottom: 3px;
-121:     border-bottom: 2px solid #fff;
-122:     text-align: left;
+56:       -webkit-animation: fade 0.4s ease both;
+57:       -moz-animation: fade 0.4s ease both;
+58:     }
+59: 
+60:     .container {
+61:       @include box-sizing(border-box);
+62:       background: rgba(0,0,0,0.2);
+63:       padding: 40px;
+64:       margin: 0;
+65: //      z-index: 1;
+66: //      
 
 Backtrace:
-./stylesheets/app/cover.scss:117:in `text-shadow'
-./stylesheets/app/cover.scss:117
+./stylesheets/app/cover.scss:61:in `box-sizing'
+./stylesheets/app/cover.scss:61
 /Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:253:in `visit_mixin'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:100:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:53:in `map'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:109:in `block in visit_children'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:121:in `with_environment'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:108:in `visit_children'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:320:in `visit_rule'
 /Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:37:in `visit'
 /Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:100:in `visit'
 /Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
@@ -76,4 +86,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined mixin 'text-shadow'.\A         on line 117 of ./stylesheets/app/cover.scss, in `text-shadow'\A         from line 117 of ./stylesheets/app/cover.scss\A \A 112:       width: 44%;\A 113:     }\A 114:   }\A 115: \A 116:   .title {\A 117:     @include text-shadow(1px 1px 5px rgba(0,0,0,0.3));\A 118:     display: inline-block;\A 119: \A 120:     padding-bottom: 3px;\A 121:     border-bottom: 2px solid #fff;\A 122:     text-align: left;"; }
+  content: "Syntax error: Undefined mixin 'box-sizing'.\A         on line 61 of ./stylesheets/app/cover.scss, in `box-sizing'\A         from line 61 of ./stylesheets/app/cover.scss\A \A 56:       -webkit-animation: fade 0.4s ease both;\A 57:       -moz-animation: fade 0.4s ease both;\A 58:     }\A 59: \A 60:     .container {\A 61:       @include box-sizing(border-box);\A 62:       background: rgba(0,0,0,0.2);\A 63:       padding: 40px;\A 64:       margin: 0;\A 65: //      z-index: 1;\A 66: //      "; }

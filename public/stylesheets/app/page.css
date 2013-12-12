@@ -1,23 +1,23 @@
 /*
 Syntax error: Undefined mixin 'clearfix'.
-        on line 34 of ./stylesheets/app/page.scss, in `clearfix'
-        from line 34 of ./stylesheets/app/page.scss
+        on line 30 of ./stylesheets/app/page.scss, in `clearfix'
+        from line 30 of ./stylesheets/app/page.scss
 
-29:     clear: left;
-30:   }
-31: }
-32: 
-33: .stream-paging {
-34:   @include clearfix;
-35:   padding-bottom: 100px;
-36:   line-height: 0;
-37:   width: 100% !important;
-38:   overflow: visible;
-39: 
+25:     clear: left;
+26:   }
+27: }
+28: 
+29: .stream-paging {
+30:   @include clearfix;
+31:   padding-bottom: 100px;
+32:   line-height: 0;
+33:   width: 100% !important;
+34:   overflow: visible;
+35: 
 
 Backtrace:
-./stylesheets/app/page.scss:34:in `clearfix'
-./stylesheets/app/page.scss:34
+./stylesheets/app/page.scss:30:in `clearfix'
+./stylesheets/app/page.scss:30
 /Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:253:in `visit_mixin'
 /Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:37:in `visit'
 /Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:100:in `visit'
@@ -66,4 +66,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined mixin 'clearfix'.\A         on line 34 of ./stylesheets/app/page.scss, in `clearfix'\A         from line 34 of ./stylesheets/app/page.scss\A \A 29:     clear: left;\A 30:   }\A 31: }\A 32: \A 33: .stream-paging {\A 34:   @include clearfix;\A 35:   padding-bottom: 100px;\A 36:   line-height: 0;\A 37:   width: 100% !important;\A 38:   overflow: visible;\A 39: "; }
+  content: "Syntax error: Undefined mixin 'clearfix'.\A         on line 30 of ./stylesheets/app/page.scss, in `clearfix'\A         from line 30 of ./stylesheets/app/page.scss\A \A 25:     clear: left;\A 26:   }\A 27: }\A 28: \A 29: .stream-paging {\A 30:   @include clearfix;\A 31:   padding-bottom: 100px;\A 32:   line-height: 0;\A 33:   width: 100% !important;\A 34:   overflow: visible;\A 35: "; }

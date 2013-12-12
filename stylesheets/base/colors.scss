@@ -1,5 +1,5 @@
 @import 'compass/css3/transition';
-
+@import 'compass/css3/images';
 /*
 
   Dark theme
@@ -17,8 +17,8 @@
     text-decoration: none;
   }
 
-  a:not(.button):hover {
-    color: lighten(#f04500, 15%);
+  .no-touch & a:not(.button):hover {
+    color: lighten(#f04500, 20%);
   }
 }
 
@@ -29,10 +29,34 @@
 */
 .dark-container {
   @extend .dark-theme;
-  background:#0c0c0c;
+  height: 100%;
+  background-color: #111;
+  
   @include min-screen(768) {
     .container {
-      padding-top: 10%;
+      padding-top: 5%;
     }
   }
+}
+
+.dark-container.linen {
+  background-image: image-url('/assets/linen-small.png');
+  
+  &:after {
+    @include background(radial-gradient(circle, rgba(100,100,100,0.2), rgba(0,0,0,0.9)));
+    content: '';
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+  }
+}
+
+
+
+
+.white-container {
+  background: #fff;
 }

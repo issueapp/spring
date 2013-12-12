@@ -1,23 +1,23 @@
 /*
 Syntax error: Undefined mixin 'transition'.
-        on line 224 of ./stylesheets/ui/button.scss, in `transition'
-        from line 224 of ./stylesheets/ui/button.scss
+        on line 225 of ./stylesheets/ui/button.scss, in `transition'
+        from line 225 of ./stylesheets/ui/button.scss
 
-219:     color: $btn-text-colour;
-220:     border: 1px solid rgba(150, 150, 150, 0.8);
-221:     background: none;
-222: 
-223:     @include text-shadow(none);
-224:     @include transition(all .15s ease-out);
-225: 
-226:     .no-touch &:hover {
-227:       color: #fff;
-228:       background: rgba(0, 0, 0, 0.7);
-229:     }
+220:     color: $btn-text-colour;
+221:     border: 1px solid rgba(150, 150, 150, 0.8);
+222:     background: none;
+223: 
+224:     @include text-shadow(none);
+225:     @include transition(all .15s ease-out);
+226: 
+227:     .no-touch &:hover {
+228:       color: #fff;
+229:       background: rgba(0, 0, 0, 0.7);
+230:     }
 
 Backtrace:
-./stylesheets/ui/button.scss:224:in `transition'
-./stylesheets/ui/button.scss:224
+./stylesheets/ui/button.scss:225:in `transition'
+./stylesheets/ui/button.scss:225
 /Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:253:in `visit_mixin'
 /Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:37:in `visit'
 /Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:100:in `visit'
@@ -76,4 +76,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined mixin 'transition'.\A         on line 224 of ./stylesheets/ui/button.scss, in `transition'\A         from line 224 of ./stylesheets/ui/button.scss\A \A 219:     color: $btn-text-colour;\A 220:     border: 1px solid rgba(150, 150, 150, 0.8);\A 221:     background: none;\A 222: \A 223:     @include text-shadow(none);\A 224:     @include transition(all .15s ease-out);\A 225: \A 226:     .no-touch &:hover {\A 227:       color: #fff;\A 228:       background: rgba(0, 0, 0, 0.7);\A 229:     }"; }
+  content: "Syntax error: Undefined mixin 'transition'.\A         on line 225 of ./stylesheets/ui/button.scss, in `transition'\A         from line 225 of ./stylesheets/ui/button.scss\A \A 220:     color: $btn-text-colour;\A 221:     border: 1px solid rgba(150, 150, 150, 0.8);\A 222:     background: none;\A 223: \A 224:     @include text-shadow(none);\A 225:     @include transition(all .15s ease-out);\A 226: \A 227:     .no-touch &:hover {\A 228:       color: #fff;\A 229:       background: rgba(0, 0, 0, 0.7);\A 230:     }"; }

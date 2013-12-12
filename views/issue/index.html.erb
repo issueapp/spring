@@ -1,28 +1,45 @@
-
-<style>
-/*
-    Dynamic layout
-*/
-body {
-  background: #eee;
-}
-[role=main] .page { 
-  background: #fff;
-  width: 1024px;
-  height: 768px;
-}
-
-.two-column.paginate .body {
-  width: 1024px;
-}
-.two-column .top-image {
-  width: 512px;
-}
-</style>
+<%
+  
+issue = Hashie::Mash.new(
+  edition_title: "MINKPINK",
+  title: "Advanture",
+  short_title: "Advanture",
+  image_url: "http://31.media.tumblr.com/5d40ddbd07fc716e715bd5462e305edd/tumblr_mx3tmhXNNE1st5lhmo1_1280.jpg",
+  description: "Winter Wonderment"
+)
 
 
-<header id="edition-cover" class="cover fullscreen dark-theme page">
-  <div class="container" style="background-image: url(http://d3g2n6yemfhre1.cloudfront.net/q/format/jpeg/interlace/true/src/http%3A%2F%2Fassets.issue.by.s3.amazonaws.com%2F2013%2F10%2F02%2F09%2F56%2F39%2F5%2Fdreamcatcher.jpg/thumb/1024x%3E);">
+%>
+
+<section class="issue cover page fullscreen dark-theme " style="background-image: url(<%= issue.image_url %>);">
+  
+  <div class="container">
+    <nav role="navigation">
+      <ul class="links">
+        <li><a class="subscribe button outline" href="#" onclick="$('#subscribe' ,'#unsubscribe').toggleClass('hidden')">Subscribe</a></li>
+        <li><a class="unsubscribe button outline hidden" href="#" onclick="$('#subscribe' , '#unsubscribe').toggleClass('hidden')">Unsubscribe</a></li>
+        <li><a class="button outline" href="#">Share</a></li>
+      </ul>
+    </nav>
+
+    <h1 id="issue-logo" class="icon logo "></h1>
+    
+    <hgroup>
+      <h2 class="brand"><%= issue.edition_title %></h2>
+      <h1 class="title"><%= issue.short_title %></h1>
+      <h2 class="description"><%= issue.description %></h2>
+    </hgroup>
+    
+    <!-- <a class="button outline" href="#">Login</a>
+    <a class="button outline" href="#">Signup</a> -->
+    <a class="browse" href="/issue/contents">‹</a>
+  </div>
+</section>
+
+<!-- 
+<header id="edition-cover" class="cover fullscreen dark-theme page" style="background-image: url(http://d3g2n6yemfhre1.cloudfront.net/q/format/jpeg/interlace/true/src/http%3A%2F%2Fassets.issue.by.s3.amazonaws.com%2F2013%2F10%2F02%2F09%2F56%2F39%2F5%2Fdreamcatcher.jpg/thumb/1024x%3E);">
+  <div class="container">
+    
     <h1 class="icon logo "></h1>
 
     <nav id="site-nav" role="navigation">
@@ -66,4 +83,4 @@ body {
 
       <a class="browse movein" data-action="go:next" href="/issue/contents">‹</a>
   </div>
-</header>
+</header> -->

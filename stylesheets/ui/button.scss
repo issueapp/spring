@@ -5,6 +5,7 @@
 @import "compass/css3/text-shadow";
 @import "compass/css3/box-sizing";
 
+
 /*
     Reset button style
 
@@ -231,11 +232,11 @@ $btn-text-colour: #555555;
 
   .dark-theme &.outline {
     color: #fff;
-    border: 1px solid rgba(200, 200, 200, 0.7);
+    border: 1px solid rgba(200, 200, 200, 0.8);
 
     .no-touch &:hover {
-      color: #000;
-      background: rgba(200, 200, 200, 0.8);
+      color: white;
+      background: rgba(200, 200, 200, 0.9);
     }
   }
 }
