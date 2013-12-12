@@ -1,6 +1,7 @@
 @charset "utf-8";
 
 @import "spring";
+@import 'ui/animation';
 
 // UI/menu
 
@@ -14,27 +15,58 @@
 @import 'app/toolbar';
 @import 'app/theme';
 
+
+// Issue branding
+
 .logo {
   float: left;
   width: 200px;
   height: 80px;
   background: image-url("issue-logo.png") -0 -80px no-repeat;
   text-indent: -111111px;
-  
+
   &.small {
-    width: 180px;
+    width: 140px;
     height: 50px;
     background-position: -200px -80px;
   }
-  
+
   .dark-theme & {
-    background-position: 0 0px;
+    background-position: 0 0;
   }
-  
+
   .dark-theme &.small {
-    background-position: -200px 0px;
+    background-position: -200px 0;
   }
 }
+
+.logo.icon {
+  float: left;
+  width: 200px;
+  height: 150px;
+
+  background: image-url("issue-icon-logo.png") -0 -250px no-repeat;
+
+  &.small {
+    position: relative;
+    zoom: 0.8;
+    top: 40px;
+    left: 0px;
+    width: 100px;
+    height: 100px;
+    background-position: -250px 0px;
+    zoom: 0.7;
+  }
+
+  .dark-theme & {
+    background-position: 0 -250px;
+  }
+
+  .dark-theme &.small {
+    background-position: -250px -250px;
+  }
+}
+
 
 //.item {
 //  @include clearfix;

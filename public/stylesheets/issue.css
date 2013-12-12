@@ -829,8 +829,8 @@ p.center {
   text-decoration: none;
 }
 /* line 20, ../../stylesheets/base/colors.scss */
-.dark-theme a:not(.button):hover, .dark-container a:not(.button):hover {
-  color: #ff753e;
+.no-touch .dark-theme a:not(.button):hover, .no-touch .dark-container a:not(.button):hover {
+  color: #ff8757;
 }
 
 /*
@@ -840,13 +840,39 @@ p.center {
 */
 /* line 30, ../../stylesheets/base/colors.scss */
 .dark-container {
-  background: #0c0c0c;
+  height: 100%;
+  background-color: #111;
 }
 @media screen and (min-width: 768px) {
-  /* line 34, ../../stylesheets/base/colors.scss */
+  /* line 36, ../../stylesheets/base/colors.scss */
   .dark-container .container {
-    padding-top: 10%;
+    padding-top: 5%;
   }
+}
+
+/* line 42, ../../stylesheets/base/colors.scss */
+.dark-container.linen {
+  background-image: url(/assets/linen-small.png);
+}
+/* line 45, ../../stylesheets/base/colors.scss */
+.dark-container.linen:after {
+  background: -webkit-gradient(radial, circle, 0, circle, 100, color-stop(0%, rgba(100, 100, 100, 0.2)), color-stop(100%, rgba(0, 0, 0, 0.9)));
+  background: -webkit-radial-gradient(circle, rgba(100, 100, 100, 0.2), rgba(0, 0, 0, 0.9));
+  background: -moz-radial-gradient(circle, rgba(100, 100, 100, 0.2), rgba(0, 0, 0, 0.9));
+  background: -o-radial-gradient(circle, rgba(100, 100, 100, 0.2), rgba(0, 0, 0, 0.9));
+  background: radial-gradient(circle, rgba(100, 100, 100, 0.2), rgba(0, 0, 0, 0.9));
+  content: '';
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+}
+
+/* line 60, ../../stylesheets/base/colors.scss */
+.white-container {
+  background: #fff;
 }
 
 /* line 42, ../../stylesheets/spring.scss */
@@ -1793,29 +1819,29 @@ footer {
     Reset button style
 
 */
-/* line 12, ../../stylesheets/ui/button.scss */
+/* line 13, ../../stylesheets/ui/button.scss */
 input[type="button"], button {
   border: 0 none;
   font: inherit;
 }
 
-/* line 16, ../../stylesheets/ui/button.scss */
+/* line 17, ../../stylesheets/ui/button.scss */
 *:focus {
   outline: 0 none;
 }
 
-/* line 17, ../../stylesheets/ui/button.scss */
+/* line 18, ../../stylesheets/ui/button.scss */
 input[type="submit"] {
   border: 1px solid rgba(0, 0, 0, 0.25);
 }
 
-/* line 18, ../../stylesheets/ui/button.scss */
+/* line 19, ../../stylesheets/ui/button.scss */
 input[type="button"], button {
   -moz-box-sizing: content-box;
 }
 
 /*fixes mozilla padding - mozilla only, doesn't need webkit or other values */
-/* line 19, ../../stylesheets/ui/button.scss */
+/* line 20, ../../stylesheets/ui/button.scss */
 input[type="button"]::-moz-focus-inner, button::-moz-focus-inner {
   padding: 0;
   border: 0 none;
@@ -1825,7 +1851,7 @@ input[type="button"]::-moz-focus-inner, button::-moz-focus-inner {
 /*
     Default button style
 */
-/* line 31, ../../stylesheets/ui/button.scss */
+/* line 32, ../../stylesheets/ui/button.scss */
 .button, button, input[type="button"] {
   cursor: pointer;
   display: inline-block;
@@ -1855,11 +1881,11 @@ input[type="button"]::-moz-focus-inner, button::-moz-focus-inner {
   background-image: -o-linear-gradient(top center, #fafafa, #f3f7f7);
   background-image: linear-gradient(top center, #fafafa, #f3f7f7);
 }
-/* line 58, ../../stylesheets/ui/button.scss */
+/* line 59, ../../stylesheets/ui/button.scss */
 .button:active, button:active, input[type="button"]:active {
   background: #f3f7f7;
 }
-/* line 62, ../../stylesheets/ui/button.scss */
+/* line 63, ../../stylesheets/ui/button.scss */
 .no-touch .button:hover, .button .hover, .no-touch button:hover, button .hover, .no-touch input[type="button"]:hover, input[type="button"] .hover {
   cursor: pointer !important;
   color: #383B3B;
@@ -1870,12 +1896,12 @@ input[type="button"]::-moz-focus-inner, button::-moz-focus-inner {
   background-image: -o-linear-gradient(top center, #ffffff, #fafafa);
   background-image: linear-gradient(top center, #ffffff, #fafafa);
 }
-/* line 70, ../../stylesheets/ui/button.scss */
+/* line 71, ../../stylesheets/ui/button.scss */
 .button [class^="icon-"], .button [class*=" icon-"], button [class^="icon-"], button [class*=" icon-"], input[type="button"] [class^="icon-"], input[type="button"] [class*=" icon-"] {
   float: left;
   display: inline-block;
 }
-/* line 75, ../../stylesheets/ui/button.scss */
+/* line 76, ../../stylesheets/ui/button.scss */
 .button span, button span, input[type="button"] span {
   padding-left: 5px;
   height: 29px;
@@ -1883,7 +1909,7 @@ input[type="button"]::-moz-focus-inner, button::-moz-focus-inner {
   display: inline-block;
 }
 
-/* line 88, ../../stylesheets/ui/button.scss */
+/* line 89, ../../stylesheets/ui/button.scss */
 .button.small, header.page-head .button.icon.logo, button.small, header.page-head button.icon.logo {
   text-transform: none;
   line-height: 30px;
@@ -1892,14 +1918,14 @@ input[type="button"]::-moz-focus-inner, button::-moz-focus-inner {
   padding: 0px 18px;
   letter-spacing: 0px;
 }
-/* line 97, ../../stylesheets/ui/button.scss */
+/* line 98, ../../stylesheets/ui/button.scss */
 .button.small [class^="icon-"], header.page-head .button.icon.logo [class^="icon-"], button.small [class^="icon-"], header.page-head button.icon.logo [class^="icon-"], .button.small [class*=" icon-"], header.page-head .button.icon.logo [class*=" icon-"], button.small [class*=" icon-"], header.page-head button.icon.logo [class*=" icon-"] {
   height: 30px;
   line-height: 30px;
   font-size: 13px;
 }
 
-/* line 104, ../../stylesheets/ui/button.scss */
+/* line 105, ../../stylesheets/ui/button.scss */
 .button, button {
   font-size: 12px;
   line-height: 44px;
@@ -1908,14 +1934,14 @@ input[type="button"]::-moz-focus-inner, button::-moz-focus-inner {
   margin: 0 8px 0 0;
   letter-spacing: 1px;
 }
-/* line 113, ../../stylesheets/ui/button.scss */
+/* line 114, ../../stylesheets/ui/button.scss */
 .button [class^="icon-"], button [class^="icon-"], .button [class*=" icon-"], button [class*=" icon-"] {
   height: 44px;
   line-height: 44px;
   font-size: 17px;
 }
 
-/* line 132, ../../stylesheets/ui/button.scss */
+/* line 133, ../../stylesheets/ui/button.scss */
 .button.large, button.large {
   font-size: 14px;
   line-height: 56px;
@@ -1923,14 +1949,14 @@ input[type="button"]::-moz-focus-inner, button::-moz-focus-inner {
   margin-bottom: 12px;
   letter-spacing: 2px;
 }
-/* line 139, ../../stylesheets/ui/button.scss */
+/* line 140, ../../stylesheets/ui/button.scss */
 .button.large [class^="icon-"], button.large [class^="icon-"], .button.large [class*=" icon-"], button.large [class*=" icon-"] {
   height: 56px;
   line-height: 56px;
   font-size: 24px;
 }
 
-/* line 162, ../../stylesheets/ui/button.scss */
+/* line 163, ../../stylesheets/ui/button.scss */
 .button.black, .button.pointy, button.black, button.button.pointy {
   background: #2c2c2c;
   color: white !important;
@@ -1940,15 +1966,15 @@ input[type="button"]::-moz-focus-inner, button::-moz-focus-inner {
   box-shadow: 0px 1px 0px 0px rgba(255, 255, 255, 0.2) inset, 0px -1px 0px 0px rgba(0, 0, 0, 0.1) inset;
   border: none;
 }
-/* line 169, ../../stylesheets/ui/button.scss */
+/* line 170, ../../stylesheets/ui/button.scss */
 .no-touch .button.black:hover, .no-touch .button.pointy:hover, .button.black.hover, .button.hover.pointy, .no-touch button.black:hover, .no-touch button.button.pointy:hover, button.black.hover, button.hover.button.pointy {
   background: #4B4C4B;
 }
-/* line 173, ../../stylesheets/ui/button.scss */
+/* line 174, ../../stylesheets/ui/button.scss */
 .button.black:active, .button.pointy:active, .button.black.active, .button.active.pointy, button.black:active, button.button.pointy:active, button.black.active, button.active.button.pointy {
   background: #0e0e0e;
 }
-/* line 178, ../../stylesheets/ui/button.scss */
+/* line 179, ../../stylesheets/ui/button.scss */
 .button.orange, button.orange {
   background: #e96b56;
   color: white;
@@ -1958,16 +1984,16 @@ input[type="button"]::-moz-focus-inner, button::-moz-focus-inner {
   box-shadow: 0px 1px 0px 0px rgba(255, 255, 255, 0.3) inset, 0px -1px 0px 0px rgba(0, 0, 0, 0.1) inset;
   border: none;
 }
-/* line 188, ../../stylesheets/ui/button.scss */
+/* line 189, ../../stylesheets/ui/button.scss */
 .no-touch .button.orange:hover, .no-touch button.orange:hover {
   color: white;
   background: #ec7f6d;
 }
-/* line 193, ../../stylesheets/ui/button.scss */
+/* line 194, ../../stylesheets/ui/button.scss */
 .button.orange:active, button.orange:active {
   background: #e34329;
 }
-/* line 198, ../../stylesheets/ui/button.scss */
+/* line 199, ../../stylesheets/ui/button.scss */
 .button.blue, button.blue {
   background: #5faecb;
   color: white;
@@ -1977,16 +2003,16 @@ input[type="button"]::-moz-focus-inner, button::-moz-focus-inner {
   box-shadow: 0px 1px 0px 0px rgba(255, 255, 255, 0.3) inset, 0px -1px 0px 0px rgba(0, 0, 0, 0.1) inset;
   border: none;
 }
-/* line 208, ../../stylesheets/ui/button.scss */
+/* line 209, ../../stylesheets/ui/button.scss */
 .no-touch .button.blue:hover, .no-touch button.blue:hover {
   color: white;
   background: #72b8d1;
 }
-/* line 213, ../../stylesheets/ui/button.scss */
+/* line 214, ../../stylesheets/ui/button.scss */
 .button.blue:active, button.blue:active {
   background: #3d99ba;
 }
-/* line 218, ../../stylesheets/ui/button.scss */
+/* line 219, ../../stylesheets/ui/button.scss */
 .button.outline, button.outline {
   color: #555555;
   border: 1px solid rgba(150, 150, 150, 0.8);
@@ -1997,30 +2023,30 @@ input[type="button"]::-moz-focus-inner, button::-moz-focus-inner {
   -o-transition: all 0.15s ease-out;
   transition: all 0.15s ease-out;
 }
-/* line 226, ../../stylesheets/ui/button.scss */
+/* line 227, ../../stylesheets/ui/button.scss */
 .no-touch .button.outline:hover, .no-touch button.outline:hover {
   color: #fff;
   background: rgba(0, 0, 0, 0.7);
 }
-/* line 232, ../../stylesheets/ui/button.scss */
+/* line 233, ../../stylesheets/ui/button.scss */
 .dark-theme .button.outline, .dark-container .button.outline, .dark-theme button.outline, .dark-container button.outline {
   color: #fff;
-  border: 1px solid rgba(200, 200, 200, 0.7);
+  border: 1px solid rgba(200, 200, 200, 0.8);
 }
-/* line 236, ../../stylesheets/ui/button.scss */
+/* line 237, ../../stylesheets/ui/button.scss */
 .no-touch .dark-theme .button.outline:hover, .no-touch .dark-container .button.outline:hover, .no-touch .dark-theme button.outline:hover, .no-touch .dark-container button.outline:hover {
-  color: #000;
-  background: rgba(200, 200, 200, 0.8);
+  color: white;
+  background: rgba(200, 200, 200, 0.9);
 }
 
-/* line 244, ../../stylesheets/ui/button.scss */
+/* line 245, ../../stylesheets/ui/button.scss */
 .button.mobile-block,
 button.mobile-block {
   margin-top: 10px;
   width: 100%;
 }
 @media screen and (min-width: 768px) {
-  /* line 244, ../../stylesheets/ui/button.scss */
+  /* line 245, ../../stylesheets/ui/button.scss */
   .button.mobile-block,
   button.mobile-block {
     margin-top: 0;
@@ -2028,14 +2054,14 @@ button.mobile-block {
   }
 }
 
-/* line 254, ../../stylesheets/ui/button.scss */
+/* line 255, ../../stylesheets/ui/button.scss */
 .button.danger {
   color: #f04f4f;
   text-shadow: none;
 }
 
 @media screen and (max-width: 480px) {
-  /* line 260, ../../stylesheets/ui/button.scss */
+  /* line 261, ../../stylesheets/ui/button.scss */
   .button.pointy {
     margin-top: 10px;
     width: 100%;
@@ -2043,7 +2069,7 @@ button.mobile-block {
     line-height: 44px;
   }
 }
-/* line 270, ../../stylesheets/ui/button.scss */
+/* line 271, ../../stylesheets/ui/button.scss */
 .button.pointy:before {
   content: " ";
   position: absolute;
@@ -2053,7 +2079,7 @@ button.mobile-block {
   display: block;
 }
 
-/* line 285, ../../stylesheets/ui/button.scss */
+/* line 286, ../../stylesheets/ui/button.scss */
 .button.facebook, button.facebook {
   text-shadow: 0px 1px #375697;
   padding: 0 24px;
@@ -2061,39 +2087,39 @@ button.mobile-block {
   background: #4363a6;
   color: white;
 }
-/* line 293, ../../stylesheets/ui/button.scss */
+/* line 294, ../../stylesheets/ui/button.scss */
 .button.facebook i, button.facebook i {
   margin-left: -5px;
   font-size: 21px;
   padding-right: 5px;
   line-height: 44px;
 }
-/* line 300, ../../stylesheets/ui/button.scss */
+/* line 301, ../../stylesheets/ui/button.scss */
 .button.facebook span, button.facebook span {
   color: white;
 }
-/* line 304, ../../stylesheets/ui/button.scss */
+/* line 305, ../../stylesheets/ui/button.scss */
 .button.facebook.large span, button.facebook.large span {
   font-size: 13px;
   height: 44px;
   line-height: 44px;
 }
-/* line 311, ../../stylesheets/ui/button.scss */
+/* line 312, ../../stylesheets/ui/button.scss */
 .button.facebook.small span, header.page-head .button.facebook.icon.logo span, button.facebook.small span, header.page-head button.facebook.icon.logo span {
   height: 20px;
   line-height: 18px;
 }
-/* line 316, ../../stylesheets/ui/button.scss */
+/* line 317, ../../stylesheets/ui/button.scss */
 .no-touch .button.facebook:hover, .no-touch button.facebook:hover {
   background: #5e7dbe;
   color: white;
 }
-/* line 321, ../../stylesheets/ui/button.scss */
+/* line 322, ../../stylesheets/ui/button.scss */
 .button.facebook:active, button.facebook:active {
   background: #4363a6;
 }
 
-/* line 326, ../../stylesheets/ui/button.scss */
+/* line 327, ../../stylesheets/ui/button.scss */
 .button.twitter, button.twitter {
   background: #36a3d4;
   color: white;
@@ -2101,25 +2127,25 @@ button.mobile-block {
   font-family: "proxima_nova_bold", "Helvetica Neue", Hevetica, Arial, sans-serif;
   text-shadow: 0px 1px #2686b1;
 }
-/* line 336, ../../stylesheets/ui/button.scss */
+/* line 337, ../../stylesheets/ui/button.scss */
 .button.twitter i, button.twitter i {
   line-height: 44px;
 }
-/* line 340, ../../stylesheets/ui/button.scss */
+/* line 341, ../../stylesheets/ui/button.scss */
 .button.twitter span, button.twitter span {
   color: white;
 }
-/* line 344, ../../stylesheets/ui/button.scss */
+/* line 345, ../../stylesheets/ui/button.scss */
 .button.twitter.small span, header.page-head .button.twitter.icon.logo span, button.twitter.small span, header.page-head button.twitter.icon.logo span {
   height: 20px;
   line-height: 18px;
 }
-/* line 349, ../../stylesheets/ui/button.scss */
+/* line 350, ../../stylesheets/ui/button.scss */
 .no-touch .button.twitter:hover, .no-touch button.twitter:hover {
   background: #60b6dd;
   color: white;
 }
-/* line 354, ../../stylesheets/ui/button.scss */
+/* line 355, ../../stylesheets/ui/button.scss */
 .button.twitter:active, button.twitter:active {
   background: #36a3d4;
 }
@@ -2127,7 +2153,7 @@ button.mobile-block {
 /*
     Disabled state
 */
-/* line 365, ../../stylesheets/ui/button.scss */
+/* line 366, ../../stylesheets/ui/button.scss */
 .button.disabled,
 .button[disabled],
 button[disabled],
@@ -2151,14 +2177,14 @@ button[disabled]:active {
 /*=====================================
       Button group with split icon
   =====================================*/
-/* line 380, ../../stylesheets/ui/button.scss */
+/* line 381, ../../stylesheets/ui/button.scss */
 .button-group {
   vertical-align: middle;
   display: inline-block;
   position: relative;
   z-index: 99999;
 }
-/* line 386, ../../stylesheets/ui/button.scss */
+/* line 387, ../../stylesheets/ui/button.scss */
 .button-group .button {
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
@@ -2170,7 +2196,7 @@ button[disabled]:active {
   margin-left: -1px;
   margin-right: 0;
 }
-/* line 394, ../../stylesheets/ui/button.scss */
+/* line 395, ../../stylesheets/ui/button.scss */
 .button-group .button:first-child {
   margin-left: 0px;
   margin-right: 0;
@@ -2181,7 +2207,7 @@ button[disabled]:active {
   -webkit-border-top-left-radius: 3px;
   border-top-left-radius: 3px;
 }
-/* line 401, ../../stylesheets/ui/button.scss */
+/* line 402, ../../stylesheets/ui/button.scss */
 .button-group .button:last-child {
   margin-left: 0px;
   margin-right: 0;
@@ -2192,7 +2218,7 @@ button[disabled]:active {
   -webkit-border-top-right-radius: 3px;
   border-top-right-radius: 3px;
 }
-/* line 408, ../../stylesheets/ui/button.scss */
+/* line 409, ../../stylesheets/ui/button.scss */
 .button-group .dropdown {
   padding: 0px 6px;
   -moz-border-radius-bottomright: 3px;
@@ -2205,18 +2231,18 @@ button[disabled]:active {
   -moz-box-shadow: inset 1px 0 0 rgba(255, 255, 255, 0.125), inset 0 -1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
   box-shadow: inset 1px 0 0 rgba(255, 255, 255, 0.125), inset 0 -1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
 }
-/* line 414, ../../stylesheets/ui/button.scss */
+/* line 415, ../../stylesheets/ui/button.scss */
 .button-group .dropdown .caret {
   height: 0px;
   margin-top: -3px;
   padding: 0;
 }
-/* line 422, ../../stylesheets/ui/button.scss */
+/* line 423, ../../stylesheets/ui/button.scss */
 .button-group.toggle > .dropdown-menu {
   display: block;
 }
 
-/* line 428, ../../stylesheets/ui/button.scss */
+/* line 429, ../../stylesheets/ui/button.scss */
 .dropdown-menu {
   position: absolute;
   top: 100%;
@@ -2246,11 +2272,11 @@ button[disabled]:active {
   -moz-background-clip: padding;
   background-clip: padding-box;
 }
-/* line 451, ../../stylesheets/ui/button.scss */
+/* line 452, ../../stylesheets/ui/button.scss */
 .dropdown-menu.button-hover {
   display: block;
 }
-/* line 455, ../../stylesheets/ui/button.scss */
+/* line 456, ../../stylesheets/ui/button.scss */
 .dropdown-menu a:not(.button) {
   cursor: pointer;
   text-align: left;
@@ -2262,13 +2288,13 @@ button[disabled]:active {
   color: #333;
   white-space: nowrap;
 }
-/* line 469, ../../stylesheets/ui/button.scss */
+/* line 470, ../../stylesheets/ui/button.scss */
 .no-touch .dropdown-menu li > a:hover,
 .dropdown-menu .active > a, .no-touch .dropdown-menu .active > a:hover {
   text-decoration: none;
   background-color: #eee;
 }
-/* line 474, ../../stylesheets/ui/button.scss */
+/* line 475, ../../stylesheets/ui/button.scss */
 .dropdown-menu .divider {
   height: 1px;
   margin: 8px 1px;
@@ -2276,12 +2302,12 @@ button[disabled]:active {
   background-color: #E5E5E5;
   border-bottom: 1px solid white;
 }
-/* line 481, ../../stylesheets/ui/button.scss */
+/* line 482, ../../stylesheets/ui/button.scss */
 .dropdown-menu .divider + li > a {
   color: #999;
 }
 
-/* line 487, ../../stylesheets/ui/button.scss */
+/* line 488, ../../stylesheets/ui/button.scss */
 .caret {
   display: inline-block;
   width: 0;
@@ -2542,151 +2568,133 @@ div.popover .popover-list a.checked:after {
   width: 85%;
 }
 
-/* line 1, ../../stylesheets/app/cover.scss */
-.landing.cover {
-  background-color: #000;
-  -webkit-animation: fade 0.3s ease both;
-  -moz-animation: fade 0.3s ease both;
-  background-image: url('../images/photos/dcassaa@flickr-1322127243_aeaa4fb9c5_o.jpg');
-}
-/* line 7, ../../stylesheets/app/cover.scss */
-.landing.cover .welcome {
-  top: 30%;
-}
+/*
 
-/* line 17, ../../stylesheets/app/cover.scss */
-header.cover.fullscreen {
-  z-index: 4;
-}
-/* line 27, ../../stylesheets/app/cover.scss */
-header.cover.fullscreen .container {
-  width: 100%;
-  height: 100%;
-  max-width: 100%;
-}
-/* line 33, ../../stylesheets/app/cover.scss */
-header.cover.fullscreen nav#site-nav {
-  margin-top: 20px;
-}
+  Issue cover
 
-/* line 39, ../../stylesheets/app/cover.scss */
-header.cover {
+  Preview a magazine or Issue cover.
+
+  Recommended background image is 2048x2048px, High resolution jpeg with low quality settings.
+
+  .issue.cover
+    h2.brand
+    h1.title
+    h3.description
+
+    .logo   - issue logo
+
+  .cover
+    
+    .tite               - Magazine or Issue title
+    .description        - Issue description
+    .brand              - Customer branding
+    .logo               - Issue logo
+
+    .featured           - Featured items
+
+    // Actions
+
+    .signup             - Signup action
+    .subscribe          - Subscribe this magazine
+    .unsubscribe        - Unsubscribe from this magazine
+
+  .cover.fullscreen     - Full screen and streched cover page
+
+  .cover.welcome        - Application welcome page.
+
+*/
+/* line 38, ../../stylesheets/app/cover.scss */
+.cover {
   position: relative;
   height: 100%;
   overflow: hidden;
   color: white;
   font-family: "proxima-nova", sans-serif;
-}
-/* line 46, ../../stylesheets/app/cover.scss */
-.standalone header.cover, .webview header.cover {
-  padding: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  /*      Branding
+   *====================================*/
+  /*      Actions
+   * ====================================== */
+  /*      Responsive
+   *====================================*/
 }
 /* line 49, ../../stylesheets/app/cover.scss */
-.standalone header.cover .logo, .webview header.cover .logo {
-  bottom: 100px;
+.cover.fullscreen {
+  background-color: black;
+  background-position: center;
+  background-size: cover;
 }
-/* line 54, ../../stylesheets/app/cover.scss */
-header.cover .content {
-  background: rgba(0, 0, 0, 0.2);
-  height: 100%;
-  width: 100%;
+/* line 55, ../../stylesheets/app/cover.scss */
+.webview .cover.fullscreen {
+  -webkit-animation: fade 0.4s ease both;
+  -moz-animation: fade 0.4s ease both;
 }
 /* line 60, ../../stylesheets/app/cover.scss */
-header.cover .featured {
-  display: none;
-  width: 30%;
-  position: absolute;
-  bottom: 30px;
-  padding: 0 20px;
-  font-size: 14px;
+.cover.fullscreen .container {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 40px;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
 }
-/* line 68, ../../stylesheets/app/cover.scss */
-header.cover .featured h3 {
-  top: 15px;
-  color: #999;
-  text-transform: uppercase;
-}
-/* line 74, ../../stylesheets/app/cover.scss */
-header.cover .featured ul {
-  list-style: none;
-  text-transform: uppercase;
-  line-height: 24px;
-  padding: 0;
-  color: #bbb;
-}
-/* line 84, ../../stylesheets/app/cover.scss */
-header.cover .logo {
-  position: absolute;
-  display: none;
-  width: 86px;
-  height: 86px;
-  bottom: 40px;
-  left: 50%;
-  background-position: -250px -250px !important;
-  margin-left: -43px;
-}
-/* line 98, ../../stylesheets/app/cover.scss */
-header.cover .welcome {
-  position: relative;
-  left: 0;
-  display: block;
+/* line 97, ../../stylesheets/app/cover.scss */
+.cover hgroup {
+  margin-top: 5%;
   text-align: center;
-  top: 15%;
-  width: 90%;
-  margin: 0 auto;
-  font-weight: bold;
 }
-/* line 108, ../../stylesheets/app/cover.scss */
-header.cover .welcome .preview {
-  display: none;
-  float: right;
-  margin-top: 100px;
-  width: 44%;
+/* line 103, ../../stylesheets/app/cover.scss */
+.cover .brand {
+  font-size: 32px;
 }
-/* line 116, ../../stylesheets/app/cover.scss */
-header.cover .title {
+/* line 107, ../../stylesheets/app/cover.scss */
+.cover .title {
   text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
   display: inline-block;
   padding-bottom: 3px;
-  border-bottom: 2px solid #fff;
   text-align: left;
   text-transform: uppercase;
   font-weight: 600;
   font-size: 30px;
-  font-family: "HelveticaNeue-CondensedBold", "HelveticaNeueBoldCondensed", "HelveticaNeue-Bold-Condensed", "Helvetica Neue Bold Condensed", "HelveticaNeueBold", "HelveticaNeue-Bold", "Helvetica Neue Bold", "HelveticaNeue", "Helvetica Neue", 'TeXGyreHerosCnBold', "Helvetica", "Tahoma", "Geneva", "Arial Narrow", "Arial", sans-serif;
+  font-family: "EB Garamond";
+  letter-spacing: 1px;
   -webkit-animation: fadeInSmall 0.5s ease both;
   -moz-animation: fadeInSmall 0.5s ease both;
   -webkit-animation-delay: 0.2s;
   -moz-animation-delay: 0.2s;
 }
 @media screen and (max-width: 480px) {
-  /* line 116, ../../stylesheets/app/cover.scss */
-  header.cover .title {
+  /* line 107, ../../stylesheets/app/cover.scss */
+  .cover .title {
     width: 100%;
   }
 }
-/* line 138, ../../stylesheets/app/cover.scss */
-header.cover .description {
+/* line 133, ../../stylesheets/app/cover.scss */
+.cover .description {
   text-shadow: 0px 0px 1px #aaaaaa;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
   margin: 5px auto 0;
   color: white;
-  text-align: left;
   text-transform: lowercase;
-  letter-spacing: 0;
   font-weight: normal;
   font-style: italic;
   font-size: 18px;
   font-family: georgia;
   line-height: 1.5;
   max-height: 3em;
+  letter-spacing: 0;
   -webkit-animation: fadeInSmall 0.5s ease both;
   -moz-animation: fadeInSmall 0.5s ease both;
   -webkit-animation-delay: 0.5s;
   -moz-animation-delay: 0.5s;
 }
-/* line 160, ../../stylesheets/app/cover.scss */
-header.cover .signature {
+/* line 157, ../../stylesheets/app/cover.scss */
+.cover .signature {
   color: white;
   text-align: left;
   -webkit-animation: fadeInSmall 0.5s ease both;
@@ -2695,7 +2703,40 @@ header.cover .signature {
   -moz-animation-delay: 0.5s;
 }
 /* line 170, ../../stylesheets/app/cover.scss */
-header.cover a.browse {
+.cover .logo {
+  position: absolute;
+  display: none;
+  width: 86px;
+  height: 86px;
+  bottom: 40px;
+  left: 50%;
+  background-position: -250px -250px !important;
+  margin-left: -43px;
+  zoom: 0.75;
+  opacity: 0;
+  -webkit-animation: fade 0.5s ease both;
+  -moz-animation: fade 0.5s ease both;
+  -webkit-animation-delay: 1s;
+  -moz-animation-delay: 1s;
+}
+/* line 196, ../../stylesheets/app/cover.scss */
+.cover .subscribe, .cover .unsubscribe {
+  float: right;
+  padding: 0;
+  width: 130px;
+  color: #eee;
+  font-size: 14px;
+  line-height: 42px;
+}
+/* line 208, ../../stylesheets/app/cover.scss */
+.cover .subscribe.delay, .cover .unsubscribe.delay {
+  -webkit-animation: fade 0.6s ease both;
+  -moz-animation: fade 0.6s ease both;
+  -webkit-animation-delay: 0.8s;
+  -moz-animation-delay: 0.8s;
+}
+/* line 217, ../../stylesheets/app/cover.scss */
+.cover a.browse {
   color: white;
   position: absolute;
   top: 18%;
@@ -2713,15 +2754,15 @@ header.cover a.browse {
   -o-border-radius: 5px;
   border-radius: 5px;
 }
-/* line 184, ../../stylesheets/app/cover.scss */
-header.cover a.browse.movein {
+/* line 231, ../../stylesheets/app/cover.scss */
+.cover a.browse.movein {
   -webkit-animation: bounceInRight 0.6s ease both;
   -moz-animation: bounceInRight 0.6s ease both;
   -webkit-animation-delay: 0.4s;
   -moz-animation-delay: 0.4s;
 }
-/* line 191, ../../stylesheets/app/cover.scss */
-.vertical header.cover a.browse {
+/* line 238, ../../stylesheets/app/cover.scss */
+.vertical .cover a.browse {
   top: initial;
   right: 45%;
   bottom: -12px;
@@ -2729,142 +2770,41 @@ header.cover a.browse.movein {
   -webkit-transform: rotate(-90deg);
   -webkit-animation: none;
 }
-/* line 201, ../../stylesheets/app/cover.scss */
-header.cover .signup {
-  position: absolute;
-  bottom: 40px;
-  left: 5%;
-  width: 90%;
-  color: #eee;
-  font-size: 14px;
-  line-height: 18px;
-  -webkit-animation: fadeInSmall 0.5s ease both;
-  -moz-animation: fadeInSmall 0.5s ease both;
-  -webkit-animation-delay: 0.8s;
-  -moz-animation-delay: 0.8s;
-}
-/* line 215, ../../stylesheets/app/cover.scss */
-header.cover .signup .button {
-  width: 46%;
-}
-/* line 219, ../../stylesheets/app/cover.scss */
-header.cover .signup i {
-  padding-right: 0px;
-  vertical-align: middle;
-  font-size: 18px;
-}
-/* line 226, ../../stylesheets/app/cover.scss */
-header.cover .subscribe, header.cover .unsubscribe {
-  position: absolute;
-  top: 4px;
-  right: 4%;
-  padding: 0;
-  width: 130px;
-  color: #eee;
-  font-size: 14px;
-  line-height: 42px;
-}
-/* line 237, ../../stylesheets/app/cover.scss */
-header.cover .subscribe.delay, header.cover .unsubscribe.delay {
-  -webkit-animation: fade 0.6s ease both;
-  -moz-animation: fade 0.6s ease both;
-  -webkit-animation-delay: 0.8s;
-  -moz-animation-delay: 0.8s;
-}
-/* line 247, ../../stylesheets/app/cover.scss */
-header.cover .icon-export {
-  -webkit-animation: fade 0.6s ease both;
-  -moz-animation: fade 0.6s ease both;
-  -webkit-animation-delay: 0.8s;
-  -moz-animation-delay: 0.8s;
-}
 @media screen and (min-width: 768px) {
-  /* line 256, ../../stylesheets/app/cover.scss */
-  header.cover .signup {
-    text-align: right;
-    position: absolute;
-    bottom: initial;
-    top: 25%;
-    margin-top: 240px;
-  }
-  /* line 263, ../../stylesheets/app/cover.scss */
-  header.cover .signup .button {
-    width: initial;
-  }
-  /* line 268, ../../stylesheets/app/cover.scss */
-  header.cover .welcome {
-    text-align: left;
-  }
-  /* line 271, ../../stylesheets/app/cover.scss */
-  header.cover .welcome .subscribe-field {
-    padding-top: 30px;
-    display: block;
-    width: 500px;
-  }
-  /* line 276, ../../stylesheets/app/cover.scss */
-  header.cover .welcome .subscribe-field input.string {
-    margin: 0;
-    height: 56px;
-    width: 300px;
-  }
-  /* line 282, ../../stylesheets/app/cover.scss */
-  header.cover .welcome .subscribe-field .button {
-    position: relative;
-    left: -2px;
-    margin: 0;
-  }
-  /* line 290, ../../stylesheets/app/cover.scss */
-  header.cover .logo {
+  /* line 254, ../../stylesheets/app/cover.scss */
+  .cover .logo {
     display: block;
     width: 201px;
     height: 201px;
     background-position: 0px -250px !important;
     margin-left: -100px;
-    bottom: 102px;
+    bottom: 122px;
   }
-  /* line 298, ../../stylesheets/app/cover.scss */
-  .webview header.cover .logo {
+  /* line 262, ../../stylesheets/app/cover.scss */
+  .webview .cover .logo {
     display: none;
   }
-  /* line 303, ../../stylesheets/app/cover.scss */
-  header.cover .title {
-    letter-spacing: 10px;
-    font-size: 50px;
+  /* line 267, ../../stylesheets/app/cover.scss */
+  .cover .brand {
+    font-size: 40px;
+    margin-bottom: 0.25em;
   }
-  /* line 308, ../../stylesheets/app/cover.scss */
-  header.cover .description {
+  /* line 271, ../../stylesheets/app/cover.scss */
+  .cover .title {
+    text-align: center;
+    letter-spacing: 3px;
+    font-size: 80px;
+  }
+  /* line 277, ../../stylesheets/app/cover.scss */
+  .cover .description {
     margin-top: 0.2em;
     letter-spacing: 1px;
     font-size: 36px;
     line-height: 40px;
   }
-  /* line 315, ../../stylesheets/app/cover.scss */
-  header.cover .signature {
+  /* line 284, ../../stylesheets/app/cover.scss */
+  .cover .signature {
     padding-top: 10px;
-  }
-}
-@media screen and (min-width: 1024px) {
-  /* line 321, ../../stylesheets/app/cover.scss */
-  header.cover .welcome {
-    top: 15%;
-  }
-  /* line 324, ../../stylesheets/app/cover.scss */
-  header.cover .welcome h1 {
-    font-size: 50px;
-  }
-  /* line 329, ../../stylesheets/app/cover.scss */
-  header.cover .featured {
-    font-size: 20px;
-  }
-  /* line 333, ../../stylesheets/app/cover.scss */
-  header.cover .signup {
-    font-size: 18px;
-  }
-}
-@media screen and (min-width: 1025px) {
-  /* line 339, ../../stylesheets/app/cover.scss */
-  header.cover .welcome .preview {
-    display: block;
   }
 }
 
@@ -2956,7 +2896,7 @@ header.page-head.cover .container {
   float: left;
   width: 200px;
   height: 80px;
-  background: url('../images/issue-logo.png') 0 -80px no-repeat;
+  background: url('../images/issue-logo.png?1366358917') 0 -80px no-repeat;
   text-indent: -111111px;
 }
 /* line 103, ../../stylesheets/issue.scss */
