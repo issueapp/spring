@@ -23,7 +23,7 @@
       #issue-viewer {
         position: relative;
         overflow: auto;
-        margin: 40px auto;
+        margin: 40px auto 0;
         width: 1024px;
         height: 768px;
         border: 1px solid #ddd;
@@ -51,7 +51,7 @@
       nav.toc label {
         position: absolute;
         z-index: 1;
-        margin: 0 10px;
+        margin: 40px 10px 0;
         padding: 10px 30px;
         border: 1px solid #ccc;
         background: #eee;
@@ -83,9 +83,6 @@
         line-height: 150px;
       }
 
-      /*
-          Dynamic layout
-      */
       .two-column.paginate .body, .three-column.paginate .body {
         width: 100%;
       }
@@ -96,6 +93,17 @@
 
       .three-column .top-image {
         width: 66.66%;
+      }
+
+      /*
+          Dynamic layout
+      */
+
+      /*
+        Adding overflow to #issue-view's parent can fix margin collapse
+      */
+      .content-view {
+        overflow: auto;
       }
 
       .debug {
