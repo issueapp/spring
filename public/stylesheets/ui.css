@@ -1,12 +1,12 @@
 /*
 Syntax error: Undefined mixin 'transition'.
-        on line 225 of ./stylesheets/ui/button.scss, in `transition'
-        from line 225 of ./stylesheets/ui/button.scss
+        on line 227 of ./stylesheets/ui/button.scss, in `transition'
+        from line 227 of ./stylesheets/ui/button.scss
         from line 70 of ./stylesheets/ui.scss
 
 Backtrace:
-./stylesheets/ui/button.scss:225:in `transition'
-./stylesheets/ui/button.scss:225
+./stylesheets/ui/button.scss:227:in `transition'
+./stylesheets/ui/button.scss:227
 ./stylesheets/ui.scss:70
 /Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:253:in `visit_mixin'
 /Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:37:in `visit'
@@ -71,4 +71,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined mixin 'transition'.\A         on line 225 of ./stylesheets/ui/button.scss, in `transition'\A         from line 225 of ./stylesheets/ui/button.scss\A         from line 70 of ./stylesheets/ui.scss"; }
+  content: "Syntax error: Undefined mixin 'transition'.\A         on line 227 of ./stylesheets/ui/button.scss, in `transition'\A         from line 227 of ./stylesheets/ui/button.scss\A         from line 70 of ./stylesheets/ui.scss"; }
