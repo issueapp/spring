@@ -5,7 +5,7 @@
     <h3 class="subtitle description"><%= page.description %></h3>
 
     <div class="extras">
-      <img src="http://cl.ly/StPu/Image%202013.12.11%204%3A54%3A01%20pm.png" >
+      <img src="http://cl.ly/StPu/Image%202013.12.11%204%3A54%3A01%20pm.png" class="avatar" >
       <em> by <%= page.author_name %></em>
     </div>
   </hgroup>
@@ -13,15 +13,15 @@
 
 <article class="one-column page
   <%= page.content_type %>
-  
+
   <%= "fullscreen" if page.layout.image_style == "background" %>
   <%= "dark-container" if page.layout.content_style == "dark" %>
-  
+
   <%= page.layout.content_overflow %>
-  <%= page.layout.content_style %> 
-  <%= page.layout.content_align %> 
+  <%= page.layout.content_style %>
+  <%= page.layout.content_align %>
   <%= page.layout.content_valign %>"
-  
+
   <% if page.layout.image_style == "background"  %>
     style="background-image: url(<%= page.top_image %>)"
   <% end %>
@@ -34,27 +34,27 @@
   <% end %>
 
   <% if page.layout.image_style == "cover" %>
-  
+
     <header class="clearfix">
       <div class="cover-image" style="background-image: url(<%= page.top_image %>)"></div>
       <%= title_area %>
     </header>
-    
+
     <div class="body"><%= page.content %></div>
   <% elsif page.layout.image_style == "fit" %>
-  
+
     <header class="clearfix page-head body">
       <img src="<%= page.top_image %>" class="top-image">
       <%= title_area %>
     </header>
-    
+
     <div class="body"><%= page.content %></div>
-    
+
   <% elsif page.layout.image_style == "background" %>
-  
+
     <div class="body">
       <%= title_area %>
     </div>
-  
+
   <% end %>
 </article>
