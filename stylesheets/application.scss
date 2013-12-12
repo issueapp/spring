@@ -1,79 +1,157 @@
-@charset "UTF-8";
+@charset "utf-8";
 
-// 1. ROOT 					==============================
-
-@import 'vendor/h5bp';
-@import 'compass';
-
-
-//    1.1 HTML/BODY
-html{
-  -webkit-font-smoothing: antialiased;
-}
-
-body {
-//  min-width: 320px;
-}
-
-//    1.2 VARIABLES
-$bg_color: #f8fafa;
-$text_color: #333;
-
-
-// 2. TYPOGRAPHY 			==============================
-@import 'typography';
-
-// 3. LAYOUT     			==============================
-@import 'layout';
-
-// 4. UI         			==============================
-@import 'ui';
+@import "spring";
+@import 'ui/animation';
 
 // UI/menu
 
 // 5. ITEM       			==============================
-@import 'item';
+@import 'app/item';
 
 // 6. PAGE       			==============================
-@import 'page';
+@import 'app/page';
+
+@import 'app/menu';
+@import 'app/toolbar';
+@import 'app/theme';
+
+
+// Issue branding
+
+.logo {
+  float: left;
+  width: 200px;
+  height: 80px;
+  background: image-url("issue-logo.png") -0 -80px no-repeat;
+  text-indent: -111111px;
+
+  &.small {
+    width: 140px;
+    height: 50px;
+    background-position: -200px -80px;
+  }
+
+  .dark-theme & {
+    background-position: 0 0;
+  }
+
+  .dark-theme &.small {
+    background-position: -200px 0;
+  }
+}
+
+.logo.icon {
+  float: left;
+  width: 200px;
+  height: 150px;
+
+  background: image-url("issue-icon-logo.png") -0 -250px no-repeat;
+
+  &.small {
+    position: relative;
+    zoom: 0.8;
+    top: 40px;
+    left: 0px;
+    width: 100px;
+    height: 100px;
+    background-position: -250px 0px;
+    zoom: 0.7;
+  }
+
+  .dark-theme & {
+    background-position: 0 -250px;
+  }
+
+  .dark-theme &.small {
+    background-position: -250px -250px;
+  }
+}
+
+
+//.item {
+//  @include clearfix;
+//  padding-bottom: 1em;
+//  border-bottom: 1px solid #ccc;
+//  margin-bottom: 1em;
+//  
+//  h3 {
+//    font-family: "proxima_nova_ltregular";
+//    margin-bottom: 0.5em;
+//  }
+//  
+//  p {
+//    font-size: 14px;
+//    color: #555;
+//    margin-top: 0;
+//  }
+//  
+//  .actions {
+//    margin-left: 10px;
+//    float: right;
+//  }
+//  
+//  
+//  figure {
+//    float: left;
+//    margin: 0 10px 10px 0;
+//  }
+//  
+//  .extras {
+//    font-size: 13px;
+//    font-style: italic;
+//    color: #999;
+//    clear: left;
+//  }
+//}
+
+
+[role=main] {
+  @include box-sizing(border-box);
+
+  position: relative;
+  & > .content {
+    margin: 20px;
+  }
+  
+  #sidebar + & {
+//    margin-left: 400px;
+  }
+}
+
+// Attribution
+.attribution {
+  display: inline;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 3px 10px;
+  color: white;
+  background: rgba(0,0,0, 0.5);
+  font-size: 12px;
+}
+
+
+// 6. Different Sections
+
+@import 'app/editions';
+@import 'app/signin';
+@import 'app/users';
+@import 'app/cover';
+
 
 // 7. RESPONSIVE 			==============================
 
-// 768px
+.container {
+  margin:0 auto;
+  width: 85%;
+}
+
 @media only screen and (min-width: 768px) {
-//  @import "768";
-}
-
-/*
-    Utility
-*/
-
-div.container {
-  background: #ffc; margin:0 auto; overflow:hidden; width:96%;
-}
-
-.ipad {
-  height: 1024px;
-  width: 768px;
   
-  &.landscape {
-    width: 1024px;
-    height: 768px;
+  .container {
+    margin:0 auto;
+    max-width: 980px
   }
-}
-
-.iphone {
-  width: 320px;
-  height: 480px;
-  
-  &.landscape {
-    height: 480px;
-    weight: 320px;
-  }
-}
-
-.grid-item .item {
-  height: 40px;
 }
 
 

@@ -1,0 +1,712 @@
+/*
+
+  Issue cover
+
+  Preview a magazine or Issue cover.
+
+  Recommended background image is 2048x2048px, High resolution jpeg with low quality settings.
+
+  .issue.cover
+    h2.brand
+    h1.title
+    h3.description
+
+    .logo   - issue logo
+
+  .cover
+    
+    .tite               - Magazine or Issue title
+    .description        - Issue description
+    .brand              - Customer branding
+    .logo               - Issue logo
+
+    .featured           - Featured items
+
+    // Actions
+
+    .signup             - Signup action
+    .subscribe          - Subscribe this magazine
+    .unsubscribe        - Unsubscribe from this magazine
+
+  .cover.fullscreen     - Full screen and streched cover page
+
+  .cover.welcome        - Application welcome page.
+
+*/
+
+// Landing page
+.cover {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  color: white;
+  font-family: "proxima-nova", sans-serif;
+  
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  &.fullscreen {
+ 
+    background-color: black;
+    background-position: center;
+    background-size: cover;
+
+    .webview & {
+      -webkit-animation: fade 0.4s ease both;
+      -moz-animation: fade 0.4s ease both;
+    }
+
+    .container {
+      @include box-sizing(border-box);
+      background: rgba(0,0,0,0.2);
+      padding: 40px;
+      margin: 0;
+//      z-index: 1;
+//      
+      width: 100%;
+      height: 100%;
+      max-width: 100%;
+    }
+//  
+//    nav#site-nav {
+//      margin-top: 20px;
+//    }
+  }
+
+  // Overlay to increase readability
+//  .container {
+////    background-position: center;
+////    background-size: cover;
+////    z-index: 1;
+//  
+//    .webview & {
+//      -webkit-animation: fade 0.4s ease both;
+//      -moz-animation: fade 0.4s ease both;
+//    }
+//
+//    &:before {
+//      position: absolute;
+//      width: 100%;
+//      height: 100%;
+//      background: rgba(0,0,0,0.25);
+//      content: "";
+//    }
+//  }
+  // Headings in cover
+  hgroup {
+    margin-top: 5%;
+    text-align: center;
+  }
+  
+  
+  .brand {
+    font-size: 32px;
+  }
+  
+  .title {
+    @include text-shadow(1px 1px 5px rgba(0,0,0,0.3));
+    display: inline-block;
+
+    padding-bottom: 3px;
+    text-align: left;
+    text-transform: uppercase;
+    
+    font-weight: 600;
+    font-size: 30px;
+    font-family: "EB Garamond";
+    
+    letter-spacing: 1px;
+//    font-family: "HelveticaNeue-CondensedBold", "HelveticaNeueBoldCondensed", "HelveticaNeue-Bold-Condensed", "Helvetica Neue Bold Condensed", "HelveticaNeueBold", "HelveticaNeue-Bold", "Helvetica Neue Bold", "HelveticaNeue", "Helvetica Neue", 'TeXGyreHerosCnBold', "Helvetica", "Tahoma", "Geneva", "Arial Narrow", "Arial", sans-serif;
+//    border-bottom: 2px solid #fff;
+
+    -webkit-animation: fadeInSmall 0.5s ease both;
+    -moz-animation: fadeInSmall 0.5s ease both;
+    -webkit-animation-delay: 0.2s;
+    -moz-animation-delay: 0.2s;
+
+    @include max-screen(480) {
+      width: 100%;
+    }
+  }
+  
+  .description {
+    @include text-shadow;
+    @include text-shadow(1px 1px 3px rgba(0,0,0,0.5));
+
+    margin: 5px auto 0;
+    color: rgba(255, 255, 255, 1);
+//    text-align: left;
+    text-transform: lowercase;
+    
+    font-weight: normal;
+    font-style: italic;
+    font-size: 18px;
+    font-family: georgia;
+    line-height: 1.5;
+    
+    max-height: 3em;
+    letter-spacing: 0;
+
+    -webkit-animation: fadeInSmall 0.5s ease both;
+    -moz-animation: fadeInSmall 0.5s ease both;
+    -webkit-animation-delay: 0.5s;
+    -moz-animation-delay: 0.5s;
+  }
+
+  .signature {
+    color: white;
+    text-align: left;
+
+    -webkit-animation: fadeInSmall 0.5s ease both;
+    -moz-animation: fadeInSmall 0.5s ease both;
+    -webkit-animation-delay: 0.5s;
+    -moz-animation-delay: 0.5s;
+  }
+
+  /*      Branding
+   *====================================*/
+  
+  .logo {
+    position:absolute;
+    display: none;
+
+    width: 86px;
+    height: 86px;
+
+    bottom: 40px;
+    left: 50%;
+
+    background-position: -250px -250px !important;
+    margin-left: -43px;
+    
+    zoom: 0.75;
+    opacity: 0;
+    
+    -webkit-animation: fade 0.5s ease both;
+    -moz-animation: fade 0.5s ease both;
+    -webkit-animation-delay: 1s;
+    -moz-animation-delay: 1s;
+  }
+
+
+
+  /*      Actions
+   * ====================================== */
+  .subscribe, .unsubscribe {
+//    position: absolute;
+//    top: 20px;
+//    right: 4%;
+    float: right;
+    padding: 0;
+    width: 130px;
+    color: #eee;
+    font-size: 14px;
+    line-height: 42px;
+
+    // Consequent display of cover doesn't need animation
+    &.delay {
+      -webkit-animation: fade 0.6s ease both;
+      -moz-animation: fade 0.6s ease both;
+
+      -webkit-animation-delay: 0.8s;
+      -moz-animation-delay: 0.8s;
+    }
+  }
+
+  a.browse {
+    color: white;
+    position: absolute;
+    top: 18%;
+    right: -15px;
+    padding: 0px 20px 5px 5px;
+    background-color: #e96b56;
+    line-height: 40px;
+    font-size: 40px;
+    font-family: georgia;
+    z-index: 999;
+    @include text-shadow;
+    @include border-radius;
+
+    &.movein {
+      -webkit-animation: bounceInRight 0.6s ease both;
+      -moz-animation: bounceInRight 0.6s ease both;
+      -webkit-animation-delay: 0.4s;
+      -moz-animation-delay: 0.4s;
+    }
+
+    .vertical & {
+      top: initial;
+      right: 45%;
+      bottom: -12px;
+      padding: 0px 5px 7px 5px;
+      -webkit-transform: rotate(-90deg);
+      -webkit-animation: none;
+    }
+  }
+
+
+  /*      Responsive
+   *====================================*/
+  
+  @include min-screen(768) {
+    
+    .logo {
+      display: block;
+      width: 201px;
+      height: 201px;
+      background-position: 0px -250px !important;
+      margin-left: -100px;
+      bottom: 122px;
+
+      .webview & {
+        display: none;
+      }
+    }
+    
+    .brand {
+      font-size: 40px;
+      margin-bottom: 0.25em;
+    }
+    .title {
+      text-align: center;
+      letter-spacing: 3px;
+      font-size: 80px;
+    }
+
+    .description {
+      margin-top: 0.2em;
+      letter-spacing: 1px;
+      font-size: 36px;
+      line-height: 40px;
+    }
+
+    .signature {
+      padding-top: 10px;
+    }
+    
+    //    .signup {
+    //      text-align: right;
+    //      position: absolute;
+    //      bottom: initial;
+    //      top: 25%;
+    //      margin-top: 240px;
+    //
+    //      .button {
+    //        width: initial;
+    //      }
+    //    }
+    //
+    //    .welcome {
+    //      text-align: left;
+    //
+    //      .subscribe-field {
+    //        padding-top: 30px;
+    //        display: block;
+    //        width: 500px;
+    //
+    //        input.string {
+    //          margin: 0;
+    //          height: 56px;
+    //          width: 300px;
+    //        }
+    //
+    //        .button {
+    //          position: relative;
+    //          left: -2px;
+    //          margin: 0;
+    //        }
+    //      }
+    //    }
+
+  }
+
+  @include min-screen(1024) {
+//    .welcome {
+//      top: 15%;
+//
+//      h1 {
+//        font-size: 50px;
+//      }
+//    }
+//
+//    .featured {
+//      font-size: 20px;
+//    }
+//
+//    .signup {
+//      font-size: 18px;
+//    }
+  }
+
+  @include min-screen(1025) {
+
+  }
+}
+
+
+//.landing.cover {
+//  background-color: #000;
+//  -webkit-animation: fade 0.3s ease both;
+//  -moz-animation: fade 0.3s ease both;
+//  background-image: image-url("photos/dcassaa@flickr-1322127243_aeaa4fb9c5_o.jpg");
+//  .welcome {
+//    top: 30%;
+//  }
+//}
+//
+//.loaded .landing.cover {
+////  @include transition(background, 0.5s ease-in);
+////  background-position: 50% 50%;
+//}
+//
+//#edition-cover {
+//  background-color: black;
+//
+//  .container {
+//    background-color: black;
+//    background-position: center;
+//    background-size: cover;
+//
+//    .webview & {
+//      -webkit-animation: fade 0.4s ease both;
+//      -moz-animation: fade 0.4s ease both;
+//    }
+//
+//    &:before {
+//      position: absolute;
+//      width: 100%;
+//      height: 100%;
+//      background: rgba(0,0,0,0.25);
+//      content: "";
+//    }
+//  }
+//}
+//
+//.cover.fullscreen {
+////  display: inline-block;
+////  float: left;
+////  position: absolute;
+////  top: 0;
+////  left: 0;
+////  width: 100%;
+////  height: 100%;
+//  z-index: 4;
+//
+//  .container {
+//    width: 100%;
+//    height: 100%;
+//    max-width: 100%;
+//  }
+//
+//  nav#site-nav {
+//    margin-top: 20px;
+//  }
+//}
+//
+//// Landing page
+//.cover {
+//  position: relative;
+//  height: 100%;
+//  overflow: hidden;
+//  color: white;
+//  font-family: "proxima-nova", sans-serif;
+//
+//
+//  .logo {
+//    position:absolute;
+//    display: none;
+//
+//    width: 86px;
+//    height: 86px;
+//
+//    bottom: 40px;
+//    left: 50%;
+//
+//    background-position: -250px -250px !important;
+//    margin-left: -43px;
+//  }
+//
+//
+//  .standalone &, .webview & {
+//    padding: 0;
+//
+//    .logo {
+//      bottom: 100px;
+//    }
+//  }
+//
+//  .content {
+//    background: rgba(0, 0, 0, 0.2);
+//    height: 100%;
+//    width: 100%;
+//  }
+//
+//  .featured {
+//    display: none;
+//    width: 30%;
+//    position: absolute;
+//    bottom: 30px;
+//    padding: 0 20px;
+//    font-size: 14px;
+//
+//    h3 {
+//      top: 15px;
+//      color: #999;
+//      text-transform: uppercase;
+//
+//    }
+//    ul {
+//      list-style: none;
+//      text-transform: uppercase;
+//      line-height: 24px;
+//      padding: 0;
+//      color: #bbb;
+//    }
+//  }
+//
+//  .welcome {
+//    position: relative;
+//    left: 0;
+//    display: block;
+//    text-align: center;
+//    top: 15%;
+//    width: 90%;
+//    margin: 0 auto;
+//    font-weight: bold;
+//
+//    .preview {
+//      display: none;
+//      float: right;
+//      margin-top: 100px;
+//      width: 44%;
+//    }
+//  }
+//
+//  .title {
+//    @include text-shadow(1px 1px 5px rgba(0,0,0,0.3));
+//    display: inline-block;
+//
+//    padding-bottom: 3px;
+//    border-bottom: 2px solid #fff;
+//    text-align: left;
+//    text-transform: uppercase;
+//    font-weight: 600;
+//    font-size: 30px;
+//    font-family: "HelveticaNeue-CondensedBold", "HelveticaNeueBoldCondensed", "HelveticaNeue-Bold-Condensed", "Helvetica Neue Bold Condensed", "HelveticaNeueBold", "HelveticaNeue-Bold", "Helvetica Neue Bold", "HelveticaNeue", "Helvetica Neue", 'TeXGyreHerosCnBold', "Helvetica", "Tahoma", "Geneva", "Arial Narrow", "Arial", sans-serif;
+//
+//    -webkit-animation: fadeInSmall 0.5s ease both;
+//    -moz-animation: fadeInSmall 0.5s ease both;
+//    -webkit-animation-delay: 0.2s;
+//    -moz-animation-delay: 0.2s;
+//
+//    @include max-screen(480) {
+//      width: 100%;
+//    }
+//  }
+//
+//  .description {
+//    @include text-shadow;
+//    @include text-shadow(1px 1px 3px rgba(0,0,0,0.5));
+//
+//    margin: 5px auto 0;
+//    color: rgba(255, 255, 255, 1);
+//    text-align: left;
+//    text-transform: lowercase;
+//    letter-spacing: 0;
+//    font-weight: normal;
+//    font-style: italic;
+//    font-size: 18px;
+//    font-family: georgia;
+//    line-height: 1.5;
+//    max-height: 3em;
+//
+//    -webkit-animation: fadeInSmall 0.5s ease both;
+//    -moz-animation: fadeInSmall 0.5s ease both;
+//    -webkit-animation-delay: 0.5s;
+//    -moz-animation-delay: 0.5s;
+//  }
+//
+//  .signature {
+//    color: white;
+//    text-align: left;
+//
+//    -webkit-animation: fadeInSmall 0.5s ease both;
+//    -moz-animation: fadeInSmall 0.5s ease both;
+//    -webkit-animation-delay: 0.5s;
+//    -moz-animation-delay: 0.5s;
+//  }
+//
+//  a.browse {
+//    color: white;
+//    position: absolute;
+//    top: 18%;
+//    right: -15px;
+//    padding: 0px 20px 5px 5px;
+//    background-color: #e96b56;
+//    line-height: 40px;
+//    font-size: 40px;
+//    font-family: georgia;
+//    z-index: 999;
+//    @include text-shadow;
+//    @include border-radius;
+//
+//    &.movein {
+//      -webkit-animation: bounceInRight 0.6s ease both;
+//      -moz-animation: bounceInRight 0.6s ease both;
+//      -webkit-animation-delay: 0.4s;
+//      -moz-animation-delay: 0.4s;
+//    }
+//
+//    .vertical & {
+//      top: initial;
+//      right: 45%;
+//      bottom: -12px;
+//      padding: 0px 5px 7px 5px;
+//      -webkit-transform: rotate(-90deg);
+//      -webkit-animation: none;
+//    }
+//  }
+//
+//  .signup {
+//    position: absolute;
+//    bottom: 40px;
+//    left: 5%;
+//    width: 90%;
+//    color: #eee;
+//    font-size: 14px;
+//    line-height: 18px;
+//
+//    -webkit-animation: fadeInSmall 0.5s ease both;
+//    -moz-animation: fadeInSmall 0.5s ease both;
+//    -webkit-animation-delay: 0.8s;
+//    -moz-animation-delay: 0.8s;
+//
+//    .button {
+//      width: 46%;
+//    }
+//
+//    i {
+//      padding-right: 0px;
+//      vertical-align: middle;
+//      font-size: 18px;
+//    }
+//  }
+//
+//  .subscribe, .unsubscribe {
+//    position: absolute;
+//    top: 4px;
+//    right: 4%;
+//    padding: 0;
+//    width: 130px;
+//    color: #eee;
+//    font-size: 14px;
+//    line-height: 42px;
+//
+//    // Consequent display of cover doesn't need animation
+//    &.delay {
+//      -webkit-animation: fade 0.6s ease both;
+//      -moz-animation: fade 0.6s ease both;
+//
+//      -webkit-animation-delay: 0.8s;
+//      -moz-animation-delay: 0.8s;
+//    }
+//  }
+//
+//  // cover share button
+//  .icon-export {
+//    -webkit-animation: fade 0.6s ease both;
+//    -moz-animation: fade 0.6s ease both;
+//    -webkit-animation-delay: 0.8s;
+//    -moz-animation-delay: 0.8s;
+//  }
+//
+//  @include min-screen(768) {
+//    .signup {
+//      text-align: right;
+//      position: absolute;
+//      bottom: initial;
+//      top: 25%;
+//      margin-top: 240px;
+//
+//      .button {
+//        width: initial;
+//      }
+//    }
+//
+//    .welcome {
+//      text-align: left;
+//
+//      .subscribe-field {
+//        padding-top: 30px;
+//        display: block;
+//        width: 500px;
+//
+//        input.string {
+//          margin: 0;
+//          height: 56px;
+//          width: 300px;
+//        }
+//
+//        .button {
+//          position: relative;
+//          left: -2px;
+//          margin: 0;
+//        }
+//      }
+//    }
+//
+//    .logo {
+//      display: block;
+//      width: 201px;
+//      height: 201px;
+//      background-position: 0px -250px !important;
+//      margin-left: -100px;
+//      bottom: 102px;
+//
+//      .webview & {
+//        display: none;
+//      }
+//    }
+//
+//    .title {
+//      letter-spacing: 10px;
+//      font-size: 50px;
+//    }
+//
+//    .description {
+//      margin-top: 0.2em;
+//      letter-spacing: 1px;
+//      font-size: 36px;
+//      line-height: 40px;
+//    }
+//
+//    .signature {
+//      padding-top: 10px;
+//    }
+//  }
+//
+//  @include min-screen(1024) {
+//    .welcome {
+//      top: 15%;
+//
+//      h1 {
+//        font-size: 50px;
+//      }
+//    }
+//
+//    .featured {
+//      font-size: 20px;
+//    }
+//
+//    .signup {
+//      font-size: 18px;
+//    }
+//  }
+//
+//  @include min-screen(1025) {
+//    .welcome .preview {
+//      display: block;
+//    }
+//  }
+//}

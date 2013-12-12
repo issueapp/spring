@@ -1,0 +1,362 @@
+@import "compass/css3/box-sizing";
+@import "compass/css3/text-shadow";
+@import "compass/css3/inline-block";
+@import "compass/css3/border-radius";
+/*
+  Sidebar style menu (width: 260px)
+
+  .thin             - Thin version has 80px width
+  .off-canvas menu  - negative margin 
+  .page
+  
+*/
+nav#menu {
+  width: 260px;
+  background: rgba(12,12,12, 1);
+  height: 100%;
+  top: 0;
+  position: fixed;
+
+  // thin menu
+  &.thin {
+    width: 80px;
+    
+    .nav .icon {
+      position: static;
+      right: auto;
+    }
+    
+    .nav .text {
+      display: none;
+    }
+  }
+  
+  // Off canvas menu
+  .offcanvas & {
+    float: left;
+    margin-left: -100%;
+  }
+  
+  .offcanvas.active & {
+    margin-left: 0;
+  }
+}
+
+
+.offcanvas {
+  [role=main] {
+    float: right;
+    width: 100%;
+  }
+}
+
+.offcanvas.active [role=main] {
+  margin-right: -260px;
+}
+
+/*
+  Menu item
+  
+  :hover, .hover
+  .active
+  li > .icon          - right aligned icons
+  li > .counter       - right aligned counter bubble
+  .bottom             - user, settings icon aligned to the bottom
+*/
+#menu .nav li {
+  @include box-sizing(border-box);
+  display: block;
+  height: 70px;
+  line-height: 70px;
+  padding: 0 25px;
+  border-top: 1px solid rgba(15, 15, 15, 1);
+  border-bottom: 1px solid rgba(10, 10, 10, 1);
+  position: relative;
+  
+  // Menu items
+  a {
+    padding: 0;
+    display: block;
+    color: #ccc;
+  }
+  
+  // Active state
+  &:hover a, &.active a {
+    color: #fff;
+    @include text-shadow(0px 0px 20px #bef7ff)
+  }
+
+  &.active {
+    background: rgba(20,20,20,1);
+  }
+  
+  // Icons
+  [class^="icon-"], [class*=" icon-"] {
+    font-size: 24px;
+  }
+
+  .icon {
+    position: absolute;
+    right: 35px;
+  }
+
+  // Right aligned icon, counter bubble
+  &.active .icon {
+    color: white;
+  }
+
+  .counter {
+    position: absolute;
+    right: 24px;
+    font-size: 12px;
+  }
+  
+  // Bottom
+  &.bottom {
+    @include clearfix;
+    height: auto;
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+
+    a {
+      font-size: 12px;
+    }
+
+    .thumb {
+      @include inline-block;
+      @include border-radius(20px);
+      overflow:hidden;
+      line-height: 0;
+    }
+
+    .settings {
+      @include inline-block;
+      font-size: 24px;
+      height: 20px;
+    }
+  }
+  
+  // Level 2 menu
+  .nav li ul li {
+    padding-left: 30px;
+    font-weight: normal;
+
+    a {
+      color: #ccc;
+    }
+    
+    a:before {
+      font-size: 12px;
+      content: '→';
+      width: 10px;
+      overflow: none;
+      margin-right: 5px;
+      color: #666;
+    }
+  }
+}
+
+// Legancy
+body.expand-menu .navigation {
+    li.active:after {
+      content:"";
+      position: absolute;
+      right:-6px;
+      top: 50%;
+      margin-top: -6px;
+      border-color: transparent rgba(20,20,20,1);
+      border-style: solid;
+      border-width: 8px 0px 8px 8px;
+      height: 0px;
+      width: 0px;
+    }
+}
+
+#edition-switch {
+  margin-left: 2px;
+  
+  .icon {
+    
+    &:before {
+      font-size: 22px;
+    }
+    @extend .icon-grid;
+  }
+}
+
+// App logo on toolbar
+#menu .logo {
+  height: 120px !important;
+  background: url("/images/logo.png") no-repeat center center;
+  a {
+    margin-left: -25px;
+    height: 120px;
+    width: 220px;
+  }
+}
+
+//
+///*      Discover menu   */
+//#discover {
+//  background: white;
+//  position: absolute;
+//  z-index: 100;
+//  height: 1000px;
+//  width: 100%;
+//
+//  header {
+//    padding: 40px 20px;
+//    background: white;
+//    position: relative;
+//    z-index: 1;
+//
+//    input[type=search] {
+//      @include box-sizing(border-box);
+//      @include border-radius(5px);
+//      font-family: Georgia;
+//      font-style: italic;
+//      font-size: 16px;
+//      padding: 10px 20px;
+//      border: 1px solid #ddd;
+//      width: 100%;
+//
+//      &:focus {
+////        box-shadow: 0 0 5px ;
+//        box-shadow: 0 0 5px rgba(0, 100, 255, 1);
+//        outline: 0;
+//      }
+//    }
+//  }
+//
+//  ul#category {
+//    list-style: none;
+//    padding: 0;
+//    margin: 0;
+//    width: 220px;
+//    height: 100%;
+//    background: #eee;
+//    float: left;
+//    position:relative;
+//
+//    li {
+//      position: relative;
+//      font-size: 14px;
+//      font-family: "HelveticaNeue-Light";
+//      letter-spacing: 0.8px;
+//      @include box-sizing(border-box);
+//      height: 44px;
+//      line-height: 44px;
+//      padding: 0 25px;
+//      border-top: 1px solid #ddd;
+////        border-bottom: 1px solid rgba(10, 10, 10, 1);
+//    }
+//
+//    a {
+//      display: block;
+//      color: #444;
+//    }
+//
+//    li:hover {
+//      background: rgba(230, 230, 230,1);
+//    }
+//
+//    li.active {
+//      background: #ccc;
+//    }
+//
+//    li.active:after {
+//      content:"";
+//      position: absolute;
+//      right:-6px;
+//      top: 50%;
+//      margin-top: -6px;
+//      border-color: transparent #ccc;
+//      border-style: solid;
+//      border-width: 8px 0px 8px 8px;
+//      height: 0px;
+//      width: 0px;
+//    }
+//
+//    // Level two menu
+//    & > ul li {
+//      padding-left: 40px;
+//      font-weight: normal;
+//
+//      a {
+//        color: #ccc;
+//      }
+//    }
+//  }
+//}
+//
+//
+//ul.channels {
+//  @include box-sizing(border-box);
+//  margin: 0;
+//  padding: 0;
+//  list-style: none;
+//  height: 100%;
+//
+//  overflow: auto;
+//  -webkit-overflow-scrolling:touch;
+//
+//  padding-top: 120;
+//  left: 240px;
+//  top: 0;
+//  border-top: 200px;
+//  position: absolute;
+//  bottom: 0;
+//  padding-bottom: 50%;
+//
+//
+//  li {
+//    position: relative;
+//    @include box-sizing(border-box);
+//    float: left;
+//    color: white;
+//
+//
+//    font-size: 14px;
+//    padding: 15px;
+//    width: 240px;
+//    height: 170px;
+//    background: #999;
+//    margin-right: 20px;
+//    margin-bottom: 20px;
+//    background-color: rgba(0,0,0, 0.5);
+//    background-size: cover;
+//  }
+//
+//  .action {
+//    font-family: "Georgia";
+//    position: absolute;
+//    top: 30%;
+//    left: 30px;
+//    float: left;
+//    margin-right: 10px;
+//    text-align: center;
+//    display: block;
+//    font-size: 24px;
+//    font-weight: bold;
+//    line-height: 70px;
+//    width: 70px;
+//    height: 70px;
+//
+//    @include border-radius(40px);
+//    color: white;
+//    border: 1.5px solid rgba(255,255,255, 0.3);
+//  }
+//
+//  .action.followed {
+//    background: rgba(240, 69, 0, 0.2);
+//  }
+//
+//  .action:hover {
+//    background: rgba(255, 255, 255, 0.2);
+//  }
+//
+//  .action.view {
+//    left: 130px;
+//  }
+//}

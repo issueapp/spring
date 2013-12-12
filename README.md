@@ -5,22 +5,20 @@ A minimalistic framework for HTML5 based publishing, Simple HTML5 written with H
 Features
 ---
 
+  1. Cover
+  2. Table of content (Section page)
+  3. Swipe View - to switch between pages, minimal memory footprint, event hooks, pagination with current index and pages in buffer.
+  4. Responsive Grid layout
+  5. UI
+	- Photoshop template for icon, startup screen
+  	- Toolbar
+	- Menu
+	- Buttons
+	- Popover
+	- Modal
 
-  - Cover screen
-  - Section page 
-  - Toolbar
-  - Swipe view where user can flick through different sections pages with swipe to view a continuously
-  - Pagination
-  
-  - Responsive layout that scales automatically for iPhone, iPad depends on resolution and orientation
-  - Menu for navigation
-  
-UI Design
-
- - Icon, startup screen
- - buttons
- - pop over dialog view for collect product and share
- - modal view  
+  5. Components
+	- Full screen gallery mobile friendly
 
 Dependencies
 ---
@@ -28,23 +26,15 @@ Dependencies
   - zepto
   - pjax
   - scrollability
-  - hammer.js (multi touch)
-
-Structure
----
-
-  - toolbar header
-  - page
+  - hammer.js (multi touch gestures)
 
 Grid system
 ---
-
 
 This is using a [1000px grid system](http://elliotjaystocks.com/blog/a-better-photoshop-grid-for-responsive-web-design/) for layout. It makes percentage/pixel based conversation very simple.
 
   
 ![1000px grid](http://elliotjaystocks.com/assets/4f199548dabe9d54ad00d558/articleresponsivegrid01.jpg)
-
 
 Layout & Rendering
 ---
@@ -198,87 +188,3 @@ Unlike treesaver which will cut off contents, This pagination will put items int
     page count
     pagination bar
 
-
-Stylesheet
-===
-
-Here is the overall structure of our css files.
-
-application.css
-=====
-
------- Compass
------- Reset
-
-html, body
-
------- layout - No style/colours
-
-  structure (menu/main)
-  grid (row/col)
-  
------- ui
------- ui/menu
------- ui/toolbar
------- ui/forms
------- ui/buttons
------- ui/popover
------- ui/modal
-
------- item.scss
-/* (core content and records) */
-
-  .item 
-    title
-    image
-    date
-    desc
-    author
-
-  .article.item
-  .product.item
-  .collection.item
-    
------- page
-  .paging
-  
-  .page
-  
-  
-  .product.page
-    .panel
-    
-      h1.title
-      a.brand
-      span.price
-      span.comparison-price
-      button.purchase
-      
-      tabs.description
-        a.user
-          img
-
-      
-      tabs.comments
-      tabs.related
-      
-  
-  .article.page
-
-// Static pages
-
-  .signup
-  .welcome
-
------- mobile
-  
-  .page {
-    320
-  }
-  
-  @media only screen and orientation {
-    480
-  }
-
-
-------- ipad

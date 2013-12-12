@@ -1,120 +1,78 @@
+@charset "UTF-8";
+
+@import "compass/css3/inline-block";
+@import "compass/css3/box-sizing";
+@import "compass/css3/border-radius";
+@import "compass/css3/text-shadow";
+@import "compass/css3/box-shadow";
+@import "compass/utilities/general/clearfix";
+@import "base/media-queries";
+
 //      User interface
-
 //------ ui/menu
-
-nav#menu {
-  width: 220px;
-  background: #161717;
-  
-  .logo {
-    height: 120px !important;
-    background: url("/images/logo.png") no-repeat center center;
-//    text-indent: -1000000px;
-    a {
-      margin-left: -25px;
-      height: 120px;
-      width: 220px;
-    }
-  }
-  
-  .navigation {
-    li {
-      font-size: 16px;
-      font-family: "HelveticaNeue-Light";
-      letter-spacing: 0.8px;
-      @include box-sizing(border-box);
-      height: 44px;
-      line-height: 44px;
-      padding: 0 25px;
-      border-top: 1px solid #1e2020;
-      border-bottom: 1px solid #000;
-    }
-    
-    a {
-      display: block;
-      color: white;
-    }
-    
-    li.active {
-      background: #f04f4f;
-      border-top: 1px solid #f48080;
-    }
-    
-//    li.active:active {
-//      background: #f04f4f;
-//      border-bottom: 1px solid #f48080;
-//      border-top: 1px solid #000;
-//    }
-    
-    li.user {
-      
-    }
-  }
-}
-//------ ui/toolbar
-
-// Toolbar
-header.toolbar {
-  position: relative;
-  height: 44px;
-  
-  background: #fff;
-  border-bottom: none;
-//  border-top: 2px solid black;
-
-  z-index: 2;
-  @include box-shadow(rgba(0,0,0, 0.3) 0px 1px 3px);
-
-  a.button {
-    position: absolute;
-    top: 7px;
-    &.icon-reorder {
-      left: 10px;
-    }
-    
-    &.back {
-      left: 42px;
-    }
-    
-  }
-  
-  & > h1 {
-    text-align: center;
-    vertical-align: middle;
-    line-height: 44px;
-    color: #111;
-    font-family: "HelveticaNeue-CondensedBold", "HelveticaNeue Neue";
-    font-size: 20px;
-    letter-spacing: 0.7px;
-    text-transform: uppercase;
-    padding: 0;
-    margin: 0 auto;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-  }
-  
-  a:last-child {
-    font-family: "Helvetica";
-    position: absolute;
-    right: 1%;
-  }
-  
-  div.actions {
-    position: absolute;
-    top: 11px;
-    right: 20px;
-    font-size: 21px;
-    letter-spacing: 0.2em;
-  }
-  
-  .icon-reorder {
-    line-height: 31px;
-  }
-}
-
-
 //------ ui/forms
 //------ ui/buttons
 //------ ui/popover
 //------ ui/modal
+@import 'ui/modal';
+@import 'ui/icons';
+
+//------ ui/menu
+
+nav.tab-menu {
+  margin-bottom: 2%;
+
+  @include clearfix;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    border:1px solid #ccc;
+    clear: left;
+  }
+
+  li {
+    border-bottom:1px solid #ccc;
+    border-right: 0;
+
+    &:last-child {
+      border:0;
+    }
+  }
+
+  a {
+    padding: 10px 10px;
+    display:block;
+    &:hover {
+      background: #eee;
+    }
+  }
+
+  @include min-screen(768) {
+    ul {
+      float: left;
+    }
+    li {
+      border-right:1px solid #ccc;
+      border-bottom: 0;
+      float: left;
+    }
+  }
+}
+
+
+footer {
+  clear: both;
+}
+
+//------ ui/form
+//------ ui/button
+@import "ui/button";
+
+//------ ui/popover
+@import "ui/dropdown";
+
+//------ ui/modal
+//------- ui/discover_menu
+
+

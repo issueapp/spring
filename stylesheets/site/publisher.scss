@@ -1,0 +1,66 @@
+@import "base/form";
+
+form#reserve_edition {
+  .row {
+    min-height: 55px;
+
+    input.string, select.select {
+      margin-bottom: 0;
+    }
+  }
+
+  .col {
+    position: relative;
+  }
+
+  .error {
+/*    position: absolute;
+    left: 0;
+    bottom: -1.7em;
+*/  }
+
+  // Edition handle
+  .edition_handle {
+    margin-bottom: 2em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid #ccc;
+
+    .error {
+      position: absolute;
+      left: initial;
+      bottom: initial;
+    }
+  }
+
+  // Pick a publisher type
+  .edition_owner_role {
+    height: 35px;
+
+    label.radio_buttons {
+      display: block;
+      margin-top: -8px;
+      margin-bottom: -8px;
+    }
+
+
+    .error {
+      bottom: -1.3em;
+    }
+  }
+
+/*
+  .publisher-type {
+    margin-top: -0.5em
+  }*/
+}
+
+#edition_handle,
+#edition_handle_outside {
+  margin-left: 2px;
+  width: 7em;
+
+  @include input-placeholder {
+    font-size: 24px;
+    font-weight: normal !important;
+  }
+}

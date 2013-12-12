@@ -1,0 +1,712 @@
+@import "compass/css3/box-sizing";
+@import "compass/css3/images";
+@import "compass/css3/text-shadow";
+
+/*
+  Stream paging
+*/
+
+.page {
+  @include box-sizing(border-box);
+  white-space: normal;
+}
+
+.horizontal {
+  white-space: nowrap;
+  height: 100%;
+
+  .stream.page {
+    padding-top: 50px;
+  }
+}
+
+.vertical {
+  .page {
+    clear: left;
+  }
+}
+
+.stream-paging {
+  @include clearfix;
+  padding-bottom: 100px;
+  line-height: 0;
+  width: 100% !important;
+  overflow: visible;
+
+  .vertical & {
+    clear: left;
+    top: 50px;
+  }
+
+  .horizontal & {
+    display: inline-block;
+    white-space: nowrap;
+    padding-bottom: 0;
+    margin: 0;
+
+    .page {
+      display: inline-block;
+    }
+
+    .view-more {
+      display: inline-block;
+      width: 100px;
+      bottom: 0;
+      line-height: 100%;
+
+      span {
+        margin-top: 350px;
+        display: block;
+      }
+    }
+  }
+
+  @include min-screen(480) {
+    margin-top: -10px !important;
+  }
+}
+
+#next-page, #prev-page {
+  display: none;
+  text-align: center;
+  top: 50%;
+  margin-top: -50px;
+  right: 0;
+  position: fixed;
+  height: 100px;
+  width: 50px;
+  z-index: 2000;
+  color: #999;
+
+  &:before {
+    font-size: 30px;
+    line-height: 100px;
+  }
+
+  .no-touch &:hover, &:active {
+    background: #666;
+  }
+}
+
+/*
+  Content paging
+*/
+#next-page {
+  @extend .icon-arrow-right-2;
+}
+
+#prev-page {
+  @extend .icon-arrow-left-2;
+  left: 0;
+
+  .admin & {
+    left: 80px;
+  }
+}
+
+[role=main].content-view {
+  height: 100%;
+}
+/*
+
+  Various page style in the system
+
+  .page             - default page style, optimise for readability
+  
+  Stream 
+
+    .stream             - Swipable page on the stream
+    .vertical .page     - vertical scrolled pages
+    .horizontal .page   - horizontal swipe pages
+
+  Content formatting
+
+    .one-column       -   One column layout, cover/image fit view support fullscreen
+    .two-column       -   
+    .two-column       - 
+    .fullscreen       -
+    .split        -
+
+  Content type
+
+    .content      -     content page
+    .product      -     product page
+    .gallery      -     gallery page
+
+*/
+article.page {
+  margin: 0 auto;
+  font: 16px/22px "proxima_nova_regular";
+  line-height: 1.6;
+
+  header {
+    margin: 0 0 18px;
+    padding: 0 0 15px;
+    text-align: center;
+
+    hgroup {
+      padding-top: 50px;
+    }
+  }
+
+  .cover-image {
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    h1 {
+      padding-top: 130px;
+    }
+  }
+
+  // TODO: MOVE TO ADMIN
+  #preview_item_content {
+    &.no-cover [data-cover], img[data-size=tiny] {
+      display: none; }
+
+    clear: both;
+  }
+
+  .title {
+    text-transform: uppercase;
+    font-size: 24px;
+    font-weight: normal;
+  }
+
+  .body {
+    padding-bottom: 40px;
+
+    // Large screen body
+    @include min-screen(768) {
+      width: 45em;
+      margin: 0 auto;
+    }
+  }
+
+  .avatar {
+    width: 78px;
+    height: 78px;
+    border: 2px solid #eee;
+    border-radius: 50%;
+  }
+
+  blockquote {
+    font-family: Georgia, serif;
+    font-size: 18px;
+    font-style: italic;
+    max-width: 500px;
+    margin: 0.25em auto;
+    padding: 0.25em 10px 0.25em 50px;
+    line-height: 1.45;
+    position: relative;
+  }
+
+  blockquote:before {
+    display: block;
+    content: "\201C";
+    font-size: 80px;
+    position: absolute;
+    left: 5px;
+    top: -20px;
+    color: #999;
+  }
+
+  blockquote cite {
+    color: #999999;
+    font-size: 14px;
+    display: block;
+    margin-top: 5px;
+
+    &:before {
+      content: "\2014 \2009";
+    }
+  }
+
+  .image.cover {
+    position:relative;
+    height: 200%;
+    width: 200%;
+    top: -50%;
+    left: -50%;
+  }
+
+  .author, .published-at {
+    color: #333;
+    font-family: Georgia;
+    font-style: italic;
+  }
+
+  p {
+    margin: 1.5em 0 !important;
+    text-align: justify;
+    -webkit-hyphens: auto;
+    word-break:hyphenate;
+  }
+
+  a[href]:not(.button) {
+    text-decoration: underline;
+  }
+
+  img.medium, img.large {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 40px;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .top-image {
+    display: block;
+    float: left;
+    clear: both;
+    box-sizing: border-box;
+    margin: 1em auto;
+    max-width: 100%;
+    height: auto;
+    background-repeat: no-repeat;
+  }
+
+  .top-image.fit {
+    background-position: center;
+    background-size: 100%;
+  }
+
+  .top-image.cover {
+    background-size: cover;
+    background-position: center;
+  }
+
+  ul li, ol li {
+    line-height: 1.6;
+  }
+
+  video {
+    -webkit-transform-style: preserve-3d;
+  }
+
+  .video-wrapper {
+/*    position: relative;*/
+  	padding-bottom: 56.25%; /* 16:9 */
+  	padding-top: 25px;
+  	height: 0;
+
+  	iframe, object, embed {
+    	position: absolute;
+    	top: 0;
+    	left: 0;
+    	width: 100%;
+    	height: 100%;
+    }
+  }
+
+  .description {
+    display: block;
+    clear: both;
+  }
+
+
+
+  &.scroll .body {
+    overflow: auto;
+  }
+
+  footer {
+    clear: both;
+    float: none;
+    margin: 0 auto !important;
+    min-height: 110px;
+  }
+}
+
+article.page.no-header {
+  height: 100%;
+  text-align: center;
+
+  &:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -0.25em; /* Adjusts for spacing */
+  }
+
+  header {
+    hgroup {
+      display: none;
+    }
+  }
+
+  .body {
+    position: relative;
+    top: -50px;
+    text-align: left;
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+article.fullscreen {
+  height: 100% !important;
+  overflow: hidden;
+  background-size: cover;
+  background-repeat: no-repeat;
+  &:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -0.25em; /* Adjusts for spacing */
+  }
+
+  .top-image {
+    margin: 0;
+  }
+
+  figure {
+//    background: #000;
+    height: 100%;
+    width: 100%;;
+  }
+
+  iframe {
+    background: #000;
+  }
+
+  figcaption {
+    @include box-sizing(border-box);
+    text-align: center;
+    font-family: georgia;
+    font-style: italic;
+    color: #ccc;
+    @include background-image(linear-gradient(rgba(0,0,0,0), rgba(0,0,0, 0.95)));
+
+    padding: 20px 40px 0 40px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 80px;
+    line-height: 35px;
+    overflow: hidden;
+  }
+
+  &.left {
+    text-align: left;
+  }
+
+  &.right {
+    text-align: right;
+  }
+
+  .body {
+    text-align: left;
+    display: inline-block;
+    vertical-align: middle;
+    max-height: 100%;
+    overflow-y: auto;
+    @include box-sizing(border-box);
+    padding: 40px;
+    position: relative;
+    width: 45%;
+    margin: 5% 0;
+  }
+
+  &.top .body {
+    vertical-align: top;
+  }
+
+  &.bottom .body {
+    vertical-align: bottom;
+  }
+
+  &.black .body {
+    @extend .dark-theme;
+    background: rgba(0, 0, 0, 0.7);
+  }
+
+  &.white .body {
+    background: rgba(255, 255, 255,0.9);
+
+  }
+}
+
+//article.split {
+//  height: 100% !important;
+//  width: 100%;
+//  display: table;
+//  overflow: hidden;
+//
+//  .top-image {
+//    margin: 0;
+//    height: 100%;
+//    width: 100%;
+//  }
+//
+//  .left.col {
+//    display: table-cell;
+//    vertical-align: middle;
+//    float: none;
+//    width: 50%;
+//    -webkit-overflow-scrolling: touch;
+//  }
+//
+//  .right.col {
+//    vertical-align: middle;
+//    display: table-cell;
+//    float: none;
+//    width: 50%;
+//    height: 100%;
+//    -webkit-overflow-scrolling: touch;
+//  }
+//
+//  .body {
+//    @include box-sizing(border-box);
+//    height: 100%;
+//    width: 100%;
+//    padding: 40px 40px 0 40px;
+//    clear: both;
+//    overflow: auto;
+//  }
+//}
+
+//article.quote {
+//  &:before {
+//    font-size: 0;
+//    display: none;
+//  }
+//  hgroup {
+//    color: white;
+//    position: absolute;
+//    bottom: 10%;
+//    width: 100%;
+//    text-align: center;
+//  }
+//
+//  .body {
+//    max-width: 100%;
+//    top: 0;
+//    margin: 0;
+//    position: absolute;
+//    padding-right: 0px;
+//    padding: 40% 0 0;
+//  }
+//
+//  blockquote {
+//    font-size: 26px;
+//  }
+//
+//  .byline {
+//    position: absolute;
+//    color: #ddd;
+//    bottom: 20px;
+//    right: 20px;
+//    font-size: 14px;
+//
+//  }
+//
+//  &.fullscreen {
+//    color: white;
+//
+//    .body{
+//      padding: 25% 0 0;
+//    }
+//
+//  }
+//}
+
+//section.shopping {
+//  display: inline-block;
+//  float:right;
+//
+//  text-align: right;
+//  width: auto;
+//
+//  .price {
+//    font-size: 18px;
+//  }
+//
+//  .purchase {
+//    margin-left: 20px;
+//  }
+//  margin-bottom: 20px;
+//}
+
+article.two-column {
+  position: relative;
+  white-space: nowrap;
+  padding-bottom: 0;
+
+  .top-image {
+    clear: none;
+    margin: 0;
+    height: 100%;
+    white-space: normal;
+  }
+
+  .body {
+    @include box-sizing(border-box);
+    vertical-align: top;
+    display: inline-block;
+    white-space: normal;
+
+    width: 50%;
+    height: 100%;
+    padding: 60px 20px 20px;
+
+    img {
+      max-height: 75%;
+      -webkit-column-break-before: always;
+      -moz-column-break-before: always;
+      column-break-before: always;
+      -webkit-column-break-inside: avoid;
+      -moz-column-break-inside: avoid;
+      column-break-inside: avoid;
+      display: inline-block;
+    }
+  }
+
+  &.paginate .body {
+    -webkit-column-count:2;
+    -moz-column-count:2;
+    column-count:2;
+    -webkit-column-gap: 40px;
+    -moz-column-gap: 40px;
+    column-gap: 40px;
+
+  }
+
+  .cover-area {
+    @include display-box;
+    @include box-orient(horizontal);
+    @include box-align(stretch);
+    justify-content: center;
+
+    float: left;
+    height: 100%;
+    float: left;
+
+    .top-image {
+      float: none;
+      background-image: url("http://farm6.staticflickr.com/5330/7167552168_7d80aef236_c.jpg");
+    }
+
+    hgroup {
+      @include box-sizing(border-box);
+
+      padding-top: 20%;
+      padding-left: 40px;
+      padding-right: 40px;
+      height: 100%;
+      width: 50%;
+    }
+  }
+
+}
+
+article.three-column {
+  position: relative;
+  white-space: nowrap;
+  padding-bottom: 0;
+
+  .top-image {
+    clear: none;
+    margin: 0;
+    height: 100%;
+    white-space: normal;
+  }
+
+  &.paginate .body {
+    -webkit-column-count:3;
+    -moz-column-count:3;
+    column-count:3;
+    -webkit-column-gap: 40px;
+    -moz-column-gap: 40px;
+    column-gap: 40px;
+
+  }
+
+  .body {
+    @include box-sizing(border-box);
+    vertical-align: top;
+    display: inline-block;
+    white-space: normal;
+
+    width: 33.3%;
+    height: 100%;
+    padding: 60px 20px 20px;
+
+    img {
+      max-height: 75%;
+      -webkit-column-break-before: always;
+      -moz-column-break-before: always;
+      column-break-before: always;
+      -webkit-column-break-inside: avoid;
+      -moz-column-break-inside: avoid;
+      column-break-inside: avoid;
+      display: inline-block;
+    }
+  }
+
+  .cover-area {
+    @include display-box;
+    @include box-orient(horizontal);
+    @include box-align(stretch);
+    justify-content: center;
+
+    float: left;
+    height: 100%;
+    float: left;
+
+    .top-image {
+      float: none;
+      background-image: url("http://farm6.staticflickr.com/5330/7167552168_7d80aef236_c.jpg");
+    }
+
+    hgroup {
+      @include box-sizing(border-box);
+
+      padding-top: 20%;
+      padding-left: 40px;
+      padding-right: 40px;
+      height: 100%;
+      width: 33.333%;
+    }
+  }
+}
+
+.webview {
+  .page-head h1 {
+    padding: 0;
+  }
+}
+
+@media screen and (orientation:portrait) {
+  article.page .col.half {
+	  height: 49%;
+    width: 100%;
+    background: white;
+
+    .image {
+      left: 25%;
+      position: relative;
+      width: 50%;
+    }
+
+    .info {
+      text-align: center;
+      .store {
+        margin: 0;
+      }
+
+      .price {
+        line-height: 37px;
+        vertical-align: middle;
+      }
+
+      p {
+        margin-top: 10px;
+        text-align: left;
+      }
+    }
+  }
+}
+
+

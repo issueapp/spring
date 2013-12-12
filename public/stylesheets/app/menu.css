@@ -1,0 +1,79 @@
+/*
+Syntax error: Undefined mixin 'clearfix'.
+        on line 116 of ./stylesheets/app/menu.scss, in `clearfix'
+        from line 116 of ./stylesheets/app/menu.scss
+
+111:     font-size: 12px;
+112:   }
+113:   
+114:   // Bottom
+115:   &.bottom {
+116:     @include clearfix;
+117:     height: auto;
+118:     position: absolute;
+119:     bottom: 10px;
+120:     width: 100%;
+121: 
+
+Backtrace:
+./stylesheets/app/menu.scss:116:in `clearfix'
+./stylesheets/app/menu.scss:116
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:253:in `visit_mixin'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:100:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:53:in `map'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:109:in `block in visit_children'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:121:in `with_environment'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:108:in `visit_children'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:320:in `visit_rule'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:100:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:53:in `map'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:109:in `block in visit_children'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:121:in `with_environment'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:108:in `visit_children'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:320:in `visit_rule'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:100:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:53:in `map'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:109:in `block in visit_children'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:121:in `with_environment'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:108:in `visit_children'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:128:in `visit_root'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:100:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:7:in `visit'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/root_node.rb:20:in `render'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/engine.rb:315:in `_render'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/engine.rb:262:in `render'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/plugin/compiler.rb:362:in `update_stylesheet'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/plugin/compiler.rb:203:in `block in update_stylesheets'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/plugin/compiler.rb:201:in `each'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/plugin/compiler.rb:201:in `update_stylesheets'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/plugin.rb:81:in `update_stylesheets'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/plugin.rb:54:in `check_for_updates'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/plugin/rack.rb:51:in `call'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/rack-1.4.1/lib/rack/lint.rb:48:in `_call'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/rack-1.4.1/lib/rack/lint.rb:36:in `call'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/rack-1.4.1/lib/rack/showexceptions.rb:24:in `call'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/rack-1.4.1/lib/rack/commonlogger.rb:20:in `call'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/rack-1.4.1/lib/rack/chunked.rb:43:in `call'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/rack-1.4.1/lib/rack/content_length.rb:14:in `call'
+/Users/taylorluk/.rvm/gems/ruby-2.0.0-p247/gems/rack-1.4.1/lib/rack/handler/webrick.rb:59:in `service'
+/Users/taylorluk/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+/Users/taylorluk/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+/Users/taylorluk/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: Undefined mixin 'clearfix'.\A         on line 116 of ./stylesheets/app/menu.scss, in `clearfix'\A         from line 116 of ./stylesheets/app/menu.scss\A \A 111:     font-size: 12px;\A 112:   }\A 113:   \A 114:   // Bottom\A 115:   &.bottom {\A 116:     @include clearfix;\A 117:     height: auto;\A 118:     position: absolute;\A 119:     bottom: 10px;\A 120:     width: 100%;\A 121: "; }
