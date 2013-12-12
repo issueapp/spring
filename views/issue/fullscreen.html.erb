@@ -1,5 +1,8 @@
-<%= render "one_column", locals: {
+<!--
+  http://localhost:3000/issue/fullscreen?layout[image_style]=background&layout[content_valign]=bottom&layout[content_align]=right
+ -->
 
+<%= render "one_column", locals: {
   page: Hashie::Mash.new(
     title: "SUMMER SURVIVAL GUIDE",
     description: lorem_ipsum,
@@ -20,7 +23,5 @@
       content_valign: "bottom",
       content_overflow: "paginate"
     )
-  )
-
-}
+  )}
 %>
