@@ -1,24 +1,30 @@
 /*
-Syntax error: Undefined mixin 'min-screen'.
-        on line 71 of ./stylesheets/base/grid.scss, in `min-screen'
-        from line 71 of ./stylesheets/base/grid.scss
+Syntax error: File to import not found or unreadable: ui/animation.
+              Load paths:
+                Compass::SpriteImporter
+                /Users/mark/workspace/spring/public/stylesheets/sass
+                /Users/mark/workspace/spring/stylesheets
+                /Users/mark/.rvm/gems/ruby-2.0.0-p247/gems/compass-0.12.2/frameworks/blueprint/stylesheets
+                /Users/mark/.rvm/gems/ruby-2.0.0-p247/gems/compass-0.12.2/frameworks/compass/stylesheets
+        on line 4 of ./stylesheets/application.scss
 
-66:   &.v-half, &.v-third, &.v-third-2 {
-67:     height: 50%;
-68:   }
-69: }
-70: 
-71: @include min-screen(768) {
-72:   .col {
-73:     float: left;
-74:   }
-75: 
-76:   .col .item {
+1: @charset "utf-8";
+2: 
+3: @import "spring";
+4: @import 'ui/animation';
+5: 
+6: // UI/menu
+7: 
+8: // 5. ITEM       			==============================
+9: @import 'app/item';
 
 Backtrace:
-./stylesheets/base/grid.scss:71:in `min-screen'
-./stylesheets/base/grid.scss:71
-/Users/mark/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:253:in `visit_mixin'
+./stylesheets/application.scss:4
+/Users/mark/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/import_node.rb:67:in `rescue in import'
+/Users/mark/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/import_node.rb:45:in `import'
+/Users/mark/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/import_node.rb:28:in `imported_file'
+/Users/mark/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/import_node.rb:37:in `css_import?'
+/Users/mark/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:217:in `visit_import'
 /Users/mark/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:37:in `visit'
 /Users/mark/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:100:in `visit'
 /Users/mark/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
@@ -56,4 +62,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined mixin 'min-screen'.\A         on line 71 of ./stylesheets/base/grid.scss, in `min-screen'\A         from line 71 of ./stylesheets/base/grid.scss\A \A 66:   &.v-half, &.v-third, &.v-third-2 {\A 67:     height: 50%;\A 68:   }\A 69: }\A 70: \A 71: @include min-screen(768) {\A 72:   .col {\A 73:     float: left;\A 74:   }\A 75: \A 76:   .col .item {"; }
+  content: "Syntax error: File to import not found or unreadable: ui/animation.\A               Load paths:\A                 Compass::SpriteImporter\A                 /Users/mark/workspace/spring/public/stylesheets/sass\A                 /Users/mark/workspace/spring/stylesheets\A                 /Users/mark/.rvm/gems/ruby-2.0.0-p247/gems/compass-0.12.2/frameworks/blueprint/stylesheets\A                 /Users/mark/.rvm/gems/ruby-2.0.0-p247/gems/compass-0.12.2/frameworks/compass/stylesheets\A         on line 4 of ./stylesheets/application.scss\A \A 1: @charset \"utf-8\";\A 2: \A 3: @import \"spring\";\A 4: @import 'ui/animation';\A 5: \A 6: // UI/menu\A 7: \A 8: // 5. ITEM       			==============================\A 9: @import 'app/item';"; }

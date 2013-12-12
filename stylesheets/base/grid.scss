@@ -5,7 +5,7 @@
 /*======================================================
     Layout and rendering
     ---
-    
+
     No style or presentation code should be in this stylesheet
 
     Default style for 320px
@@ -18,13 +18,12 @@
   @include box-sizing(border-box);
   position: relative;
   width: 100%;            // this should be default
-/*  height: 99.9%;          // why*/
-  float: left;
-  
+  height: 100%;          /* // why*/
+
   .item:last-child {
     margin-bottom: 0;
   }
-  
+
   &.centered {
     clear:both;
     float: none;
@@ -36,41 +35,90 @@
   @include box-sizing(border-box);
   clear: both;
   position: relative;
-  
-/*  width: 100%;            // ???*/
-//  @include clearfix;      // ???
+
+  // Fixes 0 row height bug
+  // NOTE: Do not remove the following line
+  //  overflow: hidden;
 
   &:last-child {
     background: none;     // ???
+  }
+
+  &:after {
+    display: table;
+    clear: both;
+    content: " ";
   }
 }
 
 /*======================================================
     Divided width
   ======================================================*/
-  
-.half, .third, .third-2 {
-  width: 100%;
+
+
+.row, .col, .item {
+
+  &.half, &.third, &.third-2 {
+    margin-right: 0;
+    width: 100%;
+  }
+
+  &.v-half, &.v-third, &.v-third-2 {
+    height: 50%;
+  }
 }
 
 @include min-screen(768) {
+  .col {
+    float: left;
+  }
+
+  .col .item {
+    height: auto;
+    float: none;
+  }
+
   .col, .item {
     &.full { width: 100% }
 
     &.half { width: 49.9%; }
-    &.third { width: 33.333% }
-    &.third-2 { width: 66.666% }
+    &.third { width: 33.33% }
+    &.third-2 { width: 66.66% }
 
-    &.fourty { width: 39.9% }
-    &.sixty { width: 59.9% }
-
+    &.fourty { width: 39.99% }
+    &.sixty { width: 60.66% }
     &:last-child { margin-right: 0 }
+  }
+
+  .stream-paging, .no-gutter {
+    .col, .item {
+      &.full { width: 100% }
+      &.half { width: 49.9%; }
+      &.third { width: 33.3% }
+      &.third-2 { width: 66.6% }
+
+      &.fourty { width: 39.9% }
+      &.sixty { width: 59.9% }
+
+      &:last-child { margin-right: 0 }
+    }
+
+    .col {
+      margin-right: 0;
+    }
+
+    .row, .col, .item {
+      &.v-full { height: 100% }
+      &.v-half { height: 49.9% }
+      &.v-third { height: 33.3% }
+      &.v-third-2 { height: 66.6% }
+    }
   }
 }
 
 //.col, .item {
 //  &.full { width: 100% }
-//  
+//
 //  &.half { width: 48%; }
 //  &.third { width: 31.333% }
 //  &.third-2 { width: 64.667% }
@@ -86,33 +134,26 @@ col.centred {
   margin: 0 auto !important;
 }
 
-//  Vertical height
-.row, .col, .item {
-  &.v-full { height: 100% }
-  &.v-half { height: 49.40% }
-  &.v-third { height: 35.03% }
-  &.v-third-2 { height: 64% }
-}
 
 /*======================================================
         12 column grid collapsed for mobile
   ======================================================*/
 
-.x1,.x2,.x3,.x4, .x5, .x6, .x7, .x8, .x9, .x10, .x11, .x12  { 
-  width: 100% 
+.x1,.x2,.x3,.x4, .x5, .x6, .x7, .x8, .x9, .x10, .x11, .x12  {
+  width: 100%
 }
 
 @media only screen and (min-width: 768px) {
-  
+
   .col {
     float: left;
     margin-right: 2%;
-    
+
     &:last-child {
       margin-right: 0;
     }
   }
-  
+
   .x1   { width: 6.333%   }
   .x2   { width: 14.667%  }
   .x3   { width: 23.0%    }
