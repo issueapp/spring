@@ -2,10 +2,6 @@
 @import "compass/css3/images";
 @import "compass/css3/text-shadow";
 
-
-/*  Full screen background  */
-
-
 /*
   Stream paging
 */
@@ -111,28 +107,33 @@
 [role=main].content-view {
   height: 100%;
 }
-
-
 /*
+
   Various page style in the system
 
-    .stream       -     Swipable page on the stream
-    article.page  -     default page style.
+  .page             - default page style, optimise for readability
+  
+  Stream 
 
-    .no-header
+    .stream             - Swipable page on the stream
+    .vertical .page     - vertical scrolled pages
+    .horizontal .page   - horizontal swipe pages
 
-    .one-column   -
-    .fullscreen   -
+  Content formatting
 
+    .one-column       -   One column layout, cover/image fit view support fullscreen
+    .two-column       -   
+    .two-column       - 
+    .fullscreen       -
     .split        -
-    .two-column   -
+
+  Content type
+
     .content      -     content page
     .product      -     product page
     .gallery      -     gallery page
-*/
 
-// Page content style
-// Default content page.
+*/
 article.page {
   margin: 0 auto;
   font: 16px/22px "proxima_nova_regular";
@@ -608,7 +609,6 @@ article.three-column {
   padding-bottom: 0;
 
   .top-image {
-    display: inline-block;
     clear: none;
     margin: 0;
     height: 100%;

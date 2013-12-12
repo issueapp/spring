@@ -12,7 +12,7 @@ page = Hashie::Mash.new(
   <p>
     I’m sure most of you can relate when I say that living in Australia makes you experience all four seasons in one day. From the switch to an intense winter to a scorching summer, it surely can’t be good for our skin or hair! Zyralyn from Issue tells you how to beat the heat this summer and give it the R&R that it deserves!
   </p>
-
+  
   #{ 50.times.map{ "<p>#{lorem_ipsum(10)}</p>" }.join("") }
 BLOCK
 
@@ -20,11 +20,11 @@ BLOCK
     type: "three_column",
     image_align: "right",
     image_style: "cover",
-
     content_overflow: "paginate"
-    )
   )
- %>
+)
+
+%>
 
 <style>
 /*
