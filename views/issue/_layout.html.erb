@@ -81,24 +81,24 @@
         color: white;
         vertical-align: center;
         vertical-align: middle;
-        
+
         font-size: 18px;
-        
+
         overflow: hidden;
         line-height: 120px;
         text-align: center;
         text-overflow: ellipsis;
       }
-      
+
       /*
           Dynamic layout
       */
       body {
         background: #eee;
       }
-      
 
-      [role=main] .page { 
+
+      [role=main] .page {
         width: 1024px;
         height: 768px;
       }
@@ -108,12 +108,12 @@
         height: 1024px;
       }
 
-      #issue-viewer.portrait .page { 
+      #issue-viewer.portrait .page {
         width: 768px;
         height: 1024px;
       }
-      
-      
+
+
 
       .two-column.paginate .body, .three-column.paginate .body {
         width: 100%;
@@ -160,26 +160,25 @@
   </head>
 
   <body class="fashion-theme">
-    
     <div role=main class="content-view">
-      
+
       <div>
         <button class="button outline" onclick="$('#issue-viewer').toggleClass('portrait')">orientation</button>
         <button class="button outline" onclick="">edit</button>
-        
+
         <label for="menu" class="button outline">Issue</label>
       </div>
-      
+
       <nav class="toc dark-theme" role="secondary">
         <input type="checkbox" id="menu" value="toggle" onchange=""/>
-      
+
         <ul>
-          <% { "Cover"=> "/issue", "Contents"=> "/issue/contents" }.merge(issue_contents).each do |text, link| %>
-          <li><%= link_to text, link %></li>
+          <% issue_contents(true).each do |page| %>
+          <li><a href="<%= page.url %>"><%= page.title %></a></li>
           <% end %>
         </ul>
       </nav>
-      
+
       <div id="issue-viewer" class="portrait">
         <%= yield %>
       </div>
