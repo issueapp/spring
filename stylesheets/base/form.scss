@@ -1,0 +1,249 @@
+@import "compass/css3";
+
+@mixin input-placeholder {
+  &.placeholder { @content; }
+  &:-moz-placeholder { @content; }
+  &::-webkit-input-placeholder { @content; }
+  &:-ms-input-placeholder { @content; } /* ie */
+}
+
+form {
+  margin: 0 0 1.25em;
+  
+  // Form grid
+  input.col, .col {
+    position: relative;
+//    padding-bottom: 1.2em;
+    margin-bottom: 1em;
+  }
+
+  /*================================================
+          Label/hint
+    ================================================*/
+    
+  label { 
+    padding: 5px 0;
+    margin-right: 5px ;
+  }
+  
+  p.large, label.large {
+    font-size: 18px;
+    line-height: 32px;
+  }
+  
+  label.radio {
+    padding-right: 1em;
+    
+    input {
+      margin-right: 0.5em;
+    }
+  }
+
+  .hint_style {
+    color: #888;
+    font-style: italic;
+    line-height: 1.4;
+    font-size: 13px;
+  }
+  
+  .hint {
+    &:after {
+      content: none;
+    }
+    margin: 0 0 5px;
+    @extend .hint_style;
+/*    bottom: -1.7em;*/
+/*    left: 0;*/
+    /*left: 0;
+    bottom: -1.7em;*/
+  }
+
+  /*================================================
+          Input fields
+    ================================================*/
+  .text_field {
+    padding: 9px;
+    margin: 0px;
+    line-height: 2em;
+    height: auto;
+    width: 100%;
+    max-width: 600px;
+
+    font-size: 14px;
+    border: 1px solid #ccc;
+    background: white;
+    vertical-align: top;
+
+    @include box-sizing(border-box);
+    @include border-radius(2px);
+    @include box-shadow(1px 1px 2px #eee inset);
+  }
+  
+  input.large:not(.button) {
+    font-size: 18px !important;
+    line-height: 35px;
+    height: 35px;
+  }
+  
+  input[type="text"], input[type="password"], input[type="tel"], input[type="email"], 
+  input[type="search"], input[type="url"], textarea, select {
+    font-size: 100%;
+    line-height: normal;
+    
+    @extend .text_field;
+    
+    @include input-placeholder {
+      font-family: georgia;
+      font-weight: normal !important;
+      font-style: italic;
+      font-size: 15px;
+    }
+  }
+  
+  // Checkbox, Radio
+  input[type="checkbox"],
+  input[type="radio"] {
+    margin-right: 5px;
+  }
+  
+  select {
+    width: auto;
+    background-color: #fff;
+    border: 1px solid #cccccc;
+    height: 2.5em;
+    line-height: 2.5em;
+  }
+  
+  input[type=submit], input[type=button], button[type=submit] {
+    line-height: 2em;
+//    padding: 3px 15px;
+    margin-right: 5px;
+  }
+  
+  /*
+      Focus state
+  */
+  input:focus, select:focus, textarea:focus {
+    border: 1px solid #A1CFDE !important;
+  }
+  
+  
+  /*================================================
+          Errors
+    ================================================*/
+  
+  .field_with_errors {
+    input.string, select.select {
+      border-color: lighten(#e84949, 20%);
+    }
+    
+    .hint {
+      display: none;
+    }
+  }
+  
+  .error {
+    @extend .hint_style;
+    color: #e84949;
+  }
+  
+  // Responsive desktop
+  @include min-screen(768) {
+    p.large, label.large {
+      font-size: 24px;
+      line-height: 40px;
+    }
+    
+    input.large:not(.button) {
+      font-size: 24px !important;
+      line-height: 45px;
+      height: 45px;
+    }
+  }
+
+
+}
+
+/*================================================
+      Notification
+================================================*/
+
+div.notification {
+  @include box-sizing(border-box);
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  margin-left: -35%;
+  font-size: 18px;
+  padding: 40px 30px 40px 30px;
+  border-radius: 10px;
+  width: 70%;
+  min-height: 80px;
+  line-height: 1.5;
+  text-align: center;
+  z-index: 10000;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  
+  
+  .overlay-active & {
+    left: 7.5%;
+    right: 7.5%;
+    top: 0;
+  }
+  
+  // Responsive
+  @include min-screen(768) {
+    max-width: 30%;
+    margin-left: -15%;
+  }
+  
+  a.close-target {
+    position: absolute;
+    right: 10px;
+    color: #eee;
+  }
+  
+  a.close {
+    float:right;
+    &:before {  font-size: 24px; color: #111; }
+    
+    width: 20px;
+    height: 20px;
+    @extend .icon-cross; 
+  }
+  
+
+  
+  &.prev, &.next {
+    &:before {
+      color: #fff;
+      position: absolute;
+      top: 50%;
+//      text-align: center;
+      font-size: 40px;
+      line-height: 40px;
+      margin-top: -20px;
+    }
+  }
+  
+  &.prev {
+    &:before {
+      right: 8px;
+      content: "›";
+    }
+  }
+  
+  &.next {
+    &:before {
+      left: 8px;
+      content: "‹";
+    }
+  }
+}
+
+a.close-target {
+  @extend .icon-cross;
+  font-size: 28px;
+  float: right;
+}

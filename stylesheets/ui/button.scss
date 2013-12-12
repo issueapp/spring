@@ -1,0 +1,499 @@
+@import "compass/css3/border-radius";
+@import "compass/css3/images";
+@import "compass/css3/background-clip";
+@import "compass/css3/box-shadow";
+@import "compass/css3/text-shadow";
+@import "compass/css3/box-sizing";
+
+
+/*
+    Reset button style
+
+*/
+input[type="button"], button {
+  border:0 none;
+  font:inherit;
+}
+*:focus{outline:0 none;}
+input[type="submit"] {border:1px solid rgba(0, 0, 0, 0.25);}
+input[type="button"], button {-moz-box-sizing: content-box;}/*fixes mozilla padding - mozilla only, doesn't need webkit or other values */
+input[type="button"]::-moz-focus-inner, button::-moz-focus-inner { padding:0;border:0 none; }/*fixes mozilla button padding - mozilla only, doesn't need webkit or other values */
+
+/*
+    Default button style
+*/
+
+$small-height: 30px;
+$normal-height: 44px;
+$large-height: 56px;
+$button-font: "proxima_nova_bold", "Helvetica Neue", Hevetica, Arial, sans-serif;
+$btn-text-colour: #555555;
+
+.button, button, input[type="button"] {
+  $start: #fafafa;
+  $end: #f3f7f7;
+
+  // default
+	cursor: pointer;
+	display: inline-block;
+	vertical-align: middle;
+
+	color: #555555;
+	border: 1px solid #d2dbdb;
+	background-color: $start;
+
+  font-family: $button-font;
+  font-weight: normal;
+  font-style: normal;
+	text-align: center;
+	text-shadow: 0px 1px 1px #fff;
+  text-transform: uppercase;
+	white-space: nowrap;
+  -webkit-font-smoothing:antialiased;
+
+  @include box-sizing(border-box);
+	@include border-radius(3px);
+  @include background-image(linear-gradient(top center, $start, $end));
+
+	// States
+  &:active {
+    background: $end;
+  }
+
+  .no-touch &:hover, .hover {
+    cursor: pointer !important;
+    color: #383B3B;
+    background: lighten($end, 2%);
+
+    @include background-image(linear-gradient(top center, lighten($start, 5%), $start));
+  }
+
+  [class^="icon-"], [class*=" icon-"] {
+    float: left;
+    display: inline-block;
+  }
+
+  span {
+    padding-left: 5px;
+    height: 29px;
+    line-height: 27px;
+    display: inline-block;
+  }
+
+  // To enable SVG gradient support in Opera and IE9
+  // http://compass-style.org/reference/compass/css3/images/
+  $experimental-support-for-svg: true;
+}
+
+// Button sizes
+%small-btn {
+  text-transform: none;
+  line-height: $small-height;
+  height: $small-height;
+	font-size: 12px;
+
+  padding: 0px 18px;
+  letter-spacing: 0px;
+
+  [class^="icon-"], [class*=" icon-"] {
+    height: $small-height;
+    line-height: $small-height;
+    font-size: 13px;
+  }
+}
+
+%normal-btn {
+	font-size: 12px;
+
+  line-height: $normal-height;
+  height: $normal-height;
+	padding: 0px 15px;
+	margin: 0 8px 0 0;
+  letter-spacing: 1px;
+
+  [class^="icon-"], [class*=" icon-"] {
+    height: $normal-height;
+    line-height: $normal-height;
+    font-size: 17px;
+  }
+
+//  @include min-screen(768) {
+//    line-height: $normal-height;
+//    height: $normal-height;
+//    padding: 0px 30px;
+//
+//    [class^="icon-"], [class*=" icon-"] {
+//      height: $normal-height;
+//      line-height: $normal-height;
+//      font-size: 17px;
+//    }
+//  }
+}
+
+%large-btn {
+  font-size: 14px;
+  line-height: $large-height;
+  height: $large-height;
+  margin-bottom: 12px;
+  letter-spacing: 2px;
+
+  [class^="icon-"], [class*=" icon-"] {
+    height: $large-height;
+    line-height: $large-height;
+    font-size: 24px;
+  }
+}
+
+.button, button {
+	@extend %normal-btn;
+
+  &.small {
+		@extend %small-btn;
+  }
+
+  &.large {
+		@extend %large-btn;
+  }
+}
+
+
+// Button colors
+.button, button {
+
+  &.black {
+    background: #2c2c2c;
+    color: white !important;
+    @include text-shadow(0px 1px 2px rgba(0,0,0,0.3));
+    @include box-shadow(0px 1px 0px 0px rgba(255, 255, 255, 0.2) inset, 0px -1px 0px 0px rgba(0, 0, 0, 0.1) inset);
+    border: none; //1px solid #2b2b2b;
+
+    .no-touch &:hover, &.hover {
+      background: #4B4C4B;
+    }
+
+    &:active, &.active {
+      background: #0e0e0e;
+    }
+  }
+
+  &.orange {
+    $color: #e96b56;
+
+    background: $color;
+    color: white;
+
+    @include text-shadow(0px 1px 2px rgba(0,0,0,0.2));
+    @include box-shadow(0px 1px 0px 0px rgba(255, 255, 255, 0.3) inset, 0px -1px 0px 0px rgba(0, 0, 0, 0.1) inset);
+    border: none;
+
+    .no-touch &:hover {
+      color: white;
+      background: lighten($color, 5%);
+    }
+
+    &:active {
+      background: darken($color, 10%);
+    }
+  }
+
+  &.blue {
+    $color: #5faecb;
+
+    background: $color;
+    color: white;
+
+    @include text-shadow(0px 1px 2px rgba(0,0,0,0.2));
+    @include box-shadow(0px 1px 0px 0px rgba(255, 255, 255, 0.3) inset, 0px -1px 0px 0px rgba(0, 0, 0, 0.1) inset);
+    border: none;
+
+    .no-touch &:hover {
+      color: white;
+      background: lighten($color, 5%);
+    }
+
+    &:active {
+      background: darken($color, 10%);
+    }
+  }
+
+  &.outline {
+    color: $btn-text-colour;
+    border: 1px solid rgba(150, 150, 150, 0.8);
+//    @include box-shadow(1px 1px 0px 0px rgba(0, 0, 0, 0.3));
+    
+    background: none;
+
+    @include text-shadow(none);
+    @include transition(all .15s ease-out);
+
+    .no-touch &:hover {
+      color: #fff;
+      background: rgba(0, 0, 0, 0.7);
+    }
+  }
+
+  .dark-theme &.outline {
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+
+    .no-touch &:hover {
+      color: white;
+      background: rgba(200, 200, 200, 0.9);
+    }
+  }
+}
+
+.button.mobile-block,
+button.mobile-block {
+  margin-top: 10px;
+  width: 100%;
+
+  @include min-screen(768) {
+    margin-top: 0;
+    width: auto
+  }
+}
+
+.button.danger {
+  color: #f04f4f;
+  @include text-shadow(none);
+}
+
+
+.button.pointy {
+  @extend .black;
+
+  @include max-screen(480) {
+    margin-top: 10px;
+    width: 100%;
+    height: 44px;
+    line-height: 44px;
+  }
+
+  &:before {
+    content: " ";
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    background: red;
+//    border:  15px solid transparent;
+//    border-right-color: #000;
+//    width: 0;
+//    height: 0;
+    display: block;
+  }
+}
+
+// actions
+.button.facebook, button.facebook {
+  $color: #4363a6;
+  @include text-shadow(0px 1px #375697);
+  padding: 0 24px;
+  border: 1px solid $color;
+  background: $color;
+  color: white;
+
+  i {
+    margin-left: -5px;
+    font-size: 21px;
+    padding-right: 5px;
+    line-height: 44px;
+  }
+
+  span {
+    color: white;
+  }
+
+  &.large span {
+    font-size: 13px;
+
+    height: 44px;
+    line-height: 44px;
+  }
+
+  &.small span {
+    height: 20px;
+    line-height: 18px;
+  }
+
+  .no-touch &:hover {
+    background: lighten($color, 10%);
+    color: white;
+  }
+
+  &:active {
+    background: $color;
+  }
+}
+
+.button.twitter, button.twitter {
+  $color: #36A3D4;
+
+  background: $color;
+  color: white;
+  border: 1px solid $color;
+
+  font-family: $button-font;
+  @include text-shadow(0px 1px darken($color, 10%));
+
+  i {
+    line-height: 44px;
+  }
+
+  span {
+    color: white;
+  }
+
+  &.small span {
+    height: 20px;
+    line-height: 18px;
+  }
+
+  .no-touch &:hover {
+    background: lighten($color, 10%);
+    color: white;
+  }
+
+  &:active {
+    background: $color;
+  }
+}
+
+/*
+    Disabled state
+*/
+.button.disabled,
+.button[disabled],
+button[disabled],
+button[disabled]:active {
+	color: #999 !important;
+	@include background-image(linear-gradient(top center, #f6f6f6, #efefef));
+	background-color: #e1e1e1 !important;
+	text-shadow: none;
+	border-color: #d4d4d4;
+	border-top-color: #dedede;
+	border-bottom-color: #c9c9c9;
+	cursor: default;
+}
+
+
+/*=====================================
+      Button group with split icon
+  =====================================*/
+.button-group {
+  vertical-align: middle;
+  display: inline-block;
+  position: relative;
+  z-index: 99999;
+
+  .button {
+  	@include border-radius(0px);
+  	position: relative;
+    float: left;
+    margin-left: -1px;
+    margin-right:0;
+  }
+
+  .button:first-child {
+    margin-left: 0px;
+    margin-right: 0;
+    @include border-corner-radius(bottom, left, 3px);
+    @include border-corner-radius(top, left, 3px);
+  }
+
+  .button:last-child {
+    margin-left: 0px;
+    margin-right: 0;
+    @include border-corner-radius(bottom, right, 3px);
+    @include border-corner-radius(top, right, 3px);
+  }
+
+  .dropdown {
+    padding: 0px 6px;
+    @include border-corner-radius(bottom, right, 3px);
+    @include border-corner-radius(top, right, 3px);
+    @include box-shadow(inset 1px 0 0 rgba(255, 255, 255, 0.125), inset 0 -1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05));
+
+    .caret {
+      height: 0px;
+      margin-top: -3px;
+      padding: 0;
+    }
+  }
+
+  &.toggle {
+    & > .dropdown-menu {
+      display: block;
+    }
+  }
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 99999;
+  display: none;
+  float: left;
+  min-width: 120px;
+  padding: 4px 0;
+  margin: 1px 0 0;
+  list-style: none;
+  background-color: #ffffff;
+  color: $btn-text-colour;
+
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+
+  *border-right-width: 2px;
+  *border-bottom-width: 2px;
+  @include border-radius(3px);
+  @include box-shadow(0 5px 10px rgba(0, 0, 0, 0.2));
+  @include background-clip(padding-box);
+
+  &.button-hover {
+    display: block;
+  }
+
+  a:not(.button) {
+    cursor: pointer;
+    text-align: left;
+    display: block;
+    padding: 3px 15px;
+    clear: both;
+    font-weight: normal;
+    line-height: 20px !important;
+    color: #333;
+    white-space: nowrap;
+  }
+
+  .no-touch & li > a:hover,
+  .active > a,
+  .no-touch & .active > a:hover {
+    text-decoration: none;
+    background-color: #eee;
+  }
+
+  .divider {
+    height: 1px;
+    margin: 8px 1px;
+    overflow: hidden;
+    background-color: #E5E5E5;
+    border-bottom: 1px solid white;
+
+    & + li > a {
+      color: #999;
+    }
+  }
+}
+
+.caret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  vertical-align: middle;
+  border-top: 4px solid #999;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+  content: "";
+}

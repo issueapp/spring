@@ -16,9 +16,9 @@
 # https://github.com/josephschmitt/Clamp.js
 clampInfo = ->
   $('.half.split .info p').each ->
-    $clamp(this, {clamp: 10})
+    $clamp(this, {clamp: 7})
 
-  $('.v-third.split .info p').each ->
+  $('.item .info p').each ->
     $clamp(this, {clamp: 4})
 
 removeClamp = ->

@@ -1,0 +1,64 @@
+<% content_for :header do %>
+  <header class="page-head">
+    <div class="container">
+      <%= render "nav" %>
+      
+      <h1>Spring framework</h1>
+      <h3 class="subtitle">
+        A minimalistic framework for HTML5 based publishing
+      </h3>
+    </div>
+  </header>
+<% end %>
+
+<h2>Goal</h2>
+<p>We want to build a simple and light weight responsive css library that is suitable building tablet oriented content rich applications.<p>
+
+
+<h3>File structure</h3>
+
+
+<code><pre>
+  
+  /stylesheets/
+  // Framework code
+    spring.css      --- base library of framework (reset, layout, grid, form)
+    ui.css        --- compiled UI related library (dropdown/button, gallery)
+    
+  // App/site layout
+    app.css       --- responsive app layout
+    site.css
+    site/
+      home.css
+      publisher.css
+  
+  /images         ---   Global image assets
+    /logo.png
+    /icon-spirte.png
+
+    /site         ---   Site specific (marketing, landing page)
+    /app
+    
+    /touch        ---   Apple touch icons
+    /startup      ---   boot images
+  
+  
+</pre></code>
+
+<h3>Features</h3>
+
+<ul>
+  <li>Grid system</li>
+  <li>Responsive Layout</li>
+  <li>Photoshop template for startup, touch image</li>
+  
+  <li>Dark/Light page themes</li>
+  <li>Readbility focus page design</li>
+</ul>
+
+<h3>UI Library</h3>
+<ul>
+  <li>Swipe View</li>
+  <li>Gallery view</li>
+  <li>Popover</li>
+</ul>

@@ -1,0 +1,14 @@
+<a class="link" href="/items/{{ handle }}">
+  <div class="image" data-original="{{ image_url }}" style="background-size: cover; background-position: center;">
+  </div>
+</a>
+<figcaption class="info">
+  <a class="link" href="/items/{{ handle }}">
+    <h3 class="title">{{ title }}</h3>
+  </a>
+  <p class="description">{{ description }}</p>
+
+  {{#price}}
+    <a class="price">{{price}}</a>
+  {{/price}}
+</figcaption>

@@ -7,10 +7,17 @@
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0" />
 
-  <link rel="stylesheet" href="http://shop2.com/assets/components/_button.css">
+  <!-- <link rel="stylesheet" href="http://shop2.com/assets/components/_button.css">
   <link rel="stylesheet" href="/stylesheets/application.css"/>
-  <link rel="stylesheet" href="/stylesheets/font-awesome.css"/>
+  <link rel="stylesheet" href="/stylesheets/swipe-view.css"/>
 
+  <link rel="stylesheet" href="/stylesheets/item.css"/>
+  <link rel="stylesheet" href="/stylesheets/gallery.css"/>
+
+
+
+  <link rel="shortcut icon" href="/favicon.ico"> -->
+  <link rel="stylesheet" href="http://issue.dev/assets/application.css?body=1"/>
   <!-- For iPhone 4 -->
   <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon.png">
 
@@ -22,26 +29,24 @@
 </head>
 
 <body class="hint">
-  
-  <nav class="toolbar" role="navigation">
+
+  <!-- <nav class="toolbar" role="navigation"> -->
     <!-- <a class="menu button" ontouchstart="$('#menu-select')[0].open(); return false"></a> -->
-    <h1>TOP CONTENT</h1>
+    <!-- <h1>TOP CONTENT</h1> -->
     <!-- <a class="button blue next-version"></a> -->
-  </nav>
-  
+  <!-- </nav> -->
+
   <div role="main">
     <%= yield %>
   </div>
-  
-</body>
-<script src="/javascripts/vendor/zepto.js"></script>  
-<script src="/javascripts/vendor/underscore.js"></script>  
-<script src="/javascripts/vendor/backbone.js"></script>  
-<script src="/javascripts/vendor/mustache.js"></script>  
-<script src="/javascripts/vendor/clamp.js"></script>
-<script src="/javascripts/vendor/scrollability2.js"></script>
-<script src="/javascripts/vendor/h5bp-helper.js"></script>
 
+</body>
+<script src="/javascripts/vendor/zepto.js"></script>
+<script src="/javascripts/vendor/underscore.js"></script>
+<script src="/javascripts/vendor/backbone.js"></script>
+<script src="/javascripts/vendor/mustache.js"></script>
+<script src="/javascripts/vendor/clamp.js"></script>
+<script src="/javascripts/vendor/h5bp-helper.js"></script>
 
 <%= yield :js %>
 </html>

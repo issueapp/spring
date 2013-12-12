@@ -1,0 +1,149 @@
+<style>
+  html, body {
+    overflow: hidden;
+  }
+
+  body {
+    position: relative;
+  }
+
+  .swipe-paging {
+    position: absolute;
+    z-index: 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .animate {
+    -webkit-transition: all .3s ease-out;
+    -moz-transition: all .3s ease-out;
+    -ms-transition: all .3s ease-out;
+    -o-transition: all .3s ease-out;
+    transition: all .3s ease-out;
+  }
+
+  .page {
+    position: relative;
+    display: inline-block;
+    float: left;
+    overflow: hidden;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 5px;
+    border: 1px solid #fff;
+    white-space: normal;
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+  }
+
+  .page.current {
+    visibility: visible;
+  }
+
+  .page.padding {
+    width: 0;
+  }
+
+  .page {
+    border: 1px solid red;
+    background: #eee;
+  }
+
+  #gallery .page {
+    border: none;
+  }
+</style>
+
+<div class="swipe-paging"></div>
+<div id="gallery"></div>
+
+<% content_for :js do %>
+<script> App = {} </script>
+<script src="/javascripts/views/swipe_view.js"></script>
+<script src="/javascripts/views/gallery_view.js"></script>
+
+<script type="text/javascript">
+  var pageWidth = window.innerWidth;
+  var pageHeight = window.innerHeight;
+
+  $('head').append('<style>.page { width:'+pageWidth+'; height:'+pageHeight+' }</style>');
+
+  var text = "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
+
+  var galleryPage = ' \
+    <div class="col half"> \
+      <div class="gallery"> \
+        <a href="http://placekitten.com/1024/1021"> \
+          <div class="image" style="background-image: url(http://placekitten.com/1024/1021); background-size: cover; background-position: center; height: 100%;"></div> \
+        </a> \
+        <a href="http://placekitten.com/1024/1022"></a> \
+        <a href="http://placekitten.com/1024/1023"></a> \
+        <a href="http://placekitten.com/1024/1024"></a> \
+        <a href="http://placekitten.com/1024/1025"></a> \
+        <i class="icon-fullscreen"></i> \
+      </div> \
+    </div>';
+
+  var i = 0, pages = [], lastStep = 0;
+
+  for (i = 0; i < 7; i++) {
+    pages.push('<div class="col half"><h1>Page ' + i + " </h1> " + text + '</div>');
+  }
+  i = -1;
+
+  var createPage = function (step) {
+    if (i > 2 && i < 7 && step < 0 && lastStep > 0)
+      i -= 3;
+    else if (i > 2 && i == 7 && step < 0)
+      i -= 4;
+    else if (i == 0 && lastStep == -1)
+      i += 3;
+    else
+      i = i + step;
+
+    if (i < 0) i = -1;
+    if (i > 6) i = 7;
+    lastStep = step;
+
+    return pages[i];
+  };
+
+  $('.swipe-paging').append('<div class="page">'+ createPage(+1)+'</div>')
+  $('.swipe-paging').append('<div class="page next loading">Loading...</div>')
+
+  var view = new App.SwipeView;
+
+  // Next page doesn't exist
+  view.on("fetch:next", function(view) {
+    var loading = view.$('.loading');
+    loading.html( createPage(+1) );
+    loading.removeClass('loading');
+    loading.append(galleryPage);
+  })
+
+  // Buffered page doesn't exist
+  view.on("buffer:next", function(view) {
+    var page = createPage(+1);
+    if (page)
+      $(view.el).append('<div class="page"><div class="col half">' + page + '</div>' + galleryPage + '</div>');
+  })
+
+  // Buffered page doesn't exist
+  view.on("buffer:prev", function(view) {
+    var page = createPage(-1);
+    if (page)
+      view.padding.after('<div class="page"><div class="col half">' + page + '</div>' + galleryPage + '</div>');
+  })
+
+  // Gallery View Start
+  $('.page.current').append(galleryPage);
+
+  var gallery = new App.GalleryView;
+
+  $('.current.page .gallery a, .current.page .gallery .icon-fullscreen').live('click', function(e) {
+    gallery.render();
+    return false;
+  });
+</script>
+<% end %>

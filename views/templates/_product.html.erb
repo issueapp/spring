@@ -1,26 +1,19 @@
-<article class="product page" data-handle="{{ handle }}">
-  <div class="col half">
-    <div class="image" style="background-image: url(http://deyf8doogqx67.cloudfront.net{{ cdn_image_url }}); background-size: cover; background-position: center; height: 100%;"></div>
-    <!-- <div class="image cover"> -->
-      <!-- <a class="link" href="/products/{{ handle }}"> -->
-      <!-- <a class="link" href="{{ origin_url }}" target="_blank">
-        <img src="http://deyf8doogqx67.cloudfront.net{{ cdn_image_url }}">
-      </a> -->
-    <!-- </div> -->
-  </div>
-  
-  <div class="col half">
-    <div class="info">
-      <h3 class="title">{{ title }}</h3>
-      <span class="price">{{ price_in_string }}</span>
-      <a class="store button large blue" href="{{ origin_url }}" target="_blank">Buy from store</a>
+<a class="link" href="/items/{{ handle }}">
+  <div class="image" style="background-image: url(<%= product.image_url %>);"></div>
+</a>
 
-      
-      <p class="description">{{ description }}</p>
-      
-      <p class="description">
-        Accusamus photo booth in pour-over enim qui salvia, lomo cillum pitchfork id single-origin coffee officia cosby sweater cray. Pitchfork truffaut sartorial direct trade accusamus consectetur. Odd future cosby sweater portland occaecat, direct trade twee retro irure locavore food truck sriracha photo booth sed bicycle rights flexitarian. Swag echo park sartorial accusamus pinterest, consectetur anim pop-up. Velit pitchfork lo-fi mixtape. Organic next level anim ea, carles 3 wolf moon master cleanse irony shoreditch do cosby sweater ex incididunt eu. Tempor jean shorts forage nulla, squid synth etsy vice hella accusamus biodiesel.
-      </p>
-    </div>
-  </div>
-</article>
+<div class="info">
+  <a class="link" href="/items/{{ handle }}">
+    <h3 class="title"><%= product.title %></h3>
+  </a>
+  
+  <p class="description"><%= product.description %></p>
+
+  <a href="{{ path }}" class="via user">
+    <!-- 
+    <img alt="Profile_image?screen_name=nkechinjaka&amp;size=bigger" height="16" src="http://api.twitter.com/1/users/profile_image?screen_name=NkechiNjaka&amp;size=bigger" width="16">
+    -->
+    by <span><%= product.brand %></span>
+  </a>
+</div>
+<a class="price"><%= product.price %></a>

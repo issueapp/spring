@@ -1,0 +1,48 @@
+# Mobile design
+
+
+## Code Review
+
+ContentView
+
+ 1. ContentView#fetchNext does too much, it should simply fetch a new page
+ 2. image protocol should be part of json resource
+ 3. It doesn't go backward
+
+Cover page 
+
+ 1. it needs better picture
+ 2. it should support swipe action
+ 3. it should be a reusable view.
+
+Menu
+
+ 1. We only have men/women category for now, there isn't enough channels for other categories
+ 2. Visual distinction between a live stream and a separate issue
+
+
+----
+
+## Features
+
+ - User browses trending content stream, with ability to filter between content types "all", "product", "blog", "image"
+
+ - User views content page by tapping on a content item on stream view.
+ 
+ - User can swipe through stream or content page to view next page or previous page. It loads continuously until there are no more products.
+ 
+ - Visitor can signup via facebook, twitter or email
+ 
+ - Visitor can signin via facebook, twitter or logins
+
+## Design
+
+- SwipeView pagination footer
+- SwipeView to support scrollable elements within the view
+
+- Improve tests around swipeview
+- improve tests around steamview
+
+- 2 level collapsable menu
+- Startup cover screen
+- buttons, popover
