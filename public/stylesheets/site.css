@@ -905,7 +905,7 @@ nav li a {
 /*======================================================
     Layout and rendering
     ---
-    
+
     No style or presentation code should be in this stylesheet
 
     Default style for 320px
@@ -920,170 +920,223 @@ nav li a {
   box-sizing: border-box;
   position: relative;
   width: 100%;
-  /*  height: 99.9%;          // why*/
-  float: left;
+  height: 100%;
+  /* // why*/
 }
-/* line 24, ../../stylesheets/base/grid.scss */
+/* line 23, ../../stylesheets/base/grid.scss */
 .col .item:last-child {
   margin-bottom: 0;
 }
-/* line 28, ../../stylesheets/base/grid.scss */
+/* line 27, ../../stylesheets/base/grid.scss */
 .col.centered {
   clear: both;
   float: none;
   margin: 0 auto !important;
 }
 
-/* line 35, ../../stylesheets/base/grid.scss */
+/* line 34, ../../stylesheets/base/grid.scss */
 .row {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   clear: both;
   position: relative;
-  /*  width: 100%;            // ???*/
 }
 /* line 43, ../../stylesheets/base/grid.scss */
 .row:last-child {
   background: none;
 }
+/* line 47, ../../stylesheets/base/grid.scss */
+.row:after {
+  display: table;
+  clear: both;
+  content: " ";
+}
 
 /*======================================================
     Divided width
   ======================================================*/
-/* line 52, ../../stylesheets/base/grid.scss */
-.half, .third, .third-2 {
+/* line 61, ../../stylesheets/base/grid.scss */
+.row.half, .row.third, .row.third-2, .col.half, .col.third, .col.third-2, .item.half, .item.third, .item.third-2 {
+  margin-right: 0;
   width: 100%;
+}
+/* line 66, ../../stylesheets/base/grid.scss */
+.row.v-half, .row.v-third, .row.v-third-2, .col.v-half, .col.v-third, .col.v-third-2, .item.v-half, .item.v-third, .item.v-third-2 {
+  height: 50%;
 }
 
 @media screen and (min-width: 768px) {
-  /* line 58, ../../stylesheets/base/grid.scss */
+  /* line 72, ../../stylesheets/base/grid.scss */
+  .col {
+    float: left;
+  }
+
+  /* line 76, ../../stylesheets/base/grid.scss */
+  .col .item {
+    height: auto;
+    float: none;
+  }
+
+  /* line 82, ../../stylesheets/base/grid.scss */
   .col.full, .item.full {
     width: 100%;
   }
-  /* line 60, ../../stylesheets/base/grid.scss */
+  /* line 84, ../../stylesheets/base/grid.scss */
   .col.half, .item.half {
     width: 49.9%;
   }
-  /* line 61, ../../stylesheets/base/grid.scss */
+  /* line 85, ../../stylesheets/base/grid.scss */
   .col.third, .item.third {
-    width: 33.333%;
+    width: 33.33%;
   }
-  /* line 62, ../../stylesheets/base/grid.scss */
+  /* line 86, ../../stylesheets/base/grid.scss */
   .col.third-2, .item.third-2 {
-    width: 66.666%;
+    width: 66.66%;
   }
-  /* line 64, ../../stylesheets/base/grid.scss */
+  /* line 88, ../../stylesheets/base/grid.scss */
   .col.fourty, .item.fourty {
-    width: 39.9%;
+    width: 39.99%;
   }
-  /* line 65, ../../stylesheets/base/grid.scss */
+  /* line 89, ../../stylesheets/base/grid.scss */
   .col.sixty, .item.sixty {
-    width: 59.9%;
+    width: 60.66%;
   }
-  /* line 67, ../../stylesheets/base/grid.scss */
+  /* line 90, ../../stylesheets/base/grid.scss */
   .col:last-child, .item:last-child {
     margin-right: 0;
   }
+
+  /* line 95, ../../stylesheets/base/grid.scss */
+  .stream-paging .col.full, .stream-paging .item.full, .no-gutter .col.full, .no-gutter .item.full {
+    width: 100%;
+  }
+  /* line 96, ../../stylesheets/base/grid.scss */
+  .stream-paging .col.half, .stream-paging .item.half, .no-gutter .col.half, .no-gutter .item.half {
+    width: 49.9%;
+  }
+  /* line 97, ../../stylesheets/base/grid.scss */
+  .stream-paging .col.third, .stream-paging .item.third, .no-gutter .col.third, .no-gutter .item.third {
+    width: 33.3%;
+  }
+  /* line 98, ../../stylesheets/base/grid.scss */
+  .stream-paging .col.third-2, .stream-paging .item.third-2, .no-gutter .col.third-2, .no-gutter .item.third-2 {
+    width: 66.6%;
+  }
+  /* line 100, ../../stylesheets/base/grid.scss */
+  .stream-paging .col.fourty, .stream-paging .item.fourty, .no-gutter .col.fourty, .no-gutter .item.fourty {
+    width: 39.9%;
+  }
+  /* line 101, ../../stylesheets/base/grid.scss */
+  .stream-paging .col.sixty, .stream-paging .item.sixty, .no-gutter .col.sixty, .no-gutter .item.sixty {
+    width: 59.9%;
+  }
+  /* line 103, ../../stylesheets/base/grid.scss */
+  .stream-paging .col:last-child, .stream-paging .item:last-child, .no-gutter .col:last-child, .no-gutter .item:last-child {
+    margin-right: 0;
+  }
+  /* line 106, ../../stylesheets/base/grid.scss */
+  .stream-paging .col, .no-gutter .col {
+    margin-right: 0;
+  }
+  /* line 111, ../../stylesheets/base/grid.scss */
+  .stream-paging .row.v-full, .stream-paging .col.v-full, .stream-paging .item.v-full, .no-gutter .row.v-full, .no-gutter .col.v-full, .no-gutter .item.v-full {
+    height: 100%;
+  }
+  /* line 112, ../../stylesheets/base/grid.scss */
+  .stream-paging .row.v-half, .stream-paging .col.v-half, .stream-paging .item.v-half, .no-gutter .row.v-half, .no-gutter .col.v-half, .no-gutter .item.v-half {
+    height: 49.9%;
+  }
+  /* line 113, ../../stylesheets/base/grid.scss */
+  .stream-paging .row.v-third, .stream-paging .col.v-third, .stream-paging .item.v-third, .no-gutter .row.v-third, .no-gutter .col.v-third, .no-gutter .item.v-third {
+    height: 33.3%;
+  }
+  /* line 114, ../../stylesheets/base/grid.scss */
+  .stream-paging .row.v-third-2, .stream-paging .col.v-third-2, .stream-paging .item.v-third-2, .no-gutter .row.v-third-2, .no-gutter .col.v-third-2, .no-gutter .item.v-third-2 {
+    height: 66.6%;
+  }
 }
-/* line 84, ../../stylesheets/base/grid.scss */
+/* line 132, ../../stylesheets/base/grid.scss */
 col.centred {
   float: none !important;
   margin: 0 auto !important;
 }
 
-/* line 91, ../../stylesheets/base/grid.scss */
-.row.v-full, .col.v-full, .item.v-full {
-  height: 100%;
-}
-/* line 92, ../../stylesheets/base/grid.scss */
-.row.v-half, .col.v-half, .item.v-half {
-  height: 49.4%;
-}
-/* line 93, ../../stylesheets/base/grid.scss */
-.row.v-third, .col.v-third, .item.v-third {
-  height: 35.03%;
-}
-/* line 94, ../../stylesheets/base/grid.scss */
-.row.v-third-2, .col.v-third-2, .item.v-third-2 {
-  height: 64%;
-}
-
 /*======================================================
         12 column grid collapsed for mobile
   ======================================================*/
-/* line 101, ../../stylesheets/base/grid.scss */
+/* line 142, ../../stylesheets/base/grid.scss */
 .x1, .x2, .x3, .x4, .x5, .x6, .x7, .x8, .x9, .x10, .x11, .x12 {
   width: 100%;
 }
 
 @media only screen and (min-width: 768px) {
-  /* line 107, ../../stylesheets/base/grid.scss */
+  /* line 148, ../../stylesheets/base/grid.scss */
   .col {
     float: left;
     margin-right: 2%;
   }
-  /* line 111, ../../stylesheets/base/grid.scss */
+  /* line 152, ../../stylesheets/base/grid.scss */
   .col:last-child {
     margin-right: 0;
   }
 
-  /* line 116, ../../stylesheets/base/grid.scss */
+  /* line 157, ../../stylesheets/base/grid.scss */
   .x1 {
     width: 6.333%;
   }
 
-  /* line 117, ../../stylesheets/base/grid.scss */
+  /* line 158, ../../stylesheets/base/grid.scss */
   .x2 {
     width: 14.667%;
   }
 
-  /* line 118, ../../stylesheets/base/grid.scss */
+  /* line 159, ../../stylesheets/base/grid.scss */
   .x3 {
     width: 23%;
   }
 
-  /* line 119, ../../stylesheets/base/grid.scss */
+  /* line 160, ../../stylesheets/base/grid.scss */
   .x4 {
     width: 31.333%;
   }
 
-  /* line 120, ../../stylesheets/base/grid.scss */
+  /* line 161, ../../stylesheets/base/grid.scss */
   .x5 {
     width: 39.667%;
   }
 
-  /* line 121, ../../stylesheets/base/grid.scss */
+  /* line 162, ../../stylesheets/base/grid.scss */
   .x6 {
     width: 48%;
   }
 
-  /* line 122, ../../stylesheets/base/grid.scss */
+  /* line 163, ../../stylesheets/base/grid.scss */
   .x7 {
     width: 56.333%;
   }
 
-  /* line 123, ../../stylesheets/base/grid.scss */
+  /* line 164, ../../stylesheets/base/grid.scss */
   .x8 {
     width: 64.667%;
   }
 
-  /* line 124, ../../stylesheets/base/grid.scss */
+  /* line 165, ../../stylesheets/base/grid.scss */
   .x9 {
     width: 73%;
   }
 
-  /* line 125, ../../stylesheets/base/grid.scss */
+  /* line 166, ../../stylesheets/base/grid.scss */
   .x10 {
     width: 81.333%;
   }
 
-  /* line 126, ../../stylesheets/base/grid.scss */
+  /* line 167, ../../stylesheets/base/grid.scss */
   .x11 {
     width: 89.667%;
   }
 
-  /* line 127, ../../stylesheets/base/grid.scss */
+  /* line 168, ../../stylesheets/base/grid.scss */
   .x12 {
     width: 100%;
   }
@@ -2371,7 +2424,7 @@ div.popover span.drop-top {
   display: block;
   margin: -7px 0 0;
   padding: 7px 15px 0px;
-  background: url('../images/ui/top-arrow.png?1362291986') no-repeat center top;
+  background: url('../images/ui/top-arrow.png?1386805718') no-repeat center top;
 }
 /* line 54, ../../stylesheets/ui/dropdown.scss */
 div.popover div.drop-wrapper {
@@ -2747,7 +2800,7 @@ footer[role=contentinfo] .footer-links li {
   padding-top: 3%;
   background-size: cover;
   background-repeat: no-repeat;
-  background-image: url('../images/site/home-background.jpg?1362291986');
+  background-image: url('../images/site/home-background.jpg?1386805718');
 }
 /* line 16, ../../stylesheets/site/home.scss */
 #hero .logo {
@@ -2786,7 +2839,7 @@ footer[role=contentinfo] .footer-links li {
   height: 30px;
   display: block;
   margin: 0 auto;
-  background: url('../images/icons-sprite.png?1362291986') no-repeat;
+  background: url('../images/icons-sprite.png?1386805718') no-repeat;
 }
 
 /* line 57, ../../stylesheets/site/home.scss */
@@ -2873,12 +2926,12 @@ section.tour .box:hover .hover {
 /* line 130, ../../stylesheets/site/home.scss */
 section.tour .box.brand {
   background-size: cover;
-  background-image: url('../images/site/tour-brand.png?1362291986');
+  background-image: url('../images/site/tour-brand.png?1386805718');
 }
 /* line 135, ../../stylesheets/site/home.scss */
 section.tour .box.blogger {
   background-size: cover;
-  background-image: url('../images/site/tour-blogger.png?1362291986');
+  background-image: url('../images/site/tour-blogger.png?1386805718');
 }
 
 /* ====
@@ -2895,7 +2948,7 @@ section.tour .box.blogger {
   }
 }
 
-/* line 10, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 10, /Users/mark/workspace/spring/stylesheets/base/form.scss */
 form {
   margin: 0 0 1.25em;
   /*================================================
@@ -2911,37 +2964,37 @@ form {
           Errors
     ================================================*/
 }
-/* line 14, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 14, /Users/mark/workspace/spring/stylesheets/base/form.scss */
 form input.col, form .col {
   position: relative;
   margin-bottom: 1em;
 }
-/* line 24, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 24, /Users/mark/workspace/spring/stylesheets/base/form.scss */
 form label {
   padding: 5px 0;
   margin-right: 5px;
 }
-/* line 29, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 29, /Users/mark/workspace/spring/stylesheets/base/form.scss */
 form p.large, form .page p.no-image, .page form p.no-image, form .page p.item.split, .page form p.item.split, form label.large, form .page label.no-image, .page form label.no-image, form .page label.item.split, .page form label.item.split {
   font-size: 18px;
   line-height: 32px;
 }
-/* line 34, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 34, /Users/mark/workspace/spring/stylesheets/base/form.scss */
 form label.radio {
   padding-right: 1em;
 }
-/* line 37, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 37, /Users/mark/workspace/spring/stylesheets/base/form.scss */
 form label.radio input {
   margin-right: 0.5em;
 }
-/* line 42, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 42, /Users/mark/workspace/spring/stylesheets/base/form.scss */
 form .hint_style, form .hint, form .error {
   color: #888;
   font-style: italic;
   line-height: 1.4;
   font-size: 13px;
 }
-/* line 49, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 49, /Users/mark/workspace/spring/stylesheets/base/form.scss */
 form .hint {
   margin: 0 0 5px;
   /*    bottom: -1.7em;*/
@@ -2949,11 +3002,11 @@ form .hint {
   /*left: 0;
   bottom: -1.7em;*/
 }
-/* line 50, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 50, /Users/mark/workspace/spring/stylesheets/base/form.scss */
 form .hint:after {
   content: none;
 }
-/* line 64, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 64, /Users/mark/workspace/spring/stylesheets/base/form.scss */
 form .text_field, form input[type="text"], form input[type="password"], form input[type="tel"], form input[type="email"],
 form input[type="search"], form input[type="url"], form textarea, form select {
   padding: 9px;
@@ -2978,20 +3031,20 @@ form input[type="search"], form input[type="url"], form textarea, form select {
   -moz-box-shadow: 1px 1px 2px #eeeeee inset;
   box-shadow: 1px 1px 2px #eeeeee inset;
 }
-/* line 82, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 82, /Users/mark/workspace/spring/stylesheets/base/form.scss */
 form input.large:not(.button), form .page input.no-image:not(.button), .page form input.no-image:not(.button), form .page input.item.split:not(.button), .page form input.item.split:not(.button) {
   font-size: 18px !important;
   line-height: 35px;
   height: 35px;
 }
-/* line 89, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 89, /Users/mark/workspace/spring/stylesheets/base/form.scss */
 form input[type="text"], form input[type="password"], form input[type="tel"], form input[type="email"],
 form input[type="search"], form input[type="url"], form textarea, form select {
   font-size: 100%;
   line-height: normal;
   /* ie */
 }
-/* line 4, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 4, /Users/mark/workspace/spring/stylesheets/base/form.scss */
 form input[type="text"].placeholder, form input[type="password"].placeholder, form input[type="tel"].placeholder, form input[type="email"].placeholder,
 form input[type="search"].placeholder, form input[type="url"].placeholder, form textarea.placeholder, form select.placeholder {
   font-family: georgia;
@@ -2999,7 +3052,7 @@ form input[type="search"].placeholder, form input[type="url"].placeholder, form 
   font-style: italic;
   font-size: 15px;
 }
-/* line 5, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 5, /Users/mark/workspace/spring/stylesheets/base/form.scss */
 form input[type="text"]:-moz-placeholder, form input[type="password"]:-moz-placeholder, form input[type="tel"]:-moz-placeholder, form input[type="email"]:-moz-placeholder,
 form input[type="search"]:-moz-placeholder, form input[type="url"]:-moz-placeholder, form textarea:-moz-placeholder, form select:-moz-placeholder {
   font-family: georgia;
@@ -3007,7 +3060,7 @@ form input[type="search"]:-moz-placeholder, form input[type="url"]:-moz-placehol
   font-style: italic;
   font-size: 15px;
 }
-/* line 6, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 6, /Users/mark/workspace/spring/stylesheets/base/form.scss */
 form input[type="text"]::-webkit-input-placeholder, form input[type="password"]::-webkit-input-placeholder, form input[type="tel"]::-webkit-input-placeholder, form input[type="email"]::-webkit-input-placeholder,
 form input[type="search"]::-webkit-input-placeholder, form input[type="url"]::-webkit-input-placeholder, form textarea::-webkit-input-placeholder, form select::-webkit-input-placeholder {
   font-family: georgia;
@@ -3015,7 +3068,7 @@ form input[type="search"]::-webkit-input-placeholder, form input[type="url"]::-w
   font-style: italic;
   font-size: 15px;
 }
-/* line 7, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 7, /Users/mark/workspace/spring/stylesheets/base/form.scss */
 form input[type="text"]:-ms-input-placeholder, form input[type="password"]:-ms-input-placeholder, form input[type="tel"]:-ms-input-placeholder, form input[type="email"]:-ms-input-placeholder,
 form input[type="search"]:-ms-input-placeholder, form input[type="url"]:-ms-input-placeholder, form textarea:-ms-input-placeholder, form select:-ms-input-placeholder {
   font-family: georgia;
@@ -3023,12 +3076,12 @@ form input[type="search"]:-ms-input-placeholder, form input[type="url"]:-ms-inpu
   font-style: italic;
   font-size: 15px;
 }
-/* line 105, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 105, /Users/mark/workspace/spring/stylesheets/base/form.scss */
 form input[type="checkbox"],
 form input[type="radio"] {
   margin-right: 5px;
 }
-/* line 109, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 109, /Users/mark/workspace/spring/stylesheets/base/form.scss */
 form select {
   width: auto;
   background-color: #fff;
@@ -3036,34 +3089,34 @@ form select {
   height: 2.5em;
   line-height: 2.5em;
 }
-/* line 117, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 117, /Users/mark/workspace/spring/stylesheets/base/form.scss */
 form input[type=submit], form input[type=button], form button[type=submit] {
   line-height: 2em;
   margin-right: 5px;
 }
-/* line 126, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 126, /Users/mark/workspace/spring/stylesheets/base/form.scss */
 form input:focus, form select:focus, form textarea:focus {
   border: 1px solid #A1CFDE !important;
 }
-/* line 136, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 136, /Users/mark/workspace/spring/stylesheets/base/form.scss */
 form .field_with_errors input.string, form .field_with_errors select.select {
   border-color: #f3a4a4;
 }
-/* line 140, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 140, /Users/mark/workspace/spring/stylesheets/base/form.scss */
 form .field_with_errors .hint {
   display: none;
 }
-/* line 145, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 145, /Users/mark/workspace/spring/stylesheets/base/form.scss */
 form .error {
   color: #e84949;
 }
 @media screen and (min-width: 768px) {
-  /* line 152, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+  /* line 152, /Users/mark/workspace/spring/stylesheets/base/form.scss */
   form p.large, form .page p.no-image, .page form p.no-image, form .page p.item.split, .page form p.item.split, form label.large, form .page label.no-image, .page form label.no-image, form .page label.item.split, .page form label.item.split {
     font-size: 24px;
     line-height: 40px;
   }
-  /* line 157, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+  /* line 157, /Users/mark/workspace/spring/stylesheets/base/form.scss */
   form input.large:not(.button), form .page input.no-image:not(.button), .page form input.no-image:not(.button), form .page input.item.split:not(.button), .page form input.item.split:not(.button) {
     font-size: 24px !important;
     line-height: 45px;
@@ -3074,7 +3127,7 @@ form .error {
 /*================================================
       Notification
 ================================================*/
-/* line 171, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 171, /Users/mark/workspace/spring/stylesheets/base/form.scss */
 div.notification {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -3094,37 +3147,37 @@ div.notification {
   background: rgba(0, 0, 0, 0.8);
   color: #fff;
 }
-/* line 189, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 189, /Users/mark/workspace/spring/stylesheets/base/form.scss */
 .overlay-active div.notification {
   left: 7.5%;
   right: 7.5%;
   top: 0;
 }
 @media screen and (min-width: 768px) {
-  /* line 171, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+  /* line 171, /Users/mark/workspace/spring/stylesheets/base/form.scss */
   div.notification {
     max-width: 30%;
     margin-left: -15%;
   }
 }
-/* line 201, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 201, /Users/mark/workspace/spring/stylesheets/base/form.scss */
 div.notification a.close-target {
   position: absolute;
   right: 10px;
   color: #eee;
 }
-/* line 207, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 207, /Users/mark/workspace/spring/stylesheets/base/form.scss */
 div.notification a.close {
   float: right;
   width: 20px;
   height: 20px;
 }
-/* line 209, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 209, /Users/mark/workspace/spring/stylesheets/base/form.scss */
 div.notification a.close:before {
   font-size: 24px;
   color: #111;
 }
-/* line 219, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 219, /Users/mark/workspace/spring/stylesheets/base/form.scss */
 div.notification.prev:before, div.notification.next:before {
   color: #fff;
   position: absolute;
@@ -3133,18 +3186,18 @@ div.notification.prev:before, div.notification.next:before {
   line-height: 40px;
   margin-top: -20px;
 }
-/* line 231, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 231, /Users/mark/workspace/spring/stylesheets/base/form.scss */
 div.notification.prev:before {
   right: 8px;
   content: "›";
 }
-/* line 238, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 238, /Users/mark/workspace/spring/stylesheets/base/form.scss */
 div.notification.next:before {
   left: 8px;
   content: "‹";
 }
 
-/* line 245, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 245, /Users/mark/workspace/spring/stylesheets/base/form.scss */
 a.close-target {
   font-size: 28px;
   float: right;
@@ -3210,25 +3263,25 @@ form#reserve_edition .edition_owner_role .error {
   width: 7em;
   /* ie */
 }
-/* line 4, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 4, /Users/mark/workspace/spring/stylesheets/base/form.scss */
 #edition_handle.placeholder,
 #edition_handle_outside.placeholder {
   font-size: 24px;
   font-weight: normal !important;
 }
-/* line 5, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 5, /Users/mark/workspace/spring/stylesheets/base/form.scss */
 #edition_handle:-moz-placeholder,
 #edition_handle_outside:-moz-placeholder {
   font-size: 24px;
   font-weight: normal !important;
 }
-/* line 6, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 6, /Users/mark/workspace/spring/stylesheets/base/form.scss */
 #edition_handle::-webkit-input-placeholder,
 #edition_handle_outside::-webkit-input-placeholder {
   font-size: 24px;
   font-weight: normal !important;
 }
-/* line 7, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 7, /Users/mark/workspace/spring/stylesheets/base/form.scss */
 #edition_handle:-ms-input-placeholder,
 #edition_handle_outside:-ms-input-placeholder {
   font-size: 24px;
@@ -3773,14 +3826,23 @@ article.page .body {
     margin: 0 auto;
   }
 }
+<<<<<<< Updated upstream
 /* line 186, ../../stylesheets/app/page.scss */
 article.page .extras .avatar {
+=======
+/* line 184, ../../stylesheets/app/page.scss */
+article.page .avatar {
+>>>>>>> Stashed changes
   width: 78px;
   height: 78px;
   border: 2px solid #eee;
   border-radius: 50%;
 }
+<<<<<<< Updated upstream
 /* line 194, ../../stylesheets/app/page.scss */
+=======
+/* line 191, ../../stylesheets/app/page.scss */
+>>>>>>> Stashed changes
 article.page blockquote {
   font-family: Georgia, serif;
   font-size: 18px;
@@ -3791,7 +3853,11 @@ article.page blockquote {
   line-height: 1.45;
   position: relative;
 }
+<<<<<<< Updated upstream
 /* line 205, ../../stylesheets/app/page.scss */
+=======
+/* line 202, ../../stylesheets/app/page.scss */
+>>>>>>> Stashed changes
 article.page blockquote:before {
   display: block;
   content: "\201C";
@@ -3801,18 +3867,30 @@ article.page blockquote:before {
   top: -20px;
   color: #999;
 }
+<<<<<<< Updated upstream
 /* line 215, ../../stylesheets/app/page.scss */
+=======
+/* line 212, ../../stylesheets/app/page.scss */
+>>>>>>> Stashed changes
 article.page blockquote cite {
   color: #999999;
   font-size: 14px;
   display: block;
   margin-top: 5px;
 }
+<<<<<<< Updated upstream
 /* line 221, ../../stylesheets/app/page.scss */
 article.page blockquote cite:before {
   content: "\2014 \2009";
 }
 /* line 226, ../../stylesheets/app/page.scss */
+=======
+/* line 218, ../../stylesheets/app/page.scss */
+article.page blockquote cite:before {
+  content: "\2014 \2009";
+}
+/* line 223, ../../stylesheets/app/page.scss */
+>>>>>>> Stashed changes
 article.page .image.cover {
   position: relative;
   height: 200%;
@@ -3820,24 +3898,40 @@ article.page .image.cover {
   top: -50%;
   left: -50%;
 }
+<<<<<<< Updated upstream
 /* line 234, ../../stylesheets/app/page.scss */
+=======
+/* line 231, ../../stylesheets/app/page.scss */
+>>>>>>> Stashed changes
 article.page .author, article.page .published-at {
   color: #333;
   font-family: Georgia;
   font-style: italic;
 }
+<<<<<<< Updated upstream
 /* line 240, ../../stylesheets/app/page.scss */
+=======
+/* line 237, ../../stylesheets/app/page.scss */
+>>>>>>> Stashed changes
 article.page p {
   margin: 1.5em 0 !important;
   text-align: justify;
   -webkit-hyphens: auto;
   word-break: hyphenate;
 }
+<<<<<<< Updated upstream
 /* line 247, ../../stylesheets/app/page.scss */
 article.page a[href]:not(.button) {
   text-decoration: underline;
 }
 /* line 251, ../../stylesheets/app/page.scss */
+=======
+/* line 244, ../../stylesheets/app/page.scss */
+article.page a[href]:not(.button) {
+  text-decoration: underline;
+}
+/* line 248, ../../stylesheets/app/page.scss */
+>>>>>>> Stashed changes
 article.page img.medium, article.page img.large, article.page img.no-image, article.page img.item.split {
   max-width: 100%;
   height: auto;
@@ -3845,7 +3939,11 @@ article.page img.medium, article.page img.large, article.page img.no-image, arti
   display: block;
   margin: 0 auto;
 }
+<<<<<<< Updated upstream
 /* line 259, ../../stylesheets/app/page.scss */
+=======
+/* line 256, ../../stylesheets/app/page.scss */
+>>>>>>> Stashed changes
 article.page .top-image {
   display: block;
   float: left;
@@ -3856,16 +3954,25 @@ article.page .top-image {
   height: auto;
   background-repeat: no-repeat;
 }
+<<<<<<< Updated upstream
 /* line 270, ../../stylesheets/app/page.scss */
+=======
+/* line 267, ../../stylesheets/app/page.scss */
+>>>>>>> Stashed changes
 article.page .top-image.fit {
   background-position: center;
   background-size: 100%;
 }
+<<<<<<< Updated upstream
 /* line 275, ../../stylesheets/app/page.scss */
+=======
+/* line 272, ../../stylesheets/app/page.scss */
+>>>>>>> Stashed changes
 article.page .top-image.cover {
   background-size: cover;
   background-position: center;
 }
+<<<<<<< Updated upstream
 /* line 280, ../../stylesheets/app/page.scss */
 article.page ul li, article.page ol li {
   line-height: 1.6;
@@ -3875,6 +3982,17 @@ article.page video {
   -webkit-transform-style: preserve-3d;
 }
 /* line 288, ../../stylesheets/app/page.scss */
+=======
+/* line 277, ../../stylesheets/app/page.scss */
+article.page ul li, article.page ol li {
+  line-height: 1.6;
+}
+/* line 281, ../../stylesheets/app/page.scss */
+article.page video {
+  -webkit-transform-style: preserve-3d;
+}
+/* line 285, ../../stylesheets/app/page.scss */
+>>>>>>> Stashed changes
 article.page .video-wrapper {
   /*    position: relative;*/
   padding-bottom: 56.25%;
@@ -3882,7 +4000,11 @@ article.page .video-wrapper {
   padding-top: 25px;
   height: 0;
 }
+<<<<<<< Updated upstream
 /* line 294, ../../stylesheets/app/page.scss */
+=======
+/* line 291, ../../stylesheets/app/page.scss */
+>>>>>>> Stashed changes
 article.page .video-wrapper iframe, article.page .video-wrapper object, article.page .video-wrapper embed {
   position: absolute;
   top: 0;
@@ -3890,16 +4012,28 @@ article.page .video-wrapper iframe, article.page .video-wrapper object, article.
   width: 100%;
   height: 100%;
 }
+<<<<<<< Updated upstream
 /* line 303, ../../stylesheets/app/page.scss */
+=======
+/* line 300, ../../stylesheets/app/page.scss */
+>>>>>>> Stashed changes
 article.page .description {
   display: block;
   clear: both;
 }
+<<<<<<< Updated upstream
 /* line 310, ../../stylesheets/app/page.scss */
 article.page.scroll .body {
   overflow: auto;
 }
 /* line 314, ../../stylesheets/app/page.scss */
+=======
+/* line 307, ../../stylesheets/app/page.scss */
+article.page.scroll .body {
+  overflow: auto;
+}
+/* line 311, ../../stylesheets/app/page.scss */
+>>>>>>> Stashed changes
 article.page footer {
   clear: both;
   float: none;
@@ -3907,12 +4041,20 @@ article.page footer {
   min-height: 110px;
 }
 
+<<<<<<< Updated upstream
 /* line 322, ../../stylesheets/app/page.scss */
+=======
+/* line 319, ../../stylesheets/app/page.scss */
+>>>>>>> Stashed changes
 article.page.no-header {
   height: 100%;
   text-align: center;
 }
+<<<<<<< Updated upstream
 /* line 326, ../../stylesheets/app/page.scss */
+=======
+/* line 323, ../../stylesheets/app/page.scss */
+>>>>>>> Stashed changes
 article.page.no-header:before {
   content: '';
   display: inline-block;
@@ -3921,11 +4063,19 @@ article.page.no-header:before {
   margin-right: -0.25em;
   /* Adjusts for spacing */
 }
+<<<<<<< Updated upstream
 /* line 335, ../../stylesheets/app/page.scss */
 article.page.no-header header hgroup {
   display: none;
 }
 /* line 340, ../../stylesheets/app/page.scss */
+=======
+/* line 332, ../../stylesheets/app/page.scss */
+article.page.no-header header hgroup {
+  display: none;
+}
+/* line 337, ../../stylesheets/app/page.scss */
+>>>>>>> Stashed changes
 article.page.no-header .body {
   position: relative;
   top: -50px;
@@ -3934,14 +4084,22 @@ article.page.no-header .body {
   vertical-align: middle;
 }
 
+<<<<<<< Updated upstream
 /* line 349, ../../stylesheets/app/page.scss */
+=======
+/* line 346, ../../stylesheets/app/page.scss */
+>>>>>>> Stashed changes
 article.fullscreen {
   height: 100% !important;
   overflow: hidden;
   background-size: cover;
   background-repeat: no-repeat;
 }
+<<<<<<< Updated upstream
 /* line 354, ../../stylesheets/app/page.scss */
+=======
+/* line 351, ../../stylesheets/app/page.scss */
+>>>>>>> Stashed changes
 article.fullscreen:before {
   content: '';
   display: inline-block;
@@ -3950,20 +4108,36 @@ article.fullscreen:before {
   margin-right: -0.25em;
   /* Adjusts for spacing */
 }
+<<<<<<< Updated upstream
 /* line 362, ../../stylesheets/app/page.scss */
 article.fullscreen .top-image {
   margin: 0;
 }
 /* line 366, ../../stylesheets/app/page.scss */
+=======
+/* line 359, ../../stylesheets/app/page.scss */
+article.fullscreen .top-image {
+  margin: 0;
+}
+/* line 363, ../../stylesheets/app/page.scss */
+>>>>>>> Stashed changes
 article.fullscreen figure {
   height: 100%;
   width: 100%;
 }
+<<<<<<< Updated upstream
 /* line 372, ../../stylesheets/app/page.scss */
 article.fullscreen iframe {
   background: #000;
 }
 /* line 376, ../../stylesheets/app/page.scss */
+=======
+/* line 369, ../../stylesheets/app/page.scss */
+article.fullscreen iframe {
+  background: #000;
+}
+/* line 373, ../../stylesheets/app/page.scss */
+>>>>>>> Stashed changes
 article.fullscreen figcaption {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -3987,6 +4161,7 @@ article.fullscreen figcaption {
   line-height: 35px;
   overflow: hidden;
 }
+<<<<<<< Updated upstream
 /* line 393, ../../stylesheets/app/page.scss */
 article.fullscreen.left {
   text-align: left;
@@ -3996,6 +4171,17 @@ article.fullscreen.right {
   text-align: right;
 }
 /* line 401, ../../stylesheets/app/page.scss */
+=======
+/* line 390, ../../stylesheets/app/page.scss */
+article.fullscreen.left {
+  text-align: left;
+}
+/* line 394, ../../stylesheets/app/page.scss */
+article.fullscreen.right {
+  text-align: right;
+}
+/* line 398, ../../stylesheets/app/page.scss */
+>>>>>>> Stashed changes
 article.fullscreen .body {
   text-align: left;
   display: inline-block;
@@ -4010,6 +4196,7 @@ article.fullscreen .body {
   width: 45%;
   margin: 5% 0;
 }
+<<<<<<< Updated upstream
 /* line 414, ../../stylesheets/app/page.scss */
 article.fullscreen.top .body {
   vertical-align: top;
@@ -4023,24 +4210,51 @@ article.fullscreen.black .body, article.fullscreen.button.pointy .body {
   background: rgba(0, 0, 0, 0.7);
 }
 /* line 427, ../../stylesheets/app/page.scss */
+=======
+/* line 411, ../../stylesheets/app/page.scss */
+article.fullscreen.top .body {
+  vertical-align: top;
+}
+/* line 415, ../../stylesheets/app/page.scss */
+article.fullscreen.bottom .body {
+  vertical-align: bottom;
+}
+/* line 419, ../../stylesheets/app/page.scss */
+article.fullscreen.black .body, article.fullscreen.button.pointy .body {
+  background: rgba(0, 0, 0, 0.7);
+}
+/* line 424, ../../stylesheets/app/page.scss */
+>>>>>>> Stashed changes
 article.fullscreen.white .body {
   background: rgba(255, 255, 255, 0.9);
 }
 
+<<<<<<< Updated upstream
 /* line 534, ../../stylesheets/app/page.scss */
+=======
+/* line 531, ../../stylesheets/app/page.scss */
+>>>>>>> Stashed changes
 article.two-column {
   position: relative;
   white-space: nowrap;
   padding-bottom: 0;
 }
+<<<<<<< Updated upstream
 /* line 539, ../../stylesheets/app/page.scss */
+=======
+/* line 536, ../../stylesheets/app/page.scss */
+>>>>>>> Stashed changes
 article.two-column .top-image {
   clear: none;
   margin: 0;
   height: 100%;
   white-space: normal;
 }
+<<<<<<< Updated upstream
 /* line 546, ../../stylesheets/app/page.scss */
+=======
+/* line 543, ../../stylesheets/app/page.scss */
+>>>>>>> Stashed changes
 article.two-column .body {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -4052,7 +4266,11 @@ article.two-column .body {
   height: 100%;
   padding: 60px 20px 20px;
 }
+<<<<<<< Updated upstream
 /* line 556, ../../stylesheets/app/page.scss */
+=======
+/* line 553, ../../stylesheets/app/page.scss */
+>>>>>>> Stashed changes
 article.two-column .body img {
   max-height: 75%;
   -webkit-column-break-before: always;
@@ -4063,7 +4281,11 @@ article.two-column .body img {
   column-break-inside: avoid;
   display: inline-block;
 }
+<<<<<<< Updated upstream
 /* line 568, ../../stylesheets/app/page.scss */
+=======
+/* line 565, ../../stylesheets/app/page.scss */
+>>>>>>> Stashed changes
 article.two-column.paginate .body {
   -webkit-column-count: 2;
   -moz-column-count: 2;
@@ -4072,7 +4294,11 @@ article.two-column.paginate .body {
   -moz-column-gap: 40px;
   column-gap: 40px;
 }
+<<<<<<< Updated upstream
 /* line 578, ../../stylesheets/app/page.scss */
+=======
+/* line 575, ../../stylesheets/app/page.scss */
+>>>>>>> Stashed changes
 article.two-column .cover-area {
   display: -webkit-box;
   display: -moz-box;
@@ -4091,12 +4317,20 @@ article.two-column .cover-area {
   height: 100%;
   float: left;
 }
+<<<<<<< Updated upstream
 /* line 588, ../../stylesheets/app/page.scss */
+=======
+/* line 585, ../../stylesheets/app/page.scss */
+>>>>>>> Stashed changes
 article.two-column .cover-area .top-image {
   float: none;
   background-image: url("http://farm6.staticflickr.com/5330/7167552168_7d80aef236_c.jpg");
 }
+<<<<<<< Updated upstream
 /* line 593, ../../stylesheets/app/page.scss */
+=======
+/* line 590, ../../stylesheets/app/page.scss */
+>>>>>>> Stashed changes
 article.two-column .cover-area hgroup {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -4108,20 +4342,34 @@ article.two-column .cover-area hgroup {
   width: 50%;
 }
 
+<<<<<<< Updated upstream
 /* line 606, ../../stylesheets/app/page.scss */
+=======
+/* line 603, ../../stylesheets/app/page.scss */
+>>>>>>> Stashed changes
 article.three-column {
   position: relative;
   white-space: nowrap;
   padding-bottom: 0;
 }
+<<<<<<< Updated upstream
 /* line 611, ../../stylesheets/app/page.scss */
 article.three-column .top-image {
+=======
+/* line 608, ../../stylesheets/app/page.scss */
+article.three-column .top-image {
+  display: inline-block;
+>>>>>>> Stashed changes
   clear: none;
   margin: 0;
   height: 100%;
   white-space: normal;
 }
+<<<<<<< Updated upstream
 /* line 618, ../../stylesheets/app/page.scss */
+=======
+/* line 616, ../../stylesheets/app/page.scss */
+>>>>>>> Stashed changes
 article.three-column.paginate .body {
   -webkit-column-count: 3;
   -moz-column-count: 3;
@@ -4130,7 +4378,11 @@ article.three-column.paginate .body {
   -moz-column-gap: 40px;
   column-gap: 40px;
 }
+<<<<<<< Updated upstream
 /* line 628, ../../stylesheets/app/page.scss */
+=======
+/* line 626, ../../stylesheets/app/page.scss */
+>>>>>>> Stashed changes
 article.three-column .body {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -4142,7 +4394,11 @@ article.three-column .body {
   height: 100%;
   padding: 60px 20px 20px;
 }
+<<<<<<< Updated upstream
 /* line 638, ../../stylesheets/app/page.scss */
+=======
+/* line 636, ../../stylesheets/app/page.scss */
+>>>>>>> Stashed changes
 article.three-column .body img {
   max-height: 75%;
   -webkit-column-break-before: always;
@@ -4153,7 +4409,11 @@ article.three-column .body img {
   column-break-inside: avoid;
   display: inline-block;
 }
+<<<<<<< Updated upstream
 /* line 650, ../../stylesheets/app/page.scss */
+=======
+/* line 648, ../../stylesheets/app/page.scss */
+>>>>>>> Stashed changes
 article.three-column .cover-area {
   display: -webkit-box;
   display: -moz-box;
@@ -4172,12 +4432,20 @@ article.three-column .cover-area {
   height: 100%;
   float: left;
 }
+<<<<<<< Updated upstream
 /* line 660, ../../stylesheets/app/page.scss */
+=======
+/* line 658, ../../stylesheets/app/page.scss */
+>>>>>>> Stashed changes
 article.three-column .cover-area .top-image {
   float: none;
   background-image: url("http://farm6.staticflickr.com/5330/7167552168_7d80aef236_c.jpg");
 }
+<<<<<<< Updated upstream
 /* line 665, ../../stylesheets/app/page.scss */
+=======
+/* line 663, ../../stylesheets/app/page.scss */
+>>>>>>> Stashed changes
 article.three-column .cover-area hgroup {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -4189,24 +4457,37 @@ article.three-column .cover-area hgroup {
   width: 33.333%;
 }
 
+<<<<<<< Updated upstream
 /* line 678, ../../stylesheets/app/page.scss */
+=======
+/* line 676, ../../stylesheets/app/page.scss */
+>>>>>>> Stashed changes
 .webview .page-head h1 {
   padding: 0;
 }
 
 @media screen and (orientation: portrait) {
+<<<<<<< Updated upstream
   /* line 684, ../../stylesheets/app/page.scss */
+=======
+  /* line 682, ../../stylesheets/app/page.scss */
+>>>>>>> Stashed changes
   article.page .col.half {
     height: 49%;
     width: 100%;
     background: white;
   }
+<<<<<<< Updated upstream
   /* line 689, ../../stylesheets/app/page.scss */
+=======
+  /* line 687, ../../stylesheets/app/page.scss */
+>>>>>>> Stashed changes
   article.page .col.half .image {
     left: 25%;
     position: relative;
     width: 50%;
   }
+<<<<<<< Updated upstream
   /* line 695, ../../stylesheets/app/page.scss */
   article.page .col.half .info {
     text-align: center;
@@ -4216,11 +4497,26 @@ article.three-column .cover-area hgroup {
     margin: 0;
   }
   /* line 701, ../../stylesheets/app/page.scss */
+=======
+  /* line 693, ../../stylesheets/app/page.scss */
+  article.page .col.half .info {
+    text-align: center;
+  }
+  /* line 695, ../../stylesheets/app/page.scss */
+  article.page .col.half .info .store {
+    margin: 0;
+  }
+  /* line 699, ../../stylesheets/app/page.scss */
+>>>>>>> Stashed changes
   article.page .col.half .info .price {
     line-height: 37px;
     vertical-align: middle;
   }
+<<<<<<< Updated upstream
   /* line 706, ../../stylesheets/app/page.scss */
+=======
+  /* line 704, ../../stylesheets/app/page.scss */
+>>>>>>> Stashed changes
   article.page .col.half .info p {
     margin-top: 10px;
     text-align: left;

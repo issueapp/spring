@@ -1,17 +1,172 @@
+<style>
+  h2 {
+    text-transform: none;
+    font-weight: normal;
+    font-size: 24px;
+    font-family: "EB Garamond";
+  }
+
+  .toc.page .cover-image {
+    position: relative;
+    height: 264px;
+  }
+
+  .toc.page .cover-image .brand-image {
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+  }
+
+  .toc.page header {
+    margin: 0;
+  }
+
+  .toc.page header hgroup {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    padding: 30px 40px 0;
+    width: 100%;
+    text-align: left;
+  }
+
+  .toc.page .body {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    padding: 0 40px;
+    width: 100%;
+    text-align: left;
+  }
+
+  .toc.page .body .contributors {
+    padding: 20px 0 0;
+    list-style-type: none;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .toc.page .body .contributors li {
+    display: inline-block;
+    width: 25%;
+    vertical-align: top;
+  }
+
+  .toc.page .body .contributors li {
+
+  }
+
+  .toc.page .body .contributors li span {
+    display: block;
+    white-space: normal;
+  }
+
+  .toc.page .body .contributors li span.description {
+    color: #555;
+    font-style: italic;
+  }
+
+  /*
+    Content list
+  */
+  .toc .contents {
+    background-color: #f5f5f5;
+    overflow: auto;
+    padding: 20px;
+    height: 100%;
+    text-align: center;
+  }
+
+  .toc .contents ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  .toc .contents li {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px 0;
+    min-height: 100px;
+
+  }
+
+  .toc .contents li a {
+    color: #000;
+    line-height: 0.8;
+    text-decoration: none !important;
+  }
+
+  .toc .contents li .story {
+    text-decoration: underline;
+  }
+
+  .toc .contents li .category {
+
+    font-family: "proxima_nova_regular";
+    display: block;
+    color: #666;
+    text-transform: uppercase;
+    font-size: 14px;
+  }
+
+  .toc .contents li .author {
+    display: block;
+    color: #333;
+    font-weight: normal;
+    font-size: 14px;
+    font-family: "EB Garamond";
+  }
+</style>
+
 <%
   page = Hashie::Mash.new(
     title: "Holiday Issue",
-    description: lorem_ipsum,
+    description: "",
     author_name: "Taylor Luk",
     author_icon: "",
     content_type: "photo",
-    top_image: "http://31.media.tumblr.com/e8b9ca89ac00aaf1878b83d2ff5c9832/tumblr_mx3tsop3GI1st5lhmo1_1280.jpg",
+    top_image: "http://cl.ly/image/27131I1H411P/Screen%20Shot%202013-12-12%20at%204.25.17%20pm.png",
+    brand_image: "http://cl.ly/image/1V2Z0K1J1H1g/header-text.png",
     published_at: 3.days.ago,
-    content: lorem_ipsum,
+
+    content: lorem_ipsum(5) + <<-BLOCK,
+      <p>
+        <img src="http://f.cl.ly/items/2R0x3B113o1H2G1y2R3z/signature.png" alt="">
+      </p>
+
+      <ul class="contributors">
+        <h2><em>A blogger powered magazine</em></h2>
+        <li>
+          <img class="avatar" src="http://cl.ly/image/3u2R2z2h0L3V/aubrey.png" alt="">
+          <span>Aubrey Daquinag</span>
+          <span class="description">The Love Assembly</span>
+        </li>
+        <li>
+          <img class="avatar" src="http://cl.ly/image/1b2M3v0I0m2K/jessica.png" alt="">
+          <span>Jessica Cheung</span>
+          <span class="description">Jysla Kay blog</span>
+        </li>
+        <li>
+          <img class="avatar" src="http://cl.ly/image/3T3Q03470k10/michelle.png" alt="">
+          <span>Michelle Lau</span>
+          <span class="description">A minute away from Snowlng</span>
+        </li>
+        <li>
+          <img class="avatar" src="http://cl.ly/StPu/Image%202013.12.11%204%3A54%3A01%20pm.png" alt="">
+          <span>Zyralyn Bacani</span>
+          <span class="description">Content Writer of Issue</span>
+        </li>
+      </ul>
+BLOCK
+
     layout: params.fetch(:layout, {}).reverse_merge(
       type: "toc",
       image_align: "left",
-      image_style: "background",
+      image_style: "cover",
       content_style: "black",
       content_align: "left",
       content_valign: "bottom",
@@ -20,76 +175,70 @@
   )
 %>
 
-<style>
-/*
-    Dynamic layout
-*/
-body {
-  background: #eee;
-}
-
-[role=main] .page {
-  background: #fff;
-  width: 1024px;
-  height: 768px;
-}
-
-.two-column.paginate .body {
-  width: 1024px;
-}
-
-.two-column .top-image {
-  width: 512px;
-}
-</style>
-
 <% title_area = capture do %>
   <hgroup>
     <%= render 'debug', locals: { page: page } %>
     <h1 class="title preview_item_title"><%= page.title %></h1>
-    <h3 class="subtitle description"><%= page.description %></h3>
-
-    <div class="extras">
-      <img src="http://cl.ly/StPu/Image%202013.12.11%204%3A54%3A01%20pm.png" >
-      <em> by <%= page.author_name %></em>
-      <p><%= page.description %></p>
-    </div>
   </hgroup>
 <% end %>
 
 <% cover_area = capture do %>
-  <div class="top-image <%= page.layout.image_style %>" style="background-image: url(<%= page.top_image %>)">
-</div>
+  <div class="top-image <%= page.layout.image_style %>" style="background-image: url(<%= page.top_image %>)"></div>
 <% end %>
 
 <article class="toc page <%= page.layout.content_overflow %>">
-  <div class="col x8">
-    <% if page.layout.image_align == "right" %>
-      <section class="cover-area page">
-        <%= title_area %>
-        <%= cover_area if page.top_image %>
-      </section>
+  <div class="col third-2">
+    <% if page.layout.image_style == "background" %>
+      style="background-image: url(<%= page.top_image %>)"
+    <% end %>
 
-      <div class="body">
-        <%= page.content %>
-      </div>
-
-    <% else %>
-      <%= cover_area if page.top_image %>
-
-      <div class="body">
-        <%= title_area %>
+    <% if page.content_type == "video" %>
+      <div class="video-wrapper">
         <%= page.content %>
       </div>
     <% end %>
+
+    <% if page.layout.image_style == "cover" %>
+
+      <header class="clearfix">
+        <div class="cover-image" style="background-image: url(<%= page.top_image %>)">
+          <img class="brand-image" src="http://cl.ly/image/1V2Z0K1J1H1g/header-text.png" alt="">
+        </div>
+        <%= title_area %>
+      </header>
+
+      <div class="body"><%= page.content %></div>
+
+    <% elsif page.layout.image_style == "fit" %>
+
+      <header class="clearfix page-head body">
+        <img src="<%= page.top_image %>" class="top-image">
+        <%= title_area %>
+      </header>
+
+      <div class="body"><%= page.content %></div>
+
+    <% elsif page.layout.image_style == "background" %>
+
+      <div class="body">
+        <%= title_area %>
+      </div>
+
+    <% end %>
   </div>
 
-  <div class="col x4">
-    <h3>Contents</h3>
+  <div class="col third contents">
+    <h2>CONTENTS</h>
     <hr />
     <ul>
-      <% issue_contents.each do |text, link| %>
-      <li><%= link_to text, link %></li>
+      <% issue_contents(false).each do |page| %>
+      <li>
+        <a href="<%= page.url %>">
+          <span class="category"><%= page.category %></span>
+          <span class="story"><%= page.title %></span>
+          <span class="author"><%= page.author_name %></span>
+        </a>
+      </li>
       <% end %>
     </ul>
   </div>

@@ -905,7 +905,7 @@ nav li a {
 /*======================================================
     Layout and rendering
     ---
-    
+
     No style or presentation code should be in this stylesheet
 
     Default style for 320px
@@ -920,170 +920,223 @@ nav li a {
   box-sizing: border-box;
   position: relative;
   width: 100%;
-  /*  height: 99.9%;          // why*/
-  float: left;
+  height: 100%;
+  /* // why*/
 }
-/* line 24, ../../stylesheets/base/grid.scss */
+/* line 23, ../../stylesheets/base/grid.scss */
 .col .item:last-child {
   margin-bottom: 0;
 }
-/* line 28, ../../stylesheets/base/grid.scss */
+/* line 27, ../../stylesheets/base/grid.scss */
 .col.centered {
   clear: both;
   float: none;
   margin: 0 auto !important;
 }
 
-/* line 35, ../../stylesheets/base/grid.scss */
+/* line 34, ../../stylesheets/base/grid.scss */
 .row {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   clear: both;
   position: relative;
-  /*  width: 100%;            // ???*/
 }
 /* line 43, ../../stylesheets/base/grid.scss */
 .row:last-child {
   background: none;
 }
+/* line 47, ../../stylesheets/base/grid.scss */
+.row:after {
+  display: table;
+  clear: both;
+  content: " ";
+}
 
 /*======================================================
     Divided width
   ======================================================*/
-/* line 52, ../../stylesheets/base/grid.scss */
-.half, .third, .third-2 {
+/* line 61, ../../stylesheets/base/grid.scss */
+.row.half, .row.third, .row.third-2, .col.half, .col.third, .col.third-2, .item.half, .item.third, .item.third-2 {
+  margin-right: 0;
   width: 100%;
+}
+/* line 66, ../../stylesheets/base/grid.scss */
+.row.v-half, .row.v-third, .row.v-third-2, .col.v-half, .col.v-third, .col.v-third-2, .item.v-half, .item.v-third, .item.v-third-2 {
+  height: 50%;
 }
 
 @media screen and (min-width: 768px) {
-  /* line 58, ../../stylesheets/base/grid.scss */
+  /* line 72, ../../stylesheets/base/grid.scss */
+  .col {
+    float: left;
+  }
+
+  /* line 76, ../../stylesheets/base/grid.scss */
+  .col .item {
+    height: auto;
+    float: none;
+  }
+
+  /* line 82, ../../stylesheets/base/grid.scss */
   .col.full, .item.full {
     width: 100%;
   }
-  /* line 60, ../../stylesheets/base/grid.scss */
+  /* line 84, ../../stylesheets/base/grid.scss */
   .col.half, .item.half {
     width: 49.9%;
   }
-  /* line 61, ../../stylesheets/base/grid.scss */
+  /* line 85, ../../stylesheets/base/grid.scss */
   .col.third, .item.third {
-    width: 33.333%;
+    width: 33.33%;
   }
-  /* line 62, ../../stylesheets/base/grid.scss */
+  /* line 86, ../../stylesheets/base/grid.scss */
   .col.third-2, .item.third-2 {
-    width: 66.666%;
+    width: 66.66%;
   }
-  /* line 64, ../../stylesheets/base/grid.scss */
+  /* line 88, ../../stylesheets/base/grid.scss */
   .col.fourty, .item.fourty {
-    width: 39.9%;
+    width: 39.99%;
   }
-  /* line 65, ../../stylesheets/base/grid.scss */
+  /* line 89, ../../stylesheets/base/grid.scss */
   .col.sixty, .item.sixty {
-    width: 59.9%;
+    width: 60.66%;
   }
-  /* line 67, ../../stylesheets/base/grid.scss */
+  /* line 90, ../../stylesheets/base/grid.scss */
   .col:last-child, .item:last-child {
     margin-right: 0;
   }
+
+  /* line 95, ../../stylesheets/base/grid.scss */
+  .stream-paging .col.full, .stream-paging .item.full, .no-gutter .col.full, .no-gutter .item.full {
+    width: 100%;
+  }
+  /* line 96, ../../stylesheets/base/grid.scss */
+  .stream-paging .col.half, .stream-paging .item.half, .no-gutter .col.half, .no-gutter .item.half {
+    width: 49.9%;
+  }
+  /* line 97, ../../stylesheets/base/grid.scss */
+  .stream-paging .col.third, .stream-paging .item.third, .no-gutter .col.third, .no-gutter .item.third {
+    width: 33.3%;
+  }
+  /* line 98, ../../stylesheets/base/grid.scss */
+  .stream-paging .col.third-2, .stream-paging .item.third-2, .no-gutter .col.third-2, .no-gutter .item.third-2 {
+    width: 66.6%;
+  }
+  /* line 100, ../../stylesheets/base/grid.scss */
+  .stream-paging .col.fourty, .stream-paging .item.fourty, .no-gutter .col.fourty, .no-gutter .item.fourty {
+    width: 39.9%;
+  }
+  /* line 101, ../../stylesheets/base/grid.scss */
+  .stream-paging .col.sixty, .stream-paging .item.sixty, .no-gutter .col.sixty, .no-gutter .item.sixty {
+    width: 59.9%;
+  }
+  /* line 103, ../../stylesheets/base/grid.scss */
+  .stream-paging .col:last-child, .stream-paging .item:last-child, .no-gutter .col:last-child, .no-gutter .item:last-child {
+    margin-right: 0;
+  }
+  /* line 106, ../../stylesheets/base/grid.scss */
+  .stream-paging .col, .no-gutter .col {
+    margin-right: 0;
+  }
+  /* line 111, ../../stylesheets/base/grid.scss */
+  .stream-paging .row.v-full, .stream-paging .col.v-full, .stream-paging .item.v-full, .no-gutter .row.v-full, .no-gutter .col.v-full, .no-gutter .item.v-full {
+    height: 100%;
+  }
+  /* line 112, ../../stylesheets/base/grid.scss */
+  .stream-paging .row.v-half, .stream-paging .col.v-half, .stream-paging .item.v-half, .no-gutter .row.v-half, .no-gutter .col.v-half, .no-gutter .item.v-half {
+    height: 49.9%;
+  }
+  /* line 113, ../../stylesheets/base/grid.scss */
+  .stream-paging .row.v-third, .stream-paging .col.v-third, .stream-paging .item.v-third, .no-gutter .row.v-third, .no-gutter .col.v-third, .no-gutter .item.v-third {
+    height: 33.3%;
+  }
+  /* line 114, ../../stylesheets/base/grid.scss */
+  .stream-paging .row.v-third-2, .stream-paging .col.v-third-2, .stream-paging .item.v-third-2, .no-gutter .row.v-third-2, .no-gutter .col.v-third-2, .no-gutter .item.v-third-2 {
+    height: 66.6%;
+  }
 }
-/* line 84, ../../stylesheets/base/grid.scss */
+/* line 132, ../../stylesheets/base/grid.scss */
 col.centred {
   float: none !important;
   margin: 0 auto !important;
 }
 
-/* line 91, ../../stylesheets/base/grid.scss */
-.row.v-full, .col.v-full, .item.v-full {
-  height: 100%;
-}
-/* line 92, ../../stylesheets/base/grid.scss */
-.row.v-half, .col.v-half, .item.v-half {
-  height: 49.4%;
-}
-/* line 93, ../../stylesheets/base/grid.scss */
-.row.v-third, .col.v-third, .item.v-third {
-  height: 35.03%;
-}
-/* line 94, ../../stylesheets/base/grid.scss */
-.row.v-third-2, .col.v-third-2, .item.v-third-2 {
-  height: 64%;
-}
-
 /*======================================================
         12 column grid collapsed for mobile
   ======================================================*/
-/* line 101, ../../stylesheets/base/grid.scss */
+/* line 142, ../../stylesheets/base/grid.scss */
 .x1, .x2, .x3, .x4, .x5, .x6, .x7, .x8, .x9, .x10, .x11, .x12 {
   width: 100%;
 }
 
 @media only screen and (min-width: 768px) {
-  /* line 107, ../../stylesheets/base/grid.scss */
+  /* line 148, ../../stylesheets/base/grid.scss */
   .col {
     float: left;
     margin-right: 2%;
   }
-  /* line 111, ../../stylesheets/base/grid.scss */
+  /* line 152, ../../stylesheets/base/grid.scss */
   .col:last-child {
     margin-right: 0;
   }
 
-  /* line 116, ../../stylesheets/base/grid.scss */
+  /* line 157, ../../stylesheets/base/grid.scss */
   .x1 {
     width: 6.333%;
   }
 
-  /* line 117, ../../stylesheets/base/grid.scss */
+  /* line 158, ../../stylesheets/base/grid.scss */
   .x2 {
     width: 14.667%;
   }
 
-  /* line 118, ../../stylesheets/base/grid.scss */
+  /* line 159, ../../stylesheets/base/grid.scss */
   .x3 {
     width: 23%;
   }
 
-  /* line 119, ../../stylesheets/base/grid.scss */
+  /* line 160, ../../stylesheets/base/grid.scss */
   .x4 {
     width: 31.333%;
   }
 
-  /* line 120, ../../stylesheets/base/grid.scss */
+  /* line 161, ../../stylesheets/base/grid.scss */
   .x5 {
     width: 39.667%;
   }
 
-  /* line 121, ../../stylesheets/base/grid.scss */
+  /* line 162, ../../stylesheets/base/grid.scss */
   .x6 {
     width: 48%;
   }
 
-  /* line 122, ../../stylesheets/base/grid.scss */
+  /* line 163, ../../stylesheets/base/grid.scss */
   .x7 {
     width: 56.333%;
   }
 
-  /* line 123, ../../stylesheets/base/grid.scss */
+  /* line 164, ../../stylesheets/base/grid.scss */
   .x8 {
     width: 64.667%;
   }
 
-  /* line 124, ../../stylesheets/base/grid.scss */
+  /* line 165, ../../stylesheets/base/grid.scss */
   .x9 {
     width: 73%;
   }
 
-  /* line 125, ../../stylesheets/base/grid.scss */
+  /* line 166, ../../stylesheets/base/grid.scss */
   .x10 {
     width: 81.333%;
   }
 
-  /* line 126, ../../stylesheets/base/grid.scss */
+  /* line 167, ../../stylesheets/base/grid.scss */
   .x11 {
     width: 89.667%;
   }
 
-  /* line 127, ../../stylesheets/base/grid.scss */
+  /* line 168, ../../stylesheets/base/grid.scss */
   .x12 {
     width: 100%;
   }
@@ -2371,7 +2424,7 @@ div.popover span.drop-top {
   display: block;
   margin: -7px 0 0;
   padding: 7px 15px 0px;
-  background: url('../images/ui/top-arrow.png?1362291986') no-repeat center top;
+  background: url('../images/ui/top-arrow.png?1386805718') no-repeat center top;
 }
 /* line 54, ../../stylesheets/ui/dropdown.scss */
 div.popover div.drop-wrapper {
@@ -2919,7 +2972,7 @@ header.page-head.cover .container {
   float: left;
   width: 200px;
   height: 150px;
-  background: url('../images/issue-icon-logo.png?1366358917') 0 -250px no-repeat;
+  background: url('../images/issue-icon-logo.png') 0 -250px no-repeat;
 }
 /* line 125, ../../stylesheets/issue.scss */
 .logo.icon.small, header.page-head .logo.icon {
