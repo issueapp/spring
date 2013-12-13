@@ -1,23 +1,28 @@
-<details class="debug">
-  <summary>Toggle Debug</summary>
-  <div>
+<div class="debug">
+  <ul class="col half">
     <h3>Layout options</h3>
-    <ul>
-      <li>Cover image: <a href="?layout[image_align]=right">Align right</a> |  <a href="?layout[image_align]=left">Align left</a></li>
-      <li>Image style: <a href="?layout[image_style]=fit">Fit</a> | <a href="?layout[image_style]=cover">Cover</a></li>
-      <li>Content overflow: <a href="?layout[content_overflow]=scroll">scroll</a> | <a href="?layout[content_overflow]=paginate">paginate</a></li>
-      
-      <li>Content align: 
-          <a href="?layout[content_align]=left">left</a> | 
-          <a href="?layout[content_align]=right">right</a> | 
-      </li>
-      
-      <li>Content valign: 
-          <a href="?layout[content_valign]=top">top</a> | 
-          <a href="?layout[content_valign]=middle">middle</a> | 
-          <a href="?layout[content_valign]=bottom">bottom</a>
-      </li>
-    </ul>
+    <li>Cover image: <a href="?layout[image_align]=right">Align right</a> |  <a href="?layout[image_align]=left">Align left</a></li>
+    <li>Image style: <a href="?layout[image_style]=fit">Fit</a> | <a href="?layout[image_style]=cover">Cover</a></li>
+    <li>Content overflow: <a href="?layout[content_overflow]=scroll">scroll</a> | <a href="?layout[content_overflow]=paginate">paginate</a></li>
+
+    <li>Content align:
+        <a href="?layout[content_align]=left">left</a> |
+        <a href="?layout[content_align]=right">right</a> |
+    </li>
+
+    <li>Content valign:
+        <a href="?layout[content_valign]=top">top</a> |
+        <a href="?layout[content_valign]=middle">middle</a> |
+        <a href="?layout[content_valign]=bottom">bottom</a>
+    </li>
+
+    <li>Product align:
+        <a href="?layout[product_align]=left">left</a> |
+        <a href="?layout[product_align]=right">right</a>
+    </li>
+  </ul>
+  <div class="col half">
+    <h3>Params</h3>
     <pre><%= page.layout.to_h %></pre>
   </div>
-</details>
+</div>
