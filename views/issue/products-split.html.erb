@@ -10,19 +10,38 @@
     padding: 25px;
   }
 
-  .page.has-product .content header {
-    text-align: center;
+  .page.has-product .cover-area {
+    display: block;
   }
 
-  .page.has-product .content h1 {
+  .page.has-product .cover-area header {
+    float: left;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 5% 0 0;
+    height: 15%;
+  }
+
+  .page.has-product .cover-area .product-set {
+    float: left;
+    clear: left;
+    width: 50%;
+  }
+
+  .page.has-product .title {
     /*font-style: italic;
     font-size: 56px;
     font-family: 'BodoniSvtyTwoITCTT-Book';*/
 
     letter-spacing: 2px;
     font-weight: normal;
-    font-family: "proxima_nova_bold";
     font-size: 24px;
+    font-family: "proxima_nova_bold";
+  }
+
+  .page.has-product .content .body {
+    padding: 25px 0;
   }
 
   .page.has-product .content h3 {
@@ -31,10 +50,6 @@
     font-family: "EB Garamond";
   }
 
-/*  .page.has-product > .col.half {
-    overflow: auto;
-  }
-*/
   .page.has-product .product {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -45,13 +60,12 @@
   }
 
   .page.has-product header {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
     margin: 0;
-    padding: 0;
+    padding: 5% 0 0;
     height: 15%;
-  }
-
-  .page.has-product header h2 {
-
   }
 
   .page.has-product header .category {
@@ -65,8 +79,27 @@
   .page.has-product .product-set {
     margin: 0;
     padding: 0;
-    height: 90%;
     list-style-type: none;
+  }
+
+  .page.has-product .product-set.set-2 {
+    height: 45%;
+  }
+
+  .page.has-product .product-set.set-4 {
+    height: 65%;
+  }
+
+  .page.has-product .product-set.set-4 li {
+    height: 50%;
+  }
+
+  .page.has-product .product-set.set-6 {
+    height: 85%;
+  }
+
+  .page.has-product .product-set.set-6 li {
+    height: 33.33%;
   }
 
   .page.has-product .product-set li {
@@ -78,13 +111,13 @@
     box-sizing: border-box;
     padding: 10px 5px;
     width: 50%;
-    height: 33.33%;
-
+    height: 100%;
     text-align: center;
   }
 
   .page.has-product .product-set li img {
     max-width: 100%;
+    max-height: 100%;
     height: 100%;
     vertical-align: middle;
   }
@@ -101,7 +134,7 @@
     color: white;
     text-align: center;
     font-weight: bold;
-    line-height: 1.5;
+    line-height: 1.7;
   }
 
   @media screen and (orientation:portrait) {
@@ -188,7 +221,16 @@
     <p>condimentum sit amet a augue. Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam pharetra, erat sed fermentum feugiat, velit mauris egestas quam, ut aliquam massa nisl quis neque. Suspendisse in orci enim.</p>
   BLOCK
 
-    products: <<-BLOCK,
+    products: [
+      'http://cl.ly/image/3740122Z2G2j/Screen%20Shot%202013-12-13%20at%2011.51.59%20am.png',
+      'http://cl.ly/image/0d311K2J3V0p/Screen%20Shot%202013-12-13%20at%2011.41.47%20am.png',
+      'http://cl.ly/image/3I3k0r000g0p/Screen%20Shot%202013-12-13%20at%2012.09.59%20pm.png',
+      'http://cl.ly/image/16260q391k3t/Screen%20Shot%202013-12-13%20at%2011.31.23%20am.png',
+      'http://cl.ly/image/2a2B1x2Y192R/Screen%20Shot%202013-12-13%20at%2011.32.09%20am.png',
+      'http://cl.ly/image/0E1D2G2z2w3g/Screen%20Shot%202013-12-13%20at%2011.32.49%20am.png'
+    ],
+
+    abc: <<-BLOCK,
     <ul class="product-set">
       <li>
         <img src="http://cl.ly/image/3740122Z2G2j/Screen%20Shot%202013-12-13%20at%2011.51.59%20am.png" alt="">

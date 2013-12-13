@@ -7,7 +7,14 @@
 <% end %>
 
 <% product_area = capture do %>
-  <%= page.products %>
+  <ul class="product-set <%= "set-#{(page.products.count/2.0).ceil*2}" %>">
+  <% page.products.each_with_index do |url, index| %>
+    <li>
+      <img src="<%= url %>" alt="">
+      <span class="tag"><%= index + 1 %></span>
+    </li>
+  <% end %>
+  </ul>
 <% end %>
 
 <% content_area = capture do %>
@@ -34,9 +41,10 @@
 <% end %>
 
 <article class="two-column has-product page <%= page.layout.content_overflow %>">
-  <% if page.layout.image_align == "right" %>
+  <% if page.layout.product_align == "left" %>
     <section class="cover-area page">
       <%= header_area %>
+      <%= product_area %>
       <%= cover_area if page.top_image %>
     </section>
 
@@ -52,23 +60,3 @@
     </div>
   <% end %>
 </article>
-
-
-
-
-
-
-
-<!-- <article class="split page <%#= page.layout.content_overflow %>">
-  <%# if page.layout.product_align == "left" %>
-    <div class="col half"><%#= product_area %></div>
-    <div class="col half"><%#= content_area %></div>
-  <%# else %>
-    <div class="col half"><%#= content_area %></div>
-    <div class="col half"><%#= product_area %></div>
-  <%# end %>
-</article>
- -->
-
-
-

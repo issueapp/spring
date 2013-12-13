@@ -7,7 +7,7 @@
   padding-top: 3%;
   background-size: cover;
   background-repeat: no-repeat;
-  background-image: url('../../images/site/home-background.jpg?1386837122');
+  background-image: url('../../images/site/home-background.jpg?1386849743');
 }
 /* line 16, ../../../stylesheets/site/home.scss */
 #hero .logo {
@@ -46,7 +46,7 @@
   height: 30px;
   display: block;
   margin: 0 auto;
-  background: url('../../images/icons-sprite.png?1386837122') no-repeat;
+  background: url('../../images/icons-sprite.png?1386849743') no-repeat;
 }
 
 /* line 57, ../../../stylesheets/site/home.scss */
@@ -133,12 +133,12 @@ section.tour .box:hover .hover {
 /* line 130, ../../../stylesheets/site/home.scss */
 section.tour .box.brand {
   background-size: cover;
-  background-image: url('../../images/site/tour-brand.png?1386837122');
+  background-image: url('../../images/site/tour-brand.png?1386849743');
 }
 /* line 135, ../../../stylesheets/site/home.scss */
 section.tour .box.blogger {
   background-size: cover;
-  background-image: url('../../images/site/tour-blogger.png?1386837122');
+  background-image: url('../../images/site/tour-blogger.png?1386849743');
 }
 
 /* ====
