@@ -589,18 +589,18 @@ article.two-column {
     @include display-box;
     @include box-orient(horizontal);
     @include box-align(stretch);
+    position: relative;
     justify-content: center;
 
     float: left;
     height: 100%;
-    float: left;
 
     .top-image {
       float: none;
       background-image: url("http://farm6.staticflickr.com/5330/7167552168_7d80aef236_c.jpg");
     }
 
-    hgroup {
+    header {
       @include box-sizing(border-box);
 
       padding-top: 20%;
