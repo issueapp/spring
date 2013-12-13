@@ -1,23 +1,5 @@
-<% title_area = capture do %>
-  <hgroup>
-    <%= render 'debug', locals: { page: page } %>
-    <h1 class="title preview_item_title"><%= page.title %></h1>
-    <h3 class="subtitle description"><%= page.description %></h3>
-
-    <div class="extras">
-      <% if page.author_icon %>
-        <img src="<%= page.author_icon %>" class="avatar" >
-      <% end %>
-      <% if page.author_name %>
-        <em>by <%= page.author_name %></em>
-      <% end %>
-      <p><%= page.description %></p>
-    </div>
-  </hgroup>
-<% end %>
-
-<% cover_area = capture do %>
-  <div class="top-image <%= page.layout.image_style %>" style="background-image: url(<%= page.top_image %>)"></div>
+<% header_area = capture do %>
+  <%= render "header", locals: { page: page } %>
 <% end %>
 
 <% product_area = capture do %>
@@ -26,29 +8,35 @@
   </div>
 <% end %>
 
-<article class="split content page <%= page.layout.content_overflow %>">
-  <div class="col half">
-  <% if page.layout.image_align == "right" %>
-    <section class="cover-area page">
-      <%= title_area %>
-      <%= cover_area if page.top_image %>
-    </section>
+<% content_area = capture do %>
+  <% if page.layout.image_style == "cover" %>
 
-    <div class="body">
-      <%= page.content %>
+    <% if page.top_image %>
+      <div class="cover-image" style="background-image: url(<%= page.top_image %>)"></div>
+    <% end %>
+
+    <div class="content">
+      <%= header_area %>
+      <div class="body"><%= page.content %></div>
     </div>
 
-  <% else %>
-    <%= cover_area if page.top_image %>
+  <% elsif page.layout.image_style == "fit" %>
 
-    <div class="body">
-      <%= title_area %>
-      <%= page.content %>
+    <div class="content">
+      <img class="top-image" src="<%= page.top_image %>" >
+      <%= header_area %>
+      <div class="body"><%= page.content %></div>
     </div>
+
   <% end %>
-  </div>
+<% end %>
 
-  <div class="col half">
-    <%= product_area %>
-  </div>
+<article class="split page <%= page.layout.content_overflow %>">
+  <% if page.layout.product_align == "left" %>
+    <div class="col half"><%= product_area %></div>
+    <div class="col half"><%= content_area %></div>
+  <% else %>
+    <div class="col half"><%= content_area %></div>
+    <div class="col half"><%= product_area %></div>
+  <% end %>
 </article>

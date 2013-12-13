@@ -112,8 +112,8 @@
   Various page style in the system
 
   .page             - default page style, optimise for readability
-  
-  Stream 
+
+  Stream
 
     .stream             - Swipable page on the stream
     .vertical .page     - vertical scrolled pages
@@ -122,8 +122,8 @@
   Content formatting
 
     .one-column       -   One column layout, cover/image fit view support fullscreen
-    .two-column       -   
-    .two-column       - 
+    .two-column       -
+    .two-column       -
     .fullscreen       -
     .split        -
 
@@ -141,7 +141,7 @@ article.page {
 
   header {
     margin: 0 0 18px;
-    padding: 0 0 15px;
+    padding: 0;
     text-align: center;
 
     hgroup {
@@ -172,14 +172,8 @@ article.page {
     font-weight: normal;
   }
 
-  .body {
+  .content {
     padding-bottom: 40px;
-
-    // Large screen body
-    @include min-screen(768) {
-      width: 45em;
-      margin: 0 auto;
-    }
   }
 
   .avatar {
@@ -305,7 +299,7 @@ article.page {
 
 
 
-  &.scroll .body {
+  &.scroll .content {
     overflow: auto;
   }
 
@@ -335,7 +329,7 @@ article.page.no-header {
     }
   }
 
-  .body {
+  .content {
     position: relative;
     top: -50px;
     text-align: left;
@@ -396,7 +390,7 @@ article.fullscreen {
     text-align: right;
   }
 
-  .body {
+  .content {
     text-align: left;
     display: inline-block;
     vertical-align: middle;
@@ -407,27 +401,45 @@ article.fullscreen {
     position: relative;
     width: 45%;
     margin: 5% 0;
+
+    header {
+      text-align: left;
+    }
   }
 
-  &.top .body {
+  &.top .content {
     vertical-align: top;
   }
 
-  &.bottom .body {
+  &.bottom .content {
     vertical-align: bottom;
   }
 
-  &.black .body {
+  &.black .content {
     @extend .dark-theme;
     background: rgba(0, 0, 0, 0.7);
   }
 
-  &.white .body {
+  &.white .content {
     background: rgba(255, 255, 255,0.9);
 
   }
 }
 
+
+.one-column {
+  .content {
+    header {
+      padding-top: 20px;
+    }
+
+    // Large screen body
+    @include min-screen(768) {
+      width: 45em;
+      margin: 0 auto;
+    }
+  }
+}
 //article.split {
 //  height: 100% !important;
 //  width: 100%;
@@ -541,7 +553,7 @@ article.two-column {
     white-space: normal;
   }
 
-  .body {
+  .content {
     @include box-sizing(border-box);
     vertical-align: top;
     display: inline-block;
@@ -563,7 +575,7 @@ article.two-column {
     }
   }
 
-  &.paginate .body {
+  &.paginate .content {
     -webkit-column-count:2;
     -moz-column-count:2;
     column-count:2;
@@ -660,7 +672,7 @@ article.three-column {
       background-image: url("http://farm6.staticflickr.com/5330/7167552168_7d80aef236_c.jpg");
     }
 
-    hgroup {
+    header {
       @include box-sizing(border-box);
 
       padding-top: 20%;
@@ -680,7 +692,7 @@ article.three-column {
 
 @media screen and (orientation:portrait) {
   article.page .col.half {
-	  height: 49%;
+	  height: 49.99%;
     width: 100%;
     background: white;
 

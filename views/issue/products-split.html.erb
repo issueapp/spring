@@ -3,30 +3,35 @@
  -->
 
 <style>
-  .split.page .body {
-    overflow: auto;
+  .split.page .content {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    padding: 25px;
     width: 100%;
-    height: 100%;
+    padding: 25px;
   }
 
-  .split.page .body h1 {
+  .split.page .content header {
+    text-align: left;
+  }
+
+  .split.page .content h1 {
     font-style: italic;
     font-size: 56px;
     font-family: 'BodoniSvtyTwoITCTT-Book';
   }
 
-  .split.page .body h3 {
+  .split.page .content h3 {
     text-transform: uppercase;
     font-weight: normal;
     font-family: "EB Garamond";
   }
 
-  .split.page .product {
+  .split.page > .col.half {
     overflow: auto;
+  }
+
+  .split.page .product {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -42,7 +47,7 @@
   }
 
   .split.page .product header h2 {
-    letter-spacing: 4px;
+    letter-spacing: 2px;
     font-weight: normal;
     font-family: "proxima_nova_bold";
   }
@@ -63,6 +68,7 @@
   }
 
   .split.page .product .list li {
+    position: relative;
     display: inline-block;
     float: left;
     -webkit-box-sizing: border-box;
@@ -71,59 +77,104 @@
     padding: 10px 5px;
     width: 50%;
     height: 33.33%;
+
+    text-align: center;
   }
 
-  .split.page .product .list li .image {
-    position: relative;
+  .split.page .product .list li img {
+    max-width: 100%;
     height: 100%;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+    vertical-align: middle;
   }
 
   .split.page .product .list li .tag {
     position: absolute;
     bottom: 0;
     left: 50%;
-    margin-left: -12px;
-    width: 24px;
-    height: 24px;
+    margin-left: -13px;
+    width: 26px;
+    height: 26px;
     border-radius: 50%;
     background-color: #000;
     color: white;
     text-align: center;
     font-weight: bold;
-    line-height: 1.7;
+    line-height: 1.5;
+  }
+
+  @media screen and (orientation:portrait) {
+    .split.page .product header {
+      height: 15%;
+    }
+
+    .split.page .product .list {
+      height: 85%;
+    }
+
+    .split.page .col.half .product .list li {
+      width: 33.33%;
+      height: 50%;
+    }
+
+    #issue-viewer:not(.protrait) .split.page .col.half {
+      width: 49.99%;
+      height: 100%;
+    }
+
+    #issue-viewer:not(.protrait) .split.page .col.half .product header {
+      height: 10%;
+    }
+
+    #issue-viewer:not(.protrait) .split.page .col.half .product .list {
+      height: 90%;
+    }
+
+    #issue-viewer:not(.protrait) .split.page .col.half .product .list li {
+      width: 50%;
+      height: 33.33%;
+    }
+  }
+
+  #issue-viewer.portrait .split.page .col.half {
+    width: 100%;
+    height: 49.99%;
+  }
+
+  #issue-viewer.portrait .split.page .product header {
+    height: 15%;
+  }
+
+  #issue-viewer.portrait .split.page .product .list {
+    height: 85%;
+  }
+
+  #issue-viewer.portrait .split.page .col.half .product .list li {
+    width: 33.33%;
+    height: 50%;
   }
 </style>
 
 <%= render "split", locals: {
   page: Hashie::Mash.new(
-    title: "MUST HAVES",
+    title: nil,
     description: nil,
     author_name: nil,
     author_icon: nil,
-    content_type: "product",
+    top_image: "http://31.media.tumblr.com/5d40ddbd07fc716e715bd5462e305edd/tumblr_mx3tmhXNNE1st5lhmo1_1280.jpg",
+    content_type: "article",
     published_at: 3.days.ago,
 
     content: <<-BLOCK,
     <h3>beauty trends</h3>
     <p>Shelve your matte cosmetics this season because it’s all about sporting that balmy, hydrated skin until it has drunk its fill!</p>
-
     <p>The latest craze this Summer is all about luminous skin with that natural dewy finish. This was spotted in various runways in New York to the likes of Marni, Matthew Williamson and Balmain- so investing in cream highlighters is our top survival tip this season, which can be combined with your foundation to suit your skin tone.</p>
 
     <h3>THE SKIN</h3>
-
     <p>White and its family of hues including eggshell, vanilla and sand are used to brighten the face this spring. Highlight bone structure just where the sun hits by either generously applying the color with a few wide strokes of a make-up brush, or by using it as a topcoat to fade darker tones and make for a fresh finish. Seen at: Catherine Malandrino, Emilio Pucci and Prada.</p>
-
     <p>This season it’s all about luminous skin, so forget the matte look and use powder sparingly. The key products to invest in are cream highlighters, which can be mixed and blended to suit your skin tone. We saw this at most of the shows – it’s that youthful glowing look that the models have even though it’s their eighth show of the day and they’re running on little sleep. So what are the make-up artists’ tips for getting the perfect glow?</p>
-
     <p>“The first step for base is moisturisers,” says head make-up artist Baltasar Gonzaez Pinel backstage at Roland Mouret. “I like MAC’s Studio Moisture Fix. It’s a cream that doesn’t look oily but it has this feeling that you are applying something rich on the skin. Then I use Studio Moisture Foundation, which is a perfect blend of silicon based ingredients and pigments, so that when you blend it, blemishes disappear.”</p>
-
     <p>At Giambattista Valli, legendary make-up director Val Garland emphasised the importance of highlighters: “For this show there is always a sense of sheen, so highlighters are very much an essential component. For spring, the tones are anything that is flesh based – less pearl and more real.”</p>
-
     <p>Only 1-2 mere drops of the A’kin rose Ship oil are needed to instantly rejuvenate the skin and over time, maintain your skin’s elasticity.</p>
-
     <p>For those with oily skin and acne, I know exactly what you’re thinking! Why would you apply more oil to your skin, right? Well A’kin’s rosehip oil helps re-balance the oil in the skin, regenerating the natural oil production levels and reducing the appearance of scarring. It absorbs right into the skin, without leaving an oily residue.</p>
 
     <h3>Quick tips:</h3>
@@ -141,34 +192,29 @@
     </header>
     <ul class="list">
       <li>
-        <div class="image" style="background-image: url('http://placehold.it/200x300&text=product')">
-          <span class="tag">1</span>
-        </div>
+        <img src="http://cl.ly/image/3740122Z2G2j/Screen%20Shot%202013-12-13%20at%2011.51.59%20am.png" alt="">
+        <span class="tag">1</span>
       </li>
       <li>
-        <div class="image" style="background-image: url('http://placehold.it/200x300&text=product')">
-          <span class="tag">2</span>
-        </div>
+        <img src="http://cl.ly/image/0d311K2J3V0p/Screen%20Shot%202013-12-13%20at%2011.41.47%20am.png" alt="">
+        <!-- <img src="http://placehold.it/500x200" alt=""> -->
+        <span class="tag">2</span>
       </li>
       <li>
-        <div class="image" style="background-image: url('http://placehold.it/200x300&text=product')">
-          <span class="tag">3</span>
-        </div>
+        <img src="http://cl.ly/image/3I3k0r000g0p/Screen%20Shot%202013-12-13%20at%2012.09.59%20pm.png" alt="">
+        <span class="tag">3</span>
       </li>
       <li>
-        <div class="image" style="background-image: url('http://placehold.it/200x300&text=product')">
-          <span class="tag">4</span>
-        </div>
+        <img src="http://cl.ly/image/16260q391k3t/Screen%20Shot%202013-12-13%20at%2011.31.23%20am.png" alt="">
+        <span class="tag">4</span>
       </li>
       <li>
-        <div class="image" style="background-image: url('http://placehold.it/200x300&text=product')">
-          <span class="tag">5</span>
-        </div>
+        <img src="http://cl.ly/image/2a2B1x2Y192R/Screen%20Shot%202013-12-13%20at%2011.32.09%20am.png" alt="">
+        <span class="tag">5</span>
       </li>
       <li>
-        <div class="image" style="background-image: url('http://placehold.it/200x300&text=product')">
-          <span class="tag">6</span>
-        </div>
+        <img src="http://cl.ly/image/0E1D2G2z2w3g/Screen%20Shot%202013-12-13%20at%2011.32.49%20am.png" alt="">
+        <span class="tag">6</span>
       </li>
     </ul>
   BLOCK
@@ -177,7 +223,8 @@
       type: "split",
       image_align: "left",
       image_style: "cover",
-      content_overflow: "paginate"
+      content_overflow: "paginate",
+      product_align: "right"
     )
   )}
 %>
