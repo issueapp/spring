@@ -2,10 +2,12 @@
   <%= render "header", locals: { page: page } %>
 <% end %>
 
+<% cover_area = capture do %>
+  <div class="top-image <%= page.layout.image_style %>" style="background-image: url(<%= page.top_image %>)"></div>
+<% end %>
+
 <% product_area = capture do %>
-  <div class="product">
-    <%= page.products %>
-  </div>
+  <%= page.products %>
 <% end %>
 
 <% content_area = capture do %>
@@ -31,12 +33,42 @@
   <% end %>
 <% end %>
 
-<article class="split page <%= page.layout.content_overflow %>">
-  <% if page.layout.product_align == "left" %>
-    <div class="col half"><%= product_area %></div>
-    <div class="col half"><%= content_area %></div>
+<article class="two-column has-product page <%= page.layout.content_overflow %>">
+  <% if page.layout.image_align == "right" %>
+    <section class="cover-area page">
+      <%= header_area %>
+      <%= cover_area if page.top_image %>
+    </section>
+
+    <div class="content body"><%= page.content %></div>
+
   <% else %>
-    <div class="col half"><%= content_area %></div>
-    <div class="col half"><%= product_area %></div>
+    <%= cover_area if page.top_image %>
+
+    <div class="content">
+      <%= header_area %>
+      <%= product_area %>
+      <div class="body"><%= page.content %></div>
+    </div>
   <% end %>
 </article>
+
+
+
+
+
+
+
+<!-- <article class="split page <%#= page.layout.content_overflow %>">
+  <%# if page.layout.product_align == "left" %>
+    <div class="col half"><%#= product_area %></div>
+    <div class="col half"><%#= content_area %></div>
+  <%# else %>
+    <div class="col half"><%#= content_area %></div>
+    <div class="col half"><%#= product_area %></div>
+  <%# end %>
+</article>
+ -->
+
+
+
