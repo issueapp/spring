@@ -816,20 +816,20 @@ p.center {
   
 */
 /* line 8, ../../stylesheets/base/colors.scss */
-.dark-theme, .dark-container, article.fullscreen.black .body, article.fullscreen.button.pointy .body {
+.dark-theme, .dark-container, article.fullscreen.black .content, article.fullscreen.button.pointy .content {
   color: white;
 }
 /* line 11, ../../stylesheets/base/colors.scss */
-.dark-theme .subtitle, .dark-container .subtitle, article.fullscreen.black .body .subtitle, article.fullscreen.button.pointy .body .subtitle {
+.dark-theme .subtitle, .dark-container .subtitle, article.fullscreen.black .content .subtitle, article.fullscreen.button.pointy .content .subtitle {
   color: #ccc;
 }
 /* line 15, ../../stylesheets/base/colors.scss */
-.dark-theme a:not(.button), .dark-container a:not(.button), article.fullscreen.black .body a:not(.button), article.fullscreen.button.pointy .body a:not(.button) {
+.dark-theme a:not(.button), .dark-container a:not(.button), article.fullscreen.black .content a:not(.button), article.fullscreen.button.pointy .content a:not(.button) {
   color: white;
   text-decoration: none;
 }
 /* line 20, ../../stylesheets/base/colors.scss */
-.no-touch .dark-theme a:not(.button):hover, .no-touch .dark-container a:not(.button):hover, .no-touch article.fullscreen.black .body a:not(.button):hover, article.fullscreen.black .no-touch .body a:not(.button):hover, .no-touch article.fullscreen.button.pointy .body a:not(.button):hover, article.fullscreen.button.pointy .no-touch .body a:not(.button):hover {
+.no-touch .dark-theme a:not(.button):hover, .no-touch .dark-container a:not(.button):hover, .no-touch article.fullscreen.black .content a:not(.button):hover, article.fullscreen.black .no-touch .content a:not(.button):hover, .no-touch article.fullscreen.button.pointy .content a:not(.button):hover, article.fullscreen.button.pointy .no-touch .content a:not(.button):hover {
   color: #ff8757;
 }
 
@@ -2082,12 +2082,12 @@ input[type="button"]::-moz-focus-inner, button::-moz-focus-inner {
   background: rgba(0, 0, 0, 0.7);
 }
 /* line 235, ../../stylesheets/ui/button.scss */
-.dark-theme .button.outline, .dark-container .button.outline, article.fullscreen.black .body .button.outline, article.fullscreen.button.pointy .body .button.outline, .dark-theme button.outline, .dark-container button.outline, article.fullscreen.black .body button.outline, article.fullscreen.button.pointy .body button.outline {
+.dark-theme .button.outline, .dark-container .button.outline, article.fullscreen.black .content .button.outline, article.fullscreen.button.pointy .content .button.outline, .dark-theme button.outline, .dark-container button.outline, article.fullscreen.black .content button.outline, article.fullscreen.button.pointy .content button.outline {
   color: #fff;
   border: 1px solid rgba(255, 255, 255, 0.7);
 }
 /* line 239, ../../stylesheets/ui/button.scss */
-.no-touch .dark-theme .button.outline:hover, .no-touch .dark-container .button.outline:hover, .no-touch article.fullscreen.black .body .button.outline:hover, article.fullscreen.black .no-touch .body .button.outline:hover, .no-touch article.fullscreen.button.pointy .body .button.outline:hover, article.fullscreen.button.pointy .no-touch .body .button.outline:hover, .no-touch .dark-theme button.outline:hover, .no-touch .dark-container button.outline:hover, .no-touch article.fullscreen.black .body button.outline:hover, article.fullscreen.black .no-touch .body button.outline:hover, .no-touch article.fullscreen.button.pointy .body button.outline:hover, article.fullscreen.button.pointy .no-touch .body button.outline:hover {
+.no-touch .dark-theme .button.outline:hover, .no-touch .dark-container .button.outline:hover, .no-touch article.fullscreen.black .content .button.outline:hover, article.fullscreen.black .no-touch .content .button.outline:hover, .no-touch article.fullscreen.button.pointy .content .button.outline:hover, article.fullscreen.button.pointy .no-touch .content .button.outline:hover, .no-touch .dark-theme button.outline:hover, .no-touch .dark-container button.outline:hover, .no-touch article.fullscreen.black .content button.outline:hover, article.fullscreen.black .no-touch .content button.outline:hover, .no-touch article.fullscreen.button.pointy .content button.outline:hover, article.fullscreen.button.pointy .no-touch .content button.outline:hover {
   color: white;
   background: rgba(200, 200, 200, 0.9);
 }
@@ -2424,7 +2424,7 @@ div.popover span.drop-top {
   display: block;
   margin: -7px 0 0;
   padding: 7px 15px 0px;
-  background: url('../images/ui/top-arrow.png?1386837122') no-repeat center top;
+  background: url('../images/ui/top-arrow.png?1386849743') no-repeat center top;
 }
 /* line 54, ../../stylesheets/ui/dropdown.scss */
 div.popover div.drop-wrapper {
@@ -2719,7 +2719,7 @@ header.cover-image h1 {
   float: left;
   width: 200px;
   height: 150px;
-  background: url('../images/issue-logo.png?1366358917') 0 -150px no-repeat;
+  background: url('../images/issue-logo.png') 0 -150px no-repeat;
 }
 /* line 118, ../../stylesheets/site.scss */
 .logo.small {
@@ -2733,11 +2733,11 @@ header.cover-image h1 {
   background-position: -200px 0px;
 }
 /* line 129, ../../stylesheets/site.scss */
-.dark-theme .logo, .dark-container .logo, article.fullscreen.black .body .logo, article.fullscreen.button.pointy .body .logo {
+.dark-theme .logo, .dark-container .logo, article.fullscreen.black .content .logo, article.fullscreen.button.pointy .content .logo {
   background-position: 0 -150px;
 }
 /* line 133, ../../stylesheets/site.scss */
-.dark-theme .logo.small, .dark-container .logo.small, article.fullscreen.black .body .logo.small, article.fullscreen.button.pointy .body .logo.small {
+.dark-theme .logo.small, .dark-container .logo.small, article.fullscreen.black .content .logo.small, article.fullscreen.button.pointy .content .logo.small {
   background-position: -200px -150px;
 }
 
@@ -2800,7 +2800,7 @@ footer[role=contentinfo] .footer-links li {
   padding-top: 3%;
   background-size: cover;
   background-repeat: no-repeat;
-  background-image: url('../images/site/home-background.jpg?1386837122');
+  background-image: url('../images/site/home-background.jpg?1386849743');
 }
 /* line 16, ../../stylesheets/site/home.scss */
 #hero .logo {
@@ -2839,7 +2839,7 @@ footer[role=contentinfo] .footer-links li {
   height: 30px;
   display: block;
   margin: 0 auto;
-  background: url('../images/icons-sprite.png?1386837122') no-repeat;
+  background: url('../images/icons-sprite.png?1386849743') no-repeat;
 }
 
 /* line 57, ../../stylesheets/site/home.scss */
@@ -2926,12 +2926,12 @@ section.tour .box:hover .hover {
 /* line 130, ../../stylesheets/site/home.scss */
 section.tour .box.brand {
   background-size: cover;
-  background-image: url('../images/site/tour-brand.png?1386837122');
+  background-image: url('../images/site/tour-brand.png?1386849743');
 }
 /* line 135, ../../stylesheets/site/home.scss */
 section.tour .box.blogger {
   background-size: cover;
-  background-image: url('../images/site/tour-blogger.png?1386837122');
+  background-image: url('../images/site/tour-blogger.png?1386849743');
 }
 
 /* ====
@@ -2948,7 +2948,7 @@ section.tour .box.blogger {
   }
 }
 
-/* line 10, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 10, /Users/gkwrh/workspace/spring/stylesheets/base/form.scss */
 form {
   margin: 0 0 1.25em;
   /*================================================
@@ -2964,37 +2964,37 @@ form {
           Errors
     ================================================*/
 }
-/* line 14, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 14, /Users/gkwrh/workspace/spring/stylesheets/base/form.scss */
 form input.col, form .col {
   position: relative;
   margin-bottom: 1em;
 }
-/* line 24, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 24, /Users/gkwrh/workspace/spring/stylesheets/base/form.scss */
 form label {
   padding: 5px 0;
   margin-right: 5px;
 }
-/* line 29, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 29, /Users/gkwrh/workspace/spring/stylesheets/base/form.scss */
 form p.large, form .page p.no-image, .page form p.no-image, form .page p.item.split, .page form p.item.split, form label.large, form .page label.no-image, .page form label.no-image, form .page label.item.split, .page form label.item.split {
   font-size: 18px;
   line-height: 32px;
 }
-/* line 34, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 34, /Users/gkwrh/workspace/spring/stylesheets/base/form.scss */
 form label.radio {
   padding-right: 1em;
 }
-/* line 37, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 37, /Users/gkwrh/workspace/spring/stylesheets/base/form.scss */
 form label.radio input {
   margin-right: 0.5em;
 }
-/* line 42, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 42, /Users/gkwrh/workspace/spring/stylesheets/base/form.scss */
 form .hint_style, form .hint, form .error {
   color: #888;
   font-style: italic;
   line-height: 1.4;
   font-size: 13px;
 }
-/* line 49, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 49, /Users/gkwrh/workspace/spring/stylesheets/base/form.scss */
 form .hint {
   margin: 0 0 5px;
   /*    bottom: -1.7em;*/
@@ -3002,11 +3002,11 @@ form .hint {
   /*left: 0;
   bottom: -1.7em;*/
 }
-/* line 50, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 50, /Users/gkwrh/workspace/spring/stylesheets/base/form.scss */
 form .hint:after {
   content: none;
 }
-/* line 64, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 64, /Users/gkwrh/workspace/spring/stylesheets/base/form.scss */
 form .text_field, form input[type="text"], form input[type="password"], form input[type="tel"], form input[type="email"],
 form input[type="search"], form input[type="url"], form textarea, form select {
   padding: 9px;
@@ -3031,20 +3031,20 @@ form input[type="search"], form input[type="url"], form textarea, form select {
   -moz-box-shadow: 1px 1px 2px #eeeeee inset;
   box-shadow: 1px 1px 2px #eeeeee inset;
 }
-/* line 82, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 82, /Users/gkwrh/workspace/spring/stylesheets/base/form.scss */
 form input.large:not(.button), form .page input.no-image:not(.button), .page form input.no-image:not(.button), form .page input.item.split:not(.button), .page form input.item.split:not(.button) {
   font-size: 18px !important;
   line-height: 35px;
   height: 35px;
 }
-/* line 89, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 89, /Users/gkwrh/workspace/spring/stylesheets/base/form.scss */
 form input[type="text"], form input[type="password"], form input[type="tel"], form input[type="email"],
 form input[type="search"], form input[type="url"], form textarea, form select {
   font-size: 100%;
   line-height: normal;
   /* ie */
 }
-/* line 4, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 4, /Users/gkwrh/workspace/spring/stylesheets/base/form.scss */
 form input[type="text"].placeholder, form input[type="password"].placeholder, form input[type="tel"].placeholder, form input[type="email"].placeholder,
 form input[type="search"].placeholder, form input[type="url"].placeholder, form textarea.placeholder, form select.placeholder {
   font-family: georgia;
@@ -3052,7 +3052,7 @@ form input[type="search"].placeholder, form input[type="url"].placeholder, form 
   font-style: italic;
   font-size: 15px;
 }
-/* line 5, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 5, /Users/gkwrh/workspace/spring/stylesheets/base/form.scss */
 form input[type="text"]:-moz-placeholder, form input[type="password"]:-moz-placeholder, form input[type="tel"]:-moz-placeholder, form input[type="email"]:-moz-placeholder,
 form input[type="search"]:-moz-placeholder, form input[type="url"]:-moz-placeholder, form textarea:-moz-placeholder, form select:-moz-placeholder {
   font-family: georgia;
@@ -3060,7 +3060,7 @@ form input[type="search"]:-moz-placeholder, form input[type="url"]:-moz-placehol
   font-style: italic;
   font-size: 15px;
 }
-/* line 6, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 6, /Users/gkwrh/workspace/spring/stylesheets/base/form.scss */
 form input[type="text"]::-webkit-input-placeholder, form input[type="password"]::-webkit-input-placeholder, form input[type="tel"]::-webkit-input-placeholder, form input[type="email"]::-webkit-input-placeholder,
 form input[type="search"]::-webkit-input-placeholder, form input[type="url"]::-webkit-input-placeholder, form textarea::-webkit-input-placeholder, form select::-webkit-input-placeholder {
   font-family: georgia;
@@ -3068,7 +3068,7 @@ form input[type="search"]::-webkit-input-placeholder, form input[type="url"]::-w
   font-style: italic;
   font-size: 15px;
 }
-/* line 7, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 7, /Users/gkwrh/workspace/spring/stylesheets/base/form.scss */
 form input[type="text"]:-ms-input-placeholder, form input[type="password"]:-ms-input-placeholder, form input[type="tel"]:-ms-input-placeholder, form input[type="email"]:-ms-input-placeholder,
 form input[type="search"]:-ms-input-placeholder, form input[type="url"]:-ms-input-placeholder, form textarea:-ms-input-placeholder, form select:-ms-input-placeholder {
   font-family: georgia;
@@ -3076,12 +3076,12 @@ form input[type="search"]:-ms-input-placeholder, form input[type="url"]:-ms-inpu
   font-style: italic;
   font-size: 15px;
 }
-/* line 105, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 105, /Users/gkwrh/workspace/spring/stylesheets/base/form.scss */
 form input[type="checkbox"],
 form input[type="radio"] {
   margin-right: 5px;
 }
-/* line 109, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 109, /Users/gkwrh/workspace/spring/stylesheets/base/form.scss */
 form select {
   width: auto;
   background-color: #fff;
@@ -3089,34 +3089,34 @@ form select {
   height: 2.5em;
   line-height: 2.5em;
 }
-/* line 117, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 117, /Users/gkwrh/workspace/spring/stylesheets/base/form.scss */
 form input[type=submit], form input[type=button], form button[type=submit] {
   line-height: 2em;
   margin-right: 5px;
 }
-/* line 126, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 126, /Users/gkwrh/workspace/spring/stylesheets/base/form.scss */
 form input:focus, form select:focus, form textarea:focus {
   border: 1px solid #A1CFDE !important;
 }
-/* line 136, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 136, /Users/gkwrh/workspace/spring/stylesheets/base/form.scss */
 form .field_with_errors input.string, form .field_with_errors select.select {
   border-color: #f3a4a4;
 }
-/* line 140, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 140, /Users/gkwrh/workspace/spring/stylesheets/base/form.scss */
 form .field_with_errors .hint {
   display: none;
 }
-/* line 145, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 145, /Users/gkwrh/workspace/spring/stylesheets/base/form.scss */
 form .error {
   color: #e84949;
 }
 @media screen and (min-width: 768px) {
-  /* line 152, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+  /* line 152, /Users/gkwrh/workspace/spring/stylesheets/base/form.scss */
   form p.large, form .page p.no-image, .page form p.no-image, form .page p.item.split, .page form p.item.split, form label.large, form .page label.no-image, .page form label.no-image, form .page label.item.split, .page form label.item.split {
     font-size: 24px;
     line-height: 40px;
   }
-  /* line 157, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+  /* line 157, /Users/gkwrh/workspace/spring/stylesheets/base/form.scss */
   form input.large:not(.button), form .page input.no-image:not(.button), .page form input.no-image:not(.button), form .page input.item.split:not(.button), .page form input.item.split:not(.button) {
     font-size: 24px !important;
     line-height: 45px;
@@ -3127,7 +3127,7 @@ form .error {
 /*================================================
       Notification
 ================================================*/
-/* line 171, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 171, /Users/gkwrh/workspace/spring/stylesheets/base/form.scss */
 div.notification {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -3147,37 +3147,37 @@ div.notification {
   background: rgba(0, 0, 0, 0.8);
   color: #fff;
 }
-/* line 189, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 189, /Users/gkwrh/workspace/spring/stylesheets/base/form.scss */
 .overlay-active div.notification {
   left: 7.5%;
   right: 7.5%;
   top: 0;
 }
 @media screen and (min-width: 768px) {
-  /* line 171, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+  /* line 171, /Users/gkwrh/workspace/spring/stylesheets/base/form.scss */
   div.notification {
     max-width: 30%;
     margin-left: -15%;
   }
 }
-/* line 201, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 201, /Users/gkwrh/workspace/spring/stylesheets/base/form.scss */
 div.notification a.close-target {
   position: absolute;
   right: 10px;
   color: #eee;
 }
-/* line 207, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 207, /Users/gkwrh/workspace/spring/stylesheets/base/form.scss */
 div.notification a.close {
   float: right;
   width: 20px;
   height: 20px;
 }
-/* line 209, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 209, /Users/gkwrh/workspace/spring/stylesheets/base/form.scss */
 div.notification a.close:before {
   font-size: 24px;
   color: #111;
 }
-/* line 219, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 219, /Users/gkwrh/workspace/spring/stylesheets/base/form.scss */
 div.notification.prev:before, div.notification.next:before {
   color: #fff;
   position: absolute;
@@ -3186,18 +3186,18 @@ div.notification.prev:before, div.notification.next:before {
   line-height: 40px;
   margin-top: -20px;
 }
-/* line 231, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 231, /Users/gkwrh/workspace/spring/stylesheets/base/form.scss */
 div.notification.prev:before {
   right: 8px;
   content: "›";
 }
-/* line 238, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 238, /Users/gkwrh/workspace/spring/stylesheets/base/form.scss */
 div.notification.next:before {
   left: 8px;
   content: "‹";
 }
 
-/* line 245, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 245, /Users/gkwrh/workspace/spring/stylesheets/base/form.scss */
 a.close-target {
   font-size: 28px;
   float: right;
@@ -3263,25 +3263,25 @@ form#reserve_edition .edition_owner_role .error {
   width: 7em;
   /* ie */
 }
-/* line 4, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 4, /Users/gkwrh/workspace/spring/stylesheets/base/form.scss */
 #edition_handle.placeholder,
 #edition_handle_outside.placeholder {
   font-size: 24px;
   font-weight: normal !important;
 }
-/* line 5, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 5, /Users/gkwrh/workspace/spring/stylesheets/base/form.scss */
 #edition_handle:-moz-placeholder,
 #edition_handle_outside:-moz-placeholder {
   font-size: 24px;
   font-weight: normal !important;
 }
-/* line 6, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 6, /Users/gkwrh/workspace/spring/stylesheets/base/form.scss */
 #edition_handle::-webkit-input-placeholder,
 #edition_handle_outside::-webkit-input-placeholder {
   font-size: 24px;
   font-weight: normal !important;
 }
-/* line 7, /Users/taylorluk/workspace/spring/stylesheets/base/form.scss */
+/* line 7, /Users/gkwrh/workspace/spring/stylesheets/base/form.scss */
 #edition_handle:-ms-input-placeholder,
 #edition_handle_outside:-ms-input-placeholder {
   font-size: 24px;
@@ -3753,8 +3753,8 @@ form#reserve_edition .edition_owner_role .error {
   Various page style in the system
 
   .page             - default page style, optimise for readability
-  
-  Stream 
+
+  Stream
 
     .stream             - Swipable page on the stream
     .vertical .page     - vertical scrolled pages
@@ -3763,8 +3763,8 @@ form#reserve_edition .edition_owner_role .error {
   Content formatting
 
     .one-column       -   One column layout, cover/image fit view support fullscreen
-    .two-column       -   
-    .two-column       - 
+    .two-column       -
+    .two-column       -
     .fullscreen       -
     .split        -
 
@@ -3784,7 +3784,7 @@ article.page {
 /* line 142, ../../stylesheets/app/page.scss */
 article.page header {
   margin: 0 0 18px;
-  padding: 0 0 15px;
+  padding: 0;
   text-align: center;
 }
 /* line 147, ../../stylesheets/app/page.scss */
@@ -3816,24 +3816,17 @@ article.page .title {
   font-weight: normal;
 }
 /* line 175, ../../stylesheets/app/page.scss */
-article.page .body {
+article.page .content {
   padding-bottom: 40px;
 }
-@media screen and (min-width: 768px) {
-  /* line 175, ../../stylesheets/app/page.scss */
-  article.page .body {
-    width: 45em;
-    margin: 0 auto;
-  }
-}
-/* line 185, ../../stylesheets/app/page.scss */
+/* line 179, ../../stylesheets/app/page.scss */
 article.page .avatar {
   width: 78px;
   height: 78px;
   border: 2px solid #eee;
   border-radius: 50%;
 }
-/* line 192, ../../stylesheets/app/page.scss */
+/* line 186, ../../stylesheets/app/page.scss */
 article.page blockquote {
   font-family: Georgia, serif;
   font-size: 18px;
@@ -3844,7 +3837,7 @@ article.page blockquote {
   line-height: 1.45;
   position: relative;
 }
-/* line 203, ../../stylesheets/app/page.scss */
+/* line 197, ../../stylesheets/app/page.scss */
 article.page blockquote:before {
   display: block;
   content: "\201C";
@@ -3854,18 +3847,18 @@ article.page blockquote:before {
   top: -20px;
   color: #999;
 }
-/* line 213, ../../stylesheets/app/page.scss */
+/* line 207, ../../stylesheets/app/page.scss */
 article.page blockquote cite {
   color: #999999;
   font-size: 14px;
   display: block;
   margin-top: 5px;
 }
-/* line 219, ../../stylesheets/app/page.scss */
+/* line 213, ../../stylesheets/app/page.scss */
 article.page blockquote cite:before {
   content: "\2014 \2009";
 }
-/* line 224, ../../stylesheets/app/page.scss */
+/* line 218, ../../stylesheets/app/page.scss */
 article.page .image.cover {
   position: relative;
   height: 200%;
@@ -3873,24 +3866,24 @@ article.page .image.cover {
   top: -50%;
   left: -50%;
 }
-/* line 232, ../../stylesheets/app/page.scss */
+/* line 226, ../../stylesheets/app/page.scss */
 article.page .author, article.page .published-at {
   color: #333;
   font-family: Georgia;
   font-style: italic;
 }
-/* line 238, ../../stylesheets/app/page.scss */
+/* line 232, ../../stylesheets/app/page.scss */
 article.page p {
   margin: 1.5em 0 !important;
   text-align: justify;
   -webkit-hyphens: auto;
   word-break: hyphenate;
 }
-/* line 245, ../../stylesheets/app/page.scss */
+/* line 239, ../../stylesheets/app/page.scss */
 article.page a[href]:not(.button) {
   text-decoration: underline;
 }
-/* line 249, ../../stylesheets/app/page.scss */
+/* line 243, ../../stylesheets/app/page.scss */
 article.page img.medium, article.page img.large, article.page img.no-image, article.page img.item.split {
   max-width: 100%;
   height: auto;
@@ -3898,7 +3891,7 @@ article.page img.medium, article.page img.large, article.page img.no-image, arti
   display: block;
   margin: 0 auto;
 }
-/* line 257, ../../stylesheets/app/page.scss */
+/* line 251, ../../stylesheets/app/page.scss */
 article.page .top-image {
   display: block;
   float: left;
@@ -3909,25 +3902,25 @@ article.page .top-image {
   height: auto;
   background-repeat: no-repeat;
 }
-/* line 268, ../../stylesheets/app/page.scss */
+/* line 262, ../../stylesheets/app/page.scss */
 article.page .top-image.fit {
   background-position: center;
   background-size: 100%;
 }
-/* line 273, ../../stylesheets/app/page.scss */
+/* line 267, ../../stylesheets/app/page.scss */
 article.page .top-image.cover {
   background-size: cover;
   background-position: center;
 }
-/* line 278, ../../stylesheets/app/page.scss */
+/* line 272, ../../stylesheets/app/page.scss */
 article.page ul li, article.page ol li {
   line-height: 1.6;
 }
-/* line 282, ../../stylesheets/app/page.scss */
+/* line 276, ../../stylesheets/app/page.scss */
 article.page video {
   -webkit-transform-style: preserve-3d;
 }
-/* line 286, ../../stylesheets/app/page.scss */
+/* line 280, ../../stylesheets/app/page.scss */
 article.page .video-wrapper {
   /*    position: relative;*/
   padding-bottom: 56.25%;
@@ -3935,7 +3928,7 @@ article.page .video-wrapper {
   padding-top: 25px;
   height: 0;
 }
-/* line 292, ../../stylesheets/app/page.scss */
+/* line 286, ../../stylesheets/app/page.scss */
 article.page .video-wrapper iframe, article.page .video-wrapper object, article.page .video-wrapper embed {
   position: absolute;
   top: 0;
@@ -3943,16 +3936,16 @@ article.page .video-wrapper iframe, article.page .video-wrapper object, article.
   width: 100%;
   height: 100%;
 }
-/* line 301, ../../stylesheets/app/page.scss */
+/* line 295, ../../stylesheets/app/page.scss */
 article.page .description {
   display: block;
   clear: both;
 }
-/* line 308, ../../stylesheets/app/page.scss */
-article.page.scroll .body {
+/* line 302, ../../stylesheets/app/page.scss */
+article.page.scroll .content {
   overflow: auto;
 }
-/* line 312, ../../stylesheets/app/page.scss */
+/* line 306, ../../stylesheets/app/page.scss */
 article.page footer {
   clear: both;
   float: none;
@@ -3960,12 +3953,12 @@ article.page footer {
   min-height: 110px;
 }
 
-/* line 320, ../../stylesheets/app/page.scss */
+/* line 314, ../../stylesheets/app/page.scss */
 article.page.no-header {
   height: 100%;
   text-align: center;
 }
-/* line 324, ../../stylesheets/app/page.scss */
+/* line 318, ../../stylesheets/app/page.scss */
 article.page.no-header:before {
   content: '';
   display: inline-block;
@@ -3974,12 +3967,12 @@ article.page.no-header:before {
   margin-right: -0.25em;
   /* Adjusts for spacing */
 }
-/* line 333, ../../stylesheets/app/page.scss */
+/* line 327, ../../stylesheets/app/page.scss */
 article.page.no-header header hgroup {
   display: none;
 }
-/* line 338, ../../stylesheets/app/page.scss */
-article.page.no-header .body {
+/* line 332, ../../stylesheets/app/page.scss */
+article.page.no-header .content {
   position: relative;
   top: -50px;
   text-align: left;
@@ -3987,14 +3980,14 @@ article.page.no-header .body {
   vertical-align: middle;
 }
 
-/* line 347, ../../stylesheets/app/page.scss */
+/* line 341, ../../stylesheets/app/page.scss */
 article.fullscreen {
   height: 100% !important;
   overflow: hidden;
   background-size: cover;
   background-repeat: no-repeat;
 }
-/* line 352, ../../stylesheets/app/page.scss */
+/* line 346, ../../stylesheets/app/page.scss */
 article.fullscreen:before {
   content: '';
   display: inline-block;
@@ -4003,20 +3996,20 @@ article.fullscreen:before {
   margin-right: -0.25em;
   /* Adjusts for spacing */
 }
-/* line 360, ../../stylesheets/app/page.scss */
+/* line 354, ../../stylesheets/app/page.scss */
 article.fullscreen .top-image {
   margin: 0;
 }
-/* line 364, ../../stylesheets/app/page.scss */
+/* line 358, ../../stylesheets/app/page.scss */
 article.fullscreen figure {
   height: 100%;
   width: 100%;
 }
-/* line 370, ../../stylesheets/app/page.scss */
+/* line 364, ../../stylesheets/app/page.scss */
 article.fullscreen iframe {
   background: #000;
 }
-/* line 374, ../../stylesheets/app/page.scss */
+/* line 368, ../../stylesheets/app/page.scss */
 article.fullscreen figcaption {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -4040,16 +4033,16 @@ article.fullscreen figcaption {
   line-height: 35px;
   overflow: hidden;
 }
-/* line 391, ../../stylesheets/app/page.scss */
+/* line 385, ../../stylesheets/app/page.scss */
 article.fullscreen.left {
   text-align: left;
 }
-/* line 395, ../../stylesheets/app/page.scss */
+/* line 389, ../../stylesheets/app/page.scss */
 article.fullscreen.right {
   text-align: right;
 }
-/* line 399, ../../stylesheets/app/page.scss */
-article.fullscreen .body {
+/* line 393, ../../stylesheets/app/page.scss */
+article.fullscreen .content {
   text-align: left;
   display: inline-block;
   vertical-align: middle;
@@ -4063,38 +4056,54 @@ article.fullscreen .body {
   width: 45%;
   margin: 5% 0;
 }
-/* line 412, ../../stylesheets/app/page.scss */
-article.fullscreen.top .body {
+/* line 405, ../../stylesheets/app/page.scss */
+article.fullscreen .content header {
+  text-align: left;
+}
+/* line 410, ../../stylesheets/app/page.scss */
+article.fullscreen.top .content {
   vertical-align: top;
 }
-/* line 416, ../../stylesheets/app/page.scss */
-article.fullscreen.bottom .body {
+/* line 414, ../../stylesheets/app/page.scss */
+article.fullscreen.bottom .content {
   vertical-align: bottom;
 }
-/* line 420, ../../stylesheets/app/page.scss */
-article.fullscreen.black .body, article.fullscreen.button.pointy .body {
+/* line 418, ../../stylesheets/app/page.scss */
+article.fullscreen.black .content, article.fullscreen.button.pointy .content {
   background: rgba(0, 0, 0, 0.7);
 }
-/* line 425, ../../stylesheets/app/page.scss */
-article.fullscreen.white .body {
+/* line 423, ../../stylesheets/app/page.scss */
+article.fullscreen.white .content {
   background: rgba(255, 255, 255, 0.9);
 }
 
-/* line 532, ../../stylesheets/app/page.scss */
+/* line 432, ../../stylesheets/app/page.scss */
+.one-column .content header {
+  padding-top: 20px;
+}
+@media screen and (min-width: 768px) {
+  /* line 431, ../../stylesheets/app/page.scss */
+  .one-column .content {
+    width: 45em;
+    margin: 0 auto;
+  }
+}
+
+/* line 544, ../../stylesheets/app/page.scss */
 article.two-column {
   position: relative;
   white-space: nowrap;
   padding-bottom: 0;
 }
-/* line 537, ../../stylesheets/app/page.scss */
+/* line 549, ../../stylesheets/app/page.scss */
 article.two-column .top-image {
   clear: none;
   margin: 0;
   height: 100%;
   white-space: normal;
 }
-/* line 544, ../../stylesheets/app/page.scss */
-article.two-column .body {
+/* line 556, ../../stylesheets/app/page.scss */
+article.two-column .content {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -4105,8 +4114,8 @@ article.two-column .body {
   height: 100%;
   padding: 60px 20px 20px;
 }
-/* line 554, ../../stylesheets/app/page.scss */
-article.two-column .body img {
+/* line 566, ../../stylesheets/app/page.scss */
+article.two-column .content img {
   max-height: 75%;
   -webkit-column-break-before: always;
   -moz-column-break-before: always;
@@ -4116,8 +4125,8 @@ article.two-column .body img {
   column-break-inside: avoid;
   display: inline-block;
 }
-/* line 566, ../../stylesheets/app/page.scss */
-article.two-column.paginate .body {
+/* line 578, ../../stylesheets/app/page.scss */
+article.two-column.paginate .content {
   -webkit-column-count: 2;
   -moz-column-count: 2;
   column-count: 2;
@@ -4125,7 +4134,7 @@ article.two-column.paginate .body {
   -moz-column-gap: 40px;
   column-gap: 40px;
 }
-/* line 576, ../../stylesheets/app/page.scss */
+/* line 588, ../../stylesheets/app/page.scss */
 article.two-column .cover-area {
   display: -webkit-box;
   display: -moz-box;
@@ -4139,18 +4148,18 @@ article.two-column .cover-area {
   -moz-box-align: stretch;
   -ms-box-align: stretch;
   box-align: stretch;
+  position: relative;
   justify-content: center;
   float: left;
   height: 100%;
-  float: left;
 }
-/* line 586, ../../stylesheets/app/page.scss */
+/* line 598, ../../stylesheets/app/page.scss */
 article.two-column .cover-area .top-image {
   float: none;
   background-image: url("http://farm6.staticflickr.com/5330/7167552168_7d80aef236_c.jpg");
 }
-/* line 591, ../../stylesheets/app/page.scss */
-article.two-column .cover-area hgroup {
+/* line 603, ../../stylesheets/app/page.scss */
+article.two-column .cover-area header {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -4161,20 +4170,20 @@ article.two-column .cover-area hgroup {
   width: 50%;
 }
 
-/* line 604, ../../stylesheets/app/page.scss */
+/* line 616, ../../stylesheets/app/page.scss */
 article.three-column {
   position: relative;
   white-space: nowrap;
   padding-bottom: 0;
 }
-/* line 609, ../../stylesheets/app/page.scss */
+/* line 621, ../../stylesheets/app/page.scss */
 article.three-column .top-image {
   clear: none;
   margin: 0;
   height: 100%;
   white-space: normal;
 }
-/* line 616, ../../stylesheets/app/page.scss */
+/* line 628, ../../stylesheets/app/page.scss */
 article.three-column.paginate .body {
   -webkit-column-count: 3;
   -moz-column-count: 3;
@@ -4183,7 +4192,7 @@ article.three-column.paginate .body {
   -moz-column-gap: 40px;
   column-gap: 40px;
 }
-/* line 626, ../../stylesheets/app/page.scss */
+/* line 638, ../../stylesheets/app/page.scss */
 article.three-column .body {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -4195,7 +4204,7 @@ article.three-column .body {
   height: 100%;
   padding: 60px 20px 20px;
 }
-/* line 636, ../../stylesheets/app/page.scss */
+/* line 648, ../../stylesheets/app/page.scss */
 article.three-column .body img {
   max-height: 75%;
   -webkit-column-break-before: always;
@@ -4206,7 +4215,7 @@ article.three-column .body img {
   column-break-inside: avoid;
   display: inline-block;
 }
-/* line 648, ../../stylesheets/app/page.scss */
+/* line 660, ../../stylesheets/app/page.scss */
 article.three-column .cover-area {
   display: -webkit-box;
   display: -moz-box;
@@ -4225,13 +4234,13 @@ article.three-column .cover-area {
   height: 100%;
   float: left;
 }
-/* line 658, ../../stylesheets/app/page.scss */
+/* line 670, ../../stylesheets/app/page.scss */
 article.three-column .cover-area .top-image {
   float: none;
   background-image: url("http://farm6.staticflickr.com/5330/7167552168_7d80aef236_c.jpg");
 }
-/* line 663, ../../stylesheets/app/page.scss */
-article.three-column .cover-area hgroup {
+/* line 675, ../../stylesheets/app/page.scss */
+article.three-column .cover-area header {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -4242,38 +4251,38 @@ article.three-column .cover-area hgroup {
   width: 33.333%;
 }
 
-/* line 676, ../../stylesheets/app/page.scss */
+/* line 688, ../../stylesheets/app/page.scss */
 .webview .page-head h1 {
   padding: 0;
 }
 
 @media screen and (orientation: portrait) {
-  /* line 682, ../../stylesheets/app/page.scss */
+  /* line 694, ../../stylesheets/app/page.scss */
   article.page .col.half {
-    height: 49%;
+    height: 49.99%;
     width: 100%;
     background: white;
   }
-  /* line 687, ../../stylesheets/app/page.scss */
+  /* line 699, ../../stylesheets/app/page.scss */
   article.page .col.half .image {
     left: 25%;
     position: relative;
     width: 50%;
   }
-  /* line 693, ../../stylesheets/app/page.scss */
+  /* line 705, ../../stylesheets/app/page.scss */
   article.page .col.half .info {
     text-align: center;
   }
-  /* line 695, ../../stylesheets/app/page.scss */
+  /* line 707, ../../stylesheets/app/page.scss */
   article.page .col.half .info .store {
     margin: 0;
   }
-  /* line 699, ../../stylesheets/app/page.scss */
+  /* line 711, ../../stylesheets/app/page.scss */
   article.page .col.half .info .price {
     line-height: 37px;
     vertical-align: middle;
   }
-  /* line 704, ../../stylesheets/app/page.scss */
+  /* line 716, ../../stylesheets/app/page.scss */
   article.page .col.half .info p {
     margin-top: 10px;
     text-align: left;
@@ -4300,20 +4309,20 @@ article.three-column .cover-area hgroup {
   font-size: 0;
 }
 /* line 25, ../../stylesheets/app/toolbar.scss */
-.dark-theme .toolbar, .dark-container .toolbar, article.fullscreen.black .body .toolbar, article.fullscreen.button.pointy .body .toolbar {
+.dark-theme .toolbar, .dark-container .toolbar, article.fullscreen.black .content .toolbar, article.fullscreen.button.pointy .content .toolbar {
   color: #fff;
 }
 /* line 28, ../../stylesheets/app/toolbar.scss */
-.dark-theme .toolbar a:hover, .dark-container .toolbar a:hover, article.fullscreen.black .body .toolbar a:hover, article.fullscreen.button.pointy .body .toolbar a:hover {
+.dark-theme .toolbar a:hover, .dark-container .toolbar a:hover, article.fullscreen.black .content .toolbar a:hover, article.fullscreen.button.pointy .content .toolbar a:hover {
   color: white;
 }
 /* line 33, ../../stylesheets/app/toolbar.scss */
-.toolbar.dark-theme, .toolbar.dark-container, article.fullscreen.black .toolbar.body, article.fullscreen.button.pointy .toolbar.body {
+.toolbar.dark-theme, .toolbar.dark-container, article.fullscreen.black .toolbar.content, article.fullscreen.button.pointy .toolbar.content {
   color: #fff;
   background: #0c0c0c;
 }
 /* line 35, ../../stylesheets/app/toolbar.scss */
-.toolbar.dark-theme a:hover, .toolbar.dark-container a:hover, article.fullscreen.black .toolbar.body a:hover, article.fullscreen.button.pointy .toolbar.body a:hover {
+.toolbar.dark-theme a:hover, .toolbar.dark-container a:hover, article.fullscreen.black .toolbar.content a:hover, article.fullscreen.button.pointy .toolbar.content a:hover {
   color: white;
 }
 /* line 42, ../../stylesheets/app/toolbar.scss */

@@ -2424,7 +2424,7 @@ div.popover span.drop-top {
   display: block;
   margin: -7px 0 0;
   padding: 7px 15px 0px;
-  background: url('../images/ui/top-arrow.png?1386837122') no-repeat center top;
+  background: url('../images/ui/top-arrow.png?1386849743') no-repeat center top;
 }
 /* line 54, ../../stylesheets/ui/dropdown.scss */
 div.popover div.drop-wrapper {
@@ -2949,7 +2949,7 @@ header.page-head.cover .container {
   float: left;
   width: 200px;
   height: 80px;
-  background: url('../images/issue-logo.png?1366358917') 0 -80px no-repeat;
+  background: url('../images/issue-logo.png') 0 -80px no-repeat;
   text-indent: -111111px;
 }
 /* line 103, ../../stylesheets/issue.scss */
@@ -2972,7 +2972,7 @@ header.page-head.cover .container {
   float: left;
   width: 200px;
   height: 150px;
-  background: url('../images/issue-icon-logo.png?1366358917') 0 -250px no-repeat;
+  background: url('../images/issue-icon-logo.png') 0 -250px no-repeat;
 }
 /* line 125, ../../stylesheets/issue.scss */
 .logo.icon.small, header.page-head .logo.icon {
