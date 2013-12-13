@@ -17,10 +17,6 @@
     bottom: 15px;
   }
 
-  .toc.page header {
-    margin: 0;
-  }
-
   .toc.page header hgroup {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -31,39 +27,49 @@
     text-align: left;
   }
 
-  .toc.page .body {
+  .toc.page .content {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 
-    padding: 0 40px;
-    width: 100%;
-    text-align: left;
+    /*padding: 0 40px;*/
+    /*width: 100%;*/
+    /*text-align: left;*/
   }
 
-  .toc.page .body .contributors {
+  .toc.page .content header {
+    padding: 0 40px;
+    text-align: left;
+    margin: 0;
+  }
+
+  .toc.page .content .body {
+    padding: 0 40px;
+  }
+
+  .toc.page .content .contributors {
     padding: 20px 0 0;
     list-style-type: none;
     text-align: center;
     white-space: nowrap;
   }
 
-  .toc.page .body .contributors li {
+  .toc.page .content .contributors li {
     display: inline-block;
     width: 25%;
     vertical-align: top;
   }
 
-  .toc.page .body .contributors li {
+  .toc.page .content .contributors li {
 
   }
 
-  .toc.page .body .contributors li span {
+  .toc.page .content .contributors li span {
     display: block;
     white-space: normal;
   }
 
-  .toc.page .body .contributors li span.description {
+  .toc.page .content .contributors li span.description {
     color: #555;
     font-style: italic;
   }
@@ -125,9 +131,9 @@
 <%
   page = Hashie::Mash.new(
     title: "Holiday Issue",
-    description: "",
-    author_name: "Taylor Luk",
-    author_icon: "",
+    description: nil,
+    author_name: nil,
+    author_icon: nil,
     content_type: "photo",
     top_image: "http://cl.ly/image/27131I1H411P/Screen%20Shot%202013-12-12%20at%204.25.17%20pm.png",
     brand_image: "http://cl.ly/image/1V2Z0K1J1H1g/header-text.png",
@@ -175,11 +181,8 @@ BLOCK
   )
 %>
 
-<% title_area = capture do %>
-  <hgroup>
-    <%= render 'debug', locals: { page: page } %>
-    <h1 class="title preview_item_title"><%= page.title %></h1>
-  </hgroup>
+<% header_area = capture do %>
+  <%= render "header", locals: { page: page } %>
 <% end %>
 
 <% cover_area = capture do %>
@@ -187,7 +190,7 @@ BLOCK
 <% end %>
 
 <article class="toc page <%= page.layout.content_overflow %>">
-  <div class="col third-2">
+  <div class="content col third-2">
     <% if page.layout.image_style == "background" %>
       style="background-image: url(<%= page.top_image %>)"
     <% end %>
@@ -200,29 +203,26 @@ BLOCK
 
     <% if page.layout.image_style == "cover" %>
 
-      <header class="clearfix">
-        <div class="cover-image" style="background-image: url(<%= page.top_image %>)">
-          <img class="brand-image" src="http://cl.ly/image/1V2Z0K1J1H1g/header-text.png" alt="">
-        </div>
-        <%= title_area %>
-      </header>
+      <div class="cover-image" style="background-image: url(<%= page.top_image %>)">
+        <img class="brand-image" src="http://cl.ly/image/1V2Z0K1J1H1g/header-text.png" alt="">
+      </div>
 
-      <div class="body"><%= page.content %></div>
+      <%= header_area %>
+
+      <div class="content body"><%= page.content %></div>
 
     <% elsif page.layout.image_style == "fit" %>
 
-      <header class="clearfix page-head body">
+      <header class="clearfix page-head">
         <img src="<%= page.top_image %>" class="top-image">
-        <%= title_area %>
+        <%= header_area %>
       </header>
 
       <div class="body"><%= page.content %></div>
 
     <% elsif page.layout.image_style == "background" %>
 
-      <div class="body">
-        <%= title_area %>
-      </div>
+      <%= header_area %>
 
     <% end %>
   </div>

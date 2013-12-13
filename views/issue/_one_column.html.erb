@@ -1,14 +1,5 @@
-<% title_area = capture do %>
-  <hgroup>
-    <%= render 'debug', locals: { page: page } %>
-    <h1 class="title preview_item_title"><%= page.title %></h1>
-    <h3 class="subtitle description"><%= page.description %></h3>
-
-    <div class="extras">
-      <img src="http://cl.ly/StPu/Image%202013.12.11%204%3A54%3A01%20pm.png" class="avatar" >
-      <em> by <%= page.author_name %></em>
-    </div>
-  </hgroup>
+<% header_area = capture do %>
+  <%= render "header", locals: { page: page } %>
 <% end %>
 
 <article class="one-column page
@@ -35,26 +26,23 @@
 
   <% if page.layout.image_style == "cover" %>
 
-    <header class="clearfix">
-      <div class="cover-image" style="background-image: url(<%= page.top_image %>)"></div>
-      <%= title_area %>
-    </header>
+    <div class="cover-image" style="background-image: url(<%= page.top_image %>)"></div>
+    <div class="content">
+      <%= header_area %>
+      <div class="body"><%= page.content %></div>
+    </div>
 
-    <div class="body"><%= page.content %></div>
   <% elsif page.layout.image_style == "fit" %>
 
-    <header class="clearfix page-head body">
-      <img src="<%= page.top_image %>" class="top-image">
-      <%= title_area %>
-    </header>
-
-    <div class="body"><%= page.content %></div>
+    <div class="content">
+      <img class="top-image" src="<%= page.top_image %>" >
+      <%= header_area %>
+      <div class="body"><%= page.content %></div>
+    </div>
 
   <% elsif page.layout.image_style == "background" %>
 
-    <div class="body">
-      <%= title_area %>
-    </div>
+    <div class="content body"><%= header_area %></div>
 
   <% end %>
 </article>
