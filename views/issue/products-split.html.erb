@@ -3,35 +3,39 @@
  -->
 
 <style>
-  .split.page .content {
+  .page.has-product .content {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    width: 100%;
     padding: 25px;
   }
 
-  .split.page .content header {
-    text-align: left;
+  .page.has-product .content header {
+    text-align: center;
   }
 
-  .split.page .content h1 {
-    font-style: italic;
+  .page.has-product .content h1 {
+    /*font-style: italic;
     font-size: 56px;
-    font-family: 'BodoniSvtyTwoITCTT-Book';
+    font-family: 'BodoniSvtyTwoITCTT-Book';*/
+
+    letter-spacing: 2px;
+    font-weight: normal;
+    font-family: "proxima_nova_bold";
+    font-size: 24px;
   }
 
-  .split.page .content h3 {
+  .page.has-product .content h3 {
     text-transform: uppercase;
     font-weight: normal;
     font-family: "EB Garamond";
   }
 
-  .split.page > .col.half {
+/*  .page.has-product > .col.half {
     overflow: auto;
   }
-
-  .split.page .product {
+*/
+  .page.has-product .product {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -40,19 +44,17 @@
     height: 100%;
   }
 
-  .split.page .product header {
+  .page.has-product header {
     margin: 0;
     padding: 0;
-    height: 10%;
+    height: 15%;
   }
 
-  .split.page .product header h2 {
-    letter-spacing: 2px;
-    font-weight: normal;
-    font-family: "proxima_nova_bold";
+  .page.has-product header h2 {
+
   }
 
-  .split.page .product header .label {
+  .page.has-product header .category {
     color: #666;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -60,14 +62,14 @@
     font-family: "proxima_nova_bold";
   }
 
-  .split.page .product .list {
+  .page.has-product .product-set {
     margin: 0;
     padding: 0;
     height: 90%;
     list-style-type: none;
   }
 
-  .split.page .product .list li {
+  .page.has-product .product-set li {
     position: relative;
     display: inline-block;
     float: left;
@@ -81,13 +83,13 @@
     text-align: center;
   }
 
-  .split.page .product .list li img {
+  .page.has-product .product-set li img {
     max-width: 100%;
     height: 100%;
     vertical-align: middle;
   }
 
-  .split.page .product .list li .tag {
+  .page.has-product .product-set li .tag {
     position: absolute;
     bottom: 0;
     left: 50%;
@@ -103,52 +105,52 @@
   }
 
   @media screen and (orientation:portrait) {
-    .split.page .product header {
+    .page.has-product .product header {
       height: 15%;
     }
 
-    .split.page .product .list {
+    .page.has-product .product-set {
       height: 85%;
     }
 
-    .split.page .col.half .product .list li {
+    .page.has-product .col.half .product-set li {
       width: 33.33%;
       height: 50%;
     }
 
-    #issue-viewer:not(.protrait) .split.page .col.half {
+    #issue-viewer:not(.protrait) .page.has-product .col.half {
       width: 49.99%;
       height: 100%;
     }
 
-    #issue-viewer:not(.protrait) .split.page .col.half .product header {
+    #issue-viewer:not(.protrait) .page.has-product .col.half .product header {
       height: 10%;
     }
 
-    #issue-viewer:not(.protrait) .split.page .col.half .product .list {
+    #issue-viewer:not(.protrait) .page.has-product .col.half .product-set {
       height: 90%;
     }
 
-    #issue-viewer:not(.protrait) .split.page .col.half .product .list li {
+    #issue-viewer:not(.protrait) .page.has-product .col.half .product-set li {
       width: 50%;
       height: 33.33%;
     }
   }
 
-  #issue-viewer.portrait .split.page .col.half {
+  #issue-viewer.portrait .page.has-product .col.half {
     width: 100%;
     height: 49.99%;
   }
 
-  #issue-viewer.portrait .split.page .product header {
+  #issue-viewer.portrait .page.has-product .product header {
     height: 15%;
   }
 
-  #issue-viewer.portrait .split.page .product .list {
+  #issue-viewer.portrait .page.has-product .product-set {
     height: 85%;
   }
 
-  #issue-viewer.portrait .split.page .col.half .product .list li {
+  #issue-viewer.portrait .page.has-product .col.half .product-set li {
     width: 33.33%;
     height: 50%;
   }
@@ -156,7 +158,7 @@
 
 <%= render "split", locals: {
   page: Hashie::Mash.new(
-    title: nil,
+    title: "Protect & Revitalise",
     description: nil,
     author_name: nil,
     author_icon: nil,
@@ -164,6 +166,7 @@
     content_type: "article",
     published_at: 3.days.ago,
 
+    category: "must have",
     content: <<-BLOCK,
     <h3>beauty trends</h3>
     <p>Shelve your matte cosmetics this season because it’s all about sporting that balmy, hydrated skin until it has drunk its fill!</p>
@@ -186,11 +189,7 @@
   BLOCK
 
     products: <<-BLOCK,
-    <header>
-      <span class="label">must have</span>
-      <h2>Protect & Revitalise</h2>
-    </header>
-    <ul class="list">
+    <ul class="product-set">
       <li>
         <img src="http://cl.ly/image/3740122Z2G2j/Screen%20Shot%202013-12-13%20at%2011.51.59%20am.png" alt="">
         <span class="tag">1</span>
@@ -223,7 +222,7 @@
       type: "split",
       image_align: "left",
       image_style: "cover",
-      content_overflow: "paginate",
+      content_overflow: nil,
       product_align: "right"
     )
   )}
