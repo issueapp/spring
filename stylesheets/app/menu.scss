@@ -2,13 +2,15 @@
 @import "compass/css3/text-shadow";
 @import "compass/css3/inline-block";
 @import "compass/css3/border-radius";
+@import "compass/utilities/general/clearfix";
+
 /*
   Sidebar style menu (width: 260px)
 
   .thin             - Thin version has 80px width
-  .off-canvas menu  - negative margin 
+  .off-canvas menu  - negative margin
   .page
-  
+
 */
 nav#menu {
   width: 260px;
@@ -20,23 +22,23 @@ nav#menu {
   // thin menu
   &.thin {
     width: 80px;
-    
+
     .nav .icon {
       position: static;
       right: auto;
     }
-    
+
     .nav .text {
       display: none;
     }
   }
-  
+
   // Off canvas menu
   .offcanvas & {
     float: left;
     margin-left: -100%;
   }
-  
+
   .offcanvas.active & {
     margin-left: 0;
   }
@@ -56,7 +58,7 @@ nav#menu {
 
 /*
   Menu item
-  
+
   :hover, .hover
   .active
   li > .icon          - right aligned icons
@@ -72,14 +74,14 @@ nav#menu {
   border-top: 1px solid rgba(15, 15, 15, 1);
   border-bottom: 1px solid rgba(10, 10, 10, 1);
   position: relative;
-  
+
   // Menu items
   a {
     padding: 0;
     display: block;
     color: #ccc;
   }
-  
+
   // Active state
   &:hover a, &.active a {
     color: #fff;
@@ -89,7 +91,7 @@ nav#menu {
   &.active {
     background: rgba(20,20,20,1);
   }
-  
+
   // Icons
   [class^="icon-"], [class*=" icon-"] {
     font-size: 24px;
@@ -110,7 +112,7 @@ nav#menu {
     right: 24px;
     font-size: 12px;
   }
-  
+
   // Bottom
   &.bottom {
     @include clearfix;
@@ -136,7 +138,7 @@ nav#menu {
       height: 20px;
     }
   }
-  
+
   // Level 2 menu
   .nav li ul li {
     padding-left: 30px;
@@ -145,7 +147,7 @@ nav#menu {
     a {
       color: #ccc;
     }
-    
+
     a:before {
       font-size: 12px;
       content: '→';
@@ -175,9 +177,9 @@ body.expand-menu .navigation {
 
 #edition-switch {
   margin-left: 2px;
-  
+
   .icon {
-    
+
     &:before {
       font-size: 22px;
     }

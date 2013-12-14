@@ -1,4 +1,5 @@
 @import "compass/css3";
+@import 'base/media-queries';
 
 @mixin input-placeholder {
   &.placeholder { @content; }
@@ -9,7 +10,7 @@
 
 form {
   margin: 0 0 1.25em;
-  
+
   // Form grid
   input.col, .col {
     position: relative;
@@ -20,20 +21,20 @@ form {
   /*================================================
           Label/hint
     ================================================*/
-    
-  label { 
+
+  label {
     padding: 5px 0;
     margin-right: 5px ;
   }
-  
+
   p.large, label.large {
     font-size: 18px;
     line-height: 32px;
   }
-  
+
   label.radio {
     padding-right: 1em;
-    
+
     input {
       margin-right: 0.5em;
     }
@@ -45,7 +46,7 @@ form {
     line-height: 1.4;
     font-size: 13px;
   }
-  
+
   .hint {
     &:after {
       content: none;
@@ -78,20 +79,20 @@ form {
     @include border-radius(2px);
     @include box-shadow(1px 1px 2px #eee inset);
   }
-  
+
   input.large:not(.button) {
     font-size: 18px !important;
     line-height: 35px;
     height: 35px;
   }
-  
-  input[type="text"], input[type="password"], input[type="tel"], input[type="email"], 
+
+  input[type="text"], input[type="password"], input[type="tel"], input[type="email"],
   input[type="search"], input[type="url"], textarea, select {
     font-size: 100%;
     line-height: normal;
-    
+
     @extend .text_field;
-    
+
     @include input-placeholder {
       font-family: georgia;
       font-weight: normal !important;
@@ -99,13 +100,13 @@ form {
       font-size: 15px;
     }
   }
-  
+
   // Checkbox, Radio
   input[type="checkbox"],
   input[type="radio"] {
     margin-right: 5px;
   }
-  
+
   select {
     width: auto;
     background-color: #fff;
@@ -113,47 +114,47 @@ form {
     height: 2.5em;
     line-height: 2.5em;
   }
-  
+
   input[type=submit], input[type=button], button[type=submit] {
     line-height: 2em;
 //    padding: 3px 15px;
     margin-right: 5px;
   }
-  
+
   /*
       Focus state
   */
   input:focus, select:focus, textarea:focus {
     border: 1px solid #A1CFDE !important;
   }
-  
-  
+
+
   /*================================================
           Errors
     ================================================*/
-  
+
   .field_with_errors {
     input.string, select.select {
       border-color: lighten(#e84949, 20%);
     }
-    
+
     .hint {
       display: none;
     }
   }
-  
+
   .error {
     @extend .hint_style;
     color: #e84949;
   }
-  
+
   // Responsive desktop
   @include min-screen(768) {
     p.large, label.large {
       font-size: 24px;
       line-height: 40px;
     }
-    
+
     input.large:not(.button) {
       font-size: 24px !important;
       line-height: 45px;
@@ -184,37 +185,37 @@ div.notification {
   z-index: 10000;
   background: rgba(0, 0, 0, 0.8);
   color: #fff;
-  
-  
+
+
   .overlay-active & {
     left: 7.5%;
     right: 7.5%;
     top: 0;
   }
-  
+
   // Responsive
   @include min-screen(768) {
     max-width: 30%;
     margin-left: -15%;
   }
-  
+
   a.close-target {
     position: absolute;
     right: 10px;
     color: #eee;
   }
-  
+
   a.close {
     float:right;
     &:before {  font-size: 24px; color: #111; }
-    
+
     width: 20px;
     height: 20px;
-    @extend .icon-cross; 
+    @extend .icon-cross;
   }
-  
 
-  
+
+
   &.prev, &.next {
     &:before {
       color: #fff;
@@ -226,14 +227,14 @@ div.notification {
       margin-top: -20px;
     }
   }
-  
+
   &.prev {
     &:before {
       right: 8px;
       content: "›";
     }
   }
-  
+
   &.next {
     &:before {
       left: 8px;

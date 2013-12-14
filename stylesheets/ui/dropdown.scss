@@ -1,4 +1,5 @@
 @import "compass/css3/box-shadow";
+@import "compass/css3/inline-block";
 
 .popover-wrap {
   @include inline-block;
@@ -11,39 +12,39 @@ div.popover {
   z-index: 1000000;
   text-align: left;
   width: 300px;
-  
+
   &.small {
     width: 200px;
-    
+
     ul.popover-list {
       min-height: 180px;
     }
   }
-  
+
   &.left {
     top: 15px;
     left: 10px;
-    
+
     .drop-top {
       margin-left: 10px;
       background-position: left top;
     }
   }
-  
+
   &.right {
     top: 15px;
     right: 10px;
-    
+
     .drop-top {
       margin-right: 10px;
       background-position: right top;
     }
   }
-  
+
   &.centered {
-    
+
   }
-  
+
   span.drop-top {
     display: block;
     margin: -7px 0 0;
@@ -55,7 +56,7 @@ div.popover {
     @include box-shadow(#c9c9c9 2px 2px 5px);
     position: absolute;
     width: 100%;
-    
+
     top: 36px;
     border:1px solid #eee;
     background-color: white;
@@ -68,14 +69,14 @@ div.popover {
     padding: 0;
     min-height: 250px;
     max-height: 360px;
-    
+
     li {
       display: block;
       float: none;
       margin: 0;
       border-top: 1px solid #eee;
       background-image: none;
-      
+
       a {
         height: 15px;
         line-height: 17px;
@@ -112,7 +113,7 @@ div.popover {
       border-top: none;
     }
   }
-  
+
   .popover-list a.checked {
     &:after {
       position: absolute;
@@ -130,31 +131,31 @@ div.popover {
   &.recent {
     @extend .icon-clock;
   }
-  
+
   &.published {
     @extend .icon-checkmark-circle;
   }
-  
+
   &.queued {
     @extend .icon-stack;
   }
-  
+
   &.archived {
     @extend .icon-archive;
   }
-  
+
   &.everything {
     @extend .icon-grid;
   }
-  
+
   &.article {
     @extend .icon-book;
   }
-  
+
   &.product {
     @extend .icon-tshirt;
   }
-  
+
   &.photo {
     @extend .icon-pictures;
   }
@@ -166,11 +167,11 @@ div.popover {
 
 #filter_toggle {
   @extend .icon-menu;
-  
+
   &:not(.everything) {
     @extend .filter-icon-styles;
   }
-  
+
   &:not(.everything):after {
     font-size: 13px;
     line-height: 50px;
@@ -191,32 +192,32 @@ div.popover {
 
 #filter_menu {
   right: -10px;
-  
+
   .drop-wrapper {
     left: -26px;
   }
-  
+
   .drop-top {
     margin-left: 115px;
     padding-right: 30px;
   }
-  
+
   ul.popover-list {
     max-height: 440px;
   }
-  
+
   a {
     @extend .filter-icon-styles;
-      
+
     &:before {
       top: 5px;
       position: relative;
       line-height: 10px;
       padding-right: 10px;
     }
-    
+
     &:hover {
-      
+
     }
   }
 }
@@ -227,7 +228,7 @@ div.popover {
 
   .drop-wrapper {
     min-height: 94px;
-    
+
     li {
       padding: 0;
 
@@ -248,19 +249,19 @@ div.popover {
 #new_content_button {
 
   a i {
-    font-size: 18px; 
+    font-size: 18px;
     padding-right: 10px;
   }
-  
+
   li {
     padding: 0;
   }
-  
+
 }
 
 #addToDropdown {
   right: 20px;
-  
+
   .drop-top {
     margin-left: 100px;
     padding-right: 30px;
@@ -275,7 +276,7 @@ div.popover {
     left: -26px;
 
   }
-  
+
   .drop-top {
     margin-left: 170px;
     padding-right: 10px;
@@ -284,7 +285,7 @@ div.popover {
 
 #edition_menu {
   right: 15px;
-  
+
   .drop-top {
     margin-left: 170px;
   }

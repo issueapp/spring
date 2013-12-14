@@ -4,7 +4,8 @@
 @import "compass/css3/box-shadow";
 @import "compass/css3/text-shadow";
 @import "compass/css3/box-sizing";
-
+@import 'compass/css3/transition';
+@import "base/media-queries";
 
 /*
     Reset button style
@@ -220,7 +221,7 @@ $btn-text-colour: #555555;
     color: $btn-text-colour;
     border: 1px solid rgba(150, 150, 150, 0.8);
 //    @include box-shadow(1px 1px 0px 0px rgba(0, 0, 0, 0.3));
-    
+
     background: none;
 
     @include text-shadow(none);
