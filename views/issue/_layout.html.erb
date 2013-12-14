@@ -26,10 +26,9 @@
         margin: 40px auto 0;
         width: 1024px;
         height: 768px;
-        background: #fff;
         border: 1px solid #ddd;
+        background: #fff;
       }
-
 
       .page {
         width: 100%;
@@ -37,18 +36,13 @@
       }
 
       nav.toc ul {
-/*        position: absolute;
-        top: 90px;
-        right: 0;
-        left: 0;
-        z-index: 2;*/
         display: none;
         overflow-x: auto;
         width: 100%;
         height: 200px;
+        background: #666;
         list-style-type: none;
         white-space: nowrap;
-        background: #666;
       }
 
       nav.toc label {
@@ -56,11 +50,6 @@
         z-index: 1;
         margin: 20px 20px 0;
         color: white;
-/*        margin: 10px;
-        padding: 10px 30px;
-        border: 1px solid #ccc;
-        background: #eee;
-        text-transform: uppercase;*/
       }
 
       nav.toc input {
@@ -98,7 +87,6 @@
         background: #eee;
       }
 
-
       [role=main] .page {
         width: 1024px;
         height: 768px;
@@ -119,7 +107,21 @@
       }
 
       .two-column .top-image {
-        width: 50%;
+        width: 100%;
+      }
+
+      .two-column.align-right .cover-area {
+        float: right;
+      }
+
+      .two-column.paginate.align-right header {
+        break-after: column;
+        -webkit-column-break-after: always;
+      }
+
+      .two-column.paginate.align-right .body {
+        break-before: column;
+        -webkit-column-break-before: always;
       }
 
       .three-column .top-image {
@@ -178,7 +180,7 @@
 
         <label for="menu" class="button outline">Issue</label>
         <button class="button outline" onclick="$('.debug').toggleClass('active')">Debug</button>
-        <button class="button outline" onclick="$('article.page').toggleClass('paginate')">Paginate</button>
+        <button class="button outline" onclick="$('article.page').toggleClass('paginate').toggleClass('scroll')">Paginate</button>
       </div>
 
       <nav class="toc dark-theme" role="secondary">

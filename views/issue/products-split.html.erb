@@ -15,7 +15,6 @@
   }
 
   .page.has-product .cover-area header {
-    float: left;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -23,17 +22,18 @@
     height: 15%;
   }
 
-  .page.has-product .cover-area .product-set {
-    float: left;
-    clear: left;
-    width: 50%;
-  }
-
   .page.has-product .title {
     letter-spacing: 2px;
     font-weight: normal;
     font-size: 24px;
     font-family: "proxima_nova_bold";
+
+    /*text-align: left;
+    font-style: italic;
+    font-weight: normal;
+    font-size: 56px;
+    font-family: 'BodoniSvtyTwoITCTT-Book';
+    padding: 20px 0;*/
   }
 
   .page.has-product .content .body {
@@ -74,8 +74,12 @@
 
   .page.has-product .product-set {
     margin: 0;
-    padding: 0;
+    padding: 40px;
     list-style-type: none;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
   }
 
   .page.has-product .product-set.set-2 {
@@ -91,7 +95,7 @@
   }
 
   .page.has-product .product-set.set-6 {
-    height: 85%;
+    height: 100%;
   }
 
   .page.has-product .product-set.set-6 li {
@@ -133,37 +137,13 @@
     line-height: 1.6;
   }
 
-  .page.has-product.align_left.no-image .product_area {
-    float: left;
-    width: 50%;
-    height: 100%;
-  }
-
-  .page.has-product.align_right.no-image .product_area {
-    float: right;
-    width: 50%;
-    height: 100%;
-  }
-
-  .page.has-product.align_right.no-image .content {
-    float: left;
-  }
-
-  .page.has-product.align_right.no-image.paginate .content.body {
-    overflow: auto;
-    width: 50%;
-    -webkit-column-count: 1;
-    -moz-column-count: 1;
-    column-count: 1;
-  }
-
   @media screen and (orientation:portrait) {
     .page.has-product .product header {
       height: 15%;
     }
 
     .page.has-product .product-set {
-      height: 85%;
+      height: 100%;
     }
 
     .page.has-product .col.half .product-set li {
@@ -200,7 +180,7 @@
   }
 
   #issue-viewer.portrait .page.has-product .product-set {
-    height: 85%;
+    height: 100%;
   }
 
   #issue-viewer.portrait .page.has-product .col.half .product-set li {
@@ -209,20 +189,19 @@
   }
 </style>
 
-<%= render "split", locals: {
+<%= render "two_column", locals: {
   page: Hashie::Mash.new(
-    title: "Protect & Revitalise",
+    title: "MUST HAVES",
     description: nil,
     author_name: nil,
     author_icon: nil,
-    top_image: "http://31.media.tumblr.com/5d40ddbd07fc716e715bd5462e305edd/tumblr_mx3tmhXNNE1st5lhmo1_1280.jpg",
-    # top_image: nil,
+    # top_image: "http://31.media.tumblr.com/5d40ddbd07fc716e715bd5462e305edd/tumblr_mx3tmhXNNE1st5lhmo1_1280.jpg",
+    top_image: nil,
     content_type: "article",
     published_at: 3.days.ago,
 
-    category: "must have",
+    category: nil,
     content: <<-BLOCK,
-    <h1 style="font-style: italic; font-weight: normal; font-size: 56px; font-family: 'BodoniSvtyTwoITCTT-Book'; padding: 20px 0;">MUST HAVES</h1>
     <h3>beauty trends</h3>
     <p>Shelve your matte cosmetics this season because it’s all about sporting that balmy, hydrated skin until it has drunk its fill!</p>
     <p>The latest craze this Summer is all about luminous skin with that natural dewy finish. This was spotted in various runways in New York to the likes of Marni, Matthew Williamson and Balmain- so investing in cream highlighters is our top survival tip this season, which can be combined with your foundation to suit your skin tone.</p>
@@ -283,10 +262,10 @@
   BLOCK
 
     layout: params.fetch(:layout, {}).reverse_merge(
-      type: "split",
+      type: "product",
       image_align: "left",
       image_style: "cover",
-      content_overflow: nil,
+      content_overflow: "scroll",
       product_align: "right"
     )
   )}
