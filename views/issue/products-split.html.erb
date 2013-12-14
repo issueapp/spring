@@ -30,10 +30,6 @@
   }
 
   .page.has-product .title {
-    /*font-style: italic;
-    font-size: 56px;
-    font-family: 'BodoniSvtyTwoITCTT-Book';*/
-
     letter-spacing: 2px;
     font-weight: normal;
     font-size: 24px;
@@ -153,6 +149,14 @@
     float: left;
   }
 
+  .page.has-product.align_right.no-image.paginate .content.body {
+    overflow: auto;
+    width: 50%;
+    -webkit-column-count: 1;
+    -moz-column-count: 1;
+    column-count: 1;
+  }
+
   @media screen and (orientation:portrait) {
     .page.has-product .product header {
       height: 15%;
@@ -218,6 +222,7 @@
 
     category: "must have",
     content: <<-BLOCK,
+    <h1 style="font-style: italic; font-weight: normal; font-size: 56px; font-family: 'BodoniSvtyTwoITCTT-Book'; padding: 20px 0;">MUST HAVES</h1>
     <h3>beauty trends</h3>
     <p>Shelve your matte cosmetics this season because it’s all about sporting that balmy, hydrated skin until it has drunk its fill!</p>
     <p>The latest craze this Summer is all about luminous skin with that natural dewy finish. This was spotted in various runways in New York to the likes of Marni, Matthew Williamson and Balmain- so investing in cream highlighters is our top survival tip this season, which can be combined with your foundation to suit your skin tone.</p>
