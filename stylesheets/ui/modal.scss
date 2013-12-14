@@ -1,6 +1,7 @@
 @import "compass/css3/box-sizing";
 @import "compass/css3/text-shadow";
 @import "compass/css3/border-radius";
+@import 'base/media-queries';
 
 // Model
 
@@ -22,7 +23,7 @@
   right: 0%;
   max-width: 600px;
   min-height: 400px;
-  
+
   // Responsive desktop
   @include min-screen(768) {
     position: fixed;
@@ -33,7 +34,7 @@
     margin-left: -300px;
     min-height: 450px;
   }
-  
+
 
   background: #fff;
   padding: 20px 20px 50px;
@@ -47,8 +48,8 @@
 
 
     font-size: 18px;
-    
-    
+
+
     font-weight: normal;
     text-align: center;
   }

@@ -1,10 +1,13 @@
-@import "compass/css3/box-sizing";
+@import 'compass/css3/box-sizing';
+@import 'compass/css3/transition';
+@import 'compass/css3/transform';
+@import 'base/media-queries';
 
 /*
     Item
 
     define layout and positioning of a rendering unit
-    
+
     .item
     .split              - Split view that has large image on the left
     .no-image           - Item style without a image, this uses larger font
@@ -21,7 +24,7 @@
   @include box-sizing(border-box);
 
   .item {
-    
+
     @include box-sizing(border-box);
     position: relative;
     float: left;
@@ -34,17 +37,17 @@
 
     border: 1px solid #eee;
     border-width: 0 1px 1px 0;
-    
+
     //    300x280
     //    340x353
-    
+
     // Image 60%
     .image {
       height: 60%;
       background-size: cover;
       background-position: center;
       min-height: 350px;
-      
+
       @include min-screen(768) {
         min-height: inherit;
       }
@@ -56,7 +59,7 @@
       background-image: none;
       background-color: #eee;
     }
-    
+
     .fadein.image.hide {
       visibility: hidden;
     }
@@ -85,10 +88,10 @@
       left: 20px;
       right:19px;
       background: #fff;
-      
+
       // Layout
       @include box-sizing(border-box);
-      
+
 
       // Layout
       vertical-align: top;
@@ -138,9 +141,9 @@
       overflow: hidden;
       text-overflow: ellipsis;
     }
-    
-    
-    
+
+
+
     .admin & {
       &:before {
         content: " ";
@@ -158,7 +161,7 @@
         border-bottom: 20px solid lighten(#57ad68, 10%);
       }
     }
-  
+
   }
 
   .row .item:last-child {
@@ -216,20 +219,20 @@
       display: block;
       height: 80%;
     }
-    
+
     &.no-source {
-      
+
     }
   }
-  
+
   .no-description {
     .description {
       display: none;
     }
   }
-  
+
   // Large style
-  
+
   .large {
     @include min-screen(768) {
       .title {
@@ -248,10 +251,10 @@
       }
     }
   }
-  
+
   .no-image {
     @extend .large;
-    
+
     .title {
       overflow : hidden;
       text-overflow: ellipsis;
@@ -263,7 +266,7 @@
     .image {
       display:none;
     }
-    
+
     .info {
       position: relative;
 //      padding-top: 20%;
@@ -279,13 +282,13 @@
       display: block;
       position: absolute;
       font-size: 12px;
-      
+
       top: 20px;
       left: 20px;
-      
+
       //right: 20px;
       //bottom: 34px;
-      
+
       padding: 6px 18px;
       height: 20px;
       line-height: 20px;
@@ -331,13 +334,13 @@
   */
   .item.split {
     @extend .large;
-    
+
     a.action.love, a.action.collect {
       top: 50%;
     }
 
     @include min-screen(480) {
-      
+
       .image {
         overflow: hidden;
         display: inline-block;
@@ -372,8 +375,8 @@
         top: 0px;
         bottom: 0;
       }
-      
-      
+
+
       .via {
         position: absolute;
         bottom: 20px;
