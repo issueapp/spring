@@ -40,8 +40,16 @@
   <% end %>
 <% end %>
 
-<article class="two-column has-product page <%= page.layout.content_overflow %>">
-  <% if page.layout.product_align == "left" %>
+<article class="two-column has-product page <%= page.layout.content_overflow %> align_<%= page.layout.product_align %>">
+  <% if !page.top_image %>
+
+    <div class="product_area">
+      <%= header_area %>
+      <%= product_area %>
+    </div>
+    <div class="content body"><%= page.content %></div>
+
+  <% elsif page.layout.product_align == "left" %>
     <section class="cover-area page">
       <%= header_area %>
       <%= product_area %>
