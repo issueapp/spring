@@ -14,7 +14,7 @@
     .logo   - issue logo
 
   .cover
-    
+
     .tite               - Magazine or Issue title
     .description        - Issue description
     .brand              - Customer branding
@@ -34,6 +34,11 @@
 
 */
 
+@import 'compass/css3/box-sizing';
+@import 'compass/css3/text-shadow';
+@import "compass/css3/border-radius";
+@import 'base/media-queries';
+
 // Landing page
 .cover {
   position: relative;
@@ -41,13 +46,13 @@
   overflow: hidden;
   color: white;
   font-family: "proxima-nova", sans-serif;
-  
+
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
 
   &.fullscreen {
- 
+
     background-color: black;
     background-position: center;
     background-size: cover;
@@ -63,12 +68,12 @@
       padding: 40px;
       margin: 0;
 //      z-index: 1;
-//      
+//
       width: 100%;
       height: 100%;
       max-width: 100%;
     }
-//  
+//
 //    nav#site-nav {
 //      margin-top: 20px;
 //    }
@@ -79,7 +84,7 @@
 ////    background-position: center;
 ////    background-size: cover;
 ////    z-index: 1;
-//  
+//
 //    .webview & {
 //      -webkit-animation: fade 0.4s ease both;
 //      -moz-animation: fade 0.4s ease both;
@@ -98,12 +103,12 @@
     margin-top: 5%;
     text-align: center;
   }
-  
-  
+
+
   .brand {
     font-size: 32px;
   }
-  
+
   .title {
     @include text-shadow(1px 1px 5px rgba(0,0,0,0.3));
     display: inline-block;
@@ -111,11 +116,11 @@
     padding-bottom: 3px;
     text-align: left;
     text-transform: uppercase;
-    
+
     font-weight: 600;
     font-size: 30px;
     font-family: "EB Garamond";
-    
+
     letter-spacing: 1px;
 //    font-family: "HelveticaNeue-CondensedBold", "HelveticaNeueBoldCondensed", "HelveticaNeue-Bold-Condensed", "Helvetica Neue Bold Condensed", "HelveticaNeueBold", "HelveticaNeue-Bold", "Helvetica Neue Bold", "HelveticaNeue", "Helvetica Neue", 'TeXGyreHerosCnBold', "Helvetica", "Tahoma", "Geneva", "Arial Narrow", "Arial", sans-serif;
 //    border-bottom: 2px solid #fff;
@@ -129,7 +134,7 @@
       width: 100%;
     }
   }
-  
+
   .description {
     @include text-shadow;
     @include text-shadow(1px 1px 3px rgba(0,0,0,0.5));
@@ -138,13 +143,13 @@
     color: rgba(255, 255, 255, 1);
 //    text-align: left;
     text-transform: lowercase;
-    
+
     font-weight: normal;
     font-style: italic;
     font-size: 18px;
     font-family: georgia;
     line-height: 1.5;
-    
+
     max-height: 3em;
     letter-spacing: 0;
 
@@ -166,7 +171,7 @@
 
   /*      Branding
    *====================================*/
-  
+
   .logo {
     position:absolute;
     display: none;
@@ -179,10 +184,10 @@
 
     background-position: -250px -250px !important;
     margin-left: -43px;
-    
+
     zoom: 0.75;
     opacity: 0;
-    
+
     -webkit-animation: fade 0.5s ease both;
     -moz-animation: fade 0.5s ease both;
     -webkit-animation-delay: 1s;
@@ -248,9 +253,9 @@
 
   /*      Responsive
    *====================================*/
-  
+
   @include min-screen(768) {
-    
+
     .logo {
       display: block;
       width: 201px;
@@ -263,7 +268,7 @@
         display: none;
       }
     }
-    
+
     .brand {
       font-size: 40px;
       margin-bottom: 0.25em;
@@ -284,7 +289,7 @@
     .signature {
       padding-top: 10px;
     }
-    
+
     //    .signup {
     //      text-align: right;
     //      position: absolute;

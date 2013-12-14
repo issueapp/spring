@@ -1,9 +1,11 @@
 @import 'compass/css3/transition';
 @import 'compass/css3/images';
+@import 'base/media-queries';
+
 /*
 
   Dark theme
-  
+
 */
 .dark-theme {
   color: white;
@@ -25,13 +27,13 @@
 /*
 
   Dark container extends a dark theme, used in editions, login and gallery.
-  
+
 */
 .dark-container {
   @extend .dark-theme;
   height: 100%;
   background-color: #111;
-  
+
   @include min-screen(768) {
     .container {
       padding-top: 5%;
@@ -41,7 +43,7 @@
 
 .dark-container.linen {
   background-image: image-url('/assets/linen-small.png');
-  
+
   &:after {
     @include background(radial-gradient(circle, rgba(100,100,100,0.2), rgba(0,0,0,0.9)));
     content: '';
