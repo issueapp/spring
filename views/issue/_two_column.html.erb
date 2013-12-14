@@ -6,20 +6,55 @@
   <div class="top-image <%= page.layout.image_style %>" style="background-image: url(<%= page.top_image %>)"></div>
 <% end %>
 
-<article class="two-column page <%= page.layout.content_overflow %>">
+<% if has_product = page.products.to_a.count > 0 %>
+<% product_area = capture do %>
+  <ul class="product-set <%= "set-#{(page.products.to_a.count/2.0).ceil*2}" %>">
+  <% page.products.each_with_index do |url, index| %>
+    <li>
+      <img src="<%= url %>" alt="">
+      <span class="tag"><%= index + 1 %></span>
+    </li>
+  <% end %>
+  </ul>
+<% end %>
+<% end %>
+
+<article class="two-column page
+ <%= "has-product " if has_product %>
+ <%= page.layout.content_overflow %>
+ <%= "no-image " unless page.top_image %>
+align-<%= page.layout.image_align %>
+">
+
   <% if page.layout.image_align == "right" %>
-    <section class="cover-area page">
-      <%= header_area %>
+    <section class="cover-area col half">
+      <%= product_area if has_product %>
       <%= cover_area if page.top_image %>
     </section>
 
-    <div class="content body"><%= page.content %></div>
-
-  <% else %>
-    <%= cover_area if page.top_image %>
-
     <div class="content">
       <%= header_area %>
+
+      <p style="-webkit-column-break-after: always;break-before: column; margin: 0;"></p>
+      <div class="body">
+        <%= page.content %>
+      </div>
+    </div>
+
+  <% else %>
+    <!-- Cover Left -->
+    <div class="cover-area col half">
+      <% if page.top_image %>
+        <%= cover_area %>
+      <% else %>
+        <%= header_area %>
+        <%= product_area if has_product %>
+      <% end %>
+    </div>
+
+    <!-- Content Right -->
+    <div class="content">
+      <%= header_area unless has_product %>
       <div class="body"><%= page.content %></div>
     </div>
   <% end %>
