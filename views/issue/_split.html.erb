@@ -40,7 +40,11 @@
   <% end %>
 <% end %>
 
-<article class="two-column has-product page <%= page.layout.content_overflow %> align_<%= page.layout.product_align %>">
+<article class="two-column has-product page
+  <%= page.layout.content_overflow %>
+  align_<%= page.layout.product_align %>
+  <%= "no-image" unless page.top_image %>">
+
   <% if !page.top_image %>
 
     <div class="product_area">
