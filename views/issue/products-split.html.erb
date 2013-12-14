@@ -137,6 +137,22 @@
     line-height: 1.7;
   }
 
+  .page.has-product.align_left .product_area {
+    float: left;
+    width: 50%;
+    height: 100%;
+  }
+
+  .page.has-product.align_right .product_area {
+    float: right;
+    width: 50%;
+    height: 100%;
+  }
+
+  .page.has-product.align_right .content {
+    float: left;
+  }
+
   @media screen and (orientation:portrait) {
     .page.has-product .product header {
       height: 15%;
@@ -196,6 +212,7 @@
     author_name: nil,
     author_icon: nil,
     top_image: "http://31.media.tumblr.com/5d40ddbd07fc716e715bd5462e305edd/tumblr_mx3tmhXNNE1st5lhmo1_1280.jpg",
+    # top_image: nil,
     content_type: "article",
     published_at: 3.days.ago,
 
