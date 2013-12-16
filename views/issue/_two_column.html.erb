@@ -23,11 +23,10 @@
  <%= "has-product " if has_product %>
  <%= page.layout.content_overflow %>
  <%= "no-image " unless page.top_image %>
- align-<%= page.layout.image_align %>
-">
+ cover-<%= page.layout.image_align %>">
 
   <% if has_product && page.top_image %>
-    <div class="cover-area col half"><%= cover_area %></div>
+    <div class="cover-area <%= page.layout.image_style %>" style="background-image: url(<%= page.top_image %>)"></div>
 
     <div class="content">
       <%= header_area %>
@@ -36,33 +35,14 @@
       <div class="body"><%= page.content %></div>
     </div>
 
-  <% elsif page.layout.image_align == "right" %>
-    <section class="cover-area col half">
-      <% if page.top_image %>
-        <%= cover_area %>
-      <% elsif has_product %>
-        <%= product_area %>
-      <% end %>
-    </section>
+  <% else %>
+    <div class="cover-area <%= page.layout.image_style %>" style="background-image: url(<%= page.top_image %>)" >
+      <%= product_area if has_product %>
+    </div>
 
     <div class="content">
       <%= header_area %>
       <p class="column-placeholder"></p>
-      <div class="body"><%= page.content %></div>
-    </div>
-
-  <% else %>
-    <div class="cover-area col half">
-      <% if page.top_image %>
-        <%= cover_area %>
-      <% elsif has_product %>
-        <%= header_area %>
-        <%= product_area %>
-      <% end %>
-    </div>
-
-    <div class="content">
-      <%= header_area unless has_product %>
       <div class="body"><%= page.content %></div>
     </div>
   <% end %>
