@@ -11,38 +11,36 @@
   <%= page.layout.content_overflow %>
   <%= page.layout.content_style %>
   <%= page.layout.content_align %>
-  <%= page.layout.content_valign %>"
+  <%= page.layout.content_valign %>
+  cover-<%= page.layout.image_align %>"
 
   <% if page.layout.image_style == "background" %>
     style="background-image: url(<%= page.top_image %>)"
   <% end %>
 >
 
-  <% if page.content_type == "video" %>
-    <div class="video-wrapper">
-      <%= page.content %>
-    </div>
-  <% end %>
+  <%# if page.content_type == "video" %>
+    <!-- <div class="video-wrapper"> -->
+      <%#= page.content %>
+    <!-- </div> -->
+  <%# end %>
 
-  <% if page.layout.image_style == "cover" %>
-
-    <div class="cover-image" style="background-image: url(<%= page.top_image %>)"></div>
-    <div class="content">
-      <%= header_area %>
-      <div class="body"><%= page.content %></div>
-    </div>
-
-  <% elsif page.layout.image_style == "fit" %>
-
-    <div class="content">
-      <img class="top-image" src="<%= page.top_image %>" >
-      <%= header_area %>
-      <div class="body"><%= page.content %></div>
-    </div>
-
-  <% elsif page.layout.image_style == "background" %>
-
+  <% if page.layout.image_style == "background" %>
     <div class="content body"><%= header_area %></div>
+
+  <% else %>
+
+    <div class="cover-area <%= page.layout.image_style %>" style="background-image: url(<%= page.top_image %>)">
+      <% if video_embed = page.embed_content %>
+        <div class="video-wrapper"><%= video_embed %></div>
+      <% end %>
+    </div>
+
+    <div class="content">
+      <%= header_area %>
+      <p class="column-placeholder"></p>
+      <div class="body"><%= page.content %></div>
+    </div>
 
   <% end %>
 
