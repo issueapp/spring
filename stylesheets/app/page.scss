@@ -161,6 +161,19 @@ article.page {
     }
   }
 
+  .column-placeholder {
+    -webkit-column-break-before: always;
+    -webkit-column-break-after: always;
+    break-before: column;
+    margin: 0;
+    height: 1px;
+    display: none;
+  }
+
+  &.align-right .column-placeholder {
+    display: block;
+  }
+
   // TODO: MOVE TO ADMIN
   #preview_item_content {
     &.no-cover [data-cover], img[data-size=tiny] {
@@ -583,7 +596,6 @@ article.two-column {
     -webkit-column-gap: 40px;
     -moz-column-gap: 40px;
     column-gap: 40px;
-
   }
 
   .cover-area {
@@ -632,7 +644,6 @@ article.three-column {
     -webkit-column-gap: 40px;
     -moz-column-gap: 40px;
     column-gap: 40px;
-
   }
 
   .body {

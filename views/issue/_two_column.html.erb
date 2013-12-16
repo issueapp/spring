@@ -7,52 +7,60 @@
 <% end %>
 
 <% if has_product = page.products.to_a.count > 0 %>
-<% product_area = capture do %>
-  <ul class="product-set <%= "set-#{(page.products.to_a.count/2.0).ceil*2}" %>">
-  <% page.products.each_with_index do |url, index| %>
-    <li>
-      <img src="<%= url %>" alt="">
-      <span class="tag"><%= index + 1 %></span>
-    </li>
+  <% product_area = capture do %>
+    <ul class="product-set <%= "set-#{(page.products.to_a.count/2.0).ceil*2}" %>">
+    <% page.products.each_with_index do |url, index| %>
+      <li>
+        <img src="<%= url %>" alt="">
+        <span class="tag"><%= index + 1 %></span>
+      </li>
+    <% end %>
+    </ul>
   <% end %>
-  </ul>
-<% end %>
 <% end %>
 
 <article class="two-column page
  <%= "has-product " if has_product %>
  <%= page.layout.content_overflow %>
  <%= "no-image " unless page.top_image %>
-align-<%= page.layout.image_align %>
+ align-<%= page.layout.image_align %>
 ">
 
-  <% if page.layout.image_align == "right" %>
+  <% if has_product && page.top_image %>
+    <div class="cover-area col half"><%= cover_area %></div>
+
+    <div class="content">
+      <%= header_area %>
+      <%= product_area %>
+      <p class="column-placeholder"></p>
+      <div class="body"><%= page.content %></div>
+    </div>
+
+  <% elsif page.layout.image_align == "right" %>
     <section class="cover-area col half">
-      <%= product_area if has_product %>
-      <%= cover_area if page.top_image %>
+      <% if page.top_image %>
+        <%= cover_area %>
+      <% elsif has_product %>
+        <%= product_area %>
+      <% end %>
     </section>
 
     <div class="content">
       <%= header_area %>
-
-      <p style="-webkit-column-break-after: always;break-before: column; margin: 0;"></p>
-      <div class="body">
-        <%= page.content %>
-      </div>
+      <p class="column-placeholder"></p>
+      <div class="body"><%= page.content %></div>
     </div>
 
   <% else %>
-    <!-- Cover Left -->
     <div class="cover-area col half">
       <% if page.top_image %>
         <%= cover_area %>
-      <% else %>
+      <% elsif has_product %>
         <%= header_area %>
-        <%= product_area if has_product %>
+        <%= product_area %>
       <% end %>
     </div>
 
-    <!-- Content Right -->
     <div class="content">
       <%= header_area unless has_product %>
       <div class="body"><%= page.content %></div>
