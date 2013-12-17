@@ -2,10 +2,6 @@
   <%= render "header", locals: { page: page } %>
 <% end %>
 
-<% cover_area = capture do %>
-  <div class="top-image <%= page.layout.image_style %>" style="background-image: url(<%= page.top_image %>)"></div>
-<% end %>
-
 <% if has_product = page.products.to_a.count > 0 %>
   <% product_area = capture do %>
     <ul class="product-set <%= "set-#{(page.products.to_a.count/2.0).ceil*2}" %>">
@@ -19,33 +15,39 @@
   <% end %>
 <% end %>
 
+<% cover_area = capture do %>
+  <div class="cover-area <%= page.layout.image_style %>" style="background-image: url(<%= page.top_image if page.layout.image_style != "background" %>)">
+    <%= product_area if has_product && !page.top_image %>
+  </div>
+<% end %>
+
 <article class="two-column page
- <%= "has-product " if has_product %>
- <%= page.layout.content_overflow %>
  <%= "no-image " unless page.top_image %>
- cover-<%= page.layout.image_align %>">
+ <%= "has-product " if has_product %>
 
-  <% if has_product && page.top_image %>
-    <div class="cover-area <%= page.layout.image_style %>" style="background-image: url(<%= page.top_image %>)"></div>
+ <%= page.content_type %>
+ <%= page.layout.content_overflow || "scroll" %>
+ <%= page.layout.content_style %>
+ <%= page.layout.content_align %>
+ <%= page.layout.content_valign %>
 
-    <div class="content">
-      <%= header_area %>
-      <%= product_area %>
-      <p class="column-break"></p>
-      <div class="body"><%= page.content %></div>
-    </div>
+ height-<%= page.layout.content_height || "full" %>
+ image-<%= page.layout.image_style || "cover" %>
+ cover-<%= page.layout.image_align || "left" %>"
 
-  <% else %>
-    <div class="cover-area <%= page.layout.image_style %>" style="background-image: url(<%= page.top_image %>)" >
-      <%= product_area if has_product %>
-    </div>
-
-    <div class="content">
-      <%= header_area %>
-      <p class="column-break"></p>
-      <div class="body"><%= page.content %></div>
-    </div>
+  <% if page.layout.image_style == "background" %>
+   style="background-image: url(<%= page.top_image %>)"
   <% end %>
+>
+
+  <%= cover_area %>
+
+  <div class="content">
+    <%= header_area %>
+    <%= product_area if has_product && page.top_image %>
+    <p class="column-break"></p>
+    <div class="body"><%= page.content %></div>
+  </div>
 
   <%= render 'debug', locals: { page: page } %>
 </article>
