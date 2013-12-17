@@ -1,79 +1,46 @@
 <style>
-  h2 {
+h2 {
     text-transform: none;
     font-weight: normal;
     font-size: 24px;
     font-family: "EB Garamond";
   }
-
-  .toc.page .cover-image {
-    position: relative;
-    height: 264px;
+  
+  .page.toc .content {
+    padding: 0;
+  }
+  
+  
+  /*
+    Contributors
+  */
+  .toc .contributors {
+      padding: 20px 0 0;
+      list-style-type: none;
+      text-align: center;
+      white-space: nowrap;
   }
 
-  .toc.page .cover-image .brand-image {
-    position: absolute;
-    right: 15px;
-    bottom: 15px;
-  }
-
-  .toc.page header hgroup {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-
-    padding: 30px 40px 0;
-    width: 100%;
-    text-align: left;
-  }
-
-  .toc.page .content {
-    float: left;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    margin: 0;
-    width: 66.66%;
-    height: 100%;
-  }
-
-  .toc.page .content header {
-    padding: 10px 40px;
-    text-align: left;
-    margin: 0;
-  }
-
-  .toc.page .content .body {
-    padding: 0 40px;
-  }
-
-  .toc.page .content .contributors {
-    padding: 20px 0 0;
-    list-style-type: none;
-    text-align: center;
-    white-space: nowrap;
-  }
-
-  .toc.page .content .contributors li {
+  .toc .contributors li {
     display: inline-block;
     width: 25%;
     vertical-align: top;
   }
 
-  .toc.page .content .contributors li {
+  .toc .contributors li {
 
   }
 
-  .toc.page .content .contributors li span {
+  .toc .contributors li span {
     display: block;
     white-space: normal;
   }
 
-  .toc.page .content .contributors li span.description {
+  .toc .contributors li span.description {
     color: #555;
     font-style: italic;
   }
-
+  
   /*
     Content list
   */
@@ -190,42 +157,24 @@ BLOCK
 <% end %>
 
 <article class="toc page <%= page.layout.content_overflow %>">
-  <div class="content">
-    <% if page.layout.image_style == "background" %>
-      style="background-image: url(<%= page.top_image %>)"
-    <% end %>
+  
+  
+  <div class="col third-2">
 
-    <% if page.content_type == "video" %>
-      <div class="video-wrapper">
-        <%= page.content %>
-      </div>
-    <% end %>
+    <div class="cover-area <%= page.layout.image_style %>" style="background-image: url(<%= page.top_image %>)">
+      <% if video_embed = page.embed_content %>
+        <div class="video-wrapper"><%= video_embed %></div>
+      <% end %>
+    </div>
 
-    <% if page.layout.image_style == "cover" %>
-
-      <div class="cover-image" style="background-image: url(<%= page.top_image %>)">
-        <img class="brand-image" src="http://cl.ly/image/1V2Z0K1J1H1g/header-text.png" alt="">
-      </div>
-
+    <div class="content">
       <%= header_area %>
-
+      <p class="column-break"></p>
       <div class="body"><%= page.content %></div>
-
-    <% elsif page.layout.image_style == "fit" %>
-
-      <header class="clearfix page-head">
-        <img src="<%= page.top_image %>" class="top-image">
-        <%= header_area %>
-      </header>
-
-      <div class="body"><%= page.content %></div>
-
-    <% elsif page.layout.image_style == "background" %>
-
-      <%= header_area %>
-
-    <% end %>
+    </div>
+    
   </div>
+  
 
   <div class="col third contents">
     <h2>CONTENTS</h>
