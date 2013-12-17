@@ -1,6 +1,6 @@
 <%
   
-issue = Hashie::Mash.new(
+issue = @page =  Hashie::Mash.new(
   edition_title: "MINKPINK",
   title: "Advanture",
   short_title: "Advanture",
@@ -8,11 +8,9 @@ issue = Hashie::Mash.new(
   description: "Winter Wonderment"
 )
 
-
 %>
 
 <section class="issue cover page fullscreen dark-theme " style="background-image: url(<%= issue.image_url %>);">
-  
   <div class="container">
     <nav role="navigation">
       <ul class="links">
@@ -35,52 +33,3 @@ issue = Hashie::Mash.new(
     <a class="browse" href="/issue/contents">‹</a>
   </div>
 </section>
-
-<!-- 
-<header id="edition-cover" class="cover fullscreen dark-theme page" style="background-image: url(http://d3g2n6yemfhre1.cloudfront.net/q/format/jpeg/interlace/true/src/http%3A%2F%2Fassets.issue.by.s3.amazonaws.com%2F2013%2F10%2F02%2F09%2F56%2F39%2F5%2Fdreamcatcher.jpg/thumb/1024x%3E);">
-  <div class="container">
-    
-    <h1 class="icon logo "></h1>
-
-    <nav id="site-nav" role="navigation">
-      <ul class="links">
-        <li>
-          <a class="share icon icon-export" data-action="share" data-title="Young republic" data-url="http://issueapp.com/youngrepublic/share" href="#shareDropdown"></a>
-          <div class="popover small right" id="shareDropdown" style="display: none;">
-            <div class="drop-wrapper">
-              <span class="drop-top"></span>
-              <ul class="popover-list">
-                <li class="header"><span>Share to</span></li>
-                <li><a class="active popup" data-height="300" data-width="600" href="https://www.facebook.com/dialog/feed?app_id=163408273714649&amp;display=popup&amp;link=http%3A%2F%2Fon.issue.by%2F10mD5vu&amp;redirect_uri=http%3A%2F%2Fissueapp.com%2Fclose_popup">
-                    <i class="icon-facebook"> </i>Facebook</a>
-                </li>
-                <li>
-                  <a class="active popup" data-height="300" data-width="600" href="https://twitter.com/intent/tweet?text=Young%2520republic&amp;url=http%3A%2F%2Fon.issue.by%2F10mD5vu&amp;via=Issueby">
-                    <i class="icon-twitter"> </i> Twitter</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </li>
-
-        <li data-edition-id="515e58a3aae903597f000042">
-          <a class="button subscribe outline delay" data-action="subscribe" data-handle="youngrepublic" data-id="515e58a3aae903597f000042" data-overlay="true" data-remote-action="true" data-title="youngrepublic" href="/subscribe/Edition/515e58a3aae903597f000042" style="display: none">subscribe</a>
-
-          <a class="button unsubscribe outline delay" data-action="unsubscribe" data-handle="youngrepublic" data-id="515e58a3aae903597f000042" data-method="delete" data-overlay="true" data-remote-action="true" data-remote="true" data-title="youngrepublic" href="/subscriptions/515e58a3aae903597f000042" rel="nofollow" style="">unsubscribe</a>
-        </li>
-      </ul>
-    </nav>
-
-    <hgroup class="welcome">
-      <img alt="Issue preview" class="preview" src="http://assets.issue.by.s3.amazonaws.com/2013/10/03/07/21/30/555/issue_preview.png">
-
-      <h1 class="title">Young republic</h1>
-      <h2 class="description">Subscribe now to be first in line to receive our first issue - "Dare to Dream"</h2>
-
-        <p class="subtitle signature"> - Andrew &amp; Marianne</p>
-
-    </hgroup>
-
-      <a class="browse movein" data-action="go:next" href="/issue/contents">‹</a>
-  </div>
-</header> -->
