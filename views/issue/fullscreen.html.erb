@@ -1,27 +1,26 @@
-<!--
-  http://localhost:3000/issue/one-col?layout[image_style]=background&layout[content_style]=black&layout[content_valign]=bottom&layout[content_align]=right
- -->
-
-<%= render "one_column", locals: {
+<%= render "column", locals: {
   page: Hashie::Mash.new(
     title: "SUMMER SURVIVAL GUIDE",
     description: lorem_ipsum,
     author_name: "Zyralyn Bacani",
     author_icon: "http://cl.ly/StPu/Image%202013.12.11%204%3A54%3A01%20pm.png",
-    content_type: "photo",
+    content_type: "article",
     top_image: "http://31.media.tumblr.com/e8b9ca89ac00aaf1878b83d2ff5c9832/tumblr_mx3tsop3GI1st5lhmo1_1280.jpg",
     published_at: 3.days.ago,
 
-    content: lorem_ipsum,
+    content: <<-BLOCK,
+    #{ 2.times.map{ "<p>#{lorem_ipsum(10)}</p>" }.join("") }
+  BLOCK
 
     layout: params.fetch(:layout, {}).reverse_merge(
-      type: "one_column",
+      type: "two-column",
       image_align: "left",
       image_style: "background",
-      content_style: "black",
+      content_overflow: "scroll",
+      content_style: "white",
       content_align: "left",
-      content_valign: "bottom",
-      content_overflow: "paginate"
+      content_height: "auto",
+      content_valign: "middle"
     )
   )}
 %>

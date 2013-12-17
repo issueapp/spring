@@ -1,8 +1,4 @@
-<!--
-  http://localhost:3000/issue/two-col?layout[image_align]=right&layout[image_style]=cover
- -->
-
-<%= render "two_column", locals: {
+<%= render "column", locals: {
   page: Hashie::Mash.new(
     title: "SUMMER SURVIVAL GUIDE",
     description: lorem_ipsum,
@@ -13,76 +9,18 @@
     published_at: 3.days.ago,
 
     content: <<-BLOCK,
-    <p>
-      Paragraph 1
-    </p>
-    <p>
-      I’m sure most of you can relate when I say that living in Australia makes you experience all four seasons in one day. From the switch to an intense winter to a scorching summer, it surely can’t be good for our skin or hair! Zyralyn from Issue tells you how to beat the heat this summer and give it the R&R that it deserves!
-    </p>
-    <p>
-      I’m sure most of you can relate when I say that living in Australia makes you experience all four seasons in one day. From the switch to an intense winter to a scorching summer, it surely can’t be good for our skin or hair! Zyralyn from Issue tells you how to beat the heat this summer and give it the R&R that it deserves!
-    </p>
-    <p>
-      I’m sure most of you can relate when I say that living in Australia makes you experience all four seasons in one day. From the switch to an intense winter to a scorching summer, it surely can’t be good for our skin or hair! Zyralyn from Issue tells you how to beat the heat this summer and give it the R&R that it deserves!
-    </p>
-    <p>
-      I’m sure most of you can relate when I say that living in Australia makes you experience all four seasons in one day. From the switch to an intense winter to a scorching summer, it surely can’t be good for our skin or hair! Zyralyn from Issue tells you how to beat the heat this summer and give it the R&R that it deserves!
-    </p>
-    <p>
-      I’m sure most of you can relate when I say that living in Australia makes you experience all four seasons in one day. From the switch to an intense winter to a scorching summer, it surely can’t be good for our skin or hair! Zyralyn from Issue tells you how to beat the heat this summer and give it the R&R that it deserves!
-    </p>
-    <p>
-      I’m sure most of you can relate when I say that living in Australia makes you experience all four seasons in one day. From the switch to an intense winter to a scorching summer, it surely can’t be good for our skin or hair! Zyralyn from Issue tells you how to beat the heat this summer and give it the R&R that it deserves!
-    </p>
-    <p>
-      I’m sure most of you can relate when I say that living in Australia makes you experience all four seasons in one day. From the switch to an intense winter to a scorching summer, it surely can’t be good for our skin or hair! Zyralyn from Issue tells you how to beat the heat this summer and give it the R&R that it deserves!
-    </p>
-    <p>
-      I’m sure most of you can relate when I say that living in Australia makes you experience all four seasons in one day. From the switch to an intense winter to a scorching summer, it surely can’t be good for our skin or hair! Zyralyn from Issue tells you how to beat the heat this summer and give it the R&R that it deserves!
-    </p>    <p>
-      I’m sure most of you can relate when I say that living in Australia makes you experience all four seasons in one day. From the switch to an intense winter to a scorching summer, it surely can’t be good for our skin or hair! Zyralyn from Issue tells you how to beat the heat this summer and give it the R&R that it deserves!
-    </p>
-    <p>
-      I’m sure most of you can relate when I say that living in Australia makes you experience all four seasons in one day. From the switch to an intense winter to a scorching summer, it surely can’t be good for our skin or hair! Zyralyn from Issue tells you how to beat the heat this summer and give it the R&R that it deserves!
-    </p>    <p>
-      I’m sure most of you can relate when I say that living in Australia makes you experience all four seasons in one day. From the switch to an intense winter to a scorching summer, it surely can’t be good for our skin or hair! Zyralyn from Issue tells you how to beat the heat this summer and give it the R&R that it deserves!
-    </p>
-    <p>
-      I’m sure most of you can relate when I say that living in Australia makes you experience all four seasons in one day. From the switch to an intense winter to a scorching summer, it surely can’t be good for our skin or hair! Zyralyn from Issue tells you how to beat the heat this summer and give it the R&R that it deserves!
-    </p>    <p>
-      I’m sure most of you can relate when I say that living in Australia makes you experience all four seasons in one day. From the switch to an intense winter to a scorching summer, it surely can’t be good for our skin or hair! Zyralyn from Issue tells you how to beat the heat this summer and give it the R&R that it deserves!
-    </p>
-    <p>
-      I’m sure most of you can relate when I say that living in Australia makes you experience all four seasons in one day. From the switch to an intense winter to a scorching summer, it surely can’t be good for our skin or hair! Zyralyn from Issue tells you how to beat the heat this summer and give it the R&R that it deserves!
-    </p>    <p>
-      I’m sure most of you can relate when I say that living in Australia makes you experience all four seasons in one day. From the switch to an intense winter to a scorching summer, it surely can’t be good for our skin or hair! Zyralyn from Issue tells you how to beat the heat this summer and give it the R&R that it deserves!
-    </p>
-    <p>
-      I’m sure most of you can relate when I say that living in Australia makes you experience all four seasons in one day. From the switch to an intense winter to a scorching summer, it surely can’t be good for our skin or hair! Zyralyn from Issue tells you how to beat the heat this summer and give it the R&R that it deserves!
-    </p>    <p>
-      I’m sure most of you can relate when I say that living in Australia makes you experience all four seasons in one day. From the switch to an intense winter to a scorching summer, it surely can’t be good for our skin or hair! Zyralyn from Issue tells you how to beat the heat this summer and give it the R&R that it deserves!
-    </p>
-    <p>
-      I’m sure most of you can relate when I say that living in Australia makes you experience all four seasons in one day. From the switch to an intense winter to a scorching summer, it surely can’t be good for our skin or hair! Zyralyn from Issue tells you how to beat the heat this summer and give it the R&R that it deserves!
-    </p>    <p>
-      I’m sure most of you can relate when I say that living in Australia makes you experience all four seasons in one day. From the switch to an intense winter to a scorching summer, it surely can’t be good for our skin or hair! Zyralyn from Issue tells you how to beat the heat this summer and give it the R&R that it deserves!
-    </p>
-    <p>
-      I’m sure most of you can relate when I say that living in Australia makes you experience all four seasons in one day. From the switch to an intense winter to a scorching summer, it surely can’t be good for our skin or hair! Zyralyn from Issue tells you how to beat the heat this summer and give it the R&R that it deserves!
-    </p>
+    #{ 10.times.map{ "<p>#{lorem_ipsum(10)}</p>" }.join("") }
   BLOCK
 
     layout: params.fetch(:layout, {}).reverse_merge(
-      type: "two_column",
-      image_align: "right",
+      type: "two-column",
+      image_align: "left",
       image_style: "background",
       content_overflow: "scroll",
-      content_style: "black",
+      content_style: "white",
       content_align: "right",
       content_height: "full",
-      content_valign: "bottom",
+      content_valign: "bottom"
     )
   )}
 %>
-
-<!-- #{ 50.times.map{ "<p>#{lorem_ipsum(10)}</p>" }.join("") } -->

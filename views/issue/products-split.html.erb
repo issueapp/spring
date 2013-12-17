@@ -1,15 +1,4 @@
-<!--
-  http://localhost:3000/issue/two-col?layout[image_align]=right&layout[image_style]=cover
- -->
-
 <style>
-/*  .page.has-product .content {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    padding: 20px;
-  }
-*/
   .page.has-product .cover-area header {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -24,11 +13,7 @@
     font-size: 24px;
     font-family: "proxima_nova_bold";
   }
-/*
-  .page.has-product .content .body {
-    padding: 20px 0;
-  }
-*/
+
   .page.has-product .content h3 {
     text-transform: uppercase;
     font-weight: normal;
@@ -44,7 +29,7 @@
     height: 100%;
   }
 
-  .page.has-product header {
+  article.page.has-product header {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -68,6 +53,7 @@
     margin: 0;
     padding: 0 0 20px;
     list-style-type: none;
+    white-space: normal;
   }
 
   .page.has-product .product-set.set-2 {
@@ -109,8 +95,8 @@
 
   .page.has-product .product-set li img {
     max-width: 100%;
-/*    max-height: 100%;
-    height: 100%;*/
+    max-height: 100%;
+    /*height: 100%;*/
     vertical-align: middle;
   }
 
@@ -148,7 +134,7 @@
   }
 </style>
 
-<%= render "two_column", locals: {
+<%= render "column", locals: {
   page: Hashie::Mash.new(
     title: "MUST HAVES",
     description: nil,
@@ -161,24 +147,7 @@
 
     category: nil,
     content: <<-BLOCK,
-    <h3>beauty trends</h3>
-    <p>Shelve your matte cosmetics this season because it’s all about sporting that balmy, hydrated skin until it has drunk its fill!</p>
-    <p>The latest craze this Summer is all about luminous skin with that natural dewy finish. This was spotted in various runways in New York to the likes of Marni, Matthew Williamson and Balmain- so investing in cream highlighters is our top survival tip this season, which can be combined with your foundation to suit your skin tone.</p>
-
-    <h3>THE SKIN</h3>
-    <p>White and its family of hues including eggshell, vanilla and sand are used to brighten the face this spring. Highlight bone structure just where the sun hits by either generously applying the color with a few wide strokes of a make-up brush, or by using it as a topcoat to fade darker tones and make for a fresh finish. Seen at: Catherine Malandrino, Emilio Pucci and Prada.</p>
-    <p>This season it’s all about luminous skin, so forget the matte look and use powder sparingly. The key products to invest in are cream highlighters, which can be mixed and blended to suit your skin tone. We saw this at most of the shows – it’s that youthful glowing look that the models have even though it’s their eighth show of the day and they’re running on little sleep. So what are the make-up artists’ tips for getting the perfect glow?</p>
-    <p>“The first step for base is moisturisers,” says head make-up artist Baltasar Gonzaez Pinel backstage at Roland Mouret. “I like MAC’s Studio Moisture Fix. It’s a cream that doesn’t look oily but it has this feeling that you are applying something rich on the skin. Then I use Studio Moisture Foundation, which is a perfect blend of silicon based ingredients and pigments, so that when you blend it, blemishes disappear.”</p>
-    <p>At Giambattista Valli, legendary make-up director Val Garland emphasised the importance of highlighters: “For this show there is always a sense of sheen, so highlighters are very much an essential component. For spring, the tones are anything that is flesh based – less pearl and more real.”</p>
-    <p>Only 1-2 mere drops of the A’kin rose Ship oil are needed to instantly rejuvenate the skin and over time, maintain your skin’s elasticity.</p>
-    <p>For those with oily skin and acne, I know exactly what you’re thinking! Why would you apply more oil to your skin, right? Well A’kin’s rosehip oil helps re-balance the oil in the skin, regenerating the natural oil production levels and reducing the appearance of scarring. It absorbs right into the skin, without leaving an oily residue.</p>
-
-    <h3>Quick tips:</h3>
-    <p>Combine 2-3 drops into your daily moisturizer for a more effective result.</p>
-    <p>Exfoliate those pores! While rosehip oil will assist with oily and congested skin, it’s essential that you exfoliate at least once a week to help remove any build-up. Maybe try a chemical exfoliant because it means less stress to already agitated skin!</p>
-
-    <h3>SUBHEADING</h3>
-    <p>condimentum sit amet a augue. Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam pharetra, erat sed fermentum feugiat, velit mauris egestas quam, ut aliquam massa nisl quis neque. Suspendisse in orci enim.</p>
+    #{ 10.times.map{ "<p>#{lorem_ipsum(10)}</p>" }.join("") }
   BLOCK
 
     products: [
@@ -191,11 +160,15 @@
     ],
 
     layout: params.fetch(:layout, {}).reverse_merge(
-      type: "product",
+      type: "two-column",
       image_align: "left",
       image_style: "cover",
       content_overflow: "scroll",
-      product_align: "right"
+      product_align: "right",
+      content_style: "white",
+      content_align: "right",
+      content_height: "auto",
+      content_valign: "bottom"
     )
   )}
 %>
