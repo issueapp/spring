@@ -266,16 +266,6 @@ article.page {
     vertical-align: bottom;
   }
 
-  &.height-auto .content {
-    height: auto;
-    margin: 5% 0;
-  }
-
-  &.height-full .content {
-    height: 100%;
-  }
-
-
   // Image layout
 
   &.cover-right .cover-area {
@@ -297,10 +287,25 @@ article.page {
     overflow: hidden;
   }
 
+  &.image-background .column-break {
+    height: 0;
+  }
+
   &.image-background .content {
     overflow: auto;
     margin: 2% auto;
     height: 95%;
+  }
+
+  &.image-background.height-auto .content {
+    height: auto;
+    margin: 5% auto;
+    max-height: 90%;
+  }
+
+  &.image-background.height-full .content {
+    height: 100%;
+    margin: 0 auto;
   }
 
   &.image-background .cover-area {
@@ -331,7 +336,6 @@ article.one-column {
       padding-top: 130px;
     }
   }
-
 
   &.image-background:before {
     content: none;
@@ -430,7 +434,8 @@ article.fullscreen {
     }
 
     .content {
-      padding: 20px 20px 60px;
+      // padding: 20px 20px 60px;
+      padding: 20px;
     }
   }
 
@@ -448,7 +453,7 @@ article.fullscreen {
     padding-bottom: 0;
 
     .content {
-      vertical-align: top;
+      vertical-align: middle;
       display: inline-block;
       white-space: normal;
 

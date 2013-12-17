@@ -1,4 +1,4 @@
-<%= render "one_column", locals: {
+<%= render "column", locals: {
   page: Hashie::Mash.new(
     title: "A Tribute to Paul Walker",
     description: lorem_ipsum,
@@ -12,12 +12,14 @@
     embed_content: embed_video("http://www.youtube.com/watch?v=o8UCI7r1Aqw"),
 
     layout: params.fetch(:layout, {}).reverse_merge(
-      type: "one_column",
+      type: "one-column",
       image_align: "left",
       image_style: "fullscreen",
-
-      content_style: "",
-      content_overflow: "paginate"
+      content_overflow: "scroll",
+      content_style: "white",
+      content_align: "right",
+      content_height: "auto",
+      content_valign: "bottom"
     )
   )}
 %>
