@@ -16,12 +16,17 @@
 <% end %>
 
 <% cover_area = capture do %>
-  <div class="cover-area <%= page.layout.image_style %>" style="background-image: url(<%= page.top_image if page.layout.image_style != "background" %>)">
+  <div class="cover-area <%= page.layout.image_style %>"
+    style="background-image: url(<%= page.top_image if page.layout.image_style != "background" %>)">
     <%= product_area if has_product && !page.top_image %>
+    <% if video_embed = page.embed_content %>
+      <div class="video-wrapper"><%= video_embed %></div>
+    <% end %>
   </div>
 <% end %>
 
-<article class="two-column page
+<article class="page
+ <%= page.layout.type || "two-column" %>
  <%= "no-image " unless page.top_image %>
  <%= "has-product " if has_product %>
 
@@ -35,9 +40,9 @@
  image-<%= page.layout.image_style || "cover" %>
  cover-<%= page.layout.image_align || "left" %>"
 
-  <% if page.layout.image_style == "background" %>
-   style="background-image: url(<%= page.top_image %>)"
-  <% end %>
+ <% if page.layout.image_style == "background" %>
+  style="background-image: url(<%= page.top_image %>)"
+ <% end %>
 >
 
   <%= cover_area %>
