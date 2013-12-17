@@ -43,33 +43,27 @@
     .gallery      -     gallery page
 
 */
-.one-column {
-  .cover-area {
-    h1 {
-      padding-top: 130px;
-    }
-  }
-}
-
-
 article.page {
   margin: 0 auto;
   font: 16px/22px "proxima_nova_regular";
   line-height: 1.6;
-  
+
   // Cover area for image/video
   .cover-area {
     @include box-sizing(border-box);
-    
+
     width: 100%;
     height: auto;
     min-height: 300px;
-    
+
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
 
     &.fit {
       position: relative;
+      background-size: 100%;
+
       .video-wrapper {
         position: relative;
       }
@@ -80,28 +74,27 @@ article.page {
     }
   }
 
-  &.cover-right .cover-area {
-    float: right;
-  }
-  
-  // Content container
+
+  // Content Style
+
   .content {
     @include box-sizing(border-box);
     width: 90%;
     margin: 0 auto;
+    float: none;
     padding: 20px 0;
   }
-  
+
   &.scroll .content {
     overflow: auto;
   }
-  
+
   header {
     @include box-sizing(border-box);
-    
+
     margin: 0 0 18px;
     padding: 20px 0 0;
-    
+
     text-align: center;
 
     hgroup {
@@ -118,10 +111,7 @@ article.page {
     display: none;
   }
 
-  &.cover-right .column-break {
-    display: block;
-  }
-  
+
   // Content formatting
   .title {
     text-transform: uppercase;
@@ -235,6 +225,117 @@ article.page {
     margin: 0 auto !important;
     min-height: 110px;
   }
+
+  // Content Layout
+
+  &.black .content {
+    @extend .dark-theme;
+    background: rgba(0, 0, 0, 0.7);
+  }
+
+  &.caption .content {
+    @extend .dark-theme;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    text-align: left;
+
+    .title {
+      font-family: "EB Garamond";
+      font-size: 18px;
+    }
+
+    .description {
+      text-align: left;
+      font-family: "EB Garamond";
+      font-size: 16px;
+    }
+
+    .body { display: none}
+    .extras { display:none }
+  }
+
+  &.white .content {
+    background: rgba(255, 255, 255,0.9);
+  }
+
+  &.top .content {
+    vertical-align: top;
+  }
+
+  &.bottom .content {
+    vertical-align: bottom;
+  }
+
+  &.height-auto .content {
+    height: auto;
+    margin: 5% 0;
+  }
+
+  &.height-full .content {
+    height: 100%;
+  }
+
+
+  // Image layout
+
+  &.cover-right .cover-area {
+    // float: right;
+
+    position: absolute;
+    top: 0;
+  }
+
+  // &.cover-right .content {
+  //   float: left;
+  // }
+
+  &.cover-right .column-break {
+    display: block;
+  }
+
+  &.image-background {
+    overflow: hidden;
+  }
+
+  &.image-background .content {
+    overflow: auto;
+    margin: 2% auto;
+    height: 95%;
+  }
+
+  &.image-background .cover-area {
+    background: none;
+    display: none;
+  }
+
+  &.image-background.left {
+    text-align: left;
+  }
+
+  &.image-background.right {
+    text-align: right;
+  }
+
+  &.image-background:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -0.25em; /* Adjusts for spacing */
+  }
+}
+
+article.one-column {
+  .cover-area {
+    h1 {
+      padding-top: 130px;
+    }
+  }
+
+
+  &.image-background:before {
+    content: none;
+  }
 }
 
 article.page.no-header {
@@ -269,7 +370,7 @@ article.fullscreen {
   overflow: hidden;
   background-size: cover;
   background-repeat: no-repeat;
-  
+
   &:before {
     content: '';
     display: inline-block;
@@ -308,70 +409,39 @@ article.fullscreen {
     overflow: hidden;
   }
 
-  &.left {
-    text-align: left;
-  }
-
-  &.right {
-    text-align: right;
-  }
-
   .content {
-    text-align: left;
-    display: inline-block;
     vertical-align: middle;
     max-height: 100%;
     overflow-y: auto;
-    padding: 40px;
+    padding: 20px;
     position: relative;
     width: 45%;
     margin: 5% 0;
-
-    header {
-      text-align: left;
-    }
-  }
-
-  &.top .content {
-    vertical-align: top;
-  }
-
-  &.bottom .content {
-    vertical-align: bottom;
-  }
-
-  &.black .content {
-    @extend .dark-theme;
-    background: rgba(0, 0, 0, 0.7);
-  }
-
-  &.white .content {
-    background: rgba(255, 255, 255,0.9);
   }
 }
 
 // Mutli column pagination
 
 @include min-screen(768) {
-  
+
   article.page {
     .title {
       font-size: 34px;
     }
-    
+
     .content {
       padding: 20px 20px 60px;
     }
   }
-  
+
   article.one-column {
     .content, .cover-area.fit {
       width: 45em;
       margin: 0 auto;
     }
   }
-    
-  article.two-column, 
+
+  article.two-column,
   article.three-column {
     position: relative;
     white-space: nowrap;
@@ -381,7 +451,7 @@ article.fullscreen {
       vertical-align: top;
       display: inline-block;
       white-space: normal;
-    
+
       width: 50%;
       height: 100%;
   //    padding: 60px 20px 20px;
@@ -402,7 +472,7 @@ article.fullscreen {
       header {
         padding-top: 30%;
       }
-      
+
       .content {
         overflow: default;
 
@@ -412,15 +482,15 @@ article.fullscreen {
         -webkit-column-gap: 40px;
         -moz-column-gap: 40px;
         column-gap: 40px;
-      } 
-      
+      }
+
     }
 
     .cover-area {
-      @include display-box;
-      @include box-orient(horizontal);
-      @include box-align(stretch);
-    
+      // @include display-box;
+      // @include box-orient(horizontal);
+      // @include box-align(stretch);
+
       position: relative;
       justify-content: center;
 
@@ -428,7 +498,6 @@ article.fullscreen {
       height: 100%;
       width: 50%;
       padding: 0;
-    
 
       header {
         padding-top: 20%;
@@ -458,8 +527,8 @@ article.fullscreen {
       width: 66.66%;
     }
   }
-  
-  
+
+
   #issue-viewer:not(.mobile) article.one-column {
     .content, .cover-area.fit {
       width: 45em;

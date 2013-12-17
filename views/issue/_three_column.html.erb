@@ -2,28 +2,52 @@
   <%= render "header", locals: { page: page } %>
 <% end %>
 
-<% cover_area = capture do %>
-  <div class="top-image <%= page.layout.image_style %>" style="background-image: url(<%= page.top_image %>)">
-</div>
+<% if has_product = page.products.to_a.count > 0 %>
+  <% product_area = capture do %>
+    <ul class="product-set <%= "set-#{(page.products.to_a.count/2.0).ceil*2}" %>">
+    <% page.products.each_with_index do |url, index| %>
+      <li>
+        <img src="<%= url %>" alt="">
+        <span class="tag"><%= index + 1 %></span>
+      </li>
+    <% end %>
+    </ul>
+  <% end %>
 <% end %>
 
-<article class="three-column content page <%= page.layout.content_overflow %>">
-  <% if page.layout.image_align == "right" %>
-    <section class="cover-area page">
-      <%= header_area %>
-      <%= cover_area if page.top_image %>
-    </section>
+<% cover_area = capture do %>
+  <div class="cover-area <%= page.layout.image_style %>" style="background-image: url(<%= page.top_image %>)">
+    <%= product_area if has_product && !page.top_image %>
+  </div>
+<% end %>
 
-    <div class="body">
-      <%= page.content %>
-    </div>
+<article class="three-column page
+ <%= "no-image " unless page.top_image %>
+ <%= "has-product " if has_product %>
 
-  <% else %>
-    <%= cover_area if page.top_image %>
+ <%= page.content_type %>
+ <%= page.layout.content_overflow %>
+ <%= page.layout.content_style %>
+ <%= page.layout.content_align %>
+ <%= page.layout.content_valign %>
+ height-<%= page.layout.content_height || "full" %>
 
-    <div class="body">
-      <%= header_area %>
-      <%= page.content %>
-    </div>
-  <% end %>
+ image-<%= page.layout.image_style %>
+ cover-<%= page.layout.image_align %>"
+
+ <% if page.layout.image_style == "background" %>
+   style="background-image: url(<%= page.top_image %>)"
+ <% end %>
+ >
+  <!-- if page.layout.image_style == "cover" -->
+  <%= cover_area  %>
+
+  <div class="content">
+    <%= header_area %>
+    <%= product_area if has_product && page.top_image %>
+    <p class="column-break"></p>
+    <div class="body"><%= page.content %></div>
+  </div>
+
+  <%= render 'debug', locals: { page: page } %>
 </article>

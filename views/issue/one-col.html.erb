@@ -3,7 +3,7 @@
  -->
 
 <%= render "one_column", locals: {
-  page: @page = Hashie::Mash.new(
+  page: Hashie::Mash.new(
     title: "SUMMER SURVIVAL GUIDE",
     description: lorem_ipsum,
     author_name: "Zyralyn Bacani",
@@ -23,8 +23,10 @@
     layout: params.fetch(:layout, {}).reverse_merge(
       type: "one_column",
       image_align: "left",
-      image_style: "cover",
-      content_overflow: "paginate"
+      image_style: "background",
+      content_overflow: "scroll",
+      content_style: "black"
+
     )
   )}
 %>
