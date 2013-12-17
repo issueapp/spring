@@ -3,7 +3,7 @@
  -->
 
 <%= render "one_column", locals: {
-  page: Hashie::Mash.new(
+  page: @page = Hashie::Mash.new(
     title: "SUMMER SURVIVAL GUIDE",
     description: lorem_ipsum,
     author_name: "Zyralyn Bacani",
