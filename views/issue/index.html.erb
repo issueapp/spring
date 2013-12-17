@@ -1,6 +1,6 @@
 <%
-  
-issue = @page =  Hashie::Mash.new(
+
+issue = Hashie::Mash.new(
   edition_title: "MINKPINK",
   title: "Advanture",
   short_title: "Advanture",
@@ -21,13 +21,13 @@ issue = @page =  Hashie::Mash.new(
     </nav>
 
     <h1 id="issue-logo" class="icon logo "></h1>
-    
+
     <hgroup>
       <h2 class="brand"><%= issue.edition_title %></h2>
       <h1 class="title"><%= issue.short_title %></h1>
       <h2 class="description"><%= issue.description %></h2>
     </hgroup>
-    
+
     <!-- <a class="button outline" href="#">Login</a>
     <a class="button outline" href="#">Signup</a> -->
     <a class="browse" href="/issue/contents">‹</a>

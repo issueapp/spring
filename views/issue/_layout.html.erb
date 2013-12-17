@@ -19,27 +19,43 @@
 
     <link rel="stylesheet" href="/stylesheets/application.css" type="text/css">
     <style>
-
       .page {
         width: 100%;
         height: 100%;
       }
 
+      body {
+        background: #fff;
+      }
 
       /*
           Dynamic layout
       */
-      body {
-        background: #eee;
+
+      /*.two-column.paginate .content, .three-column.paginate .content {
+        width: 100%;
+        padding: 20px;
+      }*/
+      article.page.paginate .content {
+        width: 1024px;
+        padding: 20px;
       }
 
-      .two-column.paginate .content, .three-column.paginate .content {
-        width: 100%;
+      .two-column.paginate .cover-area {
+        width: 512px;
       }
 
-      .two-column .top-image {
-        width: 100%;
+      .three-column.paginate .cover-area {
+        width: 676px;
       }
+
+      .page.cover-right .cover-area {
+        left: 512px;
+      }
+
+      /*.two-column .top-image {
+        width: 100%;
+      }*/
 
       /*
           Dynamic layout
@@ -48,10 +64,45 @@
       /*
         Adding overflow to #issue-view's parent can fix margin collapse
       */
-      .content-view {
+      /*.content-view {
         overflow: auto;
+      }*/
+
+      .debug {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 1;
+        display: none;
+
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+
+        padding: 20px;
+        width: 100%;
+        background-color: #333;
+        color: white;
+        text-align: left;
       }
 
+      .debug.active {
+        display: block;
+      }
+
+      .debug ul {
+        float: left;
+        margin: 0;
+        padding: 10px;
+      }
+
+      .debug .params {
+        float: right;
+      }
+
+      .debug a {
+        color: orange;
+      }
     </style>
   </head>
 
@@ -59,11 +110,17 @@
     <div role=main class="fashion-theme content-view">
       <%= yield %>
     </div>
-
   </body>
+
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
   <script src="/javascripts/spring.ui.js"></script>
   <script>
-    window.parent.console.log('<%= @page.layout.to_json %>')
+    function toggle_rendering() {
+      $('article.page').toggleClass('paginate').toggleClass('scroll');
+    }
+
+    function toggle_debugger() {
+      $('.debug').toggleClass('active');
+    }
   </script>
 </html>

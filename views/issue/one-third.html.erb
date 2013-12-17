@@ -1,5 +1,5 @@
-<%
-  page = Hashie::Mash.new(
+<%= render "three_column", locals: {
+  page: Hashie::Mash.new(
     title: "SUMMER SURVIVAL GUIDE",
     description: lorem_ipsum,
     author_name: "Zyralyn Bacani",
@@ -18,47 +18,11 @@
 
     layout: params.fetch(:layout, {}).reverse_merge(
       type: "three_column",
-      image_align: "left",
+      image_align: "right",
       image_style: "cover",
-      content_overflow: "paginate"
+      content_overflow: "scroll",
+      content_style: "black",
+      content_align: "left"
     )
-  )
+  )}
 %>
-
-<% header_area = capture do %>
-  <%= render "header", locals: { page: page } %>
-<% end %>
-
-<% cover_area = capture do %>
-  <div class="top-image <%= page.layout.image_style %>" style="background-image: url(<%= page.top_image %>)"></div>
-<% end %>
-
-<% if has_product = page.products.to_a.count > 0 %>
-  <% product_area = capture do %>
-    <ul class="product-set <%= "set-#{(page.products.to_a.count/2.0).ceil*2}" %>">
-    <% page.products.each_with_index do |url, index| %>
-      <li>
-        <img src="<%= url %>" alt="">
-        <span class="tag"><%= index + 1 %></span>
-      </li>
-    <% end %>
-    </ul>
-  <% end %>
-<% end %>
-
-<article class="three-column page
- <%= "has-product " if has_product %>
- <%= page.layout.content_overflow %>
- <%= "no-image " unless page.top_image %>
- cover-<%= page.layout.image_align %>">
-
-  <div class="cover-area <%= page.layout.image_style %>" style="background-image: url(<%= page.top_image %>)" ></div>
-
-  <div class="content">
-    <%= header_area %>
-    <p class="column-break"></p>
-    <div class="body"><%= page.content %></div>
-  </div>
-
-  <%= render 'debug', locals: { page: page } %>
-</article>
