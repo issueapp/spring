@@ -47,6 +47,7 @@ article.page {
   margin: 0 auto;
   font: 16px/22px "proxima_nova_regular";
   line-height: 1.6;
+  text-align: center;
 
   // Cover area for image/video
   .cover-area {
@@ -79,10 +80,16 @@ article.page {
 
   .content {
     @include box-sizing(border-box);
-    width: 90%;
-    margin: 0 auto;
+    // width: 90%;
+    // margin: 0 auto;
     float: none;
-    padding: 20px 0;
+    // padding: 20px 0;
+
+    padding: 20px;
+    width: 100%;
+    vertical-align: middle;
+    // overflow: auto;
+    // height: 100%;
   }
 
   &.scroll .content {
@@ -275,9 +282,9 @@ article.page {
     top: 0;
   }
 
-  // &.cover-right .content {
-  //   float: left;
-  // }
+  &.cover-right .content {
+    float: left;
+  }
 
   &.cover-right .column-break {
     display: block;
@@ -285,6 +292,9 @@ article.page {
 
   &.image-background {
     overflow: hidden;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 
   &.image-background .column-break {
@@ -292,21 +302,22 @@ article.page {
   }
 
   &.image-background .content {
-    overflow: auto;
-    margin: 2% auto;
-    height: 95%;
-  }
-
-  &.image-background.height-auto .content {
-    height: auto;
-    margin: 5% auto;
-    max-height: 90%;
-  }
-
-  &.image-background.height-full .content {
+    // overflow: auto;
     height: 100%;
-    margin: 0 auto;
+  //   margin: 2% auto;
+  //   height: 95%;
   }
+
+  // &.image-background.height-auto .content {
+  //   height: auto;
+  //   margin: 5% auto;
+  //   max-height: 90%;
+  // }
+
+  // &.image-background.height-full .content {
+  //   height: 100%;
+  //   margin: 0 auto;
+  // }
 
   &.image-background .cover-area {
     background: none;
@@ -319,14 +330,6 @@ article.page {
 
   &.image-background.right {
     text-align: right;
-  }
-
-  &.image-background:before {
-    content: '';
-    display: inline-block;
-    height: 100%;
-    vertical-align: middle;
-    margin-right: -0.25em; /* Adjusts for spacing */
   }
 }
 
@@ -437,9 +440,59 @@ article.fullscreen {
       // padding: 20px 20px 60px;
       padding: 20px;
     }
+
+
+    &.image-background:before {
+      content: '';
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+      margin-right: -0.25em; /* Adjusts for spacing */
+    }
+
+    &.image-background .content {
+      // overflow: auto;
+      // margin: 2% auto;
+      height: 95%;
+    }
+
+    &.image-background.height-auto .content {
+      height: auto;
+      // margin: 5% auto;
+      max-height: 90%;
+      margin: 2% 0;
+    }
+
+    &.image-background.height-full .content {
+      height: 100%;
+      margin: 0 auto;
+    }
+
+    &.image-background.video {
+      overflow: auto;
+      position: relative;
+    }
+
+    &.image-background.video:before {
+      content: none;
+    }
+
+    &.image-background.video .cover-area{
+      display: block;
+      height: 100%;
+    }
   }
 
   article.one-column {
+    &.image-background:before {
+      // content: none;
+    }
+
+    .content {
+      display: inline-block;
+      // vertical-align: middle;
+    }
+
     .content, .cover-area.fit {
       width: 45em;
       margin: 0 auto;

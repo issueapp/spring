@@ -5,22 +5,37 @@
     author_name: "Zyralyn Bacani",
     author_icon: "http://cl.ly/StPu/Image%202013.12.11%204%3A54%3A01%20pm.png",
     content_type: "article",
-    top_image: "http://31.media.tumblr.com/e8b9ca89ac00aaf1878b83d2ff5c9832/tumblr_mx3tsop3GI1st5lhmo1_1280.jpg",
+    top_image: "http://24.media.tumblr.com/aced2ca8a28be4c6c9be9f387c195026/tumblr_mxrv9j9zmc1st5lhmo1_1280.jpg",
     published_at: 3.days.ago,
 
     content: <<-BLOCK,
     #{ 10.times.map{ "<p>#{lorem_ipsum(10)}</p>" }.join("") }
   BLOCK
 
+    #
+    # Two Column Content Formatting
+    #
+    # Cover Area Layout
+    #   image_align:      left   | right
+    #   image_style:      cover  | fit    | background
+    #
+    # Content Layout
+    #   content_overflow: scroll | paginate
+    #
+    # Content Position In Background Image Layout
+    #   content_style:    white  | black
+    #   content_align:    left   | center | right
+    #   content_height:   auto   | full
+    #   content_valign:   top    | middle | bottom
     layout: params.fetch(:layout, {}).reverse_merge(
       type: "two-column",
       image_align: "left",
       image_style: "background",
       content_overflow: "scroll",
       content_style: "white",
-      content_align: "right",
-      content_height: "full",
-      content_valign: "bottom"
+      content_align: "left",
+      content_height: "auto",
+      content_valign: "top"
     )
   )}
 %>
