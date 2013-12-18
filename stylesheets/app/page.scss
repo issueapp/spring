@@ -80,16 +80,10 @@ article.page {
 
   .content {
     @include box-sizing(border-box);
-    // width: 90%;
-    // margin: 0 auto;
     float: none;
-    // padding: 20px 0;
-
     padding: 20px;
     width: 100%;
     vertical-align: middle;
-    // overflow: auto;
-    // height: 100%;
   }
 
   &.scroll .content {
@@ -99,8 +93,8 @@ article.page {
   header {
     @include box-sizing(border-box);
 
-    margin: 0 0 18px;
-    padding: 20px 0 0;
+    margin: 0;
+    padding: 18px 0;
 
     text-align: center;
 
@@ -275,13 +269,6 @@ article.page {
 
   // Image layout
 
-  &.cover-right .cover-area {
-    // float: right;
-
-    position: absolute;
-    top: 0;
-  }
-
   &.cover-right .content {
     float: left;
   }
@@ -302,22 +289,8 @@ article.page {
   }
 
   &.image-background .content {
-    // overflow: auto;
     height: 100%;
-  //   margin: 2% auto;
-  //   height: 95%;
   }
-
-  // &.image-background.height-auto .content {
-  //   height: auto;
-  //   margin: 5% auto;
-  //   max-height: 90%;
-  // }
-
-  // &.image-background.height-full .content {
-  //   height: 100%;
-  //   margin: 0 auto;
-  // }
 
   &.image-background .cover-area {
     background: none;
@@ -437,10 +410,13 @@ article.fullscreen {
     }
 
     .content {
-      // padding: 20px 20px 60px;
       padding: 20px;
     }
 
+    &.cover-right .cover-area {
+      position: absolute;
+      top: 0;
+    }
 
     &.image-background:before {
       content: '';
@@ -451,14 +427,11 @@ article.fullscreen {
     }
 
     &.image-background .content {
-      // overflow: auto;
-      // margin: 2% auto;
       height: 95%;
     }
 
     &.image-background.height-auto .content {
       height: auto;
-      // margin: 5% auto;
       max-height: 90%;
       margin: 2% 0;
     }
@@ -485,12 +458,10 @@ article.fullscreen {
 
   article.one-column {
     &.image-background:before {
-      // content: none;
     }
 
     .content {
       display: inline-block;
-      // vertical-align: middle;
     }
 
     .content, .cover-area.fit {
@@ -512,7 +483,6 @@ article.fullscreen {
 
       width: 50%;
       height: 100%;
-  //    padding: 60px 20px 20px;
 
       img {
         max-height: 75%;
@@ -545,10 +515,6 @@ article.fullscreen {
     }
 
     .cover-area {
-      // @include display-box;
-      // @include box-orient(horizontal);
-      // @include box-align(stretch);
-
       position: relative;
       justify-content: center;
 
