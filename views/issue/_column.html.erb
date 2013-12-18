@@ -18,7 +18,6 @@
 <% cover_area = capture do %>
   <div class="cover-area <%= page.layout.image_style %>"
     style="background-image: url(<%= page.top_image if page.layout.image_style != "background" %>)">
-    <%= product_area if has_product && !page.top_image %>
     <% if video_embed = page.embed_content %>
       <div class="video-wrapper"><%= video_embed %></div>
     <% end %>
@@ -45,11 +44,11 @@
  <% end %>
 >
 
-  <%= cover_area %>
+  <%= cover_area if page.top_image %>
 
   <div class="content">
     <%= header_area %>
-    <%= product_area if has_product && page.top_image %>
+    <%= product_area if has_product %>
     <p class="column-break"></p>
     <div class="body"><%= page.content %></div>
   </div>

@@ -13,7 +13,7 @@
   BLOCK
 
     #
-    # Two Column Content Formatting
+    # Two Column View Formatting
     #
     # Cover Area Layout
     #   image_align:      left   | right
@@ -30,12 +30,12 @@
     layout: params.fetch(:layout, {}).reverse_merge(
       type: "two-column",
       image_align: "left",
-      image_style: "background",
+      image_style: "cover",
       content_overflow: "scroll",
       content_style: "white",
       content_align: "left",
       content_height: "auto",
-      content_valign: "top"
+      content_valign: "middle"
     )
   )}
 %>
