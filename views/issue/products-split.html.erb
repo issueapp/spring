@@ -1,41 +1,16 @@
 <style>
-  .page.has-product .cover-area header {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    padding: 5% 0 0;
-    height: 10%;
+  .page.has-product.no-image .cover-area {
+    padding: 10px;
+    min-height: initial;
+    width: 100%;
+    height: 75%;
   }
 
-  .page.has-product .title {
+  .page.has-product header .title {
     letter-spacing: 2px;
     font-weight: normal;
     font-size: 24px;
     font-family: "proxima_nova_bold";
-  }
-
-  .page.has-product .content h3 {
-    text-transform: uppercase;
-    font-weight: normal;
-    font-family: "EB Garamond";
-  }
-
-  .page.has-product .product {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    padding: 20px;
-    width: 100%;
-    height: 100%;
-  }
-
-  article.page.has-product header {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    margin: 0;
-    padding: 5% 0 0;
-    height: 10%;
   }
 
   .page.has-product header .category {
@@ -46,39 +21,21 @@
     font-family: "proxima_nova_bold";
   }
 
+  .page.has-product .content h3 {
+    text-align: left;
+    text-transform: uppercase;
+    font-weight: normal;
+    font-family: "EB Garamond";
+  }
+
   .page.has-product .product-set {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     margin: 0;
-    padding: 0 0 20px;
+    padding: 5% 0;
     list-style-type: none;
     white-space: normal;
-  }
-
-  .page.has-product .product-set.set-2 {
-    height: 30%;
-  }
-
-  .page.has-product .product-set.set-4 {
-    height: 60%;
-  }
-
-  .page.has-product .product-set.set-4 li {
-    height: 50%;
-  }
-
-  .page.has-product .product-set.set-6 {
-    height: 90%;
-  }
-
-  .page.has-product .product-set.set-6 li {
-    height: 33.33%;
-  }
-
-  .page.has-product.align-right.no-image .set-6 {
-    padding: 40px;
-    height: 100%;
   }
 
   .page.has-product .product-set li {
@@ -87,50 +44,132 @@
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    padding: 10px 5px;
-    width: 49%;
-    height: 100%;
+    padding: 5px;
+    height: 140px;
+    vertical-align: middle;
     text-align: center;
   }
 
   .page.has-product .product-set li img {
     max-width: 100%;
     max-height: 100%;
-    /*height: 100%;*/
-    vertical-align: middle;
   }
 
   .page.has-product .product-set li .tag {
     position: absolute;
     bottom: 0;
     left: 50%;
-    margin-left: -13px;
-    width: 26px;
-    height: 26px;
+    margin-left: -15px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
-    background-color: #000;
+    background-color: #333;
     color: white;
     text-align: center;
     font-weight: bold;
-    line-height: 1.6;
+    line-height: 1.8;
   }
 
-  #issue-viewer.portrait .page.has-product .col.half {
+  .page.has-product .product-set.set-2 li {
     width: 100%;
-    height: 49.99%;
-  }
-
-  #issue-viewer.portrait .page.has-product .product header {
-    height: 15%;
-  }
-
-  #issue-viewer.portrait .page.has-product .product-set {
-    height: 100%;
-  }
-
-  #issue-viewer.portrait .page.has-product .col.half .product-set li {
-    width: 33.33%;
     height: 50%;
+  }
+
+  .page.has-product .product-set.set-4 li {
+    width: 49%;
+    height: 50%;
+  }
+
+  .page.has-product .product-set.set-6 li {
+    width: 49%;
+  }
+
+  @media only screen and (min-width: 768px) {
+    .page.has-product.cover-left .cover-area,
+    .page.has-product.cover-right .cover-area {
+      position: absolute;
+      top: 0;
+      right: initial;
+      bottom: initial;
+      left: initial;
+      width: 50%;
+      height: 100%;
+    }
+
+    .page.has-product.cover-left .content,
+    .page.has-product.cover-right .content {
+      overflow: auto;
+      height: 100%;
+    }
+
+
+    .page.has-product.cover-left .cover-area {
+      left: 0;
+    }
+
+    .page.has-product.cover-left .content {
+      float: right;
+    }
+
+    .page.has-product.cover-right .cover-area {
+      right: 0;
+    }
+
+    .page.has-product.cover-right .content {
+      float: left;
+    }
+  }
+
+  @media only screen and (min-width: 768px) and (orientation: portrait) {
+    .page.has-product.no-image .content {
+      width: 100%;
+    }
+
+    .page.has-product.no-image .product-set li {
+      height: 220px;
+    }
+
+    .page.has-product.no-image .product-set.set-6 li {
+      width: 30%;
+    }
+  }
+
+  @media only screen and (min-width: 768px) and (orientation: landscape) {
+    .page.has-product .product-set li {
+      height: 220px;
+    }
+
+    .page.has-product .product-set.set-6 li {
+      width: 49%;
+    }
+
+    /* NOTE: Unknown content disappear bug when using
+             absolute position on orientation change. */
+    .page.has-product.no-image .product-set {
+      position: fixed;
+      top: 0;
+      right: initial;
+      bottom: initial;
+      left: initial;
+      width: 50%;
+      height: 100%;
+    }
+
+    .page.has-product.no-image.left .content {
+      float: left;
+    }
+
+    .page.has-product.no-image.left .product-set {
+      right: 0;
+    }
+
+    .page.has-product.no-image.right .content {
+      float: right;
+    }
+
+    .page.has-product.no-image.right .product-set {
+      left: 0;
+    }
   }
 </style>
 
@@ -147,26 +186,40 @@
 
     category: nil,
     content: <<-BLOCK,
-    #{ 10.times.map{ "<p>#{lorem_ipsum(10)}</p>" }.join("") }
+    #{ 5.times.map{ "<p>#{lorem_ipsum(10)}</p>" }.join("") }
   BLOCK
 
     products: [
       'http://cl.ly/image/3740122Z2G2j/Screen%20Shot%202013-12-13%20at%2011.51.59%20am.png',
-      'http://cl.ly/image/0d311K2J3V0p/Screen%20Shot%202013-12-13%20at%2011.41.47%20am.png',
-      'http://cl.ly/image/3I3k0r000g0p/Screen%20Shot%202013-12-13%20at%2012.09.59%20pm.png',
+      'http://cl.ly/image/0W2z1x231p2D/Screen%20Shot%202013-12-18%20at%206.28.32%20pm.png',
       'http://cl.ly/image/16260q391k3t/Screen%20Shot%202013-12-13%20at%2011.31.23%20am.png',
-      'http://cl.ly/image/2a2B1x2Y192R/Screen%20Shot%202013-12-13%20at%2011.32.09%20am.png',
-      'http://cl.ly/image/0E1D2G2z2w3g/Screen%20Shot%202013-12-13%20at%2011.32.49%20am.png'
+      'http://cl.ly/image/0E1D2G2z2w3g/Screen%20Shot%202013-12-13%20at%2011.32.49%20am.png',
+      'http://cl.ly/image/3I3k0r000g0p/Screen%20Shot%202013-12-13%20at%2012.09.59%20pm.png',
+      'http://cl.ly/image/2a2B1x2Y192R/Screen%20Shot%202013-12-13%20at%2011.32.09%20am.png'
     ],
 
+    #
+    # Products Split View Formatting
+    #
+    # Cover Area Layout
+    #   image_align:      -
+    #   image_style:      cover  | fit    | background
+    #
+    # Content Layout
+    #   content_overflow: scroll | paginate
+    #
+    # Content Position In Background Image Layout
+    #   content_style:    white  | black
+    #   content_align:    left   | center | right
+    #   content_height:   auto   | full
+    #   content_valign:   top    | middle | bottom
     layout: params.fetch(:layout, {}).reverse_merge(
       type: "two-column",
       image_align: "left",
       image_style: "cover",
       content_overflow: "scroll",
-      product_align: "right",
       content_style: "white",
-      content_align: "right",
+      content_align: "left",
       content_height: "auto",
       content_valign: "bottom"
     )
