@@ -11,15 +11,30 @@
 
     embed_content: embed_video("http://www.youtube.com/watch?v=o8UCI7r1Aqw"),
 
+    #
+    # Video Content Formatting
+    #
+    # Cover Area Layout
+    #   image_align:      -
+    #   image_style:      cover  | fit    | background
+    #
+    # Content Layout
+    #   content_overflow: scroll | paginate
+    #
+    # Content Position In Background Image Layout
+    #   content_style:    white  | black
+    #   content_align:    left   | center | right
+    #   content_height:   auto   | full
+    #   content_valign:   top    | middle | bottom
     layout: params.fetch(:layout, {}).reverse_merge(
       type: "one-column",
-      image_align: "left",
-      image_style: "fullscreen",
+      image_align: nil,
+      image_style: "background",
       content_overflow: "scroll",
       content_style: "white",
-      content_align: "right",
+      content_align: "center",
       content_height: "auto",
-      content_valign: "bottom"
+      content_valign: "top"
     )
   )}
 %>

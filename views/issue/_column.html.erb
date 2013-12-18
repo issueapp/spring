@@ -31,14 +31,14 @@
  <%= "has-product " if has_product %>
 
  <%= page.content_type %>
- <%= page.layout.content_overflow || "scroll" %>
+ <%= page.layout.content_overflow %>
  <%= page.layout.content_style %>
  <%= page.layout.content_align %>
  <%= page.layout.content_valign %>
 
- height-<%= page.layout.content_height || "full" %>
- image-<%= page.layout.image_style || "cover" %>
- cover-<%= page.layout.image_align || "left" %>"
+ <%= "height-#{page.layout.content_height}" if page.layout.content_height %>
+ <%= "image-#{page.layout.image_style}" if page.layout.image_style %>
+ <%= "cover-#{page.layout.image_align}" if page.layout.image_align %>"
 
  <% if page.layout.image_style == "background" %>
   style="background-image: url(<%= page.top_image %>)"
