@@ -1,5 +1,5 @@
 <style>
-  nav.toc {
+  /*nav.toc {
     width: 1024px;
     margin:0;
   }
@@ -50,11 +50,12 @@
     text-overflow: ellipsis;
     font-size: 18px;
     line-height: 110px;
-  }
+  }*/
 
   /*
       Dynamic layout
   */
+
   body {
     background: #eee;
   }
@@ -62,11 +63,17 @@
   #issue-viewer {
     position: relative;
     display: block;
-    overflow: auto;
-    margin: 40px auto 0;
+/*    overflow: auto;
+*/    margin: 40px auto 0;
     width: 1024px;
     height: 768px;
     background: #fff;
+  }
+
+  #issue-viewer > iframe {
+    width: 100%;
+    height: 100%;
+    display: block;
   }
 
   #issue-viewer.portrait {
@@ -79,61 +86,97 @@
     height: 568px;
   }
 
-/*  #issue-viewer.portrait .page {
-    width: 768px;
-    height: 1024px;
+  #next, #prev {
+    content: "";
+    display: block;
+    height: 50px;
+    width: 50px;
+    line-height: 55px;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    margin-top: -25px;
+    right: -80px;
+    background: #333;
+    color: white;
+    border-radius: 25px;
+    font-size: 30px;
+    cursor: pointer;
   }
-*/
-
-/*  #issue-viewer.mobile .page {
-    width: 320px;
-    height: 568px;
+  #prev {
+    content: "";
+    left: -80px;
   }
-
-  #issue-viewer.mobile .debug ul {
-    float: none;
-    padding: 0;
-    width: 100%;
-  }
-
-  #issue-viewer.mobile .debug .params {
-    float: none;
-    overflow: auto;
-    width: 100%;
-  }
-
-  #issue-viewer.portrait .two-column .cover-area {
-    width: 384px;
-  }*/
-
-
-  /*
-      Dynamic layout
-  */
-
-  /*
-    Adding overflow to #issue-view's parent can fix margin collapse
-  */
 </style>
 
 <div style="padding: 10px">
   <button class="button outline" onclick="$('#issue-viewer').toggleClass('mobile')">mobile</button>
   <button class="button outline" onclick="$('#issue-viewer').toggleClass('portrait')">orientation</button>
 
-  <label for="menu" class="button outline">Issue</label>
-
+  <!-- <label for="menu" class="button outline">Issue</label> -->
+  <button class="toggle-menu button outline">Menu</button>
   <button class="button outline" onclick="document.getElementById('issue-viewer').contentWindow.toggle_debugger()">Debug</button>
   <button class="button outline" onclick="document.getElementById('issue-viewer').contentWindow.toggle_rendering()">Paginate</button>
   <button class="button outline" onclick="document.getElementById('issue-viewer').contentWindow.location.reload()">Reload</button>
 </div>
 
-<iframe id="issue-viewer" src="<%= params[:url] || "/issue/index" %>" frameborder="0"></iframe>
+<div id="issue-viewer" >
+  <iframe src="<%= params[:url] || "/issue/index" %>" id="issue-frame" frameborder="0"></iframe>
+  <%= render '/issue/contents_menu' %>
 
-<nav class="toc dark-theme" role="secondary">
+  <a id="next">→</a>
+  <a id="prev">←</a>
+</div>
+
+<!-- <nav class="toc dark-theme" role="secondary">
   <input type="checkbox" id="menu" value="toggle" onchange=""/>
   <ul>
-    <% issue_contents(true).each do |page| %>
-    <li><a href="<%= page.url %>" target="issue-viewer"><%= page.title %></a></li>
-    <% end %>
+    <%# issue_contents(true).each do |page| %>
+    <li><a href="<%#= page.url %>" target="issue-viewer"><%#= page.title %></a></li>
+    <%# end %>
   </ul>
-</nav>
+</nav> -->
+<% content_for :js do %>
+<script>
+
+  Viewer = {
+    init: function (data) {
+      this.pages = data.pages
+
+      // function(context) {
+      //   return (function() {}).apply(context)
+      // }
+
+      $('#next').on('click', $.proxy(this.next, this))
+      $('#prev').on('click', $.proxy(this.prev, this))
+    },
+    next: function () {
+      var current = this.currentPath()
+      var index = this.pages.indexOf(current)
+      // this.pages[index+1]
+
+      console.log("next", this.pages)
+    },
+    prev: function () {
+      var current = this.currentPath()
+      var index = this.pages.indexOf(current)
+      // this.pages[index+1]
+
+      console.log("prev", this.pages)
+    },
+    currentPath: function () {
+      return $('#issue-frame').attr('src').split('/')[1]
+    }
+  }
+
+  $.getJSON('/issue/issue.json', function(data) {
+    Viewer.init(data)
+    console.log("Issue data initialized")
+  })
+
+
+   Mousetrap.bind("option", function() {
+    $('nav.toc').toggleClass('show')
+   })
+</script>
+<% end %>
