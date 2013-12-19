@@ -36,7 +36,8 @@
       }
 */
       @media only screen and (min-width: 768px) and (orientation: portrait) {
-        article.page.two-column.paginate {
+        article.page.two-column.paginate,
+        article.page.three-column.paginate {
           width: 2304px;
         }
 
@@ -52,10 +53,19 @@
         .page.two-column.cover-right .cover-area {
           left: 384px;
         }
+
+        .three-column.paginate .cover-area {
+          width: 512px;
+        }
+
+        .page.three-column.cover-right .cover-area {
+          left: 256px;
+        }
       }
 
       @media only screen and (min-width: 768px) and (orientation: landscape) {
-        article.page.two-column.paginate {
+        article.page.two-column.paginate,
+        article.page.three-column.paginate {
           width: 3072px;
         }
 
