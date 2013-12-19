@@ -1,13 +1,53 @@
 {
-  "title": "DREAM",
+  "title": "Issue Layout",
   "publish_at": "2013-9-15T13:16:46Z",
   "auther": ["Andrew Yang"],
+  "pages": [
+    "index",
+    "contents",
+    "one-col",
+    "two-col",
+    "two-col?layout[image_style]=cover",
+    "one-third",
+    "fullscreen",
+    "products-split",
+    "youtube",
+    "vimeo"
+  ],
+
+
   "items": [
-    "cover.html",
-    "press-on.html",
-    "dare-to-dream.html",
-    "zoe-sernack.html",
-    "marrisa-panigiris.html",
-    "lauren-webster.html"
+    {
+      "title": "Two column",
+      "category": "Layout",
+      "url": "/issue/two-col",
+      "image_url": "http://lorempixel.com/200/150",
+
+      "pages": [
+        { "title": "Two Colmnn - Image cover",
+          "url": "/issue/two-col?layout[image_style]=cover" },
+
+        { "title": "Two Colmnn - Image Fit",
+          "url": "/issue/two-col?layout[image_style]=fit" },
+
+        { "title": "Two Colmnn - Image background",
+          "url": "/issue/two-col?layout[image_style]=background" }
+      ]
+    }, {
+      "title": "One Column",
+      "category": "Layout",
+      "url": "/issue/one-col",
+      "image_url": "http://lorempixel.com/200/151"
+    }, {
+      "title": "One Third",
+      "category": "Layout",
+      "url": "/issue/one-third",
+      "image_url": "http://lorempixel.com/200/152"
+    }, {
+      "title": "Full Screen",
+      "category": "Layout",
+      "url": "/issue/fullscreen",
+      "image_url": "http://lorempixel.com/200/153"
+    }
   ]
 }

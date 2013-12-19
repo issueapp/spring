@@ -8,39 +8,16 @@ module ViewHelpers
   require 'forgery'
 
   def issue_contents(include_head = false)
-    # <li><a href="/issue">Cover</a></li>
-    # <li><a href="/issue/contents">Contents</a></li>
-    # <li><a href="/issue/two-col">Two column</a></li>
-    # <li><a href="/issue/one-col">One Column</a></li>
-    # <li><a href="/issue/fullscreen">Fullscreen</a></li>
-    # <li><a href="/issue/one-third">Third</a></li>
-    # <li><a href="/issue/youtube">Youtube</a></li>
-    # <li><a href="/issue/vimeo">Vimeo</a></li>
-    # <li><a href="/issue/products-split">Products 1</a></li>
-    # <li><a href="/issue/products-collage">Collage</a></li>
-    items = {
-      "Content :: Two Column :: By Auther" => "/issue/two-col",
-      "Content :: One Column :: By Jessica Cheung" => "/issue/one-col",
-      "Content :: Fullscreen :: By Auther" => "/issue/fullscreen",
-      "Content :: Third :: By Auther" => "/issue/one-third",
-      "Media :: Youtube :: By Auther" => "/issue/youtube",
-      "Media :: Vimeo :: By Auther" => "/issue/vimeo",
-      "Shopping :: Product Set In Split :: By Auther" => "/issue/products-split",
-      "Shopping :: Collage :: By Auther" => "/issue/products-collage"
-    }
+    data = JSON.parse(open(File.expand_path("../../public/issue/issue.json", __FILE__)).read)
+    items = data["items"]
 
-    items = { "Cover"=> "/issue", "Contents"=> "/issue/contents" }.merge(items) if include_head
+    if include_head
+      items.unshift({ title: "Contents", url: "/issue/contents"})
+      items.unshift({ title: "cover", url: "/issue/index"})
+    end
 
-    items.map do |text, link|
-      category, title, author = text.split(/::/).map(&:strip)
-      title, category = category, title unless title
-
-      Hashie::Mash.new(
-        title: title,
-        category: category,
-        author_name: author,
-        url: link
-      )
+    data["items"].map do |item|
+      Hashie::Mash.new(item)
     end
   end
 
