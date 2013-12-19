@@ -81,7 +81,7 @@ article.page {
   .content {
     @include box-sizing(border-box);
     float: none;
-    padding: 20px;
+    padding: 40px 30px;
     width: 100%;
     vertical-align: middle;
   }
@@ -409,10 +409,6 @@ article.fullscreen {
       font-size: 34px;
     }
 
-    .content {
-      padding: 20px;
-    }
-
     &.cover-right .cover-area {
       position: absolute;
       top: 0;
@@ -497,6 +493,8 @@ article.fullscreen {
     }
 
     &.paginate {
+      text-align: left;
+
       header {
         padding-top: 30%;
       }
@@ -507,9 +505,9 @@ article.fullscreen {
         -webkit-column-count:2;
         -moz-column-count:2;
         column-count:2;
-        -webkit-column-gap: 40px;
-        -moz-column-gap: 40px;
-        column-gap: 40px;
+        -webkit-column-gap: 60px;
+        -moz-column-gap: 60px;
+        column-gap: 60px;
       }
 
     }
@@ -538,9 +536,9 @@ article.fullscreen {
       -webkit-column-count:3;
       -moz-column-count:3;
       column-count:3;
-      -webkit-column-gap: 40px;
-      -moz-column-gap: 40px;
-      column-gap: 40px;
+      -webkit-column-gap: 60px;
+      -moz-column-gap: 60px;
+      column-gap: 60px;
     }
 
     .content {

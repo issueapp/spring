@@ -32,27 +32,48 @@
           Dynamic layout
       */
 
-      /*.two-column.paginate .content, .three-column.paginate .content {
-        width: 100%;
-        padding: 20px;
-      }*/
-      @media screen and (min-width: 768px) {
+/*      @media screen and (min-width: 768px) {
+      }
+*/
+      @media only screen and (min-width: 768px) and (orientation: portrait) {
+        article.page.two-column.paginate {
+          width: 2304px;
+        }
+
+        article.page.two-column.paginate .content,
+        article.page.three-column.paginate .content {
+          width: 768px;
+        }
+
+        .page.two-column.paginate .cover-area {
+          width: 384px;
+        }
+
+        .page.two-column.cover-right .cover-area {
+          left: 384px;
+        }
+      }
+
+      @media only screen and (min-width: 768px) and (orientation: landscape) {
+        article.page.two-column.paginate {
+          width: 3072px;
+        }
+
         article.page.two-column.paginate .content,
         article.page.three-column.paginate .content {
           width: 1024px;
-          padding: 20px;
         }
 
-        .two-column.paginate .cover-area {
+        .page.two-column.paginate .cover-area {
           width: 512px;
-        }
-
-        .three-column.paginate .cover-area {
-          width: 682px;
         }
 
         .page.two-column.cover-right .cover-area {
           left: 512px;
+        }
+
+        .three-column.paginate .cover-area {
+          width: 682px;
         }
 
         .page.three-column.cover-right .cover-area {
@@ -60,20 +81,8 @@
         }
       }
 
-      /*.two-column .top-image {
-        width: 100%;
-      }*/
 
-      /*
-          Dynamic layout
-      */
-
-      /*
-        Adding overflow to #issue-view's parent can fix margin collapse
-      */
-      /*.content-view {
-        overflow: auto;
-      }*/
+      /* Debugger */
 
       .debug {
         position: absolute;
