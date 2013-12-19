@@ -37,7 +37,7 @@
 
  <%= "height-#{page.layout.content_height}" if page.layout.content_height %>
  <%= "image-#{page.layout.image_style}" if page.layout.image_style %>
- <%= "cover-#{page.layout.image_align}" if page.layout.image_align %>"
+ <%= "cover-#{page.layout.image_align}" if page.layout.image_align && page.top_image %>"
 
  <% if page.layout.image_style == "background" %>
   style="background-image: url(<%= page.top_image %>)"
@@ -50,7 +50,7 @@
     <%= header_area %>
     <%= product_area if has_product %>
 
-    <% if page.top_image %>
+    <% if page.top_image || has_product %>
     <p class="column-break"></p>
     <% end %>
 

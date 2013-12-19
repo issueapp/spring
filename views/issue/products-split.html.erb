@@ -1,4 +1,8 @@
 <style>
+  .page.has-product {
+    text-align: left;
+  }
+
   .page.has-product.no-image .cover-area {
     padding: 10px;
     min-height: initial;
@@ -33,7 +37,7 @@
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     margin: 0;
-    padding: 5% 0;
+    padding: 0;
     list-style-type: none;
     white-space: normal;
   }
@@ -85,48 +89,49 @@
   }
 
   @media only screen and (min-width: 768px) {
-    .page.has-product.cover-left .cover-area,
-    .page.has-product.cover-right .cover-area {
+    .page.has-product.cover-right .column-break {
+      display: block;
+    }
+
+    .page.has-product .cover-area {
       position: absolute;
       top: 0;
       right: initial;
       bottom: initial;
-      left: initial;
       width: 50%;
       height: 100%;
     }
 
-    .page.has-product.cover-left .content,
-    .page.has-product.cover-right .content {
+    .page.has-product.scroll.cover-left .content,
+    .page.has-product.scroll.cover-right .content {
       overflow: auto;
       height: 100%;
     }
-
 
     .page.has-product.cover-left .cover-area {
       left: 0;
     }
 
-    .page.has-product.cover-left .content {
-      float: right;
-    }
-
-    .page.has-product.cover-right .cover-area {
-      right: 0;
-    }
-
-    .page.has-product.cover-right .content {
-      float: left;
+    .page.has-product.paginate .content header {
+      padding: 18px 0;
     }
   }
 
   @media only screen and (min-width: 768px) and (orientation: portrait) {
+    .page.has-product.cover-left .content {
+      margin-left: 384px;
+    }
+
+    .page.has-product.cover-left.paginate .cover-area {
+      width: 384px;
+    }
+
     .page.has-product.no-image .content {
       width: 100%;
     }
 
     .page.has-product.no-image .product-set li {
-      height: 220px;
+      height: 200px;
     }
 
     .page.has-product.no-image .product-set.set-6 li {
@@ -135,36 +140,39 @@
   }
 
   @media only screen and (min-width: 768px) and (orientation: landscape) {
+    .page.has-product.cover-left .content {
+      margin-left: 512px;
+    }
+
+    .page.has-product.no-image .content {
+      margin: 0;
+    }
+
+    .page.has-product.paginate .cover-area {
+      width: 512px;
+    }
+
     .page.has-product .product-set li {
-      height: 220px;
+      height: 200px;
     }
 
     .page.has-product .product-set.set-6 li {
       width: 49%;
     }
 
-    /* NOTE: Unknown content disappear bug when using
-             absolute position on orientation change. */
     .page.has-product.no-image .product-set {
-      position: fixed;
-      top: 0;
-      right: initial;
-      bottom: initial;
-      left: initial;
-      width: 50%;
-      height: 100%;
-    }
-
-    .page.has-product.no-image.left .content {
-      float: left;
+      position: absolute;
+      top: 50%;
+      margin-top: -300px;
+      width: 512px;
     }
 
     .page.has-product.no-image.left .product-set {
-      right: 0;
+      left: 512px;
     }
 
     .page.has-product.no-image.right .content {
-      float: right;
+      margin-left: 512px;
     }
 
     .page.has-product.no-image.right .product-set {
@@ -186,7 +194,7 @@
 
     category: nil,
     content: <<-BLOCK,
-    #{ 5.times.map{ "<p>#{lorem_ipsum(10)}</p>" }.join("") }
+    #{ 10.times.map{ "<p>#{lorem_ipsum(10)}</p>" }.join("") }
   BLOCK
 
     products: [
@@ -219,7 +227,7 @@
       image_style: "cover",
       content_overflow: "scroll",
       content_style: "white",
-      content_align: "left",
+      content_align: "right",
       content_height: "auto",
       content_valign: "bottom"
     )
