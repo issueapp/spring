@@ -49,7 +49,15 @@
   <div class="content">
     <%= header_area %>
     <%= product_area if has_product %>
+
+    <% if page.top_image %>
     <p class="column-break"></p>
+    <% end %>
+
+    <% if page.layout.type == "three-column" && page.top_image %>
+    <p class="column-break"></p>
+    <% end %>
+
     <div class="body"><%= page.content %></div>
   </div>
 
