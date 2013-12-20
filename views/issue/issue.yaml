@@ -41,17 +41,26 @@ items:
     handle: "products-split"
     image_url: "http://lorempixel.com/200/152"
     pages:
+
       - handle: "products-split?layout[image_align]=right&image=1"
 
   - title: One Column
     category: Layout
     handle: "one-col"
     image_url: "http://lorempixel.com/200/154"
+    pages:
+
+      - handle: "one-col?layout[image_style]=fit"
 
   - title: One Third
     category: Layout
     handle: "one-third"
     image_url: "http://lorempixel.com/200/156"
+    pages:
+
+      - handle: "one-third?layout[image_align]=right"
+      - handle: "one-third?layout[image_style]=background&layout[content_height]=auto"
+      - handle: "one-third?layout[image_style]=background&layout[content_height]=auto&layout[content_align]=left&layout[content_valign]=bottom"
 
   - title: Full Screen
     category: Layout
