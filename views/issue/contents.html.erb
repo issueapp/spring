@@ -153,9 +153,7 @@ BLOCK
 
 <article class="toc page <%= page.layout.content_overflow %>">
 
-
   <div class="col third-2">
-
     <div class="cover-area <%= page.layout.image_style %>" style="background-image: url(<%= page.top_image %>)">
       <% if video_embed = page.embed_content %>
         <div class="video-wrapper"><%= video_embed %></div>
@@ -167,15 +165,13 @@ BLOCK
       <p class="column-break"></p>
       <div class="body"><%= page.content %></div>
     </div>
-
   </div>
-
 
   <div class="col third contents">
     <h2>CONTENTS</h>
     <hr />
     <ul>
-      <% issue_contents(false).each do |page| %>
+      <% issue_contents.each do |page| %>
       <li>
         <a href="<%= page.url %>">
           <span class="category"><%= page.category %></span>
