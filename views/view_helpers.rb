@@ -7,17 +7,10 @@ module ViewHelpers
   require 'hashie/mash'
   require 'forgery'
 
-  def issue_contents(include_head = false)
-    data = JSON.parse(open(File.expand_path("../../public/issue/issue.json", __FILE__)).read)
-    items = data["items"]
-
-    if include_head
-      items.unshift({ title: "Contents", url: "/issue/contents"})
-      items.unshift({ title: "cover", url: "/issue/index"})
-    end
-
+  def issue_contents
+    data = YAML.load_file(File.expand_path("../issue/issue.yaml", __FILE__))
     data["items"].map do |item|
-      Hashie::Mash.new(item)
+      Hashie::Mash.new(item.merge(url: "/issue/#{item["handle"]}"))
     end
   end
 

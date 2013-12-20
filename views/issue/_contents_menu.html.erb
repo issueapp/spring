@@ -112,77 +112,13 @@
 
 <nav class="toc" role="secondary">
   <ul class="contents-menu">
-    <% issue_contents(true).each do |story| %>
-    <li>
+    <% issue_contents.each do |story| %>
+    <li class="<%= story.handle %>">
       <a href="<%= story.url %>" target="issue-frame" style="background-image: url('<%= story.image_url %>')" >
         <span class="category"><%= story.category %></span>
-        <span class="title"><%= story.title.capitalize %></span>
+        <span class="title"><%= story.title %></span>
       </a>
     </li>
     <% end %>
-    <li>
-      <a href="#" target="issue-frame" style="background-image: url('http://lorempixel.com/200/151/')" >
-        <span class="category"></span>
-        <span class="title">Contents</span>
-      </a>
-    </li>
-    <li>
-      <a href="#" target="issue-frame" style="background-image: url('http://lorempixel.com/200/152/')" >
-        <span class="category">fashion</span>
-        <span class="title">Two Column</span>
-      </a>
-    </li>
-    <li>
-      <a class="active" href="#" target="issue-frame" style="background-image: url('http://lorempixel.com/200/153/')" >
-        <span class="category">destination</span>
-        <span class="title">One Column</span>
-      </a>
-    </li>
-    <li>
-      <a href="#" target="issue-frame" style="background-image: url('http://lorempixel.com/200/154/')" >
-        <span class="category">cover story</span>
-        <span class="title">Fullscreen</span>
-      </a>
-    </li>
-    <li>
-      <a href="#" target="issue-frame" style="background-image: url('http://lorempixel.com/200/155/')" >
-        <span class="category"></span>
-        <span class="title">Third</span>
-      </a>
-    </li>
-    <li>
-      <a href="#" target="issue-frame" style="background-image: url('http://lorempixel.com/200/156/')" >
-        <span class="category"></span>
-        <span class="title">Youtube</span>
-      </a>
-    </li>
-    <li>
-      <a href="#" target="issue-frame" style="background-image: url('http://lorempixel.com/200/157/')" >
-        <span class="category"></span>
-        <span class="title">Vimeo</span>
-      </a>
-    </li>
-    <li>
-      <a href="#" target="issue-frame" style="background-image: url('http://lorempixel.com/200/158/')" >
-        <span class="category"></span>
-        <span class="title">Product Set In Split</span>
-      </a>
-    </li>
-    <li>
-      <a href="#" target="issue-frame" style="background-image: url('http://lorempixel.com/200/159/')" >
-        <span class="category"></span>
-        <span class="title">Collage</span>
-      </a>
-    </li>
   </ul>
 </nav>
-
-<% content_for :js do %>
-  <script>
-    $('.toggle-menu, nav.toc a, label[for=menu]').on('click', function () {
-      // alert(1)
-      $('nav.toc').toggleClass('show');
-    })
-  </script>
-
-<% end %>

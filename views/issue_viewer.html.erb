@@ -110,14 +110,14 @@
 </style>
 
 <div style="padding: 10px">
-  <button class="button outline" onclick="$('#issue-viewer').toggleClass('mobile')">mobile</button>
-  <button class="button outline" onclick="$('#issue-viewer').toggleClass('portrait')">orientation</button>
+  <button class="button outline" onclick="$('#issue-frame').toggleClass('mobile')">mobile</button>
+  <button class="button outline" onclick="$('#issue-frame').toggleClass('portrait')">orientation</button>
 
   <!-- <label for="menu" class="button outline">Issue</label> -->
   <button class="toggle-menu button outline">Menu</button>
-  <button class="button outline" onclick="document.getElementById('issue-viewer').contentWindow.toggle_debugger()">Debug</button>
-  <button class="button outline" onclick="document.getElementById('issue-viewer').contentWindow.toggle_rendering()">Paginate</button>
-  <button class="button outline" onclick="document.getElementById('issue-viewer').contentWindow.location.reload()">Reload</button>
+  <button class="button outline" onclick="document.getElementById('issue-frame').contentWindow.toggle_debugger()">Debug</button>
+  <button class="button outline" onclick="document.getElementById('issue-frame').contentWindow.toggle_rendering()">Paginate</button>
+  <button class="button outline" onclick="document.getElementById('issue-frame').contentWindow.location.reload()">Reload</button>
 </div>
 
 <div id="issue-viewer" >
@@ -128,55 +128,110 @@
   <a id="prev">←</a>
 </div>
 
-<!-- <nav class="toc dark-theme" role="secondary">
-  <input type="checkbox" id="menu" value="toggle" onchange=""/>
-  <ul>
-    <%# issue_contents(true).each do |page| %>
-    <li><a href="<%#= page.url %>" target="issue-viewer"><%#= page.title %></a></li>
-    <%# end %>
-  </ul>
-</nav> -->
 <% content_for :js do %>
+
 <script>
 
   Viewer = {
+
+    // http://localhost:3000/issue
+    // file:///var/a/b/d/issue
+    path: null,
+
     init: function (data) {
+      this.container = $('#issue-viewer')
+      this.frame = $('#issue-frame')
+
+      var parts = this.frame[0].src.split('/')
+      parts.pop()
+
+      this.path = parts.join('/')
       this.pages = data.pages
+      this.items = data.items
 
-      // function(context) {
-      //   return (function() {}).apply(context)
-      // }
+      this.setCurrentPage(this.currentPage())
 
+      // Observe events
       $('#next').on('click', $.proxy(this.next, this))
       $('#prev').on('click', $.proxy(this.prev, this))
+      $('.toggle-menu, label[for=menu]').on('click', this.toggleMenu)
+
+      $('nav.toc a').on('click', function () {
+        $("#issue-frame").attr("src", this.href)
+        Viewer.setCurrentPage(this.href)
+        Viewer.toggleMenu()
+      })
+
+      Mousetrap.bind("right", $.proxy(this.next, this))
+      Mousetrap.bind("left", $.proxy(this.prev, this))
+      Mousetrap.bind("option", this.toggleMenu)
     },
+
     next: function () {
-      var current = this.currentPath()
+      var current = this.currentPage()
       var index = this.pages.indexOf(current)
-      // this.pages[index+1]
+      var next = this.pages[index + 1]
 
-      console.log("next", this.pages)
+      if (next) {
+        $("#issue-frame").attr("src", this.path + '/' + next)
+
+        this.setCurrentPage(next)
+        this.toggleMenu(false)
+      }
     },
+
     prev: function () {
-      var current = this.currentPath()
+      var current = this.currentPage()
       var index = this.pages.indexOf(current)
-      // this.pages[index+1]
+      var prev = this.pages[index - 1]
 
-      console.log("prev", this.pages)
+      console.log(">> current", current)
+      console.log(">> index", index)
+      console.log(">> prev", prev)
+
+      if (prev) {
+        $("#issue-frame").attr("src", this.path + '/' + prev)
+
+        this.setCurrentPage(prev)
+        this.toggleMenu(false)
+      }
     },
-    currentPath: function () {
-      return $('#issue-frame').attr('src').split('/')[1]
+
+    currentPage: function (story) {
+      var page = this.frame[0].src.replace(this.path + "/", '')
+      return page
+    },
+
+    toggleMenu: function(state) {
+      var nav = $('nav.toc')
+      nav.toggleClass('show', state)
+    },
+
+    // Private
+
+    // Return parent path if possible, otherwise return self
+    setCurrentPage: function(path) {
+      var page = path.replace(this.path + "/", '')
+      var parts = page.split(/\/|\?/);
+
+      if (parts.length > 1)
+        story = parts[0]
+      else
+        story = parts[0]
+
+      // console.log(path, this.path, story)
+
+      this.container.attr('data-page', story)
+      $('nav.toc a.active').removeClass('active')
+      $('[data-page="'+story+'"] .toc .' + story + ' a').addClass('active')
     }
+
   }
 
   $.getJSON('/issue/issue.json', function(data) {
     Viewer.init(data)
-    console.log("Issue data initialized")
+    // console.log("Issue data initialized")
   })
 
-
-   Mousetrap.bind("option", function() {
-    $('nav.toc').toggleClass('show')
-   })
 </script>
 <% end %>

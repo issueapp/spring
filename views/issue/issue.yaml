@@ -1,0 +1,71 @@
+# items/on-holiday.html
+# items/on-holiday-1.html
+# items/on-holiday-2.html
+#
+# category/story:   title: On holiday
+# category/story/2: title: page title, url:
+# category/story/3
+
+# category/story2
+# category/story2/2
+# category/story2/3
+
+title: Issue Layout
+publish_at: "2013-9-15T13:16:46Z"
+auther: Andrew Yang
+items:
+
+  - title: Cover
+    handle: "index"
+
+  - title: Table of Content
+    handle: "contents"
+
+  - title: Two column
+    category: Layout
+    handle: "two-col"
+    image_url: "http://lorempixel.com/200/150"
+    pages:
+
+      - title: Two Colmnn - Image cover
+        handle: "two-col?layout[image_style]=cover&layout[image_align]=right"
+
+      - title: Two Colmnn - Image Fit
+        handle: "two-col?layout[image_style]=fit"
+
+      - title: Two Colmnn - Image background
+        handle: "two-col?layout[image_style]=background&layout[content_valign]=middle&layout[content_align]=right"
+
+  - title: Product guide
+    category: Shopping
+    handle: "products-split"
+    image_url: "http://lorempixel.com/200/152"
+    pages:
+      - handle: "products-split?layout[image_align]=right&image=1"
+
+  - title: One Column
+    category: Layout
+    handle: "one-col"
+    image_url: "http://lorempixel.com/200/154"
+
+  - title: One Third
+    category: Layout
+    handle: "one-third"
+    image_url: "http://lorempixel.com/200/156"
+
+  - title: Full Screen
+    category: Layout
+    handle: "fullscreen"
+    image_url: "http://lorempixel.com/200/158"
+
+  - title: Youtube
+    category: Media
+    handle: "youtube"
+    image_url: "http://lorempixel.com/200/160"
+
+  - title: Vimeo
+    category: Media
+    handle: "vimeo"
+    image_url: "http://lorempixel.com/200/162"
+
+
