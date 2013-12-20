@@ -6,6 +6,10 @@
 module ViewHelpers
   require 'hashie/mash'
   require 'forgery'
+  
+  def render_page(page)
+    doc = open(File.expand_path("../#{page}.md", __FILE__)).read
+  end
 
   def issue_contents
     data = YAML.load_file(File.expand_path("../issue/issue.yaml", __FILE__))

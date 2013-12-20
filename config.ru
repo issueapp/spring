@@ -12,6 +12,7 @@ end
 
 require 'serve'
 require 'serve/rack'
+require './preview'
 
 # The project root directory
 root = ::File.dirname(__FILE__)
@@ -49,6 +50,7 @@ else
   # Use Rack::Cascade and Rack::Directory on other platforms for static assets
   run Rack::Cascade.new([
     Serve::RackAdapter.new(root + '/views'),
-    Rack::Directory.new(root + '/public')
+    Rack::Directory.new(root + '/public'),
+    IssuePreview
   ])
 end
