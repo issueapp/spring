@@ -15,8 +15,9 @@ gem 'tzinfo'
 gem "sinatra"
 gem "sass"
 gem "forgery"
+
 # Markdown and Textile
-# gem 'rdiscount' # Markdown
+gem 'rdiscount' # Markdown
 # gem 'RedCloth'  # Textile
 
 # Other templating languages

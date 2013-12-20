@@ -1,28 +1,6 @@
-<% header_area = capture do %>
-  <%= render "header", locals: { page: page } %>
-<% end %>
-
-<% if has_product = page.products.to_a.count > 0 %>
-  <% product_area = capture do %>
-    <ul class="product-set <%= "set-#{(page.products.to_a.count/2.0).ceil*2}" %>">
-    <% page.products.each_with_index do |url, index| %>
-      <li>
-        <img src="<%= url %>" alt="">
-        <span class="tag"><%= index + 1 %></span>
-      </li>
-    <% end %>
-    </ul>
-  <% end %>
-<% end %>
-
-<% cover_area = capture do %>
-  <div class="cover-area <%= page.layout.image_style %>"
-    style="background-image: url(<%= page.top_image if page.layout.image_style != "background" %>)">
-    <% if video_embed = page.embed_content %>
-      <div class="video-wrapper"><%= video_embed %></div>
-    <% end %>
-  </div>
-<% end %>
+<% 
+  has_product = page.products.to_a.count > 0
+%>
 
 <article class="page
  <%= page.layout.type || "two-column" %>
@@ -44,11 +22,50 @@
  <% end %>
 >
 
-  <%= cover_area %>
+  <div class="cover-area <%= page.layout.image_style %>"
+    style="background-image: url(<%= page.top_image if page.layout.image_style != "background" %>)">
+    <% if video_embed = page.embed_content %>
+      <div class="video-wrapper"><%= video_embed %></div>
+    <% end %>
+  </div>
 
   <div class="content">
-    <%= header_area %>
-    <%= product_area if has_product %>
+    <header>
+      <% if page.category %>
+        <span class="category"><%= page.category %></span>
+      <% end %>
+
+      <% if page.title %>
+      <h1 class="title preview_item_title"><%= page.title %></h1>
+      <% end %>
+
+      <% if page.description %>
+      <h3 class="subtitle description"><%= page.description %></h3>
+      <% end %>
+
+      <div class="extras">
+        <% if page.author_icon %>
+          <img src="<%= page.author_icon %>" class="avatar" >
+        <% end %>
+        <% if page.author_name %>
+          <em>by <%= page.author_name %></em>
+        <% end %>
+        <% if page.description %>
+          <p><%= page.description %></p>
+        <% end %>
+      </div>
+    </header>
+    
+    <% if has_product %>
+      <ul class="product-set <%= "set-#{(page.products.to_a.count/2.0).ceil*2}" %>">
+      <% page.products.each_with_index do |url, index| %>
+        <li>
+          <img src="<%= url %>" alt="">
+          <span class="tag"><%= index + 1 %></span>
+        </li>
+      <% end %>
+      </ul>
+    <% end %>
 
     <% if page.top_image || has_product %>
       <p class="column-break"></p>
@@ -61,5 +78,5 @@
     <div class="body"><%= page.content %></div>
   </div>
 
-  <%= render 'debug', locals: { page: page } %>
+  <%#= render 'debug', locals: { page: page } %>
 </article>
