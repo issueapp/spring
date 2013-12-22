@@ -6,15 +6,15 @@
 module ViewHelpers
   require 'hashie/mash'
   require 'forgery'
-  
+
   def render_page(page)
     doc = open(File.expand_path("../#{page}.md", __FILE__)).read
   end
 
-  def issue_contents
-    data = YAML.load_file(File.expand_path("../issue/issue.yaml", __FILE__))
+  def issue_contents(issue_name="issue")
+    data = YAML.load_file(File.expand_path("../#{issue_name}/issue.yaml", __FILE__))
     data["items"].map do |item|
-      Hashie::Mash.new(item.merge(url: "/issue/#{item["handle"]}"))
+      Hashie::Mash.new(item.merge(url: "/#{issue_name}/#{item["handle"]}"))
     end
   end
 
