@@ -1,12 +1,4 @@
-<% content = capture do %>
-
-<h3>asdfasdf<h3>
-  
-  
-  
-<% end %>
-
-<%= render "column", locals: {
+<%= render "page", locals: {
   page: Hashie::Mash.new(
     title: "SUMMER SURVIVAL GUIDE",
     description: lorem_ipsum,
@@ -15,7 +7,9 @@
     content_type: "article",
     top_image: "http://25.media.tumblr.com/95c842c76d60b7bc982d92c76216d037/tumblr_mx3tnm96k81st5lhmo1_1280.jpg",
     published_at: 3.days.ago,
-    content: content
+    content: <<-BLOCK,
+    #{ 10.times.map{ "<p>#{lorem_ipsum(10)}</p>" }.join("") }
+  BLOCK
 
     # One Column View Formatting
     #

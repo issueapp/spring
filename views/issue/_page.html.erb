@@ -1,4 +1,4 @@
-<% 
+<%
   has_product = page.products.to_a.count > 0
 %>
 
@@ -30,6 +30,7 @@
   </div>
 
   <div class="content">
+    <% if page.title %>
     <header>
       <% if page.category %>
         <span class="category"><%= page.category %></span>
@@ -55,7 +56,8 @@
         <% end %>
       </div>
     </header>
-    
+    <% end %>
+
     <% if has_product %>
       <ul class="product-set <%= "set-#{(page.products.to_a.count/2.0).ceil*2}" %>">
       <% page.products.each_with_index do |url, index| %>
