@@ -1,22 +1,37 @@
 <style>
   .product-popover {
     position: absolute;
-    top: 50%;
-    right: 20px;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    display: none;
 
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+    padding: 1px;
+    padding-bottom: 60px;
 
+    width: 100%;
+    height: 260px;
+    background-color: rgba(50, 50, 50, 1);
+    box-shadow: 3px 0 30px #000;
+  }
+
+  .product-popover.show {
+    display: block;
+  }
+
+  .product-popover .details {
+    overflow: scroll;
     padding: 20px;
-    width: 480px;
-    background-color: rgba(0,0,0,0.8);
+    height: 200px;
   }
 
   .product-popover .thumb-image {
-    display: inline-block;
-    margin-right: 18px;
-    width: 120px;
+    float: left;
+    margin: 0 15px 10px 0;
+    width: 100px;
     height: 120px;
     outline: 1px solid #ddd;
 
@@ -27,21 +42,8 @@
     vertical-align: top;
   }
 
-  .product-popover .thumb-image + .info {
-    width: 300px;
-  }
-
-  .product-popover .info {
-    display: inline-block;
-    overflow: hidden;
-    max-height: 240px;
-    color: white;
-    vertical-align: top;
-    white-space: normal;
-  }
-
-  .product-popover .info .title,
-  .product-popover .info .subtitle {
+  .product-popover .details .title,
+  .product-popover .details .subtitle {
     display: -webkit-box;
     overflow : hidden;
     text-overflow: ellipsis;
@@ -50,36 +52,83 @@
     -webkit-box-orient: vertical;
   }
 
-  .product-popover .info .title {
-    font-size: 18px;
+  .product-popover .details .title {
+    font-size: 16px;
     font-family: "proxima_nova_bold";
   }
 
-  .product-popover .info .subtitle {
+  .product-popover .details .subtitle {
     color: white;
-    font-size: 16px;
+    font-size: 14px;
   }
 
-  .product-popover .info .description {
-    overflow: scroll;
-    margin: 1.2em 0;
-    max-height: 120px;
-    height: auto;
-    line-height: 20px;
+  .product-popover .details .description {
+    clear: none;
+    margin-top: 0;
+    font-size: 14px;
+    font-family: proxima_nova_regular;
+    line-height: 1.3;
   }
 
-  .product-popover .button {
-    float: right;
+  .product-popover .actions {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    min-height: 40px;
+    max-height: 240px;
+    width: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(50,50,50,1), rgba(50,50,50,1) 100%);
+    color: white;
+    vertical-align: middle;
+    text-align: right;
+    white-space: normal;
+  }
+
+  .product-popover .actions .button {
     margin: 0;
+    height: 40px;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 40px;
+  }
+
+  @media only screen and (min-width: 768px) {
+    .product-popover {
+      position: absolute;
+      top: 50%;
+      right: 20px;
+      left: initial;
+      width: 480px;
+      height: auto;
+    }
+
+    .product-popover .thumb-image + .info {
+      width: 300px;
+    }
+
+    .product-popover .info {
+      display: inline-block;
+    }
+
+    .product-popover .button {
+      position: relative;
+      height: 40px;
+      text-align: right;
+      line-height: 40px;
+    }
   }
 </style>
 
-<div class="product-popover dark-theme">
-  <div class="thumb-image"></div>
-  <div class="info">
+<div class="product-popover dark-theme show">
+  <div class="details">
+    <div class="thumb-image"></div>
     <h1 class="title">The Power Bag</h1>
     <h2 class="subtitle">Tory Burch, $500</h2>
-    <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, aliquid consectetur omnis eveniet sapiente atque iure illo adipisci voluptas cupiditate architecto quod? Laboriosam totam </p>
+    <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, aliquid consectetur omnis eveniet sapiente atque iure illo adipisci voluptas cupiditate architecto quod? Laboriosam totam  amet, consectetur adipisicing elit. Minima, aliquid consectetur omnis eveniet sapiente atque iure illo adipisci voluptas cupiditate architecto quod? Laboriosam totam </p>
   </div>
-  <a href="#" class="button outline">shop now</a>
+  <div class="actions">
+    <a href="#" class="button small outline">shop now</a>
+  </div>
 </div>
