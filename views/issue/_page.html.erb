@@ -6,6 +6,7 @@
  <%= page.layout.type || "two-column" %>
  <%= "no-image " unless page.top_image %>
  <%= "has-product " if has_product %>
+ <%= "no-content " unless page.content %>
 
  <%= page.content_type %>
  <%= page.layout.content_overflow %>
@@ -40,7 +41,7 @@
       <h1 class="title preview_item_title"><%= page.title %></h1>
       <% end %>
 
-      <% if page.description %>
+      <% if false && page.description %>
       <h3 class="subtitle description"><%= page.description %></h3>
       <% end %>
 
@@ -80,5 +81,5 @@
     <div class="body"><%= page.content %></div>
   </div>
 
-  <%#= render 'debug', locals: { page: page } %>
+  <%= render 'debug', locals: { page: page } %>
 </article>
