@@ -1,0 +1,85 @@
+<style>
+  .product-popover {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    padding: 20px;
+    width: 480px;
+    background-color: rgba(0,0,0,0.8);
+  }
+
+  .product-popover .thumb-image {
+    display: inline-block;
+    margin-right: 18px;
+    width: 120px;
+    height: 120px;
+    outline: 1px solid #ddd;
+
+    background-image: url('http://lorempixel.com/200/154');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    vertical-align: top;
+  }
+
+  .product-popover .thumb-image + .info {
+    width: 300px;
+  }
+
+  .product-popover .info {
+    display: inline-block;
+    overflow: hidden;
+    max-height: 240px;
+    color: white;
+    vertical-align: top;
+    white-space: normal;
+  }
+
+  .product-popover .info .title,
+  .product-popover .info .subtitle {
+    display: -webkit-box;
+    overflow : hidden;
+    text-overflow: ellipsis;
+
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+
+  .product-popover .info .title {
+    font-size: 18px;
+    font-family: "proxima_nova_bold";
+  }
+
+  .product-popover .info .subtitle {
+    color: white;
+    font-size: 16px;
+  }
+
+  .product-popover .info .description {
+    overflow: scroll;
+    margin: 1.2em 0;
+    max-height: 120px;
+    height: auto;
+    line-height: 20px;
+  }
+
+  .product-popover .button {
+    float: right;
+    margin: 0;
+  }
+</style>
+
+<div class="product-popover dark-theme">
+  <div class="thumb-image"></div>
+  <div class="info">
+    <h1 class="title">The Power Bag</h1>
+    <h2 class="subtitle">Tory Burch, $500</h2>
+    <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, aliquid consectetur omnis eveniet sapiente atque iure illo adipisci voluptas cupiditate architecto quod? Laboriosam totam </p>
+  </div>
+  <a href="#" class="button outline">shop now</a>
+</div>
