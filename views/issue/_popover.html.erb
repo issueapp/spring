@@ -1,10 +1,15 @@
 <style>
+  body.stop-scrolling {
+    overflow: hidden;
+  }
+
   .product-popover {
-    position: absolute;
-    bottom: 0;
+    position: fixed;
     left: 0;
     overflow: hidden;
-    display: none;
+    display: block;
+    opacity: 0;
+    bottom: -260px;
 
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -18,8 +23,36 @@
     box-shadow: 3px 0 30px #000;
   }
 
-  .product-popover.show {
-    display: block;
+  @-webkit-keyframes up {
+    0% {
+      -webkit-transform: translateY(0px);
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+      -webkit-transform: translateY(-100%);
+    }
+  }
+
+  @-webkit-keyframes down {
+    0% {
+      -webkit-transform: translateY(-100%);
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      -webkit-transform: translateY(0px);
+    }
+  }
+
+  .product-popover.up {
+    -webkit-animation: up 0.4s forwards;
+    animation: up 0.4s forwards;
+  }
+
+  .product-popover.down {
+    -webkit-animation: down 0.4s forwards;
+    animation: down 0.4s forwards;
   }
 
   .product-popover .details {
@@ -86,12 +119,10 @@
   }
 
   .product-popover .actions .button {
-    margin: 0;
-    height: 40px;
+    margin-top: 10px;
     border: none;
     text-transform: uppercase;
     letter-spacing: 1px;
-    line-height: 40px;
   }
 
   @media only screen and (min-width: 768px) {
@@ -121,7 +152,7 @@
   }
 </style>
 
-<div class="product-popover dark-theme show">
+<div class="product-popover dark-theme">
   <div class="details">
     <div class="thumb-image"></div>
     <h1 class="title">The Power Bag</h1>
