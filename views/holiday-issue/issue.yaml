@@ -1,0 +1,40 @@
+# items/on-holiday.html
+# items/on-holiday-1.html
+# items/on-holiday-2.html
+#
+# category/story:   title: On holiday
+# category/story/2: title: page title, url:
+# category/story/3
+
+# category/story2
+# category/story2/2
+# category/story2/3
+
+title: Holiday Issue
+publish_at: "2013-9-15T13:16:46Z"
+auther: ""
+items:
+
+  # - title: Cover
+  #   handle: "index"
+
+  # - title: Table of Content
+  #   handle: "contents"
+
+  - title: On Holiday
+    category: ""
+    handle: "a-holiday-in-style/1"
+    image_url: "http://lorempixel.com/200/150"
+    pages:
+
+      - title:
+        handle: "a-holiday-in-style/2"
+
+      - title:
+        handle: "a-holiday-in-style/3"
+
+      - title: MUST HAVES
+        handle: "a-holiday-in-style/4"
+
+      - title:
+        handle: "a-holiday-in-style/5"

@@ -56,8 +56,8 @@
 </style>
 
 <div style="padding: 10px">
-  <button class="button outline" onclick="$('#issue-frame').toggleClass('mobile')">mobile</button>
-  <button class="button outline" onclick="$('#issue-frame').toggleClass('portrait')">orientation</button>
+  <button class="button outline" onclick="$('#issue-viewer').toggleClass('mobile')">mobile</button>
+  <button class="button outline" onclick="$('#issue-viewer').toggleClass('portrait')">orientation</button>
 
   <!-- <label for="menu" class="button outline">Issue</label> -->
   <button class="toggle-menu button outline">Menu</button>
@@ -67,7 +67,7 @@
 </div>
 
 <div id="issue-viewer" >
-  <iframe src="<%= params[:url] || "/issue/index" %>" id="issue-frame" frameborder="0"></iframe>
+  <iframe src="<%= params[:url] || "/holiday-issue/index" %>" id="issue-frame" frameborder="0"></iframe>
   <%= render '/issue/contents_menu' %>
 
   <a id="next">→</a>
@@ -174,7 +174,7 @@
 
   }
 
-  $.getJSON('/issue/holiday-issue.json', function(data) {
+  $.getJSON('/holiday-issue/issue.json', function(data) {
     Viewer.init(data)
   })
 

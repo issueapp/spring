@@ -9,16 +9,17 @@
     published_at: 3.days.ago,
 
     content: <<-BLOCK,
-    The white-on-white trend has spread like wildfire and it’s one of my favourite styling tips. It’s an easy way to create an effortless, classic look that is still polished and modern. I love classics with a twist - like these quilted, high-waisted shorts - that refresh your wardrobe and keep it modern.
+    “The white-on-white trend has spread like wildfire and it’s one of my favourite styling tips. It’s an easy way to create an effortless, classic look that is still polished and modern. I love classics with a twist - like these quilted, high-waisted shorts - that refresh your wardrobe and keep it modern.”
+    --  Jyslakay
   BLOCK
 
     layout: params.fetch(:layout, {}).reverse_merge(
       type: "three-column",
-      image_align: "left",
+      image_align: "right",
       image_style: "cover",
       content_overflow: "scroll",
       content_style: "white",
-      content_align: "right",
+      content_align: "left",
       content_height: "full",
       content_valign: "middle"
     )
