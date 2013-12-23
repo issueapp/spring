@@ -111,6 +111,7 @@
       Mousetrap.bind("right", $.proxy(this.next, this))
       Mousetrap.bind("left", $.proxy(this.prev, this))
       Mousetrap.bind("option", this.toggleMenu)
+      Mousetrap.bind("r", this.reload)
     },
 
     next: function () {
@@ -170,6 +171,10 @@
       this.container.attr('data-page', story)
       $('nav.toc a.active').removeClass('active')
       $('[data-page="'+story+'"] .toc .' + story + ' a').addClass('active')
+    },
+
+    reload: function() {
+      document.getElementById('issue-frame').contentWindow.location.reload()
     }
 
   }
