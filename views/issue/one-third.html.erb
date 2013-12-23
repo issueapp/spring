@@ -1,7 +1,7 @@
 <%= render "page", locals: {
   page: Hashie::Mash.new(
     title: "SUMMER SURVIVAL GUIDE",
-    description: lorem_ipsum,
+    description: lorem_ipsum(10),
     author_name: "Zyralyn Bacani",
     author_icon: "http://cl.ly/StPu/Image%202013.12.11%204%3A54%3A01%20pm.png",
     content_type: "article",
@@ -9,9 +9,10 @@
     # top_image: nil,
     published_at: 3.days.ago,
 
-    content: <<-BLOCK,
-    #{ 10.times.map{ "<p>#{lorem_ipsum(10)}</p>" }.join("") }
-  BLOCK
+    content: nil,
+  #   <<-BLOCK,
+  #   #{ 1.times.map{ "<p>#{lorem_ipsum(10)}</p>" }.join("") }
+  # BLOCK
 
     #
     # One Third View Formatting
