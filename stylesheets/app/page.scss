@@ -450,6 +450,7 @@ article.page.has-product {
     margin: 0;
     padding: 0;
     list-style-type: none;
+    text-align: center;
     white-space: normal;
   }
 
@@ -463,6 +464,7 @@ article.page.has-product {
     height: 140px;
     vertical-align: middle;
     text-align: center;
+    cursor: pointer;
   }
 
   .product-set li img {

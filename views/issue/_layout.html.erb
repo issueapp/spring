@@ -177,21 +177,55 @@
       $('.debug').toggleClass('active');
     }
 
-    $('.tag').on('click', function() {
+    function toggle_popover() {
       var popover = $('.product-popover');
-      if (popover.hasClass('show'))
-        $('.product-popover').removeClass('show').addClass('hide');
-      else
-        $('.product-popover').removeClass('hide').addClass('show');
+      var arrow   = popover.find('.arrow');
+      var offset  = {
+        'top': $(this).offset().top + $(this).height(),
+        'left': $(this).offset().left + $(this).width() / 2 + 5
+      }
+
+      if (popover.hasClass('show')) {
+        popover.removeClass('show').addClass('hide');
+
+      } else if (document.body.offsetWidth > 480) {
+        arrow.removeClass('up down left right');
+
+        if (document.body.offsetHeight - offset.top < 260) {
+          arrow.addClass('down');
+          popover.css('top', offset.top - 440);
+        } else {
+          arrow.addClass('up');
+          popover.css('top', offset.top + 22);
+        }
+
+        if (offset.left < 350) {
+          arrow.addClass('left');
+          popover.css('left', offset.left - 111);
+        } else {
+          arrow.addClass('right');
+          popover.css('left', offset.left - 371);
+        }
+
+        popover.removeClass('hide').addClass('show');
+
+      } else {
+        popover.removeClass('hide').addClass('show');
+      }
+
       $('body').toggleClass('stop-scrolling');
-    })
+      $('article.page .content').toggleClass('stop-scrolling');
+    }
+
+    $('.product-set li').on('click', toggle_popover);
 
     $('body').on('click', function(e) {
-      if (e.target.className != 'tag') {
+      if (!$(e.target).closest('ul').hasClass('product-set')) {
         var popover = $('.product-popover');
         if (popover.hasClass('show')) {
-          $('.product-popover').removeClass('show').addClass('hide');
+          popover.removeClass('show').addClass('hide');
           $('body').removeClass('stop-scrolling');
+          $('article.page .content').removeClass('stop-scrolling');
         }
       }
     })
