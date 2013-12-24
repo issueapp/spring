@@ -8,13 +8,14 @@ gem 'serve', '1.5.1'
 # Use Compass and Sass
 gem 'compass'
 gem "hashie"
-gem 'rack-coffee' 
+gem 'rack-coffee'
 gem 'actionpack', '~> 3.2'
 gem 'railties',   '~> 3.2'
 gem 'tzinfo'
 gem "sinatra"
 gem "sass"
 gem "forgery"
+gem 'thin'
 
 # Markdown and Textile
 gem 'rdiscount' # Markdown

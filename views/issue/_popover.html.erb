@@ -1,5 +1,6 @@
 <style>
-  body.stop-scrolling {
+  body.stop-scrolling,
+  article.page .content.stop-scrolling {
     overflow: hidden;
   }
 
@@ -137,13 +138,30 @@
 
     .arrow {
       position: absolute;
-      top: -10px;
-      right: 100px;
       width: 0;
       height: 0;
+    }
+
+    .arrow.up {
+      top: -10px;
       border-right: 10px solid transparent;
       border-bottom: 10px solid rgba(50, 50, 50, 1);
       border-left: 10px solid transparent;
+    }
+
+    .arrow.down {
+      bottom: -10px;
+      border-top: 10px solid rgba(50, 50, 50, 1);
+      border-right: 10px solid transparent;
+      border-left: 10px solid transparent;
+    }
+
+    .arrow.left {
+      left: 100px;
+    }
+
+    .arrow.right {
+      right: 100px;
     }
 
     .product-popover.show {
