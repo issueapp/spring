@@ -45,20 +45,20 @@
 */
 article.page {
   margin: 0 auto;
+  text-align: center;
   font: 16px/22px "proxima_nova_regular";
   line-height: 1.6;
-  text-align: center;
 
   // Cover area for image/video
   .cover-area {
     @include box-sizing(border-box);
+    min-height: 300px;
 
     width: 100%;
     height: auto;
-    min-height: 300px;
+    background-position: center;
 
     background-size: cover;
-    background-position: center;
     background-repeat: no-repeat;
 
     &.fit {
@@ -85,14 +85,18 @@ article.page {
     vertical-align: middle;
   }
 
+  .hotspot {
+    display: block;
+  }
+
   // vertical middle align header if there's no content
   &.no-content {
     .content:before {
-      content: '';
       display: inline-block;
-      height: 100%;
-      vertical-align: middle;
       margin-right: -0.25em; /* Adjusts for spacing */
+      height: 100%;
+      content: '';
+      vertical-align: middle;
     }
 
     header {
@@ -118,20 +122,19 @@ article.page {
   }
 
   .column-break {
+    display: none;
+    margin: 0;
+    break-before: column;
     -webkit-column-break-before: always;
     -webkit-column-break-after: always;
-    break-before: column;
-    margin: 0;
-    height: 1px;
-    display: none;
   }
 
   // Content formatting
 
   .title {
     text-transform: uppercase;
-    font-size: 24px;
     font-weight: normal;
+    font-size: 24px;
   }
 
   .avatar {
@@ -142,31 +145,31 @@ article.page {
   }
 
   blockquote {
-    font-family: Georgia, serif;
-    font-size: 18px;
-    font-style: italic;
-    max-width: 500px;
+    position: relative;
     margin: 0.25em auto;
     padding: 0.25em 10px 0.25em 50px;
+    max-width: 500px;
+    font-style: italic;
+    font-size: 18px;
+    font-family: Georgia, serif;
     line-height: 1.45;
-    position: relative;
   }
 
   blockquote:before {
+    position: absolute;
+    top: -20px;
+    left: 5px;
     display: block;
+    color: #999;
     content: "\201C";
     font-size: 80px;
-    position: absolute;
-    left: 5px;
-    top: -20px;
-    color: #999;
   }
 
   blockquote cite {
-    color: #999999;
-    font-size: 14px;
     display: block;
     margin-top: 5px;
+    color: #999999;
+    font-size: 14px;
 
     &:before {
       content: "\2014 \2009";
@@ -175,23 +178,23 @@ article.page {
 
   .image.cover {
     position:relative;
-    height: 200%;
-    width: 200%;
     top: -50%;
     left: -50%;
+    width: 200%;
+    height: 200%;
   }
 
   .author, .published-at {
     color: #333;
-    font-family: Georgia;
     font-style: italic;
+    font-family: Georgia;
   }
 
   p {
     margin: 1.5em 0;
     text-align: justify;
-    -webkit-hyphens: auto;
     word-break:hyphenate;
+    -webkit-hyphens: auto;
   }
 
   a[href]:not(.button) {
@@ -199,11 +202,11 @@ article.page {
   }
 
   img.medium, img.large {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 40px;
     display: block;
     margin: 0 auto;
+    margin-bottom: 40px;
+    max-width: 100%;
+    height: auto;
   }
 
   ul li, ol li {
@@ -215,17 +218,17 @@ article.page {
   }
 
   .video-wrapper {
-  	padding-bottom: 56.25%; /* 16:9 */
-  	padding-top: 25px;
-  	height: 0;
     @include box-sizing(border-box);
+    padding-top: 25px;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
 
-  	iframe, object, embed {
-    	position: absolute;
-    	top: 0;
-    	left: 0;
-    	width: 100%;
-    	height: 100%;
+    iframe, object, embed {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
     }
   }
 
@@ -235,8 +238,8 @@ article.page {
   }
 
   footer {
-    clear: both;
     float: none;
+    clear: both;
     margin: 0 auto !important;
     min-height: 110px;
   }
@@ -250,23 +253,23 @@ article.page {
 
   &.caption .content {
     @extend .dark-theme;
-    background: rgba(0, 0, 0, 0.7);
     padding: 20px;
+    background: rgba(0, 0, 0, 0.7);
     text-align: left;
 
     .title {
-      font-family: "EB Garamond";
       font-size: 18px;
+      font-family: "EB Garamond";
     }
 
     .description {
       text-align: left;
-      font-family: "EB Garamond";
       font-size: 16px;
+      font-family: "EB Garamond";
     }
 
-    .body { display: none}
-    .extras { display:none }
+    .body { display: none;}
+    .extras { display:none; }
   }
 
   &.white .content {
@@ -307,8 +310,8 @@ article.page {
   }
 
   &.image-background .cover-area {
-    background: none;
     display: none;
+    background: none;
   }
 
   &.image-background.left {
@@ -337,11 +340,11 @@ article.page.no-header {
   text-align: center;
 
   &:before {
-    content: '';
     display: inline-block;
-    height: 100%;
-    vertical-align: middle;
     margin-right: -0.25em; /* Adjusts for spacing */
+    height: 100%;
+    content: '';
+    vertical-align: middle;
   }
 
   header {
@@ -353,24 +356,24 @@ article.page.no-header {
   .content {
     position: relative;
     top: -50px;
-    text-align: left;
     display: inline-block;
     vertical-align: middle;
+    text-align: left;
   }
 }
 
 article.fullscreen {
-  height: 100% !important;
   overflow: hidden;
+  height: 100% !important;
   background-size: cover;
   background-repeat: no-repeat;
 
   &:before {
-    content: '';
     display: inline-block;
-    height: 100%;
-    vertical-align: middle;
     margin-right: -0.25em; /* Adjusts for spacing */
+    height: 100%;
+    content: '';
+    vertical-align: middle;
   }
 
   .top-image {
@@ -378,8 +381,8 @@ article.fullscreen {
   }
 
   figure {
-    height: 100%;
-    width: 100%;;
+    width: 100%;
+    height: 100%;;
   }
 
   iframe {
@@ -388,29 +391,29 @@ article.fullscreen {
 
   figcaption {
     @include box-sizing(border-box);
-    text-align: center;
-    font-family: georgia;
-    font-style: italic;
-    color: #ccc;
     @include background-image(linear-gradient(rgba(0,0,0,0), rgba(0,0,0, 0.95)));
-
-    padding: 20px 40px 0 40px;
     position: absolute;
     bottom: 0;
+    overflow: hidden;
+
+    padding: 20px 40px 0 40px;
     width: 100%;
     height: 80px;
+    color: #ccc;
+    text-align: center;
+    font-style: italic;
+    font-family: georgia;
     line-height: 35px;
-    overflow: hidden;
   }
 
   .content {
-    vertical-align: middle;
-    max-height: 100%;
-    overflow-y: auto;
-    padding: 20px;
     position: relative;
-    width: 45%;
+    overflow-y: auto;
     margin: 5% 0;
+    padding: 20px;
+    max-height: 100%;
+    width: 45%;
+    vertical-align: middle;
   }
 }
 
@@ -464,7 +467,6 @@ article.page.has-product {
     height: 140px;
     vertical-align: middle;
     text-align: center;
-    cursor: pointer;
   }
 
   .product-set li img {
@@ -517,49 +519,54 @@ article.page.has-product {
       position: absolute;
       top: 0;
     }
+  }
 
-    &.image-background:before {
-      content: '';
+  article.page.image-background {
+    &:before {
       display: inline-block;
-      height: 100%;
-      vertical-align: middle;
       margin-right: -0.25em; /* Adjusts for spacing */
+      height: 100%;
+      content: '';
+      vertical-align: middle;
     }
 
-    &.image-background .content {
+    .content {
       height: 95%;
     }
 
-    &.image-background.height-auto .content {
-      height: auto;
-      max-height: 90%;
+    &.height-auto .content {
       margin: 2% 0;
+      max-height: 90%;
+      height: auto;
     }
 
-    &.image-background.height-full .content {
-      height: 100%;
+    &.height-full .content {
       margin: 0 auto;
+      height: 100%;
     }
 
-    &.image-background.video {
-      overflow: auto;
+    &.video {
       position: relative;
+      overflow: auto;
     }
 
-    &.image-background.video:before {
+    &.video:before {
       content: none;
     }
 
-    &.image-background.video .cover-area{
+    &.video .cover-area{
       display: block;
       height: 100%;
     }
+  }
 
-    &.has-product.cover-right .column-break {
+
+  article.page.has-product {
+    &.cover-right .column-break {
       display: block;
     }
 
-    &.has-product .cover-area {
+    .cover-area {
       position: absolute;
       top: 0;
       right: initial;
@@ -568,17 +575,17 @@ article.page.has-product {
       height: 100%;
     }
 
-    &.has-product.scroll.cover-left .content,
-    &.has-product.scroll.cover-right .content {
+    &.scroll.cover-left .content,
+    &.scroll.cover-right .content {
       overflow: auto;
       height: 100%;
     }
 
-    &.has-product.cover-left .cover-area {
+    &.cover-left .cover-area {
       left: 0;
     }
 
-    &.has-product.paginate .content header {
+    &.paginate .content header {
       padding: 18px 0;
     }
   }
@@ -592,26 +599,26 @@ article.page.has-product {
     }
 
     .content, .cover-area.fit {
-      width: 45em;
       margin: 0 auto;
+      width: 45em;
     }
   }
 
   article.two-column,
   article.three-column {
     position: relative;
-    white-space: nowrap;
     padding-bottom: 0;
+    white-space: nowrap;
 
     .content {
-      vertical-align: middle;
       display: inline-block;
-      white-space: normal;
-
       width: 50%;
       height: 100%;
+      vertical-align: middle;
+      white-space: normal;
 
       img {
+        display: inline-block;
         max-height: 75%;
         -webkit-column-break-before: always;
         -moz-column-break-before: always;
@@ -619,12 +626,15 @@ article.page.has-product {
         -webkit-column-break-inside: avoid;
         -moz-column-break-inside: avoid;
         column-break-inside: avoid;
-        display: inline-block;
       }
     }
 
     &.paginate {
       text-align: left;
+
+      .column-break {
+        height: 1px;
+      }
 
       header {
         padding-top: 30%;
@@ -632,7 +642,6 @@ article.page.has-product {
 
       .content {
         overflow: default;
-
         -webkit-column-count:2;
         -moz-column-count:2;
         column-count:2;
@@ -640,26 +649,23 @@ article.page.has-product {
         -moz-column-gap: 60px;
         column-gap: 60px;
       }
-
     }
 
     .cover-area {
       position: relative;
-      justify-content: center;
-
       float: left;
-      height: 100%;
-      width: 50%;
       padding: 0;
+      width: 50%;
+      height: 100%;
+      justify-content: center;
 
       header {
         padding-top: 20%;
-        padding-left: 40px;
         padding-right: 40px;
+        padding-left: 40px;
         height: 100%;
       }
     }
-
   }
 
   article.three-column {
@@ -684,8 +690,8 @@ article.page.has-product {
 
   #issue-viewer:not(.mobile) article.one-column {
     .content, .cover-area.fit {
-      width: 45em;
       margin: 0 auto;
+      width: 45em;
     }
   }
 }
@@ -735,7 +741,7 @@ article.page.has-product {
 
 // @media screen and (orientation:portrait) {
 //   article.page .col.half {
-	  // height: 49.99%;
+    // height: 49.99%;
    //  width: 100%;
    //  background: white;
 
@@ -764,27 +770,21 @@ article.page.has-product {
   // }
 // }
 
-
-
-
-
 // TODO: MOVE TO ADMIN
 #preview_item_content {
-  &.no-cover [data-cover], img[data-size=tiny] {
-    display: none; }
 
   clear: both;
+  &.no-cover [data-cover], img[data-size=tiny] {
+    display: none; }
 }
-
-
 
 /*
   Stream paging
 */
 
 .horizontal {
-  white-space: nowrap;
   height: 100%;
+  white-space: nowrap;
 
   .stream.page {
     padding-top: 50px;
@@ -799,55 +799,55 @@ article.page.has-product {
 
 .stream-paging {
   @include clearfix;
-  padding-bottom: 100px;
-  line-height: 0;
-  width: 100% !important;
+
+  @include min-screen(480) {
+    margin-top: -10px !important;
+  }
   overflow: visible;
+  padding-bottom: 100px;
+  width: 100% !important;
+  line-height: 0;
 
   .vertical & {
-    clear: left;
     top: 50px;
+    clear: left;
   }
 
   .horizontal & {
     display: inline-block;
-    white-space: nowrap;
-    padding-bottom: 0;
     margin: 0;
+    padding-bottom: 0;
+    white-space: nowrap;
 
     .page {
       display: inline-block;
     }
 
     .view-more {
+      bottom: 0;
       display: inline-block;
       width: 100px;
-      bottom: 0;
       line-height: 100%;
 
       span {
-        margin-top: 350px;
         display: block;
+        margin-top: 350px;
       }
     }
-  }
-
-  @include min-screen(480) {
-    margin-top: -10px !important;
   }
 }
 
 #next-page, #prev-page {
-  display: none;
-  text-align: center;
-  top: 50%;
-  margin-top: -50px;
-  right: 0;
   position: fixed;
-  height: 100px;
-  width: 50px;
+  top: 50%;
+  right: 0;
   z-index: 2000;
+  display: none;
+  margin-top: -50px;
+  width: 50px;
+  height: 100px;
   color: #999;
+  text-align: center;
 
   &:before {
     font-size: 30px;

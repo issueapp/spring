@@ -177,39 +177,60 @@
       $('.debug').toggleClass('active');
     }
 
-    function toggle_popover() {
-      var popover = $('.product-popover');
-      var arrow   = popover.find('.arrow');
-      var offset  = {
-        'top': $(this).offset().top + $(this).height(),
-        'left': $(this).offset().left + $(this).width() / 2 + 5
+    function toggle_popover(target) {
+      console.log('target', target)
+
+      var popover       = $('.product-popover');
+      var popoverWidth  = popover.width();
+      var popoverHeight = popover.height();
+      var spacing       = 18;
+
+      var arrow         = popover.find('.arrow');
+      var arrowSpacing  = 110;
+
+      var hotspotHeight = target.height();
+      var hotspotWidth  = target.width();
+      var hotspotCenter = {
+        'x': target.offset().left + hotspotWidth/2,
+        'y': target.offset().top + hotspotHeight/2
       }
 
+      // hide popover
       if (popover.hasClass('show')) {
         popover.removeClass('show').addClass('hide');
 
+      // ipad
       } else if (document.body.offsetWidth > 480) {
         arrow.removeClass('up down left right');
 
-        if (document.body.offsetHeight - offset.top < 260) {
+        // arrow point down
+        if (document.body.offsetHeight - hotspotCenter.y - hotspotHeight/2 < popoverHeight) {
           arrow.addClass('down');
-          popover.css('top', offset.top - 440);
+          popover.css('top', hotspotCenter.y - hotspotHeight/2 - popoverHeight);
+
+        // arrow point up
         } else {
           arrow.addClass('up');
-          popover.css('top', offset.top + 22);
+          popover.css('top', hotspotCenter.y + hotspotHeight/2 + spacing);
         }
 
-        if (offset.left < 350) {
+        // arrow position left
+        if (hotspotCenter.x < popoverWidth/2) {
           arrow.addClass('left');
-          popover.css('left', offset.left - 111);
+          popover.css('left', hotspotCenter.x - arrowSpacing);
+
+        // arrow position right
         } else {
           arrow.addClass('right');
-          popover.css('left', offset.left - 371);
+          popover.css('left', hotspotCenter.x - popoverWidth + arrowSpacing);
         }
 
+        // show popover
         popover.removeClass('hide').addClass('show');
 
+      // iphone
       } else {
+        // show popover
         popover.removeClass('hide').addClass('show');
       }
 
@@ -217,16 +238,16 @@
       $('article.page .content').toggleClass('stop-scrolling');
     }
 
-    $('.product-set li').on('click', toggle_popover);
+    // $('.product-set li').on('click', toggle_popover);
 
     $('body').on('click', function(e) {
-      if (!$(e.target).closest('ul').hasClass('product-set')) {
-        var popover = $('.product-popover');
-        if (popover.hasClass('show')) {
-          popover.removeClass('show').addClass('hide');
-          $('body').removeClass('stop-scrolling');
-          $('article.page .content').removeClass('stop-scrolling');
-        }
+      if ($(e.target).closest('a').hasClass('hotspot')) {
+        toggle_popover($(e.target).closest('a'));
+        return false;
+      } else if ($('.product-popover').hasClass('show')) {
+        $('.product-popover').removeClass('show').addClass('hide');
+        $('body').removeClass('stop-scrolling');
+        $('article.page .content').removeClass('stop-scrolling');
       }
     })
   </script>
