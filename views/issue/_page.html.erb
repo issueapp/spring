@@ -61,10 +61,12 @@
 
     <% if has_product %>
       <ul class="product-set <%= "set-#{(page.products.to_a.count/2.0).ceil*2}" %>">
-      <% page.products.each_with_index do |url, index| %>
+      <% page.products.each_with_index do |product, index| %>
         <li>
-          <img src="<%= url %>" alt="">
-          <span class="tag"><%= index + 1 %></span>
+          <a href="<%= product[:url] %>" class="hotspot">
+            <img src="<%= product[:image_url] %>" alt="">
+            <span class="tag"><%= index + 1 %></span>
+          </a>
         </li>
       <% end %>
       </ul>
