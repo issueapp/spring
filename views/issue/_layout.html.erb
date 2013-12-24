@@ -179,18 +179,18 @@
 
     $('.tag').on('click', function() {
       var popover = $('.product-popover');
-      if (popover.hasClass('up'))
-        $('.product-popover').removeClass('up').addClass('down');
+      if (popover.hasClass('show'))
+        $('.product-popover').removeClass('show').addClass('hide');
       else
-        $('.product-popover').removeClass('down').addClass('up');
+        $('.product-popover').removeClass('hide').addClass('show');
       $('body').toggleClass('stop-scrolling');
     })
 
     $('body').on('click', function(e) {
       if (e.target.className != 'tag') {
         var popover = $('.product-popover');
-        if (popover.hasClass('up')) {
-          $('.product-popover').removeClass('up').addClass('down');
+        if (popover.hasClass('show')) {
+          $('.product-popover').removeClass('show').addClass('hide');
           $('body').removeClass('stop-scrolling');
         }
       }
