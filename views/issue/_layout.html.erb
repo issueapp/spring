@@ -167,7 +167,24 @@
   </body>
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <script src="/javascripts/vendor/underscore.js"></script>
   <script src="/javascripts/spring.ui.js"></script>
+
+  <%= yield :js %>
+
+  <script type="text/html" id='popover-template'>
+    <div class="arrow <%%= arrowPosition %>"></div>
+    <div class="details">
+      <div class="thumb-image" style="background-image: url('<%%= image_url %>')"></div>
+      <h1 class="title"><%%= title %></h1>
+      <h2 class="subtitle"><%%= subtitle %>, <%%= price %></h2>
+      <p class="description"><%%= description %></p>
+    </div>
+    <div class="actions">
+    <a href="<%%= url %>" class="button small outline">shop now</a>
+    </div>
+  </script>
+
   <script>
     function toggle_rendering() {
       $('article.page').toggleClass('paginate').toggleClass('scroll');
@@ -178,67 +195,83 @@
     }
 
     function toggle_popover(target) {
-      console.log('target', target)
+      if (!App.products) return;
 
-      var popover       = $('.product-popover');
-      var popoverWidth  = popover.width();
-      var popoverHeight = popover.height();
-      var spacing       = 18;
+      var popover       = $('.product-popover'),
+          popoverWidth  = popover.width(),
+          popoverHeight = popover.height(),
+          spacing       = 18,
 
-      var arrow         = popover.find('.arrow');
-      var arrowSpacing  = 110;
+          hotspotHeight = target.height(),
+          hotspotWidth  = target.width(),
+          hotspotCenter = {
+            'x': target.offset().left + hotspotWidth/2,
+            'y': target.offset().top + hotspotHeight/2
+          },
 
-      var hotspotHeight = target.height();
-      var hotspotWidth  = target.width();
-      var hotspotCenter = {
-        'x': target.offset().left + hotspotWidth/2,
-        'y': target.offset().top + hotspotHeight/2
-      }
+          template      = $("#popover-template").html(),
+
+          arrow         = $('<div>'+template+'</div>').find('.arrow'),
+          arrowSpacing  = 110,
+
+          targetUrl     = target.attr('href'),
+          data;
 
       // hide popover
       if (popover.hasClass('show')) {
         popover.removeClass('show').addClass('hide');
 
-      // ipad
-      } else if (document.body.offsetWidth > 480) {
-        arrow.removeClass('up down left right');
-
-        // arrow point down
-        if (document.body.offsetHeight - hotspotCenter.y - hotspotHeight/2 < popoverHeight) {
-          arrow.addClass('down');
-          popover.css('top', hotspotCenter.y - hotspotHeight/2 - popoverHeight);
-
-        // arrow point up
-        } else {
-          arrow.addClass('up');
-          popover.css('top', hotspotCenter.y + hotspotHeight/2 + spacing);
-        }
-
-        // arrow position left
-        if (hotspotCenter.x < popoverWidth/2) {
-          arrow.addClass('left');
-          popover.css('left', hotspotCenter.x - arrowSpacing);
-
-        // arrow position right
-        } else {
-          arrow.addClass('right');
-          popover.css('left', hotspotCenter.x - popoverWidth + arrowSpacing);
-        }
-
-        // show popover
-        popover.removeClass('hide').addClass('show');
-
-      // iphone
       } else {
-        // show popover
-        popover.removeClass('hide').addClass('show');
+
+        data = _.find(App.products, function(product) {
+          return targetUrl == product.url;
+        });
+
+        if (typeof data == "undefined") return;
+
+        // ipad
+        if (document.body.offsetWidth > 480) {
+
+          arrow.removeClass('up down left right');
+
+          // arrow point down
+          if (document.body.offsetHeight - hotspotCenter.y - hotspotHeight/2 < popoverHeight) {
+            data.arrowPosition = 'down';
+            popover.css('top', hotspotCenter.y - hotspotHeight/2 - popoverHeight);
+
+          // arrow point up
+          } else {
+            data.arrowPosition = 'up';
+            popover.css('top', hotspotCenter.y + hotspotHeight/2 + spacing);
+          }
+
+          // arrow position left
+          if (hotspotCenter.x < popoverWidth/2) {
+            data.arrowPosition += ' left';
+            popover.css('left', hotspotCenter.x - arrowSpacing);
+
+          // arrow position right
+          } else {
+            data.arrowPosition += ' right';
+            popover.css('left', hotspotCenter.x - popoverWidth + arrowSpacing);
+          }
+
+          // show popover
+          popover.html(_.template(template, data));
+          popover.removeClass('hide').addClass('show');
+
+        // iphone
+        } else {
+          popover.html(_.template(template, data));
+
+          // show popover
+          popover.removeClass('hide').addClass('show');
+        }
       }
 
       $('body').toggleClass('stop-scrolling');
       $('article.page .content').toggleClass('stop-scrolling');
     }
-
-    // $('.product-set li').on('click', toggle_popover);
 
     $('body').on('click', function(e) {
       if ($(e.target).closest('a').hasClass('hotspot')) {
