@@ -1,11 +1,16 @@
 ---
-  title: A Holiday in Style
-  
-  author_name: Jessica Chung
-  
-  byline: Jessica from Jysla Kay
-  
-  description: 
+
+    title: A Holiday in Style
+    
+    author_name: Jessica Chung
+    byline: Jessica from Jysla Kay
+    description: ""
+    image_url: assets/a-holiday-in-style/cover.jpg
+    
+    layout:
+      content_overflow: scroll
+      type: three-column
+    
 ---
 
 She is on a summer escape, straying from the crowd in search for freedom and peace. She has an unquenchable desire to explore her surroundings, while collecting beautiful keepsakes along the way, from seashells to flowers to photographs of locals.

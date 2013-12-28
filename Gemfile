@@ -1,18 +1,19 @@
-source :rubygems
+source 'https://rubygems.org'
 
-gem 'serve', '1.5.1'
+gem 'serve', '~> 1.5.1'
 
 # Use edge instead:
 # gem 'serve', :git => 'git://github.com/jlong/serve.git'
+gem "sinatra"
+gem "sinatra-contrib"
 
 # Use Compass and Sass
 gem 'compass'
 gem "hashie"
 gem 'rack-coffee'
 gem 'actionpack', '~> 3.2'
-gem 'railties',   '~> 3.2'
+# gem 'railties',   '~> 3.2'
 gem 'tzinfo'
-gem "sinatra"
 gem "sass"
 gem "forgery"
 gem 'thin'
@@ -33,8 +34,8 @@ group :assets do
 end
 
 group :development, :test do
-
-  gem 'jasminerice'
-  gem 'jquery-rails'
+  gem "guard-pow"
   gem 'guard-jasmine'
+  gem 'jasminerice'
+  # gem 'jquery-rails'
 end

@@ -1,5 +1,5 @@
-
-
+# encoding: utf-8
+# 
 require 'rubygems'
 require 'bundler'
 begin
@@ -51,6 +51,7 @@ else
   run Rack::Cascade.new([
     Serve::RackAdapter.new(root + '/views'),
     Rack::Directory.new(root + '/public'),
+    Rack::Directory.new(root + '/issues'),
     IssuePreview
   ])
 end

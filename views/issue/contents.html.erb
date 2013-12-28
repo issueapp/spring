@@ -1,103 +1,12 @@
-<style>
-  h2 {
-    text-transform: none;
-    font-weight: normal;
-    font-size: 24px;
-    font-family: "EB Garamond";
-  }
 
-  .page.toc .content {
-    padding: 0;
-  }
-
-  /*
-    Contributors
-  */
-  .toc .contributors {
-    padding: 0;
-    list-style-type: none;
-    text-align: center;
-    white-space: nowrap;
-  }
-
-  .toc .contributors li {
-    display: inline-block;
-    width: 25%;
-    vertical-align: top;
-  }
-
-  .toc .contributors li span {
-    display: block;
-    white-space: normal;
-  }
-
-  .toc .contributors li span.description {
-    color: #555;
-    font-style: italic;
-  }
-
-  /*
-    Content list
-  */
-  .toc .contents {
-    background-color: #f5f5f5;
-    overflow: auto;
-    padding: 20px;
-    height: 100%;
-    text-align: center;
-  }
-
-  .toc .contents ul {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-  }
-
-  .toc .contents li {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    padding: 10px 0;
-    min-height: 100px;
-
-  }
-
-  .toc .contents li a {
-    color: #000;
-    line-height: 0.8;
-    text-decoration: none !important;
-  }
-
-  .toc .contents li .story {
-    text-decoration: underline;
-  }
-
-  .toc .contents li .category {
-
-    font-family: "proxima_nova_regular";
-    display: block;
-    color: #666;
-    text-transform: uppercase;
-    font-size: 14px;
-  }
-
-  .toc .contents li .author {
-    display: block;
-    color: #333;
-    font-weight: normal;
-    font-size: 14px;
-    font-family: "EB Garamond";
-  }
-</style>
-
-<%
-  page = Hashie::Mash.new(
+<%=
+  render "toc", locals: { :page => Hashie::Mash.new(
     title: "Holiday Issue",
     description: nil,
     author_name: nil,
     author_icon: nil,
     content_type: "photo",
-    top_image: "http://cl.ly/image/27131I1H411P/Screen%20Shot%202013-12-12%20at%204.25.17%20pm.png",
+    image_url: "http://cl.ly/image/27131I1H411P/Screen%20Shot%202013-12-12%20at%204.25.17%20pm.png",
     brand_image: "http://cl.ly/image/1V2Z0K1J1H1g/header-text.png",
     published_at: 3.days.ago,
 
@@ -140,48 +49,5 @@ BLOCK
       content_valign: "bottom",
       content_overflow: "paginate"
     )
-  )
+  )}
 %>
-
-<% header_area = capture do %>
-  <%= render "header", locals: { page: page } %>
-<% end %>
-
-<% cover_area = capture do %>
-  <div class="top-image <%= page.layout.image_style %>" style="background-image: url(<%= page.top_image %>)"></div>
-<% end %>
-
-<article class="toc page <%= page.layout.content_overflow %>">
-
-  <div class="col third-2">
-    <div class="cover-area <%= page.layout.image_style %>" style="background-image: url(<%= page.top_image %>)">
-      <% if video_embed = page.embed_content %>
-        <div class="video-wrapper"><%= video_embed %></div>
-      <% end %>
-    </div>
-
-    <div class="content">
-      <%= header_area %>
-      <p class="column-break"></p>
-      <div class="body"><%= page.content %></div>
-    </div>
-  </div>
-
-  <div class="col third contents">
-    <h2>CONTENTS</h>
-    <hr />
-    <ul>
-      <% issue_contents.each do |page| %>
-      <li>
-        <a href="<%= page.url %>">
-          <span class="category"><%= page.category %></span>
-          <span class="story"><%= page.title %></span>
-          <span class="author"><%= page.author_name %></span>
-        </a>
-      </li>
-      <% end %>
-    </ul>
-  </div>
-
-  <%#= render 'debug', locals: { page: page } %>
-</article>

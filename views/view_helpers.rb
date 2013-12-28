@@ -11,6 +11,22 @@ module ViewHelpers
     doc = open(File.expand_path("../#{page}.md", __FILE__)).read
   end
 
+  def issue
+    issue = YAML.load_file(File.expand_path("../issue/issue.yaml", __FILE__))
+    items = issue.fetch("items", []).map do |page|
+      page["url"] = "#{page["handle"]}"
+      
+      page
+    end
+    
+    issue.merge!(
+      "image_url" => issue["image_url"],
+      "items" => items
+    )
+    
+    Hashie::Mash.new(issue)
+  end
+
   def issue_contents(issue_name="issue")
     data = YAML.load_file(File.expand_path("../#{issue_name}/issue.yaml", __FILE__))
     data["items"].map do |item|
