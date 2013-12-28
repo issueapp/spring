@@ -83,13 +83,12 @@
     <div class="body"><%= page.content %></div>
   </div>
 
-  <%= render 'popover' %>
   <%= render 'debug', locals: { page: page } %>
 </article>
 
 <% content_for :js do %>
 <script>
-  App = (typeof App == "undefined") ? {} : App;
+  App = (typeof App == 'undefined') ? {} : App;
   App.products = <%= page.products.to_json %>;
 </script>
 <% end %>
