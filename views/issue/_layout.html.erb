@@ -173,7 +173,7 @@
   <%= yield :js %>
 
   <script type="text/html" id='popover-template'>
-    <div class="arrow <%%= arrowPosition %>"></div>
+    <div class="arrow"></div>
     <div class="details">
       <div class="thumb-image" style="background-image: url('<%%= image_url %>')"></div>
       <h1 class="title"><%%= title %></h1>
@@ -198,8 +198,6 @@
       if (!App.products) return;
 
       var popover       = $('.product-popover'),
-          popoverWidth  = popover.width(),
-          popoverHeight = popover.height(),
           spacing       = 18,
 
           hotspotHeight = target.height(),
@@ -210,12 +208,19 @@
           },
 
           template      = $("#popover-template").html(),
+          targetUrl     = target.attr('href'),
 
           arrow         = $('<div>'+template+'</div>').find('.arrow'),
           arrowSpacing  = 110,
-
-          targetUrl     = target.attr('href'),
+          arrowPosition,
+          popoverWidth,
+          popoverHeight,
           data;
+
+      if (popover.length == 0) {
+        popover = $('<div class="product-popover dark-theme"></div>');
+        $('body').append(popover);
+      }
 
       // hide popover
       if (popover.hasClass('show')) {
@@ -229,6 +234,11 @@
 
         if (typeof data == "undefined") return;
 
+        popover.html(_.template(template, data));
+
+        popoverWidth = popover.width();
+        popoverHeight = popover.height();
+
         // ipad
         if (document.body.offsetWidth > 480) {
 
@@ -236,37 +246,31 @@
 
           // arrow point down
           if (document.body.offsetHeight - hotspotCenter.y - hotspotHeight/2 < popoverHeight) {
-            data.arrowPosition = 'down';
+            arrowPosition = 'down';
             popover.css('top', hotspotCenter.y - hotspotHeight/2 - popoverHeight);
 
           // arrow point up
           } else {
-            data.arrowPosition = 'up';
+            arrowPosition = 'up';
             popover.css('top', hotspotCenter.y + hotspotHeight/2 + spacing);
           }
 
           // arrow position left
-          if (hotspotCenter.x < popoverWidth/2) {
-            data.arrowPosition += ' left';
+          if (hotspotCenter.x < popoverWidth - arrowSpacing) {
+            arrowPosition += ' left';
             popover.css('left', hotspotCenter.x - arrowSpacing);
 
           // arrow position right
           } else {
-            data.arrowPosition += ' right';
+            arrowPosition += ' right';
             popover.css('left', hotspotCenter.x - popoverWidth + arrowSpacing);
           }
 
-          // show popover
-          popover.html(_.template(template, data));
-          popover.removeClass('hide').addClass('show');
-
-        // iphone
-        } else {
-          popover.html(_.template(template, data));
-
-          // show popover
-          popover.removeClass('hide').addClass('show');
+          popover.find('.arrow').addClass(arrowPosition)
         }
+
+        // show popover
+        popover.removeClass('hide').addClass('show');
       }
 
       $('body').toggleClass('stop-scrolling');
