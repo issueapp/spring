@@ -4,7 +4,7 @@
 
 <article class="page
  <%= page.layout.type || "two-column" %>
- <%= "no-image " unless page.top_image %>
+ <%= "no-image " unless page.image_url %>
  <%= "has-product " if has_product %>
  <%= "no-content " unless page.content %>
 
@@ -16,15 +16,15 @@
 
  <%= "height-#{page.layout.content_height}" if page.layout.content_height %>
  <%= "image-#{page.layout.image_style}" if page.layout.image_style %>
- <%= "cover-#{page.layout.image_align}" if page.layout.image_align && page.top_image %>"
+ <%= "cover-#{page.layout.image_align}" if page.layout.image_align && page.image_url %>"
 
  <% if page.layout.image_style == "background" %>
-  style="background-image: url(<%= page.top_image %>)"
+  style="background-image: url(<%= page.image_url %>)"
  <% end %>
 >
 
   <div class="cover-area <%= page.layout.image_style %>"
-    style="background-image: url(<%= page.top_image if page.layout.image_style != "background" %>)">
+    style="background-image: url(<%= page.image_url if page.layout.image_style != "background" %>)">
     <% if video_embed = page.embed_content %>
       <div class="video-wrapper"><%= video_embed %></div>
     <% end %>
@@ -49,9 +49,11 @@
         <% if page.author_icon %>
           <img src="<%= page.author_icon %>" class="avatar" >
         <% end %>
+        
         <% if page.author_name %>
           <em>by <%= page.author_name %></em>
         <% end %>
+        
         <% if page.description %>
           <p><%= page.description %></p>
         <% end %>
@@ -72,18 +74,18 @@
       </ul>
     <% end %>
 
-    <% if page.top_image || has_product %>
+    <% if page.image_url || has_product %>
       <p class="column-break"></p>
     <% end %>
 
-    <% if page.layout.type == "three-column" && page.top_image %>
+    <% if page.layout.type == "three-column" && page.image_url %>
       <p class="column-break"></p>
     <% end %>
 
     <div class="body"><%= page.content %></div>
   </div>
 
-  <%= render 'debug', locals: { page: page } %>
+  <%#= render 'debug', locals: { page: page } %>
 </article>
 
 <% content_for :js do %>

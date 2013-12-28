@@ -1,5 +1,7 @@
 <% if @json_response %>
 <%= yield %>
+<% elsif @layout %>
+  <%= render @layout %>
 <% else %>
 
 <!DOCTYPE html>
@@ -288,6 +290,13 @@
       }
     })
   </script>
+  
+  <% if respond_to? :yield_content %>
+    <%= yield_content :js %>
+  <% else %>
+    <%= yield :js %>
+  <% end %>
+  
 </html>
 
 <% end %>
