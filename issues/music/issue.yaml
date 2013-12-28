@@ -1,0 +1,75 @@
+# items/on-holiday.html
+# items/on-holiday-1.html
+# items/on-holiday-2.html
+#
+# category/story:   title: On holiday
+# category/story/2: title: page title, url:
+# category/story/3
+
+# category/story2
+# category/story2/2
+# category/story2/3
+
+title: Music Issue
+short_title: Music
+edition_title: Minkpink
+publish_at: "2013-9-15T13:16:46Z"
+auther_name: Andrew Yang
+
+items:
+
+  - title: Cover
+    handle: "index"
+
+  - title: Table of Content
+    handle: "contents"
+
+  - title: A Holiday on Style
+    category: Holiday
+    pages:
+      - handle: "photo-1"
+      - handle: "photo-2"
+      - handle: "guide"
+
+  - title: Product guide
+    category: Shopping
+    handle: "products-split"
+    image_url: "http://lorempixel.com/200/152"
+    pages:
+
+      - handle: "products-split?layout[image_align]=right&image=1"
+
+  - title: One Column
+    category: Layout
+    handle: "one-col"
+    image_url: "http://lorempixel.com/200/154"
+    pages:
+
+      - handle: "one-col?layout[image_style]=fit"
+
+  - title: One Third
+    category: Layout
+    handle: "one-third"
+    image_url: "http://lorempixel.com/200/156"
+    pages:
+
+      - handle: "one-third?layout[image_align]=right"
+      - handle: "one-third?layout[image_style]=background&layout[content_height]=auto"
+      - handle: "one-third?layout[image_style]=background&layout[content_height]=auto&layout[content_align]=left&layout[content_valign]=bottom"
+
+  - title: Full Screen
+    category: Layout
+    handle: "fullscreen"
+    image_url: "http://lorempixel.com/200/158"
+
+  - title: Youtube
+    category: Media
+    handle: "youtube"
+    image_url: "http://lorempixel.com/200/160"
+
+  - title: Vimeo
+    category: Media
+    handle: "vimeo"
+    image_url: "http://lorempixel.com/200/162"
+
+

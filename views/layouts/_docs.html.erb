@@ -57,5 +57,10 @@
   <script src="/javascripts/spring.ui.js"></script>
   <script src="/javascripts/vendor/mousetrap.js"></script>
 
-  <%= yield :js %>
+
+  <% if respond_to? :yield_content %>
+    <%= yield_content :js %>
+  <% else %>
+    <%= yield :js %>
+  <% end %>
 </html>

@@ -188,3 +188,36 @@ Unlike treesaver which will cut off contents, This pagination will put items int
     page count
     pagination bar
 
+## Compile offline Issue
+
+    /holiday
+      contents/
+      assets/
+      index.html
+      toc.html
+      menu.html
+      issue.json      
+
+      
+      issue.yaml
+      data/
+        toc.md
+        
+        
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

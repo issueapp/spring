@@ -1,0 +1,193 @@
+<% 
+  @layout =  '/layouts/docs'
+  
+  path ||= "/issue/index"
+
+ %>
+<style>
+  /*
+      Dynamic layout
+  */
+  body {
+    background: #eee;
+  }
+
+  #issue-viewer {
+    position: relative;
+    display: block;
+    margin: 40px auto 0;
+    width: 1024px;
+    height: 768px;
+    background: #fff;
+  }
+
+  #issue-viewer > iframe {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  #issue-viewer.portrait {
+    width: 768px;
+    height: 1024px;
+  }
+
+  #issue-viewer.mobile {
+    width: 320px;
+    height: 568px;
+  }
+
+  #next, #prev {
+    content: "";
+    display: block;
+    height: 50px;
+    width: 50px;
+    line-height: 55px;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    margin-top: -25px;
+    right: -80px;
+    background: #333;
+    color: white;
+    border-radius: 25px;
+    font-size: 30px;
+    cursor: pointer;
+  }
+
+  #prev {
+    content: "";
+    left: -80px;
+  }
+</style>
+
+<div style="padding: 10px">
+  <button class="button outline" onclick="$('#issue-viewer').toggleClass('mobile')">mobile</button>
+  <button class="button outline" onclick="$('#issue-viewer').toggleClass('portrait')">orientation</button>
+
+  <!-- <label for="menu" class="button outline">Issue</label> -->
+  <button class="toggle-menu button outline">Menu</button>
+  <button class="button outline" onclick="document.getElementById('issue-frame').contentWindow.toggle_debugger()">Debug</button>
+  <button class="button outline" onclick="document.getElementById('issue-frame').contentWindow.toggle_rendering()">Paginate</button>
+  <button class="button outline" onclick="document.getElementById('issue-frame').contentWindow.location.reload()">Reload</button>
+</div>
+
+<div id="issue-viewer" >
+  <iframe src="<%= path %>" id="issue-frame" frameborder="0"></iframe>
+  
+  <% if respond_to? :render_template %>
+    <%= render '/issue/menu' %>
+  <% else %>
+    <%= render partial: '/issue/_menu.html' %>
+  <% end %>
+
+  <a id="next">→</a>
+  <a id="prev">←</a>
+</div>
+
+<% content_for :js do %>
+
+<script>
+
+  Viewer = {
+
+    // http://localhost:3000/issue
+    // file:///var/a/b/d/issue
+    path: null,
+
+    init: function (data) {
+      this.container = $('#issue-viewer')
+      this.frame = $('#issue-frame')
+
+      var parts = this.frame[0].src.split('/')
+      parts.pop()
+
+      this.path = parts.join('/')
+      this.pages = data.pages
+      this.items = data.items
+
+      this.setCurrentPage(this.currentPage())
+
+      // Observe events
+      $('#next').on('click', $.proxy(this.next, this))
+      $('#prev').on('click', $.proxy(this.prev, this))
+      $('.toggle-menu, label[for=menu]').on('click', this.toggleMenu)
+
+      $('nav.toc a').on('click', function () {
+        $("#issue-frame").attr("src", this.href)
+        Viewer.setCurrentPage(this.href)
+        Viewer.toggleMenu()
+      })
+
+      Mousetrap.bind("right", $.proxy(this.next, this))
+      Mousetrap.bind("left", $.proxy(this.prev, this))
+      Mousetrap.bind("option", this.toggleMenu)
+    },
+
+    next: function () {
+      var current = this.currentPage()
+      var index = this.pages.indexOf(current)
+      var next = this.pages[index + 1]
+
+      if (next) {
+        $("#issue-frame").attr("src", this.path + '/' + next)
+
+        this.setCurrentPage(next)
+        this.toggleMenu(false)
+      }
+    },
+
+    prev: function () {
+      var current = this.currentPage()
+      var index = this.pages.indexOf(current)
+      var prev = this.pages[index - 1]
+
+      console.log(">> current", current)
+      console.log(">> index", index)
+      console.log(">> prev", prev)
+
+      if (prev) {
+        $("#issue-frame").attr("src", this.path + '/' + prev)
+
+        this.setCurrentPage(prev)
+        this.toggleMenu(false)
+      }
+    },
+
+    currentPage: function (story) {
+      var page = this.frame[0].src.replace(this.path + "/", '')
+      return page
+    },
+
+    toggleMenu: function(state) {
+      var nav = $('nav.toc')
+      nav.toggleClass('show', state)
+    },
+
+    // Private
+
+    // Return parent path if possible, otherwise return self
+    setCurrentPage: function(path) {
+      var page = path.replace(this.path + "/", '')
+      var parts = page.split(/\/|\?/);
+
+      if (parts.length > 1)
+        story = parts[0]
+      else
+        story = parts[0]
+
+      // console.log(path, this.path, story)
+
+      this.container.attr('data-page', story)
+      $('nav.toc a.active').removeClass('active')
+      $('[data-page="'+story+'"] .toc .' + story + ' a').addClass('active')
+    }
+
+  }
+
+  $.getJSON('/issue/issue.json', function(data) {
+    Viewer.init(data)
+  })
+
+</script>
+<% end %>
