@@ -172,8 +172,6 @@
   <script src="/javascripts/vendor/underscore.js"></script>
   <script src="/javascripts/spring.ui.js"></script>
 
-  <%= yield :js %>
-
   <script type="text/html" id='popover-template'>
     <div class="arrow"></div>
     <div class="details">
@@ -290,13 +288,13 @@
       }
     })
   </script>
-  
+
   <% if respond_to? :yield_content %>
     <%= yield_content :js %>
   <% else %>
     <%= yield :js %>
   <% end %>
-  
+
 </html>
 
 <% end %>
