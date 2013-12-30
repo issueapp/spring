@@ -1,0 +1,74 @@
+title: Issue Layout
+short_title: Issue
+edition_title: "Issue Layout"
+description: "One Column • Two Column • Three Column • Fullscreen"
+publish_at: "2013-9-15T13:16:46Z"
+auther_name: Taylor
+image_url: "assets/background.jpg"
+
+# custom_css: ""
+# custom_js: ""
+
+items:
+
+  - title: Cover
+    handle: "index"
+
+  - title: Table of Content
+    handle: "toc"
+
+  - title: Two column
+    category: Layout
+    handle: "two-col"
+    image_url: "http://lorempixel.com/200/150"
+    pages:
+
+      - title: Two Colmnn - Right Aligned Image
+        handle: "1"
+
+      - title: Two Colmnn - Fit Image
+        handle: "2"
+
+      - title: Two Colmnn - Fullscreen
+        handle: "3"
+
+  - title: Product guide
+    category: Shopping
+    handle: "products-split"
+    image_url: "http://lorempixel.com/200/152"
+    pages:
+
+      - handle: "products-split?layout[image_align]=right&image=1"
+
+  - title: One Column
+    category: Layout
+    handle: "one-col"
+    image_url: "http://lorempixel.com/200/154"
+    pages:
+
+      - handle: "one-col?layout[image_style]=fit"
+
+  - title: One Third
+    category: Layout
+    handle: "one-third"
+    image_url: "http://lorempixel.com/200/156"
+    pages:
+
+      - handle: "one-third?layout[image_align]=right"
+      - handle: "one-third?layout[image_style]=background&layout[content_height]=auto"
+      - handle: "one-third?layout[image_style]=background&layout[content_height]=auto&layout[content_align]=left&layout[content_valign]=bottom"
+
+  - title: Full Screen
+    category: Layout
+    handle: "fullscreen"
+    image_url: "http://lorempixel.com/200/158"
+
+  - title: Youtube
+    category: Media
+    handle: "youtube"
+    image_url: "http://lorempixel.com/200/160"
+
+  - title: Vimeo
+    category: Media
+    handle: "vimeo"
+    image_url: "http://lorempixel.com/200/162"
