@@ -6,8 +6,16 @@
     font-family: "EB Garamond";
   }
 
+  .page.toc .main {
+    overflow: auto;
+  }
+
   .page.toc .content {
-    padding: 0;
+    padding: 0 20px;
+  }
+
+  .page.toc .content header {
+    padding: 20px 0 0;
   }
 
   /*
@@ -39,21 +47,21 @@
   /*
     Content list
   */
-  .page.toc .contents {
-    background-color: #f5f5f5;
+  .page.toc .menu {
     overflow: auto;
     padding: 20px;
     height: 100%;
+    background-color: #f5f5f5;
     text-align: center;
   }
 
-  .page.toc .contents ul {
+  .page.toc .menu ul {
     margin: 0;
     padding: 0;
     list-style-type: none;
   }
 
-  .page.toc .contents li {
+  .page.toc .menu li {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -62,26 +70,30 @@
 
   }
 
-  .page.toc .contents li a {
+  .page.toc .menu li a {
     color: #000;
-    line-height: 0.8;
     text-decoration: none !important;
+    letter-spacing: 2px;
+    line-height: 1.5;
   }
 
-  .page.toc .contents li .story {
+  .page.toc .menu li .story {
+    display: block;
     text-decoration: underline;
+    font-size: 24px;
+    font-family: "EB Garamond";
   }
 
-  .page.toc .contents li .category {
-
-    font-family: "proxima_nova_regular";
+  .page.toc .menu li .category {
     display: block;
     color: #666;
     text-transform: uppercase;
+    font-weight: normal;
     font-size: 14px;
+    font-family: "proxima_nova_regular";
   }
 
-  .page.toc .contents li .author {
+  .page.toc .menu li .author {
     display: block;
     color: #333;
     font-weight: normal;
@@ -90,7 +102,7 @@
   }
 </style>
 
-<%
+<%#
 #   page = Hashie::Mash.new(
 #     title: "Holiday Issue",
 #     description: nil,
@@ -100,12 +112,12 @@
 #     top_image: "http://cl.ly/image/27131I1H411P/Screen%20Shot%202013-12-12%20at%204.25.17%20pm.png",
 #     brand_image: "http://cl.ly/image/1V2Z0K1J1H1g/header-text.png",
 #     published_at: 3.days.ago,
-# 
+#
 #     content: lorem_ipsum(5) + <<-BLOCK,
 #       <p>
 #         <img src="http://f.cl.ly/items/2R0x3B113o1H2G1y2R3z/signature.png" alt="">
 #       </p>
-# 
+#
 #       <ul class="contributors">
 #         <h2><em>A blogger powered magazine</em></h2>
 #         <li>
@@ -130,7 +142,7 @@
 #         </li>
 #       </ul>
 # BLOCK
-# 
+#
 #     layout: params.fetch(:layout, {}).reverse_merge(
 #       type: "toc",
 #       image_align: "left",
@@ -161,11 +173,11 @@
     <% if page.author_icon %>
       <img src="<%= page.author_icon %>" class="avatar" >
     <% end %>
-    
+
     <% if page.author_name %>
       <em>by <%= page.author_name %></em>
     <% end %>
-    
+
     <% if page.description %>
       <p><%= page.description %></p>
     <% end %>
@@ -173,8 +185,8 @@
 </header>
 <% end %>
 
-<article class="toc page <%= page.layout.content_overflow %>">
-  <div class="col third-2">
+<article class="toc page">
+  <div class="main col third-2">
     <div class="cover-area <%= page.layout.image_style %>" style="background-image: url(<%= page.image_url %>)">
       <% if video_embed = page.embed_content %>
         <div class="video-wrapper"><%= video_embed %></div>
@@ -188,8 +200,8 @@
     </div>
   </div>
 
-  <div class="col third contents">
-    <h2>CONTENTS</h>
+  <div class="menu col third">
+    <h2>CONTENTS</h2>
     <hr />
     <ul>
       <% issue.items.each do |page| %>
@@ -203,6 +215,4 @@
       <% end %>
     </ul>
   </div>
-
-  <%#= render 'debug', locals: { page: page } %>
 </article>
