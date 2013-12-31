@@ -8,7 +8,6 @@
 
     layout:
       type: toc
-      content_overflow: scroll
 
 ---
 
