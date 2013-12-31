@@ -6,9 +6,6 @@ publish_at: "2013-9-15T13:16:46Z"
 auther_name: Taylor
 image_url: "assets/background.jpg"
 
-# custom_css: ""
-# custom_js: ""
-
 items:
 
   - title: Cover
@@ -38,7 +35,7 @@ items:
     image_url: "http://lorempixel.com/200/152"
     pages:
 
-      - handle: "products-split?layout[image_align]=right&image=1"
+      - handle: "1"
 
   - title: One Column
     category: Layout

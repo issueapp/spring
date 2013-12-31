@@ -1,15 +1,13 @@
-
 <style>
   nav.toc {
     position: absolute;
-    /*bottom: -150px;*/
     bottom: 0;
     left: 0;
-    width: 100%;
+    z-index: -1;
     visibility: hidden;
     overflow: hidden;
+    width: 100%;
     height: 0px;
-    z-index: -1;
     -webkit-transition: all 0.15s ease-out;
     -moz-transition: all 0.15s ease-out;
     -o-transition: all 0.15s ease-out;
@@ -18,11 +16,8 @@
 
   nav.toc.show {
     z-index: 0;
-
-    /*bottom: 0;*/
     visibility: visible;
     height: 150px;
-
   }
 
   nav.toc ul {
@@ -107,7 +102,6 @@
   nav.toc li a.active {
     outline: 2px solid #A2E6E8;
   }
-
 </style>
 
 <nav class="toc" role="secondary">

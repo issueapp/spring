@@ -14,7 +14,7 @@
  <%= page.layout.content_align || 'center' %>
  <%= page.layout.content_valign || 'middle' %>
 
- <%= "height-#{page.layout.content_height}" if page.layout.content_height %>
+ <%= "height-#{page.layout.content_height || 'auto'}" %>
  <%= "image-#{page.layout.image_style}" if page.layout.image_style %>
  <%= "cover-#{page.layout.image_align}" if page.layout.image_align && page.image_url %>"
 
