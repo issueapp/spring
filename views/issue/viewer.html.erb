@@ -1,6 +1,6 @@
-<% 
+<%
   @layout =  '/layouts/docs'
-  
+
   path ||= "/issue/index"
 
  %>
@@ -74,7 +74,7 @@
 
 <div id="issue-viewer" >
   <iframe src="<%= path %>" id="issue-frame" frameborder="0"></iframe>
-  
+
   <% if respond_to? :render_template %>
     <%= render '/issue/menu' %>
   <% else %>
@@ -100,11 +100,12 @@
       this.frame = $('#issue-frame')
 
       var parts = this.frame[0].src.split('/')
-      parts.pop()
+
+
+      if (parts.length > 5) parts.pop()
 
       this.path = parts.join('/')
       this.pages = data.pages
-      this.items = data.items
 
       this.setCurrentPage(this.currentPage())
 
@@ -114,9 +115,16 @@
       $('.toggle-menu, label[for=menu]').on('click', this.toggleMenu)
 
       $('nav.toc a').on('click', function () {
-        $("#issue-frame").attr("src", this.href)
-        Viewer.setCurrentPage(this.href)
+        link = this.href
+
+        if (link.match(/\/viewer\//))
+          link = link.replace(/\/viewer\//, '/issues/')
+
+        $("#issue-frame").attr("src", link)
+        Viewer.setCurrentPage(link)
         Viewer.toggleMenu()
+
+        return false
       })
 
       Mousetrap.bind("right", $.proxy(this.next, this))
@@ -128,6 +136,10 @@
       var current = this.currentPage()
       var index = this.pages.indexOf(current)
       var next = this.pages[index + 1]
+
+      // console.log(">> current", current)
+      // console.log(">> index", index)
+      // console.log(">> next", next)
 
       if (next) {
         $("#issue-frame").attr("src", this.path + '/' + next)
@@ -142,10 +154,6 @@
       var index = this.pages.indexOf(current)
       var prev = this.pages[index - 1]
 
-      console.log(">> current", current)
-      console.log(">> index", index)
-      console.log(">> prev", prev)
-
       if (prev) {
         $("#issue-frame").attr("src", this.path + '/' + prev)
 
@@ -155,7 +163,14 @@
     },
 
     currentPage: function (story) {
-      var page = this.frame[0].src.replace(this.path + "/", '')
+      var src = this.frame[0].src
+      var page
+
+      if (src.match(this.path + '/'))
+        page = this.frame[0].src.replace(this.path + "/", '')
+      else
+        page = 'index'
+
       return page
     },
 
@@ -176,8 +191,6 @@
       else
         story = parts[0]
 
-      // console.log(path, this.path, story)
-
       this.container.attr('data-page', story)
       $('nav.toc a.active').removeClass('active')
       $('[data-page="'+story+'"] .toc .' + story + ' a').addClass('active')
@@ -185,7 +198,15 @@
 
   }
 
-  $.getJSON('/issue/issue.json', function(data) {
+  var path = window.location.pathname.split('/')
+
+  if (path.length > 3) path.pop()
+
+  path.unshift(window.location.origin)
+
+  path = $.grep(path, function(n){return(n)}).join('/')
+
+  $.getJSON(path + '/issue.json', function(data) {
     Viewer.init(data)
   })
 
