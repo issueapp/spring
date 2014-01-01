@@ -83,10 +83,13 @@ class IssuePreview < Sinatra::Base
       attributes = {}
     end
 
+    author_icon = author_icon ? asset_path(attributes["author_icon"]) : nil
+
     attributes.merge!(
       "issue_url" => issue_url,
       "page_url" => "#{issue_url}/#{params[:page]}",
-      "image_url" => asset_path(attributes["image_url"]),    # remove preview rendering
+      "image_url" => asset_path(attributes["image_url"]), # remove preview rendering
+      "author_icon" => author_icon,
 
       "content" => content && RDiscount.new(content).to_html,
       "published_at" => attributes["published_at"] || File.mtime(path),

@@ -41,11 +41,12 @@
       <h1 class='title preview_item_title'><%= page.title %></h1>
       <% end %>
 
-      <% if false && page.description %>
+      <% if page.description %>
       <h3 class='subtitle description'><%= page.description %></h3>
       <% end %>
 
       <div class='extras'>
+        <%= page.author_icon %>
         <% if page.author_icon %>
           <img src="<%= page.author_icon %>" class='avatar' >
         <% end %>
