@@ -1,9 +1,7 @@
 ---
 
     title: Table of content
-
     author_name: Taylor Luk
-    description: ""
     image_url: assets/background.jpg
 
     layout:

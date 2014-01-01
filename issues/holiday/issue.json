@@ -1,0 +1,31 @@
+{
+  "title": "Holiday issue",
+  "short_title": "Holiday",
+  "edition_title": "Indulgence",
+  "description": "Travel in Style • Beauty Updates • Favourite Eats",
+  "publish_at": "2013-9-15T13:16:46Z",
+  "auther_name": "Andrew Yang",
+  "image_url": "assets/cover-bg-2048px.jpg",
+  "pages": [
+    "index",
+    "toc",
+    "a-holiday-in-style",
+    "a-holiday-in-style/1",
+    "a-holiday-in-style/2",
+    "a-holiday-in-style/3",
+    "cover-story",
+    "cover-story/1",
+    "cover-story/2",
+    "cover-story/3",
+    "the-style-edit",
+    "the-style-edit/1",
+    "the-style-edit/2",
+    "the-style-edit/3",
+    "the-style-edit/4",
+    "summer-love",
+    "summer-love/1",
+    "summer-love/2",
+    "summer-love/3",
+    "summer-love/4"
+  ]
+}
