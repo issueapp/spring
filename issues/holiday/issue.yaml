@@ -6,9 +6,6 @@ publish_at: "2013-9-15T13:16:46Z"
 auther_name: Andrew Yang
 image_url: "assets/cover-bg-2048px.jpg"
 
-# custom_css: ""
-# custom_js: ""
-
 items:
 
   - title: Cover
@@ -21,43 +18,36 @@ items:
     category: Fashion
     handle: "a-holiday-in-style"
     pages:
-      - handle: "photo-1"
-      - handle: "photo-2"
-      - handle: "guide"
 
-  - title: Product guide
-    category: Shopping
-    handle: "products-split"
+      - handle: "1"
+      - handle: "2"
+      - handle: "3"
+
+  - title: Cover Story
+    category: Fashion
+    handle: "cover-story"
     pages:
 
-      - handle: "products-split?layout[image_align]=right&image=1"
+      - handle: "1"
+      - handle: "2"
+      - handle: "3"
 
-  - title: One Column
-    category: Layout
-    handle: "one-col"
+  - title: The Style Edit
+    category: Fashion
+    handle: "the-style-edit"
     pages:
 
-      - handle: "one-col?layout[image_style]=fit"
+      - handle: "1"
+      - handle: "2"
+      - handle: "3"
+      - handle: "4"
 
-  - title: One Third
-    category: Layout
-    handle: "one-third"
+  - title: Summer Love
+    category: Fashion
+    handle: "summer-love"
     pages:
 
-      - handle: "one-third?layout[image_align]=right"
-      - handle: "one-third?layout[image_style]=background&layout[content_height]=auto"
-      - handle: "one-third?layout[image_style]=background&layout[content_height]=auto&layout[content_align]=left&layout[content_valign]=bottom"
-
-  - title: Full Screen
-    category: Layout
-    handle: "fullscreen"
-
-  - title: Youtube
-    category: Media
-    handle: "youtube"
-
-  - title: Vimeo
-    category: Media
-    handle: "vimeo"
-
-
+      - handle: "1"
+      - handle: "2"
+      - handle: "3"
+      - handle: "4"
