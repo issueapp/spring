@@ -51,3 +51,25 @@ items:
       - handle: "2"
       - handle: "3"
       - handle: "4"
+
+  - title: A Weekend Escape
+    category: Fashion
+    handle: "a-weekend-escape"
+    pages:
+
+      - handle: "1"
+      - handle: "2"
+      - handle: "3"
+      - handle: "4"
+      - handle: "5"
+
+  - title: Summer Survival Guide
+    category: Fashion
+    handle: "summer-survival-guide"
+    pages:
+
+      - handle: "1"
+      - handle: "2"
+      - handle: "3"
+      - handle: "4"
+      - handle: "5"
