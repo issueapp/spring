@@ -1,7 +1,7 @@
 ---
 
     title: SUMMER LOVE.
-    by_line: By Michelle Lau from A Minute Away from Snowing
+    byline: By Michelle Lau from A Minute Away from Snowing
     author_icon:
     image_url: assets/summer-love/cover.jpg
     published_at:

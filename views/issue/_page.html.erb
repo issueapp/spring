@@ -51,8 +51,8 @@
           <img src="<%= page.author_icon %>" class='avatar' >
         <% end %>
 
-        <% if page.author_name %>
-          <em>by <%= page.author_name %></em>
+        <% if page.byline %>
+          <em><%= page.byline %></em>
         <% end %>
 
         <% if page.description %>
