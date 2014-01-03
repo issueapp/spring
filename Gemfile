@@ -1,41 +1,34 @@
-source 'https://rubygems.org'
-
-gem 'serve', '~> 1.5.1'
+gem "serve", "~> 1.5.1"
 
 # Use edge instead:
-# gem 'serve', :git => 'git://github.com/jlong/serve.git'
+# gem "serve", :git => "git://github.com/jlong/serve.git"
 gem "sinatra"
 gem "sinatra-contrib"
 
-# Use Compass and Sass
-gem 'compass'
+# # Use Compass and Sass
+gem "coffee-script"
+gem "sinatra-asset-pipeline"
+gem "compass"
 gem "hashie"
-gem 'rack-coffee'
-gem 'actionpack', '~> 3.2'
-# gem 'railties',   '~> 3.2'
-gem 'tzinfo'
-gem "sass"
-gem "forgery"
-gem 'thin'
+# gem "actionpack", "~> 3.2"
+# # gem "railties",   "~> 3.2"
 
-# Markdown and Textile
-gem 'rdiscount' # Markdown
-# gem 'RedCloth'  # Textile
-
+# 
+# # Markdown and Textile
+gem "rdiscount" # Markdown
+# gem "RedCloth"  # Textile
+# 
 # Other templating languages
-# gem 'erubis'
-# gem 'haml'
-# gem 'slim'
-# gem 'radius'
-# gem 'less'
-
-group :assets do
-  gem 'coffee-script'
-end
-
+# gem "erubis"
+# gem "haml"
+# gem "slim"
+# gem "radius"
+# gem "less"
+# 
 group :development, :test do
+
+  gem "guard-jasmine"
   gem "guard-pow"
-  gem 'guard-jasmine'
-  gem 'jasminerice'
-  # gem 'jquery-rails'
+  # gem "jasminerice", github: "bradphelan/jasminerice"
+  # gem "jquery-rails"
 end
