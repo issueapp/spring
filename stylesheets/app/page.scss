@@ -121,6 +121,14 @@ article.page {
     }
   }
 
+  header .category {
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 12px;
+    font-family: "proxima_nova_bold";
+  }
+
   .column-break {
     display: none;
     margin: 0;
@@ -434,14 +442,6 @@ article.page.has-product {
     letter-spacing: 2px;
     font-weight: normal;
     font-size: 24px;
-    font-family: "proxima_nova_bold";
-  }
-
-  header .category {
-    color: #666;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 12px;
     font-family: "proxima_nova_bold";
   }
 
