@@ -7,7 +7,7 @@
     image_url: assets/a-holiday-in-style/cover.jpg
 
     layout:
-      type: two-column
+      type: three-column
 
 ---
 
