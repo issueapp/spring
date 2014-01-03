@@ -20,15 +20,9 @@ class IssuePreview < Sinatra::Base
   end
 
   get %r{/viewer/(?<issue>[^\/]+)/?(?<page>[^\/]+)?(?:\/(?<subpage>[^\/]+))?} do
-    if params["page"] =~ /(.+)\.json$/
-      path = File.expand_path("../issues/#{params["issue"]}/#{$1}.json", __FILE__)
-      open(path).read
+    @path = params.slice("issue", "page", "subpage").values.compact.join('/')
 
-    else
-      path = params.slice("issue", "page", "subpage").values.compact.join('/')
-
-      erb :"issue/viewer.html", layout: :"/layouts/_docs.html", locals: { path: "/issues/#{path}", issue: current_issue }
-    end
+    erb :"issue/viewer.html", layout: :"/layouts/_docs.html", locals: { path: "/issues/#{@path}", issue: current_issue }
   end
 
   get '/issues/:issue' do
@@ -83,7 +77,7 @@ class IssuePreview < Sinatra::Base
       attributes = {}
     end
 
-    author_icon = author_icon ? asset_path(attributes["author_icon"]) : nil
+    author_icon = attributes["author_icon"] ? asset_path(attributes["author_icon"]) : nil
 
     attributes.merge!(
       "issue_url" => issue_url,
