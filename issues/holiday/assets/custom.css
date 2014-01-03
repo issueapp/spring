@@ -8,15 +8,57 @@
   Table of content
 */
 
-article.page.toc .content header {
-  display: none !important;
+article.page.toc .cover-area {
+  min-height: 260px;
 }
 
-/* Page specific 
+article.page.toc .content header {
+  text-align: left;
+}
+
+article.page.toc .content header h1 {
+  font-size: 40px;
+}
+
+article.page.toc .content p {
+  margin: 1.2em 0;
+  line-height: 1.4;
+}
+
+article.page.toc .contributors {
+  padding: 0;
+  list-style-type: none;
+  text-align: center;
+}
+
+article.page.toc .contributors li {
+  float: left;
+  padding: 5px 0 5px 80px;
+  width: 50%;
+  text-align: left;
+
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+article.page.toc .contributors .avatar {
+  position: absolute;
+  margin-left: -70px;
+  width: 50px;
+  height: 50px;
+}
+
+article.page.toc .contributors .description {
+  color: #555;
+  font-style: italic;
+}
+
+/* Page specific
 
 
-  article[data-page="cover-story/2"] {
-    
+  article[data-page="cate-says-si/2"] {
+
   }
 
 */
