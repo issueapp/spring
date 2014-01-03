@@ -62,8 +62,8 @@
 </style>
 
 <div style="padding: 10px">
-  <button class="button outline" onclick="$('#issue-viewer').toggleClass('mobile')">mobile</button>
-  <button class="button outline" onclick="$('#issue-viewer').toggleClass('portrait')">orientation</button>
+  <button class="button outline" onclick="$('#issue-viewer').toggleClass('mobile');App().refresh()">mobile</button>
+  <button class="button outline" onclick="$('#issue-viewer').toggleClass('portrait');App().refresh()">orientation</button>
 
   <!-- <label for="menu" class="button outline">Issue</label> -->
   <button class="toggle-menu button outline">Menu</button>
@@ -202,6 +202,10 @@
   $.getJSON(path + '/issue.json', function(data) {
     Viewer.init(data)
   })
+  
+  function App() {
+    return document.getElementById('issue-frame').contentWindow.App
+  }
 
 </script>
 <% end %>

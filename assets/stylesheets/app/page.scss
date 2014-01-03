@@ -434,7 +434,7 @@ article.fullscreen {
 article.page.has-product {
   text-align: left;
 
-  &.no-image .cover-area {
+  &.no-image .cover-area.cover {
     display: none;
   }
 
@@ -572,13 +572,13 @@ article.page.has-product {
       display: block;
     }
 
-    .cover-area {
+    // Use product set as cover area, need to remove height
+    &.no-image .cover-area {
+      height: initial;
       position: absolute;
       top: 0;
       right: initial;
       bottom: initial;
-      width: 50%;
-      height: 100%;
     }
 
     &.scroll.cover-left .content,
@@ -703,6 +703,15 @@ article.page.has-product {
 
 @media only screen and (min-width: 768px) and (orientation: portrait) {
   article.page.has-product {
+    
+    &.no-image .cover-area {
+      position: static;
+      float: none;
+      left: 0;
+      width: 100%;
+      height: auto;
+    }
+    
     &.no-image .content {
       width: 100%;
     }
