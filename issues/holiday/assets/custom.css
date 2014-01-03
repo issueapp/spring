@@ -1,0 +1,22 @@
+/*
+  Custom css
+
+  // Magazine cover
+*/
+
+/*
+  Table of content
+*/
+
+article.page.toc .content header {
+  display: none !important;
+}
+
+/* Page specific 
+
+
+  article[data-page="cover-story/2"] {
+    
+  }
+
+*/

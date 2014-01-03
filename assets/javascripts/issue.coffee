@@ -1,7 +1,7 @@
 # Libraries
-#
-#= require underscore
+# 
 #= require zepto
+#= require underscore
 #= require backbone
 
 #= require app/core
