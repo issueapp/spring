@@ -2,11 +2,10 @@ require 'rdiscount'
 require 'hashie/mash'
 require 'sinatra/base'
 require 'sinatra/content_for'
-require 'json'
-require 'yaml'
+require 'sinatra/asset_pipeline'
 
 class IssuePreview < Sinatra::Base
-  # helpers Serve::RenderHelpers
+  register Sinatra::AssetPipeline
   helpers Sinatra::ContentFor
 
   helpers do
@@ -32,7 +31,23 @@ class IssuePreview < Sinatra::Base
   get "/issues/:issue/" do
     erb :"issue/_cover.html", layout: :"issue/_layout.html", locals: { issue: current_issue}
   end
-
+  
+  get "/issues/:issue/issue.json" do
+    pages = current_issue.items.reduce([]) do |result, item|
+      result << item["handle"] #.gsub('/issue/', '')
+      
+      if item["pages"]
+        result += item["pages"].map{|p| p["handle"] }
+      end
+      
+      result
+    end
+    
+    current_issue["pages"] = pages
+    
+    current_issue.to_json
+  end
+  
   # Page and subpage
   get %r{/issues/(?<issue>[^\/]+)/(?<page>[^\/]+)(?:\/(?<subpage>[^\/]+))?} do
     path = params.slice("issue", "page", "subpage").values.compact.join('/')
@@ -82,7 +97,7 @@ class IssuePreview < Sinatra::Base
     attributes.merge!(
       "issue_url" => issue_url,
       "page_url" => "#{issue_url}/#{params[:page]}",
-      "image_url" => asset_path(attributes["image_url"]), # remove preview rendering
+      "image_url" => attributes["image_url"] && asset_path(attributes["image_url"]), # remove preview rendering
       "author_icon" => author_icon,
 
       "content" => content && RDiscount.new(content).to_html,
@@ -94,7 +109,11 @@ class IssuePreview < Sinatra::Base
   end
 
   def asset_path(path)
-    "#{issue_url}/#{path}"
+    if path =~ /^https?:/
+      path
+    elsif path
+      "#{issue_url}/#{path}"
+    end
   end
 
   def issue_url
