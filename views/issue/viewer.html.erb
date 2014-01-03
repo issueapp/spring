@@ -101,7 +101,6 @@
 
       var parts = this.frame[0].src.split('/')
 
-
       if (parts.length > 5) parts.pop()
 
       this.path = parts.join('/')
@@ -195,16 +194,9 @@
       $('nav.toc a.active').removeClass('active')
       $('[data-page="'+story+'"] .toc .' + story + ' a').addClass('active')
     }
-
   }
 
-  var path = window.location.pathname.split('/')
-
-  if (path.length > 3) path.pop()
-
-  path.unshift(window.location.origin)
-
-  path = $.grep(path, function(n){return(n)}).join('/')
+  var path = "/<%= params[:issue] %>"
 
   $.getJSON(path + '/issue.json', function(data) {
     Viewer.init(data)
