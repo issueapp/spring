@@ -14,15 +14,15 @@ module ViewHelpers
     issue = YAML.load_file(File.expand_path("../issue/issue.yaml", __FILE__))
     items = issue.fetch("items", []).map do |page|
       page["url"] = "#{page["handle"]}"
-      
+
       page
     end
-    
+
     issue.merge!(
       "image_url" => issue["image_url"],
       "items" => items
     )
-    
+
     Hashie::Mash.new(issue)
   end
 

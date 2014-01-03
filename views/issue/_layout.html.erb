@@ -23,7 +23,7 @@
 
     <link rel="stylesheet" href="/assets/application.css" type="text/css">
     <link rel="stylesheet" href="/holiday/assets/custom.css" type="text/css">
-    
+
     <style>
       .page {
         width: 100%;
@@ -85,9 +85,9 @@
 
   <script>
     App.init()
-    
+
   </script>
-  
+
   <script type="text/html" id='popover-template'>
     <div class="arrow"></div>
     <div class="details">
@@ -102,7 +102,7 @@
   </script>
 
   <script>
-    
+
     function toggle_rendering() {
       $('article.page').toggleClass('paginate').toggleClass('scroll');
       App.refresh()
@@ -206,7 +206,7 @@
       }
     })
   </script>
-  
+
   <% if respond_to? :yield_content %>
     <%= yield_content :js %>
   <% else %>

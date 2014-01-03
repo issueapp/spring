@@ -1,6 +1,6 @@
 ---
 
-    image_url: assets/cover-story/cover.jpg
+    image_url: assets/cate-says-si/cover.jpg
 
     layout:
       type: three-column

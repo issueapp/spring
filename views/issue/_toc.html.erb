@@ -1,160 +1,3 @@
-<style>
-  h2 {
-    text-transform: none;
-    font-weight: normal;
-    font-size: 24px;
-    font-family: "EB Garamond";
-  }
-
-  .page.toc .main {
-    overflow: auto;
-  }
-
-  .page.toc .content {
-    padding: 0 20px;
-  }
-
-  .page.toc .content header {
-    padding: 20px 0 0;
-  }
-
-  /*
-    Contributors
-  */
-  .page.toc .contributors {
-    padding: 0;
-    list-style-type: none;
-    text-align: center;
-    white-space: nowrap;
-  }
-
-  .page.toc .contributors li {
-    display: inline-block;
-    width: 25%;
-    vertical-align: top;
-  }
-
-  .page.toc .contributors li span {
-    display: block;
-    white-space: normal;
-  }
-
-  .page.toc .contributors li span.description {
-    color: #555;
-    font-style: italic;
-  }
-
-  /*
-    Content list
-  */
-  .page.toc .menu {
-    overflow: auto;
-    padding: 20px;
-    height: 100%;
-    background-color: #f5f5f5;
-    text-align: center;
-  }
-
-  .page.toc .menu ul {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-  }
-
-  .page.toc .menu li {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    padding: 10px 0;
-    min-height: 100px;
-
-  }
-
-  .page.toc .menu li a {
-    color: #000;
-    text-decoration: none !important;
-    letter-spacing: 2px;
-    line-height: 1.5;
-  }
-
-  .page.toc .menu li .story {
-    display: block;
-    text-decoration: underline;
-    font-size: 24px;
-    font-family: "EB Garamond";
-  }
-
-  .page.toc .menu li .category {
-    display: block;
-    color: #666;
-    text-transform: uppercase;
-    font-weight: normal;
-    font-size: 14px;
-    font-family: "proxima_nova_regular";
-  }
-
-  .page.toc .menu li .author {
-    display: block;
-    color: #333;
-    font-weight: normal;
-    font-size: 14px;
-    font-family: "EB Garamond";
-  }
-</style>
-
-<%#
-#   page = Hashie::Mash.new(
-#     title: "Holiday Issue",
-#     description: nil,
-#     author_name: nil,
-#     author_icon: nil,
-#     content_type: "photo",
-#     top_image: "http://cl.ly/image/27131I1H411P/Screen%20Shot%202013-12-12%20at%204.25.17%20pm.png",
-#     brand_image: "http://cl.ly/image/1V2Z0K1J1H1g/header-text.png",
-#     published_at: 3.days.ago,
-#
-#     content: lorem_ipsum(5) + <<-BLOCK,
-#       <p>
-#         <img src="http://f.cl.ly/items/2R0x3B113o1H2G1y2R3z/signature.png" alt="">
-#       </p>
-#
-#       <ul class="contributors">
-#         <h2><em>A blogger powered magazine</em></h2>
-#         <li>
-#           <img class="avatar" src="http://cl.ly/image/3u2R2z2h0L3V/aubrey.png" alt="">
-#           <span>Aubrey Daquinag</span>
-#           <span class="description">The Love Assembly</span>
-#         </li>
-#         <li>
-#           <img class="avatar" src="http://cl.ly/image/1b2M3v0I0m2K/jessica.png" alt="">
-#           <span>Jessica Cheung</span>
-#           <span class="description">Jysla Kay blog</span>
-#         </li>
-#         <li>
-#           <img class="avatar" src="http://cl.ly/image/3T3Q03470k10/michelle.png" alt="">
-#           <span>Michelle Lau</span>
-#           <span class="description">A minute away from Snowlng</span>
-#         </li>
-#         <li>
-#           <img class="avatar" src="http://cl.ly/StPu/Image%202013.12.11%204%3A54%3A01%20pm.png" alt="">
-#           <span>Zyralyn Bacani</span>
-#           <span class="description">Content Writer of Issue</span>
-#         </li>
-#       </ul>
-# BLOCK
-#
-#     layout: params.fetch(:layout, {}).reverse_merge(
-#       type: "toc",
-#       image_align: "left",
-#       image_style: "cover",
-#       content_style: "black",
-#       content_align: "left",
-#       content_valign: "bottom",
-#       content_overflow: "paginate"
-#     )
-#   )
-%>
-
 <% header_area = capture do %>
 <header>
   <% if page.category %>
@@ -190,6 +33,8 @@
     <div class="cover-area <%= page.layout.image_style %>" style="background-image: url(<%= page.image_url %>)">
       <% if video_embed = page.embed_content %>
         <div class="video-wrapper"><%= video_embed %></div>
+      <% elsif page.brand_image_url %>
+        <img class="brand-logo" src="<%= page.brand_image_url %>" alt="">
       <% end %>
     </div>
 
@@ -209,7 +54,7 @@
         <a href="<%= page.url %>">
           <span class="category"><%= page.category %></span>
           <span class="story"><%= page.title %></span>
-          <span class="author"><%= page.author_name %></span>
+          <span class="author"><%= "By #{page.author_name}" if page.author_name %></span>
         </a>
       </li>
       <% end %>

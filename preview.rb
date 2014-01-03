@@ -35,30 +35,30 @@ class IssuePreview < Sinatra::Base
   get "/issues/:issue/" do
     erb :"issue/_cover.html", layout: :"issue/_layout.html", locals: { issue: current_issue}
   end
-  
+
   get "/issues/:issue/issue.json" do
     pages = current_issue.items.reduce([]) do |result, item|
       result << item["handle"] #.gsub('/issue/', '')
-      
+
       if item["pages"]
         result += item["pages"].map{|p| p["handle"] }
       end
-      
+
       result
     end
-    
+
     current_issue["pages"] = pages
-    
+
     current_issue.to_json
   end
-  
+
   # Page and subpage
   get %r{/issues/(?<issue>[^\/]+)/(?<page>[^\/]+)(?:\/(?<subpage>[^\/]+))?} do
     path = params.slice("issue", "page", "subpage").values.compact.join('/')
     file_path = File.expand_path("../issues/#{path}.md", __FILE__)
 
     page = find_page(file_path)
-    erb page_template(page), locals: { issue: current_issue, page: page  }, layout: :"issue/_layout.html"
+    erb page_template(page), locals: { issue: current_issue, page: page }, layout: :"issue/_layout.html"
   end
 
   private
@@ -73,8 +73,9 @@ class IssuePreview < Sinatra::Base
 
     issue.merge!(
       "image_url" => asset_path(issue["image_url"]),
-      "items" => items    )
-    
+      "items" => items
+    )
+
     Hashie::Mash.new(issue)
   end
 
@@ -96,23 +97,25 @@ class IssuePreview < Sinatra::Base
     end
 
     author_icon = attributes["author_icon"] ? asset_path(attributes["author_icon"]) : nil
+    brand_image_url = attributes["brand_image_url"] ? asset_path(attributes["brand_image_url"]) : nil
 
     attributes.merge!(
       "issue_url" => issue_url,
       "page_url" => "#{issue_url}/#{params[:page]}",
       "image_url" => attributes["image_url"] && asset_path(attributes["image_url"]), # remove preview rendering
       "author_icon" => author_icon,
+      "brand_image_url" => brand_image_url,
 
       "content" => content && RDiscount.new(content).to_html,
       "published_at" => attributes["published_at"] || File.mtime(path),
       "layout" => attributes.fetch("layout", {})
     )
-    
-    
+
+
     if params[:layout]
       attributes["layout"].merge!(params[:layout])
     end
-    
+
     Hashie::Mash.new(attributes)
   end
 
