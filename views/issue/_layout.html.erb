@@ -1,6 +1,4 @@
-<% if @json_response %>
-<%= yield %>
-<% elsif @layout %>
+<% if @layout %>
   <%= render @layout %>
 <% else %>
 
@@ -23,7 +21,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-    <link rel="stylesheet" href="/stylesheets/application.css" type="text/css">
+    <link rel="stylesheet" href="/assets/application.css" type="text/css">
     <style>
       .page {
         width: 100%;
@@ -169,8 +167,7 @@
   </body>
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-  <script src="/javascripts/vendor/underscore.js"></script>
-  <script src="/javascripts/spring.ui.js"></script>
+  <script src="/assets/issue.js" type="text/javascript" charset="utf-8"></script>
 
   <script type="text/html" id='popover-template'>
     <div class="arrow"></div>
@@ -186,6 +183,7 @@
   </script>
 
   <script>
+    
     function toggle_rendering() {
       $('article.page').toggleClass('paginate').toggleClass('scroll');
     }

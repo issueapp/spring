@@ -5,7 +5,6 @@
 #
 module ViewHelpers
   require 'hashie/mash'
-  require 'forgery'
 
   def render_page(page)
     doc = open(File.expand_path("../#{page}.md", __FILE__)).read
