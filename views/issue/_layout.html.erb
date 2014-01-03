@@ -37,7 +37,7 @@
       */
 
       @media only screen and (min-width: 768px) and (orientation: portrait) {
-        article.page.two-column.paginate,
+/*        article.page.two-column.paginate,
         article.page.three-column.paginate {
           width: 2304px;
         }
@@ -46,8 +46,8 @@
         article.page.three-column.paginate .content {
           width: 768px;
         }
-
-        .page.two-column.paginate .cover-area {
+*/
+/*        .page.two-column.paginate .cover-area {
           width: 384px;
         }
 
@@ -61,63 +61,38 @@
 
         .page.three-column.cover-right .cover-area {
           left: 256px;
-        }
-
+        }*/
+/*
         article.page.has-product.cover-left .content {
           margin-left: 384px;
         }
 
         article.page.has-product.cover-left.paginate .cover-area {
           width: 384px;
-        }
+        }*/
       }
 
       @media only screen and (min-width: 768px) and (orientation: landscape) {
-        article.page.two-column.paginate,
-        article.page.three-column.paginate {
-          width: 3072px;
-        }
 
-        article.page.two-column.paginate .content,
-        article.page.three-column.paginate .content {
-          width: 1024px;
-        }
-
-        .page.two-column.paginate .cover-area {
-          width: 512px;
-        }
-
-        .page.two-column.cover-right .cover-area {
-          left: 512px;
-        }
-
-        .three-column.paginate .cover-area {
-          width: 682px;
-        }
-
-        .page.three-column.cover-right .cover-area {
-          left: 341px;
-        }
-
-        article.page.has-product.cover-left .content {
+/*        article.page.has-product.cover-left .content {
           margin-left: 512px;
-        }
+        }*/
 
-        article.page.has-product.paginate .cover-area {
+/*        article.page.has-product.paginate .cover-area {
           width: 512px;
-        }
+        }*/
 
-        article.page.has-product.no-image.left .product-set {
+/*        article.page.has-product.no-image.left .product-set {
           left: 512px;
-        }
+        }*/
 
-        article.page.has-product.no-image.right .content {
+/*        article.page.has-product.no-image.right .content {
           margin-left: 512px;
-        }
+        }*/
 
-        article.page.has-product.no-image .product-set {
+/*        article.page.has-product.no-image .product-set {
           width: 512px;
-        }
+        }*/
       }
 
       /* Debugger */
@@ -168,7 +143,12 @@
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
   <script src="/assets/issue.js" type="text/javascript" charset="utf-8"></script>
-
+  
+  <script>
+    App.init()
+    
+  </script>
+  
   <script type="text/html" id='popover-template'>
     <div class="arrow"></div>
     <div class="details">
@@ -186,6 +166,7 @@
     
     function toggle_rendering() {
       $('article.page').toggleClass('paginate').toggleClass('scroll');
+      App.refresh()
     }
 
     function toggle_debugger() {
@@ -286,7 +267,7 @@
       }
     })
   </script>
-
+  
   <% if respond_to? :yield_content %>
     <%= yield_content :js %>
   <% else %>

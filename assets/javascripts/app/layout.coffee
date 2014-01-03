@@ -14,7 +14,7 @@ Layout = {
   portrait: null
 
   pageSize: { height: 0, width: 0 }
-  viewport: { height: 0, width: 0 }
+  viewport: { height: 0, width: 0, maxHeight: false, maxWidth: false}
 
   # Refresh
   #
@@ -41,23 +41,24 @@ Layout = {
       width: page.width()
     }
 
+    # TODO: Move to stream
     # Stream#updatePadding
-    this.updatePadding()
+    #this.updatePadding()
+    # Update scroll pos
+    # if @support.swipe == "horizontal"
+    #   offsetX = @scrollTarget[0].scrollLeft || @scrollTarget[0].scrollX
+    #   pages = offsetX / previous.width
+    # 
+    #   @scrollTarget[0].scrollTo( pages * @viewport.width, 0) if offsetX > 0
+    # else
+    #   offsetY = @scrollTarget[0].scrollTop || @scrollTarget[0].scrollY
+    #   pages = offsetY / previous.height
+    # 
+    #   @scrollTarget[0].scrollTo(0, pages * @viewport.height) if offsetY > 0
+
 
     # Update content UI
     this.updateContentWidth()
-
-    # Update scroll pos
-    if @support.swipe == "horizontal"
-      offsetX = @scrollTarget[0].scrollLeft || @scrollTarget[0].scrollX
-      pages = offsetX / previous.width
-
-      @scrollTarget[0].scrollTo( pages * @viewport.width, 0) if offsetX > 0
-    else
-      offsetY = @scrollTarget[0].scrollTop || @scrollTarget[0].scrollY
-      pages = offsetY / previous.height
-
-      @scrollTarget[0].scrollTo(0, pages * @viewport.height) if offsetY > 0
 
   # Detect Layout
   #   set @support.swipe direction
@@ -94,31 +95,57 @@ Layout = {
       @viewport.width = Math.max(320, window.innerWidth)
       @viewport.height = window.innerHeight #- $('header.toolbar').height()
     else
-      @viewport.width = Math.min(1024, window.innerWidth)
-      @viewport.height = Math.min(704, window.innerHeight)
+      @viewport.width = if @viewport.maxWidth then Math.min(@viewport.maxWidth, window.innerWidth) else window.innerWidth
+      @viewport.height = if @viewport.maxHeight then Math.min(@viewport.maxHeight, window.innerHeight) else window.innerHeight
 
   # Calcualte page layout
   updateLayout: ->
+    
     if @support.swipe
       css = "
+      @media only screen and (min-width: 768px) {\n
         #sections { max-width: #{@viewport.width}px }\n
-        article.two-column.paginate .body { width: #{@viewport.width}px }\n
+        
+        article.paginate .content { width: #{@viewport.width}px }\n
+        
         article.two-column .cover-area { width: #{@viewport.width / 2}px }\n
-
-        [role=main] .page {\n
-          width: #{@viewport.width}px;
-          height: #{@viewport.height}px;
-        }\n
+        article.three-column .cover-area { width: #{@viewport.width * 2 / 3}px }\n
+        
+        article.two-column.cover-right .cover-area { left: #{@viewport.width / 2}px }\n 
+        article.three-column.cover-right .cover-area { left: #{@viewport.width / 3}px }\n
+      }\n
+              
+      @media only screen and (min-width: 768px) and (orientation: landscape) {\n 
+        article.two-column.no-image.has-product.cover-left .content { margin-left: #{@viewport.width / 2}px }\n 
+      }\n
+      
+      [role=main] .page {\n
+        width: #{@viewport.width}px;
+        height: #{@viewport.height}px;
+      }\n
       "
     else
       css = "
+      @media only screen and (min-width: 768px) {\n
+        #sections { max-width: #{@viewport.width}px }\n
+        
+        article.paginate .content { width: #{@viewport.width}px }\n
+        
         article.two-column .cover-area { width: #{@viewport.width / 2}px }\n
-        article.two-column.paginate .body { width: #{@viewport.width }px }\n
-        \n
-        [role=main] .page {
-          height: #{@viewport.height}px;
-          width: 100%;
-        }\n
+        article.three-column .cover-area { width: #{@viewport.width * 2 / 3}px }\n
+      
+        article.two-column.cover-right .cover-area { left: #{@viewport.width / 2}px }\n 
+        article.three-column.cover-right .cover-area { left: #{@viewport.width / 3}px }\n
+      }\n
+              
+      @media only screen and (min-width: 768px) and (orientation: landscape) {\n 
+        article.two-column.no-image.has-product.cover-left .content { margin-left: #{@viewport.width / 2}px }\n 
+      }\n
+      
+      [role=main] .page {\n
+        width: #{@viewport.width}px;
+        height: #{@viewport.height}px;
+      }\n
       "
     style = document.createElement('style')
     style.type = 'text/css'
@@ -210,20 +237,19 @@ Layout = {
 
   # Update content width for 2-col layout
   updateContentWidth: ->
-    two_col_page = $('.two-column').removeClass('paginate')
-
-    if two_col_page.length > 0
-
+    paginate_page = $('.page.paginate').removeClass('paginate')
+    
+    if paginate_page.length > 0
+      content_overflow = paginate_page[0].scrollHeight > (paginate_page[0].offsetHeight + 20)
+      
       # detect if content overflows then
-      if content_overflow = two_col_page[0].scrollHeight > (two_col_page[0].offsetHeight + 20)
-        two_col_page.css('width', '')
-        two_col_page.addClass('paginate') if content_overflow
+      if content_overflow 
+        paginate_page.css('width', '')
+        paginate_page.addClass('paginate') if content_overflow
 
         setTimeout =>
-          # console.log("SET Content width", content_overflow , App.viewport.width, $('.two-column')[0].scrollWidth)
-
-          width = Math.ceil( two_col_page[0].scrollWidth / App.viewport.width ) * App.viewport.width
-          two_col_page.width(width)
+          width = Math.ceil( paginate_page[0].scrollWidth / App.viewport.width ) * App.viewport.width
+          paginate_page.width(width)
         , 200
 
   # Layout related

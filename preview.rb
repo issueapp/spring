@@ -28,6 +28,10 @@ class IssuePreview < Sinatra::Base
     redirect to("/issues/#{params[:issue]}/")
   end
 
+  get "/issues/:issue/index" do
+    redirect to("/issues/#{params[:issue]}/")
+  end
+
   get "/issues/:issue/" do
     erb :"issue/_cover.html", layout: :"issue/_layout.html", locals: { issue: current_issue}
   end
@@ -69,9 +73,8 @@ class IssuePreview < Sinatra::Base
 
     issue.merge!(
       "image_url" => asset_path(issue["image_url"]),
-      "items" => items
-    )
-
+      "items" => items    )
+    
     Hashie::Mash.new(issue)
   end
 
@@ -104,7 +107,12 @@ class IssuePreview < Sinatra::Base
       "published_at" => attributes["published_at"] || File.mtime(path),
       "layout" => attributes.fetch("layout", {})
     )
-
+    
+    
+    if params[:layout]
+      attributes["layout"].merge!(params[:layout])
+    end
+    
     Hashie::Mash.new(attributes)
   end
 
