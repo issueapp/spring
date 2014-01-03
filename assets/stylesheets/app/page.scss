@@ -431,6 +431,124 @@ article.fullscreen {
   }
 }
 
+article.page.toc {
+  h2 {
+    text-transform: none;
+    font-weight: normal;
+    font-size: 24px;
+    font-family: "EB Garamond";
+  }
+
+  .main {
+    overflow: auto;
+  }
+
+  .content {
+    padding: 0 20px;
+  }
+
+  .content header {
+    padding: 20px 0 0;
+  }
+
+  .cover-area {
+    position: relative;
+
+    .brand-logo {
+      position: absolute;
+      right: 14px;
+      bottom: 14px;
+      max-width: 200px;
+    }
+  }
+
+  /*
+    Contributors
+  */
+  // .contributors {
+  //   padding: 0;
+  //   list-style-type: none;
+  //   text-align: center;
+  //   white-space: nowrap;
+  // }
+
+  // .contributors li {
+  //   display: inline-block;
+  //   width: 25%;
+  //   vertical-align: top;
+  // }
+
+  // .contributors li span {
+  //   display: block;
+  //   white-space: normal;
+  // }
+
+  // .contributors li span.description {
+  //   color: #555;
+  //   font-style: italic;
+  // }
+
+  /*
+    Content list
+  */
+  .menu {
+    overflow: auto;
+    padding: 20px;
+    height: 100%;
+    background-color: #f5f5f5;
+    text-align: center;
+  }
+
+  .menu ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  .menu li {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px 0;
+    min-height: 100px;
+
+  }
+
+  .menu li a {
+    color: #000;
+    text-decoration: none !important;
+    letter-spacing: 2px;
+    line-height: 1.5;
+  }
+
+  .menu li .story {
+    display: block;
+    text-decoration: underline;
+    font-size: 24px;
+    font-family: "EB Garamond";
+  }
+
+  .menu li .category {
+    display: block;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: normal;
+    font-size: 14px;
+    font-family: "proxima_nova_regular";
+    line-height: 1.2;
+  }
+
+  .menu li .author {
+    display: block;
+    color: #333;
+    font-weight: normal;
+    font-size: 14px;
+    font-family: "EB Garamond";
+  }
+}
+
+
 article.page.has-product {
   text-align: left;
 
@@ -509,8 +627,6 @@ article.page.has-product {
     width: 49%;
   }
 }
-
-
 
 // Mutli column pagination
 
@@ -703,7 +819,7 @@ article.page.has-product {
 
 @media only screen and (min-width: 768px) and (orientation: portrait) {
   article.page.has-product {
-    
+
     &.no-image .cover-area {
       position: static;
       float: none;
@@ -711,7 +827,7 @@ article.page.has-product {
       width: 100%;
       height: auto;
     }
-    
+
     &.no-image .content {
       width: 100%;
     }

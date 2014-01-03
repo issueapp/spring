@@ -111,6 +111,7 @@
       <a href="<%= story.url %>" target="issue-frame" style="background-image: url('<%= story.image_url %>')" >
         <span class="category"><%= story.category %></span>
         <span class="title"><%= story.title %></span>
+        <span class="author"><%= "By #{story.author}" if story.author %></span>
       </a>
     </li>
     <% end %>
