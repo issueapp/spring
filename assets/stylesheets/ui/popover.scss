@@ -5,7 +5,6 @@ article.page .content.stop-scrolling {
 
 .product-popover {
   position: fixed;
-  bottom: -260px;
   left: 0;
   display: block;
   -webkit-box-sizing: border-box;
@@ -113,7 +112,7 @@ article.page .content.stop-scrolling {
 }
 
 .product-popover .actions .button {
-  margin-top: 10px;
+  margin: 5px 5px 0 0;
   border: none;
   text-transform: uppercase;
   letter-spacing: 1px;

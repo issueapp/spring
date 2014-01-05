@@ -89,6 +89,8 @@ class IssuePreview < Sinatra::Base
 
     ## Parse YAML
     meta, content = source.split(/---\n(.+?)---/nm)[1,2]
+    content = content.to_s.strip
+    content = content.empty? ? nil : RDiscount.new(content).to_html
 
     if meta
       attributes = YAML.load(meta)
@@ -106,7 +108,7 @@ class IssuePreview < Sinatra::Base
       "author_icon" => author_icon,
       "brand_image_url" => brand_image_url,
 
-      "content" => content && RDiscount.new(content).to_html,
+      "content" => content,
       "published_at" => attributes["published_at"] || File.mtime(path),
       "layout" => attributes.fetch("layout", {})
     )
