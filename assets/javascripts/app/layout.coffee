@@ -1,6 +1,6 @@
 
 # Layout
-# 
+#
 # Issue layout manager
 #
 # [role=main]       - App container
@@ -48,12 +48,12 @@ Layout = {
     # if @support.swipe == "horizontal"
     #   offsetX = @scrollTarget[0].scrollLeft || @scrollTarget[0].scrollX
     #   pages = offsetX / previous.width
-    # 
+    #
     #   @scrollTarget[0].scrollTo( pages * @viewport.width, 0) if offsetX > 0
     # else
     #   offsetY = @scrollTarget[0].scrollTop || @scrollTarget[0].scrollY
     #   pages = offsetY / previous.height
-    # 
+    #
     #   @scrollTarget[0].scrollTo(0, pages * @viewport.height) if offsetY > 0
 
 
@@ -100,25 +100,25 @@ Layout = {
 
   # Calcualte page layout
   updateLayout: ->
-    
+
     if @support.swipe
       css = "
       @media only screen and (min-width: 768px) {\n
         #sections { max-width: #{@viewport.width}px }\n
-        
+
         article.paginate .content { width: #{@viewport.width}px }\n
-        
+
         article.two-column .cover-area { width: #{@viewport.width / 2}px }\n
         article.three-column .cover-area { width: #{@viewport.width * 2 / 3}px }\n
-        
-        article.two-column.cover-right .cover-area { left: #{@viewport.width / 2}px }\n 
+
+        article.two-column.cover-right .cover-area { left: #{@viewport.width / 2}px }\n
         article.three-column.cover-right .cover-area { left: #{@viewport.width / 3}px }\n
       }\n
-              
-      @media only screen and (min-width: 768px) and (orientation: landscape) {\n 
-        article.two-column.no-image.has-product.cover-left .content { margin-left: #{@viewport.width / 2}px }\n 
+
+      @media only screen and (min-width: 768px) and (orientation: landscape) {\n
+        article.two-column.no-image.has-product.cover-left .content { margin-left: #{@viewport.width / 2}px }\n
       }\n
-      
+
       [role=main] .page {\n
         width: #{@viewport.width}px;
         height: #{@viewport.height}px;
@@ -128,20 +128,20 @@ Layout = {
       css = "
       @media only screen and (min-width: 768px) {\n
         #sections { max-width: #{@viewport.width}px }\n
-        
+
         article.paginate .content { width: #{@viewport.width}px }\n
-        
+
         article.two-column .cover-area { width: #{@viewport.width / 2}px }\n
         article.three-column .cover-area { width: #{@viewport.width * 2 / 3}px }\n
-      
-        article.two-column.cover-right .cover-area { left: #{@viewport.width / 2}px }\n 
+
+        article.two-column.cover-right .cover-area { left: #{@viewport.width / 2}px }\n
         article.three-column.cover-right .cover-area { left: #{@viewport.width / 3}px }\n
       }\n
-              
-      @media only screen and (min-width: 768px) and (orientation: landscape) {\n 
-        article.two-column.no-image.has-product.cover-left .content { margin-left: #{@viewport.width / 2}px }\n 
+
+      @media only screen and (min-width: 768px) and (orientation: landscape) {\n
+        article.two-column.no-image.has-product.cover-left .content { margin-left: #{@viewport.width / 2}px }\n
       }\n
-      
+
       [role=main] .page {\n
         width: #{@viewport.width}px;
         height: #{@viewport.height}px;
@@ -238,12 +238,12 @@ Layout = {
   # Update content width for 2-col layout
   updateContentWidth: ->
     paginate_page = $('.page.paginate').removeClass('paginate')
-    
+
     if paginate_page.length > 0
       content_overflow = paginate_page[0].scrollHeight > (paginate_page[0].offsetHeight + 20)
-      
+
       # detect if content overflows then
-      if content_overflow 
+      if content_overflow
         paginate_page.css('width', '')
         paginate_page.addClass('paginate') if content_overflow
 

@@ -112,8 +112,8 @@ article.page {
   header {
     @include box-sizing(border-box);
 
-    margin: 0;
-    padding: 18px 0;
+    margin: 0 0 20px 0;
+    padding: 0;
 
     text-align: center;
     hgroup {
@@ -207,8 +207,6 @@ article.page {
   }
 
   .body {
-    padding: 18px 0;
-
     p:first-child {
       margin-top: 0;
     }
@@ -328,12 +326,19 @@ article.page {
     background-repeat: no-repeat;
   }
 
+  &.no-content.image-background {
+    background-size: 100%;
+  }
+
   &.image-background .column-break {
     height: 0;
   }
 
   &.image-background .content {
-    height: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 50%;
   }
 
   &.image-background .cover-area {
@@ -592,7 +597,7 @@ article.page.has-product {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    margin: 0;
+    margin: 0 0 20px 0;
     padding: 0;
     list-style-type: none;
     text-align: center;
@@ -672,6 +677,13 @@ article.page.has-product {
 
     .content {
       height: 95%;
+      position: static;
+      left: initial;
+      bottom: initial;
+    }
+
+    &.no-content {
+      background-size: cover;
     }
 
     &.height-auto .content {
