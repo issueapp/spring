@@ -41,13 +41,13 @@ article.page.toc .contributors {
 
 article.page.toc .contributors li {
   float: left;
-  padding: 5px 0 5px 80px;
-  width: 50%;
-  text-align: left;
 
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  padding: 5px 0 5px 80px;
+  width: 50%;
+  text-align: left;
 }
 
 article.page.toc .contributors .avatar {
@@ -60,11 +60,131 @@ article.page.toc .contributors .description {
   font-style: italic;
 }
 
-/* Page specific
-
-
-  article[data-page="cate-says-si/2"] {
-
-  }
-
+/*
+  Page specific
 */
+
+/*
+  Cate Says Si Cover Page
+*/
+article.page.no-content[data-page="cate-says-si"] .content {
+  text-align: center;
+}
+
+article.page.no-content[data-page="cate-says-si"] header {
+  margin: 100px 0 0;
+  vertical-align: top;
+  text-align: left;
+  color: white;
+}
+
+article.page.no-content[data-page="cate-says-si"] header .title {
+  text-transform: none;
+  font-style: italic;
+  font-family: "EB Garamond";
+}
+
+article.page.no-content[data-page="cate-says-si"] header .category {
+  display: block;
+  margin-bottom: -10px;
+  text-transform: none;
+  color: #eee;
+}
+
+/*
+  Cate Says Si Page 1
+*/
+article.page[data-page="cate-says-si/1"] header {
+  text-align: left;
+}
+
+article.page[data-page="cate-says-si/1"] header .title {
+  text-transform: capitalize;
+  font-style: italic;
+}
+
+/*
+  Cate Says Si Page 2
+*/
+article.page[data-page="cate-says-si/2"] .body .list {
+  /*margin-top: 20%;*/
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+article.page[data-page="cate-says-si/2"] .body .list li:nth-child(odd) {
+  text-transform: none;
+  font-size: 18px;
+}
+
+article.page[data-page="cate-says-si/2"] .body .list li:nth-child(even) {
+  text-transform: uppercase;
+  font-style: italic;
+  font-size: 30px;
+}
+
+article.page[data-page="cate-says-si/2"] .body .list li:nth-child(2) {
+  margin-left: 10px;
+}
+
+article.page[data-page="cate-says-si/2"] .body .list li:nth-child(3) {
+  margin-left: 20px;
+}
+
+article.page[data-page="cate-says-si/2"] .body .list li:nth-child(4) {
+  margin-left: 30px;
+}
+
+article.page[data-page="cate-says-si/2"] .body .list li:nth-child(5) {
+  margin-left: 40px;
+}
+
+article.page[data-page="cate-says-si/2"] .body .list li:nth-child(6) {
+  margin-left: 50px;
+}
+
+article.page[data-page="cate-says-si/2"] .body .list li:nth-child(7) {
+  margin-left: 60px;
+}
+
+article.page[data-page="cate-says-si/2"] .body .list li:nth-child(8) {
+  margin-left: 70px;
+}
+
+article.page[data-page="cate-says-si/2"] .body .list li:nth-child(9) {
+  margin-left: 80px;
+}
+
+article.page[data-page="cate-says-si/2"] .body .list li:nth-child(10) {
+  margin-left: 90px;
+}
+
+/*
+  Cate Says Si Page 3
+*/
+article.page[data-page="cate-says-si/3"] header .title {
+  text-align: left;
+  text-transform: capitalize;
+  font-style: italic;
+}
+
+/*
+  The Style Edit Cover
+*/
+article.page[data-page="the-style-edit"] header {
+  text-align: left;
+}
+
+article.page[data-page="the-style-edit"] header .title {
+  font-size: 32px;
+}
+
+/*
+  Cate Says Si Wide Screen
+*/
+@media only screen and (min-width: 768px) {
+  article.page[data-page="cate-says-si/2"] .body .list {
+    margin-top: 20%;
+  }
+}

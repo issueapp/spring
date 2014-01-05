@@ -6,6 +6,7 @@
  <%= page.layout.type || 'two-column' %>
  <%= 'no-image ' unless page.image_url %>
  <%= 'has-product ' if has_product %>
+ <%= 'no-header ' unless page.title || page.description %>
  <%= 'no-content ' unless page.content %>
 
  <%= page.content_type %>
@@ -21,6 +22,10 @@
  <% if page.layout.image_style == 'background' %>
   style="background-image: url(<%= page.image_url %>)"
  <% end %>
+
+ <% if page.handle %>
+  data-page="<%= page.handle %>"
+ <% end %>
 >
 
   <div class="cover-area <%= page.layout.image_style %>"
@@ -31,7 +36,7 @@
   </div>
 
   <div class='content'>
-    <% if page.title %>
+    <% if page.title || page.description %>
     <header>
       <% if page.category %>
         <span class='category'><%= page.category %></span>
@@ -41,8 +46,8 @@
       <h1 class='title preview_item_title'><%= page.title %></h1>
       <% end %>
 
-      <% if page.description %>
-      <h3 class='subtitle description'><%= page.description %></h3>
+      <% if page.subtitle %>
+      <h3 class='subtitle'><%= page.subtitle %></h3>
       <% end %>
 
       <div class='extras'>
@@ -55,7 +60,7 @@
         <% end %>
 
         <% if page.description %>
-          <p><%= page.description %></p>
+          <p class="description"><%= page.description %></p>
         <% end %>
       </div>
     </header>
