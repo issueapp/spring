@@ -326,7 +326,7 @@ article.page {
     background-repeat: no-repeat;
   }
 
-  &.no-content.image-background {
+  &.no-header.no-content.image-background {
     background-size: 100%;
   }
 
@@ -369,33 +369,6 @@ article.one-column {
 
   &.image-background:before {
     content: none;
-  }
-}
-
-article.page.no-header {
-  height: 100%;
-  text-align: center;
-
-  &:before {
-    display: inline-block;
-    margin-right: -0.25em; /* Adjusts for spacing */
-    height: 100%;
-    content: '';
-    vertical-align: middle;
-  }
-
-  header {
-    hgroup {
-      display: none;
-    }
-  }
-
-  .content {
-    position: relative;
-    top: -50px;
-    display: inline-block;
-    vertical-align: middle;
-    text-align: left;
   }
 }
 
@@ -682,7 +655,7 @@ article.page.has-product {
       bottom: initial;
     }
 
-    &.no-content {
+    &.no-header.no-content {
       background-size: cover;
     }
 
