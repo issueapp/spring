@@ -101,12 +101,19 @@ class IssuePreview < Sinatra::Base
     author_icon = attributes["author_icon"] ? asset_path(attributes["author_icon"]) : nil
     brand_image_url = attributes["brand_image_url"] ? asset_path(attributes["brand_image_url"]) : nil
 
+    if products = attributes["products"]
+      products.each do |product|
+        product["image_url"] = asset_path(product["image_url"])
+      end
+    end
+
     attributes.merge!(
       "issue_url" => issue_url,
       "page_url" => "#{issue_url}/#{params[:page]}",
       "image_url" => attributes["image_url"] && asset_path(attributes["image_url"]), # remove preview rendering
       "author_icon" => author_icon,
       "brand_image_url" => brand_image_url,
+      "products" => products,
 
       "content" => content,
       "published_at" => attributes["published_at"] || File.mtime(path),
