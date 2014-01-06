@@ -36,6 +36,7 @@ items:
     pages:
 
       - handle: "1"
+      - handle: "2"
 
   - title: One Column
     category: Layout

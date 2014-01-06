@@ -584,7 +584,7 @@ article.page.has-product {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     padding: 5px;
-    height: 140px;
+    height: 200px;
     vertical-align: middle;
     text-align: center;
   }
@@ -611,12 +611,10 @@ article.page.has-product {
 
   .product-set.set-2 li {
     width: 100%;
-    height: 50%;
   }
 
   .product-set.set-4 li {
     width: 49%;
-    height: 50%;
   }
 
   .product-set.set-6 li {
@@ -811,7 +809,6 @@ article.page.has-product {
     }
   }
 
-
   #issue-viewer:not(.mobile) article.one-column {
     .content, .cover-area.fit {
       margin: 0 auto;
@@ -822,7 +819,6 @@ article.page.has-product {
 
 @media only screen and (min-width: 768px) and (orientation: portrait) {
   article.page.has-product {
-
     &.no-image .cover-area {
       position: static;
       float: none;
@@ -850,10 +846,6 @@ article.page.has-product {
 
     &.no-image .content {
       margin: 0;
-    }
-
-    .product-set li {
-      height: 200px;
     }
 
     .product-set.set-6 li {
@@ -905,7 +897,6 @@ article.page.has-product {
 
 // TODO: MOVE TO ADMIN
 #preview_item_content {
-
   clear: both;
   &.no-cover [data-cover], img[data-size=tiny] {
     display: none; }
