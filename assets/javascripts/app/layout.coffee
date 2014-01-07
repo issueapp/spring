@@ -20,15 +20,17 @@ Layout = {
   #
   # Refreshes application layout on orientation change
   refresh: ->
+    
     # Previous viewport
     previous = {
+      orientation: @orientation,
       height: @viewport.height,
       width: @viewport.width
     }
 
+    # change orientation
     this.detectLayout()
     this.updateLayout()
-
     this.changeOrientation()
 
     # Find page dimension
@@ -40,7 +42,13 @@ Layout = {
       height: page.height(),
       width: page.width()
     }
-
+    
+    # Update content UI    # 
+    # this.updateContentWidth()
+    
+    # Trigger layout refresh event with previous dimension
+    App.trigger("layout:refresh", previous: previous)
+    
     # TODO: Move to stream
     # Stream#updatePadding
     #this.updatePadding()
@@ -57,8 +65,7 @@ Layout = {
     #   @scrollTarget[0].scrollTo(0, pages * @viewport.height) if offsetY > 0
 
 
-    # Update content UI
-    this.updateContentWidth()
+
 
   # Detect Layout
   #   set @support.swipe direction
@@ -66,6 +73,7 @@ Layout = {
   #   set @viewport height & width
   #   hide tablet & mobile safari address bar
   detectLayout: ->
+    container = $('[role=main]')
 
     if navigator.userAgent.match(/(iPhone|iPod)/)
       # NOTE: Temporary fix to support app.io ipad detection
@@ -78,9 +86,9 @@ Layout = {
 
     # Support horizontal swipe
     if @support.swipe == "horizontal"
-      $('[role=main]').addClass("horizontal")
+      container.addClass("horizontal")
     else
-      $('[role=main]').addClass("vertical")
+      container.addClass("vertical")
 
     if window.orientation
       @orientation = if window.orientation % 180 == 0 then 'portrait' else 'landscape'
@@ -97,6 +105,10 @@ Layout = {
     else
       @viewport.width = if @viewport.maxWidth then Math.min(@viewport.maxWidth, window.innerWidth) else window.innerWidth
       @viewport.height = if @viewport.maxHeight then Math.min(@viewport.maxHeight, window.innerHeight) else window.innerHeight
+      
+    # Notify layout detected and propagate layout object
+    # 
+    App.trigger("layout:detect", { orientation: @orientation, height: @viewport.height, width: @viewport.width  })
 
   # Calcualte page layout
   updateLayout: ->
