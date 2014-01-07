@@ -70,7 +70,7 @@
       <ul class="<%= "cover-area" unless page.image_url %> product-set <%= "set-#{(page.products.to_a.count/2.0).ceil*2}" %>">
       <% page.products.each_with_index do |product, index| %>
         <li>
-          <a href="<%= product[:url] %>" class='hotspot'>
+          <a href="<%= product[:url] %>" class='hotspot product' data-track="hotspot:click" title="<%= product.title %>">
             <img src="<%= product[:image_url] %>" alt=''>
             <span class='tag'><%= index + 1 %></span>
           </a>
@@ -96,6 +96,14 @@
 <% content_for :js do %>
 <script>
   App = (typeof App == 'undefined') ? {} : App;
-  App.products = <%= page.products.to_json %>;
+  
+  App.page = {
+    title: "<%= page.title %>",
+    links: <%= page.links.to_json %>,
+    products: <%= page.products.to_json %>
+  }
+  
+  App.pageView = new PageView({ model: App.page })
+  
 </script>
 <% end %>
