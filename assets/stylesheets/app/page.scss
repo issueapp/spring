@@ -85,6 +85,10 @@ article.page {
     vertical-align: middle;
   }
 
+  .content img {
+    max-width: 100%;
+  }
+
   .hotspot {
     display: block;
   }
@@ -552,6 +556,16 @@ article.page.has-product {
     display: none;
   }
 
+  &.no-content {
+    .content:before {
+      content: initial;
+    }
+
+    header {
+      display: block;
+    }
+  }
+
   header .title {
     letter-spacing: 2px;
     font-weight: normal;
@@ -573,7 +587,7 @@ article.page.has-product {
     margin: 0 0 20px 0;
     padding: 0;
     list-style-type: none;
-    text-align: center;
+    text-align: left;
     white-space: normal;
   }
 
