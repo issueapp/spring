@@ -28,7 +28,7 @@
     <script>
       App.detectLayout()
     </script>
-    
+
     <style>
       .page {
         width: 100%;
@@ -87,7 +87,6 @@
 
   <script>
     App.init()
-
   </script>
 
   <script type="text/html" id='popover-template'>
@@ -96,8 +95,8 @@
       <div class="thumb-image" style="background-image: url('<%%= image_url %>')"></div>
       <h1 class="title"><%%= title %></h1>
       <h2 class="subtitle">
-        <%% if (typeof subtitle != "undefined" ) { %>
-          <%%= subtitle %>,
+        <%% if (typeof brand != "undefined" ) { %>
+          <%%= brand %>,
         <%% } %>
         <%% if (typeof price != "undefined" ) { %>
           <%%= price %>

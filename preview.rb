@@ -3,6 +3,7 @@ require 'hashie/mash'
 require 'sinatra/base'
 require 'sinatra/content_for'
 require 'sinatra/asset_pipeline'
+require 'nokogiri'
 
 class IssuePreview < Sinatra::Base
   register Sinatra::AssetPipeline
@@ -88,9 +89,12 @@ class IssuePreview < Sinatra::Base
     end
 
     ## Parse YAML
-    meta, content = source.split(/---\n(.+?)---/nm)[1,2]
+    meta, content = source.split(/---\n(.+?)---\n/nm)[1,2]
     content = content.to_s.strip
-    content = content.empty? ? nil : RDiscount.new(content).to_html
+
+    doc = Nokogiri::HTML(content)
+    style = doc.search('style')[0]
+    content = content.empty? ? nil : (RDiscount.new(content).to_html.to_s + style.to_s )
 
     if meta
       attributes = YAML.load(meta)

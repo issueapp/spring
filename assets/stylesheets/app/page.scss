@@ -80,7 +80,7 @@ article.page {
   .content {
     @include box-sizing(border-box);
     float: none;
-    padding: 30px;
+    padding: 15px;
     width: 100%;
     vertical-align: middle;
   }
@@ -216,6 +216,8 @@ article.page {
   }
 
   .body {
+    text-align: left;
+
     p:first-child {
       margin-top: 0;
     }
