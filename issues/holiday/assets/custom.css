@@ -181,6 +181,21 @@ article.page[data-page="the-style-edit"] header .title {
 }
 
 /*
+  Summer Love Cover
+*/
+article.page[data-page="summer-love"] .extras {
+  text-align: left;
+}
+
+/*
+  Summer Love Page 3
+*/
+article.page[data-page="summer-love/3"] .title {
+  font-size: 28px;
+}
+
+
+/*
   Cate Says Si Wide Screen
 */
 @media only screen and (min-width: 768px) {

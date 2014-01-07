@@ -5,6 +5,7 @@
     author_icon:
     image_url: assets/summer-love/cover.jpg
     published_at:
+    handle: summer-love
 
     layout:
       type: three-column

@@ -49,6 +49,8 @@ items:
       - handle: "2"
       - handle: "3"
       - handle: "4"
+      - handle: "5"
+      - handle: "6"
 
   - title: A Weekend Escape
     category: Destination
