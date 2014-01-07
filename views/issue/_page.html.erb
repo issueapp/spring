@@ -8,16 +8,18 @@
  <%= 'has-product ' if has_product %>
  <%= 'no-header ' unless page.title || page.description %>
  <%= 'no-content ' unless page.content %>
-
  <%= page.content_type %>
- <%= page.layout.content_overflow || 'scroll' %>
- <%= page.layout.content_style || 'white' %>
- <%= page.layout.content_align || 'center' %>
- <%= page.layout.content_valign || 'middle' %>
 
- <%= "height-#{page.layout.content_height || 'auto'}" %>
- <%= "image-#{page.layout.image_style}" if page.layout.image_style %>
- <%= "cover-#{page.layout.image_align}" if has_product || page.layout.image_align && page.image_url %>"
+ <% if page.layout.type != "custom" %>
+   <%= page.layout.content_overflow || 'scroll' %>
+   <%= page.layout.content_style || 'white' %>
+   <%= page.layout.content_align || 'center' %>
+   <%= page.layout.content_valign || 'middle' %>
+
+   <%= "height-#{page.layout.content_height || 'auto'}" %>
+   <%= "image-#{page.layout.image_style}" if page.layout.image_style %>
+   <%= "cover-#{page.layout.image_align}" if has_product || page.layout.image_align && page.image_url %>
+ <% end %>"
 
  <% if page.layout.image_style == 'background' %>
   style="background-image: url(<%= page.image_url %>)"
@@ -28,12 +30,16 @@
  <% end %>
 >
 
+<% unless page.layout.type == "custom" %>
+
+  <% if page.image_url %>
   <div class="cover-area <%= page.layout.image_style %>"
     style="background-image: url(<%= page.image_url if page.layout.image_style != "background" %>)">
     <% if video_embed = page.embed_content %>
       <div class='video-wrapper'><%= video_embed %></div>
     <% end %>
   </div>
+  <% end %>
 
   <div class='content'>
     <% if page.title || page.description %>
@@ -89,6 +95,11 @@
 
     <div class='body'><%= page.content %></div>
   </div>
+<% else %>
+
+  <%= page.content %>
+
+<% end %>
 
   <%#= render 'debug', locals: { page: page } %>
 </article>

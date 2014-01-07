@@ -64,8 +64,11 @@
     width: 100%;
   }
 
-  &.v-half, &.v-third, &.v-third-2 {
-    height: 50%;
+  // TODO: Move to stream.css
+  .stream-paging {
+    &.v-half, &.v-third, &.v-third-2 {
+      height: 50%;
+    }
   }
 }
 
@@ -91,6 +94,13 @@
     &:last-child { margin-right: 0 }
   }
 
+  .row {
+    &.v-full { height: 100% }
+    &.v-half { height: 49.9% }
+    &.v-third { height: 33.3% }
+    &.v-third-2 { height: 66.6% }
+  }
+
   .stream-paging, .no-gutter {
     .col, .item {
       &.full { width: 100% }
@@ -108,6 +118,7 @@
       margin-right: 0;
     }
 
+    // TODO: remove duplication
     .row, .col, .item {
       &.v-full { height: 100% }
       &.v-half { height: 49.9% }
