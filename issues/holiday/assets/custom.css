@@ -194,6 +194,36 @@ article.page[data-page="summer-love/3"] .title {
   font-size: 28px;
 }
 
+/*
+  Summer Survival Guide Page 4
+*/
+article.page[data-page="summer-survival-guide/4"] .content {
+  width: 100%;
+  height: 100%;
+}
+
+article.page[data-page="summer-survival-guide/4"] .body {
+  height: 100%;
+}
+
+article.page[data-page="summer-survival-guide/4"] .products {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  list-style: none;
+}
+
+article.page[data-page="summer-survival-guide/4"] .products li .image {
+  min-height: 180px;
+  height: 100%;
+  background-position: center;
+  background-size: 90%;
+  background-repeat: no-repeat;
+}
+
+article.page[data-page="summer-survival-guide/4"] .products li:nth-child(even) .image {
+  float: right;
+}
 
 /*
   Cate Says Si Wide Screen
@@ -201,5 +231,13 @@ article.page[data-page="summer-love/3"] .title {
 @media only screen and (min-width: 768px) {
   article.page[data-page="cate-says-si/2"] .body .list {
     margin-top: 20%;
+  }
+
+  #story5-giftset li:nth-child(odd) .details {
+    padding-top: 50px;
+  }
+
+  #story5-giftset li:nth-child(even) .details {
+    padding-top: 20px;
   }
 }

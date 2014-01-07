@@ -3,6 +3,7 @@ require 'hashie/mash'
 require 'sinatra/base'
 require 'sinatra/content_for'
 require 'sinatra/asset_pipeline'
+require 'nokogiri'
 
 class IssuePreview < Sinatra::Base
   register Sinatra::AssetPipeline
@@ -100,17 +101,24 @@ class IssuePreview < Sinatra::Base
     if "1.9".respond_to? :encode
       source = source.force_encoding('binary')
     end
-
-    ## Parse YAML
-    meta, content = source.split(/---\n(.+?)---/nm)[1,2]
+    
+    meta, content = source.split(/---\n(.+?)---\n/nm)[1,2]
     content = content.to_s.strip
-    content = content.empty? ? nil : RDiscount.new(content).to_html
-
+    
+    ## Parse YAML
     if meta
       attributes = YAML.load(meta)
     else
       attributes = {}
     end
+    
+    content = Mustache.render(content, attributes)
+
+    doc = Nokogiri::HTML(content)
+    style = doc.search('style')[0]
+    
+    content = content.empty? ? nil : (RDiscount.new(content).to_html.to_s + style.to_s )
+
 
     author_icon = attributes["author_icon"] ? asset_path(attributes["author_icon"]) : nil
     brand_image_url = attributes["brand_image_url"] ? asset_path(attributes["brand_image_url"]) : nil

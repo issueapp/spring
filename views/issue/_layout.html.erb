@@ -28,7 +28,7 @@
     <script>
       App.detectLayout()
     </script>
-    
+
     <style>
       .page {
         width: 100%;
@@ -87,22 +87,8 @@
 
   <script>
     App.init()
-
   </script>
-
-
-  <script>
-
-    function toggle_rendering() {
-      $('article.page').toggleClass('paginate').toggleClass('scroll');
-      App.refresh()
-    }
-
-    function toggle_debugger() {
-      $('.debug').toggleClass('active');
-    }
-  </script>
-
+  
   <% if respond_to? :yield_content %>
     <%= yield_content :js %>
   <% else %>

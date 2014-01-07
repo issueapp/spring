@@ -14,19 +14,20 @@ gem "compass"
 gem "hashie"
 # gem "actionpack", "~> 3.2"
 # # gem "railties",   "~> 3.2"
-
-# 
+gem "nokogiri"
+#
 # # Markdown and Textile
+gem "mustache"
 gem "rdiscount" # Markdown
 # gem "RedCloth"  # Textile
-# 
+#
 # Other templating languages
 # gem "erubis"
 # gem "haml"
 # gem "slim"
 # gem "radius"
 # gem "less"
-# 
+#
 group :development, :test do
 
   gem "guard-jasmine"
