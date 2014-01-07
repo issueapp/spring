@@ -90,25 +90,6 @@
 
   </script>
 
-  <script type="text/html" id='popover-template'>
-    <div class="arrow"></div>
-    <div class="details">
-      <div class="thumb-image" style="background-image: url('<%%= image_url %>')"></div>
-      <h1 class="title"><%%= title %></h1>
-      <h2 class="subtitle">
-        <%% if (typeof subtitle != "undefined" ) { %>
-          <%%= subtitle %>,
-        <%% } %>
-        <%% if (typeof price != "undefined" ) { %>
-          <%%= price %>
-        <%% } %>
-      </h2>
-      <div class="description"><%%= description %></div>
-    </div>
-    <div class="actions">
-    <a href="<%%= url %>" class="button small outline" target="_blank">shop now</a>
-    </div>
-  </script>
 
   <script>
 
@@ -120,100 +101,6 @@
     function toggle_debugger() {
       $('.debug').toggleClass('active');
     }
-
-    function toggle_popover(target) {
-      if (!App.products) return;
-
-      var popover       = $('.product-popover'),
-          spacing       = 18,
-
-          hotspotHeight = target.height(),
-          hotspotWidth  = target.width(),
-          hotspotCenter = {
-            'x': target.offset().left + hotspotWidth/2,
-            'y': target.offset().top + hotspotHeight/2
-          },
-
-          template      = $("#popover-template").html(),
-          targetUrl     = target.attr('href'),
-
-          arrow         = $('<div>'+template+'</div>').find('.arrow'),
-          arrowSpacing  = 110,
-          arrowPosition,
-          popoverWidth,
-          popoverHeight,
-          data;
-
-      if (popover.length == 0) {
-        popover = $('<div class="product-popover dark-theme"></div>');
-        $('body').append(popover);
-      }
-
-      // hide popover
-      if (popover.hasClass('show')) {
-        popover.removeClass('show').addClass('hide');
-
-      } else {
-
-        data = _.find(App.products, function(product) {
-          return targetUrl == product.url;
-        });
-
-        if (typeof data == "undefined") return;
-
-        popover.html(_.template(template, data));
-
-        popoverWidth = popover.width();
-        popoverHeight = popover.height();
-
-        // ipad
-        if (document.body.offsetWidth > 480) {
-
-          arrow.removeClass('up down left right');
-
-          // arrow point down
-          if (document.body.offsetHeight - hotspotCenter.y - hotspotHeight/2 < popoverHeight) {
-            arrowPosition = 'down';
-            popover.css('top', hotspotCenter.y - hotspotHeight/2 - popoverHeight);
-
-          // arrow point up
-          } else {
-            arrowPosition = 'up';
-            popover.css('top', hotspotCenter.y + hotspotHeight/2 + spacing);
-          }
-
-          // arrow position left
-          if (hotspotCenter.x < popoverWidth - arrowSpacing) {
-            arrowPosition += ' left';
-            popover.css('left', hotspotCenter.x - arrowSpacing);
-
-          // arrow position right
-          } else {
-            arrowPosition += ' right';
-            popover.css('left', hotspotCenter.x - popoverWidth + arrowSpacing);
-          }
-
-          popover.find('.arrow').addClass(arrowPosition)
-        }
-
-        // show popover
-        popover.removeClass('hide').addClass('show');
-      }
-
-      $('body').toggleClass('stop-scrolling');
-      $('article.page .content').toggleClass('stop-scrolling');
-    }
-
-    $('body').on('click', function(e) {
-      if ($(e.target).closest('a').hasClass('hotspot')) {
-        toggle_popover($(e.target).closest('a'));
-        return false;
-      } else if ($('.product-popover').hasClass('show')) {
-        $('.product-popover').removeClass('show').addClass('hide');
-        $('body').removeClass('stop-scrolling');
-        $('article.page .content').removeClass('stop-scrolling');
-      }
-    })
   </script>
 
   <% if respond_to? :yield_content %>
