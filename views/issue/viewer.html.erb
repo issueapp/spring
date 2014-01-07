@@ -212,5 +212,15 @@
     return document.getElementById('issue-frame').contentWindow.App
   }
 
+  function toggle_rendering() {
+    $('article.page').toggleClass('paginate').toggleClass('scroll');
+    App.refresh()
+  }
+
+  function toggle_debugger() {
+    $('.debug').toggleClass('active');
+  }
+
+
 </script>
 <% end %>
