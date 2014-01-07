@@ -28,6 +28,20 @@ class IssuePreview < Sinatra::Base
     redirect to("/issues/#{params[:issue]}/")
   end
 
+  get '/issues/:issue/products.json' do
+    cache = {}
+    # pages = recursive_build("issues/#{params[:issue]}", cache).uniq
+    content_type :json
+    
+    files = Dir.glob("issues/#{params[:issue]}/*/*.{md}") +   Dir.glob("issues/#{params[:issue]}/*.{md}")
+    
+    pages = files.map {|path| find_page(path) }
+    
+    products = pages.map(&:products).flatten.compact
+    
+    products.to_json
+  end
+
   get "/issues/:issue/index" do
     redirect to("/issues/#{params[:issue]}/")
   end
@@ -147,6 +161,20 @@ class IssuePreview < Sinatra::Base
       :"issue/_toc.html"
     else
       :"issue/_page.html"
+    end
+  end
+  
+  def recursive_build(start_path, cache)
+    Dir.glob("#{start_path}/*").map do |path|
+      if File.directory?(path) && File.exists?(path + '.md')
+        page = cache[path + '.md'] = find_page(path + '.md')
+        page.children = recursive_build(path, cache)
+      elsif !cache[path] && File.exists?(path + '.md')
+         page = cache[path] = find_page(path)
+      else
+        page = cache[path]
+      end
+      page
     end
   end
 end

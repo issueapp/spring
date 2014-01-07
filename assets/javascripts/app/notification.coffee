@@ -29,16 +29,19 @@ $(document).on "click", "[data-app-view]", ->
 
 # 2. Click on page element to notify user action
 
+###
 
-# Track actions
-# 
-# I think for tracking events, we need to have a global 
-# App.trigger("track", "action", "title", options)
-# 
-# a data-track="click" title="my external page"
-# a data-track="shop" title="latest shoes" href="amazon.com"
-# a data-track="call" title="taylor luk" href="tel:29561079"
-# a data-track="call" title="taylor luk" href="tel:29561079"
+Track actions
+
+I think for tracking events, we need to have a global 
+App.trigger("track", "action", "title", options)
+
+  a data-track="click" title="my external page"
+  a data-track="click" title="latest shoes" href="amazon.com"
+  a data-track="call" title="taylor luk" href="tel:29561079"
+  a data-track="call" title="taylor luk" href="tel:29561079"
+
+###
 
 $(document).on "click", "[data-track]", (e)->
   action = $(this).data('track')
@@ -46,8 +49,8 @@ $(document).on "click", "[data-track]", (e)->
 
   options = {
     edition_id: $(this).data("edition-id") || $(this).parents("[data-edition-id]").data("edition-id")
-    item_id: $(this).data("item-id") || $(this).parents("[data-item-id]").data("item-id")
-    url: $(this).data('url') || this.href
+    item_id:    $(this).data("item-id") || $(this).parents("[data-item-id]").data("item-id")
+    url:        $(this).data('url') || this.href
   }
   
   # console.log '[notification.coffee]', action, title, options
