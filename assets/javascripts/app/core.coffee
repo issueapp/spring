@@ -2,7 +2,7 @@
 #   
 # provide initialisation, support, events, native notification
 # 
-# Requires Bacbone, Zapto
+# Requires Underscore, Bacbone, Zapto
 # 
 # Core Methods
 # 
