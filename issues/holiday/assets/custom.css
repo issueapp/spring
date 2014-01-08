@@ -67,24 +67,24 @@ article.page.toc .contributors .description {
 /*
   Cate Says Si Cover Page
 */
-article.page.no-content[data-page="cate-says-si"] .content {
+article.page.no-content[data-page="2-cate-says-si"] .content {
   text-align: center;
 }
 
-article.page.no-content[data-page="cate-says-si"] header {
+article.page.no-content[data-page="2-cate-says-si"] header {
   margin: 100px 0 0;
   vertical-align: top;
   text-align: left;
   color: white;
 }
 
-article.page.no-content[data-page="cate-says-si"] header .title {
+article.page.no-content[data-page="2-cate-says-si"] header .title {
   text-transform: none;
   font-style: italic;
   font-family: "EB Garamond";
 }
 
-article.page.no-content[data-page="cate-says-si"] header .category {
+article.page.no-content[data-page="2-cate-says-si"] header .category {
   display: block;
   margin-bottom: -10px;
   text-transform: none;
@@ -94,11 +94,11 @@ article.page.no-content[data-page="cate-says-si"] header .category {
 /*
   Cate Says Si Page 1
 */
-article.page[data-page="cate-says-si/1"] header {
+article.page[data-page="2-cate-says-si/1"] header {
   text-align: left;
 }
 
-article.page[data-page="cate-says-si/1"] header .title {
+article.page[data-page="2-cate-says-si/1"] header .title {
   text-transform: capitalize;
   font-style: italic;
 }
@@ -106,64 +106,64 @@ article.page[data-page="cate-says-si/1"] header .title {
 /*
   Cate Says Si Page 2
 */
-article.page[data-page="cate-says-si/2"] .body .list {
+article.page[data-page="2-cate-says-si/2"] .body .list {
   /*margin-top: 20%;*/
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-article.page[data-page="cate-says-si/2"] .body .list li:nth-child(odd) {
+article.page[data-page="2-cate-says-si/2"] .body .list li:nth-child(odd) {
   text-transform: none;
   font-size: 18px;
 }
 
-article.page[data-page="cate-says-si/2"] .body .list li:nth-child(even) {
+article.page[data-page="2-cate-says-si/2"] .body .list li:nth-child(even) {
   text-transform: uppercase;
   font-style: italic;
   font-size: 30px;
 }
 
-article.page[data-page="cate-says-si/2"] .body .list li:nth-child(2) {
+article.page[data-page="2-cate-says-si/2"] .body .list li:nth-child(2) {
   margin-left: 10px;
 }
 
-article.page[data-page="cate-says-si/2"] .body .list li:nth-child(3) {
+article.page[data-page="2-cate-says-si/2"] .body .list li:nth-child(3) {
   margin-left: 20px;
 }
 
-article.page[data-page="cate-says-si/2"] .body .list li:nth-child(4) {
+article.page[data-page="2-cate-says-si/2"] .body .list li:nth-child(4) {
   margin-left: 30px;
 }
 
-article.page[data-page="cate-says-si/2"] .body .list li:nth-child(5) {
+article.page[data-page="2-cate-says-si/2"] .body .list li:nth-child(5) {
   margin-left: 40px;
 }
 
-article.page[data-page="cate-says-si/2"] .body .list li:nth-child(6) {
+article.page[data-page="2-cate-says-si/2"] .body .list li:nth-child(6) {
   margin-left: 50px;
 }
 
-article.page[data-page="cate-says-si/2"] .body .list li:nth-child(7) {
+article.page[data-page="2-cate-says-si/2"] .body .list li:nth-child(7) {
   margin-left: 60px;
 }
 
-article.page[data-page="cate-says-si/2"] .body .list li:nth-child(8) {
+article.page[data-page="2-cate-says-si/2"] .body .list li:nth-child(8) {
   margin-left: 70px;
 }
 
-article.page[data-page="cate-says-si/2"] .body .list li:nth-child(9) {
+article.page[data-page="2-cate-says-si/2"] .body .list li:nth-child(9) {
   margin-left: 80px;
 }
 
-article.page[data-page="cate-says-si/2"] .body .list li:nth-child(10) {
+article.page[data-page="2-cate-says-si/2"] .body .list li:nth-child(10) {
   margin-left: 90px;
 }
 
 /*
   Cate Says Si Page 3
 */
-article.page[data-page="cate-says-si/3"] header .title {
+article.page[data-page="2-cate-says-si/3"] header .title {
   text-align: left;
   text-transform: capitalize;
   font-style: italic;
@@ -172,49 +172,49 @@ article.page[data-page="cate-says-si/3"] header .title {
 /*
   The Style Edit Cover
 */
-article.page[data-page="the-style-edit"] header {
+article.page[data-page="3-the-style-edit"] header {
   text-align: left;
 }
 
-article.page[data-page="the-style-edit"] header .title {
+article.page[data-page="3-the-style-edit"] header .title {
   font-size: 32px;
 }
 
 /*
   Summer Love Cover
 */
-article.page[data-page="summer-love"] .extras {
+article.page[data-page="4-summer-love"] .extras {
   text-align: left;
 }
 
 /*
   Summer Love Page 3
 */
-article.page[data-page="summer-love/3"] .title {
+article.page[data-page="4-summer-love/3"] .title {
   font-size: 28px;
 }
 
 /*
   Summer Survival Guide Page 4
 */
-article.page[data-page="summer-survival-guide/4"] .content {
+article.page[data-page="6-summer-survival-guide/4"] .content {
   width: 100%;
   height: 100%;
   padding: 15px;
 }
 
-article.page[data-page="summer-survival-guide/4"] .body {
+article.page[data-page="6-summer-survival-guide/4"] .body {
   height: 100%;
 }
 
-article.page[data-page="summer-survival-guide/4"] .products {
+article.page[data-page="6-summer-survival-guide/4"] .products {
   margin: 0;
   padding: 0;
   height: 100%;
   list-style: none;
 }
 
-article.page[data-page="summer-survival-guide/4"] .products li .image {
+article.page[data-page="6-summer-survival-guide/4"] .products li .image {
   min-height: 180px;
   height: 100%;
   background-position: center;
@@ -252,7 +252,7 @@ article.page[data-page="summer-survival-guide/4"] .products li .image {
   Cate Says Si Wide Screen
 */
 @media only screen and (min-width: 768px) {
-  article.page[data-page="cate-says-si/2"] .body .list {
+  article.page[data-page="2-cate-says-si/2"] .body .list {
     margin-top: 20%;
   }
 
