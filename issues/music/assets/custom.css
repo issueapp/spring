@@ -1,17 +1,13 @@
 /*
   Cover
 */
-section.issue.cover.fullscreen .container {
-  padding: 10px;
-}
-
 section.issue.cover #issue-logo {
   zoom: 0.6;
   bottom: 170px;
 }
 
-section.issue.cover .button {
-  margin: 0;
+section.issue.cover nav[role="navigation"] {
+  display: none;
 }
 
 section.issue.cover .brand {
@@ -44,8 +40,8 @@ section.issue.cover .extra-1 {
 }
 
 @media only screen and (min-width: 768px) {
-  section.issue.cover.fullscreen .container {
-    padding: 40px;
+  section.issue.cover nav[role="navigation"] {
+    display: block;
   }
 
   section.issue.cover .title {
