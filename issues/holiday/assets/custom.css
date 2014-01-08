@@ -297,6 +297,68 @@ article.page[data-page="7-holiday-gift-ideas/1"] #summary {
 }
 
 /*
+  Holiday Gift Ideas Page 2
+*/
+article.page[data-page="7-holiday-gift-ideas/2"] .content {
+  text-align: center;
+  padding: 15px 4px;
+}
+
+article.page[data-page="7-holiday-gift-ideas/2"] header .title {
+  text-transform: capitalize;
+  font-style: italic;
+  font-family: "EB Garamond";
+}
+
+article.page[data-page="7-holiday-gift-ideas/2"] header .description {
+  font-style: italic;
+  font-size: 18px;
+}
+
+#story7-products {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  list-style: none;
+  font-size: 0;
+}
+
+#story7-products .product {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 4px;
+  width: 49%;
+  height: 200px;
+}
+
+#story7-products .product .tag {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin-left: -15px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #333;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+#story7-products .product:nth-child(odd) {
+  margin-right: 4px;
+}
+
+#story7-products .product .image {
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/*
   Cate Says Si Wide Screen
 */
 @media only screen and (min-width: 768px) {
@@ -321,7 +383,67 @@ article.page[data-page="7-holiday-gift-ideas/1"] #summary {
     line-height: 150px;
   }
 
+  article.page[data-page="7-holiday-gift-ideas/2"] .content {
+    padding: 50px 30px;
+  }
+
   article.page[data-page="7-holiday-gift-ideas/1"] #summary {
     margin-top: 350px;
+  }
+
+  article.page[data-page="7-holiday-gift-ideas/2"] header .title {
+    font-size: 35px;
+  }
+
+  article.page[data-page="7-holiday-gift-ideas/2"] .content {
+    height: 100%;
+  }
+
+  #story7-products .product {
+    width: 20%;
+    height: 33.33%;
+    margin: 0;
+  }
+
+  #story7-products .product:nth-child(odd) {
+    margin-right: 0;
+  }
+}
+
+@media only screen and (min-width: 768px) and (orientation: landscape) {
+  article.page[data-page="7-holiday-gift-ideas/2"] header {
+    position: absolute;
+    width: 58%;
+    height: 33.3%;
+    top: 50%;
+    left: 50%;
+    margin-top: -6%;
+    margin-left: -30%;
+  }
+
+  #story7-products .product:nth-child(7) {
+    margin-left: 60%;
+  }
+}
+
+@media only screen and (min-width: 768px) and (orientation: portrait) {
+  article.page[data-page="7-holiday-gift-ideas/2"] header {
+    position: absolute;
+    width: 44%;
+    height: 50%;
+    top: 50%;
+    left: 50%;
+    margin-top: -6%;
+    margin-left: -22%;
+  }
+
+  #story7-products .product {
+    width: 25%;
+    height: 25%;
+  }
+
+  #story7-products .product:nth-child(6),
+  #story7-products .product:nth-child(8) {
+    margin-left: 50%;
   }
 }
