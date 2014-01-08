@@ -200,6 +200,7 @@ article.page[data-page="summer-love/3"] .title {
 article.page[data-page="summer-survival-guide/4"] .content {
   width: 100%;
   height: 100%;
+  padding: 15px;
 }
 
 article.page[data-page="summer-survival-guide/4"] .body {
@@ -221,8 +222,30 @@ article.page[data-page="summer-survival-guide/4"] .products li .image {
   background-repeat: no-repeat;
 }
 
-article.page[data-page="summer-survival-guide/4"] .products li:nth-child(even) .image {
-  float: right;
+#story5-giftset .tag {
+  position: absolute;
+  top: 0;
+  left: 20px;
+  letter-spacing: 2px;
+  font-weight: bold;
+  font-style: italic;
+  font-family: 'BodoniSvtyTwoITCTT-Book';
+  font-size: 70px;
+}
+
+#story5-giftset li:nth-child(even) .tag {
+  left: initial;
+  right: 20px;
+}
+
+#story5-giftset .details h3 {
+  font-size: 24px;
+  color: black;
+  margin: 0;
+}
+
+#story5-giftset .details p {
+  margin: 0;
 }
 
 /*
@@ -239,5 +262,14 @@ article.page[data-page="summer-survival-guide/4"] .products li:nth-child(even) .
 
   #story5-giftset li:nth-child(even) .details {
     padding-top: 20px;
+  }
+
+  #story5-giftset li:nth-child(even) .product {
+    float: right;
+  }
+
+  #story5-giftset .tag {
+    font-size: 120px;
+    line-height: 150px;
   }
 }

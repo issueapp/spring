@@ -33,13 +33,13 @@ class IssuePreview < Sinatra::Base
     cache = {}
     # pages = recursive_build("issues/#{params[:issue]}", cache).uniq
     content_type :json
-    
+
     files = Dir.glob("issues/#{params[:issue]}/*/*.{md}") +   Dir.glob("issues/#{params[:issue]}/*.{md}")
-    
+
     pages = files.map {|path| find_page(path) }
-    
+
     products = pages.map(&:products).flatten.compact
-    
+
     products.to_json
   end
 
@@ -101,24 +101,22 @@ class IssuePreview < Sinatra::Base
     if "1.9".respond_to? :encode
       source = source.force_encoding('binary')
     end
-    
+
     meta, content = source.split(/---\n(.+?)---\n/nm)[1,2]
     content = content.to_s.strip
-    
+
     ## Parse YAML
     if meta
       attributes = YAML.load(meta)
     else
       attributes = {}
     end
-    
+
     content = Mustache.render(content, attributes)
 
     doc = Nokogiri::HTML(content)
     style = doc.search('style')[0]
-    
     content = content.empty? ? nil : (RDiscount.new(content).to_html.to_s + style.to_s )
-
 
     author_icon = attributes["author_icon"] ? asset_path(attributes["author_icon"]) : nil
     brand_image_url = attributes["brand_image_url"] ? asset_path(attributes["brand_image_url"]) : nil
@@ -171,7 +169,7 @@ class IssuePreview < Sinatra::Base
       :"issue/_page.html"
     end
   end
-  
+
   def recursive_build(start_path, cache)
     Dir.glob("#{start_path}/*").map do |path|
       if File.directory?(path) && File.exists?(path + '.md')
