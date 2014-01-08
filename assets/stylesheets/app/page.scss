@@ -46,8 +46,7 @@
 article.page {
   margin: 0 auto;
   text-align: center;
-  font: 16px/1.4 "proxima_nova_regular";
-
+  font: 16px/1.25 "proxima_nova_regular";
 
   // Cover area for image/video
   .cover-area {
@@ -87,7 +86,7 @@ article.page {
   .content img {
     max-width: 100%;
   }
-  
+
   // vertical middle align header if there's no content
   &.no-content {
     .content:before {
