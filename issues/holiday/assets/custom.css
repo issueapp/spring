@@ -67,6 +67,11 @@ article.page.toc .contributors .description {
 /*
   Cate Says Si Cover Page
 */
+
+article.page.no-content[data-page="2-cate-says-si"] {
+  background-position: center 20%;
+}
+
 article.page.no-content[data-page="2-cate-says-si"] .content {
   text-align: center;
 }
@@ -81,13 +86,16 @@ article.page.no-content[data-page="2-cate-says-si"] header {
 article.page.no-content[data-page="2-cate-says-si"] header .title {
   text-transform: none;
   font-style: italic;
+  
+  font-size: 55px;
   font-family: "EB Garamond";
+  
+  margin-bottom: 10px;
 }
 
 article.page.no-content[data-page="2-cate-says-si"] header .category {
   display: block;
   margin-bottom: -10px;
-  text-transform: none;
   color: #eee;
 }
 
@@ -95,12 +103,12 @@ article.page.no-content[data-page="2-cate-says-si"] header .category {
   Cate Says Si Page 1
 */
 article.page[data-page="2-cate-says-si/1"] header {
-  text-align: left;
+  margin: 30px;
+  text-align: center;
 }
 
 article.page[data-page="2-cate-says-si/1"] header .title {
   text-transform: capitalize;
-  font-style: italic;
 }
 
 /*
@@ -121,7 +129,7 @@ article.page[data-page="2-cate-says-si/2"] .body .list li:nth-child(odd) {
 article.page[data-page="2-cate-says-si/2"] .body .list li:nth-child(even) {
   text-transform: uppercase;
   font-style: italic;
-  font-size: 30px;
+  font-size: 40px;
 }
 
 article.page[data-page="2-cate-says-si/2"] .body .list li:nth-child(2) {
@@ -164,9 +172,14 @@ article.page[data-page="2-cate-says-si/2"] .body .list li:nth-child(10) {
   Cate Says Si Page 3
 */
 article.page[data-page="2-cate-says-si/3"] header .title {
-  text-align: left;
+  text-align: center;
+  /*
+  font-size: 40px;
+  font-family: "EB Garamond";*/
   text-transform: capitalize;
-  font-style: italic;
+  
+/*  text-transform: capitalize;
+  font-style: italic;*/
 }
 
 /*
@@ -245,7 +258,7 @@ article.page[data-page="6-summer-survival-guide/4"] .products li .image {
 }
 
 #story5-giftset .details p {
-  margin: 0;
+/*  margin: 10px 0;*/
 }
 
 
@@ -375,8 +388,9 @@ article.page[data-page="7-holiday-gift-ideas/2"] header .description {
     padding-top: 50px;
   }
 
-  #story5-giftset li:nth-child(even) .details {
+  #story5-giftset li:nth-child(even) .details h3 {
     padding-top: 20px;
+    text-align: right;
   }
 
   #story5-giftset li:nth-child(even) .product {

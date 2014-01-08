@@ -6,7 +6,8 @@
   image_url: assets/6-summer-survival-guide/cover.jpg
 
   layout:
-    type: two-column
+    type: three-column
+    
 
 ---
 
