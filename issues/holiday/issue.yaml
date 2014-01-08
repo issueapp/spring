@@ -11,7 +11,7 @@ items:
   - title: A Holiday in Style
     category: Fashion
     author_name: Jysla Kay
-    handle: "a-holiday-in-style"
+    handle: "1-a-holiday-in-style"
     pages:
 
       - handle: "1"
@@ -21,7 +21,7 @@ items:
   - title: Cate says Si!
     category: Cover Story
     author_name: Zyra Bacani
-    handle: "cate-says-si"
+    handle: "2-cate-says-si"
     pages:
 
       - handle: "1"
@@ -31,7 +31,7 @@ items:
   - title: The Style Edit
     category: Style By Blogger
     author_name: Jysla Kay
-    handle: "the-style-edit"
+    handle: "3-the-style-edit"
     pages:
 
       - handle: "1"
@@ -42,7 +42,7 @@ items:
   - title: Summer Love
     category: Destination
     author_name: Michelle Lau
-    handle: "summer-love"
+    handle: "4-summer-love"
     pages:
 
       - handle: "1"
@@ -55,7 +55,7 @@ items:
   - title: A Weekend Escape
     category: Destination
     author_name: Aubrey Daquinag
-    handle: "a-weekend-escape"
+    handle: "5-a-weekend-escape"
     pages:
 
       - handle: "1"
@@ -67,7 +67,7 @@ items:
   - title: Summer Survival Guide
     category: Beauty
     author_name: Zyra Bacani
-    handle: "summer-survival-guide"
+    handle: "6-summer-survival-guide"
     pages:
 
       - handle: "1"
@@ -78,8 +78,8 @@ items:
   - title: Holiday Gift Ideas
     category: Shopping
     author_name: Aubrey Daquinag
-    handle: "gift-guide"
+    handle: "7-holiday-gift-ideas"
 
   - title: Events
     category: Calendar
-    handle: "events"
+    handle: "8-events"
