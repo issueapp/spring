@@ -1,11 +1,16 @@
 ---
 
-    title: Summer Love
+    title: Holiday Gift Guide
+    byline: By Aubrey
     image_url: assets/7-holiday-gift-ideas/cover.jpg
+    handle: 7-holiday-gift-ideas
 
     layout:
       type: two-column
+      image_style: background
+      content_style: black
+      content_align: right
+      content_valign: bottom
 
 ---
-
-Summertime is a chance for a beautiful escape - roadtrips, salty beach hair, sand between your toes, flowers in your hair, and a sense of freedom to explore destinations unknown. Embrace your inner bohemian and set out on an adventure to wander and chase the sun for days on end. Collect moments, memories and mementos along the way… Make it a season to remember and celebrate summer in style with white flowy dresses, bright nails, a signature summer scent and lots of laughs.
+Aubrey Daquinag of TheLoveAssembly.com shares the ultimate essentials for a stylish summer.
