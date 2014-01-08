@@ -19,20 +19,12 @@ description: "Christina Perri"
 
 items:
 
-  - title: Cover
-    handle: "index"
-
   - title: Table of Content
     handle: "toc"
 
-  - title: Editor's letter
-    handle: "eds-letter"
-    
-  - title: Christina Perri
-    category: interview
-  
   - title: "Head or heart?"
     category: fashion
+    handle: "2-head-or-heart"
     
   - title: "Shop the shoot?"
     category: Accessories
