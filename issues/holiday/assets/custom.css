@@ -266,6 +266,7 @@ article.page[data-page="7-holiday-gift-ideas/1"] {
 
 article.page[data-page="7-holiday-gift-ideas/1"] .content {
   height: auto;
+  float: right;
 }
 
 article.page[data-page="7-holiday-gift-ideas/1"] .image {
@@ -323,7 +324,7 @@ article.page[data-page="7-holiday-gift-ideas/2"] header .description {
   font-size: 0;
 }
 
-#story7-products .product {
+#story7-products li {
   position: relative;
   display: inline-block;
   margin-bottom: 4px;
@@ -331,7 +332,7 @@ article.page[data-page="7-holiday-gift-ideas/2"] header .description {
   height: 200px;
 }
 
-#story7-products .product .tag {
+#story7-products li .tag {
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -347,11 +348,15 @@ article.page[data-page="7-holiday-gift-ideas/2"] header .description {
   line-height: 1.4;
 }
 
-#story7-products .product:nth-child(odd) {
+#story7-products li:nth-child(odd) {
   margin-right: 4px;
 }
 
-#story7-products .product .image {
+#story7-products li .product {
+  height: 100%;
+}
+
+#story7-products li .product .image {
   height: 100%;
   background-position: center;
   background-size: cover;
@@ -399,13 +404,13 @@ article.page[data-page="7-holiday-gift-ideas/2"] header .description {
     height: 100%;
   }
 
-  #story7-products .product {
+  #story7-products li {
     width: 20%;
     height: 33.33%;
     margin: 0;
   }
 
-  #story7-products .product:nth-child(odd) {
+  #story7-products li:nth-child(odd) {
     margin-right: 0;
   }
 }
@@ -421,7 +426,7 @@ article.page[data-page="7-holiday-gift-ideas/2"] header .description {
     margin-left: -30%;
   }
 
-  #story7-products .product:nth-child(7) {
+  #story7-products li:nth-child(7) {
     margin-left: 60%;
   }
 }
@@ -437,13 +442,13 @@ article.page[data-page="7-holiday-gift-ideas/2"] header .description {
     margin-left: -22%;
   }
 
-  #story7-products .product {
+  #story7-products li {
     width: 25%;
     height: 25%;
   }
 
-  #story7-products .product:nth-child(6),
-  #story7-products .product:nth-child(8) {
+  #story7-products li:nth-child(6),
+  #story7-products li:nth-child(8) {
     margin-left: 50%;
   }
 }
