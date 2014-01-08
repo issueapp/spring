@@ -26,10 +26,17 @@ class Hotspot extends Backbone.View
     # Look up hotspot attributes or page object
     lookupKey= $(hotspot).attr('href')
     isProduct = $(hotspot).is('.product')
-
+    
+    defaultData = {
+      url: null
+      image_url: null,
+      description: null,
+      action: "click"
+      
+    }
+    
     # Use element attributes title, subtitle, summary
     if App.page
-
       if isProduct
         data = _(@page.products).find (p)-> lookupKey == p.url
         data.action = "shop"
@@ -38,14 +45,13 @@ class Hotspot extends Backbone.View
 
     data ||= {
       title:       $(hotspot).attr('title'),
-      summary:     $(hotspot).data('summary'),
       subtitle:    $(hotspot).data('subtitle'),
       image_url:   $(hotspot).data('image_url'),
       description: $(hotspot).data('description'),
       url:         $(hotspot).attr('href').replace("#", ''),
     }
-
-    data.action ||= "click"
+    
+    data = _.extend(defaultData, data)
 
     if data && data.title
       return data
@@ -63,7 +69,9 @@ class Hotspot extends Backbone.View
     false
 
   hide: (e)=>
-    if $(e.target).closest('a').hasClass('hotspot')
+
+    if $(e.target).parents('.product-popover').length > 0
+      console.log("ignore")
       return
 
     if @popover && @popover.hasClass('show')
@@ -105,7 +113,11 @@ class Hotspot extends Backbone.View
           <% } %>
 
         </h2>
-        <div class="description"><%= description %></div>
+        
+        <% if (description) { %> 
+          <div class="description"><%= description %></div>
+        <% } %>
+        
       </div>
 
       <% if (url) { %>
