@@ -383,6 +383,7 @@ article.page[data-page="7-holiday-gift-ideas/2"] header .description {
 }
 
 #story7-products li .product {
+  width: 100%;
   height: 100%;
 }
 

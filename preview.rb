@@ -33,12 +33,9 @@ class IssuePreview < Sinatra::Base
     cache = {}
     # pages = recursive_build("issues/#{params[:issue]}", cache).uniq
     content_type :json
-    
 
-    files = Dir.glob("issues/#{params[:issue]}/data/*/*.{md}") +   Dir.glob("issues/#{params[:issue]}/data/*.{md}")
-
-    pages = files.map {|path| find_page(path) }
-
+    files    = Dir.glob("issues/#{params[:issue]}/data/*/*.{md}") +   Dir.glob("issues/#{params[:issue]}/data/*.{md}")
+    pages    = files.map {|path| find_page(path) }
     products = pages.map(&:products).flatten.compact
 
     products.to_json
@@ -53,36 +50,32 @@ class IssuePreview < Sinatra::Base
   end
 
   get "/issues/:issue/issue.json" do
-    
+
     pages = current_issue.items.reduce([]) do |result, item|
       result << item["handle"] #.gsub('/issue/', '')
 
       if item["pages"]
-        result += item["pages"].map{|p| 
-          p["path"] ||  item["handle"] + "/" + p["handle"] 
+        result += item["pages"].map{|p|
+          p["path"] ||  item["handle"] + "/" + p["handle"]
         }
       end
 
       result
     end
-    # 
-    # return pages.to_json
-    # 
+
     data = current_issue.to_h
-    
     data.delete("items")
     data["pages"] = [ "index" ] + pages
-    
+
     data.to_json
   end
 
   # Page and subpage
-  get %r{/issues/(?<issue>[^\/]+)/(?<page>[^\/]+)(?:\/(?<subpage>[^\/]+))?} do    
-    path = [params["issue"], "data", params["page"], params["subpage"]].compact.join('/')
-    
+  get %r{/issues/(?<issue>[^\/]+)/(?<page>[^\/]+)(?:\/(?<subpage>[^\/]+))?} do
+    path      = [params["issue"], "data", params["page"], params["subpage"]].compact.join('/')
     file_path = File.expand_path("../issues/#{path}.md", __FILE__)
+    page      = find_page(file_path)
 
-    page = find_page(file_path)
     erb page_template(page), locals: { issue: current_issue, page: page }, layout: :"issue/_layout.html"
   end
 
@@ -122,7 +115,7 @@ class IssuePreview < Sinatra::Base
       attributes = {}
     end
 
-    author_icon = attributes["author_icon"] ? asset_path(attributes["author_icon"]) : nil
+    author_icon     = attributes["author_icon"] ? asset_path(attributes["author_icon"]) : nil
     brand_image_url = attributes["brand_image_url"] ? asset_path(attributes["brand_image_url"]) : nil
 
     if products = attributes["products"]
@@ -139,16 +132,13 @@ class IssuePreview < Sinatra::Base
       "author_icon" => author_icon,
       "brand_image_url" => brand_image_url,
       "products" => products,
-
       "published_at" => attributes["published_at"] || File.mtime(path),
       "layout" => attributes.fetch("layout", {})
     )
 
     # Render content part
     content = Mustache.render(content, attributes)
-
-    doc = Nokogiri::HTML(content)
-    
+    doc     = Nokogiri::HTML(content)
     content = content.empty? ? nil : (RDiscount.new(content).to_html.to_s + doc.search('style')[0].to_s + doc.search('script')[0].to_s )
 
     attributes["content"] = content
