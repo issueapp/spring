@@ -112,18 +112,13 @@ class IssuePreview < Sinatra::Base
       attributes = {}
     end
 
-    content = Mustache.render(content, attributes)
-
-    doc = Nokogiri::HTML(content)
-    style = doc.search('style')[0]
-    content = content.empty? ? nil : (RDiscount.new(content).to_html.to_s + style.to_s )
-
     author_icon = attributes["author_icon"] ? asset_path(attributes["author_icon"]) : nil
     brand_image_url = attributes["brand_image_url"] ? asset_path(attributes["brand_image_url"]) : nil
 
     if products = attributes["products"]
-      products.each do |product|
+      products.each_with_index do |product, i|
         product["image_url"] = asset_path(product["image_url"])
+        product["index"] = i + 1
       end
     end
 
@@ -135,11 +130,18 @@ class IssuePreview < Sinatra::Base
       "brand_image_url" => brand_image_url,
       "products" => products,
 
-      "content" => content,
       "published_at" => attributes["published_at"] || File.mtime(path),
       "layout" => attributes.fetch("layout", {})
     )
 
+    # Render content part
+    content = Mustache.render(content, attributes)
+
+    doc = Nokogiri::HTML(content)
+    style = doc.search('style')[0]
+    content = content.empty? ? nil : (RDiscount.new(content).to_html.to_s + style.to_s )
+
+    attributes["content"] = content
 
     if params[:layout]
       attributes["layout"].merge!(params[:layout])
