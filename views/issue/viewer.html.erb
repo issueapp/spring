@@ -202,7 +202,7 @@
     }
   }
 
-  var path = "/<%= params[:issue] %>"
+  var path = "/issues/<%= params[:issue] %>"
 
   $.getJSON(path + '/issue.json', function(data) {
     Viewer.init(data)

@@ -33,8 +33,9 @@ class IssuePreview < Sinatra::Base
     cache = {}
     # pages = recursive_build("issues/#{params[:issue]}", cache).uniq
     content_type :json
+    
 
-    files = Dir.glob("issues/#{params[:issue]}/*/*.{md}") +   Dir.glob("issues/#{params[:issue]}/*.{md}")
+    files = Dir.glob("issues/#{params[:issue]}/data/*/*.{md}") +   Dir.glob("issues/#{params[:issue]}/data/*.{md}")
 
     pages = files.map {|path| find_page(path) }
 
@@ -52,24 +53,33 @@ class IssuePreview < Sinatra::Base
   end
 
   get "/issues/:issue/issue.json" do
+    
     pages = current_issue.items.reduce([]) do |result, item|
       result << item["handle"] #.gsub('/issue/', '')
 
       if item["pages"]
-        result += item["pages"].map{|p| p["handle"] }
+        result += item["pages"].map{|p| 
+          p["path"] ||  item["handle"] + "/" + p["handle"] 
+        }
       end
 
       result
     end
-
-    current_issue["pages"] = pages
-
-    current_issue.to_json
+    # 
+    # return pages.to_json
+    # 
+    data = current_issue.to_h
+    
+    data.delete("items")
+    data["pages"] = [ "index" ] + pages
+    
+    data.to_json
   end
 
   # Page and subpage
-  get %r{/issues/(?<issue>[^\/]+)/(?<page>[^\/]+)(?:\/(?<subpage>[^\/]+))?} do
-    path = params.slice("issue", "page", "subpage").values.compact.join('/')
+  get %r{/issues/(?<issue>[^\/]+)/(?<page>[^\/]+)(?:\/(?<subpage>[^\/]+))?} do    
+    path = [params["issue"], "data", params["page"], params["subpage"]].compact.join('/')
+    
     file_path = File.expand_path("../issues/#{path}.md", __FILE__)
 
     page = find_page(file_path)
