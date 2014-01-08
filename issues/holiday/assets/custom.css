@@ -248,6 +248,54 @@ article.page[data-page="6-summer-survival-guide/4"] .products li .image {
   margin: 0;
 }
 
+
+/*
+  Holiday Gift Ideas Cover
+*/
+article.page[data-page="7-holiday-gift-ideas"] header {
+  text-align: left;
+}
+
+/*
+  Holiday Gift Ideas Page 1
+*/
+article.page[data-page="7-holiday-gift-ideas/1"] {
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+article.page[data-page="7-holiday-gift-ideas/1"] .content {
+  height: auto;
+}
+
+article.page[data-page="7-holiday-gift-ideas/1"] .image {
+  position: relative;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+article.page[data-page="7-holiday-gift-ideas/1"] .image img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -90px;
+  margin-left: -148px;
+  width: 297px;
+  height: 180px;
+}
+
+article.page[data-page="7-holiday-gift-ideas/1"] #img-1 {
+  position: absolute;
+  top: -50px;
+  right: -68px;
+}
+
+article.page[data-page="7-holiday-gift-ideas/1"] #summary {
+  margin-top: 250px;
+  font-size: 18px;
+}
+
 /*
   Cate Says Si Wide Screen
 */
@@ -271,5 +319,9 @@ article.page[data-page="6-summer-survival-guide/4"] .products li .image {
   #story5-giftset .tag {
     font-size: 120px;
     line-height: 150px;
+  }
+
+  article.page[data-page="7-holiday-gift-ideas/1"] #summary {
+    margin-top: 350px;
   }
 }
