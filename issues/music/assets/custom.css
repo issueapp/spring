@@ -42,14 +42,23 @@ section.issue.cover .extra-1 {
 /*
   Table of content
 */
-article.toc.page header .title {
-  text-align: left;
+article.toc.page header {
+  display: none;
 }
 
 article.toc.page #signature {
   display: block;
   margin: 0 0 20px;
   width: 240px;
+}
+
+article.toc.page .cover-area {
+  height: 200px;
+  min-height: 200px;
+}
+
+article.toc.page .body p:first-child {
+  margin-top: 1em;
 }
 
 @media only screen and (min-width: 768px) {

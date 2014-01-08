@@ -1,6 +1,6 @@
 ---
 
-    title: Music Issue
+    title:
     image_url: assets/toc/background.jpg
     brand_image_url: assets/toc/brand_logo.png
 
@@ -9,8 +9,6 @@
       content_overflow: scroll
 
 ---
-
-Welcome to minkpink: The Music Issue!!
 
 Now I know I’m not alone in saying this, but I am just a teeeeny bit OBSESSED with minkpink…so you can imagine how over-the-frickin’-moon I was when they asked me to front their latest international campaign ‘minkpink: The Music Issue!’. Working on the campaign has been a blast, but what’s even better is that now I get to share it with all of you!
 
