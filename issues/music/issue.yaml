@@ -14,7 +14,8 @@ title: Music Issue
 short_title: Music
 edition_title: Minkpink
 publish_at: "2013-9-15T13:16:46Z"
-auther_name: Andrew Yang
+image_url: "assets/background-2048px.jpg"
+description: "Christina Perri"
 
 items:
 
@@ -22,54 +23,17 @@ items:
     handle: "index"
 
   - title: Table of Content
-    handle: "contents"
+    handle: "toc"
 
-  - title: A Holiday on Style
-    category: Holiday
-    pages:
-      - handle: "photo-1"
-      - handle: "photo-2"
-      - handle: "guide"
-
-  - title: Product guide
-    category: Shopping
-    handle: "products-split"
-    image_url: "http://lorempixel.com/200/152"
-    pages:
-
-      - handle: "products-split?layout[image_align]=right&image=1"
-
-  - title: One Column
-    category: Layout
-    handle: "one-col"
-    image_url: "http://lorempixel.com/200/154"
-    pages:
-
-      - handle: "one-col?layout[image_style]=fit"
-
-  - title: One Third
-    category: Layout
-    handle: "one-third"
-    image_url: "http://lorempixel.com/200/156"
-    pages:
-
-      - handle: "one-third?layout[image_align]=right"
-      - handle: "one-third?layout[image_style]=background&layout[content_height]=auto"
-      - handle: "one-third?layout[image_style]=background&layout[content_height]=auto&layout[content_align]=left&layout[content_valign]=bottom"
-
-  - title: Full Screen
-    category: Layout
-    handle: "fullscreen"
-    image_url: "http://lorempixel.com/200/158"
-
-  - title: Youtube
-    category: Media
-    handle: "youtube"
-    image_url: "http://lorempixel.com/200/160"
-
-  - title: Vimeo
-    category: Media
-    handle: "vimeo"
-    image_url: "http://lorempixel.com/200/162"
-
-
+  - title: Editor's letter
+    handle: "eds-letter"
+    
+  - title: Christina Perri
+    category: interview
+  
+  - title: "Head or heart?"
+    category: fashion
+    
+  - title: "Shop the shoot?"
+    category: Accessories
+  

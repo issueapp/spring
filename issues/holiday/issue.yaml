@@ -8,6 +8,9 @@ image_url: "assets/cover-bg-2048px.jpg"
 
 items:
 
+  - title: "Table of content"
+    handle: "toc"
+
   - title: A Holiday in Style
     category: Fashion
     author_name: Jysla Kay
