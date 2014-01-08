@@ -17,6 +17,8 @@ items:
       - handle: "1"
       - handle: "2"
       - handle: "3"
+      - handle: "4"
+      - handle: "5"
 
   - title: Cate says Si!
     category: Cover Story
@@ -27,6 +29,7 @@ items:
       - handle: "1"
       - handle: "2"
       - handle: "3"
+      - handle: "4"
 
   - title: The Style Edit
     category: Style By Blogger
