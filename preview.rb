@@ -148,8 +148,8 @@ class IssuePreview < Sinatra::Base
     content = Mustache.render(content, attributes)
 
     doc = Nokogiri::HTML(content)
-    style = doc.search('style')[0]
-    content = content.empty? ? nil : (RDiscount.new(content).to_html.to_s + style.to_s )
+    
+    content = content.empty? ? nil : (RDiscount.new(content).to_html.to_s + doc.search('style')[0].to_s + doc.search('script')[0].to_s )
 
     attributes["content"] = content
 
