@@ -19,19 +19,26 @@ description:
 
 assets:
   - "custom.css"
-  - "jquery.jplayer.min.js"
+  # - "jquery.jplayer.min.js"
+  - "jplayer/jquery.transform2d.js"
+  - "jplayer/jquery.grab.js"
+  - "jplayer/jquery.jplayer.js"
+  - "jplayer/mod.csstransforms.min.js"
+  - "jplayer/circle.player.js"
+  - "circle.skin/circle.player.css"
 
 items:
 
   - title: Table of Content
     handle: "toc"
-
+    nav: false
+    
   - title: "Christina Perri"
     category: interview
     handle: "1-interview"
     pages:
       - handle: "1"
-    
+      
   - title: "Head or heart?"
     category: fashion
     handle: "2-head-or-heart"
