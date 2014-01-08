@@ -1,7 +1,7 @@
 ---
 
     title: Cate says Si
-    category: The cover story
+    category: Cover story
     byline: By Zyra Bacani
     image_url: assets/2-cate-says-si/cover.jpg
     handle: 2-cate-says-si

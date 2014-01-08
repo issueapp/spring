@@ -3,6 +3,13 @@ article.page .content.stop-scrolling {
   overflow: hidden;
 }
 
+
+
+.hotspot {
+  @include inline-block;
+}
+
+
 .product-popover {
   position: fixed;
   left: 0;

@@ -39,14 +39,15 @@ class Hotspot extends Backbone.View
     if App.page
       if isProduct
         data = _(@page.products).find (p)-> lookupKey == p.url
-        data.action = "shop"
+        data.action = "shop" if data
       else
         data = _(@page.links).find (p)-> lookupKey == p.url
 
     data ||= {
       title:       $(hotspot).attr('title'),
       subtitle:    $(hotspot).data('subtitle'),
-      image_url:   $(hotspot).data('image_url'),
+      image_url:   $(hotspot).data('image'),
+      action:   $(hotspot).data('action'),
       description: $(hotspot).data('description'),
       url:         $(hotspot).attr('href').replace("#", ''),
     }
@@ -58,8 +59,13 @@ class Hotspot extends Backbone.View
 
   # Show popover dialog
   show: (e)=>
-    @hotspot = $(e.currentTarget || @$el[0])
-    console.log(@hotspot)
+    hotspot = $(e.currentTarget || @$el[0])
+
+    if @hotspot == hotspot 
+      return
+    else
+      @hotspot = hotspot
+
     data = this.lookup(@hotspot)
 
     console.log(data)
@@ -105,7 +111,7 @@ class Hotspot extends Backbone.View
         <h2 class="subtitle">
 
           <% if (typeof subtitle != "undefined" ) { %>
-            <%= subtitle %>, <%= subtitle %>, <%= subtitle %>,
+            <%= subtitle %>
           <% } %>
 
           <% if (typeof price != "undefined" ) { %>
@@ -150,7 +156,12 @@ class Hotspot extends Backbone.View
 
       if document.body.offsetHeight - center_pos.y - dimension.height / 2 < @popover.height()
         arrowPosition = 'down'
-        @popover.css('top', center_pos.y - dimension.height / 2 - @popover.height())
+        targetSpacing = dimension.height / 2
+        
+        if targetSpacing < spacing
+          targetSpacing = spacing 
+        
+        @popover.css('top', center_pos.y - targetSpacing   - @popover.height())
 
       # arrow point up
       else
