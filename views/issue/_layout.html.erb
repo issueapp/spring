@@ -22,7 +22,9 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
     <link rel="stylesheet" href="/assets/application.css" type="text/css">
-    <link rel="stylesheet" href="/holiday/assets/custom.css" type="text/css">
+    <% if params[:issue] %>
+    <link rel="stylesheet" href="/<%= params[:issue] %>/assets/custom.css" type="text/css">
+    <% end %>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="/assets/issue.js" type="text/javascript" charset="utf-8"></script>
     <script>
@@ -88,7 +90,7 @@
   <script>
     App.init()
   </script>
-  
+
   <% if respond_to? :yield_content %>
     <%= yield_content :js %>
   <% else %>
