@@ -17,12 +17,22 @@ publish_at: "2013-9-15T13:16:46Z"
 image_url: "assets/background-2048px.jpg"
 description:
 
+assets:
+  - "custom.css"
+  - "jquery.jplayer.min.js"
+
 items:
 
   - title: Table of Content
     handle: "toc"
 
-  - title: "Head or Heart?"
+  - title: "Christina Perri"
+    category: interview
+    handle: "1-interview"
+    pages:
+      - handle: "1"
+    
+  - title: "Head or heart?"
     category: fashion
     handle: "2-head-or-heart"
 

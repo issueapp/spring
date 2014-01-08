@@ -6,6 +6,9 @@ publish_at: "2013-9-15T13:16:46Z"
 auther_name: Taylor
 image_url: "assets/background.jpg"
 
+assets:
+  - "custom.css"
+
 items:
 
   - title: Table of Content

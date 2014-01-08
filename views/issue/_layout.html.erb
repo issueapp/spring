@@ -22,15 +22,20 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
     <link rel="stylesheet" href="/assets/application.css" type="text/css">
-    <% if params[:issue] %>
-    <link rel="stylesheet" href="/<%= params[:issue] %>/assets/custom.css" type="text/css">
-    <% end %>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="/assets/issue.js" type="text/javascript" charset="utf-8"></script>
     <script>
       App.detectLayout()
     </script>
-
+    
+    <% current_issue.assets.to_a.each do |asset| %>
+      <% if asset.match(/\.js$/) %>
+        <script src="<%= "/#{params[:issue]}/assets/#{asset}" %>"></script>
+      <% elsif asset.match(/\.css$/) %>
+        <link rel="stylesheet" href="<%= "/#{params[:issue]}/assets/#{asset}" %>" type="text/css">
+      <% end %>
+    <% end %>
+    
     <style>
       .page {
         width: 100%;
