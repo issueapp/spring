@@ -79,6 +79,10 @@ items:
     category: Shopping
     author_name: Aubrey Daquinag
     handle: "7-holiday-gift-ideas"
+    pages:
+
+      - handle: "1"
+      - handle: "2"
 
   - title: Events
     category: Calendar
