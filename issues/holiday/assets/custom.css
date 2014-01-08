@@ -8,6 +8,10 @@
   Table of content
 */
 
+section.issue.cover .title {
+  color: #ffeddf;
+}
+
 article.page.toc .cover-area {
   min-height: 260px;
 }

@@ -64,7 +64,7 @@
 
     .container {
       @include box-sizing(border-box);
-      background: rgba(0,0,0,0.2);
+      // background: rgba(0,0,0,0.2);
       padding: 40px;
       margin: 0;
 //      z-index: 1;
@@ -100,13 +100,15 @@
 //  }
   // Headings in cover
   hgroup {
-    margin-top: 5%;
+    // margin-top: 5%;
     text-align: center;
   }
 
 
   .brand {
     font-size: 32px;
+    font-family: "EB Garamond";
+    font-weight: normal;
   }
 
   .title {
@@ -119,7 +121,7 @@
 
     font-weight: 600;
     font-size: 30px;
-    font-family: "EB Garamond";
+    // font-family: "EB Garamond";
 
     letter-spacing: 1px;
 //    font-family: "HelveticaNeue-CondensedBold", "HelveticaNeueBoldCondensed", "HelveticaNeue-Bold-Condensed", "Helvetica Neue Bold Condensed", "HelveticaNeueBold", "HelveticaNeue-Bold", "Helvetica Neue Bold", "HelveticaNeue", "Helvetica Neue", 'TeXGyreHerosCnBold', "Helvetica", "Tahoma", "Geneva", "Arial Narrow", "Arial", sans-serif;
@@ -139,19 +141,14 @@
     @include text-shadow;
     @include text-shadow(1px 1px 3px rgba(0,0,0,0.5));
 
-    margin: 5px auto 0;
+    font-family: "Helvetica Neue";
     color: rgba(255, 255, 255, 1);
-//    text-align: left;
-    text-transform: lowercase;
-
+    text-transform: uppercase;
     font-weight: normal;
-    font-style: italic;
     font-size: 18px;
-    font-family: georgia;
     line-height: 1.5;
-
     max-height: 3em;
-    letter-spacing: 0;
+    letter-spacing: 1px;
 
     -webkit-animation: fadeInSmall 0.5s ease both;
     -moz-animation: fadeInSmall 0.5s ease both;
@@ -219,6 +216,8 @@
   }
 
   a.browse {
+    display: none;
+
     color: white;
     position: absolute;
     top: 18%;
@@ -270,19 +269,24 @@
 
     .brand {
       font-size: 40px;
-      margin-bottom: 0.25em;
+      margin-bottom: 0;
     }
+
     .title {
       text-align: center;
       letter-spacing: 3px;
-      font-size: 80px;
+      font-size: 150px;
+      font-weight: normal;
     }
 
     .description {
-      margin-top: 0.2em;
-      letter-spacing: 1px;
-      font-size: 36px;
-      line-height: 40px;
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      margin-bottom: 0;
+      margin-left: -50%;
+      width: 100%;
+      font-size: 24px;
     }
 
     .signature {
