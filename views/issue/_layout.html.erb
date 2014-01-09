@@ -27,7 +27,7 @@
     <script>
       App.detectLayout()
     </script>
-    
+
     <% current_issue.assets.to_a.each do |asset| %>
       <% if asset.match(/\.js$/) %>
         <script src="<%= "/#{params[:issue]}/assets/#{asset}" %>"></script>
@@ -35,7 +35,7 @@
         <link rel="stylesheet" href="<%= "/#{params[:issue]}/assets/#{asset}" %>" type="text/css">
       <% end %>
     <% end %>
-    
+
     <style>
       .page {
         width: 100%;
@@ -87,7 +87,11 @@
   </head>
 
   <body>
-    <div role=main class="fashion-theme content-view">
+    <%
+      handle = params[:page] || 'index'
+      handle += "/#{params[:subpage]}" if params[:subpage]
+    %>
+    <div role=main class="fashion-theme content-view" data-handle="<%= handle %>">
       <%= yield %>
     </div>
   </body>

@@ -1,32 +1,43 @@
 # App core
-#   
+#
 # provide initialisation, support, events, native notification
-# 
+#
 # Requires Underscore, Bacbone, Zapto
-# 
+#
 # Core Methods
-# 
+#
 #   init:       initialise the app
 #   refresh:    refresh the current application state on layout changes
 #   extend:     extend additional functionalities
 #   trigger:    trigger events (via Backbone.events)
-#   on:         
+#   on:
 
 @App = {
   isDev: location.host.match /localhost|\.dev$/
-  
+
   host: if location.host.match /localhost|\.dev$/ then "issue.dev" else "issueapp.com"
-  
-  # 
+
+  #
   init: ->
     @container = $('[role=main]')
-    
+
     this.refresh()
-    
-    this.trigger("loaded", document.title, url: window.location.toString())
-  
-  # Main 
+    this.bindObservers()
+
+    this.trigger("loaded", document.title, url: window.location.toString(), handle: @container.data('handle'))
+
+  # Main
   refresh: ->
+
+  bindObservers: ->
+    if @support.webview
+      this.on "all", (event, label, data)=>
+        if @nativeEvents.indexOf(event) > -1
+          # console.log '[issue.coffee] notify', event, label, data
+          this.notifyNative("notify", event, label, data)
+        else if event == "open"
+          # console.log '[issue.coffee] open', label, data
+          this.notifyNative("open", label, data)
 
   # Utilities
   extend: (mixin)->
@@ -115,7 +126,7 @@ Core = {
     if _(params).size() > 0
       url += "?#{$.param(params)}"
 
-    # console.log("[Notify] #{url}")
+    console.log("[Notify] #{url}")
 
     iframe = document.createElement("IFRAME")
     iframe.setAttribute("src", url)
