@@ -15,6 +15,11 @@
   "pages": [
     "index.html",
     "toc.html",
-    "2-head-or-heart.html"
+    "editors-letter.html",
+    "1-interview.html",
+    "2-head-or-heart.html",
+    "2-head-or-heart/1.html",
+    "2-head-or-heart/2.html",
+    "2-head-or-heart/3.html"
   ]
 }
