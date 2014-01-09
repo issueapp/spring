@@ -61,6 +61,26 @@ article.toc.page .body p:first-child {
   margin-top: 1em;
 }
 
+/*
+  Story 1: Interview;
+*/
+
+article.page[data-page="1-interview"] .extras {
+  margin-top: 20px;
+  text-align: justify;
+}
+
+article.page[data-page="2-head-or-heart"] {
+}
+
+article.page[data-page="2-head-or-heart/1"] .body p {
+  text-align: center;
+}
+
+article.page[data-page="2-head-or-heart/2"] .body p {
+  text-align: center;
+}
+
 @media only screen and (min-width: 768px) {
   section.issue.cover nav[role="navigation"] {
     display: block;
