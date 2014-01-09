@@ -1,0 +1,20 @@
+{
+  "title": "Music Issue",
+  "magazine": "MINPINK MAG",
+  "publish_at": "2013-9-15T13:16:46Z",
+  "author": ["Christina Perri"],
+  "assets": [
+    "custom.css",
+    "jplayer/jquery.transform2d.js",
+    "jplayer/jquery.grab.js",
+    "jplayer/jquery.jplayer.js",
+    "jplayer/mod.csstransforms.min.js",
+    "jplayer/circle.player.js",
+    "circle.skin/circle.player.css"
+  ],
+  "pages": [
+    "index.html",
+    "toc.html",
+    "2-head-or-heart.html"
+  ]
+}

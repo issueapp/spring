@@ -61,6 +61,13 @@ article.toc.page .body p:first-child {
   margin-top: 1em;
 }
 
+/*
+  Story 1: Interview;
+*/
+
+article.page.no-content[data-page="2-head-or-heart"] {
+}
+
 @media only screen and (min-width: 768px) {
   section.issue.cover nav[role="navigation"] {
     display: block;
