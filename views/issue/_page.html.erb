@@ -38,6 +38,9 @@
     <% if video_embed = page.embed_content %>
       <div class='video-wrapper'><%= video_embed %></div>
     <% end %>
+    <% if page.cover_content %>
+      <div class="cover-content"><%= page.cover_content %></div>
+    <% end %>
   </div>
   <% end %>
 
@@ -107,14 +110,14 @@
 <% content_for :js do %>
 <script>
   App = (typeof App == 'undefined') ? {} : App;
-  
+
   App.page = {
     title: "<%= page.title %>",
     links: <%= page.links.to_json %>,
     products: <%= page.products.to_json %>
   }
-  
+
   App.pageView = new PageView({ model: App.page })
-  
+
 </script>
 <% end %>
