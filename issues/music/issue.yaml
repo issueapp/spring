@@ -32,19 +32,19 @@ items:
   - title: Table of Content
     handle: "toc"
     nav: false
-    
-  - title: "Christina Perri"
-    category: interview
-    handle: "1-interview"
+
+  # - title: "Christina Perri"
+  #   category: interview
+  #   handle: "1-interview"
     # pages:
     #   - handle: "1"
-      
+
   - title: "Head or heart?"
     category: fashion
     handle: "2-head-or-heart"
-    pages:
-      - handle: "1"
-      - handle: "2"
+    # pages:
+    #   - handle: "1"
+    #   - handle: "2"
 
   - title: "Shop the Shoot?"
     category: Accessories

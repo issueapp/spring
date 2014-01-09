@@ -33,7 +33,7 @@ $(document).on "click", "[data-app-view]", ->
 
 Track actions
 
-I think for tracking events, we need to have a global 
+I think for tracking events, we need to have a global
 App.trigger("track", "action", "title", options)
 
   a data-track="click" title="my external page"
@@ -52,11 +52,11 @@ $(document).on "click", "[data-track]", (e)->
     item_id:    $(this).data("item-id") || $(this).parents("[data-item-id]").data("item-id")
     url:        $(this).data('url') || this.href
   }
-  
+
   # console.log '[notification.coffee]', action, title, options
 
   App.trigger("track", action, title, options)
-  
+
   if App.support.webview && (App.user.id == 'guest' || ['share', 'unsubscribe', 'go:next'].indexOf(action) > -1)
     return false
 
