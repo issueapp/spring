@@ -1,0 +1,80 @@
+/*
+  Cover
+*/
+section.issue.cover #issue-logo {
+  bottom: 170px;
+  zoom: 0.6;
+}
+
+section.issue.cover nav[role="navigation"] {
+  display: none;
+}
+
+section.issue.cover .brand {
+  margin-bottom: 0;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+  font-weight: bold;
+  font-family: "proxima_nova_regular";
+}
+
+section.issue.cover .title {
+  text-align: center;
+  text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.8);
+
+  font-size: 75px;
+  font-family: "EB Garamond";
+  line-height: 60px;
+}
+
+section.issue.cover .extra-1 {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  margin-left: -45%;
+  width: 90%;
+  height: 115px;
+  background-image: url('/music/assets/cover-christina-perri.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/*
+  Table of content
+*/
+article.toc.page header {
+  display: none;
+}
+
+article.toc.page #signature {
+  display: block;
+  margin: 0 0 20px;
+  width: 240px;
+}
+
+article.toc.page .cover-area {
+  height: 200px;
+  min-height: 200px;
+}
+
+article.toc.page .body p:first-child {
+  margin-top: 1em;
+}
+
+@media only screen and (min-width: 768px) {
+  section.issue.cover nav[role="navigation"] {
+    display: block;
+  }
+
+  section.issue.cover .title {
+    font-size: 160px;
+    line-height: 150px;
+  }
+
+  section.issue.cover .extra-1 {
+    left: 50%;
+    margin-left: -202px;
+    width: 416px;
+    height: 166px;
+  }
+}
