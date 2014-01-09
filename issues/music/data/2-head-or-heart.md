@@ -45,8 +45,7 @@ Christina perri walks us through her favourite pieces from the minkpink winter 2
   </div>
 <script>
   var myCirclePlayer = new CirclePlayer("#jquery_jplayer_1",{
-  	m4a: "/music/assets/Christina Perri - I Believe.m4a",
-    ogg: "/music/assets/Christina Perri - I Believe.m4a",
+  	m4a: "/music/assets/Christina Perri - I Believe.m4a"
   }, 
   {
     cssSelectorAncestor: "#cp_container_1",
