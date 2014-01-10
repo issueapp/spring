@@ -8,8 +8,6 @@
 
     layout:
       type: three-column
-      image_style: background
-      content_align: right
 
 ---
 
