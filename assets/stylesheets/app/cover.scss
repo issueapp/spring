@@ -79,6 +79,10 @@
 //    }
   }
 
+  nav[role="navigation"] {
+    display: none;
+  }
+
   // Overlay to increase readability
 //  .container {
 ////    background-position: center;
@@ -104,11 +108,11 @@
     text-align: center;
   }
 
-
   .brand {
     font-size: 32px;
     font-family: "EB Garamond";
     font-weight: normal;
+    margin: 0;
   }
 
   .title {
@@ -116,11 +120,12 @@
     display: inline-block;
 
     padding-bottom: 3px;
-    text-align: left;
+    text-align: center;
     text-transform: uppercase;
 
     font-weight: 600;
-    font-size: 30px;
+    font-size: 50px;
+    line-height: 55px;
     // font-family: "EB Garamond";
 
     letter-spacing: 1px;
@@ -138,7 +143,6 @@
   }
 
   .description {
-    @include text-shadow;
     @include text-shadow(1px 1px 3px rgba(0,0,0,0.5));
 
     font-family: "Helvetica Neue";
@@ -149,6 +153,13 @@
     line-height: 1.5;
     max-height: 3em;
     letter-spacing: 1px;
+
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    margin-bottom: 0;
+    margin-left: -50%;
+    width: 100%;
 
     -webkit-animation: fadeInSmall 0.5s ease both;
     -moz-animation: fadeInSmall 0.5s ease both;
@@ -254,6 +265,10 @@
 
   @include min-screen(768) {
 
+    nav[role="navigation"] {
+      display: block;
+    }
+
     .logo {
       display: block;
       width: 201px;
@@ -281,12 +296,6 @@
     }
 
     .description {
-      position: absolute;
-      bottom: 20px;
-      left: 50%;
-      margin-bottom: 0;
-      margin-left: -50%;
-      width: 100%;
       font-size: 24px;
     }
 

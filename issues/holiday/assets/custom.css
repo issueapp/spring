@@ -16,9 +16,9 @@ section.issue.cover .extra-1 {
   position: absolute;
   top: 50%;
   right: 10px;
-  margin-top: -63px;
-  width: 240px;
-  height: 127px;
+  margin-top: -40px;
+  width: 150px;
+  height: 80px;
   background-image: url("/holiday/assets/cover-extra-1.png");
   background-position: center;
   background-size: cover;
@@ -51,19 +51,18 @@ article.page.toc .body p:last-child {
 }
 
 article.page.toc .contributors {
+  overflow: hidden;
   padding: 0;
   list-style-type: none;
   text-align: center;
 }
 
 article.page.toc .contributors li {
-  float: left;
-
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   padding: 5px 0 5px 80px;
-  width: 50%;
+  width: 100%;
   text-align: left;
 }
 
@@ -398,6 +397,17 @@ article.page[data-page="7-holiday-gift-ideas/2"] header .description {
   Cate Says Si Wide Screen
 */
 @media only screen and (min-width: 768px) {
+  section.issue.cover .extra-1 {
+    margin-top: -63px;
+    width: 240px;
+    height: 127px;
+  }
+
+  article.page.toc .contributors li {
+    float: left;
+    width: 50%;
+  }
+
   article.page[data-page="2-cate-says-si/2"] .body .list {
     margin-top: 20%;
   }
