@@ -24,10 +24,19 @@ class IssuePreview < Sinatra::Base
 
     erb :"issue/viewer.html", layout: :"/layouts/_docs.html", locals: { path: "/issues/#{@path}", issue: current_issue }
   end
-
-  get '/issues/:issue' do
-    redirect to("/issues/#{params[:issue]}/")
+  
+  get '/issues/?' do
+    @issues = Dir.glob('issues/*/issue.yaml').map do |file|
+      issue_path = file.split("/")[1]
+      
+      issue = Hashie::Mash.new(YAML.load_file(file)).tap do |i|
+        i.image_url = "#{issue_path}/#{i.image_url}"
+      end
+    end
+    
+    erb :"issue/list.html", layout: :"/layouts/_docs.html"
   end
+  
 
   get '/issues/:issue/products.json' do
     cache = {}
@@ -42,6 +51,10 @@ class IssuePreview < Sinatra::Base
   end
 
   get "/issues/:issue/index" do
+    redirect to("/issues/#{params[:issue]}/")
+  end
+  
+  get "/issues/:issue" do
     redirect to("/issues/#{params[:issue]}/")
   end
 
@@ -72,7 +85,12 @@ class IssuePreview < Sinatra::Base
 
   # Page and subpage
   get %r{/issues/(?<issue>[^\/]+)/(?<page>[^\/]+)(?:\/(?<subpage>[^\/]+))?} do
-    path      = [params["issue"], "data", params["page"], params["subpage"]].compact.join('/')
+    if params["page"] == "assets"
+      return send_file request.path[1, request.path.length - 1]
+    end
+    
+    path = [params["issue"], "data", params["page"], params["subpage"]].compact.join('/')
+    
     file_path = File.expand_path("../issues/#{path}.md", __FILE__)
     page      = find_page(file_path)
 

@@ -5,11 +5,28 @@
     #author_name: Zyralyn Bacani
     #author_icon: http://cl.ly/StPu/Image%202013.12.11%204%3A54%3A01%20pm.png
     image_url: assets/2-head-or-heart/4_opt.jpeg
+    description: IN NEED OF A STYLE UPDATE? WELL WHAT BETTER TIME THAN RIGHT NOW! INSPIRE YOUR LOOK WITH THE OFFICIAL MINKPINK: THE MUSIC ISSUE COLLECTION, STARRING CHRISTINA PERRI...
+    
     cover_content:
       '
         <a href="#minpink" class="hotspot product"></a>
       '
-
+    
+    
+    links: 
+    
+      - title: Test
+        description: something else
+        url: http://something.com
+        hotspot: x,y,radius
+        
+    products:
+    
+      - title: something
+        description: something
+        url: something
+        hotspot: x,y,radius
+    
     images:
       - url: assets/2-head-or-heart/Head Or Heart album.jpg
 
@@ -27,7 +44,7 @@
 }
 </style>
 
-<img src="/music/assets/2-head-or-heart/cover-heading.svg">
+<img src="assets/2-head-or-heart/cover-heading.svg">
 
 Christina perri walks us through her favourite pieces from the minkpink winter 2014 collection quae voluptatis dolorepero bla aut que volupta ipsunt eiumque consequefdsiquun datecta styling by mark vasallo. photography by mike piscatelli.
 
