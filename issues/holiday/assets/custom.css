@@ -317,8 +317,8 @@ article.page[data-page="7-holiday-gift-ideas/1"] .image img {
 
 article.page[data-page="7-holiday-gift-ideas/1"] #img-1 {
   position: absolute;
-  top: -50px;
-  right: -68px;
+  top: 0;
+  right: 0;
 }
 
 article.page[data-page="7-holiday-gift-ideas/1"] #summary {
