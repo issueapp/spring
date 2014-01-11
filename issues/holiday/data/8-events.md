@@ -8,23 +8,23 @@
       type: custom
       image_style: background
       content_align: left
-  
-    links: 
+
+    links:
       - title: Magic Millions Raceday
         image_url: http://www.australia.com/campaigns/eventscalendar/data/images/lrg/m01-06.jpg
         summary: Enjoy the racing and glamour of one of Australia’s biggest Carnival thoroughbred events held on the vibrant Gold Coast.
         url: http://www.magicmillions.com.au/carnivals/
-        
+
       - title: Australian Open – The Grand Slam of Asia-Pacific
         summary: See the greatest tennis players in the world compete for this coveted grand slam trophy in the vibrant cosmopolitan city of Melbourne.
         image_url: http://www.australia.com/campaigns/eventscalendar/data/images/lrg/m01-02.jpg
         url: http://www.australianopen.com/
-      
+
       - title: Sydney Festival
         summary: See the city come alive with a kaleidoscopic program of theatre, music, dance and visual arts, free outdoor concerts and pop-up bars.
         image_url: http://www.australia.com/campaigns/eventscalendar/data/images/lrg/m01-04.jpg
         url: http://www.sydneyfestival.org.au/
-      
+
       - title: Australia Day
         summary: Celebrate Australia’s unique cultural diversity with family and friends and reflect on our nation’s heritage.
         image_url: http://www.australia.com/campaigns/eventscalendar/data/images/lrg/m01-07.jpg
@@ -39,7 +39,7 @@
         summary: Join this vibrant celebration of traditional and contemporary Aboriginal and Torres Strait Islander culture, art, dance and music.
         image_url: http://www.australia.com/campaigns/eventscalendar/data/images/lrg/m02-02.jpg
         url: http://www.thespiritfestival.com/
-        
+
       - title: Australian Sand Sculpting Championships
         summary: Delight in the beautiful and bizarre sand sculptures built on Surfers Paradise Beach.
         image_url: http://www.australia.com/campaigns/eventscalendar/data/images/lrg/m02-03.jpg
@@ -49,135 +49,152 @@
         summary: Celebrate good fortune and prosperity with the most important celebration in the Chinese calendar.
         image_url: http://www.australia.com/campaigns/eventscalendar/data/images/lrg/m02-04.jpg
         url: http://www.chinesenewyear.com.au/
-      
+
       - title: Turtle nesting
         summary: See six of the world’s seven species of marine turtle come ashore from Ningaloo Reef to nest on the West Coast of Australia.
         image_url: http://www.australia.com/campaigns/eventscalendar/data/images/lrg/m02-10.jpg
         url: http://www.australia.com/campaigns/nationallandscapes/NingalooSharkBay.htm
-  
+
 ---
 <style>
-  #event-title {
-    font-size: 24px;
-    letter-spacing: 2px;
-    text-align: center;
-    font-weight: normal;
-    margin: 20px 0;
-  }
   #event-cards {
-  	perspective: 1000;
-    
+    margin: 0;
+    padding: 0;
     height: 100%;
     list-style: none;
-    padding: 0; margin: 0;
+
+    -webkit-perspective: 1000;
+    -moz-perspective: 1000;
+    -o-perspective: 1000;
+    perspective: 1000;
   }
-  
+
   #event-cards li {
     height: 33.3%;
     width: 33.3%;
-    background:size: cover;
+    background-size: cover;
   }
-  
-  .flipper {
+
+  #event-cards .flipper {
+    position: relative;
     width: 100%;
     height: 100%;
+
     -webkit-transition: 0.6s;
-    -webkit-transform-style: preserve-3d;
     -moz-transition: 0.6s;
-    -moz-transform-style: preserve-3d;
+    -o-transition: 0.6s;
     transition: 0.6s;
+
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
     transform-style: preserve-3d;
-    position: relative;
   }
-  
+
 	#event-cards li:hover .flipper,
   #event-cards li.hover .flipper {
-		transform: rotateY(180deg);
-		-webkit-transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    transform: rotateY(180deg);
 	}
-  
+
   #event-cards li .image {
   	position: absolute;
   	top: 0;
   	left: 0;
   }
-  
+
   /* front pane, placed above back */
   #event-cards li .image {
-    background-position: center;
-    background:size: cover;
-    
-  	-webkit-backface-visibility: hidden;
-    
-  	z-index: 2;
     position: absolute;
     top: 0;
-    left: 0;
-    bottom: 0;
     right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    background-position: center;
+    background-size: cover;
+
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    backface-visibility: hidden;
   }
 
   /* back, initially hidden pane */
   #event-cards li .info {
-  	-webkit-backface-visibility: hidden;
-    
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    overflow: auto;
+    padding: 20px;
     background: #fff;
     color: #333;
     font-size: 14px;
-    padding: 20px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-		-webkit-transform: rotateY(180deg);
+
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    backface-visibility: hidden;
   }
-  
-  #event-cards li a {
-    
-  }
-  
+
   #event-month-list {
-    font-family: "EB Garamond";
-    text-align: left;
-    font-weight: normal;
-    width: 31%;
     float: left;
-  }
-  
-  .event-month {
-    font-family: "EB Garamond";
-    font-weight: normal;
-    
-    padding: 0;
-    font-size: 18px;
-    border-bottom: 1px solid #111;
-    margin: 15px 0;
-  }
-  
-  .event-list {
-    
-    margin: 0;
-    padding: 0;
-  }
-  .event-list h3 {
-    font-family: "EB Garamond";
-    
-    margin: 0;
-    font-weight: normal;
-  }
-  .event-list li {
+    width: 31%;
     text-align: left;
+    font-weight: normal;
+    font-family: "EB Garamond";
+  }
+
+  #event-month-list .event-title {
+    margin: 20px 0;
+    text-align: center;
+    letter-spacing: 2px;
+    font-weight: normal;
+    font-size: 24px;
+  }
+
+  #event-month-list .event-month {
+    margin: 15px 0;
+    padding: 0;
+    border-bottom: 1px solid #111;
+    font-weight: normal;
+    font-size: 18px;
+    font-family: "EB Garamond";
+  }
+
+  #event-month-list .event-list {
+    margin: 0;
+    padding: 0;
+  }
+
+  #event-month-list .event-list h3 {
+    margin: 0;
+    font-weight: normal;
+    font-family: "EB Garamond";
+  }
+
+  #event-month-list .event-list li {
     margin-bottom: 1em;
+    text-align: left;
   }
-  
-  address {
+
+  #event-month-list address {
     color: #404040;
   }
-  
-  date {
-    color: #404040;
+
+  #event-month-list date {
     float: right;
+    color: #404040;
   }
 </style>
 
@@ -195,12 +212,11 @@
       </div>
     </li>
   {{/links}}
-  </ul>  
+  </ul>
 </div>
 
 <div id="event-month-list" class="content col x4">
-  <h1 id="event-title">{{ title }}</h1>
-  
+  <h1 class="event-title">{{ title }}</h1>
   <h2 class="event-month">Janurary</h2>
   <ol class="event-list">
     <li>
@@ -208,13 +224,13 @@
       <date>11 Jan</date>
       <address>Gold Coast, QLD</address>
     </li>
-    
+
     <li>
       <h3>AustraLian Open</h3>
       <date>13 Jan</date>
       <address>Melbourne, VIC</address>
     </li>
-    
+
     <li>
       <h3>Sydney Festival</h3>
       <date>9-26 Jan</date>
@@ -227,7 +243,7 @@
       <address>Nation Wide</address>
     </li>
   </ol>
-  
+
   <h2 class="event-month">Feburary</h2>
   <ol class="event-list" start="5">
     <li>
