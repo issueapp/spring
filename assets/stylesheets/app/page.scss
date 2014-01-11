@@ -52,11 +52,9 @@ article.page {
   .cover-area {
     @include box-sizing(border-box);
     min-height: 300px;
-
     width: 100%;
     height: auto;
     background-position: center;
-
     background-size: cover;
     background-repeat: no-repeat;
 
@@ -377,6 +375,36 @@ article.page {
 
   &.image-background.right {
     text-align: right;
+  }
+
+  .single-product {
+    position: relative;
+    overflow: hidden;
+
+    .thumb-image {
+      float: left;
+      width: 180px;
+      height: 180px;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    .title {
+      font-size: 24px;
+      font-family: "EB Garamond";
+    }
+
+    .subtitle {
+      margin: 0;
+    }
+
+    .button {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      margin: 0;
+    }
   }
 }
 
