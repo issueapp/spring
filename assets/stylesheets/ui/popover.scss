@@ -3,10 +3,27 @@ article.page .content.stop-scrolling {
   overflow: hidden;
 }
 
-
-
 .hotspot {
   @include inline-block;
+  
+  .tag {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -15px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    line-height: 1.8;
+  }
+}
+
+.hotspot.image {
+  position: absolute;
 }
 
 
