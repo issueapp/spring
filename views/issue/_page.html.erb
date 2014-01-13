@@ -1,5 +1,17 @@
 <%
-  has_product = page.products.to_a.count > 0
+
+  products = page.products.to_a.select{|p| !p.hotspot }
+  hotspots = (page.products.to_a + page.links.to_a).select{|p| p.hotspot }.map do |p| 
+    left, right, radius = p.hotspot.split(',').map(&:strip)
+    p.hotspot = {
+      left: left, 
+      right: right,
+      radius:  radius
+    }
+    p
+  end
+  
+  has_product = products.to_a.count > 0
 %>
 
 <article id="s<%= page.handle.to_s.split('/').first %>" class="page
@@ -41,6 +53,12 @@
     <% if page.cover_content %>
       <div class="cover-content"><%= page.cover_content %></div>
     <% end %>
+    
+    <% hotspots.each_with_index do |item, index| %>
+      
+      <a href="<%= item.url %>" title="<%= item.title %>" class="hotspot image product" style="left: <%= item.hotspot.left %>px; top: <%= item.hotspot.right %>px;"><i class="tag"><%= index + 1 %></i></a>
+    <% end %>
+    
   </div>
   <% end %>
 
