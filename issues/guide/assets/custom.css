@@ -18,6 +18,26 @@ section.page.cover .container {
   position: relative;
 }
 
+section.page.cover .container hgroup {
+  margin: 0 -30px;
+}
+
+section.page.cover .title {
+  font-size: 36px;
+}
+
 article.page[data-page="fullscreen/2"] .content {
   color: white;
+}
+
+@media only screen and (min-width: 768px) and (orientation: landscape) {
+  section.page.cover .title {
+    font-size: 110px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (orientation: portrait) {
+  section.page.cover .title {
+    font-size: 90px;
+  }
 }
