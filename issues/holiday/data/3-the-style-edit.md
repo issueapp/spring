@@ -16,7 +16,7 @@
         brand: Tibi
         price: $184.11AUD
         description: A simple silk camisole from Tibi is finished with spaghetti straps and a delicate racer back. Made out of 100% woven silk.
-        hotspot: 600,710,30
+        hotspot: "640,735,30"
         
       - title: ACNE Scene Mini Str Wide Sleeve Shirt- 
         url: http://www.my-wardrobe.com/acne/scene-mini-str-wide-sleeve-shirt-631036 
@@ -24,7 +24,7 @@
         brand: ACNE
         price: $230 AUD 
         description: Put a structured twist on the men’s tailoring trend with this shirt from Acne, which takes tuxedo styling and lends it an over-sized modern feel. Ideal with ultra-slim black trousers in wool or leather, this is a fashion-forward way to update your classic white shirt for work. 
-        hotspot: 800,600,30
+        hotspot: "800,600,30"
         
       - title: Ray-ban Highstreet Matte Aviator Sunglasses
         url: http://www.shopbop.com/highstreet-matte-aviator-sunglasses-ray/vp/v=1/1593573019.htm?folderID=2534374302094311&fm=other-shopbysize&colorId=58684 
@@ -32,7 +32,7 @@
         brand: Ray-ban
         price: $186.44 AUD
         description: Classic aviator sunglasses are accented at the right lens with Ray-Ban's signature logo lettering. Made in Italy.             
-        hotspot: 700,250,30
+        hotspot: "700,250,30"
 
       - title: Gorjana taner bar necklace 
         url: http://www.shopbop.com/taner-bar-necklace-gorjana/vp/v=1/1559721636.htm?folderID=2534374302033527&colorId=29109&extid=affprg-4441350 
@@ -40,7 +40,7 @@
         brand: Gorjana taner
         price: $69.92 AUD 
         description: A simple Gorjana necklace with a delicate hammered bar. Ring clasp. 14k gold. Made in the USA. 
-        hotspot: 600,630,30
+        hotspot: "600,640,30"
 
     layout:
       type: three-column

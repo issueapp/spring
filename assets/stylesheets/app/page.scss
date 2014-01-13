@@ -362,7 +362,7 @@ article.page {
   }
 
   &.image-background .cover-area {
-    display: none;
+//    display: none;
     background: none;
   }
 
@@ -544,18 +544,6 @@ article.page.has-product {
   }
 
   .product-set li .tag {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    margin-left: -15px;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background-color: #333;
-    color: white;
-    text-align: center;
-    font-weight: bold;
-    line-height: 1.8;
   }
 
   .product-set.set-2 li {
