@@ -8,7 +8,7 @@
 
 ---
 <style>
-  article.page {
+  article.page.custom {
     background-color: #f1f1f1;
   }
 
@@ -22,7 +22,8 @@
   }
 
   article.page .cover-image img {
-    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
   }
 
   article.page .content {
@@ -32,8 +33,7 @@
 
   article.page .album {
     display: inline-block;
-    overflow: hidden;
-    width: 45em;
+    width: 100%;
     height: 100%;
     text-align: left;
   }
@@ -58,7 +58,21 @@
   }
 
   article.page .pre-order {
+    margin-bottom: 15px;
     width: 150px;
+  }
+
+  @media only screen and (min-width: 768px) {
+    article.page .cover-image img {
+      max-width: initial;
+      max-height: initial;
+      height: 100%;
+    }
+
+    article.page .album {
+      overflow: hidden;
+      width: 45em;
+    }
   }
 </style>
 
