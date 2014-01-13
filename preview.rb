@@ -94,6 +94,8 @@ class IssuePreview < Sinatra::Base
     file_path = File.expand_path("../issues/#{path}.md", __FILE__)
     page      = find_page(file_path)
 
+    page.handle = [params["page"], params["subpage"]].compact.join('/')
+
     erb page_template(page), locals: { issue: current_issue, page: page }, layout: :"issue/_layout.html"
   end
 

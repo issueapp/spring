@@ -2,7 +2,7 @@
   has_product = page.products.to_a.count > 0
 %>
 
-<article class="page
+<article id="s<%= page.handle.to_s.split('/').first %>" class="page
  <%= page.layout.type || 'two-column' %>
  <%= 'no-image ' unless page.image_url %>
  <%= 'has-product ' if has_product %>
