@@ -67,8 +67,13 @@ article.page {
       }
     }
 
-    &.fullscreen {
-      height: 100%;
+    &.background {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
     }
   }
 
@@ -110,8 +115,8 @@ article.page {
 
     margin: 0 0 20px 0;
     padding: 0;
-
     text-align: center;
+
     hgroup {
       padding-top: 50px;
     }
@@ -330,10 +335,6 @@ article.page {
     background-repeat: no-repeat;
   }
 
-  &.no-header.no-content.image-background {
-    background-size: 100%;
-  }
-
   &.image-background .column-break {
     height: 0;
   }
@@ -346,25 +347,17 @@ article.page {
     height: 50%;
   }
 
+  &.image-background.transparent .content {
+    @include text-shadow(1px 1px 2px rgba(0, 0, 0, 0.9));
+  }
+
   &.image-background.video .content {
-    position: static;
+    position: relative;
     height: auto;
   }
 
-  &.image-background.video.white .content {
-    background: white;
-  }
-
-  &.image-background.video.black .content {
-    background: black;
-  }
-
-  &.image-background .cover-area {
-//    display: none;
-    background: none;
-  }
-
   &.image-background.video .cover-area {
+    position: relative;
     display: block;
     height: 100%;
   }
@@ -421,7 +414,7 @@ article.one-column {
 }
 
 article.page.toc {
-  
+
   h2 {
     text-transform: none;
     font-weight: normal;
@@ -462,7 +455,7 @@ article.page.toc {
     text-align: center;
   }
 
-  .menu ul {  
+  .menu ul {
     margin: 0;
     padding: 0;
     list-style-type: none;
@@ -524,7 +517,7 @@ article.page.has-product {
     header {
       display: block;
     }
-    
+
     .product-set li {
       height: 220px;
     }
@@ -637,9 +630,7 @@ article.page.has-product {
     }
 
     .content {
-      position: static;
-      bottom: initial;
-      left: initial;
+      position: relative;
       display: inline-block;
       height: 95%;
     }
@@ -678,7 +669,6 @@ article.page.has-product {
       width: 100%;
     }
   }
-
 
   article.page.has-product {
     &.cover-right .column-break {
@@ -733,7 +723,6 @@ article.page.has-product {
     white-space: nowrap;
 
     .content {
-      // display: inline-block;
       width: 50%;
       height: 100%;
       vertical-align: middle;
@@ -818,6 +807,10 @@ article.page.has-product {
 }
 
 @media only screen and (min-width: 768px) and (orientation: portrait) {
+  article.page .title {
+    font-size: 28px;
+  }
+
   article.page.has-product {
     &.no-image .cover-area {
       position: static;

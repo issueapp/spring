@@ -1,16 +1,16 @@
 <%
 
   products = page.products.to_a.select{|p| !p.hotspot }
-  hotspots = (page.products.to_a + page.links.to_a).select{|p| p.hotspot }.map do |p| 
+  hotspots = (page.products.to_a + page.links.to_a).select{|p| p.hotspot }.map do |p|
     left, right, radius = p.hotspot.split(',').map(&:strip)
     p.hotspot = {
-      left: left, 
+      left: left,
       right: right,
       radius:  radius
     }
     p
   end
-  
+
   has_product = products.to_a.count > 0
 %>
 
@@ -33,10 +33,6 @@
    <%= "cover-#{page.layout.image_align}" if has_product || page.layout.image_align && page.image_url %>
  <% end %>"
 
- <% if page.layout.image_style == 'background' %>
-  style="background-image: url(<%= page.image_url %>)"
- <% end %>
-
  <% if page.handle %>
   data-page="<%= page.handle %>"
  <% end %>
@@ -46,19 +42,18 @@
 
   <% if page.image_url %>
   <div class="cover-area <%= page.layout.image_style %>"
-    style="background-image: url(<%= page.image_url if page.layout.image_style != "background" %>)">
+    style="background-image: url(<%= page.image_url %>)">
     <% if video_embed = page.embed_content %>
       <div class='video-wrapper'><%= video_embed %></div>
     <% end %>
     <% if page.cover_content %>
       <div class="cover-content"><%= page.cover_content %></div>
     <% end %>
-    
+
     <% hotspots.each_with_index do |item, index| %>
-      
       <a href="<%= item.url %>" title="<%= item.title %>" class="hotspot image product" style="left: <%= item.hotspot.left %>px; top: <%= item.hotspot.right %>px;"><i class="tag"><%= index + 1 %></i></a>
     <% end %>
-    
+
   </div>
   <% end %>
 
