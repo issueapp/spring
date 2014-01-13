@@ -24,7 +24,7 @@
     this.refresh()
     this.bindObservers()
 
-    this.trigger("loaded", document.title, url: window.location.toString(), handle: @container.data('handle'))
+    this.trigger("loaded", document.title, url: window.location.toString())
 
   # Main
   refresh: ->
