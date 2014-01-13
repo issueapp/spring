@@ -440,6 +440,11 @@ article.page[data-page="7-holiday-gift-ideas/2"] header .description {
   Cate Says Si Wide Screen
 */
 @media only screen and (min-width: 768px) {
+  section.issue.cover .title {
+    font-size: 150px;
+    line-height: 150px;
+  }
+
   section.issue.cover .extra-1 {
     margin-top: -63px;
     width: 240px;
