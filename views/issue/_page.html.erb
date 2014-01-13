@@ -25,8 +25,8 @@
  <% if page.layout.type != "custom" %>
    <%= page.layout.content_overflow || 'scroll' %>
    <%= page.layout.content_style || 'white' %>
-   <%= page.layout.content_align || 'center' %>
-   <%= page.layout.content_valign || 'middle' %>
+   <%= page.layout.content_align || 'left' %>
+   <%= page.layout.content_valign || 'top' %>
 
    <%= "height-#{page.layout.content_height || 'auto'}" %>
    <%= "image-#{page.layout.image_style}" if page.layout.image_style %>
@@ -87,7 +87,7 @@
         <% end %>
 
         <% if page.description %>
-          <div class="description"><%= page.description %></div>
+          <p class="description"><%= page.description %></p>
         <% end %>
       </div>
     </header>

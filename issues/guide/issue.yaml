@@ -1,6 +1,6 @@
-title: Issue Layout
-short_title: Issue
-edition_title: "Issue Layout"
+title: Design Guide
+short_title: Design Guide
+edition_title: Issue
 description: "One Column • Two Column • Three Column • Fullscreen"
 publish_at: "2013-9-15T13:16:46Z"
 auther_name: Taylor
@@ -14,57 +14,38 @@ items:
   - title: Table of Content
     handle: "toc"
 
-  - title: Two column
-    category: Layout
-    handle: "two-col"
-    image_url: "http://lorempixel.com/200/150"
-    pages:
-
-      - title: Two Colmnn - Right Aligned Image
-        handle: "1"
-
-      - title: Two Colmnn - Fit Image
-        handle: "2"
-
-      - title: Two Colmnn - Fullscreen
-        handle: "3"
-
-  - title: Product guide
-    category: Shopping
-    handle: "products-split"
-    image_url: "http://lorempixel.com/200/152"
-    pages:
-
-      - handle: "1"
-      - handle: "2"
-
   - title: One Column
     category: Layout
     handle: "one-col"
     image_url: "http://lorempixel.com/200/154"
-    pages:
 
-      - path: "one-col?layout[image_style]=fit"
+  - title: Two Column
+    category: Layout
+    handle: "two-col"
+    image_url: "http://lorempixel.com/200/150"
 
   - title: One Third
     category: Layout
     handle: "one-third"
     image_url: "http://lorempixel.com/200/156"
-    pages:
-      
-      - path: "one-third?layout[image_align]=right"
-      - path: "one-third?layout[image_style]=background&layout[content_height]=auto"
-      - path: "one-third?layout[image_style]=background&layout[content_height]=auto&layout[content_align]=left&layout[content_valign]=bottom"
 
   - title: Full Screen
     category: Layout
     handle: "fullscreen"
     image_url: "http://lorempixel.com/200/158"
+    pages:
+      - handle: "1"
+      - handle: "2"
 
-  - title: Youtube
-    category: Media
-    handle: "youtube"
-    image_url: "http://lorempixel.com/200/160"
+  - title: Shopping Guide
+    category: Shopping
+    handle: "products-split"
+    image_url: "http://lorempixel.com/200/152"
+
+  - title: Custom Page
+    category: Layout
+    handle: custom
+    image_url: "http://lorempixel.com/200/162"
 
   - title: Vimeo
     category: Media

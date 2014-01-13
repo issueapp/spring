@@ -52,11 +52,9 @@ article.page {
   .cover-area {
     @include box-sizing(border-box);
     min-height: 300px;
-
     width: 100%;
     height: auto;
     background-position: center;
-
     background-size: cover;
     background-repeat: no-repeat;
 
@@ -378,6 +376,36 @@ article.page {
   &.image-background.right {
     text-align: right;
   }
+
+  .single-product {
+    position: relative;
+    overflow: hidden;
+
+    .thumb-image {
+      float: left;
+      width: 180px;
+      height: 180px;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    .title {
+      font-size: 24px;
+      font-family: "EB Garamond";
+    }
+
+    .subtitle {
+      margin: 0;
+    }
+
+    .button {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      margin: 0;
+    }
+  }
 }
 
 article.one-column {
@@ -575,6 +603,13 @@ article.page.has-product {
       padding: 30px;
     }
 
+    &.middle .content {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-box-pack: center;
+      -webkit-box-align: center;
+    }
+
     blockquote {
       padding: 0.25em 10px 0.25em 50px;
     }
@@ -602,10 +637,11 @@ article.page.has-product {
     }
 
     .content {
-      height: 95%;
       position: static;
-      left: initial;
       bottom: initial;
+      left: initial;
+      display: inline-block;
+      height: 95%;
     }
 
     &.no-header.no-content {
@@ -697,7 +733,7 @@ article.page.has-product {
     white-space: nowrap;
 
     .content {
-      display: inline-block;
+      // display: inline-block;
       width: 50%;
       height: 100%;
       vertical-align: middle;
