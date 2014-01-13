@@ -393,10 +393,11 @@ article.one-column {
 }
 
 article.page.toc {
+  
   h2 {
     text-transform: none;
     font-weight: normal;
-    font-size: 24px;
+    font-size: 20px;
     font-family: "EB Garamond";
   }
 
@@ -441,7 +442,7 @@ article.page.toc {
 
   .menu li {
     @include box-sizing(border-box);
-    margin-top: 17px;
+    margin-top: 20px;
     height: 70px;
   }
 
@@ -461,22 +462,22 @@ article.page.toc {
 
   .menu li .category {
     display: block;
-    color: #666;
+    color: #555;
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: normal;
-    font-size: 14px;
+    font-size: 13px;
     font-family: "proxima_nova_regular";
     line-height: 1;
   }
 
   .menu li .author {
     display: block;
-    color: #333;
+    color: #555;
     font-weight: normal;
     font-size: 14px;
     font-family: "EB Garamond";
-    line-height: 2;
+    line-height: 18px;
   }
 }
 

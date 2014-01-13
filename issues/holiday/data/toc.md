@@ -18,7 +18,8 @@ We have collaborated with some of Australia’s rising bloggers to present to yo
 Indulge in the search for beauty. Whether you’re visiting Australia, Italy or staying local- as long as it’s Summer, the possibilities are endless.
 
 <p>
-  <img src="/holiday/assets/toc/signature.png">
+  <em>Taylor Luk</em></br>
+  Founder of Issue
 </p>
 
 <ul class="contributors">

@@ -389,7 +389,7 @@ article.page[data-page="7-holiday-gift-ideas/2"] header .description {
 #story7-products li .product .image {
   height: 100%;
   background-position: center;
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
 }
 
@@ -430,10 +430,6 @@ article.page[data-page="7-holiday-gift-ideas/2"] header .description {
     line-height: 150px;
   }
 
-  article.page[data-page="7-holiday-gift-ideas/2"] .content {
-    padding: 50px 30px;
-  }
-
   article.page[data-page="7-holiday-gift-ideas/1"] #summary {
     margin-top: 350px;
   }
@@ -442,6 +438,11 @@ article.page[data-page="7-holiday-gift-ideas/2"] header .description {
     font-size: 35px;
   }
 
+  
+  article.page[data-page="7-holiday-gift-ideas/2"] .content {
+    padding: 50px 30px;
+  }
+  
   article.page[data-page="7-holiday-gift-ideas/2"] .content {
     height: 100%;
   }
@@ -451,7 +452,7 @@ article.page[data-page="7-holiday-gift-ideas/2"] header .description {
     height: 33.33%;
     margin: 0;
   }
-
+  
   #story7-products li:nth-child(odd) {
     margin-right: 0;
   }
@@ -460,12 +461,12 @@ article.page[data-page="7-holiday-gift-ideas/2"] header .description {
 @media only screen and (min-width: 768px) and (orientation: landscape) {
   article.page[data-page="7-holiday-gift-ideas/2"] header {
     position: absolute;
-    width: 58%;
+    width: 55%;
     height: 33.3%;
     top: 50%;
     left: 50%;
-    margin-top: -6%;
-    margin-left: -30%;
+    margin-top: -5%;
+    margin-left: -25%;
   }
 
   #story7-products li:nth-child(7) {
