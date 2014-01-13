@@ -1,9 +1,8 @@
 ---
 
-    title: Two Column
-    author_name: Zyralyn Bacani
-    author_icon: http://cl.ly/StPu/Image%202013.12.11%204%3A54%3A01%20pm.png
-    image_url: assets/background.jpg
+    title: Top Products
+    category: shopping
+    image_url: http://farm7.staticflickr.com/6135/5959115552_18ede52780_b.jpg
     products:
 
       - url: "#1"
@@ -47,7 +46,6 @@
       image_align: left
       image_style: cover
       content_align: left
-
 
 ---
 
