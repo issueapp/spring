@@ -216,16 +216,59 @@ article.page[data-page="4-summer-love"] .extras {
   text-align: left;
 }
 
+article.page[data-page="4-summer-love/2"] header {
+  position: absolute;
+  left: inherit;
+  width: 50%;
+  left:  0;
+  top: 40%;
+}
+
 /*
   Summer Love Page 3
 */
-article.page[data-page="4-summer-love/3"] .title {
+
+#s4-summer-love.image-background.height-auto .content {
+  margin: 0 30px;
+}
+
+
+
+#s4-summer-love .title {
   font-size: 28px;
+  margin-bottom: 0.5em;
 }
 
 /*
   Summer Survival Guide Page 4
 */
+
+#s6-summer-survival-guide[data-page="6-summer-survival-guide/1"] {
+  background-image: url(../assets/6-summer-survival-guide/p1-must-have.png);
+  background-position: 365px -10px;
+  background-repeat: no-repeat;
+}
+
+#s6-summer-survival-guide[data-page="6-summer-survival-guide/1"] .title {
+  font-family: 'BodoniSvtyTwoITCTT-Book';
+  font-style: italic;
+  text-align: left;
+  font-size: 50px;
+}
+
+#s6-summer-survival-guide[data-page="6-summer-survival-guide/2"] {
+  background-image: url(../assets/6-summer-survival-guide/p2-brush.png);
+  background-position: bottom left;
+  background-repeat: no-repeat;
+}
+
+#s6-summer-survival-guide[data-page="6-summer-survival-guide/2"] header {
+  position: absolute;
+  left: 50%;
+  width: 50%;
+}
+
+
 article.page[data-page="6-summer-survival-guide/4"] .content {
   width: 100%;
   height: 100%;
