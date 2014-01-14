@@ -38,8 +38,10 @@ items:
 
   - title: "Christina Perri"
     category: interview
-    handle: "1-interview"
-
+    handle: "1-styling-it-out"
+    pages:
+      - handle: "1"
+      
   # - title: "Christina Perri"
   #   category: interview
   #   handle: "1-interview"
@@ -53,12 +55,15 @@ items:
       - handle: "1"
       - handle: "2"
       - handle: "3"
+      - handle: "4"
+
     # pages:
     #   - handle: "1"
     #   - handle: "2"
 
   - title: "Shop the Shoot?"
     category: Accessories
+    handle: "3-shop-the-shoot"
     
   - title: Christina uncovered
     category: beauty
