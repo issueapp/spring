@@ -87,11 +87,7 @@
   </head>
 
   <body>
-    <%
-      handle = params[:page] || 'index'
-      handle += "/#{params[:subpage]}" if params[:subpage]
-    %>
-    <div role=main class="fashion-theme content-view" data-handle="<%= handle %>">
+    <div role=main class="fashion-theme content-view">
       <%= yield %>
     </div>
   </body>
