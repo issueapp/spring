@@ -94,19 +94,16 @@ article.page.no-content[data-page="2-cate-says-si"] .content {
 
 article.page.no-content[data-page="2-cate-says-si"] header {
   margin: 100px 0 0;
+  color: white;
   vertical-align: top;
   text-align: left;
-  color: white;
 }
 
 article.page.no-content[data-page="2-cate-says-si"] header .title {
   text-transform: none;
   font-style: italic;
-
   font-size: 55px;
   font-family: "EB Garamond";
-
-  margin-bottom: 10px;
 }
 
 article.page.no-content[data-page="2-cate-says-si"] header .category {
@@ -131,7 +128,6 @@ article.page[data-page="2-cate-says-si/1"] header .title {
   Cate Says Si Page 2
 */
 article.page[data-page="2-cate-says-si/2"] .body .list {
-  /*margin-top: 20%;*/
   margin: 0;
   padding: 0;
   list-style: none;
@@ -145,7 +141,7 @@ article.page[data-page="2-cate-says-si/2"] .body .list li:nth-child(odd) {
 article.page[data-page="2-cate-says-si/2"] .body .list li:nth-child(even) {
   text-transform: uppercase;
   font-style: italic;
-  font-size: 40px;
+  font-size: 30px;
 }
 
 article.page[data-page="2-cate-says-si/2"] .body .list li:nth-child(2) {
@@ -189,13 +185,7 @@ article.page[data-page="2-cate-says-si/2"] .body .list li:nth-child(10) {
 */
 article.page[data-page="2-cate-says-si/3"] header .title {
   text-align: center;
-  /*
-  font-size: 40px;
-  font-family: "EB Garamond";*/
   text-transform: capitalize;
-
-/*  text-transform: capitalize;
-  font-style: italic;*/
 }
 
 /*
@@ -218,10 +208,10 @@ article.page[data-page="4-summer-love"] .extras {
 
 article.page[data-page="4-summer-love/2"] header {
   position: absolute;
-  left: inherit;
-  width: 50%;
-  left:  0;
   top: 40%;
+  left: inherit;
+  left:  0;
+  width: 50%;
 }
 
 /*
@@ -232,11 +222,9 @@ article.page[data-page="4-summer-love/2"] header {
   margin: 0 30px;
 }
 
-
-
 #s4-summer-love .title {
-  font-size: 28px;
   margin-bottom: 0.5em;
+  font-size: 28px;
 }
 
 /*
@@ -250,10 +238,10 @@ article.page[data-page="4-summer-love/2"] header {
 }
 
 #s6-summer-survival-guide[data-page="6-summer-survival-guide/1"] .title {
-  font-family: 'BodoniSvtyTwoITCTT-Book';
-  font-style: italic;
   text-align: left;
+  font-style: italic;
   font-size: 50px;
+  font-family: 'BodoniSvtyTwoITCTT-Book';
 }
 
 #s6-summer-survival-guide[data-page="6-summer-survival-guide/2"] {
@@ -301,8 +289,8 @@ article.page[data-page="6-summer-survival-guide/4"] .products li .image {
   letter-spacing: 2px;
   font-weight: bold;
   font-style: italic;
-  font-family: 'BodoniSvtyTwoITCTT-Book';
   font-size: 70px;
+  font-family: 'BodoniSvtyTwoITCTT-Book';
 }
 
 #story5-giftset li:nth-child(even) .tag {
@@ -315,11 +303,6 @@ article.page[data-page="6-summer-survival-guide/4"] .products li .image {
   color: black;
   margin: 0;
 }
-
-#story5-giftset .details p {
-/*  margin: 10px 0;*/
-}
-
 
 /*
   Holiday Gift Ideas Cover
@@ -486,35 +469,39 @@ article.page[data-page="7-holiday-gift-ideas/2"] header .description {
     font-size: 35px;
   }
 
-  
+
   article.page[data-page="7-holiday-gift-ideas/2"] .content {
     padding: 50px 30px;
   }
-  
+
   article.page[data-page="7-holiday-gift-ideas/2"] .content {
     height: 100%;
   }
 
   #story7-products li {
+    margin: 0;
     width: 20%;
     height: 33.33%;
-    margin: 0;
   }
-  
+
   #story7-products li:nth-child(odd) {
     margin-right: 0;
   }
 }
 
 @media only screen and (min-width: 768px) and (orientation: landscape) {
+  article.page[data-page="2-cate-says-si/2"] .body .list li:nth-child(even) {
+    font-size: 40px;
+  }
+
   article.page[data-page="7-holiday-gift-ideas/2"] header {
     position: absolute;
-    width: 55%;
-    height: 33.3%;
     top: 50%;
     left: 50%;
     margin-top: -5%;
     margin-left: -25%;
+    width: 55%;
+    height: 33.3%;
   }
 
   #story7-products li:nth-child(7) {
@@ -523,14 +510,26 @@ article.page[data-page="7-holiday-gift-ideas/2"] header .description {
 }
 
 @media only screen and (min-width: 768px) and (orientation: portrait) {
+  article.page.no-content[data-page="2-cate-says-si"] .content {
+    padding: 0;
+  }
+
+  article.page.no-content[data-page="2-cate-says-si"] header {
+    margin-top: 150px;
+  }
+
+  article.page.no-content[data-page="2-cate-says-si"] header .title {
+    font-size: 46px;
+  }
+
   article.page[data-page="7-holiday-gift-ideas/2"] header {
     position: absolute;
-    width: 44%;
-    height: 50%;
     top: 50%;
     left: 50%;
     margin-top: -6%;
     margin-left: -22%;
+    width: 44%;
+    height: 50%;
   }
 
   #story7-products li {

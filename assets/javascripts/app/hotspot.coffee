@@ -26,15 +26,14 @@ class Hotspot extends Backbone.View
     # Look up hotspot attributes or page object
     lookupKey= $(hotspot).attr('href')
     isProduct = $(hotspot).is('.product')
-    
+
     defaultData = {
-      url: null
+      url: null,
       image_url: null,
       description: null,
       action: "click"
-      
     }
-    
+
     # Use element attributes title, subtitle, summary
     if App.page
       if isProduct
@@ -51,7 +50,7 @@ class Hotspot extends Backbone.View
       description: $(hotspot).data('description'),
       url:         $(hotspot).attr('href').replace("#", ''),
     }
-    
+
     data = _.extend(defaultData, data)
 
     if data && data.title
@@ -61,7 +60,7 @@ class Hotspot extends Backbone.View
   show: (e)=>
     hotspot = $(e.currentTarget || @$el[0])
 
-    if @hotspot == hotspot 
+    if @hotspot == hotspot
       return
     else
       @hotspot = hotspot
@@ -83,7 +82,7 @@ class Hotspot extends Backbone.View
     if @popover && @popover.hasClass('show')
       @popover.remove()
 
-      $('body').removeClass('stop-scrolling');
+      $('body').removeClass('stop-scrolling')
       $('article.page .content').removeClass('stop-scrolling')
 
   render: (data)->
@@ -119,11 +118,11 @@ class Hotspot extends Backbone.View
           <% } %>
 
         </h2>
-        
-        <% if (description) { %> 
+
+        <% if (description) { %>
           <div class="description"><%= description %></div>
         <% } %>
-        
+
       </div>
 
       <% if (url) { %>
@@ -143,7 +142,7 @@ class Hotspot extends Backbone.View
     @popover.remove() if @popover
 
     @popover = $(_.template(template, data))
-    $('body').append(@popover);
+    $('body').append(@popover)
 
     popoverWidth = @popover.width()
     popoverHeight = @popover.height()
@@ -157,10 +156,10 @@ class Hotspot extends Backbone.View
       if document.body.offsetHeight - center_pos.y - dimension.height / 2 < @popover.height()
         arrowPosition = 'down'
         targetSpacing = dimension.height / 2
-        
+
         if targetSpacing < spacing
-          targetSpacing = spacing 
-        
+          targetSpacing = spacing * 2
+
         @popover.css('top', center_pos.y - targetSpacing   - @popover.height())
 
       # arrow point up
@@ -180,9 +179,9 @@ class Hotspot extends Backbone.View
       @popover.find(".arrow").addClass arrowPosition
 
     # show popover
-    @popover.removeClass("hide").addClass "show"
-    $('body').toggleClass('stop-scrolling');
-    $('article.page .content').toggleClass('stop-scrolling');
+    @popover.removeClass("hide").addClass("show")
+    $('body').toggleClass('stop-scrolling')
+    $('article.page .content').toggleClass('stop-scrolling')
 
 # Export to global namespace (window or global)
 this.Hotspot = Hotspot
