@@ -24,7 +24,7 @@ class Hotspot extends Backbone.View
   lookup: (hotspot)->
 
     # Look up hotspot attributes or page object
-    lookupKey= $(hotspot).attr('href')
+    lookupKey = $(hotspot).attr('href')
     isProduct = $(hotspot).is('.product')
 
     defaultData = {
@@ -160,7 +160,7 @@ class Hotspot extends Backbone.View
         if targetSpacing < spacing
           targetSpacing = spacing * 2
 
-        @popover.css('top', center_pos.y - targetSpacing   - @popover.height())
+        @popover.css('top', center_pos.y - targetSpacing - @popover.height())
 
       # arrow point up
       else
