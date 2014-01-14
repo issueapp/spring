@@ -5,7 +5,7 @@ article.page .content.stop-scrolling {
 
 .hotspot {
   @include inline-block;
-  
+
   .tag {
     position: absolute;
     bottom: 0;
@@ -26,8 +26,9 @@ article.page .content.stop-scrolling {
   position: absolute;
 }
 
-
 .product-popover {
+  @include box-shadow(1px 0 10px rgba(0,0,0,0.6));
+  @include text-shadow(rgba(0,0,0,0.3) 1px 1px 3px);
   position: fixed;
   left: 0;
   display: block;
@@ -37,11 +38,7 @@ article.page .content.stop-scrolling {
   max-height: 260px;
   width: 100%;
   background-color: rgba(50, 50, 50, 1);
-  @include box-shadow(1px 0 10px rgba(0,0,0,0.6));
-  
   opacity: 0;
-  
-  @include text-shadow(rgba(0,0,0,0.3) 1px 1px 3px);
 }
 
 @-webkit-keyframes show {
@@ -134,7 +131,7 @@ article.page .content.stop-scrolling {
   min-height: 40px;
   max-height: 240px;
   width: 100%;
-  
+
   background: linear-gradient(to bottom, rgba(50, 50, 50, 0.3) 0%, rgba(50,50,50, 1) 50%, rgba(50,50,50,1) 100%);
   color: white;
   vertical-align: middle;
