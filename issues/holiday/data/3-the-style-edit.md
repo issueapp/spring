@@ -4,18 +4,18 @@
     byline: By Jysla Kay
     image_url: assets/3-the-style-edit/cover.jpg
     handle: 3-the-style-edit
-
-    description:
-      We show you how to style your basic black silk cami in three looks with blogger Jysla Kay - for day, for night and for a piece simply layered underneath it all. Whether worn alone or layered, a beautiful silk camisole is destined for any woman’s wardrobe. For the women who like to keep their textures and prints to a minimal, get inspired by our take of a fresh twist on a classic look!
+  
+    description: 
+      We show you how to style your basic black silk cami in three looks with blogger Jysla Kay - for day, for night and for a piece simply layered underneath it all. Whether worn alone or layered, a beautiful silk camisole is destined for any woman’s wardrobe. For the women who like to keep their prints to a minimal, get inspired by our take of a fresh twist on a classic look!
 
     products:
 
-      - title: Classic Racerback Camisole
-        url: http://www.shopbop.com/classic-racerback-cami-tibi/vp/v=1/1562453216.htm?folderID=2534374302060677&fm=other-shopbysize-viewall&colorId=12867
-        image_url: http://lgcdn.tibi.com/shop/media/catalog/product/t/i/tibi-racer-back-silk-signature-cami-black_5.jpg
-        brand: Tibi
-        price: $184.11AUD
-        description: A simple silk camisole from Tibi is finished with spaghetti straps and a delicate racer back. Made out of 100% woven silk.
+      - url: http://www.net-a-porter.com/product/398362 
+        image_url: http://9c38.http.dal05.cdn.softlayer.net/wantering/products/images/1/0/6/10631b8e-03b9-11e3-8673-062e13789e081.jpg 
+        title: Equipment 
+        subtitle: Washed Silk Camisole 
+        description: "A black camisole is a wardrobe savior - endlessly versatile, it works day or night. We love Equipment's lightweight washed-silk version. With adjustable shoulder straps for the perfect fit, team this runway piece with skinny jeans or style it under sheer layers."
+        price: $189.54 AUD
         hotspot: "640,735,30"
         
       - title: ACNE Scene Mini Str Wide Sleeve Shirt- 
@@ -37,7 +37,7 @@
 
       - title: Gorjana taner bar necklace
         url: http://www.shopbop.com/taner-bar-necklace-gorjana/vp/v=1/1559721636.htm?folderID=2534374302033527&colorId=29109&extid=affprg-4441350
-        image_url: http://g-ecx.images-amazon.com/images/G/01/Shopbop/p/pcs/products/gorja/gorja4063111739/gorja4063111739_p1_1-0.jpg
+        image_url: http://www.shoptanktop.com/shop-2/images/3016/Taner%2BBar%2BNecklace%2BGold%2B2.jpg/ 
         brand: Gorjana taner
         price: $69.92 AUD 
         description: A simple Gorjana necklace with a delicate hammered bar. Ring clasp. 14k gold. Made in the USA. 

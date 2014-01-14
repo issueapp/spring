@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem "serve", "~> 1.5.1"
 
-# Use edge instead:
+# Use the edge instead:
 # gem "serve", :git => "git://github.com/jlong/serve.git"
 gem "sinatra"
 gem "sinatra-contrib"
