@@ -80,6 +80,11 @@ article.page.toc .contributors .description {
   Page specific
 */
 
+#s1-a-holiday-in-style .content header,
+#s1-a-holiday-in-style .content .product-set {
+  margin-bottom: 10px;
+}
+
 /*
   Cate Says Si Cover Page
 */
