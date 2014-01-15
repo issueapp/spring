@@ -13,6 +13,7 @@
 [role=main].content-view {
   height: 100%;
 }
+
 /*
 
   Various page style in the system
@@ -347,8 +348,8 @@ article.page {
     height: 50%;
   }
 
-  &.image-background.transparent .content {
-    @include text-shadow(1px 1px 2px rgba(0, 0, 0, 0.9));
+  &.image-background.transparent {
+    color: white;
   }
 
   &.image-background.video .content {
@@ -559,9 +560,6 @@ article.page.has-product {
   .product-set li img {
     max-width: 100%;
     max-height: 100%;
-  }
-
-  .product-set li .tag {
   }
 
   .product-set.set-2 li {
