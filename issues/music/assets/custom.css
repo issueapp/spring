@@ -20,6 +20,10 @@ article.page figcaption {
   padding: 10px;
 }
 
+article.page figure {
+  text-align: center;
+}
+
 /*
   Cover
 */
