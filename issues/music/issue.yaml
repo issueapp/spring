@@ -32,7 +32,7 @@ items:
   - title: Table of Content
     handle: "toc"
     nav: false
-    
+
   - title: "Editors letter"
     handle: "editors-letter"
 
@@ -41,7 +41,7 @@ items:
     handle: "1-styling-it-out"
     pages:
       - handle: "1"
-      
+
   # - title: "Christina Perri"
   #   category: interview
   #   handle: "1-interview"
@@ -65,20 +65,18 @@ items:
     pages:
       - handle: "1"
       - handle: "2"
-    
+
   - title: Christina uncovered
     category: beauty
     handle: 4-beauty
     pages:
       - handle: "1"
       - handle: "2"
-  
+
   - title: Travel with me
     category: travel
-    
+    handle: 5-travel
+    pages:
+      - handle: "1"
+
   - title: Behind the scenes
-
-
-
-
-

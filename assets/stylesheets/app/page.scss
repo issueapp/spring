@@ -155,6 +155,16 @@ article.page {
     margin-right: 5px;
   }
 
+  .credits {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    width: 200px;
+    font-weight: bold;
+    font-size: 12px;
+    font-family: 'proxima_nova_regular';
+  }
+
   blockquote {
     position: relative;
     margin: 0.25em auto;
@@ -191,7 +201,7 @@ article.page {
     margin: 0.5em 0;
     text-align: right;
   }
-  
+
   figcaption {
     font-size: 80%;
     font-style: italic;
