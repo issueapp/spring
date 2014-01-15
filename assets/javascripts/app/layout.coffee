@@ -65,8 +65,6 @@ Layout = {
     #   @scrollTarget[0].scrollTo(0, pages * @viewport.height) if offsetY > 0
 
 
-
-
   # Detect Layout
   #   set @support.swipe direction
   #   set @orientation

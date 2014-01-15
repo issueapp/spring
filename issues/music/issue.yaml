@@ -57,17 +57,22 @@ items:
       - handle: "3"
       - handle: "4"
 
-    # pages:
-    #   - handle: "1"
-    #   - handle: "2"
+
 
   - title: "Shop the Shoot?"
     category: Accessories
     handle: "3-shop-the-shoot"
+    pages:
+      - handle: "1"
+      - handle: "2"
     
   - title: Christina uncovered
     category: beauty
-
+    handle: 4-beauty
+    pages:
+      - handle: "1"
+      - handle: "2"
+  
   - title: Travel with me
     category: travel
     
