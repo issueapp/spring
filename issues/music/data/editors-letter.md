@@ -1,15 +1,14 @@
 ---
     title: eds letter
-    
+
     image_url: assets/ed-cover.jpg
-    
+
     layout:
       type: two-column
-      image_align: left
-      content_align: right
-      content_overflow: paginate
-      
+      image_align: right
+
 ---
+
 <style>
 #seditors-letter header {
   padding-top: 5%;
@@ -18,8 +17,6 @@ p { font-style: italic }
 big { font-size: 130% }
 p > span { font-style: normal; font-size: 80%; }
 </style>
-
-
 
 <span>MINKPINK</span> have done it again with the launch of <span>MINKPINK</span>: <big>The Music Issue</big>, combining two of everyone’s favourite
 things – BIG tunes and faaaaarshion baby – to produce one rad global campaign…and who better to front it than music’s
@@ -35,4 +32,3 @@ and it shows no signs of slowing!
 
 So why is Miss Perri the ultimate <span>MINKPINK</span> babe? Well for us that’s pretty much a no brainer. Not one to be defined by convention, Christina’s unique <big>brand of cool</big> is irresistible to anyone who meets her - this is one chick who talks the talk and walks the walk, and has stayed <big>true to herself</big> and her style from the get go. With a finger firmly on the pulse of all things fashion, music and social media, Christina’s passion for life is infectious, and her playful demeanour and <big>free spirited</big> attitude define what it means to live in the moment - it’s practically impossible to take a look at <span>MINKPINK</span>’s The Music Issue and not come away feeling just that little bit more inspired…
 For the love of <span>MINKPINK</span>…be brave and free.
-
