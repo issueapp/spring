@@ -985,3 +985,14 @@ article.page.has-product {
     left: 80px;
   }
 }
+
+
+/*
+  Landscape Styles
+*/
+
+[role="main"].landscape {
+  article.page.image-background .cover-area {
+    background-position: top;
+  }
+}
