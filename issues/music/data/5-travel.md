@@ -30,5 +30,6 @@
 </style>
 
 <img id="header-image" src="/music/assets/5-travel/cover-1.png" alt="">
+<!-- <img id="header-image" src="/music/assets/5-travel/LETLOOSE.svg" alt=""> -->
 
 AH, LOS ANGELES, THE DEFINITIVE ADULT’S PLAYGROUND...BUT WHEN THERE’S SO MUCH CHOICE AND SO LITTLE TIME, WHERE DO YOU EVEN BEGIN?? RELAX, WE GOT YOU! READ ON FOR THE ULTIMATE MINKPINK GUIDE TO L.A’S HOTTEST HANG OUTS...
