@@ -4,8 +4,9 @@
     handle: 2-head-or-heart
     #author_name: Zyralyn Bacani
     #author_icon: http://cl.ly/StPu/Image%202013.12.11%204%3A54%3A01%20pm.png
-    image_url: assets/2-head-or-heart/p3-6_opt.jpeg
-    description: "IN NEED OF A STYLE UPDATE? WELL WHAT BETTER TIME THAN RIGHT NOW! INSPIRE YOUR LOOK WITH THE OFFICIAL MINKPINK: THE MUSIC ISSUE COLLECTION, STARRING CHRISTINA PERRI..."
+    image_url: assets/2-head-or-heart/p3-6_opt.jpeg 
+    description: 
+    
     
 
     images:
@@ -16,12 +17,30 @@
       image_align: right
 
 ---
+<style>
+p { font-family: Arial, Helvetica, sans-serif}
+big { font-size: 130% }
+p > span { font-style: normal; font-size: 100%; }
+</style> 
+
+<span>IN NEED OF A STYLE UPDATE? WELL WHAT BETTER TIME THAN RIGHT NOW! INSPIRE YOUR LOOK WITH THE OFFICIAL MINKPINK: THE MUSIC ISSUE COLLECTION, STARRING CHRISTINA PERRI..</span> 
 
 
-Christina perri walks us through her favourite pieces from the minkpink winter 2014 collection quae voluptatis dolorepero bla aut que volupta ipsunt eiumque consequefdsiquun datecta styling by mark vasallo. photography by mike piscatelli.
-
-
-
+<small>PHOTOGRAPHY BY MIKE PISCATELLI</small>                      
+<small>STYLING BY MARK VASALLO</small>        
+         
+                    
+                            
+                                     
+                                               
+                                                         
+                                                                    
+                                                                            
+                                                                                 
+                                                                                 
+<figure>
+  <figcaption>[MINKPINK Morrocon Tile Tank and Morrocan Tile Short]</figcaption> 
+</figure>   
 
 <div id="jquery_jplayer_1" class="cp-jplayer"></div>
 
