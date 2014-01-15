@@ -7,11 +7,11 @@
 
   <% if params[:style] == "dark" %>
   
-  <header class="page-head cover-image dark-theme"  style="background-image:url(http://placehold.it/1024x300/222); background-size:cover">
+  <header class="page-head cover-image dark-theme"  style="background-image:url(http://31.media.tumblr.com/234548bb90cc22d64ff5dcd5a3d73e40/tumblr_mtw7pktaK11st5lhmo1_1280.jpg); background-size:cover;background-position: center">
 
   <% elsif params[:style] == "cover" %>
   
-  <header class="page-head cover-image"  style="background-image:url(http://placehold.it/1024x300); background-size:cover">
+  <header class="page-head cover-image"  style="background-image:url(http://24.media.tumblr.com/b119f46f36ada62e952baadebfae5fb3/tumblr_mtawb6Bzzy1st5lhmo1_1280.jpg); background-size:cover; background-position: top">
   
   <% else %>
   
@@ -50,7 +50,7 @@
   </aside>
 <% end %>
 
-<article class="<%= "col x8 centered" %>">
+<article class="<%= "col x8 centred" if @sidebar %>">
   <h2>Secondary title</h2>
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
@@ -58,8 +58,6 @@
 
   <h2>It wouldn't be possible</h2>
   <h3 class="subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h3>
-
-
 
   <div class="row">
     <div class="col x6">

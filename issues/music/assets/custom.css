@@ -1,3 +1,13 @@
+/* Basic elements */
+
+article.page figcaption { 
+  font-family: "Courier New", Courier, monospace;
+  font-style: normal;
+  font-size: 80%;
+  text-align: right;
+  padding: 10px;
+}
+
 /*
   Cover
 */
@@ -36,6 +46,15 @@ section.issue.cover .extra-1 {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+article.page {
+	animation-name: fade;
+	animation-duration: 0.5s;
+	animation-timing-function: ease;
+	animation-iteration-count: 1;	
+	animation-direction: normal;
+	animation-delay: 0;
 }
 
 /*
