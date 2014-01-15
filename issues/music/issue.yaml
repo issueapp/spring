@@ -78,3 +78,6 @@ items:
       - handle: "1"
 
   - title: Behind the scenes
+    handle: 6-behind-the-scene
+    pages:
+      - handle: "1"

@@ -20,7 +20,7 @@ Layout = {
   #
   # Refreshes application layout on orientation change
   refresh: ->
-    
+
     # Previous viewport
     previous = {
       orientation: @orientation,
@@ -42,13 +42,13 @@ Layout = {
       height: page.height(),
       width: page.width()
     }
-    
-    # Update content UI    # 
+
+    # Update content UI    #
     # this.updateContentWidth()
-    
+
     # Trigger layout refresh event with previous dimension
     App.trigger("layout:refresh", previous: previous)
-    
+
     # TODO: Move to stream
     # Stream#updatePadding
     #this.updatePadding()
@@ -83,10 +83,10 @@ Layout = {
     window.scrollTo(0, 1) if @support.swipe && !@support.webview
 
     # Support horizontal swipe
-    if @support.swipe == "horizontal"
-      container.addClass("horizontal")
+    if @support.swipe == "horizontal" || window.innerHeight < window.innerWidth
+      container.removeClass("portrait").addClass("landscape")
     else
-      container.addClass("vertical")
+      container.removeClass("landscape").addClass("portrait")
 
     if window.orientation
       @orientation = if window.orientation % 180 == 0 then 'portrait' else 'landscape'
@@ -103,9 +103,9 @@ Layout = {
     else
       @viewport.width = if @viewport.maxWidth then Math.min(@viewport.maxWidth, window.innerWidth) else window.innerWidth
       @viewport.height = if @viewport.maxHeight then Math.min(@viewport.maxHeight, window.innerHeight) else window.innerHeight
-      
+
     # Notify layout detected and propagate layout object
-    # 
+    #
     App.trigger("layout:detect", { orientation: @orientation, height: @viewport.height, width: @viewport.width  })
 
   # Calcualte page layout
