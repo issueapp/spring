@@ -15,7 +15,7 @@
   #issue-viewer {
     position: relative;
     display: block;
-    margin: 40px auto 0;
+    margin: 80px auto 0;
     width: 1024px;
     height: 768px;
     background: #fff;
@@ -37,42 +37,75 @@
     height: 568px;
   }
 
+  #issue-viewer.fullscreen {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
+
   #next, #prev {
-    content: "";
-    display: block;
-    height: 50px;
-    width: 50px;
-    line-height: 55px;
-    text-align: center;
     position: absolute;
     top: 50%;
+    right: 0;
+    display: block;
     margin-top: -25px;
-    right: -80px;
+    width: 30px;
+    height: 50px;
     background: #333;
     color: white;
-    border-radius: 25px;
-    font-size: 30px;
+    content: "";
+    text-align: center;
+    font-size: 60px;
+    line-height: 44px;
+    opacity: 0.85;
     cursor: pointer;
   }
 
   #prev {
-    content: "";
-    left: -80px;
+    left: 0;
+  }
+
+  #nav-buttons {
+    position: absolute;
+    left: 50%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-top: -60px;
+    margin-left: -380px;
+    width: 745px;
+  }
+
+  #nav-buttons .button:last-child {
+    margin-right: 0;
+  }
+
+  #issue-viewer.fullscreen #nav-buttons {
+    right: 0;
+    bottom: 0;
+    left: initial;
+    padding: 10px;
+    border-radius: 3px;
+    background-color: #333;
   }
 </style>
 
-<div style="padding: 10px">
-  <button class="button outline" onclick="$('#issue-viewer').toggleClass('mobile');App().refresh()">mobile</button>
-  <button class="button outline" onclick="$('#issue-viewer').toggleClass('portrait');App().refresh()">orientation</button>
-
-  <!-- <label for="menu" class="button outline">Issue</label> -->
-  <button class="toggle-menu button outline">Menu</button>
-  <button class="button outline" onclick="document.getElementById('issue-frame').contentWindow.toggle_debugger()">Debug</button>
-  <button class="button outline" onclick="document.getElementById('issue-frame').contentWindow.toggle_rendering()">Paginate</button>
-  <button class="button outline" onclick="document.getElementById('issue-frame').contentWindow.location.reload()">Reload</button>
-</div>
-
 <div id="issue-viewer" >
+  <div id="nav-buttons">
+    <button class="button outline" onclick="$('#issue-viewer').toggleClass('mobile');App().refresh()">Mobile</button>
+    <button class="button outline" onclick="$('#issue-viewer').toggleClass('portrait');App().refresh()">Orientation</button>
+    <button class="button outline" onclick="$('#issue-viewer').toggleClass('fullscreen');$('#nav-buttons').toggleClass('dark-theme');App().refresh()">Fullscreen</button>
+    <button class="toggle-menu button outline">Menu</button>
+    <button class="button outline" onclick="document.getElementById('issue-frame').contentWindow.toggle_debugger()">Debug</button>
+    <button class="button outline" onclick="document.getElementById('issue-frame').contentWindow.toggle_rendering()">Paginate</button>
+    <button class="button outline" onclick="document.getElementById('issue-frame').contentWindow.location.reload()">Reload</button>
+  </div>
+
   <iframe src="<%= path %>" id="issue-frame" frameborder="0"></iframe>
 
   <% if respond_to? :render_template %>
@@ -81,8 +114,8 @@
     <%= render partial: '/issue/_menu.html' %>
   <% end %>
 
-  <a id="next">→</a>
-  <a id="prev">←</a>
+  <a id="next">›</a>
+  <a id="prev">‹</a>
 </div>
 
 <% content_for :js do %>
@@ -220,7 +253,5 @@
   function toggle_debugger() {
     $('.debug').toggleClass('active');
   }
-
-
 </script>
 <% end %>
