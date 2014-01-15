@@ -111,6 +111,10 @@
 
     <div class='body'><%= page.content %></div>
   </div>
+
+  <% if page.credits %>
+    <div class="credits"><%= page.credits %></div>
+  <% end %>
 <% else %>
 
   <%= page.content %>
