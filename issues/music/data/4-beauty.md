@@ -1,14 +1,13 @@
 ---
-    
+
     category: beauty
     title: Christina Uncovered
     description: WANT TO KNOW THE SECRETS TO CREATING CHRISTINA PERRI’S STUNNING LOOK? THEN YOU’VE COME TO THE RIGHT PLACE! WE CAUGHT UP WITH CHRISTINA’S GO-TO BEAUTY MAESTRO GIAVONNA BRASCIA WHO GAVE US THE LOWDOWN ON ACHIEVING CP’S OLD-HOLLYWOOD-MEETS- ROCK’N’ROLL GLOW IN JUST A FEW EASY STEPS! WE KNOW, WE KNOW... WE’RE JUST TOO GOOD TO YOU!
     image_url: assets/4-beauty/cover.jpg
-    
-    layout: 
+
+    layout:
       type: three-column
       image_align: right
-      
 
 ---
 
@@ -27,7 +26,6 @@ Sadly, we didn’t all hit the jackpot gene- pool and land a mane as luscious as
  - Move up through the sections until hair is completely dry and relatively smooth, paying particular attention to the roots. Use a tail comb to create a neat side part for that real Old Hollywood glamour look.
  - Take horizontal sections of hair from across the back of the head, approx. 5cm in width. Then, using a large curling tong (our fave is the Babyliss Pro Ceramic 32mm Curling Tong), break the sections up and wrap the hair around the barrel in a spiral form. Hold for around 30-40 seconds
  - Carry on with this technique throughout all sections. Once you get to the upper sections, wrap the hair around the tongs from around cheekbone level to avoid too much volume at the crown.
- - Let the hair cool for a few seconds, then loosen the waves with your fingertips. Blast with a light holding spray such as Aveda Air Control Hairspray to finish. Get ready to ROCK IT gurrrrl! 
- 
- 
+ - Let the hair cool for a few seconds, then loosen the waves with your fingertips. Blast with a light holding spray such as Aveda Air Control Hairspray to finish. Get ready to ROCK IT gurrrrl!
+
  Clockwise from top; Babyliss Pro Ceramic 32mm Curling Tong, Mason Pearson Hairbrush, Aveda Pure Abundance Style Prep, Aveda Air Control Hairspray.
