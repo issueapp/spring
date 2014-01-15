@@ -57,8 +57,6 @@ items:
       - handle: "3"
       - handle: "4"
 
-
-
   - title: "Shop the Shoot?"
     category: Accessories
     handle: "3-shop-the-shoot"
@@ -71,7 +69,7 @@ items:
     handle: 4-beauty
     pages:
       - handle: "1"
-      - handle: "2"
+      # - handle: "2"
 
   - title: Travel with me
     category: travel
