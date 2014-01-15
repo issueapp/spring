@@ -2,8 +2,10 @@ class PageView extends Backbone.View
   
   initialize: ->
     @hotspot = new Hotspot(el: ".hotspot")
+    App.updateContentWidth()
     
   render: ->
+
     
   next: ->
   
