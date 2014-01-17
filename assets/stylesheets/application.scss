@@ -5,14 +5,15 @@
 
 // UI/menu
 
+@import 'app/magazine';
+
+
 // 5. ITEM       			==============================
-@import 'app/item';
+//@import 'app/item';
 
 // 6. PAGE       			==============================
 @import 'app/page';
 
-@import 'app/menu';
-@import 'app/toolbar';
 @import 'app/theme';
 
 
@@ -68,43 +69,6 @@
 }
 
 
-//.item {
-//  @include clearfix;
-//  padding-bottom: 1em;
-//  border-bottom: 1px solid #ccc;
-//  margin-bottom: 1em;
-//  
-//  h3 {
-//    font-family: "proxima_nova_ltregular";
-//    margin-bottom: 0.5em;
-//  }
-//  
-//  p {
-//    font-size: 14px;
-//    color: #555;
-//    margin-top: 0;
-//  }
-//  
-//  .actions {
-//    margin-left: 10px;
-//    float: right;
-//  }
-//  
-//  
-//  figure {
-//    float: left;
-//    margin: 0 10px 10px 0;
-//  }
-//  
-//  .extras {
-//    font-size: 13px;
-//    font-style: italic;
-//    color: #999;
-//    clear: left;
-//  }
-//}
-
-
 [role=main] {
   @include box-sizing(border-box);
 
@@ -133,10 +97,10 @@
 
 // 6. Different Sections
 
-@import 'app/editions';
-@import 'app/signin';
-@import 'app/users';
-@import 'app/cover';
+//@import 'app/editions';
+//@import 'app/signin';
+//@import 'app/users';
+//@import 'app/cover';
 
 
 // 7. RESPONSIVE 			==============================
