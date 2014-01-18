@@ -6,7 +6,6 @@
 @import "compass/css3/box-sizing";
 @import 'compass/css3/transition';
 @import "base/media-queries";
-
 /*
     Reset button style
 
@@ -27,7 +26,6 @@ input[type="button"]::-moz-focus-inner, button::-moz-focus-inner { padding:0;bor
 $small-height: 30px;
 $normal-height: 44px;
 $large-height: 56px;
-$button-font: "proxima_nova_bold", "Helvetica Neue", Hevetica, Arial, sans-serif;
 $btn-text-colour: #555555;
 
 .button, button, input[type="button"] {
@@ -39,21 +37,21 @@ $btn-text-colour: #555555;
 	display: inline-block;
 	vertical-align: middle;
 
-	color: #555555;
-	border: 1px solid #d2dbdb;
-	background-color: $start;
-
-  font-family: $button-font;
-  font-weight: normal;
+  font-family: $proxima_nova;
+  font-weight: bold;
   font-style: normal;
 	text-align: center;
 	text-shadow: 0px 1px 1px #fff;
   text-transform: uppercase;
 	white-space: nowrap;
   -webkit-font-smoothing:antialiased;
+  
+	color: #555555;
+	border: 1px solid #d2dbdb;
+	background-color: $start;
+	border-radius: 3px;
 
   @include box-sizing(border-box);
-	@include border-radius(3px);
   @include background-image(linear-gradient(top center, $start, $end));
 
 	// States
@@ -164,8 +162,8 @@ $btn-text-colour: #555555;
   &.black {
     background: #2c2c2c;
     color: white !important;
-    @include text-shadow(0px 1px 2px rgba(0,0,0,0.3));
-    @include box-shadow(0px 1px 0px 0px rgba(255, 255, 255, 0.2) inset, 0px -1px 0px 0px rgba(0, 0, 0, 0.1) inset);
+    text-shadow: 0px 1px 2px rgba(0,0,0,0.3);
+    box-shadow: 0px 1px 0px 0px rgba(255, 255, 255, 0.2) inset, 0px -1px 0px 0px rgba(0, 0, 0, 0.1) inset;
     border: none; //1px solid #2b2b2b;
 
     .no-touch &:hover, &.hover {
@@ -183,8 +181,8 @@ $btn-text-colour: #555555;
     background: $color;
     color: white;
 
-    @include text-shadow(0px 1px 2px rgba(0,0,0,0.2));
-    @include box-shadow(0px 1px 0px 0px rgba(255, 255, 255, 0.3) inset, 0px -1px 0px 0px rgba(0, 0, 0, 0.1) inset);
+    text-shadow: 0px 1px 2px rgba(0,0,0,0.2);
+    box-shadow: 0px 1px 0px 0px rgba(255, 255, 255, 0.3) inset, 0px -1px 0px 0px rgba(0, 0, 0, 0.1) inset;
     border: none;
 
     .no-touch &:hover {
@@ -203,8 +201,8 @@ $btn-text-colour: #555555;
     background: $color;
     color: white;
 
-    @include text-shadow(0px 1px 2px rgba(0,0,0,0.2));
-    @include box-shadow(0px 1px 0px 0px rgba(255, 255, 255, 0.3) inset, 0px -1px 0px 0px rgba(0, 0, 0, 0.1) inset);
+    text-shadow: 0px 1px 2px rgba(0,0,0,0.2);
+    box-shadow: 0px 1px 0px 0px rgba(255, 255, 255, 0.3) inset, 0px -1px 0px 0px rgba(0, 0, 0, 0.1) inset;
     border: none;
 
     .no-touch &:hover {
@@ -220,11 +218,11 @@ $btn-text-colour: #555555;
   &.outline {
     color: $btn-text-colour;
     border: 1px solid rgba(150, 150, 150, 0.8);
-//    @include box-shadow(1px 1px 0px 0px rgba(0, 0, 0, 0.3));
+//    box-shadow: 1px 1px 0px 0px rgba(0, 0, 0, 0.3);
 
     background: none;
 
-    @include text-shadow(none);
+    text-shadow: none;
     @include transition(all .15s ease-out);
 
     .no-touch &:hover {
@@ -257,7 +255,7 @@ button.mobile-block {
 
 .button.danger {
   color: #f04f4f;
-  @include text-shadow(none);
+  text-shadow: none;
 }
 
 
@@ -288,7 +286,7 @@ button.mobile-block {
 // actions
 .button.facebook, button.facebook {
   $color: #4363a6;
-  @include text-shadow(0px 1px #375697);
+  text-shadow: 0px 1px #375697;
   padding: 0 24px;
   border: 1px solid $color;
   background: $color;
@@ -334,8 +332,8 @@ button.mobile-block {
   color: white;
   border: 1px solid $color;
 
-  font-family: $button-font;
-  @include text-shadow(0px 1px darken($color, 10%));
+  font-family: $proxima_nova;
+  text-shadow: 0px 1px darken($color, 10%);
 
   i {
     line-height: 44px;
@@ -388,7 +386,7 @@ button[disabled]:active {
   z-index: 99999;
 
   .button {
-  	@include border-radius(0px);
+    border-radius: 0px;
   	position: relative;
     float: left;
     margin-left: -1px;
@@ -413,7 +411,7 @@ button[disabled]:active {
     padding: 0px 6px;
     @include border-corner-radius(bottom, right, 3px);
     @include border-corner-radius(top, right, 3px);
-    @include box-shadow(inset 1px 0 0 rgba(255, 255, 255, 0.125), inset 0 -1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05));
+    box-shadow: inset 1px 0 0 rgba(255, 255, 255, 0.125), inset 0 -1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
 
     .caret {
       height: 0px;
@@ -448,8 +446,9 @@ button[disabled]:active {
 
   *border-right-width: 2px;
   *border-bottom-width: 2px;
-  @include border-radius(3px);
-  @include box-shadow(0 5px 10px rgba(0, 0, 0, 0.2));
+  
+  border-radius: 3px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   @include background-clip(padding-box);
 
   &.button-hover {
@@ -497,4 +496,10 @@ button[disabled]:active {
   border-right: 4px solid transparent;
   border-left: 4px solid transparent;
   content: "";
+  margin-top: -3px;
+  
+  .dark-theme &, .dark-container & {
+    border-top: 4px solid #fff;
+  }  
 }
+

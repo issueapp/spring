@@ -19,3 +19,25 @@
     letter-spacing: 2px;
   }
 }
+
+/*
+
+  Dark theme
+
+*/
+.dark-theme {
+  color: white;
+
+  .subtitle {
+    color: #ccc;
+  }
+
+  a:not(.button) {
+    color: white;
+    text-decoration: none;
+  }
+
+  .no-touch & a:not(.button):hover {
+    color: lighten(#f04500, 20%);
+  }
+}

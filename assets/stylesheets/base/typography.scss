@@ -1,8 +1,8 @@
 @import "media-queries";
 
 @font-face {
-  font-family: 'proxima_nova_ltregular';
-  font-weight: normal;
+  font-family: 'proxima-nova';
+  font-weight: lighter;
   font-style: normal;
   src: font-url('proximanova-light-webfont.eot');
   src: font-url('proximanova-light-webfont.eot?#iefix') format('embedded-opentype'),
@@ -12,8 +12,8 @@
 }
 
 @font-face {
-  font-family: 'proxima_nova_bold';
-  font-weight: normal;
+  font-family: 'proxima-nova';
+  font-weight: bold;
   font-style: normal;
   src: font-url('proximanova-bold-webfont.eot');
   src: font-url('proximanova-bold-webfont.eot?#iefix') format('embedded-opentype'),
@@ -23,7 +23,7 @@
 }
 
 @font-face {
-  font-family: 'proxima_nova_regular';
+  font-family: 'proxima-nova';
   font-weight: normal;
   font-style: normal;
   src: font-url('proximanova-regular-webfont.eot');
@@ -33,19 +33,22 @@
        font-url('proximanova-regular-webfont.svg#proxima_nova_regular') format('svg');
 }
 
+// Font-family
+// 
+$proxima_nova: "proxima-nova", "Helvetica Neue", sans-serif;
 
 html {
-  -webkit-font-smoothing: antialiased;
   font-size: 16px;
   font-size: 62.5%;
   
+  -webkit-font-smoothing: antialiased;
   -webkit-tap-highlight-color: #f3f5f6;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
 }
 
 body {
-  font: 16px/28px "proxima_nova_regular", "Helvetica Neue";
+  font: 16px/28px $proxima_nova;
   color: #222;
 }
 
@@ -53,14 +56,15 @@ body {
 ================================================== */
 h1, h2, h3, h4, h5, h6, .title {
   margin: 0;
-  font-family: "proxima_nova_bold";
-
-/*  font-family: "Georgia","Times New Roman",serif;*/
+  
+  font-family: $proxima_nova;
   font-weight: bold;
-  text-rendering: optimizelegibility; }
+  text-rendering: optimizelegibility; 
+}
 
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
-  font-weight: inherit; }
+  font-weight: inherit; 
+}
 
 h1 {
   margin-bottom: 0;
@@ -74,29 +78,29 @@ h1 {
 }
 
 h2 {
-  font-family: "proxima_nova_ltregular";
-  text-transform: uppercase;
-  letter-spacing: 2px;
-
   margin-bottom: 0.75em;
+    
   font-size: 18px;
   font-size: 1.115em;
   font-size: 1.8rem;
-  line-height: 1.2; }
+  font-weight: lighter;
+  line-height: 1.2; 
+  
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
 
 h3 {
-  font-family: "proxima_nova_regular";
-
   margin-bottom: 1em;
+  
   font-size: 16px;
   font-size: 1em;
   font-size: 1.6rem;
   line-height: 1.3; }
 
 h4, h5, h6  {
-  font-family: "proxima_nova_regular";
-
   margin-bottom: 0.75em;
+  
   font-size: 14px;
   font-size: 0.875em;
   font-size: 1.4rem;
@@ -108,19 +112,15 @@ h4, h5, h6  {
   margin: 0 auto;
 
   p {
-
     margin: 0 auto 1.5em;
   }
 }
 
 .subtitle {
-  font-family: georgia;
-  font-style: italic;
+  font: italic normal inherit georgia;  
   text-transform: none;
-  font-weight: normal;
   color: #666;
 }
-
 
 /* =======================================================
         Links
@@ -155,11 +155,9 @@ p.center {
   text-align: center;
 }
 
-
 /*======================================================
       Helpers
   ======================================================*/
-
 
 .text-centered {
   text-align: center
@@ -170,7 +168,6 @@ p.center {
       Responsive (larger screen)
   ====*/
 
-
 @include min-screen(768) {
 
   h1 {
@@ -178,7 +175,6 @@ p.center {
     font-size: 1.875em;
     font-size: 3rem;
     line-height: 1.2;
-
   }
 
   h2 {

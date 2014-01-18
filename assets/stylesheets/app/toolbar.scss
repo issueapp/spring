@@ -54,7 +54,7 @@
 
   // For extension
   .icon-style {
-    font-size: 22px;
+    font-size: 28px;
     line-height: 50px;
     font-weight: normal;
 
@@ -129,7 +129,10 @@
     &:before {
       @extend .icon-style;
     }
-    @extend .icon-arrow-left-2;
+    @extend %icon-style;
+    @extend .icon-ios7-arrow-back;
+    
+    span { display: none }
   }
 
   a.plus {
@@ -148,15 +151,15 @@
   }
 
   .title {
-    @include inline-block;
+    display: inline-block;
+    
+    font: lighter 18px/50px $proxima_nova;
+
     text-transform: uppercase;
     text-overflow: ellipsis;
     white-space: nowrap;
     letter-spacing: 0.7px;
-    font-weight: normal;
-    font-size: 18px;
-    font-family: "proxima_nova_ltregular";
-    line-height: 50px;
+    
     cursor: pointer;
     overflow: hidden;
     width: 50%;
@@ -191,6 +194,17 @@
 //      background: url('/images/action-share.png') no-repeat center;
     }
   }
+  
+  @include min-screen(768) {
+    a.back span {
+      display: inline
+    }
+  }
+}
+
+.toolbar.transparent {
+  position: absolute;
+  background: transparent;
 }
 
 // Fullscreen toolbar
