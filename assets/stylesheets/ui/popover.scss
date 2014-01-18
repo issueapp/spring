@@ -27,18 +27,17 @@ article.page .content.stop-scrolling {
 }
 
 .product-popover {
-  @include box-shadow(1px 0 10px rgba(0,0,0,0.6));
-  @include text-shadow(rgba(0,0,0,0.3) 1px 1px 3px);
+  @include box-sizing(border-box);
+  display: block;
   position: fixed;
   left: 0;
-  display: block;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
   max-height: 260px;
   width: 100%;
-  background-color: rgba(50, 50, 50, 1);
   opacity: 0;
+  
+  background-color: rgba(50, 50, 50, 1);
+  box-shadow: 1px 0 10px rgba(0,0,0,0.6);
+  text-shadow: rgba(0,0,0,0.3) 1px 1px 3px;
 }
 
 @-webkit-keyframes show {
