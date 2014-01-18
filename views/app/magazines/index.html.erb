@@ -1,4 +1,19 @@
-<% @body_class = "dark-container" %>
+<% 
+
+  @body_class = "dark-container" 
+  
+  
+  @images = %w[
+    http://24.media.tumblr.com/2176464a507f8a34f09d58ee7fcf105a/tumblr_mzgzd79XMY1st5lhmo1_1280.jpg
+    http://24.media.tumblr.com/5f97f94756bf706bf41ac0dd37b585cf/tumblr_mzgzbdYBht1st5lhmo1_1280.jpg
+    http://25.media.tumblr.com/104330dfee76bb4713ea6c424a339b31/tumblr_mzgz92BX471st5lhmo1_1280.jpg
+    http://24.media.tumblr.com/5dbe20044db74d530f8580c495f0118d/tumblr_mzgz5jwouC1st5lhmo1_1280.jpg
+    http://24.media.tumblr.com/517307e7e38640827087e5d71b6f4694/tumblr_mzgz2dmpvq1st5lhmo1_1280.jpg
+    http://24.media.tumblr.com/6cd60ec5d38560f851ad6856acc7f7ff/tumblr_myp94uOjbG1st5lhmo1_1280.jpg
+  ]
+
+
+%>
 <style>
 
 [role=main] {
@@ -7,58 +22,33 @@
 }
 </style>
 
-<div role="main">
+<header class="toolbar dark-theme transparent">
+  <a class="back left" href="javascript:history.back()"><span>back</span></a>
 
-  <ul class="magazine-list ">
-    <li class="issue-item" style="background-image: url(http://24.media.tumblr.com/2176464a507f8a34f09d58ee7fcf105a/tumblr_mzgzd79XMY1st5lhmo1_1280.jpg)">
-      <div class="content">
-        <h4 class="magazine">Young republic</h3>
-        <h3 class="issue-title">Dream</h3>
-      </div>
-    
-      <pregress></pregress>
-    </li>
+  <div class="button-group">
+    <a href="/editions/mine" class="black small button">All</a>
+    <a href="/editions/featured" class="black small  button">Featured</a>
+    <a href="/editions/listed" class="black small active button">Offline</a>
+  </div>
+</header>
   
-    <li class="issue-item" style="background-image: url(http://24.media.tumblr.com/5f97f94756bf706bf41ac0dd37b585cf/tumblr_mzgzbdYBht1st5lhmo1_1280.jpg)">
-      <div class="content">
-        <h4 class="magazine">Young republic</h3>
-        <h3 class="issue-title">Dream</h3>
-      </div>
-      <pregress></pregress>
-    </li>
+<div role="main" id="discover-page">
   
+  <ul class="magazine-list <%= "grid" if params[:layout] == "grid" %>">
+  <% for image in @images %>
   
-    <li class="issue-item" style="background-image: url(http://25.media.tumblr.com/104330dfee76bb4713ea6c424a339b31/tumblr_mzgz92BX471st5lhmo1_1280.jpg)">
+    <li class="magazine" style="background-image: url(<%= image %>)">
       <div class="content">
-        <h4 class="magazine">Young republic</h3>
-        <h3 class="issue-title">Dream</h3>
-
+        <h4 class="brand">Young republic</h3>
+        <h3 class="title">Dream</h3>
       </div>
       <pregress></pregress>
-    </li>
-  
-    <li class="issue-item" style="background-image: url(http://24.media.tumblr.com/5dbe20044db74d530f8580c495f0118d/tumblr_mzgz5jwouC1st5lhmo1_1280.jpg)">
-      <div class="content">
-        <h4 class="magazine">Young republic</h3>
-        <h3 class="issue-title">Dream</h3>
-      </div>
-      <pregress></pregress>
-    </li>
-  
-    <li class="issue-item" style="background-image: url(http://24.media.tumblr.com/517307e7e38640827087e5d71b6f4694/tumblr_mzgz2dmpvq1st5lhmo1_1280.jpg)">
-      <div class="content">
-        <h4 class="magazine">Young republic</h3>
-        <h3 class="issue-title">Dream</h3>
-      </div>
-      <pregress></pregress>
+      <a class="link"></a>
+      <a class="subscribe"></a>
+      <a class="download"></a>
     </li>
     
-    <li class="issue-item" style="background-image: url(http://24.media.tumblr.com/6cd60ec5d38560f851ad6856acc7f7ff/tumblr_myp94uOjbG1st5lhmo1_1280.jpg)">
-      <div class="content">
-        <h4 class="magazine">Young republic</h3>
-        <h3 class="issue-title">Dream</h3>
-      </div>
-      <pregress></pregress>
-    </li>
+  <% end %>
+    
   </ul>
 </div>

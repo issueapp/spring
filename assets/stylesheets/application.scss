@@ -2,10 +2,12 @@
 
 @import "spring";
 @import 'ui/animation';
+@import 'ui/icons';
 
 // UI/menu
 
 @import 'app/magazine';
+@import 'app/cover';
 
 
 // 5. ITEM       			==============================
@@ -46,8 +48,9 @@
   width: 200px;
   height: 150px;
 
-  background: image-url("issue-icon-logo.png") -0 -250px no-repeat;
-
+  background: image-url("logo-round.svg");
+  background-size: contain;
+  background-position: center;
   &.small {
     position: relative;
     zoom: 0.8;
@@ -55,16 +58,16 @@
     left: 0px;
     width: 100px;
     height: 100px;
-    background-position: -250px 0px;
+//    background-position: -250px 0px;
     zoom: 0.7;
   }
 
   .dark-theme & {
-    background-position: 0 -250px;
+//    background-position: 0 -250px;
   }
 
   .dark-theme &.small {
-    background-position: -250px -250px;
+//    background-position: -250px -250px;
   }
 }
 

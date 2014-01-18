@@ -15,51 +15,52 @@
     .pregress
 
 */
-.magazine-list {
-  @include box-sizing(border-box);
 
-  padding: 0;
-  margin: 0;
-  margin-left: 0%;
-  list-style: none;
-  margin-top: 20%;
+#discover-page {
+  height: 100%;
+}
+
+/*
+    Magazine cover style
+*/
+
+.magazine {
   
-  @include min-screen(768) {
-    margin-left: 3%;
-    
-    white-space: nowrap;
-    .issue-item {
-      float: none;
-    }
-  }
-}
-
-.grid {
-  .issue-item {
-    width: 23%;
-    padding-bottom: 30.59%;
-    float: left;
-  }
-}
-
-
-.magazine-list .issue-item {
   @include box-sizing(border-box);
   display: inline-block;
-  vertical-align: middle;
   position: relative;
-  
-  margin: 0% 1% 1% 0%;
-  width: 49%;
-  padding-bottom: 65.33%;
-  color: white;
 
+  
+  font-size: 16px;
+  color: white;
+  vertical-align: middle;
+  
   background: #222;
   background-position: center;
   background-size: cover;
   
+  box-shadow: 0px 1px 4px rgba(0,0,0,0.6), 0px -1px 0px rgba(255,255,255,0.2) inset;
+  
+  @include transition(all 0.3s ease-in-out);
+  
+  &:before {
+    @include box-sizing(border-box);
+    
+    content: "";
+    display: block;
+    position: absolute;
+    
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    
+    @include background( linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.0), rgba(0,0,0,0.0), rgba(0,0,0,0.3)));
+  }
+  
   .content {
     @include box-sizing(border-box);
+    
     position: absolute;
     width: 100%;
     padding: 10% 20px 10%;
@@ -67,113 +68,185 @@
     p { color: white; }
   }
   
-  .magazine {
-    font-size: 20px;
+  .brand {
+
     
-    font-size: 4vm;   /* IE9 */
+    font: italic 14px/1 georgia;
+    font-size: 3.5vw;
     font-size: 4vmin;
     
-    font-family: georgia;
-    font-style: italic;
-    font-weight: normal;
     text-align: center;
-    line-height: 1;
-    @include text-shadow(0px 1px 2px rgba(0,0,0, 0.3));
+    text-shadow: 0px 1px 2px rgba(0,0,0, 0.3);
   }
   
-  .issue-title {
-    font-size: 40px;
-    font-size: 8vm;   /* IE9 */
-    font-size: 8vmin;
+  .title {
+    font-size: 24px;
+    font-size: 7vmin;
     
-    text-transform: uppercase;
-    margin-bottom: 0.5em;
     line-height: 1;
+    
     letter-spacing: 4px;
+    margin-bottom: 0.5em;
+    text-transform: uppercase;
+    
     text-align: center;
-    @include text-shadow(1px 1px 2px rgba(0,0,0, 0.3));
+    text-shadow: 1px 1px 2px rgba(0,0,0, 0.3);
   }
-  
-  // 3 columns
-  @include min-screen(768) {
-    width: 30%;
-    padding-bottom: 40%;
-    margin-left: 2%;
-    
-    @include box-shadow(0px 1px 4px rgba(0,0,0,0.6), 0px -1px 0px rgba(255,255,255,0.2) inset);
-    @include border-radius(3px);
-
-    
-    .magazine {
-      font-size: 20px;
-      font-size: 2.5vm;   /* IE9 */
-      font-size: 2.5vmin;
-    }
-    
-    .issue-title {
-      font-size: 40px;
-      font-size: 5vm;   /* IE9 */
-      font-size: 5vmin;
-    }
-  }
-//  
-//  // 4 columns  
-//  @include min-screen(1024) {
-//    width: 23%;
-//    padding-bottom: 30.59%;
-//  }
 }
 
-//
-//.edition-item {
-//  @include box-sizing(border-box);
-//
-//  font-size: 70%;
-//  margin: 0% 3% 3% 0%;
-//  width: 47%;
-//  padding-bottom: 66.72%;
-//  color: white;
-//  opacity: 1;
-//  float: left;
-//  background: #222;
-//  background-position: center;
-//  background-size: cover;
-//
-//  position: relative;
-//  overflow: hidden;
-//  @include transition(all 0.3s ease-in-out);
-//
-//// Show subscription status
-//  .show-subscription &:not(.hide-action):after {
-//    display: block;
-//    content: " ";
-//    position: absolute;
-//    top: -3px;
-//    right: 2%;
-//    height: 63px;
-//    width: 50px;
-//    background-position: 50px 0;
-//    zoom: 0.55;
-//    background-image: image-url('ui/edition-subscribed.png');
-//  }
-//
-//  &.subscribed {
-//    &:not(.hide-action):after {
-//      background-position: 0 0;
-//    }
-//
-//    a.subscribe {
-//      display: none;
-//    }
-//  }
-//
-////  input.subscribe
-//
-//  // Glare overlay
-////  &:before {
-////    content: '';
-////    z-index: 2;
-////    position: absolute;
-////    top: 0; left: 0; right: 0; bottom: 0;
-////    background: -webkit-linear-gradient(-30deg, rgba(255, 255, 255, .5), rgba(255, 255, 255, .17) 50%, rgba(255, 255, 255, 0) 50.1%) no-repeat;
-////  }
+.magazine.cover {
+  
+}
+
+
+// Actions
+.magazine {
+  
+  .link {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+  
+  .subscribe {
+    font-size: 28px;
+    height: 50px;
+    line-height: 50px;
+    padding-left: 15px;
+    padding-right:15px;
+    
+    @extend %icon-style;
+    @extend .icon-bookmark3;
+    
+    position: absolute;
+    right: 0%;
+    top: 0%;
+    display: none;
+  }
+  
+  .download {
+    @extend %icon-style;
+    @extend .icon-ios7-cloud-download-outline;
+    font-size: 28px;
+    height: 50px;
+    line-height: 50px;
+    padding-left: 15px;
+    padding-right:15px;
+    font-size: 44px;
+    
+    position: absolute;
+    left: 0%;
+    bottom: 0%;
+    display: none;
+  }
+  
+  .back {
+    
+  }
+  
+  .menu {
+    
+  }
+  
+  .share {}
+  
+  @include min-screen(768) {
+    .subscribe, .download {
+      display: block;
+    }
+  }
+}
+
+/*
+    Issues container
+    
+    Flexbox
+*/
+.magazine-list {
+  @include box-sizing(border-box);
+  
+  font-size: 0;
+  padding: 0;
+  margin: 0;
+  
+  list-style: none;
+  position: relative;
+  overflow: none;
+  
+  @include min-screen(768) {
+    margin: 20% auto;
+    width: 80%;
+    
+    white-space: nowrap;
+    .issue-item {
+      float: none;
+    }
+  }
+  
+  .magazine {
+    border-radius: 2%;
+    margin: 0% 1% 1% 0%;
+    width: 49%;
+    padding-bottom: 65.33%;
+    
+    
+    .brand {
+      margin: 0.25em 0 0.5em;
+      margin: 2% 0 2.5%;
+    }
+    
+    // 3 columns
+    @include min-screen(768) {
+      float: none;
+    
+      margin-right: 4%;
+      margin-bottom: 4%;
+    
+      width: 30%;
+      padding-bottom: 40%;
+    
+      .brand {
+        margin: 0.25em 0 0.5em;
+        margin: 1vmin 0 1vmin;
+      
+        font-size: 20px;
+        font-size: 1.5vw;
+      }
+    
+      .title {
+        font-size: 32px;
+        font-size: 4vw;
+      }
+    }
+  }
+  
+  &.grid .magazine {
+    float: left;
+  
+    // 3 columns
+    @include min-screen(768) {
+      margin: 0 1.6666% 3%;
+    }
+  
+    // 4 columns {}
+    @include min-screen(1024) {
+      margin: 0 1% 3% 0;
+
+      width: 24%;
+      padding-bottom: 32%;
+    
+      .brand {
+        font-size: 20px;
+        font-size: 2vmin;
+      }
+    
+      .title {
+        font-size: 32px;
+        font-size: 4vmin;
+      }
+    }
+  }
+}
+

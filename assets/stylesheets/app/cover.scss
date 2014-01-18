@@ -1,3 +1,7 @@
+@import 'compass/css3/box-sizing';
+@import 'compass/css3/text-shadow';
+@import "compass/css3/border-radius";
+@import 'base/media-queries';
 /*
 
   Issue cover
@@ -27,6 +31,7 @@
     .signup             - Signup action
     .subscribe          - Subscribe this magazine
     .unsubscribe        - Unsubscribe from this magazine
+    .download
 
   .cover.fullscreen     - Full screen and streched cover page
 
@@ -34,103 +39,59 @@
 
 */
 
-@import 'compass/css3/box-sizing';
-@import 'compass/css3/text-shadow';
-@import "compass/css3/border-radius";
-@import 'base/media-queries';
 
 // Landing page
-.cover, .page.cover {
+.magazine.cover, .page.cover {
   position: relative;
   height: 100%;
+  width: 100%;
   overflow: hidden;
   color: white;
-  font-family: "proxima-nova", sans-serif;
 
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
 
   &.fullscreen {
-
     background-color: black;
-    background-position: center;
-    background-size: cover;
 
     .webview & {
       -webkit-animation: fade 0.4s ease both;
       -moz-animation: fade 0.4s ease both;
     }
-
+    
     .container {
       @include box-sizing(border-box);
-      // background: rgba(0,0,0,0.2);
       padding: 40px;
       margin: 0;
-//      z-index: 1;
-//
+
       width: 100%;
       height: 100%;
       max-width: 100%;
     }
-//
-//    nav#site-nav {
-//      margin-top: 20px;
-//    }
   }
 
-  nav[role="navigation"] {
-    display: none;
-  }
-
-  // Overlay to increase readability
-//  .container {
-////    background-position: center;
-////    background-size: cover;
-////    z-index: 1;
-//
-//    .webview & {
-//      -webkit-animation: fade 0.4s ease both;
-//      -moz-animation: fade 0.4s ease both;
-//    }
-//
-//    &:before {
-//      position: absolute;
-//      width: 100%;
-//      height: 100%;
-//      background: rgba(0,0,0,0.25);
-//      content: "";
-//    }
-//  }
   // Headings in cover
   hgroup {
-    // margin-top: 5%;
     text-align: center;
+    height: 25%;
   }
 
   .brand {
-    font-size: 32px;
-    font-family: "EB Garamond";
-    font-weight: normal;
-    margin: 0;
+    margin: 5%;
+    font: 32px, "EB Garamond";
   }
 
   .title {
-    @include text-shadow(1px 1px 5px rgba(0,0,0,0.3));
     display: inline-block;
 
     padding-bottom: 3px;
     text-align: center;
     text-transform: uppercase;
 
-    font-weight: 600;
-    font-size: 50px;
-    line-height: 55px;
-    // font-family: "EB Garamond";
-
+    font: 700 50px/55px inherit;
+    
     letter-spacing: 1px;
-//    font-family: "HelveticaNeue-CondensedBold", "HelveticaNeueBoldCondensed", "HelveticaNeue-Bold-Condensed", "Helvetica Neue Bold Condensed", "HelveticaNeueBold", "HelveticaNeue-Bold", "Helvetica Neue Bold", "HelveticaNeue", "Helvetica Neue", 'TeXGyreHerosCnBold', "Helvetica", "Tahoma", "Geneva", "Arial Narrow", "Arial", sans-serif;
-//    border-bottom: 2px solid #fff;
 
     -webkit-animation: fadeInSmall 0.5s ease both;
     -moz-animation: fadeInSmall 0.5s ease both;
@@ -143,23 +104,19 @@
   }
 
   .description {
-    @include text-shadow(1px 1px 3px rgba(0,0,0,0.5));
-
-    font-family: "Helvetica Neue";
-    color: rgba(255, 255, 255, 1);
-    text-transform: uppercase;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 1.5;
-    max-height: 3em;
-    letter-spacing: 1px;
-
+    @include box-sizing(border-box);
     position: absolute;
+    
     bottom: 20px;
-    left: 50%;
-    margin-bottom: 0;
-    margin-left: -50%;
-    width: 100%;
+    left: 50px; right: 50px;
+    max-height: 3em;
+    color: rgba(255, 255, 255, 1);
+    
+    font: normal 18px/1.5 inherit;
+
+    text-transform: uppercase;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);    
+    letter-spacing: 1px;
 
     -webkit-animation: fadeInSmall 0.5s ease both;
     -moz-animation: fadeInSmall 0.5s ease both;
@@ -180,7 +137,7 @@
   /*      Branding
    *====================================*/
 
-  .logo {
+  .issue-logo {
     position:absolute;
     display: none;
 
@@ -190,9 +147,7 @@
     bottom: 40px;
     left: 50%;
 
-    background-position: -250px -250px !important;
     margin-left: -43px;
-
     opacity: 0;
 
     -webkit-animation: fade 0.5s ease both;
@@ -205,26 +160,25 @@
 
   /*      Actions
    * ====================================== */
-  .subscribe, .unsubscribe {
-//    position: absolute;
-//    top: 20px;
-//    right: 4%;
-    float: right;
-    padding: 0;
-    width: 130px;
-    color: #eee;
-    font-size: 14px;
-    line-height: 42px;
-
-    // Consequent display of cover doesn't need animation
-    &.delay {
-      -webkit-animation: fade 0.6s ease both;
-      -moz-animation: fade 0.6s ease both;
-
-      -webkit-animation-delay: 0.8s;
-      -moz-animation-delay: 0.8s;
-    }
-  }
+//  .subscribe {
+//    float: right;
+//    padding: 0;
+//    width: 130px;
+//    color: #eee;
+//    font-size: 14px;
+//    line-height: 42px;
+//
+//    
+//
+//    // Consequent display of cover doesn't need animation
+//    &.delay {
+//      -webkit-animation: fade 0.6s ease both;
+//      -moz-animation: fade 0.6s ease both;
+//
+//      -webkit-animation-delay: 0.8s;
+//      -moz-animation-delay: 0.8s;
+//    }
+//  }
 
   a.browse {
     display: none;
@@ -239,6 +193,7 @@
     font-size: 40px;
     font-family: georgia;
     z-index: 999;
+    
     @include text-shadow;
     @include border-radius;
 
@@ -264,19 +219,19 @@
    *====================================*/
 
   @include min-screen(768) {
+//
+//    nav[role="navigation"] {
+//      display: block;
+//    }
 
-    nav[role="navigation"] {
-      display: block;
-    }
-
-    .logo {
+    .issue-logo {
       display: block;
       width: 201px;
       height: 201px;
       background-position: 0px -250px !important;
       margin-left: -100px;
       bottom: 122px;
-
+      
       .webview & {
         display: none;
       }
@@ -301,41 +256,6 @@
     .signature {
       padding-top: 10px;
     }
-
-    //    .signup {
-    //      text-align: right;
-    //      position: absolute;
-    //      bottom: initial;
-    //      top: 25%;
-    //      margin-top: 240px;
-    //
-    //      .button {
-    //        width: initial;
-    //      }
-    //    }
-    //
-    //    .welcome {
-    //      text-align: left;
-    //
-    //      .subscribe-field {
-    //        padding-top: 30px;
-    //        display: block;
-    //        width: 500px;
-    //
-    //        input.string {
-    //          margin: 0;
-    //          height: 56px;
-    //          width: 300px;
-    //        }
-    //
-    //        .button {
-    //          position: relative;
-    //          left: -2px;
-    //          margin: 0;
-    //        }
-    //      }
-    //    }
-
   }
 
   @media only screen and (min-width: 768px) and (orientation: landscape) {
@@ -353,28 +273,6 @@
     .description {
       font-size: 22px;
     }
-  }
-
-  @include min-screen(1024) {
-//    .welcome {
-//      top: 15%;
-//
-//      h1 {
-//        font-size: 50px;
-//      }
-//    }
-//
-//    .featured {
-//      font-size: 20px;
-//    }
-//
-//    .signup {
-//      font-size: 18px;
-//    }
-  }
-
-  @include min-screen(1025) {
-
   }
 }
 
@@ -518,7 +416,7 @@
 //  }
 //
 //  .title {
-//    @include text-shadow(1px 1px 5px rgba(0,0,0,0.3));
+//    text-shadow: 1px 1px 5px rgba(0,0,0,0.3);
 //    display: inline-block;
 //
 //    padding-bottom: 3px;
@@ -540,8 +438,7 @@
 //  }
 //
 //  .description {
-//    @include text-shadow;
-//    @include text-shadow(1px 1px 3px rgba(0,0,0,0.5));
+//    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
 //
 //    margin: 5px auto 0;
 //    color: rgba(255, 255, 255, 1);

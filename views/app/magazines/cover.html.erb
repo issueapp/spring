@@ -1,0 +1,47 @@
+<% 
+issue = Hashie::Mash.new(
+  edition_title: "Wild encounters",
+  short_title: "Big Cat",
+  image_url: "http://24.media.tumblr.com/5f97f94756bf706bf41ac0dd37b585cf/tumblr_mzgzbdYBht1st5lhmo1_1280.jpg",
+  description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit"
+)
+%>
+
+<header class="toolbar transparent dark-theme">
+  <a class="back left" href="javascript:history.back()"><span>back</span></a>
+  
+  <span class="title">Minkpink // Music <i class="caret"></i></span>
+</header>
+
+<section class="magazine cover page fullscreen dark-theme " style="background-image: url(<%= issue.image_url %>);">
+  <div class="container">
+    <!-- <nav role="navigation">
+      <ul class="links">
+        
+        <li><a class="subscribe button outline" href="#" onclick="$('#subscribe' ,'#unsubscribe').toggleClass('hidden')">Subscribe</a></li>
+        <li><a class="unsubscribe button outline hidden" href="#" onclick="$('#subscribe' , '#unsubscribe').toggleClass('hidden')">Unsubscribe</a></li>
+        
+        <li><a class="button outline" href="#">Share</a></li>
+      </ul>
+    </nav> -->
+    
+    <img class="issue-logo" style="zoom: 0.8" src="/images/logo-round-white.svg"></img>
+    
+    <div class="extra-1"></div>
+    <div class="extra-2"></div>
+
+    <hgroup>
+      <h2 class="brand"><%= issue.edition_title %></h2>
+      <h1 class="title"><%= issue.short_title %></h1>
+      <h2 class="description"><%= issue.description %></h2>
+    </hgroup>
+
+    <a class="browse" href="toc">‹</a>
+    <a class="subscribe"></a>
+    <a class="download"></a>
+  </div>
+</section>
+
+<footer>
+  
+</footer>
