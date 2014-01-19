@@ -69,7 +69,7 @@ items:
     handle: 4-beauty
     pages:
       - handle: "1"
-      # - handle: "2"
+      - handle: "2"
 
   - title: Travel with me
     category: travel

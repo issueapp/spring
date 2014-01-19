@@ -81,7 +81,7 @@
   
   .title {
     font-size: 24px;
-    font-size: 7vmin;
+    font-size: 7vw;
     
     line-height: 1;
     
@@ -176,7 +176,7 @@
   overflow: none;
   
   @include min-screen(768) {
-    margin: 20% auto;
+    margin: 15% auto;
     width: 80%;
     
     white-space: nowrap;
@@ -222,6 +222,12 @@
     }
   }
   
+  
+  &.grid {
+    margin: 20px auto 0;
+    
+  }
+  
   &.grid .magazine {
     float: left;
   
@@ -239,14 +245,56 @@
     
       .brand {
         font-size: 20px;
-        font-size: 2vmin;
+        font-size: 1.5vw;
       }
     
       .title {
         font-size: 32px;
-        font-size: 4vmin;
+        font-size: 3vw;
       }
     }
   }
 }
 
+section.filters {
+  top: 0;
+  right: 0;
+
+  position: fixed;
+  top: 70px;
+  
+  width: 100%;
+  height: 50px;
+  
+  .button-group {
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+  }
+  
+  .button {
+    display: inline-block;
+    padding: 0px 25px;
+    max-width: 120px;
+    
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 15px;
+    border: none;
+    box-shadow: none;
+    text-shadow: none;
+    background: none;
+    float: none;
+    color: #ccc;
+  }
+  
+  .button.active {
+    color: white;
+    background: #333;
+  }
+  
+  .button:first-child, .button:last-child {
+    border-radius: 15px !important;
+  }
+}
