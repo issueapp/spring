@@ -1,5 +1,7 @@
 @charset "utf-8";
 
+@import "bourbon";
+
 @import "spring";
 @import 'ui/animation';
 @import 'ui/icons';
@@ -10,10 +12,10 @@
 @import 'app/cover';
 
 
-// 5. ITEM       			==============================
+// 5. ITEM             ==============================
 //@import 'app/item';
 
-// 6. PAGE       			==============================
+// 6. PAGE             ==============================
 @import 'app/page';
 
 @import 'app/theme';
@@ -106,7 +108,7 @@
 //@import 'app/cover';
 
 
-// 7. RESPONSIVE 			==============================
+// 7. RESPONSIVE       ==============================
 
 .container {
   margin:0 auto;

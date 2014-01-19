@@ -1,8 +1,6 @@
-@import "compass/css3/box-shadow";
-@import "compass/css3/inline-block";
 
 .popover-wrap {
-  @include inline-block;
+  display: inline-block;
 }
 
 div.popover {
