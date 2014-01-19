@@ -153,7 +153,7 @@ $btn-text-colour: #555555;
 
   &.black {
     background: #2c2c2c;
-    color: white !important;
+    color: white;
     text-shadow: 0px 1px 2px rgba(0,0,0,0.3);
     box-shadow: 0px 1px 0px 0px rgba(255, 255, 255, 0.2) inset, 0px -1px 0px 0px rgba(0, 0, 0, 0.1) inset;
     border: none; //1px solid #2b2b2b;
@@ -389,23 +389,23 @@ button[disabled]:active {
     margin-left: 0px;
     margin-right: 0;
     
-    border-bottom-left-radius: 3px;
-    border-top-left-radius: 3px;
+    border-bottom-left-radius: 6px;
+    border-top-left-radius: 6px;
   }
 
   .button:last-child {
     margin-left: 0px;
     margin-right: 0;
 
-    border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
   }
 
   .dropdown {
     padding: 0px 6px;
     
-    border-bottom-right-radius: 3px;
-    border-top-right-radius: 3px;
+    border-bottom-right-radius: 6px;
+    border-top-right-radius: 6px;
     
     box-shadow: inset 1px 0 0 rgba(255, 255, 255, 0.125), inset 0 -1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
 
@@ -417,9 +417,11 @@ button[disabled]:active {
   }
 
   &.toggle {
+    
     & > .dropdown-menu {
       display: block;
     }
+    
   }
 }
 

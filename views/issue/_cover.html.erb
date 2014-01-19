@@ -1,15 +1,9 @@
-<section class="issue cover page fullscreen dark-theme " style="background-image: url(<%= issue.image_url %>);">
+
+<section class="magazine cover page fullscreen dark-theme " style="background-image: url(<%= issue.image_url %>);">
   <div class="container">
-    <nav role="navigation">
-      <ul class="links">
-        <li><a class="subscribe button outline" href="#" onclick="$('#subscribe' ,'#unsubscribe').toggleClass('hidden')">Subscribe</a></li>
-        <li><a class="unsubscribe button outline hidden" href="#" onclick="$('#subscribe' , '#unsubscribe').toggleClass('hidden')">Unsubscribe</a></li>
-        <li><a class="button outline" href="#">Share</a></li>
-      </ul>
-    </nav>
-
-    <h1 id="issue-logo" class="icon logo " style="zoom: 0.7"></h1>
-
+    
+    <img class="issue-logo" style="zoom: 0.8" src="/images/logo-round-white.svg"></img>
+    
     <div class="extra-1"></div>
     <div class="extra-2"></div>
 
@@ -20,5 +14,7 @@
     </hgroup>
 
     <a class="browse" href="toc">‹</a>
+    <a class="subscribe" href="#"></a>
+    <a class="download" href="#"></a>
   </div>
 </section>

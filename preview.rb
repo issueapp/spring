@@ -3,6 +3,7 @@ require 'hashie/mash'
 require 'sinatra/base'
 require 'sinatra/content_for'
 require 'sinatra/asset_pipeline'
+
 require 'nokogiri'
 
 class IssuePreview < Sinatra::Base
@@ -23,6 +24,18 @@ class IssuePreview < Sinatra::Base
     @path = params.slice("issue", "page", "subpage").values.compact.join('/')
 
     erb :"issue/viewer.html", layout: :"/layouts/_docs.html", locals: { path: "/issues/#{@path}", issue: current_issue }
+  end
+  
+  get '/issues.json' do
+    @issues = Dir.glob('issues/*/issue.yaml').map do |file|
+      issue_path = file.split("/")[1]
+      
+      issue = Hashie::Mash.new(YAML.load_file(file)).tap do |i|
+        i.image_url = "#{issue_path}/#{i.image_url}"
+      end
+    end
+    
+    @issues.to_json
   end
   
   get '/issues/?' do
@@ -59,7 +72,7 @@ class IssuePreview < Sinatra::Base
   end
 
   get "/issues/:issue/" do
-    erb :"issue/_cover.html", layout: :"issue/_layout.html", locals: { issue: current_issue}
+    erb :"issue/_cover.html", layout: :"/layouts/_app.html", locals: { issue: current_issue}
   end
 
   get "/issues/:issue/issue.json" do
@@ -96,7 +109,7 @@ class IssuePreview < Sinatra::Base
 
     page.handle = [params["page"], params["subpage"]].compact.join('/')
 
-    erb page_template(page), locals: { issue: current_issue, page: page }, layout: :"issue/_layout.html"
+    erb page_template(page), locals: { issue: current_issue, page: page }, layout: :"/layouts/_app.html"
   end
 
   private
@@ -125,7 +138,7 @@ class IssuePreview < Sinatra::Base
       source = source.force_encoding('binary')
     end
 
-    meta, content = source.split(/---\n(.+?)---\n/nm)[1,2]
+    meta, content = source.split(/---\s?\n(.+?)---\n/nm)[1,2]
     content = content.to_s.strip
 
     ## Parse YAML

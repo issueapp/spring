@@ -14,9 +14,9 @@
 
 ---
 <style>
-  p { font-family: Arial, Helvetica, sans-serif}
-  big { font-size: 130% }
-  p > span { font-style: normal; font-size: 100%; }
+  p { font-family: "Trebuchet MS", Helvetica, sans-serif}
+  big { font-size: 120% }
+  p > span { font-style: normal; }
 
   #header-image {
     position: relative;
@@ -28,10 +28,16 @@
 
 <img id="header-image" src="assets/2-head-or-heart/headorheart_RodondoOUTLINE.svg" alt="">
 
-<span>IN NEED OF A STYLE UPDATE? WELL WHAT BETTER TIME THAN RIGHT NOW! INSPIRE YOUR LOOK WITH THE OFFICIAL MINKPINK: THE MUSIC ISSUE COLLECTION, STARRING CHRISTINA PERRI..</span>
+<span>IN NEED OF A STYLE UPDATE?     
+  WELL WHAT BETTER TIME    
+  THAN RIGHT NOW! INSPIRE     
+  YOUR LOOK WITH THE OFFICIAL    
+  MINKPINK: THE MUSIC ISSUE    
+  COLLECTION, STARRING    
+  CHRISTINA PERRI..</span>
 
-<small>PHOTOGRAPHY BY MIKE PISCATELLI</small>
-<small>STYLING BY MARK VASALLO</small>
+<small>PHOTOGRAPHY BY MIKE PISCATELLI</small>    
+  <small>STYLING BY MARK VASALLO</small>
 
 <!-- <figure>
   <figcaption>[MINKPINK Morrocon Tile Tank and Morrocan Tile Short]</figcaption>
