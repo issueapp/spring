@@ -5,6 +5,8 @@
 #= require backbone
 #= require fastclick
 
+#= require mustache
+
 #= require app/core
 #= require app/layout
 #= require app/hotspot
