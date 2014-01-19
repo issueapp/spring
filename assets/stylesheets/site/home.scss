@@ -1,8 +1,3 @@
-@import "compass/css3/box-sizing";
-@import "compass/utilities/general/clearfix";
-@import "compass/css3/inline-block";
-@import "compass/css3/text-shadow";
-@import "base/media-queries";
 
 #hero {
   @include box-sizing(border-box);
@@ -78,7 +73,7 @@ section.tour {
   }
 
   .box {
-    @include inline-block;
+    display: inline-block;
     background: #222;
     color: white;
     position: relative;
@@ -98,7 +93,8 @@ section.tour {
       text-transform: uppercase;
 /*      font-weight: bold;*/
       vertical-align: middle;
-      @include text-shadow;
+      text-shadow: 1px 3px rgba(0,0,0,0.5);
+      
       width: 100%;
       visibility: visible;
       z-index: 2;
