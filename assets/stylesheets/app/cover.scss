@@ -1,6 +1,4 @@
-@import 'compass/css3/box-sizing';
-@import 'compass/css3/text-shadow';
-@import "compass/css3/border-radius";
+@import 'css3/box-sizing';
 @import 'base/media-queries';
 /*
 
@@ -157,29 +155,8 @@
   }
 
 
-
   /*      Actions
    * ====================================== */
-//  .subscribe {
-//    float: right;
-//    padding: 0;
-//    width: 130px;
-//    color: #eee;
-//    font-size: 14px;
-//    line-height: 42px;
-//
-//    
-//
-//    // Consequent display of cover doesn't need animation
-//    &.delay {
-//      -webkit-animation: fade 0.6s ease both;
-//      -moz-animation: fade 0.6s ease both;
-//
-//      -webkit-animation-delay: 0.8s;
-//      -moz-animation-delay: 0.8s;
-//    }
-//  }
-
   a.browse {
     display: none;
 
@@ -194,8 +171,8 @@
     font-family: georgia;
     z-index: 999;
     
-    @include text-shadow;
-    @include border-radius;
+    text-shadow: 1px 3px rgba(0,0,0,0.5);
+    border-radius: 3px;
 
     &.movein {
       -webkit-animation: bounceInRight 0.6s ease both;
@@ -468,36 +445,6 @@
 //    -moz-animation-delay: 0.5s;
 //  }
 //
-//  a.browse {
-//    color: white;
-//    position: absolute;
-//    top: 18%;
-//    right: -15px;
-//    padding: 0px 20px 5px 5px;
-//    background-color: #e96b56;
-//    line-height: 40px;
-//    font-size: 40px;
-//    font-family: georgia;
-//    z-index: 999;
-//    @include text-shadow;
-//    @include border-radius;
-//
-//    &.movein {
-//      -webkit-animation: bounceInRight 0.6s ease both;
-//      -moz-animation: bounceInRight 0.6s ease both;
-//      -webkit-animation-delay: 0.4s;
-//      -moz-animation-delay: 0.4s;
-//    }
-//
-//    .vertical & {
-//      top: initial;
-//      right: 45%;
-//      bottom: -12px;
-//      padding: 0px 5px 7px 5px;
-//      -webkit-transform: rotate(-90deg);
-//      -webkit-animation: none;
-//    }
-//  }
 //
 //  .signup {
 //    position: absolute;

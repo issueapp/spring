@@ -4,7 +4,7 @@ article.page .content.stop-scrolling {
 }
 
 .hotspot {
-  @include inline-block;
+  display: inline-block;
 
   .tag {
     position: absolute;

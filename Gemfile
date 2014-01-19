@@ -10,7 +10,7 @@ gem "sinatra-contrib"
 # # Use Compass and Sass
 gem "coffee-script"
 gem "sinatra-asset-pipeline"
-gem "compass"
+gem "bourbon"
 gem "hashie"
 # gem "actionpack", "~> 3.2"
 # # gem "railties",   "~> 3.2"
