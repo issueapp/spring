@@ -1,5 +1,5 @@
 
-<section class="magazine cover page fullscreen dark-theme " style="background-image: url(<%= issue.image_url %>);">
+<section class="magazine cover page fullscreen dark-theme " style="background-image: url(<%= issue.background_url %>);">
   <div class="container">
     
     <img class="issue-logo" style="zoom: 0.8" src="/images/logo-round-white.svg"></img>
@@ -8,7 +8,7 @@
     <div class="extra-2"></div>
 
     <hgroup>
-      <h2 class="brand"><%= issue.edition_title %></h2>
+      <h2 class="brand"><%= issue.magazine_title %></h2>
       <h1 class="title"><%= issue.short_title %></h1>
       <h2 class="description"><%= issue.description %></h2>
     </hgroup>

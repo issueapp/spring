@@ -10,12 +10,11 @@
 
     products:
 
-      - url: http://www.net-a-porter.com/product/398362 
-        image_url: http://9c38.http.dal05.cdn.softlayer.net/wantering/products/images/1/0/6/10631b8e-03b9-11e3-8673-062e13789e081.jpg 
-        title: Equipment 
-        subtitle: Washed Silk Camisole 
-        description: "A black camisole is a wardrobe savior - endlessly versatile, it works day or night. We love Equipment's lightweight washed-silk version. With adjustable shoulder straps for the perfect fit, team this runway piece with skinny jeans or style it under sheer layers."
-        price: $189.54 AUD
+      - url: http://www.shopbop.com/silk-camisole-lna/vp/v=1/1562218472.htm?fm=search-shopbysize  
+        image_url: http://cdnc.lystit.com/photos/2013/12/10/lna-ivory-silk-camisole-product-4-16050727-535007609_large_flex.jpeg 
+        title: LNA silk camisole
+        description: A whisper of silk composes this LNA camisole, which features an asymmetrical hemline. Spaghetti straps trace the shoulders and crisscross at the back.  Semi-sheer.
+        price: $177.12 AUD
         hotspot: "640,735,30"
 
       - title: ACNE Scene Mini Str Wide Sleeve Shirt-

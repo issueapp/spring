@@ -1,11 +1,12 @@
+id: "indulgence/holiday"
 title: Holiday issue
 short_title: Holiday
-edition_title: "Indulgence"
+magazine_title: "Indulgence"
 description: "Travel in Style • Beauty Updates • Favourite Eats"
 publish_at: "2013-9-15T13:16:46Z"
-auther_name: Andrew Yang
 image_url: "assets/cover-bg-2048.jpg"
-
+background_url: "assets/background.jpg"
+background_large_url: "assets/background_large.jpg"
 assets:
   - "custom.css"
 

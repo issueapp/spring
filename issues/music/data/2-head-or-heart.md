@@ -1,6 +1,7 @@
 ---
 
     handle: 2-head-or-heart
+    title: head or heart
     #author_name: Zyralyn Bacani
     #author_icon: http://cl.ly/StPu/Image%202013.12.11%204%3A54%3A01%20pm.png
     image_url: assets/2-head-or-heart/p3-6_opt.jpeg
@@ -14,6 +15,14 @@
 
 ---
 <style>
+
+
+h1.title {
+  background: url(assets/2-head-or-heart/cover-heading.svg) no-repeat;
+  background-size: 100%;
+  color: transparent;
+  height: 350px;
+
   p { font-family: "Trebuchet MS", Helvetica, sans-serif}
   big { font-size: 120% }
   p > span { font-style: normal; }
@@ -22,11 +31,9 @@
     position: relative;
     margin-left: -93px;
     max-width: initial;
-    width: 350px;
+    width: 310px;
   }
 </style>
-
-<img id="header-image" src="assets/2-head-or-heart/headorheart_RodondoOUTLINE.svg" alt="">
 
 <span>IN NEED OF A STYLE UPDATE?     
   WELL WHAT BETTER TIME    

@@ -148,7 +148,9 @@ article.page .content.stop-scrolling {
 @media only screen and (min-width: 768px) {
   .product-popover {
     position: absolute;
-    display: none;
+//    display: none;
+    
+    visibility: hidden;
     width: 480px;
     opacity: 1;
   }
@@ -182,13 +184,15 @@ article.page .content.stop-scrolling {
   }
 
   .product-popover.show {
-    display: block;
+    visibility: visible;
+    
     -webkit-animation: initial;
     animation: initial;
   }
 
   .product-popover.hide {
-    display: none;
+    visibility: hidden;
+    
     -webkit-animation: initial;
     animation: initial;
   }
