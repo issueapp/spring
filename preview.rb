@@ -26,15 +26,32 @@ class IssuePreview < Sinatra::Base
     erb :"issue/viewer.html", layout: :"/layouts/_docs.html", locals: { path: "/issues/#{@path}", issue: current_issue }
   end
   
-  get '/issues.json' do
+  get '/magazines.json' do
     @issues = Dir.glob('issues/*/issue.yaml').map do |file|
       issue_path = file.split("/")[1]
       
       issue = Hashie::Mash.new(YAML.load_file(file)).tap do |i|
-        i.image_url = "#{issue_path}/#{i.image_url}"
+        i.background_url = "/issues/#{issue_path}/#{i.background_url}"
+        i.url = "/issues/#{issue_path}/"
       end
     end
     
+    if params[:q]
+      @issues.select! do |issue|
+        text = "#{issue.edition_title} #{issue.title}"
+        pattern = Regexp.compile(params[:q], Regexp::IGNORECASE)
+        
+        result = text.match( pattern )
+        
+        
+        if params[:filter] == "featured"
+          result = issue.featured
+        end
+        
+        result 
+      end
+    end
+
     @issues.to_json
   end
   

@@ -9,19 +9,22 @@
 # category/story2
 # category/story2/2
 # category/story2/3
-
+id: "minkpink/music"
 title: Music Issue
 short_title: Music
-edition_title: Minkpink
-publish_at: "2013-9-15T13:16:46Z"
-image_url: "assets/background-2048px.jpg"
+magazine_title: Minkpink
+publish_at: "2014-1-15T13:16:46Z"
+background_url: "assets/background.jpg"
+background_large_url: "assets/background_large.jpg"
+
 description:
+featured: true
 
 assets:
   - "custom.css"
   # - "jquery.jplayer.min.js"
-  - "jplayer/jquery.transform2d.js"
-  - "jplayer/jquery.grab.js"
+  # - "jplayer/jquery.transform2d.js"
+  # - "jplayer/jquery.grab.js"
   - "jplayer/jquery.jplayer.js"
   - "jplayer/mod.csstransforms.min.js"
   - "jplayer/circle.player.js"
@@ -81,3 +84,7 @@ items:
     handle: 6-behind-the-scene
     pages:
       - handle: "1"
+
+  - title: Behind the scenes
+    handle: backcover
+    nav: false

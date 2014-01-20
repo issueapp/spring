@@ -6,15 +6,48 @@
 
     layout:
       type: three-column
-      image_align: right
+      image_align: left 
+      
+    products:
+    
+      - title: Yves Saint Laurent Volume Effet Faux Cils Mascara in High Density Black 
+        image_url: assets/4-beauty/p1-ysl.jpg
+        
+      - title:  M.A.C Lipstick in Pink Plaid
+        image_url: assets/4-beauty/p1-lipstick pink plaid.jpg 
+      
+      - title: Chanel Illusion d’Ombre Long-Wear Eyeshadow in Fatal
+        image_url: assets/4-beauty/p1-chanel.jpg
+      
+      - title: "M.A.C Mineralize Skinfinish in Soft and Gentle"
+        image_url: assets/4-beauty/p1-mac.jpg 
+        
+      - title: M.A.C Lipstick in Lustering 
+        image_url: assets/4-beauty/p1-lipstick lustering.jpg
+              
+         
+      
+      
 
 ---
 <style>
+
   p { font-family: "Trebuchet MS", Helvetica, sans-serif}
   small { font-size: 90% }
   p > span { font-style: normal; font size: 100%; }
-  
+
+/*  Replace page heading with outline heading (change background url or height if needed) */
+h1.title {
+  background: url(assets/4-beauty/CHRISTINA_uncovered.svg) no-repeat;
+  background-size: 200%;
+  color: transparent;
+  height: 370px;
+}
+
+
 </style>
+
+
 
 <span><small>WANT TO KNOW THE SECRETS TO   
    CREATING CHRISTINA PERRI’S   
@@ -29,6 +62,5 @@
    WE’RE JUST TOO GOOD TO YOU!</small></span>
 
 
-### SKIN
-
-‘Right now, Christina is OBSESSED with Elemental Herbology products. No matter how busy she is, she makes sure she uses their cleanser, cell food and moisturiser day and night to keep her skin in tip top condition. It’s especially important for Christina to keep up the routine when she is travelling through different time zones, as that can wreak havoc with her complexion.’
+   Clockwise from above; M.A.C Mineralize Skinfinish in Soft and Gentle, Chanel Illusion d’Ombre Long-Wear Eyeshadow in Fatal, Yves Saint Laurent Volume Effet Faux Cils Mascara in High Density Black, M.A.C Lipstick in Pink Plaid and *Lustering*.
+   Left; Elemental Herbology Cool and Clear Facial Cleanser, Perfect Balance Harmonising Moisturiser and Cell Food.
