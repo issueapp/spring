@@ -67,7 +67,7 @@ class Hotspot extends Backbone.View
 
     data = this.lookup(@hotspot)
 
-    console.log(data)
+    console.log(data, @hotspot)
 
     this.render(data) if data
 
@@ -139,28 +139,28 @@ class Hotspot extends Backbone.View
     </div>
     """
 
+
     @popover.remove() if @popover
 
     @popover = $(_.template(template, data))
     $('body').append(@popover)
 
-    popoverWidth = @popover.width()
-    popoverHeight = @popover.height()
-
+    popStyle = @popover[0].getBoundingClientRect()
+    
     arrow = @popover.find('.arrow')
 
     # Position popover/arrow
     if App.viewport.width > 480
       arrow.removeClass("up down left right")
 
-      if document.body.offsetHeight - center_pos.y - dimension.height / 2 < @popover.height()
+      if document.body.offsetHeight - center_pos.y - dimension.height / 2 < popStyle.height
         arrowPosition = 'down'
         targetSpacing = dimension.height / 2
 
         if targetSpacing < spacing
           targetSpacing = spacing * 2
 
-        @popover.css('top', center_pos.y - targetSpacing - @popover.height())
+        @popover.css('top', center_pos.y - targetSpacing - popStyle.height)
 
       # arrow point up
       else
@@ -168,14 +168,14 @@ class Hotspot extends Backbone.View
         @popover.css "top", center_pos.y + dimension.height / 2 + spacing
 
       # arrow position left
-      if center_pos.x < @popover.width() - arrowSpacing
+      if center_pos.x < popStyle.width - arrowSpacing
         arrowPosition += " left"
         @popover.css "left", center_pos.x - arrowSpacing
 
       # arrow position right
       else
         arrowPosition += " right"
-        @popover.css "left", center_pos.x - @popover.width() + arrowSpacing
+        @popover.css "left", center_pos.x - popStyle.width + arrowSpacing
       @popover.find(".arrow").addClass arrowPosition
 
     # show popover

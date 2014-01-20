@@ -2,11 +2,14 @@
 
     layout:
       type: two-column
+      content_overflow: paginate
 
 ---
 
-<img src="/music/assets/6-behind-the-scene/cover-heading.jpg" alt="">
+<img src="assets/6-behind-the-scene/cover-heading.jpg" alt="">
 <h2>CP TALKS MUSIC AND SPILLS ON HER LATEST ALBUM 'HEAD OR HEART'</h2>
+
+<img src="assets/6-behind-the-scene/_MG_5433.jpg">
 
 Where did the name for your new album come from?
 
@@ -23,3 +26,7 @@ I worked with a few producers on Head or Heart, including Butch Walker, John Hil
 Any musical collaborations you can share with us?
 
 Actually yes, there are a couple! I worked with Jack Antanoff from the band FUN as well as Ed Sheeran which was so exciting! They’re both super talented guys and I absolutely adore them – I can’t wait for people to hear the tracks!
+
+
+<img src="assets/6-behind-the-scene/_MG_6201.jpg">
+<img src="assets/6-behind-the-scene/_MG_5816_opt.jpeg">
