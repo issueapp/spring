@@ -16,8 +16,10 @@
     <!--iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-
     <link rel="stylesheet" href="/assets/application.css" type="text/css">
+    
+    <!-- Web UI -->
+    <link rel="stylesheet" href="/assets/app/ui.css" type="text/css">
 
     <script src="/assets/issue.js"></script>
     <script src="/assets/app/models.js"></script>
@@ -35,7 +37,6 @@
           <link rel="stylesheet" href="<%= "/#{params[:issue]}/assets/#{asset}" %>" type="text/css">
         <% end %>
       <% end %>
-      
     <% end %>
   </head>
 
@@ -44,7 +45,7 @@
       <%= yield %>
     </div>
   </body>
-
+  
   <script>
     App.init()
   </script>
@@ -54,4 +55,5 @@
   <% else %>
     <%= yield :js %>
   <% end %>
+  
 </html>

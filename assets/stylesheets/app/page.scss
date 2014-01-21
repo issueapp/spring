@@ -41,7 +41,7 @@
 article.page {
   margin: 0 auto;
   text-align: center;
-  font: 16px/1.25 "proxima_nova_regular";
+  font: 16px/1.25 "proxima-nova";
 
   // Cover area for image/video
   .cover-area {
@@ -121,8 +121,8 @@ article.page {
     color: #666;
     text-transform: uppercase;
     letter-spacing: 2px;
-    font-size: 12px;
-    font-family: "proxima_nova_bold";
+
+    font: bold 12px "proxima-nova";
   }
 
   .column-break {
@@ -154,9 +154,8 @@ article.page {
     right: 20px;
     bottom: 20px;
     width: 200px;
-    font-weight: bold;
-    font-size: 12px;
-    font-family: 'proxima_nova_regular';
+  
+    font: bold 12px "proxima-nova";  
   }
 
   blockquote {
@@ -490,10 +489,8 @@ article.page.toc {
     color: #555;
     text-transform: uppercase;
     letter-spacing: 1px;
-    font-weight: normal;
-    font-size: 13px;
-    font-family: "proxima_nova_regular";
-    line-height: 1;
+    
+    font: normal 12px/1 "proxima-nova";    
   }
 
   .menu li .author {
@@ -533,9 +530,7 @@ article.page.has-product {
 
   header .title {
     letter-spacing: 2px;
-    font-weight: normal;
-    font-size: 24px;
-    font-family: "proxima_nova_bold";
+    font: bold 24px "proxima-nova";
   }
 
   .content h3 {
