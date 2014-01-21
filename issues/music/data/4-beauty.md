@@ -24,17 +24,9 @@
         
       - title: M.A.C Lipstick in Lustering 
         image_url: assets/4-beauty/p1-lipstick lustering.jpg
-              
-         
-      
-      
 
 ---
 <style>
-
-  p { font-family: "Trebuchet MS", Helvetica, sans-serif}
-  small { font-size: 90% }
-  p > span { font-style: normal; font size: 100%; }
 
 /*  Replace page heading with outline heading (change background url or height if needed) */
 h1.title {
@@ -62,5 +54,3 @@ h1.title {
    WE’RE JUST TOO GOOD TO YOU!</small></span>
 
 
-   Clockwise from above; M.A.C Mineralize Skinfinish in Soft and Gentle, Chanel Illusion d’Ombre Long-Wear Eyeshadow in Fatal, Yves Saint Laurent Volume Effet Faux Cils Mascara in High Density Black, M.A.C Lipstick in Pink Plaid and *Lustering*.
-   Left; Elemental Herbology Cool and Clear Facial Cleanser, Perfect Balance Harmonising Moisturiser and Cell Food.

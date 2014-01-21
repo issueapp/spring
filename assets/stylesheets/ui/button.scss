@@ -160,10 +160,12 @@ $btn-text-colour: #555555;
 
     .no-touch &:hover, &.hover {
       background: #4B4C4B;
+      color: white;
     }
 
     &:active, &.active {
       background: #0e0e0e;
+      color: white;
     }
   }
 
