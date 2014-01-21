@@ -25,7 +25,7 @@ article.page figure {
 }
 
 
-h2 {
+article.page .body h2 {
   font-size: 18px;
   font-weight: lighter;
   display: inline-block;
