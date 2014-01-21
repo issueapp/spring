@@ -40,7 +40,7 @@ article.page .content.stop-scrolling {
   text-shadow: rgba(0,0,0,0.3) 1px 1px 3px;
 }
 
-@-webkit-keyframes show {
+@-webkit-keyframes slideup {
   0% {
     opacity: 0;
     -webkit-transform: translateY(0px);
@@ -51,7 +51,7 @@ article.page .content.stop-scrolling {
   }
 }
 
-@-webkit-keyframes hide {
+@-webkit-keyframes slidedown {
   0% {
     opacity: 1;
     -webkit-transform: translateY(-100%);
@@ -63,14 +63,16 @@ article.page .content.stop-scrolling {
 }
 
 .product-popover.show {
-  -webkit-animation: show 0.35s forwards;
+  -webkit-animation: slideup 0.35s forwards;
   animation: show 0.35s forwards;
 }
 
 .product-popover.hide {
-  -webkit-animation: hide 0.35s forwards;
+  -webkit-animation: slidedown 0.35s forwards;
   animation: hide 0.35s forwards;
 }
+
+/*  Content styling */
 
 .product-popover .details {
   overflow: scroll;

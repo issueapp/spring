@@ -98,16 +98,16 @@ class Hotspot extends Backbone.View
     }
 
     template = """
-    <div class="product-popover dark-theme">
+    <div class="popover dark-theme">
       <div class="arrow"></div>
-      <div class="details">
+      <div class="content">
 
         <% if (image_url) { %>
         <div class="thumb-image" style="background-image: url('<%= image_url %>')"></div>
         <% } %>
 
-        <h1 class="title"><%= title %></h1>
-        <h2 class="subtitle">
+        <h3 class="title"><%= title %></h3>
+        <p class="subtitle">
 
           <% if (typeof subtitle != "undefined" ) { %>
             <%= subtitle %>
@@ -117,7 +117,7 @@ class Hotspot extends Backbone.View
             <%= price %>
           <% } %>
 
-        </h2>
+        </p>
 
         <% if (description) { %>
           <div class="description"><%= description %></div>
@@ -126,7 +126,7 @@ class Hotspot extends Backbone.View
       </div>
 
       <% if (url) { %>
-        <div class="actions">
+        <footer>
 
           <% if (action == "shop") { %>
             <a href="<%= url %>" class="button small outline" data-track="<%= action %>">Shop now</a>
@@ -134,7 +134,7 @@ class Hotspot extends Backbone.View
             <a href="<%= url %>" class="button small outline" data-track="<%= action %>">View more</a>
           <% } %>
 
-        </div>
+        </footer>
       <% } %>
     </div>
     """

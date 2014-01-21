@@ -10,13 +10,22 @@
 
 ---
 
-Now I know I’m not alone in saying this, but I am just a teeeeny bit OBSESSED with minkpink…so you can imagine how over-the-frickin’-moon I was when they asked me to front their latest international campaign ‘minkpink: The Music Issue!’. Working on the campaign has been a blast, but what’s even better is that now I get to share it with all of you!
+<style>
 
-Right off the bat I’ve felt a connection to minkpink. I love the way they constantly push the boundaries when it comes to all things creative - it’s something I am always striving to do in my own career, so to be able to work with a brand with that same outlook is pretty exciting.
-This time round, they’ve come up with the brain-achingly awesome idea of presenting the entire campaign in this magazine, jampacked with heaps of content including the official campaign shoot and tons of exclusive behind-the-scenes footage, meaning you get to feast your eyes on the latest rad minkpink threads all in one go! You’ll also find a little interview with Yours Truly, top-secret beauty tips from the industry’s hottest experts, and an insider’s guide to all the sickest spots to hit up in our shoot location, Los Angeles. Ummm spoiled, much?!
+article.page .content p { font-style: italic; margin: 0.5em; font-size: 16px; }
+article.page .content big { font-size: 120% }
+article.page .content p > span { font-style: normal; font-size: 80%; }
 
-I hope you enjoy checking out minkpink: The Music Issue as much as we enjoyed putting it together (I kinda have a feeling you will )! And now for the tough decisions…what to buy first?!
-Race you to the checkout…!
+</style>
+
+OK, I admit it. I’m maybe just a teeeny bit obsessed with <span>MINKPINK</span>…so it’s safe to say I was over-thefrickin’-moon when they asked me to front their latest international campaign ‘<span>MINKPINK</span>: <big>The Music Issue!</big> <span>MINKPINK</span> are always pretty out there when it comes to getting creative, so I knew working together would be a lot of fun...although I have to admit, I was a little nervous about the whole modelling thing. 
+
+Being a singer, that’s kind of a foreign world to me! The best piece of advice I’ve ever been given is ‘you’re enough just the way you are’ , and although I try to remember that, it’s not always easy! Luckily, I got to work with an absolute Dream Team (BIG shout out to photographer Mike Piscitelli and super stylist Mark Vassallo!), who made me feel so comfortable just fooling around and being
+myself on the day of the shoot! Of course, the fact that I LOVED literally every piece of <span>MINKPINK</span> clothing I got to wear also couldn’t have hurt – seriously, you guys are going to be spoiled for choice!
+
+I’ve had a blast working with <span>MINKPINK</span>, and what’s even better is that now I get to share the campaign as well as a whole heap of other awesome stuff with you, via <span>MINKPINK</span>: <big>The Music Issue</big>. This is <span>MINKPINK</span>’s first EVER magazine and I’m so excited to have been a part of it…I have a feeling you’re going to love reading it as much as we loved putting it together!<br>Race you to the checkout…!
 
 Love,
 <img id="signature" src="/music/assets/toc/pink-christina-perri.png" alt="">
+
+For the Love of MINKPINK
