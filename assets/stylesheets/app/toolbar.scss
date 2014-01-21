@@ -22,6 +22,7 @@
   font-size: 0;
 
   .dark-theme & {
+    
     color: #fff;
 
     a:hover {
@@ -238,6 +239,10 @@
 .toolbar.transparent {
   position: absolute;
   background: transparent;
+  
+  &.dark-theme {
+    @include background( linear-gradient(top, rgba(0,0,0,0.1) 20%, rgba(0,0,0,0.0) ) );
+  }
 }
 
 // Fullscreen toolbar
