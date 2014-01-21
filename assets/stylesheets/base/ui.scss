@@ -11,6 +11,17 @@
 @import 'ui/modal';
 @import 'ui/icons';
 
+
+//------ ui/form
+//------ ui/button
+@import "ui/button";
+
+//------ ui/popover
+@import "ui/dropdown";
+@import "ui/popover";
+
+//------ ui/modal
+//------- ui/discover_menu
 //------ ui/menu
 
 nav.tab-menu {
@@ -58,14 +69,3 @@ nav.tab-menu {
 footer {
   clear: both;
 }
-
-//------ ui/form
-//------ ui/button
-@import "ui/button";
-
-//------ ui/popover
-@import "ui/dropdown";
-@import "ui/popover";
-
-//------ ui/modal
-//------- ui/discover_menu
