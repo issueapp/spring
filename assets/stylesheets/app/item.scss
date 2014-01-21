@@ -1,5 +1,3 @@
-@import 'base/media-queries';
-
 /*
     Item
 
@@ -11,375 +9,621 @@
     .no-description     - Increase image area without description
     .product            - Product has a price tag
 
+    Admin site
 
     .admin .item        - Manage product items
     .admin .published   - Show product that is published
     .admin .archived    -
 
 */
+/*
+    div.item (onlick=http)
+      a.via
+      a.add-to
+      div.info
+      a.link href=page
+
+
+*/
+
 .page {
+
+.item {
   @include box-sizing(border-box);
+  
+  position: relative;
+  float: left;
+  margin: 0 0 0 0;
+  height: 100%;
+  width: 100%;
+  padding: 20px;
+  -webkit-hyphens: auto;
+  border-bottom: 1px solid #eee;
 
-  .item {
-
-    @include box-sizing(border-box);
-    position: relative;
-    float: left;
-    margin: 0 0 2% 0;
+  .image {
+    border: 0;
+    height: 75%;
     overflow: hidden;
-//    width: 100%;
-    height: 100%;
-    padding: 20px;
-    -webkit-hyphens: auto;
 
-    border: 1px solid #eee;
-    border-width: 0 1px 1px 0;
+    background-size: cover;
+    background-position: 50% 10%;
+    background-repeat: no-repeat;
+    background-color: #eee;
 
-    //    300x280
-    //    340x353
+    &.fadein {
+      @include transition(opacity 0.1s ease-in-out);
+      
+      opacity: 0.4;
+    }
+  }
 
-    // Image 60%
+
+  .title {
+    /*    Style   */
+    position: relative;
+    font-family: "proxima-nova", "Helvetica Neue";
+    padding: 0.75em 0 0 2px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #2c2c2c;
+    font-size: 12px;
+    line-height: 1.5;
+    margin: 0;
+
+    // Elipsis
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .description {
+    width: 100%;
+    font-size: 13px;
+    margin: 0.25em 0 0.5em;
+    line-height: 1.5;
+    max-height: 6em;
+    padding-left: 2px;
+    color: #777;
+    overflow : hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    white-space: initial;
+
+    // Fix for non webkit browser multiline ellipsis
+    // Set height to line-height * lines
+    height: 3em;
+
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+
+  @include min-screen(480) {
+
     .image {
-      height: 60%;
-      background-size: cover;
-      background-position: center;
-      min-height: 350px;
+      height: 70%;
+    }
 
-      @include min-screen(768) {
-        min-height: inherit;
+    border-right: 1px solid #eee;
+  }
+
+  // Larger screen
+  @include max-screen(480) {
+    .description {
+      display: none;
+    }
+  }
+
+  // Quotes and tweets
+
+  &.quote {
+    &:after {
+      text-shadow: 0 0 10px rgba(0,0,0,0.5);
+      content: "\201C";
+      color: white;
+      opacity: 0.9;
+      font-size: 100px;
+      position: absolute;
+      left: 25px;
+      top: 47px;
+      z-index: 1;
+      line-height: 40px;
+    }
+  }
+
+  blockquote {
+    font-family: Georgia, serif;
+    font-size: 18px;
+    font-style: italic;
+    max-width: 500px;
+    margin: 0.25em 0;
+    padding: 0.25em 30px;
+    line-height: 1.45;
+    position: relative;
+  }
+
+  blockquote:before {
+    display: block;
+    content: "\201C";
+    font-size: 60px;
+    position: absolute;
+    left: -10px;
+    top: -20px;
+    color: #7a7a7a;
+  }
+
+  blockquote cite {
+    color: #999999;
+    font-size: 14px;
+    display: block;
+    margin-top: 5px;
+
+    &:before {
+      content: "\2014 \2009";
+    }
+  }
+
+
+  // Sources
+  .admin & {
+    &:before {
+      font: 10px helvetica;
+      content: "";
+//      content: attr(data-status);
+      border: 20px solid transparent;
+      position: absolute;
+      width: 0;
+      height: 0;
+      left: -2px;
+      top: -3px;
+      z-index: 1;
+      text-indent: -25px;
+      line-height: 65px;
+      text-transform: uppercase;
+      color: white;
+      @include rotate(-45deg);
+    }
+
+    &.published:before {
+      border-bottom: 20px solid lighten(#57ad68, 10%);
+    }
+
+    &.featured:before {
+      border-bottom: 20px solid lighten(#e16360, 10%);
+    }
+
+    &.archived {
+      .image, .title, .description {
+        opacity: 0.4 !important;
       }
     }
+  }
 
-    .fadein.image{
-      @include transition(opacity 0.15s);
-      opacity: 0.6;
-      background-image: none;
-      background-color: #eee;
+/*
+
+    Item actions
+
+    Define all actions available for a item
+
+    .link             -  Large clickable area of the item
+    .via              -  Source item (magazine, source)
+    .more-action      -  Dispay more action dropdowns
+    .add-to           -
+    %action-btn       -
+
+*/
+  .link {
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    z-index: 1;
+  }
+
+  &.active .link {
+    box-shadow: 0px 0px 5px 1px  rgba(97, 157, 215, 0.5);
+  }
+
+  .no-touch &:hover .link {
+//    box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 8px 1px  rgba(97, 157, 215, 0.5);
+  }
+
+  .via {
+    position: absolute;
+    font-size: 12px;
+    color: #999;
+
+    padding-left: 2px;
+    height: 26px;
+    line-height: 26px;
+    bottom: 10px;
+
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    width: 85%;
+
+    img {
+      margin-right: 5px;
+      vertical-align: middle;
+    }
+  }
+
+  // Abstract class
+  %action-btn {
+    text-align: center;
+    line-height: 30px;
+    display: block;
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+
+    // icon back
+    .no-touch &:before {
+      color: rgba(200, 200, 200, 0.4);
     }
 
-    .fadein.image.hide {
-      visibility: hidden;
-    }
-    .fadein.shown.image {
-      visibility: visible;
-      background-color: none;
-      opacity: 1;
+    .no-touch &:hover {
+      color: rgba(100,100,100, 1);
+      background: rgba(230,230,230,0.3);
     }
 
-    .link {
-      cursor: pointer;
-      color: #222;
+    .no-touch &:active {
+      color: rgba(100,100,100, 1);
+      background: rgba(0, 0, 0, 0.2) !important;
+    }
+  }
+
+  .no-touch &:hover %action-btn {
+    &:before {
+      color: rgba(100,100,100, 0.7);
+    }
+  }
+
+  // More button
+
+  .more-actions {
+    @extend %action-btn;
+    @extend .icon-ellipsis;
+    position: absolute;
+    right: 20px;
+    bottom: 10px;
+    z-index: 3;
+
+    .webview & {
+      display: none;
+    }
+  }
+
+  // Add to button
+  .add-to {
+    @extend %action-btn;
+    @extend .icon-plus-2;
+
+    z-index: 2;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 18px;
+
+    background: rgba(250, 250, 250, 0.75);
+
+    // Icon font
+    &:before {
+      color: rgba(131,130,130, 1);
+    }
+
+    // Default background
+    .no-touch & {
+      background: rgba(250, 250, 250, 0);
+    }
+  }
+
+  // Hovered item, hovered add to item
+  .no-touch &:hover .add-to {
+
+    // Icon font
+    &:before {
+      color: rgba(130, 130 ,130, 1);
+    }
+
+    // Icon area
+    background: rgba(250, 250, 250, 0.75);
+
+    .no-touch &:hover {
+      color: rgba(100,100,100, 1);
+      background: rgba(230,230,230,0.3);
+    }
+  }
+
+  @include min-screen(480) {
+    .more-actions, .via {
+      bottom: 20px;
+    }
+  }
+}
+
+
+
+
+.horizontal & {
+  .row:first-child .item {
+    border-top: 0;
+  }
+}
+
+
+.row .item:last-child {
+  border-right: 0;
+}
+
+.row .col:first-child .product.item .price {
+  margin-bottom: 43px;
+}
+
+/*
+      Product Styles
+*/
+.product, .no-description {
+
+  .overlay {
+    height: 80%;
+  }
+
+  .image {
+    display: block;
+    height: 80%;
+  }
+
+  &.no-source {
+
+  }
+}
+
+.no-description {
+  .description {
+    display: none;
+  }
+}
+
+.no-image {
+  .title {
+    // Fix for non webkit browser multiline ellipsis
+    // Set height to line-height * lines
+    height: 3em;
+
+    margin-top: 20px;
+    font-size: 150%;
+    overflow : hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    -webkit-line-clamp: 2 !important;
+    white-space: normal;
+  }
+
+  .image {
+    display:none;
+  }
+
+  .title {
+    position: relative;
+    left: 0;
+  }
+
+  .description {
+    // Fix for non webkit browser multiline ellipsis
+    // Set height to line-height * lines
+    height: 6em;
+
+    font-weight: 200;
+    font-size: 120%;
+    -webkit-line-clamp: 4 !important;
+  }
+}
+
+.photo, .video {
+  color: white;
+  padding-bottom: 20px;
+
+  .image {
+    position: relative;
+    height: 100%;
+  }
+
+  .description {
+    display: none;
+    color: white;
+  }
+
+  &:not(.split) {
+    .title {
       position: absolute;
-      top: 20px;
-      left: 20px;
       right: 20px;
-      bottom: 50px;
-      text-indent: -5000px;
-      z-index: 1;
+      left: 20px;
+      text-transform: none;
+      font-family: georgia;
+      font-style: italic;
+      padding: 0 10px;
+
+      box-sizing: border-box;
+      color: white;
+      bottom: 45px;
+
+      text-shadow: 0px 1px 3px rgba(0,0,0,0.75);
+
+      font-size: 16px;
+      letter-spacing: 0;
     }
 
-    // Info 40%
-    .info {
+    &:after {
+      content: " ";
+      display: block;
       position: absolute;
       bottom: 0;
       left: 20px;
-      right:19px;
-      background: #fff;
+      right: 20px;
+      padding: 0;
+      background: none;
+      bottom: 20px;
+      height: 70px;
 
-      // Layout
-      @include box-sizing(border-box);
-
-
-      // Layout
-      vertical-align: top;
-      padding: 0.5em 0 0.5em;
-      font-size: 14px;
-      color: #444;
+      @include background(linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.25)));
     }
 
-    .description {
-      font-size: 13px;
-      margin: 0.5em 0 0em;
-      line-height: 1.5;
-      max-height: 5em;
-      color: #777;
-      -webkit-line-clamp: 3;
-      overflow : hidden;
-      text-overflow: ellipsis;
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-    }
-
-    // Sources
     .via {
-      font-size: 12px;
-      color: #999;
-
-      img {
-        vertical-align: middle;
-        margin-right: 5px;
-      }
+      text-shadow: 0 1px 1px rgba(0,0,0,0.7);
+      color: #fff;
+      left: 30px;
+      bottom: 20px;
     }
 
-    .title {
-      /*    Style   */
-      position: relative;
-      font-family: "proxima_nova", "Helvetica Neue";
-
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: #2c2c2c;
-      font-size: 12px;
-      margin: 0 0 0.75em;
-      width: 100%;
-
-      // Elipsis
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-
-
-    .admin & {
-      &:before {
-        content: " ";
-        border: 20px solid transparent;
-        position: absolute;
-        width: 0;
-        height: 0;
-        right: -2px;
-        top: -3px;
-        z-index: 1;
-        @include rotate(45deg);
-      }
-
-      &.published:before {
-        border-bottom: 20px solid lighten(#57ad68, 10%);
-      }
-    }
-
-  }
-
-  .row .item:last-child {
-    border-right: 0;
-  }
-
-  // make sure only the last item in a row doesn't have right border
-  .row .item:first-child {
-//    border-right-width: 1px;
-//    border-right-color: #EEE;
-//    border-right-style: solid;
-  }
-
-  .row .col:first-child .product.item .price {
-    margin-bottom: 43px;
-  }
-
-
-  /*
-  .cover {
-    position:relative;
-    height: 200%;
-    width: 200%;
-    top: -50%;
-    left: -50%;
-  }
-
-  .cover img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-    min-width: 51%;
-    min-height: 50%;
-  }
-  */
-  /*.image.bottom {
-    background-position: bottom !important;
-  }*/
-
-  /*
-
-        Product Styles
-
-  */
-  .product, .no-description {
-
-    .overlay {
-      height: 80%;
-    }
-
-    .image {
-      display: block;
-      height: 80%;
-    }
-
-    &.no-source {
-
+    .more-actions {
+      bottom: 25px;
     }
   }
+}
 
-  .no-description {
-    .description {
-      display: none;
-    }
-  }
+/*
+      Video content
+*/
+.video {
+  .image {
+    position: relative;
+    @extend .icon-play;
 
-  // Large style
-
-  .large {
-    @include min-screen(768) {
-      .title {
-        font-size: 150%;
-        -webkit-line-clamp: 2 !important;
-      }
-
-      .description {
-        font-weight: 200;
-        font-size: 120%;
-        max-height: 30%;
-        -webkit-line-clamp: 5 !important;
-        white-space: normal;
-        max-height: inherit;
-        text-overflow: ellipsis;
-      }
-    }
-  }
-
-  .no-image {
-    @extend .large;
-
-    .title {
-      overflow : hidden;
-      text-overflow: ellipsis;
-      -webkit-box-orient: vertical;
-      display: -webkit-box;
-      white-space: normal;
-    }
-
-    .image {
-      display:none;
-    }
-
-    .info {
-      position: relative;
-//      padding-top: 20%;
-      left: 0;
-//      height: 100%;
-    }
-  }
-
-
-  .product {
-
-    .price {
-      display: block;
-      position: absolute;
-      font-size: 12px;
-
-      top: 20px;
-      left: 20px;
-
-      //right: 20px;
-      //bottom: 34px;
-
-      padding: 6px 18px;
-      height: 20px;
-      line-height: 20px;
-      margin-bottom: 13px;
-
-      font-weight: bold;
-      background: rgba(0, 0, 0, 0.8);
+    &:before {
+      text-shadow: 0 0 10px rgba(0,0,0,0.5);
       color: white;
-    }
-
-    .price:before {
+      opacity: 0.9;
+      font-size: 80px;
       position: absolute;
       left: 50%;
-      top: 100%;
-      width: 0;
-      height: 0;
-      border: solid transparent;
-      content: " ";
+      top: 50%;
+      margin-left: -40px;
+      margin-top: -40px;
+      z-index: 1;
+    }
+    height: 100%;
 
-      margin-left: -7px;
-      border-width: 7px;
-      border-top-color: rgba(0, 0, 0, 0.8);
+  }
+}
+
+/*
+      Product content
+*/
+.product {
+
+  .price {
+    display: inline-block;
+    position: absolute;
+    font-size: 12px;
+
+//    top: -32px;
+    left: 30;
+    margin-top: -30px;
+    padding: 5px 18px;
+    height: 20px;
+    line-height: 20px;
+
+    font-weight: bold;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+  }
+
+  .price:before {
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    width: 0;
+    height: 0;
+    border: solid transparent;
+    content: " ";
+
+    margin-left: -7px;
+    border-width: 7px;
+    border-top-color: rgba(0, 0, 0, 0.8);
+  }
+
+  .description {
+    display: none;
+  }
+
+  .counters {
+    color: #DF5454;
+    font-size: 14px;
+    position: absolute;
+    top: 2%;
+    right: 6%;
+    z-index: 1;
+    line-height: 12px;
+  }
+}
+
+/*
+    Product split view
+*/
+.item.split {
+  @include min-screen(480) {
+
+    .description {
+      width: 48%;
+      -webkit-line-clamp: 5 !important;
+    }
+
+    .image {
+      position: absolute;
+      overflow: hidden;
+      display: inline-block;
+      left: 20px;
+      top: 20px;
+      bottom: 20px;
+      right: 50%;
+      height: auto;
+      vertical-align: middle;
+    }
+
+    .price {
+      top: 13%;
+      margin-top: 20px;
+      right: 50%;
+
+      &:before {
+        left: 100%;
+        top: 50%;
+        margin-left: 0;
+        margin-top: -7px;
+        border: solid transparent;
+        border-width: 6px;
+        border-left-color: rgba(0, 0, 0, 0.8);
+      }
+    }
+
+    .title {
+      margin-top: 5%;
+      margin-left: 52%;
+      font-weight: 200;
     }
 
     .description {
-      display: none;
-      // visibility: hidden;
+      margin-left: 52%;
+      font-weight: 200;
+      font-size: 150%;
+      white-space: normal;
+      max-height: inherit;
+      text-overflow: ellipsis;
     }
 
-    .counters {
-      color: #DF5454;
-      font-size: 14px;
+    .via {
       position: absolute;
-      top: 2%;
-      right: 6%;
-      z-index: 1;
-      line-height: 12px;
-    }
-  }
-
-  /*
-      Product split view
-  */
-  .item.split {
-    @extend .large;
-
-    a.action.love, a.action.collect {
-      top: 50%;
-    }
-
-    @include min-screen(480) {
-
-      .image {
-        overflow: hidden;
-        display: inline-block;
-        width: 49%;
-        left: 0;
-        height: 100%;
-        top: initial;
-        vertical-align: middle;
-      }
-
-      .info:before {
-        position: absolute;
-        bottom: 60%;
-        right: 100%;
-        width: 0;
-        height: 0;
-        border: solid transparent;
-        content: " ";
-        margin-left: -10px;
-        border-width: 7px;
-        border-right-color: #fff;
-      }
-
-      .info {
-        position: absolute;
-        margin: 0;
-        width: 49%;
-        height: auto;
-        padding: 10% 0 31px 20px;
-        font-weight: 200;
-        left: auto;
-        top: 0px;
-        bottom: 0;
-      }
-
-
-      .via {
-        position: absolute;
-        bottom: 20px;
-        left: 20px;
-      }
+      left: 52%;
+      width: 45%;
     }
 
   }
+}
 }
