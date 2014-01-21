@@ -17,11 +17,12 @@
 <style>
 
 
-h1.title {
-  background: url(assets/2-head-or-heart/cover-heading.svg) no-repeat;
-  background-size: 100%;
-  color: transparent;
-  height: 350px;
+  h1.title {
+    background: url(assets/2-head-or-heart/headorheart_RodondoOUTLINE.svg) no-repeat;
+    background-size: 120%;
+    color: transparent;
+    height: 220px; 
+  }
 
   p { font-family: "Trebuchet MS", Helvetica, sans-serif}
   big { font-size: 120% }
@@ -35,20 +36,21 @@ h1.title {
   }
 </style>
 
-<span>IN NEED OF A STYLE UPDATE?     
+<span><bold>IN NEED OF A STYLE UPDATE?     
   WELL WHAT BETTER TIME    
   THAN RIGHT NOW! INSPIRE     
   YOUR LOOK WITH THE OFFICIAL    
   MINKPINK: THE MUSIC ISSUE    
   COLLECTION, STARRING    
-  CHRISTINA PERRI..</span>
+  CHRISTINA PERRI..</bold></span>
 
-<small>PHOTOGRAPHY BY MIKE PISCATELLI</small>    
-  <small>STYLING BY MARK VASALLO</small>
+<small>PHOTOGRAPHY BY MIKE PISCITELLI</small>    
+  <small>STYLING BY MARK VASSALLO</small>
 
-<!-- <figure>
+
+<figure>
   <figcaption>[MINKPINK Morrocon Tile Tank and Morrocan Tile Short]</figcaption>
-</figure> -->
+</figure> 
 
 <div id="jquery_jplayer_1" class="cp-jplayer"></div>
 

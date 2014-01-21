@@ -17,7 +17,7 @@
         
       - title : Indy C Triple Triangle Chain Gold 
         url: http://www.surfstitch.com/product/indy-c-triple-triangle-chain-gold
-        image_url: http://images.getprice.com.au/uploadimg/837/250_9199725.jpg
+        image_url: assets/3-shop-the-shoot/triangle.jpg
         price: $17.97 AUD
         description: Each season the Indy C team scours the globe & creates a diverse, on-trend range offering unique & affordable pieces that get noticed. 
       

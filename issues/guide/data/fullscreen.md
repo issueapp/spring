@@ -12,6 +12,15 @@
 
 ---
 
+
+```
+layout:
+  type: two-column
+  image_style: background
+  content_align: right
+  content_valign: bottom
+```
+
 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, sapiente nulla dignissimos animi velit quae dolorem non optio iusto voluptates quaerat sint illum repellendus possimus dolorum minima porro odio modi.
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, illum, facere, laudantium reprehenderit voluptatem aspernatur labore magnam asperiores saepe voluptates optio vel quas placeat suscipit facilis ad incidunt ullam autem?

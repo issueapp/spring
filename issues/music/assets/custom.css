@@ -24,6 +24,22 @@ article.page figure {
   text-align: center;
 }
 
+
+h2 {
+  font-size: 18px;
+  font-weight: lighter;
+  display: inline-block;
+  background: black;
+  color: white;
+  margin-bottom: 0em;
+}
+
+/*p { font-family: "Trebuchet MS", Helvetica, sans-serif}*/
+small { font-size: 90% }
+p > span { font-style: normal; font size: 100%; }
+
+
+
 /*
   Cover
 */
@@ -89,8 +105,8 @@ article.toc.page header {
 
 article.toc.page #signature {
   display: block;
-  margin: 0 0 20px;
-  width: 240px;
+  margin: 0;
+  width: 180px;
 }
 
 article.toc.page .cover-area {

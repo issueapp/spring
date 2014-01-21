@@ -28,7 +28,9 @@ Can Dance’. Since then, it’s been a head spinningly <big>crazy ride</big> fo
 and it shows no signs of slowing!
 
 
-<span>MINKPINK</span>’s ‘The Music Issue’ sees Christina Perri rocking out all the hottest <span>MINKPINK</span> trends at legendary LA music studio Mates, where she also recently recorded her eagerly anticipated second album ‘Head & Heart’, set to be a smash hit worldwide. With the help of superstar stylist Mark Vassallo and iconic photographer Mike Piscatelli, Christina Perri has put her own <big>unique stamp</big> on every look, epitomising what it means to be a <span>MINKPINK</span> girl.
+<span>MINKPINK</span>’s ‘The Music Issue’ sees Christina Perri rocking out all the hottest <span>MINKPINK</span> trends at legendary LA music studio Mates, where she also recently recorded her eagerly anticipated second album ‘Head & Heart’, set to be a smash hit worldwide. With the help of superstar stylist Mark Vassallo and iconic photographer Mike Piscatelli, Christina Perri has put her own <big>unique stamp</big> on every look. 
 
-So why is Miss Perri the ultimate <span>MINKPINK</span> babe? Well for us that’s pretty much a no brainer. Not one to be defined by convention, Christina’s unique <big>brand of cool</big> is irresistible to anyone who meets her - this is one chick who talks the talk and walks the walk, and has stayed <big>true to herself</big> and her style from the get go. With a finger firmly on the pulse of all things fashion, music and social media, Christina’s passion for life is infectious, and her playful demeanour and <big>free spirited</big> attitude define what it means to live in the moment - it’s practically impossible to take a look at <span>MINKPINK</span>’s The Music Issue and not come away feeling just that little bit more inspired…
-For the love of <span>MINKPINK</span>…be brave and free.
+So why is Miss Perri the ultimate <span>MINKPINK</span> babe? Well for us that’s pretty much a no brainer. Not one to be defined by convention, Christina’s unique <big>brand of cool</big> is irresistible to anyone who meets her - this is one chick who talks the talk and walks the walk, and has stayed <big>true to herself</big> and her style from the get go. With a finger firmly on the pulse of all things fashion, music and social media, Christina’s passion for life is infectious, and her playful demeanour and <big>free spirited</big> attitude define what it means to live in the moment. 
+
+
+
