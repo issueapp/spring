@@ -7,6 +7,7 @@
 
 #= require mustache
 
+#= require spring.ui
 #= require app/core
 #= require app/layout
 #= require app/hotspot

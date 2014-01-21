@@ -90,9 +90,10 @@ article.page .content.stop-scrolling {
   vertical-align: top;
 }
 
-.product-popover .details .title,
-.product-popover .details .subtitle {
+.product-popover .title,
+.product-popover .subtitle {
   display: -webkit-box;
+  
   overflow : hidden;
   text-overflow: ellipsis;
   white-space: normal;
@@ -101,20 +102,20 @@ article.page .content.stop-scrolling {
   -webkit-box-orient: vertical;
 }
 
-.product-popover .details .title {
+.product-popover .title {
   font-size: 14px;
   font-family: "proxima_nova_bold";
   line-height: 1.6;
   margin: 0;
 }
 
-.product-popover .details .subtitle {
+.product-popover .subtitle {
   color: white;
   font-size: 14px;
   margin-bottom: 0.5em;
 }
 
-.product-popover .details .description {
+.product-popover .description {
   clear: none;
   margin: 0;
   font-size: 14px;
@@ -138,7 +139,7 @@ article.page .content.stop-scrolling {
   white-space: normal;
 }
 
-.product-popover .actions .button {
+.product-popover .button {
   margin: 5px 5px 0 0;
   border: none;
   text-transform: uppercase;
@@ -197,7 +198,7 @@ article.page .content.stop-scrolling {
     animation: initial;
   }
 
-  .product-popover .details .description {
+  .product-popover .description {
     white-space: normal;
   }
 }
