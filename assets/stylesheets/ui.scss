@@ -37,7 +37,7 @@ nav.tab-menu {
   a {
     padding: 10px 10px;
     display:block;
-    &:hover {
+    .no-touch &:hover {
       background: #eee;
     }
   }
@@ -69,7 +69,3 @@ footer {
 
 //------ ui/modal
 //------- ui/discover_menu
-
-
-@import 'app/menu';
-@import 'app/toolbar';

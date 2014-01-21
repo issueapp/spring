@@ -103,7 +103,7 @@ class Hotspot extends Backbone.View
       <div class="content">
 
         <% if (image_url) { %>
-        <div class="thumb-image" style="background-image: url('<%= image_url %>')"></div>
+        <img src="<%= image_url %>" class="thumb-image" >
         <% } %>
 
         <h3 class="title"><%= title %></h3>
