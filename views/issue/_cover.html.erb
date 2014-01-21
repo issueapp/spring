@@ -10,13 +10,9 @@
       
       <ul>
         <li>
-          <div>
-            <h2>#1</h2>
-            <a class="active"  href="#"><i class="icon-edit"> </i >Music</a>
-            >
-          </div>
-          <a href="">
+          <a class="active"  href="#"><i class="icon-edit"> </i >Music</a>
         </li>
+        
         <li>
           <a href="#"><i class="icon-tag"> </i> Affection</a>
         </li>
@@ -29,12 +25,9 @@
       </ul>
     </div>
   </h1>
-  
-  
-    <a href="#" class="open-target right" rel="popover">Some</a>
 </header>
 
-<section class="magazine cover page fullscreen dark-theme " style="background-image: url(<%= issue.background_url %>);">
+<section class="magazine cover page fullscreen dark-theme " style="background-image: url(<%= issue.background_large_url %>);">
   <div class="container">
     
     <img class="issue-logo" style="zoom: 0.8" src="/images/logo-round-white.svg"></img>
@@ -48,7 +41,7 @@
       <h2 class="description"><%= issue.description %></h2>
     </hgroup>
     
-    <!-- <a class="subscribe" href="#"></a> -->
+    <a class="subscribe" href="#"></a>
     <a class="browse" href="toc">‹</a>
     <a class="download" href="#"></a>
   </div>

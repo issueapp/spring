@@ -16,6 +16,14 @@ items:
   - title: Table of Content
     handle: "toc"
 
+  - title: Icon design
+    category: Design
+    handle: "icons"
+    image_url: "http://lorempixel.com/200/158"
+    pages:
+      - handle: "1"
+      - handle: "2"
+
   - title: One Column
     category: Layout
     handle: "one-col"
