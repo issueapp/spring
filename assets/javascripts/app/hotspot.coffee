@@ -89,7 +89,7 @@ class Hotspot extends Backbone.View
     return data unless data
 
     spacing       = 18
-    arrowSpacing  = 110
+    arrowSpacing  = 60
 
     dimension = @hotspot[0].getBoundingClientRect()
     center_pos = {
