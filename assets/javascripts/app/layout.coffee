@@ -44,7 +44,7 @@ Layout = {
     }
 
     # Update content UI    #
-    # this.updateContentWidth()
+    this.updateContentWidth()
 
     # Trigger layout refresh event with previous dimension
     App.trigger("layout:refresh", previous: previous)
