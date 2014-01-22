@@ -150,7 +150,7 @@ article.page[data-page="4-beauty"] #uncovered {
 article.page[data-page="4-beauty"].has-product .product-set {
   margin-bottom: 160px;
   height: 570px;
-  background-image: url('/music/assets/4-beauty/cover-bg.png');
+  background-image: url('/music/assets/4-beauty/cover-bg.jpg');
   background-position: center;
   background-size: cover;
 }
@@ -195,9 +195,29 @@ article.page[data-page="4-beauty/1"].has-product .product-set {
   width: initial;
 }
 
-article.page[data-page="4-beauty/1"] .product-set.set-4 li {
+article.page[data-page="4-beauty/1"].has-product .product-set.set-4 li {
   width: 100%;
   height: 160px;
+}
+
+article.page[data-page="4-beauty/2"].has-product .content {
+  background: rgba(0, 0, 0, 0.85);
+}
+
+article.page[data-page="4-beauty/2"].has-product .product-set {
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: white;
+
+  position: relative;
+  margin: -15px -15px 20px;
+  width: 320px;
+  padding: 20px 0;
+}
+
+article.page[data-page="4-beauty/2"].has-product .product-set.set-4 li {
+  height: 220px;
 }
 
 @media only screen and (min-width: 768px) {
@@ -240,8 +260,15 @@ article.page[data-page="4-beauty/1"] .product-set.set-4 li {
     margin-bottom: 0;
   }
 
-  article.page[data-page="4-beauty/1"] .product-set.set-4 li {
+  article.page[data-page="4-beauty/1"].has-product .product-set.set-4 li {
     height: 230px;
+  }
+
+  article.page[data-page="4-beauty/2"].has-product .product-set {
+    position: absolute;
+    margin: 0;
+    width: 33%;
+    padding-top: 150px;
   }
 }
 
@@ -270,5 +297,16 @@ article.page[data-page="4-beauty/1"] .product-set.set-4 li {
 
   article.page[data-page="4-beauty"].has-product .product-set li:nth-child(5) .hotspot {
     margin-top: 0px;
+  }
+
+  article.page[data-page="4-beauty/2"].has-product .product-set {
+    position: absolute;
+    margin: 0;
+    padding-top: 200px;
+    width: 33%;
+  }
+
+  article.page[data-page="4-beauty/2"].has-product .column-break {
+    height: 100%;
   }
 }
