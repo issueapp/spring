@@ -25,7 +25,7 @@ article.page figure {
 }
 
 
-article.page .body h2 {
+article.page .body h3 {
   font-size: 18px;
   font-weight: lighter;
   display: inline-block;
@@ -153,5 +153,15 @@ article.page[data-page="2-head-or-heart/2"] .body p {
     margin-left: -202px;
     width: 416px;
     height: 166px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (orientation: landscape) {
+  article.page[data-page="5-travel/1"] #theasure {
+    margin-top: 50px;
+  }
+  
+  article.page[data-page="5-travel/1"] #shopping {
+    margin-bottom: 240px;
   }
 }
