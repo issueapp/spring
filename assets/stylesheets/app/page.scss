@@ -154,8 +154,8 @@ article.page {
     right: 20px;
     bottom: 20px;
     width: 200px;
-  
-    font: bold 12px "proxima-nova";  
+
+    font: bold 12px "proxima-nova";
   }
 
   blockquote {
@@ -289,9 +289,13 @@ article.page {
 
   // Content Layout
 
-  &.black .content {
-    @extend .dark-theme;
-    background: rgba(0, 0, 0, 0.7);
+  &.black {
+    background-color: black;
+
+    .content {
+      @extend .dark-theme;
+      background: rgba(0, 0, 0, 0.7);
+    }
   }
 
   &.caption .content {
@@ -489,8 +493,8 @@ article.page.toc {
     color: #555;
     text-transform: uppercase;
     letter-spacing: 1px;
-    
-    font: normal 12px/1 "proxima-nova";    
+
+    font: normal 12px/1 "proxima-nova";
   }
 
   .menu li .author {

@@ -33,19 +33,19 @@ article.page .content.stop-scrolling {
 */
 
 .popover {
-  
+
   @include clearfix;
   @include box-sizing(border-box);
-  
+
   opacity: 0;
   width: 100%;
-  
+
   display: block;
   position: fixed;
   bottom: 0;
   left: 0;
   padding: 10px 20px;
-  
+
   font-family: $proxima_nova;
   font-size: 16px;
   line-height: 24px;
@@ -54,7 +54,7 @@ article.page .content.stop-scrolling {
 
   background: $content-color;
   min-height: 100px;
-  
+
   /*  Popover content style */
 
   h3, .title {
@@ -63,7 +63,7 @@ article.page .content.stop-scrolling {
     letter-spacing: 2px;
     margin: 10px 0 0.5em;
   }
-  
+
   footer {
     clear: left;
     position: absolute;
@@ -73,29 +73,29 @@ article.page .content.stop-scrolling {
     min-height: 40px;
     max-height: 240px;
     width: 100%;
-    
+
     @include linear-gradient(to bottom, rgba(36,36,36, 0.3) 0%, rgba(36,36,36, 1) 50%, rgba(36,36,36,1) 100%);
-    
+
     color: white;
     vertical-align: middle;
     text-align: right;
     white-space: normal;
   }
-  
+
   .thumb-image {
     display: block;
     margin: 0 auto;
     max-height: 260px;
     vertical-align: top;
   }
-  
+
   .content {
     overflow: scroll;
     max-height: 300px;
     margin: 0 -20px 0;
     padding: 10px 20px 20px;
   }
-  
+
   .button {
     font-weight: bold;
     margin: 5px 5px 0 0;
@@ -103,17 +103,17 @@ article.page .content.stop-scrolling {
     text-transform: uppercase;
     letter-spacing: 1px;
   }
-  
+
   p.subtitle {
     font: italic 14px georgia;
     margin: 0;
     color: #cccccc;
   }
-  
+
   p {
     margin: .5em 0;
   }
-  
+
   /*
       Style
   */
@@ -125,7 +125,7 @@ article.page .content.stop-scrolling {
     min-height: 200px;
     max-height: 360px;
   }
-  
+
   li {
     display: block;
     float: none;
@@ -134,7 +134,7 @@ article.page .content.stop-scrolling {
     border-top: 1px solid #eee;
     background-image: none;
   }
-  
+
   li a:not(.button) {
     color: $text-color;
     height: 15px;
@@ -149,12 +149,12 @@ article.page .content.stop-scrolling {
     text-shadow: none;
     font-weight: normal;
     color: #6f6f6f;
-    
+
     &:active, &.active {
       color: #6f6f6f;
     }
   }
-  
+
   li:hover a {
    background: #eee;
    color: #555;
@@ -163,13 +163,13 @@ article.page .content.stop-scrolling {
   li:first-child {
     border-top: none;
   }
-  
+
   /*
-  
+
       Transitions
-  
+
   */
-  
+
   &.show {
     -webkit-animation: slideupa 0.35s forwards;
     animation: show 0.35s forwards;
@@ -179,43 +179,43 @@ article.page .content.stop-scrolling {
     -webkit-animation: slidedowna 0.35s forwards;
     animation: hide 0.35s forwards;
   }
-  
-  
+
+
   &.slidedown {
     top: 0;
     left: 0;
     bottom: initial;
-    
+
     &.show {
       -webkit-animation: down 0.35s forwards;
       animation: show 0.35s forwards;
     }
-  
+
     &.hide {
       -webkit-animation: up 0.35s forwards;
       animation: hide 0.35s forwards;
     }
-    
+
   }
-  
+
   /*
       Themes
   */
   &.dark-theme {
     color: #fff;
     text-shadow: 0 -1px 0 #000;
-    
+
     box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.2), 1px 0 10px rgba(0, 0, 0, 0.3);
     @include radial-gradient( #303030, $dark-content-color );
   }
-  
-  
+
+
   /*
       Large screen style
   */
   @include min-screen(768) {
     @extend %dropdown-arrow;
-    
+
     //    display: none;
     position: absolute;
     max-width: 480px;
@@ -229,32 +229,37 @@ article.page .content.stop-scrolling {
     left: initial;
     top: initial;
     right: initial;
-    
-  
+
+    .content {
+      max-height: 250px;
+    }
+
     .thumb-image {
       float: left;
       margin: 10px 15px 10px 0;
-      width: 100px;
-      height: 120px;
+      width: 120px;
       outline: 1px solid #ddd;
+      background-color: white;
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;
       vertical-align: top;
     }
-  
+
     // Transition
 
     &.show {
       -webkit-animation: fade 0.3s forwards;
       animation: show 0.3s forwards;
     }
-  
+
     &.hide {
       -webkit-animation: fadeOut 0.3s forwards;
       animation: hide 0.3s forwards;
     }
-    
+
+    $arrow-offset: 48px;
+
     // Arrow
     .arrow {
       position: absolute;
@@ -264,8 +269,8 @@ article.page .content.stop-scrolling {
       border-color: transparent;
       border-style: solid;
       border-width: 11px;
-  
-  
+
+
       &.up {
         top: -10px;
         left: 50%;
@@ -273,7 +278,7 @@ article.page .content.stop-scrolling {
         border-top-width: 0;
         border-bottom-color: $border-color;
       }
-  
+
       &:after {
         position: absolute;
         display: block;
@@ -281,25 +286,25 @@ article.page .content.stop-scrolling {
         height: 0;
         border-color: transparent;
         border-style: solid;
-    
+
         content: " ";
-    
+
         top: 1px;
         margin-left: -10px;
         border-width: 10px;
-    
+
         border-bottom-color: $content-color;
         border-top-width: 0;
       }
 
-  
+
       &.down {
         bottom: -11px;
         left: 50%;
         border-bottom-width: 0;
         border-top-color: $border-color;
-    
-        &:after {    
+
+        &:after {
           top: -11px;
           margin-left: -10px;
           border-width: 10px;
@@ -308,39 +313,39 @@ article.page .content.stop-scrolling {
           border-bottom-width: 0;
         }
       }
-  
+
       &.left{
-        left: 100px;
         right: auto;
+        left: $arrow-offset;
       }
-  
+
       &.right {
         left: auto;
-        right: 100px;
+        right: $arrow-offset;
       }
     }
-  
-  
+
+
     &.dark-theme {
       .arrow {
         &:after {
           border-bottom-color: $dark-content-color;
         }
-    
+
         &.up {
           border-bottom-color: $dark-border-color;
         }
-    
+
         &.down {
           border-top-color: $dark-border-color;
         }
-    
+
         &.down:after {
-          border-top-color: $dark-content-color; 
+          border-top-color: $dark-content-color;
         }
       }
     }
-    
+
   }
 }
 
@@ -667,7 +672,7 @@ article.page .content.stop-scrolling {
 //  max-height: 260px;
 //  width: 100%;
 //  opacity: 0;
-//  
+//
 //  background-color: rgba(50, 50, 50, 1);
 //  box-shadow: 1px 0 10px rgba(0,0,0,0.6);
 //  text-shadow: rgba(0,0,0,0.3) 1px 1px 3px;
@@ -728,7 +733,7 @@ article.page .content.stop-scrolling {
 //.product-popover .title,
 //.product-popover .subtitle {
 //  display: -webkit-box;
-//  
+//
 //  overflow : hidden;
 //  text-overflow: ellipsis;
 //  white-space: normal;
@@ -785,7 +790,7 @@ article.page .content.stop-scrolling {
 //  .product-popover {
 //    position: absolute;
 ////    display: none;
-//    
+//
 //    visibility: hidden;
 //    width: 480px;
 //    opacity: 1;
@@ -821,14 +826,14 @@ article.page .content.stop-scrolling {
 //
 //  .product-popover.show {
 //    visibility: visible;
-//    
+//
 //    -webkit-animation: initial;
 //    animation: initial;
 //  }
 //
 //  .product-popover.hide {
 //    visibility: hidden;
-//    
+//
 //    -webkit-animation: initial;
 //    animation: initial;
 //  }
