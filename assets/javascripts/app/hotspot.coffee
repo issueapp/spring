@@ -146,7 +146,7 @@ class Hotspot extends Backbone.View
     $('body').append(@popover)
 
     popStyle = @popover[0].getBoundingClientRect()
-    
+
     arrow = @popover.find('.arrow')
 
     # Position popover/arrow
@@ -180,8 +180,8 @@ class Hotspot extends Backbone.View
 
     # show popover
     @popover.removeClass("hide").addClass("show")
-    $('body').toggleClass('stop-scrolling')
-    $('article.page .content').toggleClass('stop-scrolling')
+    $('body').addClass('stop-scrolling')
+    $('article.page .content').addClass('stop-scrolling')
 
 # Export to global namespace (window or global)
 this.Hotspot = Hotspot

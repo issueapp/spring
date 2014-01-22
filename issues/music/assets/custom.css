@@ -138,6 +138,54 @@ article.page[data-page="2-head-or-heart/2"] .body p {
   text-align: center;
 }
 
+/*  Replace page heading with outline heading (change background url or height if needed) */
+article.page[data-page="4-beauty"] #uncovered {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 120px;
+}
+
+article.page[data-page="4-beauty"].has-product .product-set {
+  margin-bottom: 160px;
+  height: 570px;
+  background-image: url('/music/assets/4-beauty/cover-bg.png');
+  background-position: center;
+  background-size: cover;
+}
+
+article.page[data-page="4-beauty"].has-product .product-set li {
+  height: auto;
+}
+
+article.page[data-page="4-beauty"].has-product .product-set .hotspot {
+  display: block;
+}
+
+article.page[data-page="4-beauty"].has-product .product-set li:nth-child(1) .hotspot {
+  margin-top: 130px;
+}
+
+article.page[data-page="4-beauty"].has-product .product-set li:nth-child(2) .hotspot {
+  margin-top: -80px;
+}
+
+article.page[data-page="4-beauty"].has-product .product-set li:nth-child(3) .hotspot {
+  margin-top: 85px;
+}
+
+article.page[data-page="4-beauty"].has-product .product-set li:nth-child(4) .hotspot {
+  margin-top: -90px;
+}
+
+article.page[data-page="4-beauty"].has-product .product-set li:nth-child(5) {
+  margin-left: 150px;
+}
+
+article.page[data-page="4-beauty"].has-product .product-set li:nth-child(5) .hotspot {
+  margin-top: -40px;
+}
+
 @media only screen and (min-width: 768px) {
   section.magazine.cover nav[role="navigation"] {
     display: block;
@@ -154,14 +202,51 @@ article.page[data-page="2-head-or-heart/2"] .body p {
     width: 416px;
     height: 166px;
   }
+
+  article.page[data-page="4-beauty"] #uncovered {
+    position: absolute;
+    right: initial;
+    left: 0;
+    width: 230px;
+  }
+
+  article.page[data-page="4-beauty"] #uncovered-description {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin-bottom: 20px;
+    padding: 20px;
+    width: 400px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    font-weight: bold;
+  }
+
+  article.page[data-page="4-beauty"].has-product .product-set {
+    margin-bottom: 0;
+  }
 }
 
 @media only screen and (min-width: 768px) and (orientation: landscape) {
   article.page[data-page="5-travel/1"] #theasure {
     margin-top: 50px;
   }
-  
+
   article.page[data-page="5-travel/1"] #shopping {
     margin-bottom: 240px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (orientation: portrait) {
+  article.page[data-page="4-beauty"].has-product .product-set {
+    margin: 120px -20px 0;
+  }
+
+  article.page[data-page="4-beauty"].has-product .product-set li:nth-child(5) {
+    margin-left: 110px;
+  }
+
+  article.page[data-page="4-beauty"].has-product .product-set li:nth-child(5) .hotspot {
+    margin-top: 0px;
   }
 }
