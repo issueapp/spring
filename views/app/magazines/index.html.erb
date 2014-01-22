@@ -11,7 +11,6 @@
 </style>
   
 <div role="main" id="discover-page" class="search-view">
-  
   <header class="toolbar dark-theme transparent fixed">
     <a class="back left" href="javascript:history.back()"><span>back</span></a>
     
@@ -31,19 +30,6 @@
   <ul class="magazine-list <%= "grid" if params[:layout] == "grid" %>">
   </ul>
 </div>
-
-<script id="magazine_tpl" type="text/mustache">
-  <div class="magazine {{#offline}}offline{{/offline}}" style="background-image: url({{ background_url }})" data-id={{ id }}>
-    <div class="content">
-      <h4 class="brand">{{ magazine_title }}</h3>
-      <h3 class="title">{{ short_title }}</h3>
-    </div>
-    <pregress></pregress>
-    <a class="link" href="{{ url }}"></a>
-    <a class="subscribe"></a>
-    <a class="download"></a>
-  </div>
-</script>
 
 <script>
 
