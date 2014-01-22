@@ -129,9 +129,9 @@ class Hotspot extends Backbone.View
         <footer>
 
           <% if (action == "shop") { %>
-            <a href="<%= url %>" class="button small outline" data-track="<%= action %>">Shop now</a>
+            <a href="<%= url %>" class="button small outline" data-track="<%= action %>" target="_blank">Shop now</a>
           <% } else { %>
-            <a href="<%= url %>" class="button small outline" data-track="<%= action %>">View more</a>
+            <a href="<%= url %>" class="button small outline" data-track="<%= action %>" target="_blank">View more</a>
           <% } %>
 
         </footer>

@@ -187,6 +187,19 @@ article.page[data-page="4-beauty"].has-product .product-set li:nth-child(5) .hot
   margin-top: -40px;
 }
 
+article.page[data-page="4-beauty/1"].has-product .product-set {
+  position: relative;
+  top: initial;
+  left: initial;
+  margin: 0;
+  width: initial;
+}
+
+article.page[data-page="4-beauty/1"] .product-set.set-4 li {
+  width: 100%;
+  height: 160px;
+}
+
 @media only screen and (min-width: 768px) {
   section.magazine.cover nav[role="navigation"] {
     display: block;
@@ -225,6 +238,10 @@ article.page[data-page="4-beauty"].has-product .product-set li:nth-child(5) .hot
 
   article.page[data-page="4-beauty"].has-product .product-set {
     margin-bottom: 0;
+  }
+
+  article.page[data-page="4-beauty/1"] .product-set.set-4 li {
+    height: 230px;
   }
 }
 
