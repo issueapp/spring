@@ -139,7 +139,6 @@ class Hotspot extends Backbone.View
     </div>
     """
 
-
     @popover.remove() if @popover
 
     @popover = $(_.template(template, data))
