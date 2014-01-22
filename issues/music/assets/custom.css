@@ -200,20 +200,14 @@ article.page[data-page="4-beauty/1"].has-product .product-set.set-4 li {
   height: 160px;
 }
 
-article.page[data-page="4-beauty/2"].has-product .content {
-  background: rgba(0, 0, 0, 0.85);
-}
-
 article.page[data-page="4-beauty/2"].has-product .product-set {
-  top: 0;
-  left: 0;
-  height: 100%;
-  background: white;
-
   position: relative;
+  top: 0;
+  right: 0;
+  left: initial;
   margin: -15px -15px 20px;
-  width: 320px;
   padding: 20px 0;
+  width: 320px;
 }
 
 article.page[data-page="4-beauty/2"].has-product .product-set.set-4 li {
@@ -270,6 +264,15 @@ article.page[data-page="4-beauty/2"].has-product .product-set.set-4 li {
     width: 33%;
     padding-top: 150px;
   }
+
+  article.page[data-page="4-beauty/2"].has-product h2 {
+    font-family: 'rodondoregular';
+    font-size: 65px;
+  }
+
+  article.page[data-page="4-beauty/2"].has-product .column-break {
+    display: none;
+  }
 }
 
 @media only screen and (min-width: 768px) and (orientation: landscape) {
@@ -299,14 +302,18 @@ article.page[data-page="4-beauty/2"].has-product .product-set.set-4 li {
     margin-top: 0px;
   }
 
+  article.page[data-page="4-beauty/2"].has-product .body {
+    height: 110%;
+  }
+
+  article.page[data-page="4-beauty/2"].has-product h2 {
+    font-size: 80px;
+  }
+
   article.page[data-page="4-beauty/2"].has-product .product-set {
     position: absolute;
     margin: 0;
     padding-top: 200px;
     width: 33%;
-  }
-
-  article.page[data-page="4-beauty/2"].has-product .column-break {
-    height: 100%;
   }
 }
