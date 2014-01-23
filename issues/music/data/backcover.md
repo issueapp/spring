@@ -32,4 +32,7 @@
   }
 </style>
 
-<img id="image" src="assets/6-behind-the-scene/p1-1.png" alt="">
+
+<a href="http://minkpink.com/" title="Visit Minkpink" target="_blank">
+  <img id="image" src="assets/6-behind-the-scene/p1-1.png" alt="">
+</a>

@@ -16,8 +16,45 @@ p:empty {
          url('fonts/rodondo-webfont.svg#rodondoregular') format('svg');
 }
 
+
+/* Branding */
+
+section.magazine.cover .brand {
+  
+}
+
+#seditors-letter header {
+  margin: 0;
+}
+
+section.magazine.cover .title {
+  font-weight: normal;
+  font-family: 'rodondoregular' !important;
+  
+}
+
+article.page.toc .cover-area .brand-logo {
+  margin-bottom: -20px;
+  left: initial;
+  bottom: initial;
+  margin: 60px auto 0;
+  max-width: 350px;
+  position: static;
+  
+}
+
+article.page.toc h2 {
+  font-family: "rodondoregular";
+  
+}
+
+article.page.toc .menu li .story {
+  font-family: "rodondoregular";
+  text-decoration: none;
+}
+
 article.page figcaption {
-  padding: 10px;
+  padding: 10px 0;
   text-align: right;
   font-style: normal;
   font-size: 80%;
@@ -35,6 +72,22 @@ article.page .body h3 {
   color: white;
   font-weight: lighter;
   font-size: 18px;
+  margin-bottom: 0.5em;
+}
+
+article.page .body h4 {
+  display: inline-block;
+  margin-bottom: 0em;
+}
+
+
+article.page .body h2 {
+  font-size: 20px;
+}
+
+article.page .body p {
+  line-height: 22px;
+  margin: 0.15em 0 1em;
 }
 
 /*p { font-family: "Trebuchet MS", Helvetica, sans-serif}*/
