@@ -81,13 +81,9 @@ article.page {
       }
     }
 
-    figcaption {
-      position: absolute;
-      right: 0;
+    figcaption.inset {
+      top: initial;
       bottom: 0;
-      color: white;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
-      font-weight: bold;
     }
   }
 
@@ -213,10 +209,23 @@ article.page {
     text-align: right;
   }
 
-  figcaption {
-    padding: 20px 30px 20px;
-    font-style: italic;
-    font-size: 80%;
+  figure {
+    position: relative;
+
+    figcaption {
+      padding: 20px 30px 20px;
+      font-style: italic;
+      font-size: 80%;
+    }
+
+    figcaption.inset {
+      position: absolute;
+      top: 0;
+      right: 10px;
+      color: white;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+      font-weight: bold;
+    }
   }
 
   .image.cover {
@@ -239,6 +248,10 @@ article.page {
     word-break:hyphenate;
     -webkit-hyphens: auto;
     line-height: 1.4;
+  }
+
+  ul {
+    padding-left: 20px;
   }
 
   .body {
@@ -544,10 +557,6 @@ article.page.has-product {
     .product-set {
       margin: 0;
     }
-
-    .product-set li {
-      height: 210px;
-    }
   }
 
   header .title {
@@ -578,7 +587,7 @@ article.page.has-product {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    padding: 5px;
+    padding: 5px 0;
     height: 190px;
     vertical-align: middle;
     text-align: center;
@@ -860,7 +869,7 @@ article.page.has-product {
     }
 
     &.no-image .content {
-      width: 100%;
+      // width: 100%;
     }
 
     &.no-image .product-set li {
@@ -868,7 +877,7 @@ article.page.has-product {
     }
 
     &.no-image .product-set.set-6 li {
-      width: 30%;
+      // width: 30%;
     }
   }
 }

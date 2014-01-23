@@ -71,7 +71,6 @@ items:
     image_url: "assets/toc/4-beauty.jpg"
     pages:
       - handle: "1"
-      - handle: "2"
 
   - title: Let Loose in Lala Land
     category: travel
