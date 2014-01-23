@@ -253,6 +253,20 @@ article.page[data-page="4-beauty/2"].has-product .product-set.set-4 li {
     height: 166px;
   }
 
+  article.page[data-page="2-head-or-heart"] header .title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: -30px;
+    margin-left: -204px;
+    width: 707px;
+    height: 550px;
+  }
+
+  article.page[data-page="2-head-or-heart"] .body {
+    margin-top: 480px;
+  }
+
   article.page[data-page="4-beauty"] #uncovered {
     position: absolute;
     right: initial;
@@ -304,6 +318,15 @@ article.page[data-page="4-beauty/2"].has-product .product-set.set-4 li {
 }
 
 @media only screen and (min-width: 768px) and (orientation: portrait) {
+  article.page[data-page="2-head-or-heart"] header .title {
+    margin-left: -165px;
+    width: 583px;
+  }
+
+  article.page[data-page="2-head-or-heart"] .body {
+    margin-top: 400px;
+  }
+
   article.page[data-page="4-beauty"].has-product .product-set {
     margin: 120px -20px 0;
   }
