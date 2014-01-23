@@ -38,6 +38,7 @@ items:
 
   - title: "Editors Letter"
     handle: "editors-letter"
+    image_url: "assets/toc/editors-letter.jpg"
 
   - title: "Christina Perri"
     category: interview
