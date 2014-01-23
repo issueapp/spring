@@ -76,7 +76,8 @@ article.page .body h3 {
 }
 
 article.page .body h4 {
-  display: inline-block;
+  font-family: "EB Garamond";
+
   margin-bottom: 0em;
 }
 
@@ -186,10 +187,16 @@ article.toc.page .body p:first-child {
   Story 1: Interview;
 */
 
+article.page[data-page="1-styling-it-out"] header  {
+  padding-top: 130px;
+}
+
 article.page[data-page="1-styling-it-out"] header .category {
   color: black;
   text-align: left;
-  font-size: 32px;
+  margin-top: 200px;
+  font-size: 40px;
+  top: 200px;
   font-family: 'rodondoregular';
 }
 

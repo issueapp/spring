@@ -18,8 +18,8 @@
 
 
   h1.title {
-    background: url(assets/2-head-or-heart/headorheart_RodondoOUTLINE.svg) no-repeat;
-    background-size: 120%;
+    background: url(assets/2-head-or-heart/cover-heading.svg) no-repeat;
+    background-size: contain%;
     color: transparent;
     height: 220px;
   }
