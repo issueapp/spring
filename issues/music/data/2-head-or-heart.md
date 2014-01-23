@@ -5,7 +5,7 @@
     #author_name: Zyralyn Bacani
     #author_icon: http://cl.ly/StPu/Image%202013.12.11%204%3A54%3A01%20pm.png
     image_url: assets/2-head-or-heart/p3-6_opt.jpeg
-
+    cover_caption: '[MINKPINK Morrocon Tile Tank and Morrocan Tile Short]'
     images:
       - url: assets/2-head-or-heart/p3-6_opt.jpg
 
@@ -21,7 +21,7 @@
     background: url(assets/2-head-or-heart/headorheart_RodondoOUTLINE.svg) no-repeat;
     background-size: 120%;
     color: transparent;
-    height: 220px; 
+    height: 220px;
   }
 
   p { font-family: "Trebuchet MS", Helvetica, sans-serif}
@@ -36,21 +36,16 @@
   }
 </style>
 
-<span><bold>IN NEED OF A STYLE UPDATE?     
-  WELL WHAT BETTER TIME    
-  THAN RIGHT NOW! INSPIRE     
-  YOUR LOOK WITH THE OFFICIAL    
-  MINKPINK: THE MUSIC ISSUE    
-  COLLECTION, STARRING    
+<span><bold>IN NEED OF A STYLE UPDATE?
+  WELL WHAT BETTER TIME
+  THAN RIGHT NOW! INSPIRE
+  YOUR LOOK WITH THE OFFICIAL
+  MINKPINK: THE MUSIC ISSUE
+  COLLECTION, STARRING
   CHRISTINA PERRI..</bold></span>
 
-<small>PHOTOGRAPHY BY MIKE PISCITELLI</small>    
-  <small>STYLING BY MARK VASSALLO</small>
-
-
-<figure>
-  <figcaption>[MINKPINK Morrocon Tile Tank and Morrocan Tile Short]</figcaption>
-</figure> 
+<small>PHOTOGRAPHY BY MIKE PISCITELLI</small>
+<small>STYLING BY MARK VASSALLO</small>
 
 <div id="jquery_jplayer_1" class="cp-jplayer"></div>
 
