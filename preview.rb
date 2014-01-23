@@ -25,48 +25,48 @@ class IssuePreview < Sinatra::Base
 
     erb :"issue/viewer.html", layout: :"/layouts/_docs.html", locals: { path: "/issues/#{@path}", issue: current_issue }
   end
-  
+
   get '/magazines.json' do
     @issues = Dir.glob('issues/*/issue.yaml').map do |file|
       issue_path = file.split("/")[1]
-      
+
       issue = Hashie::Mash.new(YAML.load_file(file)).tap do |i|
         i.background_url = "/issues/#{issue_path}/#{i.background_url}"
         i.url = "/issues/#{issue_path}/"
       end
     end
-    
+
     if params[:q]
       @issues.select! do |issue|
         text = "#{issue.edition_title} #{issue.title}"
         pattern = Regexp.compile(params[:q], Regexp::IGNORECASE)
-        
+
         result = text.match( pattern )
-        
-        
+
+
         if params[:filter] == "featured"
           result = issue.featured
         end
-        
-        result 
+
+        result
       end
     end
 
     @issues.to_json
   end
-  
+
   get '/issues/?' do
     @issues = Dir.glob('issues/*/issue.yaml').map do |file|
       issue_path = file.split("/")[1]
-      
+
       issue = Hashie::Mash.new(YAML.load_file(file)).tap do |i|
         i.image_url = "#{issue_path}/#{i.image_url}"
       end
     end
-    
+
     erb :"issue/list.html", layout: :"/layouts/_docs.html"
   end
-  
+
 
   get '/issues/:issue/products.json' do
     cache = {}
@@ -83,7 +83,7 @@ class IssuePreview < Sinatra::Base
   get "/issues/:issue/index" do
     redirect to("/issues/#{params[:issue]}/")
   end
-  
+
   get "/issues/:issue" do
     redirect to("/issues/#{params[:issue]}/")
   end
@@ -118,9 +118,9 @@ class IssuePreview < Sinatra::Base
     if params["page"] == "assets"
       return send_file request.path[1, request.path.length - 1]
     end
-    
+
     path = [params["issue"], "data", params["page"], params["subpage"]].compact.join('/')
-    
+
     file_path = File.expand_path("../issues/#{path}.md", __FILE__)
     page      = find_page(file_path)
 
@@ -135,6 +135,7 @@ class IssuePreview < Sinatra::Base
     issue = YAML.load_file(File.expand_path("../issues/#{params[:issue]}/issue.yaml", __FILE__))
     items = issue.fetch("items", []).map do |page|
       page["url"] = "#{page["handle"]}"
+      page["image_url"] = asset_path(page["image_url"])
 
       page
     end
