@@ -180,7 +180,8 @@
       line-height: 65px;
       text-transform: uppercase;
       color: white;
-      @include rotate(-45deg);
+      
+      @include transform( rotate(-45deg) );
     }
 
     &.published:before {
@@ -255,12 +256,14 @@
 
   // Abstract class
   %action-btn {
+    z-index: 2;
     text-align: center;
     line-height: 30px;
     display: block;
     width: 30px;
     height: 30px;
     font-size: 18px;
+    @extend  %icon-style;
 
     // icon back
     .no-touch &:before {
@@ -287,12 +290,12 @@
   // More button
 
   .more-actions {
+    
     @extend %action-btn;
     @extend .icon-ellipsis;
     position: absolute;
     right: 20px;
     bottom: 10px;
-    z-index: 3;
 
     .webview & {
       display: none;
@@ -302,9 +305,8 @@
   // Add to button
   .add-to {
     @extend %action-btn;
-    @extend .icon-plus-2;
-
-    z-index: 2;
+    @extend .icon-plus;
+    z-index: 3;
     position: absolute;
     right: 20px;
     top: 20px;
