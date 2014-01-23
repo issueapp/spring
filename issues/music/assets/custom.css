@@ -40,7 +40,10 @@ article.page .body h3 {
 /*p { font-family: "Trebuchet MS", Helvetica, sans-serif}*/
 small { font-size: 90%; }
 p > span { font-style: normal; font size: 100%; }
-.cp-container { margin: 0 auto; }
+.cp-container {
+  margin: 0 auto;
+  display: none;
+}
 
 /*
   Cover
