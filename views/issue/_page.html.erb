@@ -41,7 +41,7 @@
 <% unless page.layout.type == "custom" %>
 
   <% if page.image_url %>
-  <div class="cover-area <%= page.layout.image_style %>"
+  <figure class="cover-area <%= page.layout.image_style %>"
     style="background-image: url(<%= page.image_url %>)">
     <% if video_embed = page.embed_content %>
       <div class='video-wrapper'><%= video_embed %></div>
@@ -50,7 +50,11 @@
     <% hotspots.each_with_index do |item, index| %>
       <a href="<%= item.url %>" title="<%= item.title %>" class="hotspot image product" style="left: <%= item.hotspot.left %>px; top: <%= item.hotspot.right %>px;"><i class="tag"><%= index + 1 %></i></a>
     <% end %>
-  </div>
+
+    <% if cover_caption = page.cover_caption %>
+      <figcaption><%= cover_caption %></figcaption>
+    <% end %>
+  </figure>
   <% end %>
 
   <div class='content'>

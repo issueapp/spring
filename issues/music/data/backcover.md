@@ -4,17 +4,18 @@
   layout:
     image_style: background
     content_style: transparent
+    content_height: full
 
 ---
 <style>
-  #backcover[data-page="backcover"] .content {
+  article.page[data-page="backcover"] .content {
     margin: 0;
     max-height: initial;
     width: 100%;
     height: 100%;
   }
 
-  #backcover[data-page="backcover"] #image {
+  article.page[data-page="backcover"] #image {
     position: absolute;
     bottom: 10%;
     max-width: initial;
@@ -23,7 +24,7 @@
   }
 
   @media only screen and (min-width: 768px) {
-    #backcover[data-page="backcover"] #image {
+    article.page[data-page="backcover"] #image {
       left: 50%;
       margin-left: -300px;
       width: 640px;
