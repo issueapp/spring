@@ -46,6 +46,7 @@ article.page {
   // Cover area for image/video
   .cover-area {
     @include box-sizing(border-box);
+    position: relative;
     min-height: 300px;
     width: 100%;
     height: auto;
@@ -71,7 +72,6 @@ article.page {
       width: 100%;
 
       &:before {
-        content: '';
         position: absolute;
         top: 0;
         right: 0;
@@ -79,6 +79,7 @@ article.page {
         left: 0;
 
         background: rgba(0,0,0,0.1);
+        content: '';
       }
     }
 
@@ -87,8 +88,8 @@ article.page {
       right: 0;
       bottom: 0;
       color: white;
-      font-weight: bold;
       text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+      font-weight: bold;
     }
   }
 
