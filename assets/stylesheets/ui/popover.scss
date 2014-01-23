@@ -26,7 +26,6 @@ article.page .content.stop-scrolling {
   position: absolute;
 }
 
-
 /*
     Popover
 */
@@ -34,8 +33,9 @@ article.page .content.stop-scrolling {
 div.popover {
   $content-color: #fff;
   $border-color: #ddd;
-  $dark-content-color: #1d1d1d;
-  $dark-border-color: #555;
+  $dark-content-color: #202020;
+  $dark-border-up-color: #555;
+  $dark-border-down-color: #1d1d1d;
 
   @include clearfix;
   @include box-sizing(border-box);
@@ -308,7 +308,6 @@ div.popover {
       border-style: solid;
       border-color: transparent;
 
-
       &.up {
         top: -10px;
         left: 50%;
@@ -365,11 +364,11 @@ div.popover {
         }
 
         &.up {
-          border-bottom-color: $dark-border-color;
+          border-bottom-color: $dark-border-up-color;
         }
 
         &.down {
-          border-top-color: $dark-border-color;
+          border-top-color: $dark-border-down-color;
         }
 
         &.down:after {
