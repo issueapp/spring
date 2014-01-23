@@ -1,7 +1,7 @@
 ---
 
     handle: 1-styling-it-out
-    category: Christina Perri
+    category: 'Christina Perri:'
     title: Styling it out
     image_url: assets/1-styling-it-out/MinkPink_ChristinaPerri_0005-31_opt.jpeg
     cover_caption: '[Minkpink Paisley Crush Dress]'

@@ -16,11 +16,6 @@ p:empty {
          url('fonts/rodondo-webfont.svg#rodondoregular') format('svg');
 }
 
-article.page header .category {
-  font-family: 'rodondoregular';
-  font-size: 18px;
-}
-
 article.page figcaption {
   padding: 10px;
   text-align: right;
@@ -129,12 +124,16 @@ article.toc.page .body p:first-child {
   Story 1: Interview;
 */
 
+article.page[data-page="1-styling-it-out"] header .category {
+  color: black;
+  text-align: left;
+  font-size: 32px;
+  font-family: 'rodondoregular';
+}
+
 article.page[data-page="1-interview"] .extras {
   margin-top: 20px;
   text-align: justify;
-}
-
-article.page[data-page="2-head-or-heart"] {
 }
 
 article.page[data-page="2-head-or-heart/1"] .body p {
