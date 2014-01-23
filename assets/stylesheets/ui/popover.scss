@@ -31,9 +31,7 @@ article.page .content.stop-scrolling {
     Popover
 */
 
-
 div.popover {
-  
   $content-color: #fff;
   $border-color: #ddd;
   $dark-content-color: #1d1d1d;
@@ -41,46 +39,45 @@ div.popover {
 
   @include clearfix;
   @include box-sizing(border-box);
-  z-index: 999;
-  opacity: 0;
-  width: 100%;
-
-  display: block;
   position: fixed;
   bottom: 0;
   left: 0;
-  padding: 10px 20px;
+  z-index: 999;
 
-  font-family: $proxima_nova;
-  font-size: 16px;
-  line-height: 24px;
-  white-space: normal;
-  color: $text-color;
+  display: block;
+  padding: 10px 20px;
+  min-height: 100px;
+  width: 100%;
 
   background: $content-color;
-  min-height: 100px;
+  color: $text-color;
+  white-space: normal;
+  font-size: 16px;
+
+  font-family: $proxima_nova;
+  line-height: 24px;
+  opacity: 0;
 
   /*  Popover content style */
 
   h3, .title {
-    font-size: 16px;
-    line-height: 24px;
+    margin: 10px 0 0.5em;
     text-transform: uppercase;
     letter-spacing: 2px;
-    margin: 10px 0 0.5em;
+    font-size: 16px;
+    line-height: 24px;
   }
 
   footer {
-    clear: left;
+    @include linear-gradient(rgba(36,36,36, 0.3) 0%, rgba(36,36,36, 1) 50%, rgba(36,36,36,1) 90%);
     position: absolute;
     bottom: 0;
     left: 1px;
+    clear: left;
     overflow: hidden;
     min-height: 40px;
     max-height: 240px;
     width: 100%;
-
-    @include linear-gradient(rgba(36,36,36, 0.3) 0%, rgba(36,36,36, 1) 50%, rgba(36,36,36,1) 90%);
 
     color: white;
     vertical-align: middle;
@@ -98,23 +95,23 @@ div.popover {
   .content {
     @include box-sizing(border-box);
     overflow: scroll;
-    max-height: 300px;
     margin: 0 -20px 0;
     padding: 10px 20px 40px;
+    max-height: 300px;
   }
 
   .button {
-    font-weight: bold;
     margin: 5px 5px 0 0;
     border: none !important;
     text-transform: uppercase;
     letter-spacing: 1px;
+    font-weight: bold;
   }
 
   p.subtitle {
-    font: italic 14px georgia;
     margin: 0;
     color: #cccccc;
+    font: italic 14px georgia;
   }
 
   p {
@@ -125,13 +122,13 @@ div.popover {
       Style
   */
   ul {
-    text-align: left;
-    list-style: none;
     overflow: auto;
     margin: -10px -20px;
     padding: 0;
     min-height: 200px;
     max-height: 360px;
+    list-style: none;
+    text-align: left;
   }
 
   li {
@@ -144,19 +141,19 @@ div.popover {
   }
 
   li a:not(.button) {
-    color: $text-color;
-    height: 15px;
-    line-height: 17px;
-    text-transform: uppercase;
-    font-size: 12px;
     position: relative;
     display: block;
     margin: 0;
     padding: 18px;
+    height: 15px;
+    color: $text-color;
     color: #b9b9b9;
+    color: #6f6f6f;
+    text-transform: uppercase;
     text-shadow: none;
     font-weight: normal;
-    color: #6f6f6f;
+    font-size: 12px;
+    line-height: 17px;
 
     &:active, &.active {
       color: #6f6f6f;
@@ -191,8 +188,8 @@ div.popover {
 
   &.slidedown {
     top: 0;
-    left: 0;
     bottom: initial;
+    left: 0;
 
     &.show {
       -webkit-animation: down 0.35s forwards;
@@ -203,13 +200,12 @@ div.popover {
       -webkit-animation: up 0.35s forwards;
       animation: hide 0.35s forwards;
     }
-
   }
 
   /*
       Themes
   */
-  
+
   &.small {
     width: 200px;
 
@@ -221,7 +217,7 @@ div.popover {
   &.center {
     left: 50%;
     margin-left: -240px;
-    
+
     &.small {
       margin-left: 100px;
     }
@@ -231,8 +227,8 @@ div.popover {
     left: 5px;
 
     .arrow {
-      left: 10px;
       right: auto !important;
+      left: 10px;
     }
   }
 
@@ -240,17 +236,17 @@ div.popover {
     right: 5px;
 
     .arrow {
-      left: auto !important;
       right: 10px;
+      left: auto !important;
     }
   }
-  
+
   &.dark-theme {
-    color: #fff;
-    text-shadow: 0 -1px 0 #000;
+    @include radial-gradient( #303030, $dark-content-color );
     border-color: transparent;
     box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.2), 1px 0 10px rgba(0, 0, 0, 0.3);
-    @include radial-gradient( #303030, $dark-content-color );
+    color: #fff;
+    text-shadow: 0 -1px 0 #000;
   }
 
 
@@ -258,21 +254,21 @@ div.popover {
       Large screen style
   */
   @include min-screen(768) {
+    $arrow-offset: 48px;
     @extend %dropdown-arrow;
 
     //    display: none;
     position: absolute;
-    max-width: 480px;
-    opacity: 1;
-    margin-bottom: 50px;
-
-    box-shadow: 2px 2px 10px rgba(0,0,0,.15);
-    border-radius: 6px;
-    border: 1px solid $border-color;
-    bottom: initial;
-    left: initial;
     top: initial;
     right: initial;
+    bottom: initial;
+    left: initial;
+    margin-bottom: 50px;
+    max-width: 480px;
+    border: 1px solid $border-color;
+    border-radius: 6px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,.15);
+    opacity: 1;
 
     .content {
       max-height: 250px;
@@ -302,51 +298,44 @@ div.popover {
       animation: hide 0.3s forwards;
     }
 
-    $arrow-offset: 48px;
-
     // Arrow
     .arrow {
       position: absolute;
       display: block;
       width: 0;
       height: 0;
-      border-color: transparent;
-      border-style: solid;
       border-width: 11px;
+      border-style: solid;
+      border-color: transparent;
 
 
       &.up {
         top: -10px;
         left: 50%;
-        margin-left: -10px;
         border-top-width: 0;
         border-bottom-color: $border-color;
       }
 
       &:after {
         position: absolute;
+        top: 1px;
         display: block;
+        margin-left: -10px;
         width: 0;
         height: 0;
-        border-color: transparent;
-        border-style: solid;
-
-        content: " ";
-
-        top: 1px;
-        margin-left: -10px;
         border-width: 10px;
-
-        border-bottom-color: $content-color;
+        border-style: solid;
+        border-color: transparent;
         border-top-width: 0;
+        border-bottom-color: $content-color;
+        content: " ";
       }
-
 
       &.down {
         bottom: -11px;
         left: 50%;
-        border-bottom-width: 0;
         border-top-color: $border-color;
+        border-bottom-width: 0;
 
         &:after {
           top: -11px;
@@ -364,11 +353,10 @@ div.popover {
       }
 
       &.right {
-        left: auto;
         right: $arrow-offset;
+        left: auto;
       }
     }
-
 
     &.dark-theme {
       .arrow {
