@@ -15,11 +15,9 @@
 
 ---
 <style>
-
-
   h1.title {
     background: url(assets/2-head-or-heart/cover-heading.svg) no-repeat;
-    background-size: contain%;
+    background-size: contain;
     color: transparent;
     height: 220px;
   }
@@ -34,6 +32,22 @@
     max-width: initial;
     width: 310px;
   }
+
+  @media only screen and (min-width: 768px) {
+    article.page[data-page="2-head-or-heart"] header .title {
+      position: absolute;
+      top: 0;
+      left: 0;
+      margin-top: 40px;
+      margin-left: 24px;
+      width: 447px;
+      height: 363px;
+    }
+
+    article.page[data-page="2-head-or-heart"] .body {
+      margin-top: 430px;
+    }
+  }
 </style>
 
 <span><bold>IN NEED OF A STYLE UPDATE?
@@ -46,33 +60,3 @@
 
 <small>PHOTOGRAPHY BY MIKE PISCITELLI</small>
 <small>STYLING BY MARK VASSALLO</small>
-
-<div id="jquery_jplayer_1" class="cp-jplayer"></div>
-
-<div id="cp_container_1" class="cp-container">
-  <div class="cp-buffer-holder"> <!-- .cp-gt50 only needed when buffer is > than 50% -->
-  	<div class="cp-buffer-1"></div>
-  	<div class="cp-buffer-2"></div>
-  </div>
-  <div class="cp-progress-holder"> <!-- .cp-gt50 only needed when progress is > than 50% -->
-  	<div class="cp-progress-1"></div>
-  	<div class="cp-progress-2"></div>
-  </div>
-  <div class="cp-circle-control"></div>
-  <ul class="cp-controls">
-  	<li><a class="cp-play" tabindex="1">play</a></li>
-  	<li><a class="cp-pause" style="display:none;" tabindex="1">pause</a></li> <!-- Needs the inline style here, or jQuery.show() uses display:inline instead of display:block -->
-  </ul>
-</div>
-
-<script>
-  var myCirclePlayer = new CirclePlayer("#jquery_jplayer_1",{
-  	m4a: "/music/assets/Christina Perri - I Believe.m4a"
-  },
-  {
-    cssSelectorAncestor: "#cp_container_1",
-    canplay: function() {
-      $("#jquery_jplayer_1").jPlayer("play");
-    }
-  });
-</script>
