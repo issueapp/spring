@@ -6,7 +6,7 @@ class @DiscoverView extends Backbone.View
     'click a[data-filter]': 'filter'
     'keyup input.search': "quickSearch"
   
-  initialize: ->
+  initialize: (data)->
     
     if navigator.onLine
       @currentFilter = "all"
@@ -15,7 +15,7 @@ class @DiscoverView extends Backbone.View
     
     @filters = ["all", "featured", "offline"]
     
-    @listView = new MagazineList
+    @listView = new MagazineList(data)
     
     @collection = @listView.collection
     

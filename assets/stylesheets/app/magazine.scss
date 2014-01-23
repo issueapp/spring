@@ -42,6 +42,9 @@
   
   box-shadow: 0px 1px 4px rgba(0,0,0,0.6), 0px -1px 0px rgba(255,255,255,0.2) inset;
   
+  min-width: 160px;
+  min-height: 213px;
+  
   @include transition(all 0.3s ease-in-out);
   
   &:before {
@@ -105,26 +108,8 @@
     cursor: pointer;
   }
   
-  .subscribe {
-    font-size: 32px;
-    height: 50px;
-    line-height: 50px;
-    padding-left: 15px;
-    padding-right:15px;
-    
+  %touch-icon-style {
     @extend %icon-style;
-    @extend .icon-bookmark3;
-    
-    position: absolute;
-    right: 0%;
-    top: 0%;
-    display: none;
-    z-index: 2;
-  }
-  
-  .download {
-    @extend %icon-style;
-    @extend .icon-ios7-cloud-download-outline;
     height: 50px;
     line-height: 50px;
     padding-left: 15px;
@@ -135,6 +120,28 @@
     left: 0%;
     bottom: 0%;
     display: none;
+    z-index: 2;
+    
+    .no-touch &:hover {
+      background: rgba(100,100,100, 0.4);
+    }
+  }
+  
+  .subscribe {
+    @extend %touch-icon-style;
+    @extend .icon-bookmark3;
+  }
+  
+  .download {
+    @extend %touch-icon-style;
+    @extend .icon-ios7-cloud-download-outline;
+    display: none;
+  }
+  
+  .more-actions {
+    @extend %touch-icon-style;
+    @extend .icon-ellipsis;
+    
   }
   
   @include min-screen(768) {
@@ -164,13 +171,10 @@
   overflow: none;
   
   @include min-screen(768) {
-    margin: 15% auto;
-    width: 80%;
+    margin: 20% auto 0;
+    width:   85%;
     
     white-space: nowrap;
-    .issue-item {
-      float: none;
-    }
   }
   
   .magazine {
@@ -187,9 +191,8 @@
     
     // 3 columns
     @include min-screen(768) {
-      float: none;
-    
-      margin-right: 4%;
+      float: left;
+      margin-right: 3%;
       margin-bottom: 4%;
     
       width: 30%;
@@ -205,14 +208,18 @@
     
       .title {
         font-size: 32px;
-        font-size: 4vw;
+        font-size: 3.2vw;
       }
+    }
+    
+    // flat tiles
+    @include min-screen(1024) {
+      float: none;
     }
   }
   
-  
   &.grid {
-    margin: 20px auto 0;
+    margin: 100px auto 0;
     
   }
   
@@ -238,7 +245,7 @@
     
       .title {
         font-size: 32px;
-        font-size: 3vw;
+        font-size: 2.5vw;
       }
     }
   }

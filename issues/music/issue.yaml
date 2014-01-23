@@ -36,7 +36,7 @@ items:
     handle: "toc"
     nav: false
 
-  - title: "Editors letter"
+  - title: "Editors Letter"
     handle: "editors-letter"
 
   - title: "Christina Perri"
@@ -51,7 +51,7 @@ items:
     # pages:
     #   - handle: "1"
 
-  - title: "Head or heart?"
+  - title: "Head or Heart?"
     category: fashion
     handle: "2-head-or-heart"
     pages:
@@ -67,20 +67,20 @@ items:
       - handle: "1"
       - handle: "2"
 
-  - title: Christina uncovered
+  - title: Christina Uncovered
     category: beauty
     handle: 4-beauty
     pages:
       - handle: "1"
       - handle: "2"
 
-  - title: Travel with me
+  - title: Let Loose in Lala Land
     category: travel
     handle: 5-travel
     pages:
       - handle: "1"
 
-  - title: Behind the scenes
+  - title: The Final Word
     handle: 6-behind-the-scene
     pages:
       - handle: "1"
