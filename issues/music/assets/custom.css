@@ -4,7 +4,7 @@
 p:empty {
 	display: none;
 	}
-  
+
 @font-face {
     font-weight: normal;
     font-style: normal;
@@ -280,14 +280,6 @@ article.page[data-page="4-beauty/2"].has-product .product-set.set-4 li {
 }
 
 @media only screen and (min-width: 768px) and (orientation: landscape) {
-/*  article.page[data-page="5-travel/1"] #theasure {
-    margin-top: 50px;
-  }
-
-  article.page[data-page="5-travel/1"] #shopping {
-    margin-bottom: 240px;
-  }*/
-
   article.page[data-page="4-beauty"].has-product .product-set li:nth-child(5) {
     margin-left: 145px;
   }
