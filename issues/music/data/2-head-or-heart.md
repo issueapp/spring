@@ -4,7 +4,7 @@
     title: head or heart
     #author_name: Zyralyn Bacani
     #author_icon: http://cl.ly/StPu/Image%202013.12.11%204%3A54%3A01%20pm.png
-    image_url: assets/2-head-or-heart/p3-6_opt.jpeg
+    image_url: assets/2-head-or-heart/cover.gif
     cover_caption: '[MINKPINK Morrocon Tile Tank and Morrocan Tile Short]'
     images:
       - url: assets/2-head-or-heart/p3-6_opt.jpg

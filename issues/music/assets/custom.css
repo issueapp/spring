@@ -16,6 +16,10 @@ p:empty {
          url('fonts/rodondo-webfont.svg#rodondoregular') format('svg');
 }
 
+article.page header .category {
+  font-family: 'rodondoregular';
+}
+
 article.page figcaption {
   padding: 10px;
   text-align: right;
@@ -40,6 +44,7 @@ article.page .body h3 {
 /*p { font-family: "Trebuchet MS", Helvetica, sans-serif}*/
 small { font-size: 90%; }
 p > span { font-style: normal; font size: 100%; }
+.cp-container { margin: 0 auto; }
 
 /*
   Cover
