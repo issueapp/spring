@@ -10,10 +10,12 @@
       - title: MINKPINK All I Need Dress
         url: http://markethq.com/#1
         image_url: assets/3-shop-the-shoot/cream.jpg
+        description: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         
-      - title: Catears 
+      - title: Pearl Cat Ear Headband 
         url: http://something.com/3456
-        image_url: assets/3-shop-the-shoot/IMG_8796.jpg 
+        image_url: assets/3-shop-the-shoot/IMG_8796.jpg
+        description: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
         
       - title : Indy C Triple Triangle Chain Gold 
         url: http://www.surfstitch.com/product/indy-c-triple-triangle-chain-gold
@@ -25,16 +27,59 @@
       - title: MINKPINK Losing My Edge
         url: http://markethq.com/#3
         image_url: assets/3-shop-the-shoot/stripe.png
+        description: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
         
       - title: MINKPINK Follow Me To Heaven Playsuit
         url: http://markethq.com/#2
         image_url: assets/3-shop-the-shoot/MP8227i.png
+        description: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
           
       - title: MINKPINK Steamed Up Sunglasses
         url: http://markethq.com/#4
         image_url: assets/3-shop-the-shoot/cover-product-4.jpg
+        description: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         
 
 
 ---
+
+
+<!-- <img src="assets/3-shop-the-shoot/heading-head-the-look.svg" alt="" /> -->
+
+<style>
+  #s3-shop-the-shoot .title {
+    color: transparent;
+    background: url(assets/3-shop-the-shoot/heading-head-the-look.svg) no-repeat;
+    background-size: contain;
+    height: 100px;
+  }
+/*  .product-set li .tag {
+    background: #ff0093;
+  }
+  
+  .product-set li:nth-child(2n) .tag {
+    background: #ff5300;
+  }
+  
+    
+  .product-set li:nth-child(3n) .tag {
+    background: #00ffb2;
+  }*/
+  /*
+  .product-set li:nth-child(4n) .tag {
+    background: #00dcff;
+  }*/
+</style>
+
+<script>
+
+  var colours = ["#00dcff", "#00dcff", "#00ffb2", "#ff0093", "#ff0000", "#fff600"]
+  
+  $('.product-set li .tag').each(function () {
+    var color = colours[Math.floor(Math.random()*colours.length)];
+    
+    $(this).css('background', 'color')
+  })
+  
+</script>

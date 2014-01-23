@@ -1,5 +1,5 @@
 ---
-    title: eds letter
+    title: Welcome to Minkpink
 
     image_url: assets/ed-cover.jpg
 
@@ -10,6 +10,9 @@
 ---
 
 <style>
+h1.title {
+  font-family: "rodondoregular" !important;
+}
 #seditors-letter header {
   padding-top: 5%;
 }
@@ -18,7 +21,7 @@ big { font-size: 130% }
 p > span { font-style: normal; font-size: 80%; }
 </style>
 
-<span>MINKPINK</span> have done it again with the launch of <span>MINKPINK</span>: <big>The Music Issue</big>, combining two of everyone’s favourite
+<span>MINKPINK</span> have done it again with the launch of <span>MINKPINK</span>: The Music Issue, combining two of everyone’s favourite
 things – BIG tunes and faaaaarshion baby – to produce one rad global campaign…and who better to front it than music’s
 latest maverick, the inked-up brunette bombshell with the megawatt smile that is <big>Christina Perri</big>?! With a killer look
 and a voice that is guaranteed to melt even the iciest of hearts, <span>MINKPINK</span> are beyond stoked to have tapped this one up! An alternative Disney princess in her very own <big>modern day fairy tale</big>, Christina shot to fame in 2010 when
