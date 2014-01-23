@@ -50,7 +50,7 @@
     <hr />
     <ul>
       <% issue.items.each do |page| %>
-        <% if page.handle != 'toc' %>
+        <% if page.nav != false %>
         <li>
           <a href="<%= page.url %>">
             <span class="category"><%= page.category %></span>

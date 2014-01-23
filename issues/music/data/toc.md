@@ -3,7 +3,6 @@
     title:
     image_url: assets/toc/background.jpg
     brand_image_url: assets/toc/brand_logo.png
-
     layout:
       type: toc
       content_overflow: scroll
