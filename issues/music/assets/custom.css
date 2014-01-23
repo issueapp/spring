@@ -16,7 +16,6 @@ p:empty {
          url('fonts/rodondo-webfont.svg#rodondoregular') format('svg');
 }
 
-
 /* Branding */
 
 #seditors-letter header {
@@ -41,7 +40,7 @@ article.page.toc .menu li .story {
   font-family: "rodondoregular";
 }
 
-article.page figcaption {
+article.page figure figcaption {
   padding: 10px 0;
   text-align: right;
   font-style: normal;
@@ -77,12 +76,11 @@ article.page .body p {
   line-height: 22px;
 }
 
-/*p { font-family: "Trebuchet MS", Helvetica, sans-serif}*/
 small { font-size: 90%; }
-p > span { font-style: normal; font size: 100%; }
-.cp-container {
-  display: none;
-  margin: 0 auto;
+
+p > span {
+  font-style: normal;
+  font size: 100%;
 }
 
 /*
@@ -174,113 +172,13 @@ article.toc.page .body p:first-child {
   margin-top: 1em;
 }
 
-/*
-  Story 1: Interview;
-*/
-
-article.page[data-page="1-styling-it-out"] header  {
-  padding-top: 130px;
-}
-
-article.page[data-page="1-styling-it-out"] header .category {
-  top: 200px;
-  margin-top: 200px;
-  color: black;
-  text-align: left;
-  font-size: 40px;
-  font-family: 'rodondoregular';
-}
-
-article.page[data-page="1-interview"] .extras {
-  margin-top: 20px;
-  text-align: justify;
-}
-
-article.page[data-page="2-head-or-heart/1"] .body p {
-  text-align: center;
-}
-
-article.page[data-page="2-head-or-heart/2"] .body p {
-  text-align: center;
-}
-
-/*
-  Story 4: Beauty
-*/
-
-/*  Replace page heading with outline heading (change background url or height if needed) */
-article.page[data-page="4-beauty"] #uncovered {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 120px;
-}
-
-article.page[data-page="4-beauty"].has-product .product-set {
-  margin-bottom: 160px;
-  height: 570px;
-  background-image: url('/music/assets/4-beauty/cover-bg.jpg');
-  background-position: center;
-  background-size: cover;
-}
-
-article.page[data-page="4-beauty"].has-product .product-set li {
-  height: auto;
-}
-
-article.page[data-page="4-beauty"].has-product .product-set .hotspot {
-  display: block;
-}
-
-article.page[data-page="4-beauty"].has-product .product-set li:nth-child(1) .hotspot {
-  margin-top: 130px;
-}
-
-article.page[data-page="4-beauty"].has-product .product-set li:nth-child(2) .hotspot {
-  margin-top: -80px;
-}
-
-article.page[data-page="4-beauty"].has-product .product-set li:nth-child(3) .hotspot {
-  margin-top: 85px;
-}
-
-article.page[data-page="4-beauty"].has-product .product-set li:nth-child(4) .hotspot {
-  margin-top: -90px;
-}
-
-article.page[data-page="4-beauty"].has-product .product-set li:nth-child(5) {
-  margin-left: 148px;
-}
-
-article.page[data-page="4-beauty"].has-product .product-set li:nth-child(5) .hotspot {
-  margin-top: -40px;
-}
-
-article.page[data-page="4-beauty/1"].has-product .product-set {
-  position: relative;
-  top: initial;
-  left: initial;
-  margin: 0;
-  width: initial;
-}
-
-article.page[data-page="4-beauty/1"].has-product .product-set.set-4 li {
-  width: 100%;
-  height: 160px;
-}
-
-article.page[data-page="4-beauty/2"].has-product .product-set {
-  position: relative;
-  top: 0;
-  right: 0;
-  left: initial;
-  margin: -15px -15px 20px;
-  padding: 20px 0;
-  width: 320px;
-}
-
-article.page[data-page="4-beauty/2"].has-product .product-set.set-4 li {
-  height: 220px;
+#s3-shop-the-shoot header .title {
+  margin-left: -28px;
+  width: 338px;
+  height: 45px;
+  background: url('../assets/3-shop-the-shoot/heading-head-the-look.svg') no-repeat;
+  background-size: contain;
+  color: transparent;
 }
 
 @media only screen and (min-width: 768px) {
@@ -302,106 +200,5 @@ article.page[data-page="4-beauty/2"].has-product .product-set.set-4 li {
     margin-left: -202px;
     width: 416px;
     height: 166px;
-  }
-
-  article.page[data-page="2-head-or-heart"] header .title {
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-top: -30px;
-    margin-left: -204px;
-    width: 707px;
-    height: 550px;
-  }
-
-  article.page[data-page="2-head-or-heart"] .body {
-    margin-top: 480px;
-  }
-
-  article.page[data-page="4-beauty"] #uncovered {
-    position: absolute;
-    right: initial;
-    left: 0;
-    width: 230px;
-  }
-
-  article.page[data-page="4-beauty"] #uncovered-description {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    margin-bottom: 20px;
-    padding: 20px;
-    width: 400px;
-    background: rgba(0, 0, 0, 0.7);
-    color: white;
-    font-weight: bold;
-  }
-
-  article.page[data-page="4-beauty"].has-product .product-set {
-    margin-bottom: 0;
-  }
-
-  article.page[data-page="4-beauty/1"].has-product .product-set.set-4 li {
-    height: 230px;
-  }
-
-  article.page[data-page="4-beauty/2"].has-product .product-set {
-    position: absolute;
-    margin: 0;
-    padding-top: 150px;
-    width: 33%;
-  }
-
-  article.page[data-page="4-beauty/2"].has-product h2 {
-    font-size: 65px;
-    font-family: 'rodondoregular';
-  }
-
-  article.page[data-page="4-beauty/2"].has-product .column-break {
-    display: none;
-  }
-}
-
-@media only screen and (min-width: 768px) and (orientation: landscape) {
-  article.page[data-page="4-beauty"].has-product .product-set li:nth-child(5) {
-    margin-left: 145px;
-  }
-}
-
-@media only screen and (min-width: 768px) and (orientation: portrait) {
-  article.page[data-page="2-head-or-heart"] header .title {
-    margin-left: -165px;
-    width: 583px;
-  }
-
-  article.page[data-page="2-head-or-heart"] .body {
-    margin-top: 400px;
-  }
-
-  article.page[data-page="4-beauty"].has-product .product-set {
-    margin: 120px -20px 0;
-  }
-
-  article.page[data-page="4-beauty"].has-product .product-set li:nth-child(5) {
-    margin-left: 120px;
-  }
-
-  article.page[data-page="4-beauty"].has-product .product-set li:nth-child(5) .hotspot {
-    margin-top: 0px;
-  }
-
-  article.page[data-page="4-beauty/2"].has-product .body {
-    height: 110%;
-  }
-
-  article.page[data-page="4-beauty/2"].has-product h2 {
-    font-size: 80px;
-  }
-
-  article.page[data-page="4-beauty/2"].has-product .product-set {
-    position: absolute;
-    margin: 0;
-    padding-top: 200px;
-    width: 33%;
   }
 }
