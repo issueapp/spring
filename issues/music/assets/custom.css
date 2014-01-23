@@ -58,16 +58,22 @@ section.magazine.cover nav[role="navigation"] {
 }
 
 section.magazine.cover .brand {
-  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
-  font-style: normal;
-  font-family: "proxima-nova";
+  margin: 0 auto 0 22px;
+  width: 200px;
+  height: 80px;
+  background-image: url('../assets/brand_logo.png');
+  background-position: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  color: transparent;
+  font-size: 0;
+  line-height: 0;
 }
 
 section.magazine.cover .title {
   text-align: center;
   text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.8);
-
-  font-size: 75px;
+  font-size: 73px;
   font-family: "EB Garamond";
   line-height: 60px;
 }
@@ -79,7 +85,7 @@ section.magazine.cover .extra-1 {
   margin-left: -45%;
   width: 90%;
   height: 115px;
-  background-image: url('/music/assets/cover-christina-perri.png');
+  background-image: url('../assets/cover-christina-perri.png');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -227,13 +233,17 @@ article.page[data-page="4-beauty/2"].has-product .product-set.set-4 li {
 }
 
 @media only screen and (min-width: 768px) {
+  section.magazine.cover .brand {
+    margin: 0 auto;
+  }
+
   section.magazine.cover nav[role="navigation"] {
     display: block;
   }
 
   section.magazine.cover .title {
     font-size: 160px;
-    line-height: 150px;
+    line-height: 130px;
   }
 
   section.magazine.cover .extra-1 {
