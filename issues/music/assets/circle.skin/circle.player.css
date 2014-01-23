@@ -53,7 +53,7 @@
 
 .cp-container .cp-fallback {
 	background:url("progress_sprite.jpg") no-repeat;
-	background-position:0 104px; 
+	background-position:0 104px;
 }
 
 .cp-progress-1,
@@ -67,7 +67,7 @@
 	position:absolute;
 	width:104px;
 	height:104px;
-} 
+}
 
 .cp-circle-control {
 	cursor:pointer;
