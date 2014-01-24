@@ -107,6 +107,7 @@
 <nav class="toc" role="secondary">
   <ul class="contents-menu">
     <% issue.items.each do |story| %>
+    <% next if story.nav == false %>
     <li class="<%= story.handle %>">
       <a href="<%= story.url %>" target="issue-frame" style="background-image: url('<%= story.image_url %>')" >
         <span class="category"><%= story.category %></span>

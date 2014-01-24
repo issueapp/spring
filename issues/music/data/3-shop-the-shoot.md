@@ -3,6 +3,9 @@
     title: Get the look
     category: shopping
     image_url: assets/3-shop-the-shoot/cover-white-dress.jpg
+    
+    custom_class: rainbow
+    
     products:
 
       # Strip top
@@ -43,31 +46,8 @@
 
 ---
 
-<style>
-/*  .product-set li .tag {
-    background: #ff0093;
+<style type="text/css" media="screen">
+  article.page .cover-area {
+    background-position: top;
   }
-
-  .product-set li:nth-child(2n) .tag {
-    background: #ff5300;
-  }
-
-
-  .product-set li:nth-child(3n) .tag {
-    background: #00ffb2;
-  }*/
-  /*
-  .product-set li:nth-child(4n) .tag {
-    background: #00dcff;
-  }*/
 </style>
-
-<script>
-  var colours = ["#00dcff", "#00dcff", "#00ffb2", "#ff0093", "#ff0000", "#fff600"]
-
-  $('.product-set li .tag').each(function () {
-    var color = colours[Math.floor(Math.random()*colours.length)];
-
-    $(this).css('background', 'color')
-  })
-</script>

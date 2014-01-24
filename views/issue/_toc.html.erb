@@ -29,9 +29,7 @@
 <% end %>
 
 <article class="toc page"
- <% if page.handle %>
-   data-page-id="<%= page.handle %>"
- <% end %>
+  data-page-id=<%= page.id %>
 >
   <div class="main col third-2">
     <div class="cover-area <%= page.layout.image_style %>" style="background-image: url(<%= page.image_url %>)">
@@ -54,7 +52,7 @@
     <hr />
     <ul>
       <% issue.items.each do |page| %>
-        <% if page.nav != false %>
+        <% if page.nav != false && page.handle != "toc" %>
         <li>
           <a href="<%= page.url %>">
             <span class="category"><%= page.category %></span>
