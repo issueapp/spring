@@ -2,7 +2,9 @@
 
     category: beauty
     image_url: assets/4-beauty/cover.jpg
-
+    
+    custom_class: five-shades
+    
     layout:
       type: three-column
       image_align: left

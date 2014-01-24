@@ -122,6 +122,9 @@
 .icon-rss:before {
 	content: "\e60a";
 }
+.icon-microphone:before {
+	content: "\e619";
+}
 .icon-bookmark3:before {
 	content: "\e613";
 }
@@ -226,4 +229,7 @@
 }
 .icon-issues:before {
 	content: "\e618";
+}
+.icon-code:before {
+	content: "\e61c";
 }
