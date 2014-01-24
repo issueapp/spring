@@ -35,7 +35,6 @@ items:
 
   - title: Table of Content
     handle: "toc"
-    nav: false
 
   - title: "Editors Letter"
     handle: "editors-letter"
