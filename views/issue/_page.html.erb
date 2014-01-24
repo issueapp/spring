@@ -35,8 +35,9 @@
    <%= "cover-#{page.layout.image_align}" if has_product || page.layout.image_align && page.image_url %>
  <% end %>"
 
+  data-page="<%= page.handle %>"
   data-author="<%= page.author_name %>"
-  data-page-id=<%= page.id %>
+  data-page-id="<%= page.id %>"
 >
 
 <% unless page.layout.type == "custom" %>
