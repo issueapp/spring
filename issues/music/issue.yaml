@@ -25,6 +25,7 @@ assets:
   # - "jquery.jplayer.min.js"
   # - "jplayer/jquery.transform2d.js"
   # - "jplayer/jquery.grab.js"
+  - "jplayer/zepto.grab.js"
   - "jplayer/jquery.jplayer.js"
   - "jplayer/mod.csstransforms.min.js"
   - "jplayer/circle.player.js"
