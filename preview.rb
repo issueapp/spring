@@ -176,8 +176,10 @@ class IssuePreview < Sinatra::Base
       end
     end
 
+    id = [params[:page], params[:subpage]].compact.join('/')
+
     attributes.merge!(
-      "id" => @path,
+      "id" => "#{id}",
       "issue_url" => issue_url,
       "page_url" => "#{issue_url}/#{params[:page]}",
       "image_url" => attributes["image_url"] && asset_path(attributes["image_url"]), # remove preview rendering
