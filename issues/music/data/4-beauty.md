@@ -37,7 +37,9 @@
     width: 120px;
   }
 
-  article.page[data-page="4-beauty"].has-product .product-set {
+  article.page[data-page="4-beauty"] .product-set {
+    margin-top: -15%;
+    
     background-image: url('assets/4-beauty/product-bg.png');
     background-position: center;
     background-size: 110%;
@@ -54,7 +56,7 @@
   article.page[data-page="4-beauty"].has-product .product-set .hotspot {
     display: block;
   }
-
+  
   article.page[data-page="4-beauty"].has-product .product-set li:nth-child(1) .hotspot {
     margin-top: 75px;
   }
@@ -86,38 +88,49 @@
       left: 0;
       width: 230px;
     }
-
-    article.page[data-page="4-beauty"] #uncovered-description {
-      position: absolute;
-      bottom: 30px;
-      left: 15%;
-      margin-bottom: 20px;
-      padding: 20px;
-      width: 60%;
-    }
-
-    article.page[data-page="4-beauty"] .cover-area {
-      height: 70%;
-    }
   }
 
   @media only screen and (min-width: 768px) and (orientation: landscape) {
     article.page[data-page="4-beauty"].has-product .product-set li:nth-child(5) {
       margin-left: 142px;
     }
+    
   }
 
   @media only screen and (min-width: 768px) and (orientation: portrait) {
     article.page[data-page="4-beauty"].has-product.cover-left .content {
       height: auto;
     }
-
-    article.page[data-page="4-beauty"].has-product .cover-area {
+    
+    article.page[data-page="4-beauty"] .content {
       width: 100%;
     }
-    article.page[data-page="4-beauty"] #uncovered-description {
-      left: 30%;
+    
+    article.page[data-page="4-beauty"] .cover-area {
+      height: 50%;
+      width: 100%;
     }
+    
+    article.page[data-page="4-beauty"] .product-set {
+      margin-top: -10%;
+      width: 40%;
+      float: left;
+    }
+    
+    article.page[data-page="4-beauty"] .body {
+      margin-left: 10%;
+      width: 50%;
+      float: left;
+    }
+
+    /*    article.page[data-page="4-beauty"] #uncovered-description {
+          position: absolute;
+          bottom: 30px;
+          left: 15%;
+          margin-bottom: 20px;
+          padding: 20px;
+          width: 60%;
+        }*/
     article.page[data-page="4-beauty"].has-product .product-set li:nth-child(5) {
       margin-left: 96px;
     }
