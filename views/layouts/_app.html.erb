@@ -40,7 +40,11 @@
     <% end %>
   </head>
 
-  <body class="<%= @body_class %>">
+  <body class="<%= @body_class %>"
+
+    data-magazine="<%= issue.magazine_title %>"
+    data-issue="<%= issue.short_title %>"
+  >
     <div role=main class="fashion-theme content-view">
       <%= yield %>
     </div>
