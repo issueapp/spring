@@ -22,6 +22,8 @@
  <%= 'no-content ' unless page.content %>
  <%= page.content_type %>
 
+ <%= page.custom_class %>
+
  <% if page.layout.type != "custom" %>
    <%= page.layout.content_overflow || 'scroll' %>
    <%= page.layout.content_style || 'white' %>
@@ -33,11 +35,8 @@
    <%= "cover-#{page.layout.image_align}" if has_product || page.layout.image_align && page.image_url %>
  <% end %>"
 
- <% if page.handle %>
-  data-page-id="<%= page.handle %>"
- <% end %>
-
- data-author="<%= page.author_name %>"
+  data-author="<%= page.author_name %>"
+  data-page-id=<%= page.id %>
 >
 
 <% unless page.layout.type == "custom" %>
@@ -137,6 +136,8 @@
   }
 
   App.pageView = new PageView({ model: App.page })
-
+  
+  App.track('view')
+  
 </script>
 <% end %>

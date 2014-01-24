@@ -10,13 +10,20 @@
 ---
 
 <style>
-h1.title {
+article.page h1.title {
   font-family: "rodondoregular" !important;
+  margin-bottom: 0.1em;
 }
-#seditors-letter header {
-  padding-top: 5%;
+
+article.page .body p {
+  font-style: italic;
+  margin: 0.15em 0 0.5em;
 }
-p { font-style: italic }
+
+article.page .body p:last-child {
+  margin-bottom: 0;
+}
+
 big { font-size: 130% }
 p > span { font-style: normal; font-size: 80%; }
 </style>
@@ -31,9 +38,6 @@ Can Dance’. Since then, it’s been a head spinningly <big>crazy ride</big> fo
 and it shows no signs of slowing!
 
 
-<span>MINKPINK</span>’s ‘The Music Issue’ sees Christina Perri rocking out all the hottest <span>MINKPINK</span> trends at legendary LA music studio Mates, where she also recently recorded her eagerly anticipated second album ‘Head & Heart’, set to be a smash hit worldwide. With the help of superstar stylist Mark Vassallo and iconic photographer Mike Piscatelli, Christina Perri has put her own <big>unique stamp</big> on every look. 
+<span>MINKPINK</span>’s ‘The Music Issue’ sees Christina Perri rocking out all the hottest <span>MINKPINK</span> trends at legendary LA music studio Mates, where she also recently recorded her eagerly anticipated second album ‘Head & Heart’, set to be a smash hit worldwide. With the help of superstar stylist Mark Vassallo and iconic photographer Mike Piscatelli, Christina Perri has put her own <big>unique stamp</big> on every look.
 
-So why is Miss Perri the ultimate <span>MINKPINK</span> babe? Well for us that’s pretty much a no brainer. Not one to be defined by convention, Christina’s unique <big>brand of cool</big> is irresistible to anyone who meets her - this is one chick who talks the talk and walks the walk, and has stayed <big>true to herself</big> and her style from the get go. With a finger firmly on the pulse of all things fashion, music and social media, Christina’s passion for life is infectious, and her playful demeanour and <big>free spirited</big> attitude define what it means to live in the moment. 
-
-
-
+So why is Miss Perri the ultimate <span>MINKPINK</span> babe? Well for us that’s pretty much a no brainer. Not one to be defined by convention, Christina’s unique <big>brand of cool</big> is irresistible to anyone who meets her - this is one chick who talks the talk and walks the walk, and has stayed <big>true to herself</big> and her style from the get go. With a finger firmly on the pulse of all things fashion, music and social media, Christina’s passion for life is infectious, and her playful demeanour and <big>free spirited</big> attitude define what it means to live in the moment.
