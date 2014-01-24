@@ -1,5 +1,5 @@
 # Libraries
-# 
+#
 #= require zepto
 #= require underscore
 #= require backbone
@@ -19,8 +19,8 @@
   issue.js
 
   contains only the essential libraries and core app module
-  
-  Scenario: 
+
+  Scenario:
 
     stream -> page
     issue  -> page
@@ -34,10 +34,10 @@
 
     native webview: embeded in native app using native UI
       issue  -> page
-      
+
     browser view: Web based UI implemented in CSS
       app/ui (menu, navbar, issue menu)
-    
+
     iframe embed:
       app/ui
       app/viewer
@@ -48,6 +48,6 @@
 
 window.addEventListener 'load', ->
   FastClick.attach(document.body)
-  
+
 , false
-  
+
