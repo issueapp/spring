@@ -33,7 +33,6 @@ $(document).on "click", "[data-app-view]", ->
 
 Track actions
 
-I think for tracking events, we need to have a global
 App.trigger("track", "action", "title", options)
 
   a data-track="click" title="my external page"
@@ -48,9 +47,10 @@ $(document).on "click", "[data-track]", (e)->
   title = $(this).attr('title') || $(this).attr('data-title') || $(this).text()
 
   options = {
-    edition_id: $(this).data("edition-id") || $(this).parents("[data-edition-id]").data("edition-id")
-    item_id:    $(this).data("item-id") || $(this).parents("[data-item-id]").data("item-id")
-    url:        $(this).data('url') || this.href
+    magazine: $(this).data("magazine") || $(this).parents("[data-magazine]").data("magazine")
+    issue: $(this).data("issue") || $(this).parents("[data-issue]").data("issue")
+    page_id: $(this).data("page-id") || $(this).parents("[data-page-id]").data("page-id")
+    url: $(this).data('url') || this.href
   }
 
   # console.log '[notification.coffee]', action, title, options
@@ -69,3 +69,16 @@ $(document).on "click", "[data-track]", (e)->
     )
     return false
 
+###
+  Track events
+
+    page view
+###
+
+$ ->
+  App.trigger("track", "view", null,
+    magazine: $("[data-magazine]").data("magazine"),
+    issue: $("[data-issue]").data("issue"),
+    page_id: $("[data-page-id]").data("page-id"),
+    author: $("[data-author]").data("author")
+  )

@@ -34,8 +34,10 @@
  <% end %>"
 
  <% if page.handle %>
-  data-page="<%= page.handle %>"
+  data-page-id="<%= page.handle %>"
  <% end %>
+
+ data-author="<%= page.author_name %>"
 >
 
 <% unless page.layout.type == "custom" %>

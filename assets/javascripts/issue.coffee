@@ -13,6 +13,7 @@
 #= require app/hotspot
 #= require app/notification
 #= require app/page
+#= require app/log
 
 ###
 
@@ -50,4 +51,3 @@ window.addEventListener 'load', ->
   FastClick.attach(document.body)
 
 , false
-
