@@ -22,6 +22,8 @@
  <%= 'no-content ' unless page.content %>
  <%= page.content_type %>
 
+ <%= page.custom_class %>
+
  <% if page.layout.type != "custom" %>
    <%= page.layout.content_overflow || 'scroll' %>
    <%= page.layout.content_style || 'white' %>
@@ -36,6 +38,8 @@
  <% if page.handle %>
   data-page="<%= page.handle %>"
  <% end %>
+ 
+ data-id=<%= page.id %>
 >
 
 <% unless page.layout.type == "custom" %>
@@ -135,6 +139,8 @@
   }
 
   App.pageView = new PageView({ model: App.page })
-
+  
+  App.track('view')
+  
 </script>
 <% end %>

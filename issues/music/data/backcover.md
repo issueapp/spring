@@ -1,10 +1,12 @@
 ---
 
-  image_url: assets/6-behind-the-scene/p1.jpg
-  layout:
-    image_style: background
-    content_style: transparent
-    content_height: full
+    nav: false
+
+    image_url: assets/6-behind-the-scene/p1.jpg
+    layout:
+      image_style: background
+      content_style: transparent
+      content_height: full
 
 ---
 <style>
