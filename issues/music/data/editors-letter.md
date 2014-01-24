@@ -13,9 +13,7 @@
 h1.title {
   font-family: "rodondoregular" !important;
 }
-#seditors-letter header {
-  padding-top: 5%;
-}
+
 p { font-style: italic }
 big { font-size: 130% }
 p > span { font-style: normal; font-size: 80%; }

@@ -119,9 +119,9 @@ class IssuePreview < Sinatra::Base
       return send_file request.path[1, request.path.length - 1]
     end
 
-    path = [params["issue"], "data", params["page"], params["subpage"]].compact.join('/')
+    @path = [params["issue"], "data", params["page"], params["subpage"]].compact.join('/')
 
-    file_path = File.expand_path("../issues/#{path}.md", __FILE__)
+    file_path = File.expand_path("../issues/#{@path}.md", __FILE__)
     page      = find_page(file_path)
 
     page.handle = [params["page"], params["subpage"]].compact.join('/')
@@ -177,6 +177,7 @@ class IssuePreview < Sinatra::Base
     end
 
     attributes.merge!(
+      "id" => @path,
       "issue_url" => issue_url,
       "page_url" => "#{issue_url}/#{params[:page]}",
       "image_url" => attributes["image_url"] && asset_path(attributes["image_url"]), # remove preview rendering

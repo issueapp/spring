@@ -28,7 +28,10 @@
 </header>
 <% end %>
 
-<article class="toc page">
+<article class="toc page"
+
+ data-page-id=<%= page.id %>
+>
   <div class="main col third-2">
     <div class="cover-area <%= page.layout.image_style %>" style="background-image: url(<%= page.image_url %>)">
       <% if video_embed = page.embed_content %>
@@ -50,7 +53,7 @@
     <hr />
     <ul>
       <% issue.items.each do |page| %>
-        <% if page.nav != false %>
+        <% if page.nav != false && page.handle != "toc" %>
         <li>
           <a href="<%= page.url %>">
             <span class="category"><%= page.category %></span>
