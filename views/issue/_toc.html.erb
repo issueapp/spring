@@ -28,7 +28,11 @@
 </header>
 <% end %>
 
-<article class="toc page">
+<article class="toc page"
+ <% if page.handle %>
+   data-page-id="<%= page.handle %>"
+ <% end %>
+>
   <div class="main col third-2">
     <div class="cover-area <%= page.layout.image_style %>" style="background-image: url(<%= page.image_url %>)">
       <% if video_embed = page.embed_content %>
