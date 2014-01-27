@@ -1,6 +1,8 @@
 # build data user
-unless window.client_geo_data
+window.client_geo_data = JSON.parse(localStorage && localStorage.getItem('client_geo_data'))
+unless client_geo_data
   $.getJSON "http://smart-ip.net/geoip-json?callback=?", (data) ->
+    localStorage.setItem('client_geo_data', JSON.stringify(data))
     window.client_geo_data = data
 
 if not window.issue_uid or document.cookie.match("issue_uid")
