@@ -15,6 +15,10 @@
 #= require app/page
 #= require app/log
 
+#= require app/models
+#= require app/magazine
+
+
 ###
 
   issue.js

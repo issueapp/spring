@@ -274,7 +274,7 @@
 
       this.container.attr('data-page', story)
       $('nav.toc a.active').removeClass('active')
-      $('[data-page="'+story+'"] .toc .' + story + ' a').addClass('active')
+      $('[data-page="'+story+'"] .toc [class="' + story + '"] a').addClass('active')
     },
 
     reload: function() {
