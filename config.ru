@@ -22,7 +22,7 @@ use Rack::ShowExceptions  # Nice looking errors
 
 run Rack::Cascade.new([
   Serve::RackAdapter.new(root + '/views'),
-  Rack::Directory.new(root + '/public'),
-  Rack::Directory.new(root + '/issues'),
+  # Rack::Directory.new(root + '/public'),
+  # Rack::Directory.new(root + '/issues'),
   IssuePreview,
 ])

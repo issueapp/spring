@@ -20,93 +20,93 @@ class IssuePreview < Sinatra::Base
       end
     end
   end
-
+  
   get %r{/viewer/(?<issue>[^\/]+)/?(?<page>[^\/]+)?(?:\/(?<subpage>[^\/]+))?} do
     @path = params.slice("issue", "page", "subpage").values.compact.join
     erb :"issue/viewer.html", layout: :"/layouts/_docs.html", locals: { path: "/issues/#{@path}", issue: current_issue }
   end
-
+  
   get '/magazines.json' do
     @issues = Dir.glob('issues/*/issue.yaml').map do |file|
       issue_path = file.split("/")[1]
-
+  
       issue = Hashie::Mash.new(YAML.load_file(file)).tap do |i|
         i.background_url = "/issues/#{issue_path}/#{i.background_url}"
         i.url = "/issues/#{issue_path}/"
       end
     end
-
+  
     if params[:q]
       @issues.select! do |issue|
         text = "#{issue.edition_title} #{issue.title}"
         pattern = Regexp.compile(params[:q], Regexp::IGNORECASE)
-
+  
         result = text.match( pattern )
-
-
+  
+  
         if params[:filter] == "featured"
           result = issue.featured
         end
-
+  
         result
       end
     end
-
+  
     @issues.to_json
   end
-
-  get '/issues/?' do
+  
+  get '/:magazine/?' do
     @issues = Dir.glob('issues/*/issue.yaml').map do |file|
       issue_path = file.split("/")[1]
-
+  
       issue = Hashie::Mash.new(YAML.load_file(file)).tap do |i|
         i.image_url = "#{issue_path}/#{i.image_url}"
       end
     end
-
+  
     erb :"issue/list.html", layout: :"/layouts/_docs.html"
   end
-
-
-  get '/issues/:issue/products.json' do
+  
+  
+  get '/:magazine/:issue/products.json' do
     cache = {}
     # pages = recursive_build("issues/#{params[:issue]}", cache).uniq
     content_type :json
-
+  
     files    = Dir.glob("issues/#{params[:issue]}/data/*/*.{md}") +   Dir.glob("issues/#{params[:issue]}/data/*.{md}")
     pages    = files.map {|path| find_page(path) }
     products = pages.map(&:products).flatten.compact
-
+  
     products.to_json
   end
-
-  get "/issues/:issue/index" do
-    redirect to("/issues/#{params[:issue]}/")
+  
+  get "/:magazine/:issue/index" do
+    redirect to("/#{params[:magazine]}/#{params[:issue]}/")
   end
-
-  get "/issues/:issue" do
-    redirect to("/issues/#{params[:issue]}/")
+  
+  get "/:magazine/:issue" do
+    redirect to("/#{params[:magazine]}/#{params[:issue]}/")
   end
-
-  get "/issues/:issue/" do
+  
+  get "/:magazine/:issue/" do
     erb :"issue/_cover.html", layout: :"/layouts/_app.html", locals: { issue: current_issue}
   end
-
-  get "/issues/:issue/_menu" do
+  
+  get "/:magazine/:issue/_menu" do
     erb :"issue/_menu.html", layout: false, locals: { issue: current_issue}
   end
-
-  get "/issues/:issue/issue.json" do
-
+  
+  get "/:magazine/:issue/issue.json" do
+  
     pages = current_issue.items.reduce([]) do |result, item|
       result << item["handle"] #.gsub('/issue/', '')
-
+  
       if item["pages"]
         result += item["pages"].map{|p|
           p["path"] ||  item["handle"] + "/" + p["handle"]
         }
       end
-
+  
       result
     end
     
@@ -114,7 +114,7 @@ class IssuePreview < Sinatra::Base
     data.delete("items")
     data["pages"] = [ "index" ] + pages
     
-    path = "#{request.base_url}/issues/#{params[:issue]}"
+    path = "#{request.base_url}/#{params[:issue]}/#{params[:issue]}"
     
     
     data["menu_html"] = erb :"issue/_menu.html", layout: false, locals: { issue: current_issue, path: path }
@@ -127,9 +127,9 @@ class IssuePreview < Sinatra::Base
   end
 
   # Page and subpage
-  get %r{/issues/(?<issue>[^\/]+)/(?<page>[^\/]+)(?:\/(?<subpage>[^\/]+))?} do
+  get %r{/(?<magazine>[^\/]+)/(?<issue>[^\/]+)/(?<page>[^\/]+)(?:\/(?<subpage>[^\/]+))?} do
     if params["page"] == "assets"
-      return send_file request.path[1, request.path.length - 1]
+      return send_file request.path.gsub(/^\/#{params[:magazine]}/, "issues")
     end
 
     @path = [params["issue"], "data", params["page"], params["subpage"]].compact.join('/')
