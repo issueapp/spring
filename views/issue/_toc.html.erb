@@ -67,3 +67,19 @@
     </ul>
   </div>
 </article>
+<% content_for :js do %>
+<script>
+  App = (typeof App == 'undefined') ? {} : App;
+
+  App.page = {
+    title: "<%= page.title %>",
+    links: <%= page.links.to_json %>,
+    products: <%= page.products.to_json %>
+  }
+
+  App.pageView = new PageView({ model: App.page })
+  
+  // App.trigger('track', 'view')
+  
+</script>
+<% end %>

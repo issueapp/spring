@@ -5,6 +5,8 @@
 #= require backbone
 #= require fastclick
 
+# Iframe communication
+#= require postmessage
 #= require mustache
 
 #= require spring.ui
@@ -49,6 +51,56 @@
 
 ###
 
+
+###
+
+  Embed viewer
+
+###
+parent_url = decodeURIComponent(document.location.hash.replace(/^#/, ''))
+parent_host = parent_url.split("/").slice(0,3).join('/');
+
+App.notifyViewer = (method, params...)=>
+  
+  # Dispatched Iframe communication (MessageEvent)
+  # Request { method: 'string', params: 'array', id: 'unique_id }
+  # Request { result: 'object', id: 'unique_id }
+  message = JSON.stringify({ method: method, params: params})
+  XD.postMessage(message, parent_url, parent);
+
+
+XD.receiveMessage (message) =>
+  request = $.parseJSON(message.data)
+  args = [null, "embed", request.method].concat( request.params )
+  
+  if request.method == "next-page"
+    if App.pageView && App.pageView.canScroll()
+      App.pageView.next()
+    else
+      App.notifyViewer("next")
+    
+    console.log("next-page", App.pageView && App.pageView.canScroll() )
+    
+  else if request.method == "prev-page"
+    
+    if  App.pageView && App.pageView.canScroll("left")
+      App.pageView.prev()
+    else
+      App.notifyViewer("prev")    
+  
+  App.trigger.call(args)
+  
+  console.log("Embed Issue", args)
+  # this[request.method]() if request.method == "close"
+  
+, parent_host
+
+console.log(parent_host)
+
+
+###
+  Video thumbnail
+###
 $(document).on "click", '.video .thumbnail', -> 
   
   iframe = $(this).next().children('iframe')
@@ -58,7 +110,10 @@ $(document).on "click", '.video .thumbnail', ->
   $(this).css('visibility', 'hidden')
   $(this).parent().css('zoom', 1)
   
+
 window.addEventListener 'load', ->
+
   FastClick.attach(document.body)
 
+  
 , false
