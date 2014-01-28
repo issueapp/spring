@@ -2,7 +2,13 @@
 
   #issue-viewer {
     position: relative;
-    font-family: ;
+    font-family: "Helvetica Neue", Helvetica, sans-serif;
+    margin-bottom: 50px;
+    font-size: 13px;
+  }
+  
+  #issue-viewer a {
+    color: #e76c5a;
   }
   
 /*  #issue-viewer > iframe {
@@ -11,6 +17,13 @@
     display: block;
   }
 */
+  #issue-viewer .issue-info {
+    display: none;
+    position: absolute;
+    height: 50px;
+    bottom: -50px;
+  }
+  
   #issue-viewer.portrait {
     width: 768px;
     height: 1024px;
@@ -78,6 +91,7 @@
   }
 
   #issue-viewer nav.toc ul {
+    list-style: none;
     overflow-x: auto;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -89,7 +103,11 @@
     list-style-type: none;
     white-space: nowrap;
   }
-
+  
+  #issue-viewer nav.toc li {
+    display: inline;
+  }
+  
   #issue-viewer nav.toc li a {
     position: relative;
     display: inline-block;
@@ -128,7 +146,7 @@
     color: white;
     font-weight: normal;
     font-size: 24px;
-    font-family: "EB Garamond";
+    font-family: "EB Garamond", "Georgia";
     line-height: 32px;
   }
 
@@ -138,8 +156,10 @@
     text-transform: uppercase;
     font-weight: bold;
     font-size: 14px;
-    font-family: "proxima_nova_regular";
+    font-family: "proxima-nova", "Helvetica Neue", Helvetica, sans-serif;
     line-height: 22px;
+    letter-spacing: 2px;
+    font-weight: normal;
   }
 
   #issue-viewer nav.toc li a:hover .title {
@@ -167,7 +187,7 @@
     <% issue.items.each do |story| %>
     <% next if story.nav == false %>
     <li class="<%= story.handle %>">
-      <a href="<%= story.url %>" target="issue-frame" style="background-image: url('<%= story.image_url %>')" >
+      <a href="<%= path + "/" + story.url %>" target="issue-frame" style="background-image: url('<%= story.image_url %>')" >
         <span class="category"><%= story.category %></span>
         <span class="title"><%= story.title %></span>
         <span class="author"><%= "By #{story.author}" if story.author %></span>
