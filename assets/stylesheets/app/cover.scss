@@ -139,13 +139,13 @@
     position:absolute;
     display: none;
 
-    width: 86px;
-    height: 86px;
+    width: 60px;
+    height: 60px;
 
     bottom: 40px;
     left: 50%;
 
-    margin-left: -43px;
+    margin-left: -30px;
     opacity: 0;
 
     -webkit-animation: fade 0.5s ease both;
@@ -203,11 +203,11 @@
 
     .issue-logo {
       display: block;
-      width: 201px;
-      height: 201px;
-      background-position: 0px -250px !important;
-      margin-left: -100px;
-      bottom: 122px;
+      width: 15%;
+      height: auto;
+//      background-position: 0px -250px !important;
+      margin-left: -7.5%;
+      bottom: 10%;
       
       .webview & {
         display: none;
