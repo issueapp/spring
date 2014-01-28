@@ -24,6 +24,6 @@ myself on the day of the shoot! Of course, the fact that I LOVED literally every
 I’ve had a blast working with <span>MINKPINK</span>, and what’s even better is that now I get to share the campaign as well as a whole heap of other awesome stuff with you, via <span>MINKPINK</span>: <big>The Music Issue</big>. This is <span>MINKPINK</span>’s first EVER magazine and I’m so excited to have been a part of it…I have a feeling you’re going to love reading it as much as we loved putting it together!<br>Race you to the checkout…!
 
 Love,
-<img id="signature" src="/music/assets/toc/pink-christina-perri.png" alt="">
+<img id="signature" src="assets/toc/pink-christina-perri.png" alt="">
 
 For the Love of MINKPINK
