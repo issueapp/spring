@@ -1,22 +1,13 @@
-`
-/* mousetrap v1.4.6 craig.is/killing/mice */
-(function(J,r,f){function s(a,b,d){a.addEventListener?a.addEventListener(b,d,!1):a.attachEvent("on"+b,d)}function A(a){if("keypress"==a.type){var b=String.fromCharCode(a.which);a.shiftKey||(b=b.toLowerCase());return b}return h[a.which]?h[a.which]:B[a.which]?B[a.which]:String.fromCharCode(a.which).toLowerCase()}function t(a){a=a||{};var b=!1,d;for(d in n)a[d]?b=!0:n[d]=0;b||(u=!1)}function C(a,b,d,c,e,v){var g,k,f=[],h=d.type;if(!l[a])return[];"keyup"==h&&w(a)&&(b=[a]);for(g=0;g<l[a].length;++g)if(k=
-l[a][g],!(!c&&k.seq&&n[k.seq]!=k.level||h!=k.action||("keypress"!=h||d.metaKey||d.ctrlKey)&&b.sort().join(",")!==k.modifiers.sort().join(","))){var m=c&&k.seq==c&&k.level==v;(!c&&k.combo==e||m)&&l[a].splice(g,1);f.push(k)}return f}function K(a){var b=[];a.shiftKey&&b.push("shift");a.altKey&&b.push("alt");a.ctrlKey&&b.push("ctrl");a.metaKey&&b.push("meta");return b}function x(a,b,d,c){m.stopCallback(b,b.target||b.srcElement,d,c)||!1!==a(b,d)||(b.preventDefault?b.preventDefault():b.returnValue=!1,b.stopPropagation?
-b.stopPropagation():b.cancelBubble=!0)}function y(a){"number"!==typeof a.which&&(a.which=a.keyCode);var b=A(a);b&&("keyup"==a.type&&z===b?z=!1:m.handleKey(b,K(a),a))}function w(a){return"shift"==a||"ctrl"==a||"alt"==a||"meta"==a}function L(a,b,d,c){function e(b){return function(){u=b;++n[a];clearTimeout(D);D=setTimeout(t,1E3)}}function v(b){x(d,b,a);"keyup"!==c&&(z=A(b));setTimeout(t,10)}for(var g=n[a]=0;g<b.length;++g){var f=g+1===b.length?v:e(c||E(b[g+1]).action);F(b[g],f,c,a,g)}}function E(a,b){var d,
-c,e,f=[];d="+"===a?["+"]:a.split("+");for(e=0;e<d.length;++e)c=d[e],G[c]&&(c=G[c]),b&&"keypress"!=b&&H[c]&&(c=H[c],f.push("shift")),w(c)&&f.push(c);d=c;e=b;if(!e){if(!p){p={};for(var g in h)95<g&&112>g||h.hasOwnProperty(g)&&(p[h[g]]=g)}e=p[d]?"keydown":"keypress"}"keypress"==e&&f.length&&(e="keydown");return{key:c,modifiers:f,action:e}}function F(a,b,d,c,e){q[a+":"+d]=b;a=a.replace(/\s+/g," ");var f=a.split(" ");1<f.length?L(a,f,b,d):(d=E(a,d),l[d.key]=l[d.key]||[],C(d.key,d.modifiers,{type:d.action},
-c,a,e),l[d.key][c?"unshift":"push"]({callback:b,modifiers:d.modifiers,action:d.action,seq:c,level:e,combo:a}))}var h={8:"backspace",9:"tab",13:"enter",16:"shift",17:"ctrl",18:"alt",20:"capslock",27:"esc",32:"space",33:"pageup",34:"pagedown",35:"end",36:"home",37:"left",38:"up",39:"right",40:"down",45:"ins",46:"del",91:"meta",93:"meta",224:"meta"},B={106:"*",107:"+",109:"-",110:".",111:"/",186:";",187:"=",188:",",189:"-",190:".",191:"/",192:"\`",219:"[",220:"\\",221:"]",222:"'"},H={"~":"\`","!":"1",
-"@":"2","#":"3",$:"4","%":"5","^":"6","&":"7","*":"8","(":"9",")":"0",_:"-","+":"=",":":";",'"':"'","<":",",">":".","?":"/","|":"\\"},G={option:"alt",command:"meta","return":"enter",escape:"esc",mod:/Mac|iPod|iPhone|iPad/.test(navigator.platform)?"meta":"ctrl"},p,l={},q={},n={},D,z=!1,I=!1,u=!1;for(f=1;20>f;++f)h[111+f]="f"+f;for(f=0;9>=f;++f)h[f+96]=f;s(r,"keypress",y);s(r,"keydown",y);s(r,"keyup",y);var m={bind:function(a,b,d){a=a instanceof Array?a:[a];for(var c=0;c<a.length;++c)F(a[c],b,d);return this},
-unbind:function(a,b){return m.bind(a,function(){},b)},trigger:function(a,b){if(q[a+":"+b])q[a+":"+b]({},a);return this},reset:function(){l={};q={};return this},stopCallback:function(a,b){return-1<(" "+b.className+" ").indexOf(" mousetrap ")?!1:"INPUT"==b.tagName||"SELECT"==b.tagName||"TEXTAREA"==b.tagName||b.isContentEditable},handleKey:function(a,b,d){var c=C(a,b,d),e;b={};var f=0,g=!1;for(e=0;e<c.length;++e)c[e].seq&&(f=Math.max(f,c[e].level));for(e=0;e<c.length;++e)c[e].seq?c[e].level==f&&(g=!0,
-b[c[e].seq]=1,x(c[e].callback,d,c[e].combo,c[e].seq)):g||x(c[e].callback,d,c[e].combo);c="keypress"==d.type&&I;d.type!=u||w(a)||c||t(b);I=g&&"keydown"==d.type}};J.Mousetrap=m;"function"===typeof define&&define.amd&&define(m)})(window,document);
-`
+# Post Messages
+`var XD=function(){var e,t,n=1,r,i=this;return{postMessage:function(e,t,r){if(!t){return}r=r||parent;if(i["postMessage"]){r["postMessage"](e,t.replace(/([^:]+:\/\/[^\/]+).*/,"$1"))}else if(t){r.location=t.replace(/#.*$/,"")+"#"+ +(new Date)+n++ +"&"+e}},receiveMessage:function(n,s){if(i["postMessage"]){if(n){r=function(e){if(typeof s==="string"&&e.origin!==s||Object.prototype.toString.call(s)==="[object Function]"&&s(e.origin)===!1){return!1}n(e)}}if(i["addEventListener"]){i[n?"addEventListener":"removeEventListener"]("message",r,!1)}else{i[n?"attachEvent":"detachEvent"]("onmessage",r)}}else{e&&clearInterval(e);e=null;if(n){e=setInterval(function(){var e=document.location.hash,r=/^#?\d+&/;if(e!==t&&r.test(e)){t=e;n({data:e.replace(r,"")})}},100)}}}}}()`
+
+# Mousetrap.js
+`(function(e,t,n){function m(e,t,n){if(e.addEventListener){e.addEventListener(t,n,false);return}e.attachEvent("on"+t,n)}function g(e){if(e.type=="keypress"){var t=String.fromCharCode(e.which);if(!e.shiftKey){t=t.toLowerCase()}return t}if(r[e.which]){return r[e.which]}if(i[e.which]){return i[e.which]}return String.fromCharCode(e.which).toLowerCase()}function y(e,t){return e.sort().join(",")===t.sort().join(",")}function b(e){e=e||{};var t=false,n;for(n in l){if(e[n]){t=true;continue}l[n]=0}if(!t){d=false}}function w(e,t,n,r,i,s){var o,u,f=[],c=n.type;if(!a[e]){return[]}if(c=="keyup"&&k(e)){t=[e]}for(o=0;o<a[e].length;++o){u=a[e][o];if(!r&&u.seq&&l[u.seq]!=u.level){continue}if(c!=u.action){continue}if(c=="keypress"&&!n.metaKey&&!n.ctrlKey||y(t,u.modifiers)){var h=!r&&u.combo==i;var p=r&&u.seq==r&&u.level==s;if(h||p){a[e].splice(o,1)}f.push(u)}}return f}function E(e){var t=[];if(e.shiftKey){t.push("shift")}if(e.altKey){t.push("alt")}if(e.ctrlKey){t.push("ctrl")}if(e.metaKey){t.push("meta")}return t}function S(e){if(e.preventDefault){e.preventDefault();return}e.returnValue=false}function x(e){if(e.stopPropagation){e.stopPropagation();return}e.cancelBubble=true}function T(e,t,n,r){if(B.stopCallback(t,t.target||t.srcElement,n,r)){return}if(e(t,n)===false){S(t);x(t)}}function N(e,t,n){var r=w(e,t,n),i,s={},o=0,u=false;for(i=0;i<r.length;++i){if(r[i].seq){o=Math.max(o,r[i].level)}}for(i=0;i<r.length;++i){if(r[i].seq){if(r[i].level!=o){continue}u=true;s[r[i].seq]=1;T(r[i].callback,n,r[i].combo,r[i].seq);continue}if(!u){T(r[i].callback,n,r[i].combo)}}var a=n.type=="keypress"&&p;if(n.type==d&&!k(e)&&!a){b(s)}p=u&&n.type=="keydown"}function C(e){if(typeof e.which!=="number"){e.which=e.keyCode}var t=g(e);if(!t){return}if(e.type=="keyup"&&h===t){h=false;return}B.handleKey(t,E(e),e)}function k(e){return e=="shift"||e=="ctrl"||e=="alt"||e=="meta"}function L(){clearTimeout(c);c=setTimeout(b,1e3)}function A(){if(!u){u={};for(var e in r){if(e>95&&e<112){continue}if(r.hasOwnProperty(e)){u[r[e]]=e}}}return u}function O(e,t,n){if(!n){n=A()[e]?"keydown":"keypress"}if(n=="keypress"&&t.length){n="keydown"}return n}function M(e,t,n,r){function i(t){return function(){d=t;++l[e];L()}}function s(t){T(n,t,e);if(r!=="keyup"){h=g(t)}setTimeout(b,10)}l[e]=0;for(var o=0;o<t.length;++o){var u=o+1===t.length;var a=u?s:i(r||D(t[o+1]).action);P(t[o],a,r,e,o)}}function _(e){if(e==="+"){return["+"]}return e.split("+")}function D(e,t){var n,r,i,u=[];n=_(e);for(i=0;i<n.length;++i){r=n[i];if(o[r]){r=o[r]}if(t&&t!="keypress"&&s[r]){r=s[r];u.push("shift")}if(k(r)){u.push(r)}}t=O(r,u,t);return{key:r,modifiers:u,action:t}}function P(e,t,n,r,i){f[e+":"+n]=t;e=e.replace(/\s+/g," ");var s=e.split(" "),o;if(s.length>1){M(e,s,t,n);return}o=D(e,n);a[o.key]=a[o.key]||[];w(o.key,o.modifiers,{type:o.action},r,e,i);a[o.key][r?"unshift":"push"]({callback:t,modifiers:o.modifiers,action:o.action,seq:r,level:i,combo:e})}function H(e,t,n){for(var r=0;r<e.length;++r){P(e[r],t,n)}}var r={8:"backspace",9:"tab",13:"enter",16:"shift",17:"ctrl",18:"alt",20:"capslock",27:"esc",32:"space",33:"pageup",34:"pagedown",35:"end",36:"home",37:"left",38:"up",39:"right",40:"down",45:"ins",46:"del",91:"meta",93:"meta",224:"meta"},i={106:"*",107:"+",109:"-",110:".",111:"/",186:";",187:"=",188:",",189:"-",190:".",191:"/",192:"\`",219:"[",220:"\\",221:"]",222:"'"},s={"~":"\`","!":"1","@":"2","#":"3",$:"4","%":"5","^":"6","&":"7","*":"8","(":"9",")":"0",_:"-","+":"=",":":";",'"':"'","<":",",">":".","?":"/","|":"\\"},o={option:"alt",command:"meta","return":"enter",escape:"esc",mod:/Mac|iPod|iPhone|iPad/.test(navigator.platform)?"meta":"ctrl"},u,a={},f={},l={},c,h=false,p=false,d=false;for(var v=1;v<20;++v){r[111+v]="f"+v}for(v=0;v<=9;++v){r[v+96]=v}m(t,"keypress",C);m(t,"keydown",C);m(t,"keyup",C);var B={bind:function(e,t,n){e=e instanceof Array?e:[e];H(e,t,n);return this},unbind:function(e,t){return B.bind(e,function(){},t)},trigger:function(e,t){if(f[e+":"+t]){f[e+":"+t]({},e)}return this},reset:function(){a={};f={};return this},stopCallback:function(e,t){if((" "+t.className+" ").indexOf(" mousetrap ")>-1){return false}return t.tagName=="INPUT"||t.tagName=="SELECT"||t.tagName=="TEXTAREA"||t.isContentEditable},handleKey:N};e.Mousetrap=B;if(typeof define==="function"&&define.amd){define(B)}})(window,document)`
 
 @App = {}
 
 unless jQuery? || Zepto?
   return alert("Error: Jquery or Zepto is required")
-
-base_url = "http://spring.dev/"
-
 
 ##
 # Detect magazine and issue params
@@ -24,7 +15,7 @@ base_url = "http://spring.dev/"
 file = (script.src for script in document.getElementsByTagName('script') when script.src.match(/embed\.js/))
 
 parser = document.createElement('a')
-parser.href = file
+parser.href = file[0]
 
 if matches = parser.search.match(/magazine=([^&]+)/)
   magazine = matches[1]
@@ -36,10 +27,9 @@ if matches = parser.search.match(/issue=([^&]+)/)
 else
   issue = null
 
+base_url = if parser.host.match(/\.dev/) then "http://issue.dev/embed/" else "http://issue.by/embed/"
 
 issue_url = base_url + "#{magazine}/#{issue}"
-# issue_url = "http://spring.dev/issues/#{issue}"
-
 
 
 #
@@ -52,17 +42,14 @@ Viewer =
   path: null
   
   init: (url) ->
-    
     @url = url
     
-    @container = $("#issue-viewer").css({
-      'background': "#fff"
-    })
+    @container = $("#issue-viewer").css({'background': "#fff"})
     
     @container = document.body if @container.length == 0
     
     parts = url.split('/')
-    parts.pop()  if parts.length > 5
+    # parts.pop()  if parts.length > 5
     @path = parts.join("/")
     
     console.log("Init viewer", @path)
@@ -74,28 +61,58 @@ Viewer =
     $.getJSON issue_url + '/issue.json?callback=?', (data)-> 
       Viewer.load(data)
     
-    # Observe events
-    @nextBtn = $('<a class="next-page" href="#">›</a>')
-    @prevBtn = $('<a class="prev-page" href="#">‹</a>')
-    
-    
     # Set current page
     this.setCurrentPage( @currentPage() )
     
     @menuBtn = $('a.issue-menu')
-    @menuBtn.on "click", this.toggleMenu
-    
-    @nextBtn.on "click", $.proxy(this.next, this)
-    @prevBtn.on "click", $.proxy(this.prev, this)
+    @nextBtn = $('<a class="next-page" href="#">›</a>')
+    @prevBtn = $('<a class="prev-page" href="#">‹</a>')    
     @container.prepend(@nextBtn).prepend(@prevBtn)
 
-    $('.issue-subscribe').on('click', -> false)
-
-    Mousetrap.bind("right", $.proxy(this.next, this))
-    Mousetrap.bind("left", $.proxy(this.prev, this))
-    Mousetrap.bind("option", this.toggleMenu)
-    Mousetrap.bind("r", this.reload)
+    # Observe events
+    this.observeEvents()
     
+    
+  trigger: (event, params...)->
+    data = {
+      method: event,
+      params: params
+    }
+    
+    frame = document.getElementById('issue-frame')
+    
+    console.log(JSON.stringify(data), frame.src.replace(/#(.+)/, ''), frame.contentWindow )
+    
+    XD.postMessage(JSON.stringify(data), frame.src.replace(/#(.+)/, ''), frame.contentWindow );
+    
+  #
+  # Observe viewer events from keyboard, user interaction and iframe messages
+  # 
+  observeEvents: ->
+    
+  # Dispatched Iframe communication (MessageEvent)
+  # Request { method: 'string', params: 'array', id: 'unique_id }
+  # Request { result: 'object', id: 'unique_id }
+    XD.receiveMessage (message) =>
+      request = $.parseJSON(message.data)
+      
+      # go next/prev
+      this[request.method]() if request.method.match(/next|prev/)
+      
+      console.log("Viewer", request, message, window.location.host)
+      
+    , 'http://spring.dev'
+    
+    # UI Events
+    @menuBtn.on "click", this.toggleMenu
+    
+    @nextBtn.on "click", (e)=> 
+      this.trigger("next-page")
+    
+    @prevBtn.on "click", (e)=> 
+      this.trigger("prev-page")
+    
+    $('.issue-subscribe').on('click', -> false)
     $("nav.toc a").on "click", ->
       
       link = @href
@@ -104,14 +121,20 @@ Viewer =
       Viewer.setCurrentPage link
       Viewer.toggleMenu()
       false
+  
     
-
+    # Keyboard events
+    Mousetrap.bind("right", $.proxy(this.next, this))
+    Mousetrap.bind("left", $.proxy(this.prev, this))
+    Mousetrap.bind("option", this.toggleMenu)
+    Mousetrap.bind("r", this.reload)
+    
   load: (data)->
     @pages = data.pages
     
     $(@frame).after(data.menu_html)
     # @container.append()
-
+  
   next: ->
     current = this.currentPage()
     index = @pages.indexOf(current)
@@ -119,20 +142,8 @@ Viewer =
 
     console.log("Go Next", current, index, next)
 
-    # Set App glob
-    App = this.App()
-    
-    # console.log(App)
-    
-    # console.log(">> current", current)
-    # console.log(">> index", index)
-    # console.log(">> next", next)
-    
-    if App.pageView && App.pageView.canScroll()
-      App.pageView.next()
-      
-    else if next
-      $("#issue-frame").attr "src", @path + "/" + next
+    if next
+      $("#issue-frame").attr "src", @path + "/" + next  + "##{encodeURIComponent(document.location.href)}"
       
       $("#issue-frame").off('load').on 'load', =>
       
@@ -146,28 +157,19 @@ Viewer =
 
   prev: ->
 
-    # Set App glob
-    App = this.App()
-    
     current = @currentPage()
     index = @pages.indexOf(current)
     prev = @pages[index - 1]
     
-    if App.pageView && App.pageView.canScroll('left')
-      App.pageView.prev()
+    if prev
       
-    else if prev
-      
-      $("#issue-frame").attr "src", @path + "/" + prev
+      $("#issue-frame").attr "src", @path + "/" + prev  + "##{encodeURIComponent(document.location.href)}"
       
       $("#issue-frame").off('load').on 'load', =>
       
         @setCurrentPage prev
         @toggleMenu false
 
-        # Set App glob
-        App = this.App()
-    
     false
 
 
@@ -176,7 +178,7 @@ Viewer =
     page = undefined
     
     if src.match(@path + "/")
-      page = @frame.src.replace(@path + "/", "")
+      page = @frame.src.replace(@path + "/", "").replace(/#(.+)/, '')
     else
       page = "index"
     page
@@ -203,7 +205,7 @@ Viewer =
     # iframe.style.overflow = "hidden"
     # 
     @container.prepend(iframe)
-    iframe.src = @url
+    iframe.src = @url + "##{encodeURIComponent(document.location.href)}"
     iframe
     
   # Return parent path if possible, otherwise return self
