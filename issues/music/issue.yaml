@@ -36,11 +36,11 @@ items:
   - title: Table of Content
     handle: "toc"
 
-  - title: "Editors Letter"
+  - title: "Welcome"
     handle: "editors-letter"
     image_url: "assets/toc/editors-letter.jpg"
 
-  - title: "Christina Perri"
+  - title: "Styling it Out"
     category: interview
     handle: "1-styling-it-out"
     image_url: "assets/toc/1-styling-it-out.jpg"
