@@ -48,12 +48,25 @@
     height: 100%;
   }
   
+  #issue-viewer .issue-subscribe {
+    background: url(/assets/embed-subscribe-50px.png) no-repeat;
+    width: 135px;
+    height: 50px;
+    display: inline-block;
+    color: transparent;
+    font-size: 0;
+    display: none;
+  }
+
   #issue-viewer .issue-info img {
     margin-right: 10px;
     vertical-align: middle;
   }
   
   #issue-viewer .issue-menu {
+    background: url(/issue-icons/SVG/navicon-round.svg) no-repeat;
+    background-size: 24px 24px;
+    background-position: left center;
     
     font: normal 12px/50px "Helvetica Neue", Helvetica, sans-serif;
     letter-spacing: 2px;
@@ -63,6 +76,7 @@
     position: absolute;
     top: 0;
     right: 0;
+    padding-left: 30px;
 /*    right: 0;
     bottom: 0;
     left: 0;
