@@ -226,7 +226,7 @@ class IssuePreview < Sinatra::Base
   end
 
   def issue_url
-    "#{request.base_url}/#{params[:issue]}"
+    "#{request.base_url}/#{params[:magazine]}/#{params[:issue]}"
   end
 
   def page_template(page)
