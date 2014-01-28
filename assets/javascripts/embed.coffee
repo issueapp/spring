@@ -89,6 +89,7 @@ Viewer =
     @prevBtn.on "click", $.proxy(this.prev, this)
     @container.prepend(@nextBtn).prepend(@prevBtn)
 
+    $('.issue-subscribe').on('click', -> false)
 
     Mousetrap.bind("right", $.proxy(this.next, this))
     Mousetrap.bind("left", $.proxy(this.prev, this))
