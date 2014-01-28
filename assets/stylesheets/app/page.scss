@@ -85,6 +85,11 @@ article.page {
     figcaption.inset {
       top: initial;
       bottom: 0;
+      
+      a {
+        text-decoration: none;
+        color: white;
+      }
     }
   }
 
@@ -226,6 +231,11 @@ article.page {
       color: white;
       text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
       font-weight: bold;
+      
+      a {
+        text-decoration: none;
+        color: white;
+      }
     }
   }
 
@@ -305,6 +315,22 @@ article.page {
       width: 100%;
       height: 100%;
     }
+  }
+  
+  figure.video {
+    position: relative;
+    padding-top: 26.25%;
+    
+    .thumbnail {
+      position: absolute;
+      top: 0;
+    }
+    
+    iframe {
+      position: absolute;
+      top: 0;
+    }
+//    position: relative;
   }
 
   .description {

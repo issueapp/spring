@@ -137,14 +137,24 @@
     @extend .icon-ios7-cloud-download-outline;
     display: none;
   }
-
+  
+  .show-menu {
+    @extend %touch-icon-style;
+    @extend .icon-ios7-arrow-up;
+    top: initial;
+    left: initial;
+    right: 0;;
+    bottom: 0;
+    display: block;
+  }
+  
   .more-actions {
     @extend %touch-icon-style;
     @extend .icon-ellipsis;
   }
 
   @include min-screen(768) {
-    .subscribe, .download {
+    .subscribe, .download, .show-more {
       display: block;
     }
   }

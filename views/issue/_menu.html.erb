@@ -1,5 +1,61 @@
 <style>
-  nav.toc {
+
+  #issue-viewer {
+    position: relative;
+  }
+  
+/*  #issue-viewer > iframe {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+*/
+  #issue-viewer.portrait {
+    width: 768px;
+    height: 1024px;
+  }
+
+  #issue-viewer.mobile {
+    width: 320px;
+    height: 568px;
+  }
+
+  #issue-viewer.fullscreen {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  #issue-viewer a.next-page, 
+  #issue-viewer a.prev-page {
+    text-decoration: none;
+    position: absolute;
+    top: 48%;
+    right: -1px;
+    display: block;
+    margin-top: -25px;
+    width: 30px;
+    height: 50px;
+    background: #333;
+    color: white;
+    content: "";
+    text-align: center;
+    font-size: 60px;
+    line-height: 44px;
+    opacity: 0.85;
+    cursor: pointer;
+  }
+
+  #issue-viewer a.prev-page {
+    left: 0;
+  }
+
+  #issue-viewer nav.toc {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -14,13 +70,13 @@
     transition: all 0.15s ease-out;
   }
 
-  nav.toc.show {
+  #issue-viewer nav.toc.show {
     z-index: 0;
     visibility: visible;
     height: 150px;
   }
 
-  nav.toc ul {
+  #issue-viewer nav.toc ul {
     overflow-x: auto;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -33,7 +89,7 @@
     white-space: nowrap;
   }
 
-  nav.toc li a {
+  #issue-viewer nav.toc li a {
     position: relative;
     display: inline-block;
     overflow: hidden;
@@ -55,8 +111,8 @@
     line-height: 110px;
   }
 
-  nav.toc li a .title,
-  nav.toc li a .category {
+  #issue-viewer nav.toc li a .title,
+  #issue-viewer nav.toc li a .category {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -66,7 +122,7 @@
     text-overflow: ellipsis;
   }
 
-  nav.toc li a .title {
+  #issue-viewer nav.toc li a .title {
     margin-top: -16px;
     color: white;
     font-weight: normal;
@@ -75,7 +131,7 @@
     line-height: 32px;
   }
 
-  nav.toc li a .category {
+  #issue-viewer nav.toc li a .category {
     margin-top: -38px;
     color: #ccc;
     text-transform: uppercase;
@@ -85,11 +141,11 @@
     line-height: 22px;
   }
 
-  nav.toc li a:hover .title {
+  #issue-viewer nav.toc li a:hover .title {
     color: #e96b56;
   }
 
-  nav.toc li a:before {
+  #issue-viewer nav.toc li a:before {
     position: absolute;
     top: 0;
     right: 0;
@@ -99,9 +155,10 @@
     content: '';
   }
 
-  nav.toc li a.active {
+  #issue-viewer nav.toc li a.active {
     outline: 2px solid #A2E6E8;
   }
+  
 </style>
 
 <nav class="toc" role="secondary">
