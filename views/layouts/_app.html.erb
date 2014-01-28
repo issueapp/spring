@@ -30,9 +30,9 @@
     <% if defined?(current_issue) %>
       <% current_issue.assets.to_a.each do |asset| %>
         <% if asset.match(/\.js$/) %>
-          <script src="<%= "/#{params[:issue]}/assets/#{asset}" %>"></script>
+          <script src="<%= "/#{params[:magazine]}/#{params[:issue]}/assets/#{asset}" %>"></script>
         <% elsif asset.match(/\.css$/) %>
-          <link rel="stylesheet" href="<%= "/#{params[:issue]}/assets/#{asset}" %>" type="text/css">
+          <link rel="stylesheet" href="<%= "/#{params[:magazine]}/#{params[:issue]}/assets/#{asset}" %>" type="text/css">
         <% end %>
       <% end %>
     <% end %>
