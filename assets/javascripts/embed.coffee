@@ -82,9 +82,13 @@ Viewer =
     # Set current page
     this.setCurrentPage( @currentPage() )
     
+    @menuBtn = $('a.issue-menu')
+    @menuBtn.on "click", this.toggleMenu
+    
     @nextBtn.on "click", $.proxy(this.next, this)
     @prevBtn.on "click", $.proxy(this.prev, this)
     @container.prepend(@nextBtn).prepend(@prevBtn)
+
 
     Mousetrap.bind("right", $.proxy(this.next, this))
     Mousetrap.bind("left", $.proxy(this.prev, this))
@@ -179,6 +183,8 @@ Viewer =
   toggleMenu: (state) ->
     nav = $("nav.toc")
     nav.toggleClass "show", state
+    
+    false
   
   # Private
   buildIframe: ->
