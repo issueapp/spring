@@ -78,6 +78,10 @@ Viewer =
     @nextBtn = $('<a class="next-page" href="#">›</a>')
     @prevBtn = $('<a class="prev-page" href="#">‹</a>')
     
+    
+    # Set current page
+    this.setCurrentPage( @currentPage() )
+    
     @nextBtn.on "click", $.proxy(this.next, this)
     @prevBtn.on "click", $.proxy(this.prev, this)
     @container.prepend(@nextBtn).prepend(@prevBtn)
@@ -86,9 +90,6 @@ Viewer =
     Mousetrap.bind("left", $.proxy(this.prev, this))
     Mousetrap.bind("option", this.toggleMenu)
     Mousetrap.bind("r", this.reload)
-    
-    # Set current page
-    this.setCurrentPage( @currentPage() )
     
     $("nav.toc a").on "click", ->
       
@@ -107,14 +108,16 @@ Viewer =
     # @container.append()
 
   next: ->
-    current = @currentPage()
+    current = this.currentPage()
     index = @pages.indexOf(current)
     next = @pages[index + 1]
+
+    console.log("Go Next", current, index, next)
 
     # Set App glob
     App = this.App()
     
-    console.log(App)
+    # console.log(App)
     
     # console.log(">> current", current)
     # console.log(">> index", index)
