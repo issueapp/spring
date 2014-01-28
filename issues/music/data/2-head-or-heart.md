@@ -5,12 +5,28 @@
     #author_name: Zyralyn Bacani
     #author_icon: http://cl.ly/StPu/Image%202013.12.11%204%3A54%3A01%20pm.png
     image_url: assets/2-head-or-heart/cover.gif
-    cover_caption: '[MINKPINK Morrocon Tile Tank and Morrocan Tile Short]'
+    cover_caption: '[MINKPINK Morrocan Tile Tank and Morrocan Tile Short]'
 
     layout:
       type: three-column
       image_align: right
-
+    
+    products:
+  
+      - title : MINKPINK Morrocan Tile Tank 
+        url: http://www.shopbop.com/minkpink/br/v=1/2534374302152011.htm#1
+        image_url: assets/2-head-or-heart/cover.gif
+        price: 
+        description: SHOP THE MINKPINK COLLECTION
+        hidden: true
+        
+      - title : MINKPINK Morrocan Tile Shorts 
+        url: http://www.shopbop.com/minkpink/br/v=1/2534374302152011.htm#2
+        image_url: assets/2-head-or-heart/cover.gif
+        price: 
+        description: SHOP THE MINKPINK COLLECTION
+        hidden: true
+        
 ---
 <style>
   h1.title {
@@ -48,12 +64,12 @@
   }
 </style>
 
-<span><bold>IN NEED OF A STYLE UPDATE?
-  WELL WHAT BETTER TIME
-  THAN RIGHT NOW! INSPIRE
-  YOUR LOOK WITH THE OFFICIAL
-  MINKPINK: THE MUSIC ISSUE
-  COLLECTION, STARRING
+<span><bold>IN NEED OF A STYLE UPDATE?     
+  WELL WHAT BETTER TIME     
+  THAN RIGHT NOW! INSPIRE      
+  YOUR LOOK WITH THE OFFICIAL     
+  MINKPINK: THE MUSIC ISSUE    
+  COLLECTION, STARRING    
   CHRISTINA PERRI.</bold></span>
 
 <small>PHOTOGRAPHY BY MIKE PISCITELLI</small>

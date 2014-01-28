@@ -11,15 +11,16 @@
       # Strip top
 
       - title: MINKPINK All I Need Dress
-        url: http://markethq.com/#1
+        url: http://www1.bloomingdales.com/buy/mink-pink?cm_sp=shop_by_brand-_-ALL%20DESIGNERS-_-MINK%20PINK#3 
         image_url: assets/3-shop-the-shoot/cream.jpg
-        description: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
+        description: SHOP THE MINKPINK COLLECTION 
+        price:
+    
       - title: Pearl Cat Ear Headband
-        url: http://something.com/3456
         image_url: assets/3-shop-the-shoot/IMG_8796.jpg
-        description: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
+        description: 
+    
+    
       - title : Indy C Triple Triangle Chain Gold
         url: http://www.surfstitch.com/product/indy-c-triple-triangle-chain-gold
         image_url: assets/3-shop-the-shoot/triangle.jpg
@@ -27,19 +28,21 @@
         description: Each season the Indy C team scours the globe & creates a diverse, on-trend range offering unique & affordable pieces that get noticed.
 
       - title: MINKPINK Losing My Edge
-        url: http://markethq.com/#3
+        url: http://www.zappos.com/minkpink#1
         image_url: assets/3-shop-the-shoot/stripe.png
-        description: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
+        description: SHOP THE MINKPINK COLLECTION 
+        price:
+    
       - title: MINKPINK Follow Me To Heaven Playsuit
-        url: http://markethq.com/#2
+        url: http://shop.nordstrom.com/c/minkpink?origin=brandindex#5
         image_url: assets/3-shop-the-shoot/MP8227i.png
-        description: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
+        description: SHOP THE MINKPINK COLLECTION
+        price:
+    
       - title: MINKPINK Steamed Up Sunglasses
-        url: http://markethq.com/#4
+        url: http://minkpink.com/global/store-locator#3
         image_url: assets/3-shop-the-shoot/cover-product-4.jpg
-        description: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        description: FIND YOUR NEAREST MINKPINK STOCKIST
 
     layout:
       type: three-column
