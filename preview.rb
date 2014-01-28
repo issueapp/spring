@@ -22,8 +22,7 @@ class IssuePreview < Sinatra::Base
   end
 
   get %r{/viewer/(?<issue>[^\/]+)/?(?<page>[^\/]+)?(?:\/(?<subpage>[^\/]+))?} do
-    @path = params.slice("issue", "page", "subpage").values.compact.join('/')
-
+    @path = params.slice("issue", "page", "subpage").values.compact.join
     erb :"issue/viewer.html", layout: :"/layouts/_docs.html", locals: { path: "/issues/#{@path}", issue: current_issue }
   end
 
@@ -114,9 +113,12 @@ class IssuePreview < Sinatra::Base
     data = current_issue.to_h
     data.delete("items")
     data["pages"] = [ "index" ] + pages
-
-    data["menu_html"] = erb :"issue/_menu.html", layout: false, locals: { issue: current_issue}
-
+    
+    path = "#{request.base_url}/issues/#{params[:issue]}"
+    
+    
+    data["menu_html"] = erb :"issue/_menu.html", layout: false, locals: { issue: current_issue, path: path }
+    
     if params[:callback]
       "#{params[:callback]}(#{data.to_json})";
     else
