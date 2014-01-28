@@ -49,8 +49,15 @@
 
 ###
 
-
-
+$(document).on "click", '.video .thumbnail', -> 
+  
+  iframe = $(this).next().children('iframe')
+  
+  iframe.attr('src', iframe.data('src')).show()
+  
+  $(this).css('visibility', 'hidden')
+  $(this).parent().css('zoom', 1)
+  
 window.addEventListener 'load', ->
   FastClick.attach(document.body)
 

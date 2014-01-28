@@ -9,7 +9,8 @@ require 'nokogiri'
 class IssuePreview < Sinatra::Base
   register Sinatra::AssetPipeline
   helpers Sinatra::ContentFor
-
+  set :protection, :except => :frame_options
+  
   helpers do
     def render(*args)
       if args.first.is_a?(Hash) && args.first.keys.include?(:partial)
@@ -92,6 +93,10 @@ class IssuePreview < Sinatra::Base
     erb :"issue/_cover.html", layout: :"/layouts/_app.html", locals: { issue: current_issue}
   end
 
+  get "/issues/:issue/_menu" do
+    erb :"issue/_menu.html", layout: false, locals: { issue: current_issue}
+  end
+
   get "/issues/:issue/issue.json" do
 
     pages = current_issue.items.reduce([]) do |result, item|
@@ -105,12 +110,18 @@ class IssuePreview < Sinatra::Base
 
       result
     end
-
+    
     data = current_issue.to_h
     data.delete("items")
     data["pages"] = [ "index" ] + pages
 
-    data.to_json
+    data["menu_html"] = erb :"issue/_menu.html", layout: false, locals: { issue: current_issue}
+
+    if params[:callback]
+      "#{params[:callback]}(#{data.to_json})";
+    else
+      data.to_json
+    end
   end
 
   # Page and subpage

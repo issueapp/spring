@@ -119,18 +119,18 @@ section.magazine.cover .title {
 
 section.magazine.cover .extra-1 {
   position: absolute;
-  bottom: 20px;
+  bottom: 10px;
   left: 50%;
   margin-left: -45%;
   width: 90%;
   height: 115px;
   background-image: url('../assets/cover-christina-perri.png');
   background-position: center;
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
 }
 
-article.page {
+.page-fadein {
   -webkit-animation-name: fade;
   animation-name: fade;
 
@@ -142,9 +142,9 @@ article.page {
 
   -webkit-animation-delay: 0;
   animation-delay: 0;
-
+/*
   -webkit-animation-iteration-count: 1;
-  animation-iteration-count: 1;
+  animation-iteration-count: 1;*/
 
   -webkit-animation-direction: normal;
   animation-direction: normal;
@@ -181,6 +181,7 @@ article.toc.page .body p:first-child {
   color: transparent;
 }
 
+
 @media only screen and (min-width: 768px) {
   section.magazine.cover .brand {
     margin: 0 auto;
@@ -197,9 +198,15 @@ article.toc.page .body p:first-child {
 
   section.magazine.cover .extra-1 {
     left: 50%;
-    margin-left: -202px;
-    width: 416px;
-    height: 166px;
+    margin-left: -25%;
+    width: 50%;
+    height: 20%;
+  }
+}
+
+@media only screen and (orientation: landscape) {
+  .magazine.cover hgroup, .page.cover hgroup {
+    margin-top: -4%;
   }
 }
 

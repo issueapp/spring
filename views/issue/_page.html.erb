@@ -7,7 +7,8 @@
     @affiliate_urls[url]
   end
 
-  products = page.products.to_a.select{|p| !p.hotspot }
+  products = page.products.to_a.select{|p| !p.hotspot && !p.hidden }
+  
   hotspots = (page.products.to_a + page.links.to_a).select{|p| p.hotspot }.map do |p|
     left, right, radius = p.hotspot.split(',').map(&:strip)
     p.hotspot = {
@@ -30,7 +31,8 @@
  <%= page.content_type %>
 
  <%= page.custom_class %>
-
+ page-fadein
+  
  <% if page.layout.type != "custom" %>
    <%= page.layout.content_overflow || 'scroll' %>
    <%= page.layout.content_style || 'white' %>

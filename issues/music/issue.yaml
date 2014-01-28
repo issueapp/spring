@@ -47,7 +47,7 @@ items:
     pages:
       - handle: "1"
 
-  - title: "Head or Heart?"
+  - title: "Head or Heart"
     category: fashion
     handle: "2-head-or-heart"
     image_url: "assets/toc/2-head-or-heart.jpg"
@@ -57,7 +57,7 @@ items:
       - handle: "3"
       - handle: "4"
 
-  - title: "Shop the Shoot?"
+  - title: "Get the look"
     category: Accessories
     handle: "3-shop-the-shoot"
     image_url: "assets/toc/3-shop-the-shoot.jpg"
