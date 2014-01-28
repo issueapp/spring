@@ -26,9 +26,9 @@ article.page.toc .cover-area .brand-logo {
   position: static;
   bottom: initial;
   left: initial;
-  margin: 60px auto 0;
+  margin: 2% auto 0;
   margin-bottom: -20px;
-  max-width: 350px;
+  max-width: 40%;
 }
 
 article.page.toc h2 {
@@ -38,6 +38,10 @@ article.page.toc h2 {
 article.page.toc .menu li .story {
   text-decoration: none;
   font-family: "rodondoregular";
+}
+
+article.page.toc .menu .head {
+  display: none;
 }
 
 article.page figure figcaption {
@@ -164,8 +168,8 @@ article.toc.page #signature {
 }
 
 article.toc.page .cover-area {
-  min-height: 200px;
-  height: 200px;
+  min-height: 15%;
+  height: 15%;
 }
 
 article.toc.page .body p:first-child {
@@ -173,8 +177,8 @@ article.toc.page .body p:first-child {
 }
 
 #s3-shop-the-shoot header .title {
-  margin-left: -28px;
-  width: 338px;
+/*  margin-left: -28px;*/
+/*  width: 338px;*/
   height: 45px;
   background: url('../assets/3-shop-the-shoot/heading-head-the-look.svg') no-repeat;
   background-size: contain;
