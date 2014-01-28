@@ -223,34 +223,6 @@ article.toc.page .body p:first-child {
 
 /*  Interactive   */
 
-@-webkit-keyframes rainbow {
-  from { background-color: #ff5300 }
-  20% { background-color: #ff0000 }
-  40% { background-color: #00ffb2 }
-  60% { background-color: #ff0093 }
-  80% { background-color: #00dcff }
-  90% { background-color: #fff600 }
-  to { background-color: #00dcff}
-}
-
-@-moz-keyframes rainbow {
-  from { background-color: #ff5300 }
-  20% { background-color: #ff0000 }
-  40% { background-color: #00ffb2 }
-  60% { background-color: #ff0093 }
-  80% { background-color: #00dcff }
-  90% { background-color: #fff600 }
-  to { background-color: #00dcff}
-}
-@keyframes rainbow {
-  from { background-color: #ff5300 }
-  20% { background-color: #ff0000 }
-  40% { background-color: #00ffb2 }
-  60% { background-color: #ff0093 }
-  80% { background-color: #00dcff }
-  90% { background-color: #fff600 }
-  to { background-color: #00dcff}
-}
 
 article.rainbow .product-set li .hotspot .tag {
   color: transparent;
@@ -298,33 +270,6 @@ article.rainbow .product-set li:nth-child(4n) .hotspot .tag {
 }
 
 
-@-webkit-keyframes five-shades {
-  from { background-color: #ff9ebb }
-  20% { background-color: #c6244b }
-  40% { background-color: #ff9ebb }
-  60% { background-color: #e14d70 }
-  80% { background-color: #f080a1 }
-  to { background-color:  #f25d80 }
-}
-
-@-moz-keyframes five-shades {
-  from { background-color: #ff9ebb }
-  20% { background-color: #c6244b }
-  40% { background-color: #ff9ebb }
-  60% { background-color: #e14d70 }
-  80% { background-color: #f080a1 }
-  to { background-color:  #f25d80 }
-}
-
-@keyframes five-shades {
-  from { background-color: #ff9ebb }
-  20% { background-color: #c6244b }
-  40% { background-color: #ff9ebb }
-  60% { background-color: #e14d70 }
-  80% { background-color: #f080a1 }
-  to { background-color:  #f25d80 }
-}
-
 article.five-shades .product-set li .hotspot .tag {
   color: transparent;
   transition: all 0.3s;
@@ -368,4 +313,63 @@ article.five-shades .product-set li:nth-child(3n) .hotspot .tag {
 article.five-shades .product-set li:nth-child(4n) .hotspot .tag {
   -webkit-animation-delay: 0.3s;
   animation-delay: 0.3s;
+}
+
+/*
+    Animations
+*/
+
+@-webkit-keyframes five-shades {
+  from { background-color: #ff9ebb }
+  20% { background-color: #c6244b }
+  40% { background-color: #ff9ebb }
+  60% { background-color: #e14d70 }
+  80% { background-color: #f080a1 }
+  to { background-color:  #f25d80 }
+}
+
+@-moz-keyframes five-shades {
+  from { background-color: #ff9ebb }
+  20% { background-color: #c6244b }
+  40% { background-color: #ff9ebb }
+  60% { background-color: #e14d70 }
+  80% { background-color: #f080a1 }
+  to { background-color:  #f25d80 }
+}
+
+@keyframes five-shades {
+  from { background-color: #ff9ebb }
+  20% { background-color: #c6244b }
+  40% { background-color: #ff9ebb }
+  60% { background-color: #e14d70 }
+  80% { background-color: #f080a1 }
+  to { background-color:  #f25d80 }
+}
+@-webkit-keyframes rainbow {
+  from { background-color: #ff5300 }
+  20% { background-color: #ff0000 }
+  40% { background-color: #00ffb2 }
+  60% { background-color: #ff0093 }
+  80% { background-color: #00dcff }
+  90% { background-color: #fff600 }
+  to { background-color: #00dcff}
+}
+
+@-moz-keyframes rainbow {
+  from { background-color: #ff5300 }
+  20% { background-color: #ff0000 }
+  40% { background-color: #00ffb2 }
+  60% { background-color: #ff0093 }
+  80% { background-color: #00dcff }
+  90% { background-color: #fff600 }
+  to { background-color: #00dcff}
+}
+@keyframes rainbow {
+  from { background-color: #ff5300 }
+  20% { background-color: #ff0000 }
+  40% { background-color: #00ffb2 }
+  60% { background-color: #ff0093 }
+  80% { background-color: #00dcff }
+  90% { background-color: #fff600 }
+  to { background-color: #00dcff}
 }
