@@ -23,7 +23,8 @@
   }
   
    #s6-behind-the-scene .description {
-     font-size: 22px;
+     font-family: 'proxima-nova';
+     font-size: 20px;
      margin-top: 0px;
      text-align: right;
    }
