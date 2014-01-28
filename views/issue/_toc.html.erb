@@ -48,8 +48,10 @@
   </div>
 
   <div class="menu col third">
-    <h2>CONTENTS</h2>
-    <hr />
+    <div class="head">
+      <h2>CONTENTS</h2>
+      <hr />
+    </div>
     <ul>
       <% issue.items.each do |page| %>
         <% if page.nav != false && page.handle != "toc" %>
