@@ -37,7 +37,7 @@ else
   issue = null
 
 
-issue_url = base_url + "#{magazine}/#{issue}/"
+issue_url = base_url + "#{magazine}/#{issue}"
 # issue_url = "http://spring.dev/issues/#{issue}"
 
 
@@ -224,7 +224,7 @@ Viewer =
 # When dom ready
 $ -> 
 
-  
+  window.Viewer = Viewer
   Viewer.init(issue_url)
   
   
