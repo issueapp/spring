@@ -15,16 +15,13 @@ b[c[e].seq]=1,x(c[e].callback,d,c[e].combo,c[e].seq)):g||x(c[e].callback,d,c[e].
 unless jQuery? || Zepto?
   return alert("Error: Jquery or Zepto is required")
 
-base_url = "http://spring.dev/"
-
-
 ##
 # Detect magazine and issue params
 # 
 file = (script.src for script in document.getElementsByTagName('script') when script.src.match(/embed\.js/))
 
 parser = document.createElement('a')
-parser.href = file
+parser.href = file[0]
 
 if matches = parser.search.match(/magazine=([^&]+)/)
   magazine = matches[1]
@@ -36,10 +33,9 @@ if matches = parser.search.match(/issue=([^&]+)/)
 else
   issue = null
 
+base_url = if parser.host.match(/\.dev/) then "http://issue.dev/embed/" else "http://issue.by/embed/"
 
 issue_url = base_url + "#{magazine}/#{issue}"
-# issue_url = "http://spring.dev/issues/#{issue}"
-
 
 
 #

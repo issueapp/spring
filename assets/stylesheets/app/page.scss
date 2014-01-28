@@ -598,11 +598,10 @@ article.page.has-product {
   }
 
   .product-set {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+    @include box-sizing(border-box);
     margin: 0 0 20px 0;
     padding: 0;
+    height: 90%;
     list-style-type: none;
     text-align: left;
     white-space: normal;
@@ -611,11 +610,9 @@ article.page.has-product {
   .product-set li {
     position: relative;
     display: inline-block;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+    @include box-sizing(border-box);
     padding: 5px 0;
-    height: 190px;
+    height: 33%;
     vertical-align: middle;
     text-align: center;
   }

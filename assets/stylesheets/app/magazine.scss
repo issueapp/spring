@@ -148,6 +148,21 @@
     display: block;
   }
   
+  a.new-magazine {
+    @include box-sizing(border-box);
+    @extend %icon-style;
+    @extend .icon-plus;
+
+    font-size: 120px;
+    color: #666;
+    width: 100%;
+    position: absolute;
+    text-align: center;
+
+    margin: 0 auto;
+    margin-top: 50%;
+  }
+  
   .more-actions {
     @extend %touch-icon-style;
     @extend .icon-ellipsis;
