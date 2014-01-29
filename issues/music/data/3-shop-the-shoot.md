@@ -7,9 +7,7 @@
     custom_class: rainbow
     
     products:
-
-      # Strip top
-
+    
       - title: MINKPINK All I Need Dress
         url: http://www1.bloomingdales.com/buy/mink-pink?cm_sp=shop_by_brand-_-ALL%20DESIGNERS-_-MINK%20PINK#3 
         image_url: assets/3-shop-the-shoot/cream.jpg
