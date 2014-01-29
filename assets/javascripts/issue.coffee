@@ -3,11 +3,11 @@
 #= require zepto
 #= require underscore
 #= require backbone
-#= require fastclick
-
-# Iframe communication
-#= require postmessage
 #= require mustache
+
+# Patches/Polyfills
+#= require post_message
+#= require fastclick
 
 #= require spring.ui
 #= require app/core
@@ -57,8 +57,11 @@
   Embed viewer
 
 ###
-parent_url = decodeURIComponent(document.location.hash.replace(/^#/, ''))
-parent_host = parent_url.split("/").slice(0,3).join('/');
+request = document.createElement('a')
+request.href = decodeURIComponent(document.location.hash.replace(/^#/, ''))
+
+if App.support.embed
+  App.embed_url = request.href
 
 App.notifyViewer = (method, params...)=>
   
@@ -66,36 +69,41 @@ App.notifyViewer = (method, params...)=>
   # Request { method: 'string', params: 'array', id: 'unique_id }
   # Request { result: 'object', id: 'unique_id }
   message = JSON.stringify({ method: method, params: params})
-  XD.postMessage(message, parent_url, parent);
+  
+  console.log("Notify viewer", message)
+  XD.postMessage(message, request.href, parent);
 
 
 XD.receiveMessage (message) =>
-  request = $.parseJSON(message.data)
+  event = $.parseJSON(message.data)
   args = [null, "embed", request.method].concat( request.params )
   
-  if request.method == "next-page"
+  if event.method == "next-page"
     if App.pageView && App.pageView.canScroll()
       App.pageView.next()
     else
+
       App.notifyViewer("next")
+      parent.Viewer.next() if request.host == parent.location.host
     
     console.log("next-page", App.pageView && App.pageView.canScroll() )
     
-  else if request.method == "prev-page"
+  else if event.method == "prev-page"
     
     if  App.pageView && App.pageView.canScroll("left")
       App.pageView.prev()
     else
-      App.notifyViewer("prev")    
+
+      App.notifyViewer("prev")
+      parent.Viewer.prev()  if request.host == parent.location.host
   
   App.trigger.call(args)
   
   console.log("Embed Issue", args)
-  # this[request.method]() if request.method == "close"
+  # this[event.method]() if request.method == "close"
   
-, parent_host
+, "http://#{request.host}"
 
-console.log(parent_host)
 
 
 ###

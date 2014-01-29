@@ -359,6 +359,8 @@ div.popover {
     }
 
     &.dark-theme {
+      border: 1px solid $dark-border-down-color;
+
       .arrow {
         &:after {
           border-bottom-color: $dark-content-color;
