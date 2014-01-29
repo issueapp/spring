@@ -110,11 +110,9 @@ Viewer =
     # UI Events
     @menuBtn.on "click", this.toggleMenu
     
-    @nextBtn.on "click", (e)=> 
-      this.trigger("next-page")
+    @nextBtn.on "click", (e)=> this.trigger("next-page")
     
-    @prevBtn.on "click", (e)=> 
-      this.trigger("prev-page")
+    @prevBtn.on "click", (e)=> this.trigger("prev-page")
     
     $('.issue-subscribe').on('click', -> false)
 
@@ -129,8 +127,8 @@ Viewer =
   
     
     # Keyboard events
-    Mousetrap.bind("right", $.proxy(this.next, this))
-    Mousetrap.bind("left", $.proxy(this.prev, this))
+    Mousetrap.bind "right", => this.trigger("next-page")
+    Mousetrap.bind "left", => this.trigger("prev-page")
     Mousetrap.bind("option", this.toggleMenu)
     Mousetrap.bind("r", this.reload)
     
@@ -194,6 +192,7 @@ Viewer =
     # Build iframe
     iframe = document.createElement("iframe")
     iframe.id = "issue-frame"
+    iframe.name = "issue-frame"
     iframe.width = width 
     iframe.height = width / 1.33
     iframe.scrolling = "no"
