@@ -109,6 +109,7 @@ XD.receiveMessage (message) =>
 ###
   Video thumbnail
 ###
+
 $(document).on "click", '.video .thumbnail', -> 
   
   iframe = $(this).next().children('iframe')
@@ -122,6 +123,5 @@ $(document).on "click", '.video .thumbnail', ->
 window.addEventListener 'load', ->
 
   FastClick.attach(document.body)
-
   
 , false

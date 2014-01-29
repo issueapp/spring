@@ -20,7 +20,6 @@ Layout = {
   #
   # Refreshes application layout on orientation change
   refresh: ->
-    
     # Previous viewport
     previous = {
       orientation: @orientation,
@@ -82,6 +81,7 @@ Layout = {
     # Set screen resolution cookie
     document.cookie='resolution='+Math.max(screen.width,screen.height)+'; path=/'
 
+
     if navigator.userAgent.match(/(iPhone|iPod)/)
       # NOTE: Temporary fix to support app.io ipad detection
       @support.swipe = if window.screen.height > 568 then "horizontal" else "vertical"
@@ -112,6 +112,7 @@ Layout = {
     else
       @viewport.width = if @viewport.maxWidth then Math.min(@viewport.maxWidth, container.width() ) else container.width()
       @viewport.height = if @viewport.maxHeight then Math.min(@viewport.maxHeight, container.height() ) else container.height()
+
 
     # Notify layout detected and propagate layout object
     #
@@ -165,7 +166,6 @@ Layout = {
         width: #{@viewport.width}px;
         height: #{@viewport.height}px;
       }\n
-
       "
     style = document.createElement('style')
     style.type = 'text/css'
