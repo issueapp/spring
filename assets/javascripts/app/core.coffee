@@ -25,6 +25,7 @@
     this.bindObservers()
     this.updateLayout()
     
+
     this.trigger("loaded", document.title, url: window.location.toString())
 
   # Main
