@@ -1,10 +1,9 @@
 <%
   def affiliate_url url
-    affiliate_products_path = "./issues/#{params[:issue]}/affiliate_products.yml"
-    @affiliate_urls ||= File.readable?(affiliate_products_path) ?
-      YAML.load(File.read(affiliate_products_path))
-      : {}
-    @affiliate_urls[url]
+    data_path = "./issues/#{params[:issue]}/affiliate_products.yml"
+    @affiliate_urls ||= File.readable?(data_path) && YAML.load_file(data_path) || {}
+
+    @affiliate_urls[url] || url
   end
 
   products = page.products.to_a.select{|p| !p.hotspot && !p.hidden }
@@ -103,7 +102,7 @@
       <ul class="<%= "cover-area" unless page.image_url %> product-set <%= "set-#{(page.products.to_a.count/2.0).ceil*2}" %>">
       <% page.products.each_with_index do |product, index| %>
         <li>
-          <a href="<%= affiliate_url(product[:url]) || '#' %>" class='hotspot product' data-track="hotspot:click" title="<%= product.title %>">
+          <a href="<%= affiliate_url(product[:url]) || '#' %>" class='hotspot product' data-track="hotspot:click" title="<%= product.title %>" data-image="<%= product[:image_url] %>" data-price="<%= product[:price] %>" data-description="<%= product[:description] %>">
             <img src="<%= product[:image_url] %>" alt=''>
             <span class='tag'><%= index + 1 %></span>
           </a>
