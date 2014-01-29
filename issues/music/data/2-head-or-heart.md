@@ -54,12 +54,13 @@
       left: 0;
       margin-top: 40px;
       margin-left: 24px;
-      width: 447px;
-      height: 363px;
+
+      height: 50%;
     }
 
     article.page[data-page="2-head-or-heart"] .body {
-      margin-top: 430px;
+      position: relative;
+      top: 60%;
     }
   }
 </style>

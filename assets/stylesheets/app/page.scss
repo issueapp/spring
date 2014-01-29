@@ -282,7 +282,7 @@ article.page {
     }
   }
 
-  a[href]:not(.button) {
+  a:not(.button) {
     text-decoration: underline;
   }
 
