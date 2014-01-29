@@ -2,12 +2,17 @@ require 'rdiscount'
 require 'hashie/mash'
 require 'sinatra/base'
 require 'sinatra/content_for'
-require 'sinatra/asset_pipeline'
 
 require 'nokogiri'
 
 class IssuePreview < Sinatra::Base
-  register Sinatra::AssetPipeline
+  
+  
+  unless defined?(Rails)
+    require 'sinatra/asset_pipeline'
+    register Sinatra::AssetPipeline
+  end
+  
   helpers Sinatra::ContentFor
   set :protection, :except => :frame_options
   
@@ -80,7 +85,7 @@ class IssuePreview < Sinatra::Base
     products.to_json
   end
   
-  get "/:magazine/:issue/index" do
+  get "/:magazine/:issue/index/?" do
     redirect to("/#{params[:magazine]}/#{params[:issue]}/")
   end
   
@@ -96,8 +101,7 @@ class IssuePreview < Sinatra::Base
     erb :"issue/_menu.html", layout: false, locals: { issue: current_issue}
   end
   
-  get "/:magazine/:issue/issue.json" do
-  
+  get "/:magazine/:issue/issue.json" do 
     pages = current_issue.items.reduce([]) do |result, item|
       result << item["handle"] #.gsub('/issue/', '')
   
@@ -114,7 +118,7 @@ class IssuePreview < Sinatra::Base
     data.delete("items")
     data["pages"] = [ "index" ] + pages
     
-    path = "#{request.base_url}/#{params[:issue]}/#{params[:issue]}"
+    path = "#{request.base_url}#{request.script_name}/#{params[:magazine]}/#{params[:issue]}"
     
     
     data["menu_html"] = erb :"issue/_menu.html", layout: false, locals: { issue: current_issue, path: path }
@@ -227,7 +231,7 @@ class IssuePreview < Sinatra::Base
   end
 
   def issue_url
-    "#{request.base_url}/#{params[:magazine]}/#{params[:issue]}"
+    "#{request.base_url}#{request.script_name}/#{params[:magazine]}/#{params[:issue]}"
   end
 
   def page_template(page)

@@ -57,10 +57,16 @@
   Embed viewer
 
 ###
-request = document.createElement('a')
-request.href = decodeURIComponent(document.location.hash.replace(/^#/, ''))
+
+
+
 
 if App.support.embed
+  request = document.createElement('a')
+  
+  if matches = document.location.search.match(/from=([^&]+)/)
+    request.href = decodeURIComponent(matches[1])
+
   App.embed_url = request.href
 
 App.notifyViewer = (method, params...)=>
@@ -84,7 +90,7 @@ XD.receiveMessage (message) =>
     else
 
       App.notifyViewer("next")
-      parent.Viewer.next() if request.host == parent.location.host
+      # parent.Viewer.next() if request.host == parent.location.host
     
     console.log("next-page", App.pageView && App.pageView.canScroll() )
     
@@ -95,7 +101,7 @@ XD.receiveMessage (message) =>
     else
 
       App.notifyViewer("prev")
-      parent.Viewer.prev()  if request.host == parent.location.host
+      # parent.Viewer.prev()  if request.host == parent.location.host
   
   App.trigger.call(args)
   

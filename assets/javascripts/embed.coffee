@@ -30,11 +30,11 @@ else
 
 # Base url
 if request.host.match(/\.dev/)
-  base_url =  "http://spring.dev/"
+  base_url =  "http://issue.dev/embed/"
 else
   base_url = "http://issue.by/embed/"
 
-issue_url = base_url + "#{magazine}/#{issue}"
+issue_url = base_url + "#{magazine}/#{issue}/"
 
 #
 #  Issue viewer
@@ -63,7 +63,7 @@ Viewer =
     @frame = this.buildIframe()
     
     # Load pages and menu
-    $.getJSON issue_url + '/issue.json?callback=?', (data)-> 
+    $.getJSON issue_url + 'issue.json?callback=?', (data)-> 
       Viewer.load(data)
     
     # Set current page
@@ -85,10 +85,11 @@ Viewer =
     }
     
     frame = document.getElementById('issue-frame')
+    from = frame.src.split("?")[0]
     
-    console.log(JSON.stringify(data), frame.src.replace(/#(.+)/, ''), frame.contentWindow )
+    console.log(JSON.stringify(data), from )
     
-    XD.postMessage(JSON.stringify(data), frame.src.replace(/#(.+)/, ''), frame.contentWindow );
+    XD.postMessage(JSON.stringify(data), from , frame.contentWindow );
     
   #
   # Observe viewer events from keyboard, user interaction and iframe messages
@@ -103,8 +104,6 @@ Viewer =
       
       # go next/prev
       this[request.method]() if request.method.match(/next|prev/)
-      
-      console.log("Viewer", request, message, window.location.host)
       
     , "http://#{request.host}"
     
@@ -145,15 +144,11 @@ Viewer =
   next: ->
     current = this.currentPage()
     index = @pages.indexOf(current)
-    next = @pages[index + 1]
-
-    console.log("Go Next", current, index, next)
-
-    if next
-      $("#issue-frame").attr "src", @path + "/" + next  + "##{encodeURIComponent(document.location.href)}"
+    
+    if next = @pages[index + 1]
+      $("#issue-frame").attr "src", @path + next  + "?from=#{encodeURIComponent(document.location.href)}"
       
       $("#issue-frame").off('load').on 'load', =>
-      
         @setCurrentPage next
         @toggleMenu false
 
@@ -163,17 +158,13 @@ Viewer =
       $("#issue-frame").attr "src", path
 
   prev: ->
-    
     current = @currentPage()
     index = @pages.indexOf(current)
-    prev = @pages[index - 1]
     
-    if prev
-      
-      $("#issue-frame").attr "src", @path + "/" + prev  + "##{encodeURIComponent(document.location.href)}"
+    if prev = @pages[index - 1]
+      $("#issue-frame").attr "src", @path + prev  + "?from=#{encodeURIComponent(document.location.href)}"
             
       $("#issue-frame").off('load').on 'load', =>
-      
         @setCurrentPage prev
         @toggleMenu false
         
@@ -182,12 +173,11 @@ Viewer =
 
   currentPage: (story) ->
     src = @frame.src
-    page = undefined
     
-    if src.match(@path + "/")
-      page = @frame.src.replace(@path + "/", "").replace(/#(.+)/, '')
-    else
-      page = "index"
+    page = @frame.src.replace(@path, "").replace(/\?from=(.+)/, '')
+    
+    page ||= "index"
+    
     page
 
   toggleMenu: (state) ->
@@ -212,13 +202,13 @@ Viewer =
     # iframe.style.overflow = "hidden"
     # 
     @container.prepend(iframe)
-    iframe.src = @url + "##{encodeURIComponent(document.location.href)}"
+    iframe.src = @url + "?from=#{encodeURIComponent(document.location.href)}"
 
     iframe
     
   # Return parent path if possible, otherwise return self
   setCurrentPage: (path) ->
-    page = path.replace(@path + "/", "")
+    page = path.replace(@path, "")
     parts = page.split(/\/|\?/)
     if parts.length > 1
       story = parts[0]
