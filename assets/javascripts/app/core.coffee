@@ -23,7 +23,8 @@
 
     this.refresh()
     this.bindObservers()
-
+    this.updateLayout()
+    
     this.trigger("loaded", document.title, url: window.location.toString())
 
   # Main
@@ -78,6 +79,8 @@ App.extend Backbone.Events
 Core = {
   # Support & feature detection
   support: {
+    
+    embed: !!document.location.href.match(/\/embed\//),
 
     standalone: !!window.navigator.standalone
 

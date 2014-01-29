@@ -14,23 +14,26 @@ unless jQuery? || Zepto?
 # 
 file = (script.src for script in document.getElementsByTagName('script') when script.src.match(/embed\.js/))
 
-parser = document.createElement('a')
-parser.href = file[0]
+request = document.createElement('a')
+request.href = file[0]
 
-if matches = parser.search.match(/magazine=([^&]+)/)
+if matches = request.search.match(/magazine=([^&]+)/)
   magazine = matches[1]
 else
   alert("Error: Require a valid magazine params ")
 
-if matches = parser.search.match(/issue=([^&]+)/)
+if matches = request.search.match(/issue=([^&]+)/)
   issue = matches[1]
 else
   issue = null
 
-base_url = if parser.host.match(/\.dev/) then "http://issue.dev/embed/" else "http://issue.by/embed/"
+# Base url
+if request.host.match(/\.dev/)
+  base_url =  "http://spring.dev/"
+else
+  base_url = "http://issue.by/embed/"
 
 issue_url = base_url + "#{magazine}/#{issue}"
-
 
 #
 #  Issue viewer
@@ -101,7 +104,7 @@ Viewer =
       
       console.log("Viewer", request, message, window.location.host)
       
-    , 'http://spring.dev'
+    , "http://#{request.host}"
     
     # UI Events
     @menuBtn.on "click", this.toggleMenu

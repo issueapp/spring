@@ -4,15 +4,16 @@
     category: 'Christina Perri:'
     title: Styling it out
     image_url: assets/1-styling-it-out/MinkPink_ChristinaPerri_0005-31_opt.jpeg
-    cover_caption: 'Minkpink Paisley Crush Dress.'
+    cover_caption: '<a class="hotspot product" href="http://www1.bloomingdales.com/buy/mink-pink?cm_sp=shop_by_brand-_-ALL%20DESIGNERS-_-MINK%20PINK">Minkpink Paisley Crush Dress.</a>'
 
     layout:
       type: three-column
       image_align: right
 
     products:
+    
       - title: MINKPINK Paisley Crush Dress 
-        url: http://www1.bloomingdales.com/buy/mink-pink?cm_sp=shop_by_brand-_-ALL%20DESIGNERS-_-MINK%20PINK#1
+        url: http://www1.bloomingdales.com/buy/mink-pink?cm_sp=shop_by_brand-_-ALL%20DESIGNERS-_-MINK%20PINK
         image_url: assets/1-styling-it-out/MinkPink_ChristinaPerri_0005-31_opt.jpeg
         price: 1
         description: SHOP THE MINKPINK COLLECTION
@@ -54,7 +55,7 @@
     margin-top: 200px;
     color: black;
     text-align: left;
-    font-size: 40px;
+    font-size: 36px;
     font-family: 'rodondoregular';
   }
 </style>

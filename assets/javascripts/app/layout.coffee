@@ -20,7 +20,7 @@ Layout = {
   #
   # Refreshes application layout on orientation change
   refresh: ->
-
+    
     # Previous viewport
     previous = {
       orientation: @orientation,
@@ -72,6 +72,15 @@ Layout = {
   #   hide tablet & mobile safari address bar
   detectLayout: ->
     container = $('[role=main]')
+    
+    # flag embed
+    document.documentElement.className += " embed" unless @support.embed
+
+    # detect touch event
+    document.documentElement.className += " no-touch" unless @support.touch
+    
+    # Set screen resolution cookie
+    document.cookie='resolution='+Math.max(screen.width,screen.height)+'; path=/'
 
     if navigator.userAgent.match(/(iPhone|iPod)/)
       # NOTE: Temporary fix to support app.io ipad detection
@@ -98,11 +107,11 @@ Layout = {
 
     # Refresh view port
     if @support.swipe
-      @viewport.width = Math.max(320, window.innerWidth)
-      @viewport.height = window.innerHeight #- $('header.toolbar').height()
+      @viewport.width = Math.max(320, container.width())
+      @viewport.height = container.height() #- $('header.toolbar').height()
     else
-      @viewport.width = if @viewport.maxWidth then Math.min(@viewport.maxWidth, window.innerWidth) else window.innerWidth
-      @viewport.height = if @viewport.maxHeight then Math.min(@viewport.maxHeight, window.innerHeight) else window.innerHeight
+      @viewport.width = if @viewport.maxWidth then Math.min(@viewport.maxWidth, container.width() ) else container.width()
+      @viewport.height = if @viewport.maxHeight then Math.min(@viewport.maxHeight, container.height() ) else container.height()
 
     # Notify layout detected and propagate layout object
     #
@@ -156,6 +165,7 @@ Layout = {
         width: #{@viewport.width}px;
         height: #{@viewport.height}px;
       }\n
+
       "
     style = document.createElement('style')
     style.type = 'text/css'

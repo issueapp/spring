@@ -95,6 +95,16 @@ section.magazine.cover #issue-logo {
   zoom: 0.6;
 }
 
+
+/*
+  Embed
+*/
+.embed .magazine .subscribe,
+.embed .magazine .download {
+  display: none;
+}
+
+
 section.magazine.cover nav[role="navigation"] {
   display: none;
 }
