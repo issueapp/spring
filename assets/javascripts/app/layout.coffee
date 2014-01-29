@@ -73,7 +73,7 @@ Layout = {
     container = $('[role=main]')
     
     # flag embed
-    document.documentElement.className += " embed" unless @support.embed
+    document.documentElement.className += " embed" if @support.embed
 
     # detect touch event
     document.documentElement.className += " no-touch" unless @support.touch
