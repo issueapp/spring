@@ -22,6 +22,7 @@ featured: true
 
 assets:
   - "custom.css"
+  - "custom.js"
   # - "jquery.jplayer.min.js"
   # - "jplayer/jquery.transform2d.js"
   # - "jplayer/jquery.grab.js"
