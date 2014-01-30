@@ -225,6 +225,3 @@ $ ->
 
   window.Viewer = Viewer
   Viewer.init(issue_url)
-
-
-
