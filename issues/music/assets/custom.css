@@ -56,6 +56,10 @@ article.page figure {
   text-align: center;
 }
 
+article.page .body {
+  font-family: "EB Garamond";
+}
+
 article.page .body h3 {
   display: inline-block;
   margin-bottom: 0em;

@@ -83,7 +83,8 @@ August in California, and L.A’s tribe of Beautiful People are flocking to the 
 
 <script>
   var myCirclePlayer = new CirclePlayer("#jquery_jplayer_1",{
-    m4a: "/music/assets/Christina Perri - I Believe.m4a"
+    m4a: "assets/Christina_Perri-I_Believe.m4a",
+    ogg: "assets/Christina_Perri-I_Believe.ogg"
   },
   {
     cssSelectorAncestor: "#cp_container_1",

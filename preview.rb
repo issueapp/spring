@@ -134,7 +134,11 @@ class IssuePreview < Sinatra::Base
   get %r{/(?<magazine>[^\/]+)/(?<issue>[^\/]+)/(?<page>[^\/]+)(?:\/(?<subpage>[^\/]+))?} do
     if params["page"] == "assets"
       asset_path = request.path_info.gsub(/^\/#{params[:magazine]}/, "issues")
-      return send_file File.expand_path("../#{asset_path}", __FILE__)
+      file = File.expand_path("../#{CGI.unescape(asset_path)}", __FILE__)
+      
+      content_type MIME::Types.type_for(file).first.content_type
+      
+      return send_file file
     end
 
     @path = [params["issue"], "data", params["page"], params["subpage"]].compact.join('/')
