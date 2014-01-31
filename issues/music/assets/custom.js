@@ -4,7 +4,6 @@ $(function() {
 
   if (isAus) {
     $("article[data-page]").addClass('target-au')
-    
     if (isShopTheLook) {
 
       $("a.hotspot").on("click", function(e) {

@@ -105,7 +105,6 @@ XD.receiveMessage (message) =>
   
   App.trigger.call(args)
   
-  console.log("Embed Issue", args)
   # this[event.method]() if request.method == "close"
   
 , "http://#{request.host}"
