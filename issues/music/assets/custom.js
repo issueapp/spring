@@ -3,6 +3,8 @@ $(function() {
   var isShopTheLook = $("article[data-page^='3-shop-the-shoot']").length > 0;
 
   if (isAus) {
+    $("article[data-page]").addClass('target-au')
+    
     if (isShopTheLook) {
 
       $("a.hotspot").on("click", function(e) {
@@ -18,5 +20,7 @@ $(function() {
         window.location = shopTheLookURL;
       });
     }
+  } else {
+    $("article[data-page]").addClass('target-global')
   }
 });

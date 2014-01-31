@@ -38,7 +38,7 @@
   }
 
   article.page[data-page="4-beauty"] .product-set {
-    margin-top: -15%;
+    margin: -35% 0 -20%;
     
     background-image: url('assets/4-beauty/product-bg.png');
     background-position: center;
@@ -46,7 +46,7 @@
   }
 
   article.page[data-page="4-beauty"].has-product .product-set li {
-    height: auto;
+/*    height: auto;*/
   }
 
   article.page[data-page="4-beauty"].has-product .product-set li img {
@@ -74,7 +74,8 @@
   }
 
   article.page[data-page="4-beauty"].has-product .product-set li:nth-child(5) {
-    margin-left: 148px;
+    margin-top: -8%;
+    margin-left: 50%;
   }
 
   article.page[data-page="4-beauty"].has-product .product-set li:nth-child(5) .hotspot {
@@ -92,8 +93,8 @@
 
   @media only screen and (min-width: 768px) and (orientation: landscape) {
     article.page[data-page="4-beauty"].has-product .product-set li:nth-child(5) {
-      margin-left: 142px;
-    }
+/*      margin-left: 142px;
+*/    }
     
   }
 

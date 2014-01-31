@@ -15,7 +15,7 @@
   
       - title : MINKPINK Morrocan Tile Tank 
         url: http://www.shopbop.com/minkpink/br/v=1/2534374302152011.htm#1
-        image_url: assets/3-shop-the-shoot/products-diamond.jpg
+        image_url: assets/3-shop-the-shoot/MP8282i-FRONT.jpg
         price: 
         description: SHOP THE MINKPINK COLLECTION
         hidden: true

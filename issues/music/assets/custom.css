@@ -45,10 +45,10 @@ article.page.toc .menu .head {
 }
 
 article.page figure figcaption {
-  padding: 10px 0;
+  padding: 5px 0 10px;
   text-align: right;
   font-style: normal;
-  font-size: 80%;
+  font-size: 70%;
   font-family: "Courier New", Courier, monospace;
 }
 
@@ -80,8 +80,13 @@ article.page .body h2 {
 }
 
 article.page .body p {
-  margin: 0.15em 0 1em;
+  margin: 0 0 1em;
+  
+  font-size: 16px;
+  font-size: 2.3vh;
+  
   line-height: 22px;
+  line-height: 3.2vh;
 }
 
 small { font-size: 90%; }
@@ -176,6 +181,18 @@ section.magazine.cover .extra-1 {
 }
 
 /*
+  Geotargetting
+*/
+
+.target-au .global {
+  display: none;
+}
+
+.target-global .au {
+  display: none;
+}
+
+/*
   Table of content
 */
 article.toc.page header {
@@ -197,12 +214,17 @@ article.toc.page .body p:first-child {
   margin-top: 1em;
 }
 
+#s3-shop-the-shoot header {
+
+}
+
 #s3-shop-the-shoot header .title {
 /*  margin-left: -28px;*/
 /*  width: 338px;*/
   height: 45px;
   background: url('../assets/3-shop-the-shoot/heading-head-the-look.svg') no-repeat;
   background-size: contain;
+  background-position: center;
   color: transparent;
 }
 
@@ -249,7 +271,7 @@ article.rainbow .product-set li .hotspot .tag {
   -webkit-backface-visibility: hidden;
   -webkit-animation: rainbow linear 5s infinite alternate; /* Safari and Chrome */
   
-  -moz-animation: five-shades linear 5s infinite alternate; /* Firefox */
+  -moz-animation: rainbow linear 5s infinite alternate; /* Firefox */
 }
 
 article.rainbow .product-set li .hotspot:active .tag,

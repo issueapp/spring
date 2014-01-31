@@ -65,8 +65,8 @@
 .cp-progress-holder,
 .cp-circle-control {
 	position:absolute;
-	width:104px;
-	height:104px;
+	width:60px;
+	height:60px;
 }
 
 .cp-circle-control {
@@ -90,7 +90,7 @@
 
 .cp-controls {
 	margin:0;
-	padding:26px;
+	padding:26px !important;
 }
 
 .cp-controls li{
