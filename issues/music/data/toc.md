@@ -10,7 +10,7 @@
 
 <style>
 
-article.page .content p { font-style: italic; margin: 0.5em; font-size: 16px; }
+article.page .content p { font-style: italic; margin: 0.5em;  }
 article.page .content big { font-size: 120% }
 article.page .content p > span { font-style: normal; font-size: 80%; }
 

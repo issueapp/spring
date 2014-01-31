@@ -12,19 +12,23 @@
   
   #s6-behind-the-scene header {
     padding-top: 30%;
+    
+    margin-left: 20px;
+    margin-right: 20px;
   }
   
   #s6-behind-the-scene h1.title {
     color: transparent;
-    background: url(assets/6-behind-the-scene/cover-heading.jpg) no-repeat;
+    background: url(assets/6-behind-the-scene/cover-heading.svg) no-repeat;
     background-size: contain;
-    height: 65px;
+    background-position: right;
+    height: 70px;
     
   }
   
    #s6-behind-the-scene .description {
      font-family: 'proxima-nova';
-     font-size: 20px;
+     font-size: 18px;
      margin-top: 0px;
      text-align: right;
    }

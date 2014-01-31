@@ -32,7 +32,7 @@
         price:
     
       - title: MINKPINK Follow Me To Heaven Playsuit
-        url: http://shop.nordstrom.com/c/minkpink?origin=brandindex#5
+        url: http://shop.nordstrom.com/c/minkpink?origin=leftnav
         image_url: assets/3-shop-the-shoot/MP8227i.png
         description: SHOP THE MINKPINK COLLECTION
         price:
