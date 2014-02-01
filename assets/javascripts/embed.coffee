@@ -30,7 +30,7 @@ else
 
 # Base url
 if request.host.match(/\.dev/)
-  base_url =  "http://issue.dev/embed/"
+  base_url =  "http://spring.dev/"
 else
   base_url = "http://issue.by/embed/"
 
@@ -59,7 +59,9 @@ Viewer =
 
     # Build iframe
     @frame = this.buildIframe()
-
+    
+    this.goTo('index')
+    
     # Load pages and menu
     $.getJSON issue_url + 'issue.json?callback=?', (data)->
       Viewer.load(data)
@@ -85,9 +87,7 @@ Viewer =
 
     frame = document.getElementById('issue-frame')
     from = frame.src.split("?")[0]
-
-    console.log(JSON.stringify(data), from )
-
+    
     XD.postMessage(JSON.stringify(data), from , frame.contentWindow );
 
   #
@@ -98,7 +98,8 @@ Viewer =
   # Dispatched Iframe communication (MessageEvent)
   # Request { method: 'string', params: 'array', id: 'unique_id }
   # Request { result: 'object', id: 'unique_id }
-    XD.receiveMessage (message) =>
+  
+    window.addEventListener 'message', (message)=>
       request = $.parseJSON(message.data)
 
       # go next/prev
@@ -107,33 +108,22 @@ Viewer =
     , "http://#{request.host}"
 
     # UI Events
-    @menuBtn.on "click", this.toggleMenu
-
-    @nextBtn.on "click", (e)=> this.trigger("next-page")
-
-    @prevBtn.on "click", (e)=> this.trigger("prev-page")
-
-    $('.issue-subscribe').on('click', -> false)
-
+    $(document).on 'click', '.issue-menu', this.toggleMenu
+    
+    $(document).on 'click', '.next-page', (e)=> this.trigger("next-page")
+    $(document).on 'click', '.prev-page', (e)=> this.trigger("prev-page")
+    
+    $(document).on 'click', '.issue-subscribe', -> false
+    
     $(document).on "click", "nav.toc a", ->
-
-      link = @href
-      # link = link.replace(/\/viewer\//, "/issues/")  if link.match(/\/viewer\//)
-
       Viewer.goTo(@href)
-
-
-      # Viewer.setCurrentPage link
-      Viewer.toggleMenu()
       false
-
-
+    
     # Keyboard events
     Mousetrap.bind "right", => this.trigger("next-page")
     Mousetrap.bind "left", => this.trigger("prev-page")
     Mousetrap.bind("option", this.toggleMenu)
     Mousetrap.bind("r", this.reload)
-
 
   load: (data)->
     @pages = data.pages
@@ -143,7 +133,13 @@ Viewer =
 
   goTo: (path)->
     page = this.currentPage(path)
-    @frame.src = @path + page + "?from=#{encodeURIComponent(document.location.href)}"
+    
+    page = "" if page == "index"
+    
+    @frame.src = @path + page + "?from=#{encodeURIComponent(document.location.href)}&embed=1"
+    
+    this.setCurrentPage(page) 
+
 
   next: ->
     current = this.currentPage()
@@ -151,10 +147,7 @@ Viewer =
 
     if next = @pages[index + 1]
       this.goTo(next)
-      $("#issue-frame").off('load').on 'load', =>
-        @setCurrentPage next
-        @toggleMenu false
-
+      
     false
 
   prev: ->
@@ -163,9 +156,7 @@ Viewer =
 
     if prev = @pages[index - 1]
       this.goTo(prev)
-      $("#issue-frame").off('load').on 'load', =>
-        @setCurrentPage prev
-        @toggleMenu false
+    
     false
 
   toggleMenu: (state) ->
@@ -187,7 +178,7 @@ Viewer =
     iframe.frameBorder = "0"
     # iframe.style.overflow = "hidden"
 
-    iframe.src = @url + "?from=#{encodeURIComponent(document.location.href)}"
+    # iframe.src = @url + "?from=#{encodeURIComponent(document.location.href)}"
 
     @container.prepend(iframe)
 
@@ -212,16 +203,19 @@ Viewer =
 
     $("nav.toc a.active").removeClass "active"
     $("[data-page=\"" + story + "\"] .toc [class=\"" + story + "\"] a").addClass "active"
+      
+    this.toggleMenu(false)
+      
 
   #App: ->
   #  document.getElementById('issue-frame').contentWindow.App || {}
 
   reload: ->
-    document.getElementById("issue-frame").contentWindow.location.reload()
-
+    $('#issue-frame').src = $('#issue-frame').src
 
 # When dom ready
 $ ->
 
   window.Viewer = Viewer
   Viewer.init(issue_url)
+

@@ -79,54 +79,45 @@ App.notifyViewer = (method, params...)=>
   console.log("Notify viewer", message)
   XD.postMessage(message, request.href, parent);
 
+window.addEventListener 'message', (event)->
+  console.log(event.domain, event.data)
 
-XD.receiveMessage (message) =>
-  event = $.parseJSON(message.data)
-  args = [null, "embed", request.method].concat( request.params )
-  
+  event = $.parseJSON(event.data)
+  args = [null, "embed", event.method].concat( event.params )
+
   if event.method == "next-page"
     if App.pageView && App.pageView.canScroll()
       App.pageView.next()
     else
-
       App.notifyViewer("next")
-      # parent.Viewer.next() if request.host == parent.location.host
-    
-    console.log("next-page", App.pageView && App.pageView.canScroll() )
     
   else if event.method == "prev-page"
-    
+  
     if  App.pageView && App.pageView.canScroll("left")
       App.pageView.prev()
     else
 
       App.notifyViewer("prev")
       # parent.Viewer.prev()  if request.host == parent.location.host
-  
+
   App.trigger.call(args)
-  
-  # this[event.method]() if request.method == "close"
-  
-, "http://#{request.host}"
 
-
+  console.log("Embed Issue", args)
 
 ###
   Video thumbnail
 ###
 
 $(document).on "click", '.video .thumbnail', -> 
-  
-  iframe = $(this).next().children('iframe')
-  
+  iframe = $(this).next('iframe')
   iframe.attr('src', iframe.data('src')).show()
   
-  $(this).css('visibility', 'hidden')
-  $(this).parent().css('zoom', 1)
-  
+  $(this).hide()
+
 
 window.addEventListener 'load', ->
 
   FastClick.attach(document.body)
+
   
 , false

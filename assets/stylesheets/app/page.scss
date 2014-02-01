@@ -216,10 +216,17 @@ article.page {
   }
 
   figure {
-    position: relative;
+    display: inline-block;
 
+    -webkit-column-break-inside: avoid;
+    -moz-column-break-inside: avoid;
+    column-break-inside: avoid;
+
+    position: relative;
+    width: 100%;
+    
     figcaption {
-      padding: 20px 30px 20px;
+      padding: 10px 30px 20px;
       font-style: italic;
       font-size: 80%;
     }
@@ -303,7 +310,12 @@ article.page {
   }
 
   .video-wrapper {
+    position: relative;
     @include box-sizing(border-box);
+    
+    // Force webkit to render
+    -webkit-transform: translate3d(0, 0, 0);
+    
     padding-top: 25px;
     padding-bottom: 56.25%; /* 16:9 */
     height: 0;
@@ -319,16 +331,31 @@ article.page {
   
   figure.video {
     position: relative;
-    padding-top: 26.25%;
+    -webkit-transform: translate3d(0, 0, 0);
+    padding-bottom: 56.25%; /* 16:9 */
+    width: 100%;
+    height: 0;
+    
+    figcaption {
+      margin-top: 56.25%;
+    }
     
     .thumbnail {
+
+      
+      
+      border: 1px;
+      cursor: pointer;
+      width: 100%;
+      height: auto;
       position: absolute;
-      top: 0;
+      left: 0;
     }
     
     iframe {
+      display: none;
       position: absolute;
-      top: 0;
+      width: 100%;
     }
 //    position: relative;
   }
@@ -528,8 +555,7 @@ article.page.toc {
 
   .menu li {
     @include box-sizing(border-box);
-    margin-top: 18px;
-    height: 70px;
+    padding: 20px;
   }
 
   .menu li a {
@@ -574,7 +600,11 @@ article.page.has-product {
 
   &.no-content {
     .content:before {
-      content: initial;
+      content: none;
+      display: inline-block;
+      margin: 0;
+      height: 0;
+      vertical-align: default;
     }
 
     header {
@@ -602,7 +632,7 @@ article.page.has-product {
     @include box-sizing(border-box);
     margin: 0 0 20px 0;
     padding: 0;
-    height: 90%;
+    height: 88%;
     list-style-type: none;
     text-align: left;
     white-space: normal;
@@ -618,10 +648,14 @@ article.page.has-product {
     vertical-align: middle;
     text-align: center;
   }
+  
+  .product-set a {
+    width: 100%;
+  }
 
   .product-set li img {
-    width: 100%;
-    height: auto;
+    width: auto;
+    height: 100%;
   }
 
   .product-set.set-2 li {

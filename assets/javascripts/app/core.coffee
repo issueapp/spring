@@ -24,7 +24,6 @@
     this.refresh()
     this.bindObservers()
     this.updateLayout()
-    
 
     this.trigger("loaded", document.title, url: window.location.toString())
 
@@ -81,7 +80,7 @@ Core = {
   # Support & feature detection
   support: {
     
-    embed: !!document.location.href.match(/\/embed\//),
+    embed: !!document.location.href.match(/\/embed\/|embed=1/)
 
     standalone: !!window.navigator.standalone
 

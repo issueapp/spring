@@ -1,5 +1,5 @@
 $(function() {
-  var isAus = !! App.embed_url.match(/\/au\//);
+  var isAus = !! App.embed_url && App.embed_url.match(/\/au\//);
   var isShopTheLook = $("article[data-page^='3-shop-the-shoot']").length > 0;
 
   if (isAus) {

@@ -1,3 +1,4 @@
+require 'mime/types'
 require 'rdiscount'
 require 'hashie/mash'
 require 'sinatra/base'
