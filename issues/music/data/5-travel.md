@@ -49,7 +49,3 @@
     font-family: 'proxima-nova';
   }
 </style>
-
-<!-- <img id="header-image" src="/music/assets/5-travel/cover-1.png" alt=""> -->
-<!-- <img id="header-image" src="/music/assets/5-travel/LETLOOSE.svg" alt=""> -->
-

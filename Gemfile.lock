@@ -36,6 +36,7 @@ GEM
     listen (0.7.3)
     lumberjack (1.0.2)
     method_source (0.8.1)
+    mime-types (2.1)
     multi_json (1.8.2)
     mustache (0.99.5)
     nokogiri (1.5.10)
@@ -102,6 +103,7 @@ DEPENDENCIES
   guard-jasmine
   guard-pow
   hashie
+  mime-types (~> 2.1)
   mustache
   nokogiri
   rdiscount
