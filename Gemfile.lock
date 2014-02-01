@@ -103,7 +103,7 @@ DEPENDENCIES
   guard-jasmine
   guard-pow
   hashie
-  mime-types (~> 2.1)
+  mime-types
   mustache
   nokogiri
   rdiscount
