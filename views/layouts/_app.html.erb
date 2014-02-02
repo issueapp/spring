@@ -16,33 +16,36 @@
     <!--iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="stylesheet" href="/assets/application.css" type="text/css">
+    
+    
+    <link rel="stylesheet" href="<%= asset_path "application.css", global: true %>" type="text/css">
     
     <!-- Web UI -->
-    <link rel="stylesheet" href="/assets/app/ui.css" type="text/css">
+    <link rel="stylesheet" href="<%= asset_path "app/ui.css", global: true %>" type="text/css">
 
-    <script src="/assets/issue.js"></script>
+    <script src="<%= asset_path "issue.js", global: true %>"></script>
     
     <script>
       App.detectLayout()
     </script>
     
     <% if defined?(current_issue) %>
+      <%# issue_asset_path = params[:subpage] ? "../assets/" : "assets/" %>
       <% current_issue.assets.to_a.each do |asset| %>
         <% if asset.match(/\.js$/) %>
-          <script src="<%= "/#{params[:magazine]}/#{params[:issue]}/assets/#{asset}" %>"></script>
+          <script src="<%= asset_path asset %>"></script>
         <% elsif asset.match(/\.css$/) %>
-          <link rel="stylesheet" href="<%= "/#{params[:magazine]}/#{params[:issue]}/assets/#{asset}" %>" type="text/css">
+          <link rel="stylesheet" href="<%= asset_path asset %>" type="text/css">
         <% end %>
       <% end %>
     <% end %>
   </head>
-
+  
   <body class="<%= @body_class %>"
-
     data-magazine="<%= issue.magazine_title %>"
     data-issue="<%= issue.short_title %>"
   >
+  
     <div role=main class="fashion-theme content-view">
       <%= yield %>
     </div>
