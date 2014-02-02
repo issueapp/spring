@@ -224,7 +224,12 @@ class IssuePreview < Sinatra::Base
     Hashie::Mash.new(attributes)
   end
 
-
+  # Load issue level issue assets
+  #
+  # asset_path 'custom.js'
+  # 
+  # Load app level assets
+  # asset_path 'issue.js', global: true
   def asset_path(path, options = {})
     return path if path =~ /^https?:/
     
