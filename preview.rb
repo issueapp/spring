@@ -233,8 +233,8 @@ class IssuePreview < Sinatra::Base
   def asset_path(path, options = {})
     return path if path =~ /^https?:/
     
-    if path && path !~ /^assets/
-      path = "assets/#{path}"
+    if path && path =~ /^\/?assets\//
+      path.gsub!(/^\/?assets\//, '')
     end
     
     if ENV["ASSET_HOST"]
@@ -243,10 +243,11 @@ class IssuePreview < Sinatra::Base
       asset_host = request.base_url
     end
     
+    if defined?(Rails)
+      path = ActionController::Base.helpers.asset_path(path)
+    end
+    
     if options[:global]
-      
-      path = ActionController::Base.helpers.asset_path(path) if defined?(Rails)
-      
       "#{asset_host}/#{path}"
     else
       "#{asset_host}#{issue_path(path)}"
@@ -254,9 +255,13 @@ class IssuePreview < Sinatra::Base
   end
 
   def issue_path(path = nil)
-    path = "/#{path}" if path
+    asset = File.expand_path("../issues/#{params[:issue]}/assets#{path}", __FILE__)
     
-    "#{request.script_name}/#{params[:magazine]}/#{params[:issue]}#{path}"
+    if File.exist?(asset) && !path.empty?
+      path = path + "?#{Digest::MD5.file(asset).hexdigest}"
+    end
+    
+    "#{request.script_name}/#{params[:magazine]}/#{params[:issue]}/assets#{path}"
   end
   
   def issue_url(path = "")
