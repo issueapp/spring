@@ -239,6 +239,9 @@ class IssuePreview < Sinatra::Base
     end
     
     if options[:global]
+      
+      path = ActionController::Base.helpers.asset_path(path) if defined?(Rails)
+      
       "#{asset_host}/#{path}"
     else
       "#{asset_host}#{issue_path(path)}"
