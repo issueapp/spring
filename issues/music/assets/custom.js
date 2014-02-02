@@ -8,6 +8,7 @@ $(function() {
 
       $("a.hotspot").on("click", function(e) {
         window.open("http://minkpink.com/au/store-locator", "_blank");
+        App.pageView.hotspot.hide(e)
       });
 
     } else {
