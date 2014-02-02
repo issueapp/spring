@@ -131,24 +131,25 @@ class IssuePreview < Sinatra::Base
     end
   end
 
+  # Cache assets for 1H (cloudfront)
+  get "/:magazine/:issue/assets/*" do
+    response.headers['Cache-Control'] = 'public, max-age=3600'
+    
+    asset_path = request.path_info.gsub(/^\/#{params[:magazine]}/, "issues")
+    file = File.expand_path("../#{CGI.unescape(asset_path)}", __FILE__)
+    
+    content_type MIME::Types.type_for(file).first.content_type
+    
+    send_file file
+  end
+
   # Page and subpage
   get %r{/(?<magazine>[^\/]+)/(?<issue>[^\/]+)/(?<page>[^\/]+)(?:\/(?<subpage>[^\/]+))?} do
-    if params["page"] == "assets"
-      asset_path = request.path_info.gsub(/^\/#{params[:magazine]}/, "issues")
-      file = File.expand_path("../#{CGI.unescape(asset_path)}", __FILE__)
-      
-      content_type MIME::Types.type_for(file).first.content_type
-      
-      return send_file file
-    end
-
     @path = [params["issue"], "data", params["page"], params["subpage"]].compact.join('/')
-
-    file_path = File.expand_path("../issues/#{@path}.md", __FILE__)
-    page      = find_page(file_path)
-
+    
+    page      = find_page(File.expand_path("../issues/#{@path}.md", __FILE__))
     page.handle = [params["page"], params["subpage"]].compact.join('/')
-
+    
     erb page_template(page), locals: { issue: current_issue, page: page }, layout: :"/layouts/_app.html"
   end
 
@@ -227,15 +228,36 @@ class IssuePreview < Sinatra::Base
     Hashie::Mash.new(attributes)
   end
 
-  def asset_path(path)
-    if path =~ /^https?:/
-      path
-    elsif path
-      "#{issue_url}/#{path}"
+
+  def asset_path(path, options = {})
+    return path if path =~ /^https?:/
+    
+    if path && path !~ /^assets/
+      path = "assets/#{path}"
+    end
+    
+    if ENV["ASSET_HOST"]
+      asset_host = "http://#{ENV["ASSET_HOST"]}"
+    else
+      asset_host = request.base_url
+    end
+    
+    if options[:global]
+      "#{asset_host}/#{path}"
+    else
+      "#{asset_host}#{issue_path(path)}"
     end
   end
 
-  def issue_url
+  def issue_path(path = nil)
+    path = "/#{path}" if path
+    
+    "#{request.script_name}/#{params[:magazine]}/#{params[:issue]}#{path}"
+  end
+  
+  def issue_url(path = "")
+    "#{request.base_url}/#{issue_path(path)}"
+    
     "#{request.base_url}#{request.script_name}/#{params[:magazine]}/#{params[:issue]}"
   end
 

@@ -19,10 +19,10 @@
   </h1>
 </header>
 
-<section class="magazine cover page fullscreen dark-theme " style="background-image: url(<%= issue.background_large_url %>);">
+<section class="magazine cover page fullscreen dark-theme " style="background-image: url(<%= asset_path issue.background_large_url %>);">
   <div class="container">
 
-    <img class="issue-logo" src="/assets/logo-round-white.svg"></img>
+    <img class="issue-logo" src="<%= asset_path "logo-round-white.svg", global: true %>"></img>
 
     <div class="extra-1"></div>
     <div class="extra-2"></div>
