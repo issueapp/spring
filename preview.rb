@@ -233,7 +233,7 @@ class IssuePreview < Sinatra::Base
     end
     
     if ENV["ASSET_HOST"]
-      asset_host = "http://#{ENV["ASSET_HOST"]}"
+      asset_host = ENV["ASSET_HOST"]
     else
       asset_host = request.base_url
     end
