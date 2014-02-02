@@ -49,13 +49,12 @@
   }
   
   #issue-viewer .issue-subscribe {
-    background: url(/assets/embed-subscribe-50px.png) no-repeat;
+    background: url(/assets/embed/subscribe-50px.png) no-repeat;
     width: 135px;
     height: 50px;
     display: inline-block;
     color: transparent;
     font-size: 0;
-    display: none;
   }
 
   #issue-viewer .issue-info img {
@@ -93,16 +92,22 @@
     right: -1px;
     display: block;
     margin-top: -25px;
-    width: 30px;
-    height: 50px;
+    width: 25px;
+    height: 70px;
     background: #333;
     color: white;
     content: "";
     text-align: center;
     font-size: 60px;
-    line-height: 44px;
+    line-height: 60px;
     opacity: 0.85;
     cursor: pointer;
+    font-weight: 100;
+  }
+  
+  #issue-viewer a.next-page:hover, 
+  #issue-viewer a.prev-page:hover {
+    color: #e76c5a;
   }
 
   #issue-viewer a.prev-page {
