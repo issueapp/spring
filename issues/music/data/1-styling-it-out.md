@@ -4,7 +4,8 @@
     category: 'Christina Perri:'
     title: Styling it out
     image_url: assets/1-styling-it-out/MinkPink_ChristinaPerri_0005-31_opt.jpeg
-    cover_caption: '<a class="hotspot product" href="http://www1.bloomingdales.com/buy/mink-pink?cm_sp=shop_by_brand-_-ALL%20DESIGNERS-_-MINK%20PINK">Minkpink Paisley Crush Dress.</a>'
+    #cover_caption: '<a class="hotspot product" href="http://www1.bloomingdales.com/buy/mink-pink?cm_sp=shop_by_brand-_-ALL%20DESIGNERS-_-MINK%20PINK">Minkpink Paisley Crush Dress.</a>'
+    cover_caption: 'Minkpink Paisley Crush Dress.'
     
 
     layout:
