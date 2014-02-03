@@ -13,18 +13,28 @@
 
       - title: Chanel Illusion d’Ombre Long-Wear Eyeshadow in Fatal
         image_url: assets/4-beauty/cover-product-1.png
-
+        url: "#1"
+        action: false
+        
       - title: Yves Saint Laurent Volume Effet Faux Cils Mascara in High Density Black
         image_url: assets/4-beauty/cover-product-2.png
-
+        url: "#2"
+        action: false
+        
       - title: "M.A.C Mineralize Skinfinish in Soft and Gentle"
         image_url: assets/4-beauty/cover-product-3.png
+        url: "#3"
+        action: false
 
       - title:  M.A.C Lipstick in Pink Plaid
         image_url: assets/4-beauty/cover-product-4.png
+        url: "#4"
+        action: false
 
       - title: M.A.C Lipstick in Lustering
         image_url: assets/4-beauty/cover-product-5.png
+        url: "#5"
+        action: false
 
 ---
 
