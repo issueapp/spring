@@ -8,6 +8,8 @@ $(function() {
 
       $("a.hotspot").on("click", function(e) {
         window.open("http://minkpink.com/au/store-locator", "_blank");
+        
+        App.trigger("track", "click", "http://minkpink.com/au/store-locator" )
         App.pageView.hotspot.hide(e)
       });
 
