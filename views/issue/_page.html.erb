@@ -102,7 +102,7 @@
       <ul class="<%= "cover-area" unless page.image_url %> product-set <%= "set-#{(page.products.to_a.count/2.0).ceil*2}" %>">
       <% page.products.each_with_index do |product, index| %>
         <li>
-          <a href="<%= affiliate_url(product[:url]) || '#' %>" class='hotspot product' data-track="hotspot:click" title="<%= product.title %>" data-image="<%= product[:image_url] %>" data-price="<%= product[:price] %>" data-description="<%= product[:description] %>">
+          <a href="<%= affiliate_url(product[:url]) || product[:url] %>" class='hotspot product' data-track="hotspot:click" data-action="<%= product[:action] %>" title="<%= product.title %>" data-image="<%= product[:image_url] %>" data-price="<%= product[:price] %>" data-description="<%= product[:description] %>">
             <img src="<%= product[:image_url] %>" alt=''>
             <span class='tag'><%= index + 1 %></span>
           </a>
