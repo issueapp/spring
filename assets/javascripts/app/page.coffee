@@ -2,14 +2,25 @@ class PageView extends Backbone.View
   
   el: 'article.page'
   
+  events:
+    "click a.toc": "goTo"
+  
   initialize: ->
     @container = $(window)
     
     @hotspot = new Hotspot(el: ".hotspot")
     App.updateContentWidth()
-    
+
   render: ->
 
+    
+  goTo: (e)->
+    
+    console.log('goto', e.currentTarget.href)
+    
+    App.notifyViewer('goto', e.currentTarget.href)
+    
+    false
     
   next: ->
     scrollLeft = @container.scrollLeft()

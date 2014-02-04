@@ -991,7 +991,7 @@ article.page.has-product {
   }
 }
 
-.stream-paging {
+.stream-paging, .swipe-paging {
   @include clearfix;
 
   @include min-screen(480) {

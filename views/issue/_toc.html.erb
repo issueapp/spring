@@ -56,7 +56,7 @@
       <% issue.items.each do |page| %>
         <% if page.nav != false && page.handle != "toc" %>
         <li>
-          <a href="<%= page.url %>">
+          <a class="toc" href="<%= page.url %>">
             <span class="category"><%= page.category %></span>
             <span class="story"><%= page.title %></span>
             <span class="author"><%= "By #{page.author_name}" if page.author_name %></span>
