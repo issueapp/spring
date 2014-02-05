@@ -146,7 +146,7 @@ class IssuePreview < Sinatra::Base
     page      = find_page(File.expand_path("../issues/#{@path}.md", __FILE__))
     page.handle = [params["page"], params["subpage"]].compact.join('/')
     
-    erb page_template(page), locals: { issue: current_issue, page: page }, layout: :"/layouts/_app.html"
+    erb page_template(page), locals: { issue: current_issue, page: page }, layout: !request.xhr? && :"/layouts/_app.html"
   end
 
   private

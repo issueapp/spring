@@ -351,6 +351,10 @@ article.five-shades .product-set li:nth-child(4n) .hotspot .tag {
   animation-delay: 0.3s;
 }
 
+.cp-container {
+  margin: 0 auto;
+}
+
 /*
     Animations
 */
