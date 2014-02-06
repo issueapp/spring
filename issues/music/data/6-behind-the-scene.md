@@ -22,8 +22,8 @@
     background: url(assets/6-behind-the-scene/cover-heading.svg) no-repeat;
     background-size: contain;
     background-position: right;
-    height: 70px;
-    
+    height: 0;
+    padding-bottom: 28%;   
   }
   
    #s6-behind-the-scene .description {
@@ -34,7 +34,7 @@
    }
 </style>
 
-<iframe src="//player.vimeo.com/video/84820598" width="100%" height="300px" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<iframe src="//player.vimeo.com/video/84820598?autoplay=1&amp;byline=0&amp;portrait=0" width="100%" height="300px" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
 <div class="column-break"></div>
 

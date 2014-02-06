@@ -40,14 +40,14 @@
 
 <style>
   /*  Replace page heading with outline heading (change background url or height if needed) */
-  article.page[data-page="4-beauty"] #uncovered {
+  article[data-page="4-beauty"] #uncovered {
     position: absolute;
     top: 0;
     right: 0;
     width: 120px;
   }
 
-  article.page[data-page="4-beauty"] .product-set {
+  article[data-page="4-beauty"] .product-set {
     margin: -35% 0 -20%;
     
     background-image: url('assets/4-beauty/product-bg.png');
@@ -55,45 +55,45 @@
     background-size: 110%;
   }
 
-  article.page[data-page="4-beauty"].has-product .product-set li {
+  article[data-page="4-beauty"] .product-set li {
 /*    height: auto;*/
   }
 
-  article.page[data-page="4-beauty"].has-product .product-set li img {
+  article[data-page="4-beauty"] .product-set li img {
     visibility: hidden;
   }
 
-  article.page[data-page="4-beauty"].has-product .product-set .hotspot {
+  article[data-page="4-beauty"] .product-set .hotspot {
     display: block;
   }
   
-  article.page[data-page="4-beauty"].has-product .product-set li:nth-child(1) .hotspot {
+  article[data-page="4-beauty"] .product-set li:nth-child(1) .hotspot {
     margin-top: 75px;
   }
 
-  article.page[data-page="4-beauty"].has-product .product-set li:nth-child(2) .hotspot {
+  article[data-page="4-beauty"] .product-set li:nth-child(2) .hotspot {
     margin-top: -80px;
   }
 
-  article.page[data-page="4-beauty"].has-product .product-set li:nth-child(3) .hotspot {
+  article[data-page="4-beauty"] .product-set li:nth-child(3) .hotspot {
     margin-top: 0;
   }
 
-  article.page[data-page="4-beauty"].has-product .product-set li:nth-child(4) .hotspot {
+  article[data-page="4-beauty"] .product-set li:nth-child(4) .hotspot {
     margin-top: -130px;
   }
 
-  article.page[data-page="4-beauty"].has-product .product-set li:nth-child(5) {
-    margin-top: -8%;
+  article[data-page="4-beauty"] .product-set li:nth-child(5) {
+    margin-top: -12%;
     margin-left: 50%;
   }
 
-  article.page[data-page="4-beauty"].has-product .product-set li:nth-child(5) .hotspot {
+  article[data-page="4-beauty"] .product-set li:nth-child(5) .hotspot {
     margin-top: -80px;
   }
 
   @media only screen and (min-width: 768px) {
-    article.page[data-page="4-beauty"] #uncovered {
+    article[data-page="4-beauty"] #uncovered {
       position: absolute;
       right: initial;
       left: 0;
@@ -102,39 +102,39 @@
   }
 
   @media only screen and (min-width: 768px) and (orientation: landscape) {
-    article.page[data-page="4-beauty"].has-product .product-set li:nth-child(5) {
+    article[data-page="4-beauty"] .product-set li:nth-child(5) {
 /*      margin-left: 142px;
 */    }
     
   }
 
   @media only screen and (min-width: 768px) and (orientation: portrait) {
-    article.page[data-page="4-beauty"].has-product.cover-left .content {
+    article[data-page="4-beauty"].cover-left .content {
       height: auto;
     }
     
-    article.page[data-page="4-beauty"] .content {
+    article[data-page="4-beauty"] .content {
       width: 100%;
     }
     
-    article.page[data-page="4-beauty"] .cover-area {
+    article[data-page="4-beauty"] .cover-area {
       height: 50%;
       width: 100%;
     }
     
-    article.page[data-page="4-beauty"] .product-set {
+    article[data-page="4-beauty"] .product-set {
       margin-top: -10%;
       width: 40%;
       float: left;
     }
     
-    article.page[data-page="4-beauty"] .body {
+    article[data-page="4-beauty"] .body {
       margin-left: 10%;
       width: 50%;
       float: left;
     }
 
-    /*    article.page[data-page="4-beauty"] #uncovered-description {
+    /*    article[data-page="4-beauty"] #uncovered-description {
           position: absolute;
           bottom: 30px;
           left: 15%;
@@ -142,11 +142,11 @@
           padding: 20px;
           width: 60%;
         }*/
-    article.page[data-page="4-beauty"].has-product .product-set li:nth-child(5) {
+    article[data-page="4-beauty"] .product-set li:nth-child(5) {
       margin-left: 96px;
     }
 
-    article.page[data-page="4-beauty"].has-product .product-set li:nth-child(5) .hotspot {
+    article[data-page="4-beauty"] .product-set li:nth-child(5) .hotspot {
       margin-top: -34px;
     }
   }

@@ -10,15 +10,13 @@
 
 <style>
 
-#seditors-letter p { 
+article[data-page=toc] p {
   font-style: italic; margin: 0.5em;
-  
 }
-  
-/*article.page .content p { font-style: italic; margin: 0.5em;  }
-article.page .content big { font-size: 120% }*/
-article.page .content p > span { font-style: normal; font-size: 80%; }
 
+article[data-page=toc] p > span {
+ font-style: normal; font-size: 80%;
+}
 </style>
 
 OK, I admit it. I’m maybe just a teeeny bit obsessed with <span>MINKPINK</span>…so it’s safe to say I was over-the-frickin’-moon when they asked me to front their latest international campaign ‘<span>MINKPINK</span>: <big>The Music Issue!</big> <span>MINKPINK</span> are always pretty out there when it comes to getting creative, so I knew working together would be a lot of fun...although I have to admit, I was a little nervous about the whole modelling thing. 

@@ -139,7 +139,17 @@
     products: <%= page.products.to_json %>
   }
 
-  App.pageView = new PageView({ model: App.page })
+  <% unless request.xhr? %>
+    App.pageView = new PageView({ model: App.page })
+    
+    // Force browser to render first
+    setTimeout( function() {
+      App.pageView.paginate()
+    }, 16)
+
+  <% end %>
+  
+  // App.pageView.render()
   
   // App.trigger('track', 'view')
   
