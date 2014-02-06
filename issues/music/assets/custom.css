@@ -18,32 +18,10 @@ p:empty {
 
 /* Branding */
 
-#seditors-letter header {
-  margin: 0;
+/*article.page {
+  overflow-y: auto;
 }
-
-article.page.toc .cover-area .brand-logo {
-  position: static;
-  bottom: initial;
-  left: initial;
-  margin: 2% auto 0;
-  margin-bottom: -20px;
-  max-width: 40%;
-}
-
-article.page.toc h2 {
-  font-family: "rodondoregular";
-}
-
-article.page.toc .menu li .story {
-  text-decoration: none;
-  font-family: "rodondoregular";
-}
-
-article.page.toc .menu .head {
-  display: none;
-}
-
+*/
 article.page figure figcaption {
   padding: 5px 0 10px;
   text-align: right;
@@ -79,14 +57,18 @@ article.page .body h2 {
   font-size: 20px;
 }
 
-article.page .body p {
-  margin: 0 0 1em;
+@media only screen and (min-width: 768px) {
+
+  article.page .body p {
+    margin: 0 0 1em;
   
-  font-size: 16px;
-  font-size: 2.3vh;
+    font-size: 16px;
+    font-size: 2.3vh;
   
-  line-height: 22px;
-  line-height: 3.2vh;
+    line-height: 22px;
+    line-height: 3.2vh;
+  }
+
 }
 
 small { font-size: 90%; }
@@ -99,11 +81,33 @@ p > span {
 /*
   Cover
 */
-section.magazine.cover #issue-logo {
-  bottom: 170px;
-  zoom: 0.6;
+
+article.page.toc .cover-area .brand-logo {
+  position: static;
+  bottom: initial;
+  left: initial;
+  margin: 2% auto 0;
+/*  margin-bottom: -20px;*/
+  max-width: 280px;
 }
 
+article.page.toc h2 {
+  font-family: "rodondoregular";
+}
+
+article.page.toc .menu li .story {
+  text-decoration: none;
+  font-family: "rodondoregular";
+}
+
+article.page.toc .menu .head {
+  display: none;
+}
+
+
+#seditors-letter header {
+  margin: 0;
+}
 
 /*
   Embed
@@ -114,11 +118,16 @@ section.magazine.cover #issue-logo {
 }
 
 
-section.magazine.cover nav[role="navigation"] {
+.page.cover #issue-logo {
+  bottom: 170px;
+  zoom: 0.6;
+}
+
+.page.cover nav[role="navigation"] {
   display: none;
 }
 
-section.magazine.cover .brand {
+.page.cover .brand {
   margin: 0 auto 22px;
   width: 200px;
   height: 80px;
@@ -131,7 +140,7 @@ section.magazine.cover .brand {
   line-height: 0;
 }
 
-section.magazine.cover .title {
+.page.cover .title {
   text-align: center;
   text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.8);
   font-weight: normal;
@@ -139,8 +148,10 @@ section.magazine.cover .title {
   font-family: "rodondoregular";
   line-height: 60px;
 }
-
-section.magazine.cover .extra-1 {
+.page.cover .description {
+  display: none;
+}
+.page.cover .extra-1 {
   position: absolute;
   bottom: 10px;
   left: 50%;
@@ -207,7 +218,6 @@ article.toc.page #signature {
 
 article.toc.page .cover-area {
   min-height: 15%;
-  height: 15%;
 }
 
 article.toc.page .body p:first-child {
@@ -230,20 +240,20 @@ article.toc.page .body p:first-child {
 
 
 @media only screen and (min-width: 768px) {
-  section.magazine.cover .brand {
+  section.page.cover .brand {
     margin: 0 auto;
   }
 
-  section.magazine.cover nav[role="navigation"] {
+  section.page.cover nav[role="navigation"] {
     display: block;
   }
 
-  section.magazine.cover .title {
+  section.page.cover .title {
     font-size: 160px;
     line-height: 110px;
   }
 
-  section.magazine.cover .extra-1 {
+  section.page.cover .extra-1 {
     left: 50%;
     margin-left: -25%;
     width: 50%;
@@ -252,7 +262,7 @@ article.toc.page .body p:first-child {
 }
 
 @media only screen and (orientation: landscape) {
-  .magazine.cover hgroup, .page.cover hgroup {
+  .magazine.cover hgroup, section.page.cover hgroup {
     margin-top: -4%;
   }
 }

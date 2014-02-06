@@ -27,7 +27,6 @@
 /*    width: 500px;*/
   }
   
-  
   #s5-travel .description {
     font-size: 20px;
     font-family: 'proxima-nova';
@@ -42,7 +41,7 @@
     width: 700px;
   }
 
-  #s5-travel .body p {
+  #s5-travel .body p.description {
     text-align: left;
     font-weight: lighter;
     font-size: 18px;

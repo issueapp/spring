@@ -10,6 +10,12 @@
 
 ---
 <style>
+
+  article.page[data-page=backcover] {
+    -webkit-backface-visibility: hidden;
+    -webkit-perspective: 1000;
+  }
+
   article.page[data-page="backcover"] .content {
     margin: 0;
     max-height: initial;
@@ -18,6 +24,7 @@
   }
 
   article.page[data-page="backcover"] #image {
+    
     position: absolute;
     bottom: 10%;
     max-width: initial;

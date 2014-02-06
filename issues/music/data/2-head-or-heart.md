@@ -30,16 +30,19 @@
         
 ---
 <style>
-  h1.title {
+  article[data-page="2-head-or-heart"] .title {
     background: url(assets/2-head-or-heart/cover-heading.svg) no-repeat;
     background-size: contain;
     color: transparent;
-    height: 220px;
+    min-height: 120px;
   }
-
-  p { font-family: "Trebuchet MS", Helvetica, sans-serif}
+  
+  article[data-page="2-head-or-heart"] .body {
+    font-family: "proxima-nova";
+  }
+  
   big { font-size: 120% }
-  p > span { font-style: normal; }
+/*  p > span { font-style: normal; }*/
 
   #header-image {
     position: relative;
@@ -49,30 +52,26 @@
   }
 
   @media only screen and (min-width: 768px) {
-    article.page[data-page="2-head-or-heart"] header .title {
+    article[data-page="2-head-or-heart"] header .title {
       position: absolute;
-      top: 0;
-      left: 0;
-      margin-top: 40px;
-      margin-left: 24px;
-
-      height: 50%;
+      top: 15%;
+      height: 60%;
     }
 
-    article.page[data-page="2-head-or-heart"] .body {
+    article[data-page="2-head-or-heart"] .body {
       position: relative;
       top: 60%;
     }
   }
 </style>
 
-<span><bold>IN NEED OF A STYLE UPDATE?     
-  WELL WHAT BETTER TIME     
-  THAN RIGHT NOW! INSPIRE      
-  YOUR LOOK WITH THE OFFICIAL     
-  MINKPINK: THE MUSIC ISSUE    
-  COLLECTION, STARRING    
-  CHRISTINA PERRI.</bold></span>
+IN NEED OF A STYLE UPDATE?     
+WELL WHAT BETTER TIME     
+THAN RIGHT NOW! INSPIRE      
+YOUR LOOK WITH THE OFFICIAL     
+MINKPINK: THE MUSIC ISSUE    
+COLLECTION, STARRING    
+CHRISTINA PERRI.
 
 <small>PHOTOGRAPHY BY MIKE PISCITELLI</small>
 <small>STYLING BY MARK VASSALLO</small>

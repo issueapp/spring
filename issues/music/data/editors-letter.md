@@ -10,22 +10,24 @@
 ---
 
 <style>
-article.page h1.title {
+
+article[data-page=editors-letter] .title {
   font-family: "rodondoregular" !important;
   margin-bottom: 0.1em;
 }
 
-article.page .body p {
+article[data-page=editors-letter] .body p {
   font-style: italic;
   margin: 0.15em 0 0.5em;
 }
 
-article.page .body p:last-child {
+article[data-page=editors-letter] .body p:last-child {
   margin-bottom: 0;
 }
 
-big { font-size: 130% }
+big { font-size: 120% }
 p > span { font-style: normal; font-size: 80%; }
+
 </style>
 
 <span>MINKPINK</span> have done it again with the launch of <span>MINKPINK</span>: The Music Issue, combining two of everyone’s favourite

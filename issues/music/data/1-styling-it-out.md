@@ -23,33 +23,42 @@
 ---
 
 <style>
-  article.page[data-page="1-styling-it-out"] .content {
+
+  article[data-page="1-styling-it-out"] .content {
     position: relative;
   }
 
   /*  Replace page heading with outline heading (change background url or height if needed) */
-  h1.title {
-    height: 150px;
+  article[data-page="1-styling-it-out"] .title {
+    
     background: url(assets/1-styling-it-out/STYLINGITOUT.svg) no-repeat;
     background-size: contain;
     background-position: center;
     color: transparent;
-    margin: 0 20px;
+    
+    height: 0;
+    padding-bottom: 50%;
   }
-
-  article.page[data-page="1-styling-it-out"] header  {
-    padding-top: 25%;
-  }
-
-  article.page[data-page="1-styling-it-out"] header .category {
+  
+  article[data-page="1-styling-it-out"] header .category {
     top: 200px;
     margin-top: 200px;
     color: black;
     text-align: left;
-    font-size: 36px;
-    font-size: 3vw;
     font-family: 'rodondoregular';
   }
+  
+  @media only screen and (min-width: 768px) {
+    article[data-page="1-styling-it-out"] header  {
+      padding-top: 25%;
+    }
+    
+    article[data-page="1-styling-it-out"] header .category {
+      font-size: 36px;
+      font-size: 3vw;
+    }
+  }
+
 </style>
 
 August in California, and L.A’s tribe of Beautiful People are flocking to the beaches in their hoards…but for one talented young singer-songwriter, there’s no better place to while away the days than the recording studio. It’s here that Philly-born rock chick and style maven Christina Perri feels most at home, so it made perfect sense to choose North Hollywood’s iconic Mates Studios as the location to shoot MINKPINK’s brand new global campaign <em>The Music Issue</em>, fronted by the stunning songstress herself.
