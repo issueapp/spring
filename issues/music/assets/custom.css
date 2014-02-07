@@ -241,7 +241,7 @@ article.toc.page .body p:first-child {
 
 @media only screen and (min-width: 768px) {
   section.page.cover .brand {
-    margin: 0 auto;
+    margin: 3% auto 0;
   }
 
   section.page.cover nav[role="navigation"] {
@@ -284,7 +284,7 @@ article.rainbow .product-set li .hotspot .tag {
   -moz-animation: rainbow linear 5s infinite alternate; /* Firefox */
 }
 
-article.rainbow .product-set li .hotspot:active .tag,
+/*article.rainbow .product-set li .hotspot:active .tag,*/
 article.rainbow .product-set li .hotspot:hover .tag {
   z-index: 999;
   color: white;
