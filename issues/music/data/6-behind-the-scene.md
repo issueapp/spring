@@ -11,7 +11,7 @@
 <style>
   
   #s6-behind-the-scene header {
-    padding-top: 30%;
+    padding-top: 15%;
     
     margin-left: 20px;
     margin-right: 20px;
@@ -34,7 +34,16 @@
    }
 </style>
 
-<iframe src="//player.vimeo.com/video/84820598?autoplay=1&amp;byline=0&amp;portrait=0" width="100%" height="300px" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<figure class="video">
+  <img class="thumbnail" src="http://b.vimeocdn.com/ts/461/859/461859888_640.jpg" alt="" />
+  <iframe data-src="//player.vimeo.com/video/84820598?autoplay=1&amp;byline=0&amp;portrait=0" width="100%" style="display:none" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+</figure>
+
+<!-- <iframe src="//player.vimeo.com/video/84820598?&amp;byline=0&amp;portrait=0" width="100%" height="300px" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+<video id="youtube1" width="640" height="360">
+  <source src="http://vimeo.com/84820598" type="video/vimeo" >
+</video> -->
 
 <div class="column-break"></div>
 
