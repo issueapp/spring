@@ -77,7 +77,7 @@
 </style>
 
 <div class="cover-image">
-  <img src="/guide/assets/header-banner.jpg" alt="">
+  <img src="assets/header-banner.jpg" alt="">
 </div>
 
 <div class="content">

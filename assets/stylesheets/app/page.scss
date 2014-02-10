@@ -47,7 +47,7 @@ article.page {
   .cover-area {
     @include box-sizing(border-box);
     position: relative;
-    min-height: 300px;
+    min-height: 400px;
     width: 100%;
     height: auto;
     background-position: 50% 20%;
@@ -70,6 +70,7 @@ article.page {
       bottom: 0;
       left: 0;
       width: 100%;
+      height: 100%;
 
       &:before {
         position: absolute;
@@ -78,7 +79,7 @@ article.page {
         bottom: 0;
         left: 0;
         background: rgba(0,0,0,0.1);
-        content: '';
+        content: none;
       }
     }
 
@@ -102,6 +103,7 @@ article.page {
     vertical-align: middle;
 
     img {
+      vertical-align: middle;
       max-width: 100%;
     }
   }
@@ -127,11 +129,12 @@ article.page {
   }
 
   // Content formatting
-
+  big { font-size: 120% }
+  
   header {
     @include box-sizing(border-box);
 
-    margin: 0 -20px 2% -20px;
+    margin: 0 0 2% 0px;
     padding: 0;
     text-align: center;
 
@@ -327,37 +330,66 @@ article.page {
       width: 100%;
       height: 100%;
     }
+    
+    .cover-area & {
+      height: 100%;
+      padding: 0;
+    }
   }
   
   figure.video {
-    position: relative;
     -webkit-transform: translate3d(0, 0, 0);
+    cursor: pointer;
+    
+    background-size: 100%;
+    position: relative;
     width: 100%;
-    //padding-bottom: 56.25%; /* 16:9 */
-    //height: 0;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+    margin-bottom: 40px;
     
     figcaption {
       margin-top: 56.25%;
     }
     
     .thumbnail {
-
-      
-      
       border: 1px;
       cursor: pointer;
-      width: 100%;
-      height: auto;
+
       position: absolute;
       left: 0;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      width: 100%;
+      max-height: 100%;
     }
     
     iframe {
       display: none;
       position: absolute;
       width: 100%;
+      top: 0; left:0;
+      height: 100%;
     }
-//    position: relative;
+    
+    @extend %icon-style;
+    @extend .icon-arrow-right;
+    
+    &:before {
+      position: absolute;
+      z-index: 999;
+      text-shadow: 0 0 3px rgba(0,0,0,0.4);
+      font-size: 10vh;
+      color: white;
+      top: 30%;
+      left: 0;
+      width: 100%;
+    }
+    
+    &.play:before {
+      content: none;
+    }
   }
 
   .description {
@@ -451,6 +483,7 @@ article.page {
   }
 
   &.image-background.video .content {
+    background: #000;
     position: relative;
     height: auto;
   }
@@ -626,49 +659,45 @@ article.page.has-product {
     font-weight: normal;
     font-family: "EB Garamond";
   }
+}
+/*
+    Product set
+*/
+.product-set {
+  @include box-sizing(border-box);
+  margin: 0 0 20px 0;
+  padding: 0;
+  height: 88%;
+  list-style-type: none;
+  text-align: left;
+  white-space: normal;
+}
 
-  .product-set {
+.product-set li {
+  position: relative;
+  display: inline-block;
 
-    @include box-sizing(border-box);
-    margin: 0 0 20px 0;
-    padding: 0;
-    height: 88%;
-    list-style-type: none;
-    text-align: left;
-    white-space: normal;
-  }
+  @include box-sizing(border-box);
+  padding: 5px 0;
+  height: 33%;
+  vertical-align: middle;
+  text-align: center;
+}
 
-  .product-set li {
-    position: relative;
-    display: inline-block;
+.product-set a {
+  width: 100%;
+}
 
-    @include box-sizing(border-box);
-    padding: 5px 0;
-    height: 33%;
-    vertical-align: middle;
-    text-align: center;
-  }
-  
-  .product-set a {
-    width: 100%;
-  }
+.product-set.set-2 li {
+  width: 100%;
+}
 
-  .product-set li img {
-    width: auto;
-    height: 100%;
-  }
+.product-set.set-4 li {
+  width: 49%;
+}
 
-  .product-set.set-2 li {
-    width: 100%;
-  }
-
-  .product-set.set-4 li {
-    width: 49%;
-  }
-
-  .product-set.set-6 li {
-    width: 49%;
-  }
+.product-set.set-6 li {
+  width: 49%;
 }
 
 @include min-screen(768) {
@@ -714,6 +743,12 @@ article.page.has-product {
         margin: 0;
       }
     }
+
+    .product-set li img {
+      width: auto;
+      height: 100%;
+    }
+    
   }
 
   article.page.toc {
@@ -783,7 +818,7 @@ article.page.has-product {
       position: absolute;
       top: 0;
       right: initial;
-      bottom: initial;
+      bottom: 0;
       height: initial;
     }
 
@@ -991,7 +1026,7 @@ article.page.has-product {
   }
 }
 
-.stream-paging, .swipe-paging {
+.stream-paging {
   @include clearfix;
 
   @include min-screen(480) {

@@ -24,22 +24,22 @@ Indulge in the search for beauty. Whether you’re visiting Australia, Italy or 
 
 <ul class="contributors">
   <li>
-    <img class="avatar" src="/holiday/assets/aubrey-avatar.png">
+    <img class="avatar" src="assets/aubrey-avatar.png">
     <span>Aubrey Daquinag</span>
     <span class="description">The Love Assembly</span>
   </li>
   <li>
-    <img class="avatar" src="/holiday/assets/michelle-avatar.png">
+    <img class="avatar" src="assets/michelle-avatar.png">
     <span>Michelle Lau</span>
     <span class="description">A minute away from Snowlng</span>
   </li>
   <li>
-    <img class="avatar" src="/holiday/assets/jysla-avatar.png">
+    <img class="avatar" src="assets/jysla-avatar.png">
     <span>Jessica Cheung</span>
     <span class="description">Jysla Kay</span>
   </li>
   <li>
-    <img class="avatar" src="/holiday/assets/zyra-avatar.png">
+    <img class="avatar" src="assets/zyra-avatar.png">
     <span>Zyralyn Bacani</span>
     <span class="description">Content Writer of Issue</span>
   </li>

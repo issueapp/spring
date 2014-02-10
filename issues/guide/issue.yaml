@@ -16,14 +16,6 @@ items:
   - title: Table of Content
     handle: "toc"
 
-  - title: Icon design
-    category: Design
-    handle: "icons"
-    image_url: "http://lorempixel.com/200/158"
-    pages:
-      - handle: "1"
-      - handle: "2"
-
   - title: One Column
     category: Layout
     handle: "one-col"
@@ -60,4 +52,8 @@ items:
   - title: Vimeo
     category: Media
     handle: "vimeo"
+    image_url: "http://lorempixel.com/200/162"
+    
+  - title: The end
+    handle: "end"
     image_url: "http://lorempixel.com/200/162"
