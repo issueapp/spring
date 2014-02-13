@@ -25,7 +25,7 @@
  * Standing on the shoulders of :
  * John Resig @jresig
  * Mark Panaghiston @thepag
- * Louis-Rémi Babé @Louis_Remi
+ * Louis-R'emi Bab'e @Louis_Remi
  */
 
 

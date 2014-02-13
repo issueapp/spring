@@ -9,11 +9,11 @@ p:empty {
     font-weight: normal;
     font-style: normal;
     font-family: 'rodondoregular';
-    src: url('fonts/rodondo-webfont.eot');
-    src: url('fonts/rodondo-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/rodondo-webfont.woff') format('woff'),
-         url('fonts/rodondo-webfont.ttf') format('truetype'),
-         url('fonts/rodondo-webfont.svg#rodondoregular') format('svg');
+    src: url('../assets/fonts/rodondo-webfont.eot');
+    src: url('../assets/fonts/rodondo-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../assets/fonts/rodondo-webfont.woff') format('woff'),
+         url('../assets/fonts/rodondo-webfont.ttf') format('truetype'),
+         url('../assets/fonts/rodondo-webfont.svg#rodondoregular') format('svg');
 }
 
 /* Branding */
@@ -217,7 +217,7 @@ article.toc.page #signature {
 }
 
 article.toc.page .cover-area {
-  min-height: 15%;
+  min-height: 0;
 }
 
 article.toc.page .body p:first-child {
