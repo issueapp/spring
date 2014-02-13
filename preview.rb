@@ -206,7 +206,7 @@ class IssuePreview < Sinatra::Base
       "author_icon" => author_icon,
       "brand_image_url" => brand_image_url,
       "products" => products,
-      "published_at" => attributes["published_at"] || File.mtime(path),
+      "published_at" => attributes["published_at"] || File.mtime(path).to_i,
       "layout" => attributes.fetch("layout", {})
     )
 
@@ -231,7 +231,7 @@ class IssuePreview < Sinatra::Base
   # Load app level assets
   # asset_path 'issue.js', global: true
   def asset_path(path, options = {})
-    return path if path =~ /^https?:/
+    return path if path.nil? || path =~ /^https?:/
     
     if path && path =~ /^\/?assets\//
       path.gsub!(/^\/?assets\//, '')
@@ -244,7 +244,15 @@ class IssuePreview < Sinatra::Base
     end
     
     if defined?(Rails)
-      path = ActionController::Base.helpers.asset_path(path)
+      if !Rails.application.config.offline_assets
+        return  ActionController::Base.helpers.asset_path(path)
+      end
+
+      Rails.logger.info "offline: #{Rails.application.config.offline_assets} " + File.join("assets", path.to_s)
+      
+      prefix = params[:subpage] ? "../" : ""
+      
+      return path.include?("#{prefix}assets/") ? path : File.join("#{prefix}assets", path.to_s)
     end
     
     if options[:global]
@@ -258,7 +266,7 @@ class IssuePreview < Sinatra::Base
     asset = File.expand_path("../issues/#{params[:issue]}/assets#{path}", __FILE__)
     
     if File.exist?(asset) && !path.empty?
-      path = path + "?#{Digest::MD5.file(asset).hexdigest}"
+      path = path + "?#{File.mtime(asset).to_i}"
     end
     
     "#{request.script_name}/#{params[:magazine]}/#{params[:issue]}/assets#{path}"
