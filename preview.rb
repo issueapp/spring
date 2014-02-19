@@ -95,7 +95,7 @@ class IssuePreview < Sinatra::Base
   end
   
   get "/:magazine/:issue/_menu" do
-    erb :"issue/_menu.html", layout: false, locals: { issue: current_issue}
+    erb :"issue/_menu.html", layout: :"/layouts/_app.html", locals: { issue: current_issue}
   end
   
   get "/:magazine/:issue/issue.json" do 
