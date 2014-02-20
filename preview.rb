@@ -244,7 +244,7 @@ class IssuePreview < Sinatra::Base
     end
     
     if defined?(Rails)
-      if !Rails.application.config.offline_assets
+      if !Rails.application.config.offline_assets && options[:global]
         return  ActionController::Base.helpers.asset_path(path)
       end
 
