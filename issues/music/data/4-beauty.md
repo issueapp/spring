@@ -97,7 +97,7 @@
       position: absolute;
       right: initial;
       left: 0;
-      width: 230px;
+      width: 33%;
     }
   }
 

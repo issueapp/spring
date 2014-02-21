@@ -1,5 +1,4 @@
 <style>
-
   #issue-viewer {
     position: relative;
     font-family: "Helvetica Neue", Helvetica, sans-serif;
@@ -139,7 +138,7 @@
     height: 150px;
   }
 
-  #issue-menu ul {
+  #issue-viewer #issue-menu ul {
     margin: 0;
     list-style: none;
     overflow-x: auto;
@@ -154,11 +153,11 @@
     white-space: nowrap;
   }
   
-  #issue-menu li {
+  #issue-viewer #issue-menu li {
     display: inline;
   }
   
-  #issue-menu li a {
+  #issue-viewer #issue-menu li a {
     position: relative;
     display: inline-block;
     overflow: hidden;
@@ -180,8 +179,8 @@
     line-height: 110px;
   }
 
-  #issue-menu li a .title,
-  #issue-menu li a .category {
+  #issue-viewer #issue-menu li a .title,
+  #issue-viewer #issue-menu li a .category {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -191,7 +190,7 @@
     text-overflow: ellipsis;
   }
 
-  #issue-menu li a .title {
+  #issue-viewer #issue-menu li a .title {
     margin-top: -16px;
     color: white;
     font-weight: normal;
@@ -202,7 +201,7 @@
 /*    font-style: italic;*/
   }
 
-  #issue-menu li a .category {
+  #issue-viewer #issue-menu li a .category {
     margin-top: -38px;
     color: #ccc;
     text-transform: uppercase;
@@ -214,11 +213,11 @@
     font-weight: normal;
   }
 
-  #issue-menu li a:hover .title {
+  #issue-viewer #issue-menu li a:hover .title {
     color: #e96b56;
   }
 
-  #issue-menu li a:before {
+  #issue-viewer #issue-menu li a:before {
     position: absolute;
     top: 0;
     right: 0;
@@ -228,22 +227,21 @@
     content: '';
   }
 
-  #issue-menu li a.active {
+  #issue-viewer #issue-menu li a.active {
     outline: 2px solid #A2E6E8;
   }
-  
 </style>
 
-<nav id="issue-menu" class="toc " role="secondary">
+<nav id="issue-menu" class="toc issue-menu" role="secondary">
   <ul class="contents-menu">
     <% issue.items.each do |story| %>
 
     <% next if story.nav == false %>
-    
     <% path = params[:subpage] ? "../" : "" %>
+    <% ext = offline? ? ".html" : "" %>
     
     <li class="<%= story.handle %>">
-      <a href="<%= path + story.url %>" target="issue-frame" style="background-image: url('<%= asset_path story.image_url %>')" >
+      <a href="<%= path + story.url + ext %>" target="issue-frame" style="background-image: url('<%= asset_path story.image_url %>')" >
         <span class="category"><%= story.category %></span>
         <span class="title"><%= story.title %></span>
         <span class="author"><%= "By #{story.author}" if story.author %></span>

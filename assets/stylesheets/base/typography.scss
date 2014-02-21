@@ -119,7 +119,8 @@ h4, h5, h6  {
 }
 
 .subtitle {
-  font: italic normal inherit georgia;  
+  font-style: italic;
+  font-family: georgia;
   text-transform: none;
   color: #666;
 }

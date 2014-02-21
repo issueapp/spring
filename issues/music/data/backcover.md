@@ -22,6 +22,10 @@
     width: 100%;
     height: 100%;
   }
+  
+  article.page[data-page="backcover"] .cover-area {
+    background-position: top;
+  }
 
   article.page[data-page="backcover"] #image {
     

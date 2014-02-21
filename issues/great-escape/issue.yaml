@@ -1,12 +1,14 @@
-id: "official/holiday"
-title: Holiday issue
-short_title: Holiday
+id: "official/great-escape"
+title: Great Escape
+handle: great-escape
 magazine_title: "Official"
 description: "Travel in Style • Beauty Updates • Favourite Eats"
 publish_at: "2013-9-15T13:16:46Z"
+
 image_url: "assets/cover-bg-2048.jpg"
 background_url: "assets/background.jpg"
 background_large_url: "assets/background_large.jpg"
+
 assets:
   - "custom.css"
 

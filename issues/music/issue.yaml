@@ -11,7 +11,7 @@
 # category/story2/3
 id: "minkpink/music"
 title: Music
-short_title: Music
+issue_title: Music
 magazine_title: Minkpink
 publish_at: "2014-1-15T13:16:46Z"
 background_url: "assets/background.jpg"
@@ -33,6 +33,9 @@ assets:
   - "circle.skin/circle.player.css"
 
 items:
+  - title: Cover
+    handle: "index"
+    image_url: "assets/background_large.jpg"
 
   - title: Table of Content
     handle: "toc"
