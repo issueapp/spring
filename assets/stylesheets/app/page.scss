@@ -133,7 +133,7 @@ article.page {
   
   header {
     @include box-sizing(border-box);
-
+    position: relative;
     margin: 0 0 2% 0px;
     padding: 0;
     text-align: center;
@@ -716,7 +716,7 @@ article.page.has-product {
     }
 
     .content {
-      padding: 25px;
+      padding: 50px 25px 25px;
     }
 
     &.middle .content {
@@ -745,8 +745,12 @@ article.page.has-product {
     }
 
     .product-set li img {
-      width: auto;
-      height: 100%;
+      position:absolute;
+      left: 0;
+      bottom: 20px;
+      
+      width: 100%;
+      height: auto;
     }
     
   }

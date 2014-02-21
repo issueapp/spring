@@ -30,11 +30,15 @@
         
 ---
 <style>
+  article[data-page="2-head-or-heart"] header {
+    height: 60%;
+  }
+
   article[data-page="2-head-or-heart"] .title {
     background: url(assets/2-head-or-heart/cover-heading.svg) no-repeat;
     background-size: contain;
     color: transparent;
-    min-height: 120px;
+    min-height: 140px;
   }
   
   article[data-page="2-head-or-heart"] .body {
@@ -55,12 +59,12 @@
     article[data-page="2-head-or-heart"] header .title {
       position: absolute;
       top: 15%;
-      height: 60%;
+      height: 100%;
+      width: 100%;
     }
 
     article[data-page="2-head-or-heart"] .body {
       position: relative;
-      top: 60%;
     }
   }
 </style>

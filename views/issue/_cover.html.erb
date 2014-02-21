@@ -1,25 +1,10 @@
 <header class="toolbar dark-theme transparent">
   <!-- <a class="back left" href="javascript:history.back()"><span>back</span></a> -->
 
-  <h1 class="title">
-    <!-- <a href="#magazine-menu" class="open-target">Minkpink // Music <i class="caret"></i></a> -->
-
-<!--     <div class="popover" id="magazine-menu" style="display: none">
-      <div class="arrow up"></div>
-      <h3>Issues</h3>
-
-      <ul>
-        <li><a class="active"  href="#"><i class="icon-edit"> </i >Music</a></li>
-        <li><a href="#"><i class="icon-tag"> </i> Affection</a></li>
-        <li>
-          <a href="#"><i class="icon-pictures"> </i> Obsession</a>
-        </li>
-      </ul>
-    </div> -->
-  </h1>
+  <h1 class="title"></h1>
 </header>
 
-<section id="issue_cover" class="magazine cover page fullscreen dark-theme " style="background-image: url(<%= asset_path issue.background_large_url %>);">
+<article id="issue_cover" class="magazine cover page fullscreen dark-theme " data-page="index<%= page_ext %>" style="background-image: url(<%= asset_path issue.background_large_url %>);">
   <div class="container">
 
     <img class="issue-logo" src="<%= asset_path "global/logo-round-white.svg", global: true %>"></img>
@@ -30,13 +15,13 @@
 
     <hgroup>
       <h2 class="brand"><%= issue.magazine_title %></h2>
-      <h1 class="title"><%= issue.short_title %></h1>
+      <h1 class="title"><%= issue.issue_title %></h1>
       <h2 class="description"><%= issue.description %></h2>
     </hgroup>
 
-    <a class="subscribe" href="#"></a>
+    <!-- <a class="subscribe" href="#"></a> -->
     <a class="browse" href="toc">‹</a>
     <a class="download" href="#"></a>
     <a class="show-menu" href="#"></a>
   </div>
-</section>
+</article>

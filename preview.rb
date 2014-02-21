@@ -261,6 +261,14 @@ class IssuePreview < Sinatra::Base
       "#{asset_host}#{issue_path(path)}"
     end
   end
+  
+  def page_ext
+    offline? ? ".html" : ""
+  end
+  
+  def offline?
+    defined?(Rails) && Rails.application.config.offline_assets  || params[:offline]
+  end
 
   def issue_path(path = nil)
     asset = File.expand_path("../issues/#{params[:issue]}/assets#{path}", __FILE__)
