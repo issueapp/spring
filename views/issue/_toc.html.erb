@@ -78,8 +78,8 @@
     products: <%= page.products.to_json %>
   }
 
-  <% unless request.xhr? %>
-    App.pageView = new PageView({ model: App.page })
+  <% unless request.xhr? %>  
+    App.pageView = new PageView({ path: "<%= page.handle + page_ext %>", model: App.page })
   <% end %>
   // App.trigger('track', 'view')
   
