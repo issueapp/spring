@@ -267,7 +267,7 @@ class IssuePreview < Sinatra::Base
   end
   
   def offline?
-    defined?(Rails) && Rails.application.config.offline_assets  || params[:offline]
+    (defined?(Rails) && Rails.application.config.offline_assets) || params[:offline]
   end
 
   def issue_path(path = nil)

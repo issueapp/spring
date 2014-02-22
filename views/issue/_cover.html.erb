@@ -25,3 +25,9 @@
     <a class="show-menu" href="#"></a>
   </div>
 </article>
+
+<script>
+  $(function() {
+    App.trigger('page:loaded', "index<%= page_ext %>", { path: "index<%= page_ext %>"})
+  })
+</script>

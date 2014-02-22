@@ -43,7 +43,7 @@
    <%= "cover-#{page.layout.image_align}" if has_product || page.layout.image_align && page.image_url %>
  <% end %>"
 
-  data-page="<%= page.handle %>"
+  data-page="<%= page.handle + page_ext %>"
   data-author="<%= page.author_name %>"
   data-page-id="<%= page.id %>"
 >
@@ -142,7 +142,7 @@
   }
 
   <% unless request.xhr? %>
-    App.pageView = new PageView({ model: App.pages["<%= page.id %>"] })
+    App.pageView = new PageView({ path: "<%= page.handle + page_ext %>",  model: App.pages["<%= page.id %>"] })
     
     // Force browser to render first
     App.pageView.render()
