@@ -7,7 +7,7 @@
   end
 
   products = page.products.to_a.select{|p| !p.hotspot && !p.hidden }
-  
+
   hotspots = (page.products.to_a + page.links.to_a).select{|p| p.hotspot }.map do |p|
     left, right, radius = p.hotspot.split(',').map(&:strip)
     p.hotspot = {
@@ -31,7 +31,7 @@
 
  <%= page.custom_class %>
  page-fadein
-  
+
  <% if page.layout.type != "custom" %>
    <%= page.layout.content_overflow || 'scroll' %>
    <%= page.layout.content_style || 'white' %>
@@ -131,25 +131,26 @@
 
 <% end %>
 <script>
-  App = (typeof App == 'undefined') ? {} : App;
+  $(function() {
+    App = (typeof App == 'undefined') ? {} : App;
 
-  App.pages = App.pages || {}
-  
-  App.pages["<%= page.id %>"] = {
-    title: "<%= page.title %>",
-    links: <%= page.links.to_json %>,
-    products: <%= page.products.to_json %>
-  }
+    App.pages = App.pages || {}
 
-  <% unless request.xhr? %>
-    App.pageView = new PageView({ path: "<%= page.handle + page_ext %>",  model: App.pages["<%= page.id %>"] })
-    
-    // Force browser to render first
-    App.pageView.render()
-    
-    App.trigger('track', 'view')
-  <% end %>
-  
+    App.pages["<%= page.id %>"] = {
+      title: "<%= page.title %>",
+      links: <%= page.links.to_json %>,
+      products: <%= page.products.to_json %>
+    }
+
+    <% unless request.xhr? %>
+      App.pageView = new PageView({ path: "<%= page.handle + page_ext %>",  model: App.pages["<%= page.id %>"] })
+
+      // Force browser to render first
+      App.pageView.render()
+
+      App.trigger('track', 'view')
+    <% end %>
+  })
 </script>
   <%#= render 'debug', locals: { page: page } %>
 </article>
