@@ -16,21 +16,21 @@
     <!--iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    
-    
+
+
     <link rel="stylesheet" href="<%= asset_path "application.css", global: true %>" type="text/css">
-    
+
     <!-- Web UI -->
     <% if !webview? && !offline? %>
       <link rel="stylesheet" href="<%= asset_path "app/ui.css", global: true %>" type="text/css">
     <% end %>
-    
+
     <script src="<%= asset_path "issue.js", global: true %>"></script>
-    
+
     <script>
       App.detectLayout()
     </script>
-    
+
     <% if defined?(current_issue) %>
       <%# issue_asset_path = params[:subpage] ? "../assets/" : "assets/" %>
       <% current_issue.assets.to_a.each do |asset| %>
@@ -42,25 +42,25 @@
       <% end %>
     <% end %>
   </head>
-  
-  <body class="<%= @body_class %>"
+
+  <body class="<%= @body_class %> <%= 'webview' if webview? %>"
     data-magazine="<%= issue.magazine_title %>"
     data-issue="<%= issue.short_title %>"
   >
-  
+
     <div role=main class="fashion-theme content-view">
       <%= yield %>
     </div>
   </body>
-  
+
   <script>
     App.init()
   </script>
-  
+
   <% if respond_to?(:yield_content) %>
     <%= yield_content :js %>
   <% else %>
     <%= yield :js %>
   <% end %>
-  
+
 </html>
