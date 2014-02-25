@@ -21,8 +21,10 @@
     <link rel="stylesheet" href="<%= asset_path "application.css", global: true %>" type="text/css">
     
     <!-- Web UI -->
-    <link rel="stylesheet" href="<%= asset_path "app/ui.css", global: true %>" type="text/css">
-
+    <% if !webview? && !offline? %>
+      <link rel="stylesheet" href="<%= asset_path "app/ui.css", global: true %>" type="text/css">
+    <% end %>
+    
     <script src="<%= asset_path "issue.js", global: true %>"></script>
     
     <script>

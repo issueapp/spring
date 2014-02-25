@@ -95,7 +95,7 @@ class IssuePreview < Sinatra::Base
   end
   
   get "/:magazine/:issue/_menu" do
-    erb :"issue/_menu.html", layout: :"/layouts/_app.html", locals: { issue: current_issue}
+    erb :"issue/_menu.html", locals: { issue: current_issue }, layout: !request.xhr? && :"/layouts/_app.html"
   end
   
   get "/:magazine/:issue/issue.json" do 
@@ -268,6 +268,10 @@ class IssuePreview < Sinatra::Base
   
   def offline?
     (defined?(Rails) && Rails.application.config.offline_assets) || params[:offline]
+  end
+
+  def webview?
+    params[:webview]
   end
 
   def issue_path(path = nil)
