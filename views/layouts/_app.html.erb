@@ -43,7 +43,7 @@
     <% end %>
   </head>
 
-  <body class="<%= @body_class %> <%= 'webview' if webview? %>"
+  <body class="<%= @body_class %> <%= 'webview' if webview? || offline? %>"
     data-magazine="<%= issue.magazine_title %>"
     data-issue="<%= issue.short_title %>"
   >
