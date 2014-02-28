@@ -87,7 +87,7 @@ class IssuePreview < Sinatra::Base
   end
 
   get "/:magazine/:issue/index/?" do
-    redirect to("/#{params[:magazine]}/#{params[:issue]}/")
+    erb :"issue/_cover.html", layout: :"/layouts/_app.html", locals: { issue: current_issue}
   end
 
   get "/:magazine/:issue/?" do
