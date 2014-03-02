@@ -11,7 +11,7 @@
     <img class="issue-logo" src="<%= asset_path "global/logo-round-white.svg", global: true %>"></img>
 
     <div class="extra-1"></div>
-    
+
     <div class="extra-2"></div>
 
     <hgroup>
@@ -27,6 +27,6 @@
 
 <script>
   $(function() {
-    App.trigger('page:loaded', "index<%= page_ext %>", { path: "index<%= page_ext %>"})
+    App.trigger('page:loaded', "index<%= page_ext %>", { path: "index<%= page_ext %>", theme: 'black' })
   })
 </script>
