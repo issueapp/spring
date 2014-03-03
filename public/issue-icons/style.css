@@ -1,10 +1,10 @@
 @font-face {
 	font-family: 'issue-icons';
-	src:url('fonts/issue-icons.eot');
-	src:url('fonts/issue-icons.eot?#iefix') format('embedded-opentype'),
-		url('fonts/issue-icons.woff') format('woff'),
-		url('fonts/issue-icons.ttf') format('truetype'),
-		url('fonts/issue-icons.svg#issue-icons') format('svg');
+	src:url('fonts/issue-icons.eot?1gmpsl');
+	src:url('fonts/issue-icons.eot?#iefix1gmpsl') format('embedded-opentype'),
+		url('fonts/issue-icons.woff?1gmpsl') format('woff'),
+		url('fonts/issue-icons.ttf?1gmpsl') format('truetype'),
+		url('fonts/issue-icons.svg?1gmpsl#issue-icons') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -59,7 +59,7 @@
 .icon-arrow-up:before {
 	content: "\e608";
 }
-.icon-air:before {
+.icon-stream:before {
 	content: "\e606";
 }
 .icon-graph:before {
@@ -115,6 +115,12 @@
 }
 .icon-plus-circled:before {
 	content: "\e64e";
+}
+.icon-palette:before {
+	content: "\e639";
+}
+.icon-microphone:before {
+	content: "\e618";
 }
 .icon-bookmark3:before {
 	content: "\e613";
@@ -191,6 +197,12 @@
 .icon-ios7-circle-filled:before {
 	content: "\e65d";
 }
+.icon-books:before {
+	content: "\e619";
+}
+.icon-rss:before {
+	content: "\e61c";
+}
 .icon-bold:before {
 	content: "\e622";
 }
@@ -214,4 +226,13 @@
 }
 .icon-underline:before {
 	content: "\e62a";
+}
+.icon-bookmark-checked-outline:before {
+	content: "\e60a";
+}
+.icon-bookmark-checked:before {
+	content: "\e60b";
+}
+.icon-issues:before {
+	content: "\e629";
 }
