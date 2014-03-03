@@ -1,6 +1,6 @@
 ---
 
-    title: The Great Excape
+    title: Great Escape
     image_url: assets/toc/background.jpg
     
     layout:
@@ -10,7 +10,7 @@
 ---
 
 Fashion, travel and lifestyle meets contemporary style . . .<br>
-For the wanderer. For the curious. For the style savvy. For the open-minded.
+For the wanderer. For the style savvy. For the epicurean. 
 
 We have collaborated with some of Australia’s rising bloggers to present to you their interpretation of this season’s favourites. From a curation of their best-loved getaways, restaurants, style picks and beauty fixes, they show you how to celebrate summer in style and make it one to remember.
 

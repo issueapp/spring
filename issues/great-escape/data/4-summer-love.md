@@ -1,6 +1,6 @@
 ---
 
-    title: SUMMER LOVE.
+    title: SUMMER LOVE
     byline: By Michelle from <br> A Minute Away from Snowing
     author_icon:
     image_url: assets/4-summer-love/cover.jpg
