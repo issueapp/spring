@@ -79,7 +79,8 @@
   }
 
   <% unless request.xhr? %>  
-    App.pageView = new PageView({ path: "<%= page.handle + page_ext %>", model: App.page })
+    App.currentView = new PageView({ path: "<%= page.handle + page_ext %>", model: App.page })
+    App.currentView.render()
   <% end %>
   // App.trigger('track', 'view')
   
