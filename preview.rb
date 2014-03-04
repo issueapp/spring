@@ -277,7 +277,7 @@ class IssuePreview < Sinatra::Base
   def issue_path(path = nil)
     asset = File.expand_path("../issues/#{params[:issue]}/assets#{path}", __FILE__)
 
-    if File.exist?(asset) && !path.empty?
+    if File.exist?(asset) && !path.nil? && !path.empty?
       path = path + "?#{File.mtime(asset).to_i}"
     end
 
