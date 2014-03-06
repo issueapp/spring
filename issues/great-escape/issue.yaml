@@ -13,10 +13,10 @@ assets:
   - "custom.css"
 
 items:
-
-  - title: "Cover"
+  - title: Cover
     handle: "index"
-
+    image_url: "assets/background_large.jpg"
+    
   - title: "Table of Content"
     handle: "toc"
 
@@ -55,7 +55,7 @@ items:
       - handle: "4"
 
   - title: Summer Love
-    category: Destination
+    category: Travel 
     author_name: Michelle Lau
     handle: "4-summer-love"
     pages:
@@ -67,8 +67,8 @@ items:
       - handle: "5"
       - handle: "6"
 
-  - title: A Weekend Escape
-    category: Destination
+  - title: Coastal Escape
+    category: Travel 
     author_name: Aubrey Daquinag
     handle: "5-a-weekend-escape"
     pages:
