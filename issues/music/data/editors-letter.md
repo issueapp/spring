@@ -9,27 +9,6 @@
 
 ---
 
-<style>
-
-article[data-page=editors-letter] .title {
-  font-family: "rodondoregular" !important;
-  margin-bottom: 0.1em;
-}
-
-article[data-page=editors-letter] .body p {
-  font-style: italic;
-  margin: 0.15em 0 0.5em;
-}
-
-article[data-page=editors-letter] .body p:last-child {
-  margin-bottom: 0;
-}
-
-big { font-size: 120% }
-p > span { font-style: normal; font-size: 80%; }
-
-</style>
-
 <span>MINKPINK</span> have done it again with the launch of <span>MINKPINK</span>: The Music Issue, combining two of everyone’s favourite
 things – BIG tunes and faaaaarshion baby – to produce one rad global campaign…and who better to front it than music’s
 latest maverick, the inked-up brunette bombshell with the megawatt smile that is <big>Christina Perri</big>?! With a killer look
