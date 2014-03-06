@@ -1,15 +1,16 @@
 ---
 
-    title: Sydney In The Summertime
+    title: Coastal Escape 
     category: Destination
     byline: Aubrey from The Love Assembly
     author_name: Aubrey
     author_icon: assets/aubrey-avatar.png
-    image_url: assets/5-a-weekend-escape/cover.jpg
+    image_url: assets/5-a-weekend-escape/p1.jpg
 
     layout:
-      type: two-column
+      type: three-column
 
 ---
 
-Blue skies and balmy summer nights, summer in Sydney is definitely one to be spent soaking up the sun and being carefree! My favourite summer day with a group of friends  is spent on a road trip up north towards my coastal escape, but staying local is proven to be just as great! Spend a day in Bondi venturing out to great cafes, shops and bars with our most popular beach right at your doorstep or, escape the crowds with a loved one and head for something a little more serene like Wattamolla Beach, secluded and surrounded by Australian bush. There’s always something a little different to explore while you’re in Sydney!
+Blue skies and balmy summer nights, summer in Bali is definitely one to be spent soaking up the sun and being carefree.  If you’re anything like me and prefer a little secluded, clear water and white sand kind of beach, make sure Geger Beach is on your to do list. Pamper yourself to a full body massage as you soak up the sun and quench your thirst with mango mocktails.  For that instant getaway, I like to stay local in Sydney and head down Bondi to pop in their cafes after a early morning walk!  Alternatively, a trip up Palm beach is ideal, only an hour away from Sydney it’s multi-million dollar views and shell adorned beach houses will leave visitors planning a second trip there! 
+
