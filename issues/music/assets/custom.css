@@ -9,11 +9,11 @@ p:empty {
     font-weight: normal;
     font-style: normal;
     font-family: 'rodondoregular';
-    src: url('../assets/fonts/rodondo-webfont.eot');
-    src: url('../assets/fonts/rodondo-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../assets/fonts/rodondo-webfont.woff') format('woff'),
-         url('../assets/fonts/rodondo-webfont.ttf') format('truetype'),
-         url('../assets/fonts/rodondo-webfont.svg#rodondoregular') format('svg');
+    src: url('fonts/rodondo-webfont.eot');
+    src: url('fonts/rodondo-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/rodondo-webfont.woff') format('woff'),
+         url('fonts/rodondo-webfont.ttf') format('truetype'),
+         url('fonts/rodondo-webfont.svg#rodondoregular') format('svg');
 }
 
 /* Branding */
@@ -146,7 +146,7 @@ article[data-page=editors-letter] .body p:last-child {
   margin: 0 auto 22px;
   width: 200px;
   height: 80px;
-  background-image: url('../assets/brand_logo.png');
+  background-image: url('brand_logo.png');
   background-position: center;
   background-size: 100%;
   background-repeat: no-repeat;
@@ -173,7 +173,7 @@ article[data-page=editors-letter] .body p:last-child {
   margin-left: -45%;
   width: 90%;
   height: 115px;
-  background-image: url('../assets/cover-christina-perri.png');
+  background-image: url('cover-christina-perri.png');
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -247,7 +247,7 @@ article.toc.page .body p:first-child {
 /*  margin-left: -28px;*/
 /*  width: 338px;*/
   height: 45px;
-  background: url('../assets/3-shop-the-shoot/heading-head-the-look.svg') no-repeat;
+  background: url('3-shop-the-shoot/heading-head-the-look.svg') no-repeat;
   background-size: contain;
   background-position: center;
   color: transparent;
