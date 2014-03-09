@@ -51,6 +51,8 @@
     <div role=main class="fashion-theme content-view">
       <%= yield %>
     </div>
+    
+    <div class="overlay" style="display: none"></div>
   </body>
 
   <% if respond_to?(:yield_content) %>
