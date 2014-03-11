@@ -1,7 +1,6 @@
 ---
 
     title: Coastal Escape 
-    category: Destination
     byline: Aubrey from The Love Assembly
     author_name: Aubrey
     author_icon: assets/aubrey-avatar.png
@@ -9,6 +8,7 @@
 
     layout:
       type: three-column
+      content_valign: middle
 
 ---
 

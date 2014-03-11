@@ -4,6 +4,7 @@
     category: Cover story
     byline: By Zyra Bacani
     image_url: assets/2-cate-says-si/cover.jpg
+    credit: © DR, Armani
     handle: 2-cate-says-si
 
     layout:
