@@ -14,7 +14,7 @@ For the wanderer. For the style savvy. For the epicurean.
 
 We have collaborated with some of Australia’s rising bloggers to present to you their interpretation of this season’s favourites. From a curation of their best-loved getaways, restaurants, style picks and beauty fixes, they show you how to celebrate summer in style and make it one to remember.
 
-Indulge in the search for beauty. Whether you’re visiting Australia, Italy or staying local- as long as it’s Summer, the possibilities are endless.
+Indulge in the search for beauty. Whether you’re visiting Italy, Bali or staying local- as long as it’s Summer, the possibilities are endless.
 
 <p>
   <em>Taylor Luk</em></br>

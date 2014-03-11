@@ -1,8 +1,8 @@
 ---
 
-    title: Holiday style
-    category: Destination
-    description: Italia Riveria
+    title: Events Calendar 
+    category: 
+    description: 
 
     layout:
       type: custom
@@ -10,50 +10,50 @@
       content_align: left
 
     links:
-      - title: Magic Millions Raceday
-        image_url: http://www.australia.com/campaigns/eventscalendar/data/images/lrg/m01-06.jpg
-        summary: Enjoy the racing and glamour of one of Australia’s biggest Carnival thoroughbred events held on the vibrant Gold Coast.
-        url: http://www.magicmillions.com.au/carnivals/
+      - title: Melbourne Food and Wine Festival 
+        image_url: http://www.australia.com/campaigns/eventscalendar/data/images/lrg/m03-02.jpg
+        summary: Indulge your taste buds with a world class program of over 300 culinary events filling Melbourne’s maze of hidden laneways, as well spectacular regional Victoria.
+        url: http://www.melbournefoodandwine.com.au/
 
-      - title: Australian Open – The Grand Slam of Asia-Pacific
-        summary: See the greatest tennis players in the world compete for this coveted grand slam trophy in the vibrant cosmopolitan city of Melbourne.
-        image_url: http://www.australia.com/campaigns/eventscalendar/data/images/lrg/m01-02.jpg
-        url: http://www.australianopen.com/
+      - title: Sculptures by the Sea, Cottesloe 
+        summary: The stunning Cottesloe Beach will be transformed into a spectacular sculpture park, featuring more than 70 artists from Australia and across the world.
+        image_url: http://www.australia.com/campaigns/eventscalendar/data/images/lrg/m03-07.jpg
+        url: http://www.sculpturebythesea.com/exhibitions/cottesloe.aspx
 
-      - title: Sydney Festival
-        summary: See the city come alive with a kaleidoscopic program of theatre, music, dance and visual arts, free outdoor concerts and pop-up bars.
-        image_url: http://www.australia.com/campaigns/eventscalendar/data/images/lrg/m01-04.jpg
-        url: http://www.sydneyfestival.org.au/
+      - title: Opera on Sydney Harbour
+        summary: Indulge your love of opera performed on a shimmering stage on the waters of Sydney Harbour.
+        image_url: http://www.australia.com/campaigns/eventscalendar/data/images/lrg/m04-01.jpg 
+        url: http://opera.org.au/whatson/events/operaonsydneyharbour
 
-      - title: Australia Day
-        summary: Celebrate Australia’s unique cultural diversity with family and friends and reflect on our nation’s heritage.
-        image_url: http://www.australia.com/campaigns/eventscalendar/data/images/lrg/m01-07.jpg
-        url: http://www.australiaday.org.au/
+      - title: BMW Sydney Carnival 
+        summary: Experience the thrill of world-class racing, stunning fashion and fantastic entertainment at the Sydney Carnival.
+        image_url: http://www.australia.com/campaigns/eventscalendar/data/images/lrg/m04-07.jpg 
+        url: http://www.sydney.com/events/the-bmw-sydney-carnival
 
-      - title: Perth International Arts Festival
-        summary: Indulge your senses with symphonies, cutting-edge plays and art presented both indoors and outdoors in Perth.
-        image_url: http://www.australia.com/campaigns/eventscalendar/data/images/lrg/m02-05.jpg
-        url: http://www.perthfestival.com.au/
+      - title: Sydney Royal Easter Show
+        summary: Enjoy Australia’s agricultural heritage with great food, wine and carnival rides for the whole family.
+        image_url: http://www.australia.com/campaigns/eventscalendar/data/2013/lrg/m03-01.jpg 
+        url: http://www.eastershow.com.au/
 
-      - title: The Spirit Festival
-        summary: Join this vibrant celebration of traditional and contemporary Aboriginal and Torres Strait Islander culture, art, dance and music.
-        image_url: http://www.australia.com/campaigns/eventscalendar/data/images/lrg/m02-02.jpg
-        url: http://www.thespiritfestival.com/
+      - title: The Horizontal Falls
+        summary: Witness a spectacular phenomena of the Kimberley coast in Western Australia as seawater rushes through the narrow gorges.
+        image_url: http://www.australia.com/campaigns/eventscalendar/data/images/lrg/m03-10.jpg 
+        url: http://www.australia.com/nationallandscapes/the-kimberley.aspx?pagenotfound=/campaigns/nationallandscapes/thekimberley.htm 
 
-      - title: Australian Sand Sculpting Championships
-        summary: Delight in the beautiful and bizarre sand sculptures built on Surfers Paradise Beach.
-        image_url: http://www.australia.com/campaigns/eventscalendar/data/images/lrg/m02-03.jpg
-        url: http://www.sandstormevents.net/major-events-2/aust-sand-sculpting-championships/
+      - title: Aussie Wine Month
+        summary: Taste the quality and diversity of Australian wines from over 60 designated wine regions.
+        image_url: http://www.australia.com/campaigns/eventscalendar/data/images/lrg/m04-02.jpg 
+        url: http://www.wineaustralia.net.au/en/aussie-wine-month-2014.aspx 
 
-      - title: Chinese New Year
-        summary: Celebrate good fortune and prosperity with the most important celebration in the Chinese calendar.
-        image_url: http://www.australia.com/campaigns/eventscalendar/data/images/lrg/m02-04.jpg
-        url: http://www.chinesenewyear.com.au/
+      - title: Rosemount Australian Fashion Week, Sydney 
+        summary: Get a sneak peek of the next spring/summer trends and be amongst Australia’s style-setters and celebrities before you claim your reserved seat next to the runaway.
+        image_url: http://wac.3e65.edgecastcdn.net/803E65/sydney/cdnzzz/560-274-aHR0cDovL2NvbmNyZXRlcGxheWdyb3VuZC5jb20uYXUvX3NuYWNrcy93cC1jb250ZW50L3VwbG9hZHMvMjAxMS8wNC81MTQyMDAtcmFmdy0yMDEwLWdhcnktYmlnZW5pLmpwZw==.jpg 
+        url: http://sydney.concreteplayground.com.au/event/18754/rosemount-australian-fashion-week.htm 
 
-      - title: Turtle nesting
-        summary: See six of the world’s seven species of marine turtle come ashore from Ningaloo Reef to nest on the West Coast of Australia.
-        image_url: http://www.australia.com/campaigns/eventscalendar/data/images/lrg/m02-10.jpg
-        url: http://www.australia.com/campaigns/nationallandscapes/NingalooSharkBay.htm
+      - title: Vivid Sydney 
+        summary: Delight in a festival which transforms Sydney into a spectacular canvas of light and music.
+        image_url: http://www.australia.com/campaigns/eventscalendar/data/images/lrg/m05-06.jpg 
+        url: http://www.vividsydney.com/ 
 
 ---
 <style>
@@ -217,59 +217,59 @@
 
 <div id="event-month-list" class="content col x4">
   <h1 class="event-title">{{ title }}</h1>
-  <h2 class="event-month">Janurary</h2>
+  <h2 class="event-month">MARCH-APRIL</h2>
   <ol class="event-list">
     <li>
-      <h3>Magic Millions Raceday</h3>
-      <date>11 Jan</date>
-      <address>Gold Coast, QLD</address>
-    </li>
-
-    <li>
-      <h3>AustraLian Open</h3>
-      <date>13 Jan</date>
+      <h3>Melbourne Food and Wine Festival </h3>
+      <date>28 Feb-16 Mar</date>
       <address>Melbourne, VIC</address>
     </li>
 
     <li>
-      <h3>Sydney Festival</h3>
-      <date>9-26 Jan</date>
+      <h3>Sculptures by the Sea</h3>
+      <date>7-24 Mar</date>
+      <address>Cottlesloe Beach, WA</address>
+    </li>
+
+    <li>
+      <h3>Opera on Sydney Harbour</h3>
+      <date>21 Mar-12 Apr</date>
       <address>Sydney, NSW</address>
     </li>
 
     <li>
-      <h3>Australia Day</h3>
-      <date>26 Jan</date>
-      <address>Nation Wide</address>
+      <h3>BMW Sydney Carnival </h3>
+      <date>22 Mar-26 Apr</date>
+      <address>Sydney, NSW</address>
     </li>
   </ol>
 
-  <h2 class="event-month">Feburary</h2>
+  <h2 class="event-month">APRIL-MAY</h2>
   <ol class="event-list" start="5">
     <li>
-      <h3>Pearth International Arts Festival</h3>
-      <date>7 Feb - 1 Mar</date>
+      <h3>Sydney Royal Easter Show</h3>
+      <date>10 - 23 Apr</date>
       <address>Perth, WA</address>
     </li>
     <li>
-      <h3>The Spirit Festival</h3>
-      <date>15-17 Jan</date>
-      <address>Adelaide, SA</address>
+      <h3>The Horizontal Falls </h3>
+      <date>Mar - May</date>
+      <address>Talbot Bay, WA</address>
     </li>
     <li>
-      <h3>Sand Sculpting Championships</h3>
-      <date>14-Feb-2Mar</date>
-      <address>Melbourne, VIC</address>
-    </li>
-    <li>
-      <h3>Chinese New Year</h3>
-      <date>18-28 Jan</date>
+      <h3>Aussie Wine Month</h3>
+      <date>1-30 Apr</date>
       <address>Australia-wide</address>
     </li>
     <li>
-      <h3>Turtle Nesting Season</h3>
-      <date>Dec-April</date>
-      <address>reat Barrier Reef, QLD</address>
+      <h3>Rosemount Australian Fashion Week, Sydney </h3>
+      <date>2-6 May</date>
+      <address>Circular Quay, Sydney NSW</address>
+    </li>
+    <li>
+      <h3>Vivid Sydney</h3>
+      <date>May</date>
+      <address>Sydney, NSW</address>
     </li>
   </ol>
 </div>
