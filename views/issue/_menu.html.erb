@@ -1,15 +1,19 @@
 <style>
+  html, body {
+    background: #1E2021;
+  }
+
   #issue-viewer {
     position: relative;
     font-family: "Helvetica Neue", Helvetica, sans-serif;
     margin-bottom: 50px;
     font-size: 13px;
   }
-  
+
   #issue-viewer a {
     color: #e76c5a;
   }
-  
+
 /*  #issue-viewer > iframe {
     width: 100%;
     height: 100%;
@@ -25,7 +29,7 @@
     height: 50px;
     bottom: -50px;
   }
-  
+
   #issue-viewer.portrait {
     width: 768px;
     height: 1024px;
@@ -46,7 +50,7 @@
     width: 100%;
     height: 100%;
   }
-  
+
   #issue-viewer .issue-subscribe {
     background: url(<%= asset_path "embed/subscribe-50px.png", global: true %>) no-repeat;
     width: 135px;
@@ -60,12 +64,12 @@
     margin-right: 10px;
     vertical-align: middle;
   }
-  
+
   #issue-viewer .issue-menu {
     background: url(<%= asset_path "issue-icons/SVG/navicon-round.svg", global: true %>) no-repeat;
     background-size: 24px 24px;
     background-position: left center;
-    
+
     font: normal 12px/50px "Helvetica Neue", Helvetica, sans-serif;
     letter-spacing: 2px;
     color: #555;
@@ -83,7 +87,7 @@
     height: 100%;
 */  }
 
-  #issue-viewer a.next-page, 
+  #issue-viewer a.next-page,
   #issue-viewer a.prev-page {
     text-decoration: none;
     position: absolute;
@@ -103,8 +107,8 @@
     cursor: pointer;
     font-weight: 100;
   }
-  
-  #issue-viewer a.next-page:hover, 
+
+  #issue-viewer a.next-page:hover,
   #issue-viewer a.prev-page:hover {
     color: #e76c5a;
   }
@@ -149,11 +153,11 @@
     list-style-type: none;
     white-space: nowrap;
   }
-  
+
   #issue-viewer #issue-menu li {
     display: inline;
   }
-  
+
   #issue-viewer #issue-menu li a {
     position: relative;
     display: inline-block;
@@ -236,13 +240,13 @@
     <% next if story.nav == false %>
     <% path = params[:subpage] ? "../" : "" %>
     <% ext = offline? ? ".html" : "" %>
-    
+
     <li class="<%= story.handle %>">
       <a href="<%= path + story.url + ext %>" target="issue-frame" data-app-view='magazine' style="
         <% if story.image_url %>
           background-image: url('<%= asset_path story.image_url %>')
         <% end %>
-          
+
         " >
         <span class="category"><%= story.category %></span>
         <span class="title"><%= story.title %></span>
