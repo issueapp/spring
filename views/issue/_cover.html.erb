@@ -5,7 +5,7 @@
   <h1 class="title"></h1>
 </header>
 
-<article id="issue_cover" class="magazine cover page fullscreen dark-theme " data-page="index<%= page_ext %>" style="background-image: url(<%= asset_path issue.background_large_url %>);">
+<article id="issue_cover" class="magazine cover page fullscreen dark-theme animate" data-page="index<%= page_ext %>" style="background-image: url(<%= asset_path issue.background_large_url %>);">
   <div class="container">
 
     <img class="issue-logo" src="<%= asset_path "global/logo-round-white.svg", global: true %>"></img>
@@ -16,7 +16,7 @@
 
     <hgroup>
       <h2 class="brand"><%= issue.magazine_title %></h2>
-      <h1 class="title"><%= issue.issue_title %></h1>
+      <h1 class="title"><%= issue.title %></h1>
       <h2 class="description"><%= issue.description %></h2>
     </hgroup>
 

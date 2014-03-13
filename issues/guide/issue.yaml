@@ -13,6 +13,9 @@ assets:
 
 items:
 
+  - title: Cover
+    handle: "index"
+
   - title: Table of Content
     handle: "toc"
 
