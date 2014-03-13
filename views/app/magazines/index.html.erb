@@ -21,7 +21,12 @@
 
   <section class="filters">
     <div class="button-group">
-      <a href="/magazines?filter=all" data-filter="all" class="black small button">All</a>
+      <% if current_user %>
+        <a href="/magazines?filter=subscribed" data-filter="all" class="black small button">Subscribed</a>
+      <% else %>
+        <a href="/magazines?filter=all" data-filter="all" class="black small button">All</a>
+      <% end %>
+      
       <a href="/magazines?filter=featured" data-filter="featured" class="black small  button">Featured</a>
       <a href="/magazines?filter=offline" data-filter="offline" class="black small active button">Offline</a>
     </div>
