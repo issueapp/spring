@@ -8,7 +8,6 @@ require 'nokogiri'
 
 class IssuePreview < Sinatra::Base
 
-
   unless defined?(Rails)
     require 'sinatra/asset_pipeline'
     register Sinatra::AssetPipeline
@@ -115,10 +114,7 @@ class IssuePreview < Sinatra::Base
     data.delete("items")
     data["pages"] = [ "index" ] + pages
 
-    path = "#{request.base_url}#{request.script_name}/#{params[:magazine]}/#{params[:issue]}"
-
-
-    data["menu_html"] = erb :"issue/_menu.html", layout: false, locals: { issue: current_issue, path: path }
+    data["menu_html"] = erb :"issue/_menu.html", layout: false, locals: { issue: current_issue, path: issue_url }
 
     if params[:callback]
       "#{params[:callback]}(#{data.to_json})";
@@ -152,6 +148,11 @@ class IssuePreview < Sinatra::Base
   private
 
   def current_issue
+    issue = LocalIssue.find("#{params[:magazine]}/#{paramsp:issue}")
+    
+    # fix pathes
+    issue.image_url = asset_path(issue.image_url)
+
     issue = YAML.load_file(File.expand_path("../issues/#{params[:issue]}/issue.yaml", __FILE__))
     items = issue.fetch("items", []).map do |page|
       page["url"] = "#{page["handle"]}"
@@ -186,8 +187,7 @@ class IssuePreview < Sinatra::Base
       attributes = {}
     end
 
-    author_icon     = attributes["author_icon"] ? asset_path(attributes["author_icon"]) : nil
-    brand_image_url = attributes["brand_image_url"] ? asset_path(attributes["brand_image_url"]) : nil
+    handle = URI(path).basename
 
     if products = attributes["products"]
       products.each_with_index do |product, i|
@@ -202,9 +202,9 @@ class IssuePreview < Sinatra::Base
       "id" => "#{id}",
       "issue_url" => issue_url,
       "page_url" => "#{issue_url}/#{params[:page]}",
-      "image_url" => attributes["image_url"] && asset_path(attributes["image_url"]), # remove preview rendering
-      "author_icon" => author_icon,
-      "brand_image_url" => brand_image_url,
+      "image_url" => asset_path(attributes["image_url"]), # remove previewrendering
+      "author_icon" => asset_path(attributes["author_icon"]),
+      "brand_image_url" => asset_path(attributes["brand_image_url"]),
       "products" => products,
       "published_at" => attributes["published_at"] || File.mtime(path).to_i,
       "layout" => attributes.fetch("layout", {})
@@ -285,7 +285,7 @@ class IssuePreview < Sinatra::Base
   end
 
   def issue_url(path = "")
-    "#{request.base_url}/#{issue_path(path)}"
+    # "#{request.base_url}/#{issue_path(path)}"
 
     "#{request.base_url}#{request.script_name}/#{params[:magazine]}/#{params[:issue]}"
   end

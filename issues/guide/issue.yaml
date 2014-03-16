@@ -1,7 +1,7 @@
-id: "issue/design-guide"
+id: "inside/design-guide"
 title: Design Guide
 short_title: Design Guide
-magazine_title: Issue
+magazine_title: Inside
 description: "One Column • Two Column • Three Column • Fullscreen"
 publish_at: "2013-9-15T13:16:46Z"
 auther_name: Taylor
@@ -11,6 +11,18 @@ background_large_url: "assets/background_large.jpg"
 assets:
   - "custom.css"
 
+pages: 
+  - index
+  - toc
+  - one-col
+  - two-col
+  - one-third
+  - fullscreen
+  - products-split
+  - custom
+  - vimeo
+  - end
+  
 items:
 
   - title: Cover
