@@ -32,6 +32,18 @@ assets:
   - "jplayer/circle.player.js"
   - "circle.skin/circle.player.css"
 
+pages: 
+  - index
+  - toc
+  - editors-letter
+  - 1-styling-it-out
+  - 2-head-or-heart
+  - 3-shop-the-shoot
+  - 4-beauty
+  - 5-travel
+  - 6-behind-the-scene
+  - backcover
+  
 items:
   - title: Cover
     handle: "index"
