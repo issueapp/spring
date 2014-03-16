@@ -3,7 +3,7 @@
   title: Summer Survival Guide
   byline: By Zyralyn Bacani, Content writer of Issue
   author_icon: assets/zyra-avatar.png
-  image_url: assets/6-summer-survival-guide/cover.jpg
+  image_url: assets/6-summer-survival-guide/cover2
 
   layout:
     type: three-column

@@ -7,19 +7,22 @@
     layout:
       type: two-column
       image_style: background
+      content_style: white
       content_align: right
       content_valign: bottom
 
 ---
 
 
-```
+<pre>
 layout:
-  type: two-column
-  image_style: background
-  content_align: right
-  content_valign: bottom
-```
+  type: one-column | <b>two-column</b> | three-column
+  image_style: <b>background</b> | cover | fit
+  image_align: left | right
+  content_style: <b>white</b> | black | transparent
+  content_align: left | center | <b>right</b>
+  content_valign: top | middle | <b>bottom</b>
+</pre>
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, sapiente nulla dignissimos animi velit quae dolorem non optio iusto voluptates quaerat sint illum repellendus possimus dolorum minima porro odio modi.
 
