@@ -11,7 +11,7 @@ rescue Bundler::BundlerError => e
 end
 
 # 
-require './preview'
+require './lib/preview'
 
 # Root path
 root = File.dirname(__FILE__)
