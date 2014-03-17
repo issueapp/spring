@@ -1,6 +1,5 @@
 id: "official/great-escape"
 title: Great Escape
-handle: great-escape
 magazine_title: Official
 description: "Travel in Style • Beauty Updates • Favourite Eats"
 publish_at: "2013-9-15T13:16:46Z"
@@ -12,102 +11,115 @@ background_large_url: "assets/background_large.jpg"
 assets:
   - "custom.css"
 
-items:
-  - title: Cover
-    handle: "index"
-    image_url: "assets/background_large.jpg"
-    
-  - title: "Table of Content"
-    handle: "toc"
-    image_url: "assets/toc/toc.jpg"
+pages:
+  
+  - index
+  - toc
+  - 1-a-holiday-in-style
+  - 2-cate-says-si
+  - 3-the-style-edit
+  - 4-summer-love
+  - 5-a-weekend-escape
+  - 6-summer-survival-guide
+  - 7-holiday-gift-ideas
+  - 8-events
 
-  - title: A Holiday in Style
-    category: Fashion
-    author_name: Jysla Kay
-    handle: "1-a-holiday-in-style"
-    image_url: "assets/toc/holiday-in-style.jpg"
-    pages:
-      - handle: "1"
-      - handle: "2"
-      - handle: "3"
-      - handle: "4"
-      - handle: "5"
-
-  - title: Cate says Si!
-    category: Cover Story
-    author_name: Zyra Bacani
-    handle: "2-cate-says-si"
-    image_url: "assets/toc/cate-thumbnail.jpg"
-    pages:
-      - handle: "1"
-      - handle: "2"
-      - handle: "3"
-      - handle: "4"
-
-  - title: The Style Edit
-    category: Style By Blogger
-    author_name: Jysla Kay
-    handle: "3-the-style-edit"
-    image_url: "assets/toc/style-edit.jpg"
-    pages:
-      - handle: "1"
-      - handle: "2"
-      - handle: "3"
-      - handle: "4"
-
-  - title: Summer Love
-    category: Travel 
-    author_name: Michelle Lau
-    handle: "4-summer-love"
-    image_url: "assets/toc/summer-love.jpg"
-    pages:
-
-      - handle: "1"
-      - handle: "2"
-      - handle: "3"
-      - handle: "4"
-      - handle: "5"
-      - handle: "6"
-
-  - title: Coastal Escape
-    category: Travel 
-    author_name: Aubrey Daquinag
-    handle: "5-a-weekend-escape"
-    image_url: "assets/toc/coastal-escape.jpg"
-    pages:
-
-      - handle: "1"
-      - handle: "2"
-      - handle: "3"
-      - handle: "4"
-      - handle: "5"
-      - handle: "6"
-      - handle: "7"
-      - handle: "8"
-      
-  - title: Summer Survival Guide
-    category: Beauty
-    author_name: Zyra Bacani
-    handle: "6-summer-survival-guide"
-    image_url: "assets/toc/beauty-cover.jpg"
-    pages:
-
-      - handle: "1"
-      - handle: "2"
-      - handle: "3"
-      - handle: "4"
-
-  - title: Holiday Gift Guide
-    category: Shopping
-    author_name: Aubrey Daquinag
-    handle: "7-holiday-gift-ideas"
-    image_url: "assets/toc/gift-guide.jpg"
-    pages:
-
-      - handle: "1"
-      - handle: "2"
-
-  - title: Events
-    category: Calendar
-    handle: "8-events"
-    image_url: "assets/toc/calendar.jpg"
+# items:
+#   - title: Cover
+#     handle: "index"
+#     image_url: "assets/background_large.jpg"
+#     
+#   - title: "Table of Content"
+#     handle: "toc"
+#     image_url: "assets/toc/toc.jpg"
+# 
+#   - title: A Holiday in Style
+#     category: Fashion
+#     author_name: Jysla Kay
+#     handle: "1-a-holiday-in-style"
+#     image_url: "assets/toc/holiday-in-style.jpg"
+#     pages:
+#       - handle: "1"
+#       - handle: "2"
+#       - handle: "3"
+#       - handle: "4"
+#       - handle: "5"
+# 
+#   - title: Cate says Si!
+#     category: Cover Story
+#     author_name: Zyra Bacani
+#     handle: "2-cate-says-si"
+#     image_url: "assets/toc/cate-thumbnail.jpg"
+#     pages:
+#       - handle: "1"
+#       - handle: "2"
+#       - handle: "3"
+#       - handle: "4"
+# 
+#   - title: The Style Edit
+#     category: Style By Blogger
+#     author_name: Jysla Kay
+#     handle: "3-the-style-edit"
+#     image_url: "assets/toc/style-edit.jpg"
+#     pages:
+#       - handle: "1"
+#       - handle: "2"
+#       - handle: "3"
+#       - handle: "4"
+# 
+#   - title: Summer Love
+#     category: Travel 
+#     author_name: Michelle Lau
+#     handle: "4-summer-love"
+#     image_url: "assets/toc/summer-love.jpg"
+#     pages:
+# 
+#       - handle: "1"
+#       - handle: "2"
+#       - handle: "3"
+#       - handle: "4"
+#       - handle: "5"
+#       - handle: "6"
+# 
+#   - title: Coastal Escape
+#     category: Travel 
+#     author_name: Aubrey Daquinag
+#     handle: "5-a-weekend-escape"
+#     image_url: "assets/toc/coastal-escape.jpg"
+#     pages:
+# 
+#       - handle: "1"
+#       - handle: "2"
+#       - handle: "3"
+#       - handle: "4"
+#       - handle: "5"
+#       - handle: "6"
+#       - handle: "7"
+#       - handle: "8"
+#       
+#   - title: Summer Survival Guide
+#     category: Beauty
+#     author_name: Zyra Bacani
+#     handle: "6-summer-survival-guide"
+#     image_url: "assets/toc/beauty-cover.jpg"
+#     pages:
+# 
+#       - handle: "1"
+#       - handle: "2"
+#       - handle: "3"
+#       - handle: "4"
+# 
+#   - title: Holiday Gift Guide
+#     category: Shopping
+#     author_name: Aubrey Daquinag
+#     handle: "7-holiday-gift-ideas"
+#     image_url: "assets/toc/gift-guide.jpg"
+#     pages:
+# 
+#       - handle: "1"
+#       - handle: "2"
+# 
+#   - title: Events
+#     category: Calendar
+#     handle: "8-events"
+#     image_url: "assets/toc/calendar.jpg"

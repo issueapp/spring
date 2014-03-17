@@ -44,63 +44,63 @@ pages:
   - 6-behind-the-scene
   - backcover
   
-items:
-  - title: Cover
-    handle: "index"
-    image_url: "assets/background_large.jpg"
-
-  - title: Table of Content
-    handle: "toc"
-
-  - title: "Welcome"
-    handle: "editors-letter"
-    image_url: "assets/toc/editors-letter.jpg"
-
-  - title: "Styling it Out"
-    category: interview
-    handle: "1-styling-it-out"
-    image_url: "assets/toc/1-styling-it-out.jpg"
-    pages:
-      - handle: "1"
-
-  - title: "Head or Heart"
-    category: fashion
-    handle: "2-head-or-heart"
-    image_url: "assets/toc/2-head-or-heart.jpg"
-    pages:
-      - handle: "1"
-      - handle: "2"
-      - handle: "3"
-      - handle: "4"
-
-  - title: "Get the look"
-    category: Accessories
-    handle: "3-shop-the-shoot"
-    image_url: "assets/toc/3-shop-the-shoot.jpg"
-    pages:
-      - handle: "1"
-      - handle: "2"
-
-  - title: Christina Uncovered
-    category: beauty
-    handle: 4-beauty
-    image_url: "assets/toc/4-beauty.jpg"
-    pages:
-      - handle: "1"
-
-  - title: Let Loose in Lala Land
-    category: travel
-    handle: 5-travel
-    image_url: "assets/toc/5-travel.jpg"
-    pages:
-      - handle: "1"
-
-  - title: The Final Word
-    handle: 6-behind-the-scene
-    image_url: "assets/toc/6-behind-the-scene.jpg"
-    pages:
-      - handle: "1"
-
-  - title: Behind the scenes
-    handle: backcover
-    nav: false
+# items:
+#   - title: Cover
+#     handle: "index"
+#     image_url: "assets/background_large.jpg"
+# 
+#   - title: Table of Content
+#     handle: "toc"
+# 
+#   - title: "Welcome"
+#     handle: "editors-letter"
+#     image_url: "assets/toc/editors-letter.jpg"
+# 
+#   - title: "Styling it Out"
+#     category: interview
+#     handle: "1-styling-it-out"
+#     image_url: "assets/toc/1-styling-it-out.jpg"
+#     pages:
+#       - handle: "1"
+# 
+#   - title: "Head or Heart"
+#     category: fashion
+#     handle: "2-head-or-heart"
+#     image_url: "assets/toc/2-head-or-heart.jpg"
+#     pages:
+#       - handle: "1"
+#       - handle: "2"
+#       - handle: "3"
+#       - handle: "4"
+# 
+#   - title: "Get the look"
+#     category: Accessories
+#     handle: "3-shop-the-shoot"
+#     image_url: "assets/toc/3-shop-the-shoot.jpg"
+#     pages:
+#       - handle: "1"
+#       - handle: "2"
+# 
+#   - title: Christina Uncovered
+#     category: beauty
+#     handle: 4-beauty
+#     image_url: "assets/toc/4-beauty.jpg"
+#     pages:
+#       - handle: "1"
+# 
+#   - title: Let Loose in Lala Land
+#     category: travel
+#     handle: 5-travel
+#     image_url: "assets/toc/5-travel.jpg"
+#     pages:
+#       - handle: "1"
+# 
+#   - title: The Final Word
+#     handle: 6-behind-the-scene
+#     image_url: "assets/toc/6-behind-the-scene.jpg"
+#     pages:
+#       - handle: "1"
+# 
+#   - title: Behind the scenes
+#     handle: backcover
+#     nav: false

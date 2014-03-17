@@ -1,5 +1,19 @@
 class LocalIssue::Page < Hashie::Mash
-
+  
+  # title
+  # handle
+  # summary
+  # content
+  # thumbnail  (320x#) 4x3
+  # 
+  # images
+  #  - logo.png       "company logo"
+  #  - something.jpg  "italian river"   cover: true
+  #  - whatelse.png   "what to do in bali"   cover: true
+  # 
+  # virtual
+  # cover -> images.where(cover:true)
+  
   def self.index
     new(title: "Cover", handle: "index")
   end
@@ -15,15 +29,23 @@ class LocalIssue::Page < Hashie::Mash
     [index, toc].compact + pages
   end
   
-  def self.find(path)
+  def self.find(path, issue_path = nil)
     return index if path == "index"
-    
-    path = Dir.glob("data/#{path}.md").first or raise "Page not found"
-    dir = Pathname(path).basename(".md").to_s
-    
+
+    if issue_path
+      path = "#{issue_path}/data/#{path}.md"
+    else
+      path = "data/#{path}.md"
+    end
+        
+    page_dir = Pathname(path).basename(".md")
     page = self.build(path)
-    page.children = self.recursive_build("data/"+dir)
+    
+    page.handle = page.handle.gsub(issue_path.to_s, "").gsub("/", "")
+    
+    page.children = self.recursive_build("data/#{page_dir}")
     page
+  
    end
   
   # Load markdown file into memory
@@ -49,7 +71,6 @@ class LocalIssue::Page < Hashie::Mash
     
     if products = attributes["products"]
       products.each_with_index do |product, i|
-        product["image_url"] = (product["image_url"])
         product["index"] = i + 1
       end
     end
@@ -59,7 +80,7 @@ class LocalIssue::Page < Hashie::Mash
     end
 
     attributes.merge!(
-      "handle"          => Pathname(path).basename(".md").to_s,
+      "handle"          => path.gsub("data/", '').gsub(".md", ''),
       "products"        => products,
       "published_at"    => attributes["published_at"] || File.mtime(path).to_i,
       "layout"          => attributes.fetch("layout", {}),

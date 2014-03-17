@@ -5,7 +5,6 @@
     byline: Nkechi Deanna Njaka
     image_url: assets/1-winter-wonderment/background.jpg
     
-
     layout:
       type: one-column
       image_style: background 
