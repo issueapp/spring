@@ -1,5 +1,5 @@
 ---
-
+    category: Travel
     title: Let loose in Lala land
     image_url: assets/5-travel/cover.jpg
     credits:
