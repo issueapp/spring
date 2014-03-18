@@ -12,8 +12,8 @@
       content_style: black
       content_align: left
       content_valign: middle
-      content_height: full 
+      content_height: auto 
         
 ---
-> <big>Being with self is a form    
-  of adventure -- Peter Jamus, photographer</big> 
+I want art to find me
+-- <em>Peter Jamus, photographer</em>

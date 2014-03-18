@@ -20,6 +20,7 @@ layout:
   image_style: <b>background</b> | cover | fit
   image_align: left | right
   content_style: <b>white</b> | black | transparent
+  content_height: <b>auto</b> | full
   content_align: left | center | <b>right</b>
   content_valign: top | middle | <b>bottom</b>
 </pre>

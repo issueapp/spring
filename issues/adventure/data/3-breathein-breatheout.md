@@ -12,7 +12,6 @@
       content_style: white 
       content_align: left 
       content_height: full
-      
         
 ---
 

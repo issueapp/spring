@@ -33,7 +33,7 @@ items:
       - handle: "2"
       - handle: "3"
       - handle: "4"
-      - handle: "4"
+      - handle: "5"
 
   - title: "Breathe In, Breathe Out"
     category: Lifestyle and Travel  
@@ -55,6 +55,9 @@ items:
     handle: 4-taylor-stitch
     pages:
       - handle: "1"
+      - handle: "2"
+      - handle: "3"
+    
 
   - title: Incu
     category: Fashion
@@ -63,6 +66,11 @@ items:
     pages:
 
       - handle: "1"
+      - handle: "2"
+      - handle: "3"
+      - handle: "4"
+      - handle: "5"
+      
 
   - title: Behind the scene
     category: Shoots 
