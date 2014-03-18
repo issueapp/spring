@@ -1,6 +1,5 @@
 ---
-
-    handle: 3-breathein-breatheout
+    category: Lifestyle
     title: Breathe In, Breathe Out  
     byline: by Nkechi Deanna Njaka
     image_url: assets/3-breathein-breatheout/4.jpg

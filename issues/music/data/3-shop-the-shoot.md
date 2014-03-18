@@ -2,7 +2,9 @@
 
     title: Get the look
     category: shopping
-    image_url: assets/3-shop-the-shoot/cover-white-dress.jpg
+    
+    thumb_url: assets/toc/3-shop-the-shoot.jpg
+    cover_url: assets/3-shop-the-shoot/cover-white-dress.jpg
     
     custom_class: rainbow
     

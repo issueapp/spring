@@ -1,3 +1,5 @@
+require 'active_support/core_ext/string'
+
 class LocalIssue < Hashie::Mash
 
   def self.all    
@@ -25,7 +27,10 @@ class LocalIssue < Hashie::Mash
       if yaml.exist?
         attributes = YAML.load_file(yaml)
         
-        attributes["handle"] = issue_handle
+        attributes["handle"] ||= issue_handle
+        attributes["magazine_handle"] ||= attributes["magazine_title"].parameterize
+        
+        attributes["id"]     ||= Digest::MD5.hexdigest("#{attributes["handle"]}/#{attributes["magazine_handle"]}")
         
         new attributes
       end
@@ -59,5 +64,20 @@ class LocalIssue < Hashie::Mash
   
   def pages
     self[:pages] || []
+  end
+  
+  def to_hash(options = {})
+    hash = super
+    
+    hash.to_a.each do |key, value|
+      if options[:local_path] && key =~ /_url/
+        
+        url = hash.delete(key)
+        
+        hash[key.gsub('_url', '')] = path.join(value)
+      end
+    end
+    
+    hash
   end
 end

@@ -1,37 +1,20 @@
-# items/on-holiday.html
-# items/on-holiday-1.html
-# items/on-holiday-2.html
-#
-# category/story:   title: On holiday
-# category/story/2: title: page title, url:
-# category/story/3
-
-# category/story2
-# category/story2/2
-# category/story2/3
-id: "minkpink/music"
 title: Music
-issue_title: Music
 magazine_title: Minkpink
-publish_at: "2014-1-15T13:16:46Z"
-background_url: "assets/background.jpg"
-background_large_url: "assets/background_large.jpg"
-
-description:
+description: 
 featured: true
+
+thumb_url: "assets/background.jpg"
+cover_url: "assets/background_large.jpg"
 
 assets:
   - "custom.css"
   - "custom.js"
-  # - "jquery.jplayer.min.js"
-  # - "jplayer/jquery.transform2d.js"
-  # - "jplayer/jquery.grab.js"
   - "jplayer/zepto.grab.js"
   - "jplayer/jquery.jplayer.js"
   - "jplayer/mod.csstransforms.min.js"
   - "jplayer/circle.player.js"
   - "circle.skin/circle.player.css"
-
+  
 pages: 
   - index
   - toc
@@ -43,7 +26,7 @@ pages:
   - 5-travel
   - 6-behind-the-scene
   - backcover
-  
+
 # items:
 #   - title: Cover
 #     handle: "index"

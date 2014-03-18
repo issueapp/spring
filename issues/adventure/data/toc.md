@@ -1,6 +1,6 @@
 ---
 
-    title:
+    title: Table of Content
     brand_image_url: 
     layout:
       type: toc

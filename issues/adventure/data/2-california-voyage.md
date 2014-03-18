@@ -1,6 +1,5 @@
 ---
-
-    handle: 2-california-voyage
+    category: Photography
     title: California Voyage 
     byline: by Nkechi Deanna Njaka
     image_url: assets/2-california-voyage/4.jpg

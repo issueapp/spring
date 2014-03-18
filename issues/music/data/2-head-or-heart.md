@@ -2,11 +2,15 @@
 
     category: Fashion
     title: Head or Heart
+    
     #author_name: Zyralyn Bacani
     #author_icon: http://cl.ly/StPu/Image%202013.12.11%204%3A54%3A01%20pm.png
-    image_url: assets/2-head-or-heart/cover.gif
-    # cover_caption: '<a class="hotspot product" href="http://www.shopbop.com/minkpink/br/v=1/2534374302152011.htm#1">MINKPINK Morrocan Tile Tank and Morrocan Tile Short</a>'
+    
+    thumb_url: assets/toc/2-head-or-heart.jpg
+    cover_url: assets/2-head-or-heart/cover.gif
     cover_caption: 'MINKPINK Morrocan Tile Tank and Morrocan Tile Short'
+    
+    # cover_caption: '<a class="hotspot product" href="http://www.shopbop.com/minkpink/br/v=1/2534374302152011.htm#1">MINKPINK Morrocan Tile Tank and Morrocan Tile Short</a>'
 
     layout:
       type: three-column

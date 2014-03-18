@@ -1,7 +1,10 @@
 ---
     category: Travel
     title: Let loose in Lala land
-    image_url: assets/5-travel/cover.jpg
+    
+    thumb_url: assets/toc/5-travel.jpg
+    cover_url: assets/5-travel/cover.jpg
+    
     credits:
       Soho House is famous for it’s amazing views of LA, it’s sublime cocktails and it’s awesome people watching.
 
