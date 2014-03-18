@@ -39,12 +39,6 @@
   <iframe data-src="//player.vimeo.com/video/84820598?autoplay=1&amp;byline=0&amp;portrait=0" width="100%" style="display:none" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 </figure>
 
-<!-- <iframe src="//player.vimeo.com/video/84820598?&amp;byline=0&amp;portrait=0" width="100%" height="300px" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-
-<video id="youtube1" width="640" height="360">
-  <source src="http://vimeo.com/84820598" type="video/vimeo" >
-</video> -->
-
 <div class="column-break"></div>
 
 <h4>Where did the name for your new album come from?</h4>
@@ -64,6 +58,5 @@ I worked with a few producers on Head or Heart, including Butch Walker, John Hil
 <h4>Any musical collaborations you can share with us?</h4>
 
 Actually yes, there are a couple! I worked with Jack Antanoff from the band FUN as well as Ed Sheeran which was so exciting! They’re both super talented guys and I absolutely adore them – I can’t wait for people to hear the tracks!
-
 
 <img src="assets/1-styling-it-out/_MG_5433_1024@2x.jpg">

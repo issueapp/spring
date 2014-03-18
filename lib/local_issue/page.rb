@@ -15,7 +15,7 @@ class LocalIssue::Page < Hashie::Mash
   # cover -> images.where(cover:true)
   
   def self.index
-    new(title: "Cover", handle: "index")
+    new(title: "Cover", handle: "index", image_url: "assets/background.jpg")
   end
   
   def self.all
