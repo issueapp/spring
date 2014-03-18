@@ -1,10 +1,7 @@
-id: "official/adventure"
 title: Adventure
-magazine_title: "Official"
-publish_at: "2013-9-15T13:16:46Z"
-
-background_url: "assets/background.jpg"
-background_large_url: "assets/background_large.jpg"
+magazine_title: Official
+thumb_url: "assets/background.jpg"
+cover_url: "assets/background_large.jpg"
 
 assets:
   - "custom.css"
@@ -19,68 +16,68 @@ pages:
    - 5-incu
    - 6-behind-the-scene
 
-  # - title: Winter Wonderment
-  #   category: Cover Story
-  #   author_name: Nkechi Deanna Njaka
-  #   handle: "1-winter-wonderment"
-  #   pages:
-  #     - handle: "1"
-  #     - handle: "2"
-  # 
-  # - title: California Voyage
-  #   category: Interview
-  #   handle: 2-california-voyage
-  #   pages:
-  #     - handle: "1"
-  #     - handle: "2"
-  #     - handle: "3"
-  #     - handle: "4"
-  #     - handle: "5"
-  # 
-  # - title: "Breathe In, Breathe Out"
-  #   category: Lifestyle and Travel  
-  #   author_name: Nkechi Deanna Njaka
-  #   handle: "3-breathein-breatheout"
-  # 
-  #   pages:
-  #     - handle: "1"
-  #     - handle: "2"
-  #     - handle: "3"
-  #     - handle: "4"
-  #     - handle: "5"
-  #     - handle: "6"
-  #     - handle: "7"
-  # 
-  # - title: Taylor Stitch
-  #   category: Fashion
-  #   author_name: Zyralyn Bacani
-  #   handle: 4-taylor-stitch
-  #   pages:
-  #     - handle: "1"
-  #     - handle: "2"
-  #     - handle: "3"
-  #   
-  # 
-  # - title: Incu
-  #   category: Fashion
-  #   author_name: Zyralyn Bacani
-  #   handle: 5-incu
-  #   pages:
-  # 
-  #     - handle: "1"
-  #     - handle: "2"
-  #     - handle: "3"
-  #     - handle: "4"
-  #     - handle: "5"
-  #     
-  # 
-  # - title: Behind the scene
-  #   category: Shoots 
-  #   author_name: Zyralyn Bacani
-  #   handle: 6-behind-the-scene
-  #   pages:
-  # 
-  #     - handle: "1"
+# - title: Winter Wonderment
+#   category: Cover Story
+#   author_name: Nkechi Deanna Njaka
+#   handle: "1-winter-wonderment"
+#   pages:
+#     - handle: "1"
+#     - handle: "2"
+# 
+# - title: California Voyage
+#   category: Interview
+#   handle: 2-california-voyage
+#   pages:
+#     - handle: "1"
+#     - handle: "2"
+#     - handle: "3"
+#     - handle: "4"
+#     - handle: "5"
+# 
+# - title: "Breathe In, Breathe Out"
+#   category: Lifestyle and Travel  
+#   author_name: Nkechi Deanna Njaka
+#   handle: "3-breathein-breatheout"
+# 
+#   pages:
+#     - handle: "1"
+#     - handle: "2"
+#     - handle: "3"
+#     - handle: "4"
+#     - handle: "5"
+#     - handle: "6"
+#     - handle: "7"
+# 
+# - title: Taylor Stitch
+#   category: Fashion
+#   author_name: Zyralyn Bacani
+#   handle: 4-taylor-stitch
+#   pages:
+#     - handle: "1"
+#     - handle: "2"
+#     - handle: "3"
+#   
+# 
+# - title: Incu
+#   category: Fashion
+#   author_name: Zyralyn Bacani
+#   handle: 5-incu
+#   pages:
+# 
+#     - handle: "1"
+#     - handle: "2"
+#     - handle: "3"
+#     - handle: "4"
+#     - handle: "5"
+#     
+# 
+# - title: Behind the scene
+#   category: Shoots 
+#   author_name: Zyralyn Bacani
+#   handle: 6-behind-the-scene
+#   pages:
+# 
+#     - handle: "1"
 # 
 # items:
 #   - title: Cover
@@ -143,4 +140,3 @@ pages:
 #     pages:
 # 
 #       - handle: "1"
->>>>>>> WIP local issue

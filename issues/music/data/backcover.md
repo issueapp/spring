@@ -1,8 +1,12 @@
 ---
 
+    title: End
+    
+    thumb_url: assets/7-end/thumb.jpg
+    cover_url: assets/7-end/p1.jpg
+    
     nav: false
-
-    image_url: assets/6-behind-the-scene/p1.jpg
+        
     layout:
       image_style: background
       content_style: transparent
@@ -47,5 +51,5 @@
 
 
 <a href="http://minkpink.com/" title="Visit Minkpink" target="_blank">
-  <img id="image" src="assets/6-behind-the-scene/p1-1.png" alt="">
+  <img id="image" src="assets/7-end/p1-1.png" alt="">
 </a>

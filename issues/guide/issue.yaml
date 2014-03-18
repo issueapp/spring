@@ -1,12 +1,11 @@
-id: "inside/design-guide"
 title: Design Guide
-short_title: Design Guide
 magazine_title: Inside
-description: "One Column • Two Column • Three Column • Fullscreen"
-publish_at: "2013-9-15T13:16:46Z"
+
 auther_name: Taylor
-background_url: "assets/background.jpg"
-background_large_url: "assets/background_large.jpg"
+description: "One Column • Two Column • Three Column • Fullscreen"
+
+thumb_url: "assets/background.jpg"
+cover_url: "assets/background_large.jpg"
 
 assets:
   - "custom.css"

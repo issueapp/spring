@@ -1,5 +1,5 @@
 ---
-    title: The Final Word
+    title: Behind the Scene
     description: CP TALKS MUSIC AND SPILLS ON HER LATEST ALBUM 'HEAD OR HEART'
     
     layout:

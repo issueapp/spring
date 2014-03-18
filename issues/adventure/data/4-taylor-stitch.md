@@ -1,6 +1,6 @@
 ---
-
-    handle: 4-taylor-stitch
+    category: Style
+    title: Taylor Stich
     byline: by Zyralyn Bacani
     image_url: assets/4-taylor-stitch/5.jpg
         

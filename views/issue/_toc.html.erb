@@ -36,8 +36,6 @@
     <div class="cover-area <%= page.layout.image_style %>" style="background-image: url(<%= page.image_url %>)">
       <% if video_embed = page.embed_content %>
         <div class="video-wrapper"><%= video_embed %></div>
-      <% elsif page.brand_image_url %>
-        <img class="brand-logo" src="<%= page.brand_image_url %>" alt="">
       <% end %>
     </div>
 

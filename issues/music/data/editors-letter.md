@@ -1,7 +1,8 @@
 ---
     title: Welcome to Minkpink
 
-    image_url: assets/ed-cover.jpg
+    cover_url: assets/ed-cover.jpg
+    thumb_url: assets/toc/editors-letter.jpg
 
     layout:
       type: two-column

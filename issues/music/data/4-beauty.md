@@ -2,7 +2,9 @@
     
     title: Christina Uncovered
     category: beauty
-    image_url: assets/4-beauty/cover.jpg
+    
+    thumb_url: assets/toc/4-beauty.jpg
+    cover_url: assets/4-beauty/cover.jpg
     custom_class: five-shades
     
     layout:

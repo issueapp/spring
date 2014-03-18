@@ -1,6 +1,5 @@
 ---
-
-    handle: 1-winter-wonderment
+    category: Season
     title: Winter Wonderment
     byline: Nkechi Deanna Njaka
     image_url: assets/1-winter-wonderment/background.jpg
