@@ -228,8 +228,8 @@
 
     <li class="<%= story.handle %>">
       <a href="<%= "#{path}#{story.url}#{ext}" %>" target="issue-frame" data-app-view='magazine' style="
-        <% if story.image_url %>
-          background-image: url('<%= asset_path story.image_url %>')
+        <% if story.thumb_url %>
+          background-image: url('<%= asset_path story.thumb_url %>')
         <% end %>
 
         " >

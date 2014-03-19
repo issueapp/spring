@@ -2,10 +2,11 @@
 
     title: SUMMER LOVE
     byline: By Michelle from <br> A Minute Away from Snowing
-    author_icon:
-    image_url: assets/4-summer-love/cover.jpg
-    published_at:
-    handle: 4-summer-love
+
+    thumb_url: assets/toc/summer-love.jpg
+    cover_url: assets/4-summer-love/cover.jpg
+
+    author_name: Michelle lau
     author_icon: assets/michelle-avatar.png
 
     layout:

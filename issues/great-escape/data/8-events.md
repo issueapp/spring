@@ -4,6 +4,8 @@
     category: 
     description: 
 
+    thumb_url: assets/toc/calendar.jpg
+
     layout:
       type: custom
       image_style: background

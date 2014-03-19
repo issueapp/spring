@@ -15,7 +15,7 @@ class LocalIssue::Page < Hashie::Mash
   # cover -> images.where(cover:true)
   
   def self.index
-    new(title: "Cover", handle: "index", image_url: "assets/background.jpg")
+    new(title: "Cover", handle: "index", thumb_url: "assets/background.jpg")
   end
   
   def self.all
@@ -41,7 +41,7 @@ class LocalIssue::Page < Hashie::Mash
     page_dir = Pathname(path).basename(".md")
     page = self.build(path)
     
-    page.handle = page.handle.gsub(issue_path.to_s, "").gsub("/", "")
+    page.handle = page.handle.gsub(issue_path.to_s, "").gsub(/^\//, "")
     
     page.children = self.recursive_build("data/#{page_dir}")
     page
@@ -107,4 +107,7 @@ class LocalIssue::Page < Hashie::Mash
     self[:children] || []
   end
   
+  def url
+    self.handle
+  end
 end
