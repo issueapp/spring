@@ -2,9 +2,10 @@
 
     title: Holiday Gift Guide
     byline: By Aubrey
-    image_url: assets/7-holiday-gift-ideas/cover.jpg
-    handle: 7-holiday-gift-ideas
-
+    
+    thumb_url: assets/toc/gift-guide.jpg
+    cover_url: assets/7-holiday-gift-ideas/cover.jpg
+    
     layout:
       type: two-column
       image_style: background

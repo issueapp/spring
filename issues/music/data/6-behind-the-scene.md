@@ -7,6 +7,7 @@
     
     layout:
       type: two-column
+      image_style: none
       content_overflow: paginate
 
 ---

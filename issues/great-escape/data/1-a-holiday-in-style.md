@@ -4,7 +4,9 @@
     author_name: Jessica Chung
     author_icon: assets/jysla-avatar.png
     byline: Jessica from Jysla Kay
-    image_url: assets/1-a-holiday-in-style/cover.jpg
+    
+    thumb_url: assets/toc/holiday-in-style.jpg
+    cover_url: assets/1-a-holiday-in-style/cover.jpg
 
     layout:
       type: three-column

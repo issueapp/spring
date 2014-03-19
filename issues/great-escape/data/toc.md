@@ -1,7 +1,9 @@
 ---
 
     title: Great Escape
-    image_url: assets/toc/background.jpg
+    
+    cover_url: assets/toc/background.jpg
+    thumb_url: assets/toc/toc.jpg
     
     layout:
       type: toc

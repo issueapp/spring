@@ -32,21 +32,24 @@ class LocalIssue < Hashie::Mash
         
         attributes["id"]     ||= Digest::MD5.hexdigest("#{attributes["handle"]}/#{attributes["magazine_handle"]}")
         
-        new attributes
+        new(attributes).tap do
+        end
       end
     end
-    
   end
   
   def path
     Pathname(File.expand_path("../../issues/#{handle}/", __FILE__))
   end
   
-  def items
-    @items ||= Page.all
-    
+  def items  
     self[:pages].to_a.map do |handle|
-      LocalIssue::Page.find(handle, self.path)
+      LocalIssue::Page.find(handle, self.path).tap do |p|
+        if p.handle == "index"
+          p.thumb_url = self.thumb_url
+          p.cover_url = self.cover_url
+        end
+      end
     end
   end
   

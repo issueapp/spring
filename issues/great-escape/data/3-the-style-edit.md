@@ -2,7 +2,10 @@
 
     title: The Style Edit
     byline: By Jysla Kay
-    image_url: assets/3-the-style-edit/cover.jpg
+    
+    thumb_url: assets/toc/style-edit.jpg
+    cover_url: assets/3-the-style-edit/cover.jpg
+    
     handle: 3-the-style-edit
   
     description: 

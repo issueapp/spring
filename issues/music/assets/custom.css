@@ -79,6 +79,17 @@ p > span {
 }
 
 /*
+    Hide category label, only show them on products page
+*/
+article .category {
+  display: none;
+}
+
+article.has-product .category {
+  display: block;
+}
+
+/*
   Cover
 */
 
@@ -109,6 +120,9 @@ article.page.toc .menu .head {
   margin: 0;
 }
 
+article[data-page=toc] .brand-logo {
+  
+}
 
 article[data-page=editors-letter] .title {
   font-family: "rodondoregular" !important;

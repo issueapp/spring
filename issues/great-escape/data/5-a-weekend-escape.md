@@ -4,7 +4,9 @@
     byline: Aubrey from The Love Assembly
     author_name: Aubrey
     author_icon: assets/aubrey-avatar.png
-    image_url: assets/5-a-weekend-escape/p1.jpg
+    
+    thumb_url: assets/toc/coastal-escape.jpg
+    cover_url: assets/5-a-weekend-escape/p1.jpg
 
     layout:
       type: three-column
