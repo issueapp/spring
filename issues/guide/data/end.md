@@ -1,9 +1,9 @@
 ---
 
     title: A never ending story.
-    image_url: assets/background_large.jpg
-    handle: end
-
+    cover_url: assets/background_large.jpg
+    thumb_url: assets/background.jpg
+    
     layout:
       type: one-column
       image_style: background

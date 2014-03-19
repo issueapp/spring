@@ -2,7 +2,9 @@
 
     title: Top Products
     category: shopping
-    image_url: http://farm7.staticflickr.com/6135/5959115552_18ede52780_b.jpg
+    cover_url: http://farm7.staticflickr.com/6135/5959115552_18ede52780_b.jpg
+    thumb_url: http://farm7.staticflickr.com/6135/5959115552_18ede52780_m.jpg
+    
     products:
 
       - url: "#1"

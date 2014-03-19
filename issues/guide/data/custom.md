@@ -2,7 +2,9 @@
 
     title: HEAD OR HEART
     handle: custom
-
+    cover_url: 
+    thumb_url: http://cdn.idolator.com/wp-content/uploads/2013/12/10/christina-perri-600x450.jpg
+    
     layout:
       type: custom
 
