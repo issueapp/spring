@@ -1,8 +1,8 @@
 ---
 
     title: Fullscreen White
-    image_url: http://25.media.tumblr.com/30c0fdcfdec477eafdee2f837e269b9e/tumblr_mxrv62sm2I1st5lhmo1_1280.jpg
-    published_at:
+    cover_url: http://25.media.tumblr.com/30c0fdcfdec477eafdee2f837e269b9e/tumblr_mxrv62sm2I1st5lhmo1_1280.jpg
+    thumb_url: http://25.media.tumblr.com/30c0fdcfdec477eafdee2f837e269b9e/tumblr_mxrv62sm2I1st5lhmo1_640.jpg
 
     layout:
       type: two-column

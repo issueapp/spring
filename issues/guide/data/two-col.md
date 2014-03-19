@@ -4,9 +4,10 @@
     author_name: Zyralyn Bacani
     author_icon: http://cl.ly/StPu/Image%202013.12.11%204%3A54%3A01%20pm.png
     byline: By Zyralyn Bacani
-    image_url: http://25.media.tumblr.com/712c985b8c18226a0d394eb90b83e94b/tumblr_n0hq0nxdQd1st5lhmo1_1280.jpg
-    handle: two-col
-
+    
+    cover_url: http://25.media.tumblr.com/712c985b8c18226a0d394eb90b83e94b/tumblr_n0hq0nxdQd1st5lhmo1_1280.jpg
+    thumb_url: http://lorempixel.com/200/150
+    
     layout:
       type: two-column
       image_align: right

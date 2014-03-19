@@ -2,7 +2,8 @@
 
     title: Table of content
     author_name: Taylor Luk
-    image_url: assets/background.jpg
+    cover_url: assets/background.jpg
+    thumb_url: http://lorempixel.com/200/154
 
     layout:
       type: toc

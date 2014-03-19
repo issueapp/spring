@@ -5,7 +5,9 @@
     author_name: Zyralyn Bacani
     author_icon: http://cl.ly/StPu/Image%202013.12.11%204%3A54%3A01%20pm.png
     embed_content: <iframe src="//player.vimeo.com/video/81183852?autoplay=1&amp;byline=0&amp;portrait=0" frameborder="0" height="100%" width="100%" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
-    image_url: http://b.vimeocdn.com/ts/457/264/457264187_640.jpg
+    
+    cnver_url: http://b.vimeocdn.com/ts/457/264/457264187_1280.jpg
+    thumb_url: http://b.vimeocdn.com/ts/457/264/457264187_640.jpg
 
     layout:
       type: one-column
