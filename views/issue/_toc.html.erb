@@ -90,11 +90,10 @@ $(function () {
     products: <%= page.products.to_json %>
   }
 
-  <% unless request.xhr? %>  
+  <% unless request.xhr? %>
     App.currentView = new PageView({ path: "<%= page.handle + page_ext %>", model: App.page })
     App.currentView.render()
   <% end %>
-  // App.trigger('track', 'view')
 })
 </script>
 <% end %>
