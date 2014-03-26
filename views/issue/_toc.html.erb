@@ -28,9 +28,22 @@
 </header>
 <% end %>
 
-<article id="toc_page" class="toc page"
+<article id="toc_page" class="toc page
+
+ <% if page.layout.type != "custom" %>
+   <%= page.layout.content_overflow || 'scroll' %>
+   <%= page.layout.content_style || 'white' %>
+   <%= page.layout.content_align || 'left' %>
+   <%= page.layout.content_valign || 'top' %>
+
+   <%= "height-#{page.layout.content_height || 'auto'}" %>
+   <%= "image-#{page.layout.image_style}" if page.layout.image_style %>
+   <%= "cover-#{page.layout.image_align}" if page.layout.image_align && page.cover_url %>
+ <% end %>"
+ 
   data-page-id="<%= page.id %>" 
   data-page="<%= page.handle + page_ext %>"
+  data-theme="<%= page.layout.content_style %>"
 >
   <div class="main col third-2">
     <div class="cover-area <%= page.layout.image_style %>" style="background-image: url(<%= page.cover_url %>)">

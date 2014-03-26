@@ -43,7 +43,8 @@
    <%= "image-#{page.layout.image_style}" if page.layout.image_style %>
    <%= "cover-#{page.layout.image_align}" if has_product || page.layout.image_align && page.cover_url %>
  <% end %>"
-
+  
+  data-theme="<%= page.layout.content_style %>"
   data-page="<%= page.handle + page_ext %>"
   data-author="<%= page.author_name %>"
   data-page-id="<%= page.id %>"
@@ -53,7 +54,7 @@
 
   <% if page.cover_url %>
   <figure class="cover-area <%= page.layout.image_style %>"
-    style="background-image: url(<%= page.cover_url %>)">
+    style="background-image: url(<%= asset_path page.cover_url %>)">
     <% if video_embed = page.embed_content %>
       <div class='video-wrapper'><%= video_embed %></div>
     <% end %>
@@ -103,8 +104,8 @@
       <ul class="<%= "cover-area" unless page.cover_url %> product-set <%= "set-#{(page.products.to_a.count/2.0).ceil*2}" %>">
       <% page.products.each_with_index do |product, index| %>
         <li>
-          <a href="<%= affiliate_url(product[:url]) || product[:url] %>" class='hotspot product' data-track="hotspot:click" data-action="<%= product[:action] %>" title="<%= product.title %>" data-image="<%= product[:image_url] %>" data-price="<%= product[:price] %>" data-description="<%= product[:description] %>">
-            <img src="<%= product[:image_url] %>" alt=''>
+          <a href="<%= affiliate_url(product[:url]) || product[:url] %>" class='hotspot product' data-track="hotspot:click" data-action="<%= product[:action] %>" title="<%= product.title %>" data-image="<%= asset_path product[:image_url] %>" data-price="<%= product[:price] %>" data-description="<%= product[:description] %>">
+            <img src="<%= asset_path product[:image_url] %>" alt=''>
             <span class='tag'><%= index + 1 %></span>
           </a>
         </li>
@@ -132,19 +133,19 @@
 
 <% end %>
 <script>
+  App = (typeof App == 'undefined') ? {} : App;
+
+  App.pages = App.pages || {}
+
+  App.pages["<%= page.handle %>"] = {
+    title: "<%= page.title %>",
+    links: <%= page.links.to_json %>,
+    products: <%= page.products.to_json %>
+  }
+
   $(function() {
-    App = (typeof App == 'undefined') ? {} : App;
-
-    App.pages = App.pages || {}
-
-    App.pages["<%= page.id %>"] = {
-      title: "<%= page.title %>",
-      links: <%= page.links.to_json %>,
-      products: <%= page.products.to_json %>
-    }
-
     <% unless request.xhr? %>
-      App.pageView = new PageView({ path: "<%= page.handle + page_ext %>",  model: App.pages["<%= page.id %>"] })
+      App.pageView = new PageView({ path: "<%= page.handle + page_ext %>",  model: App.pages["<%= page.handle %>"] })
 
       // Force browser to render first
       App.pageView.render()
