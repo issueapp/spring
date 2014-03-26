@@ -9,7 +9,7 @@
         
     layout:
       image_style: background
-      content_style: transparent
+      content_style: black
       content_height: full
 
 ---

@@ -107,6 +107,16 @@ class LocalIssue::Page < Hashie::Mash
     self[:children] || []
   end
   
+  def theme
+    dark_themes = ["black", "transparent", "dark"]
+    
+    if dark_themes.include? layout.try(:content_style)
+      "black"
+    else
+      "white"
+    end
+  end
+  
   def url
     self.handle
   end
