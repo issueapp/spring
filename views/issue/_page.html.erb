@@ -44,7 +44,7 @@
    <%= "cover-#{page.layout.image_align}" if has_product || page.layout.image_align && page.cover_url %>
  <% end %>"
   
-  data-theme="<%= page.layout.content_style %>"
+  data-theme="<%= page.theme %>"
   data-page="<%= page.handle + page_ext %>"
   data-author="<%= page.author_name %>"
   data-page-id="<%= page.id %>"
