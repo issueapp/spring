@@ -75,7 +75,7 @@ $(document).on "click", "[data-track]", (e)->
     page view
 ###
 
-$ ->
+$(document).on "page:change", -> 
   App.trigger("track", "view", null,
     magazine: $("[data-magazine]").data("magazine"),
     issue: $("[data-issue]").data("issue"),

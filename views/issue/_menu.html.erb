@@ -218,7 +218,7 @@
   }
 </style>
 
-<nav id="issue-menu" class="toc issue-menu <%= webview? ? "paginate" : "mobile-touch-overflow" %>" role="secondary">
+<nav id="issue-menu" class="toc issue-menu <%= offline? ? "paginate" : "mobile-touch-overflow" %>" role="secondary">
   <ul class="contents-menu">
     <% issue.items.each do |story| %>
 
