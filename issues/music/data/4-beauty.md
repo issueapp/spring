@@ -1,15 +1,16 @@
 ---
-    
+
     title: Christina Uncovered
     category: beauty
-    
+
     thumb_url: assets/toc/4-beauty.jpg
     cover_url: assets/4-beauty/cover.jpg
     custom_class: five-shades
-    
+
     layout:
       type: three-column
       image_align: left
+      content_style: transparent
 
     products:
 
@@ -17,12 +18,12 @@
         image_url: assets/4-beauty/cover-product-1.png
         url: "#1"
         action: false
-        
+
       - title: Yves Saint Laurent Volume Effet Faux Cils Mascara in High Density Black
         image_url: assets/4-beauty/cover-product-2.png
         url: "#2"
         action: false
-        
+
       - title: "M.A.C Mineralize Skinfinish in Soft and Gentle"
         image_url: assets/4-beauty/cover-product-3.png
         url: "#3"
@@ -51,7 +52,7 @@
 
   article[data-page="4-beauty"] .product-set {
     margin: -35% 0 -20%;
-    
+
     background-image: url('assets/4-beauty/product-bg.png');
     background-position: center;
     background-size: 110%;
@@ -68,7 +69,7 @@
   article[data-page="4-beauty"] .product-set .hotspot {
     display: block;
   }
-  
+
   article[data-page="4-beauty"] .product-set li:nth-child(1) .hotspot {
     margin-top: 75px;
   }
@@ -107,29 +108,29 @@
     article[data-page="4-beauty"] .product-set li:nth-child(5) {
 /*      margin-left: 142px;
 */    }
-    
+
   }
 
   @media only screen and (min-width: 768px) and (orientation: portrait) {
     article[data-page="4-beauty"].cover-left .content {
       height: auto;
     }
-    
+
     article[data-page="4-beauty"] .content {
       width: 100%;
     }
-    
+
     article[data-page="4-beauty"] .cover-area {
       height: 50%;
       width: 100%;
     }
-    
+
     article[data-page="4-beauty"] .product-set {
       margin-top: -10%;
       width: 40%;
       float: left;
     }
-    
+
     article[data-page="4-beauty"] .body {
       margin-left: 10%;
       width: 50%;

@@ -2,21 +2,22 @@
 
     title: Styling it out
     category: 'Christina Perri:'
-    
+
     thumb_url: assets/toc/1-styling-it-out.jpg
     cover_url: assets/1-styling-it-out/MinkPink_ChristinaPerri_0005-31_opt.jpeg
     cover_caption: 'Minkpink Paisley Crush Dress.'
-    
+
     #cover_caption: '<a class="hotspot product" href="http://www1.bloomingdales.com/buy/mink-pink?cm_sp=shop_by_brand-_-ALL%20DESIGNERS-_-MINK%20PINK">Minkpink Paisley Crush Dress.</a>'
-    
-    
+
+
     layout:
       type: three-column
       image_align: right
+      content_style: transparent
 
     products:
-    
-      - title: MINKPINK Paisley Crush Dress 
+
+      - title: MINKPINK Paisley Crush Dress
         url: http://www1.bloomingdales.com/buy/mink-pink?cm_sp=shop_by_brand-_-ALL%20DESIGNERS-_-MINK%20PINK
         image_url: assets/1-styling-it-out/MinkPink_ChristinaPerri_0005-31_opt.jpeg
         price: 1
@@ -32,16 +33,16 @@
 
   /*  Replace page heading with outline heading (change background url or height if needed) */
   article[data-page="1-styling-it-out"] .title {
-    
+
     background: url(assets/1-styling-it-out/STYLINGITOUT.svg) no-repeat;
     background-size: contain;
     background-position: center;
     color: transparent;
-    
+
     height: 0;
     padding-bottom: 50%;
   }
-  
+
   article[data-page="1-styling-it-out"] header .category {
     top: 200px;
     margin-top: 200px;
@@ -49,12 +50,12 @@
     text-align: left;
     font-family: 'rodondoregular';
   }
-  
+
   @media only screen and (min-width: 768px) {
     article[data-page="1-styling-it-out"] header  {
       padding-top: 25%;
     }
-    
+
     article[data-page="1-styling-it-out"] header .category {
       font-size: 36px;
       font-size: 3vw;
