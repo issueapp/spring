@@ -1,0 +1,16 @@
+{
+  "title": "Adventure",
+  "author": "Taylor Luk",
+  "cover": "assets/study-in-scarlet.png",
+  "date": "2011-08-23",
+  "url": "http://issue.by/"
+  "series": 1,
+  "contents": [
+    'index.html',
+    'cover.html', 
+    '1.html',
+    '2.html',
+    '3.html',
+    '4.html'
+  ]
+}
