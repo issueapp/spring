@@ -1,10 +1,16 @@
 ---
-    cover: Featured
+    category: Fashion
     title: Incu
-    byline: by Zyralyn Bacani 
+    cover: Featured
+    thumb_url: assets/incu/couple.jpg
+    cover_url: assets/incu/incu-shop.jpg
     
-    thumb_url: assets/incu/
-    image_url: http://placehold.it/500x700
+    layout:
+      type: three-column
+      image_style: background 
+      content_valign: black
+      content_style: transparent
+      content_align: center
+      content_height: auto
         
 ---
-##Incu Coverpage
