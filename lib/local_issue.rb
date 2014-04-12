@@ -38,6 +38,10 @@ class LocalIssue < Hashie::Mash
     end
   end
   
+  def theme
+    self[:theme] || "default"
+  end
+  
   def path
     Pathname(File.expand_path("../../issues/#{handle}/", __FILE__))
   end

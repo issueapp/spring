@@ -3,6 +3,7 @@ magazine_title: Official
 
 thumb_url: "assets/background.jpg"
 cover_url: "assets/background_large.jpg"
+theme: default
 
 assets:
   - "custom.css"
