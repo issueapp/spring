@@ -1,16 +1,20 @@
 ---
     category: Fashion
-    title: Incu
-    cover: Featured
-    thumb_url: assets/incu/couple.jpg
-    cover_url: assets/incu/incu-shop.jpg
+    title: Stray into the Grasslands
+    author_name: Incu
+    byline: by Incu
+    cover_url: assets/Incu/couple.jpg
+    thumb_url: assets/Incu/couple.jpg
     
     layout:
       type: three-column
-      image_style: background 
-      content_valign: black
-      content_style: transparent
-      content_align: center
+      image_style: background
+      content_style: white
       content_height: auto
+      content_align: left 
+      content_valign: middle 
         
 ---
+
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.

@@ -1,14 +1,13 @@
 ---
-
-    title: Table of Content
-    brand_image_url: 
+    title: Table of content
+    cover_url: https://farm7.staticflickr.com/6009/5991382694_58b7a0fdd4_z.jpg
+    thumb_url: https://farm7.staticflickr.com/6009/5991382694_58b7a0fdd4_z.jpg
+    
     layout:
       type: toc
       content_overflow: scroll
 
 ---
-
-##Letter from the Editor
 
 There is something exciting about the thought of embarking on uncharted expeditions-- whether literal or figurative. Regardless of which, I am always excited for major changes in the way I experience things and how I will ultimately learn and grow from them.
  
