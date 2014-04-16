@@ -1,10 +1,10 @@
 ---
-    category: Fashion
-    title: Taylor Stitch
-    byline: 
+    category: "Calafornian Style"
+    title: Chronicles of Adventure
+    author_name: Taylor Stitch
     
-    thumb_url: assets/taylor-stitch/taylorstitch-shop.jpg 
-    cover_url: assets/taylor-stitch/taylorstitch-shop.jpg
+    thumb_url: assets/taylor-stitch/taylorstitch-cover.jpg 
+    cover_url: assets/taylor-stitch/taylorstitch-cover.jpg
 
     layout:
       type: one-column

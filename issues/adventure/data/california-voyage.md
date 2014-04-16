@@ -1,6 +1,7 @@
 ---
     category: Photography
     title: California Voyage 
+    author_name: Interview with Peter Jamus
     byline: by Nkechi Deanna Njaka
     
     thumb_url: assets/california-voyage/4.jpg

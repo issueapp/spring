@@ -1,6 +1,7 @@
 ---
     category: Inspiration
     title: Winter Wonderment
+    author_name: Nkechi Njaka
     byline: Nkechi Deanna Njaka
     
     
