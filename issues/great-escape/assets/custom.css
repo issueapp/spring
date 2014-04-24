@@ -205,30 +205,10 @@ article.page[data-page="3-the-style-edit"] header .title {
 }
 
 /*
-  Summer Love Cover
-*/
-article.page[data-page="4-summer-love"] .extras {
-  text-align: left;
-}
-
-article.page[data-page="4-summer-love/2"] header {
-  position: absolute;
-  top: 40%;
-  left: inherit;
-  left:  0;
-  width: 50%;
-}
-
-/*
   Summer Love Page 3
 */
 
-#s4-summer-love.image-background.height-auto .content {
-  margin: 0 30px;
-}
-
 #s4-summer-love .title {
-  margin-bottom: 0.5em;
   font-size: 28px;
 }
 
@@ -247,12 +227,6 @@ article.page[data-page="4-summer-love/2"] header {
   font-style: italic;
   font-size: 50px;
   font-family: 'BodoniSvtyTwoITCTT-Book';
-}
-
-#s6-summer-survival-guide[data-page="6-summer-survival-guide/2"] {
-  background-image: url(../assets/6-summer-survival-guide/p2-brush.png);
-  background-position: bottom left;
-  background-repeat: no-repeat;
 }
 
 #s6-summer-survival-guide[data-page="6-summer-survival-guide/2"] header {
@@ -285,6 +259,10 @@ article.page[data-page="6-summer-survival-guide/4"] .products li .image {
   background-position: center;
   background-size: 90%;
   background-repeat: no-repeat;
+}
+
+article.page[data-page="6-summer-survival-guide/4"] .products .tag {
+  background-color: initial;
 }
 
 #story5-giftset .tag {
@@ -392,22 +370,6 @@ article.page[data-page="7-holiday-gift-ideas/2"] header .description {
   height: 200px;
 }
 
-#story7-products li .tag {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  margin-left: -15px;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background-color: #333;
-  color: white;
-  text-align: center;
-  font-weight: bold;
-  font-size: 18px;
-  line-height: 1.4;
-}
-
 #story7-products li:nth-child(odd) {
   margin-right: 4px;
 }
@@ -444,8 +406,24 @@ article.page[data-page="7-holiday-gift-ideas/2"] header .description {
     width: 50%;
   }
 
-  article.page[data-page="2-cate-says-si/2"] .body .list {
+  article.page[data-page="2-cate-says-si"] .content header {
     margin-top: 20%;
+  }
+
+  article.page[data-page="2-cate-says-si/2"].height-full .content header {
+    margin-top: 20%;
+  }
+
+  #s4-summer-love.image-background.height-auto .content {
+    margin: 0 30px;
+  }
+
+  article.page[data-page="4-summer-love/2"] header {
+    position: absolute;
+    top: 40%;
+    left: inherit;
+    left:  0;
+    width: 50%;
   }
 
   #story5-giftset li:nth-child(odd) .details {
@@ -464,6 +442,12 @@ article.page[data-page="7-holiday-gift-ideas/2"] header .description {
   #story5-giftset .tag {
     font-size: 120px;
     line-height: 150px;
+  }
+
+  #s6-summer-survival-guide[data-page="6-summer-survival-guide/2"] {
+    background-image: url(../assets/6-summer-survival-guide/p2-brush.png);
+    background-position: bottom left;
+    background-repeat: no-repeat;
   }
 
   article.page[data-page="7-holiday-gift-ideas/1"] #summary {
@@ -517,10 +501,6 @@ article.page[data-page="7-holiday-gift-ideas/2"] header .description {
 @media only screen and (min-width: 768px) and (orientation: portrait) {
   article.page.no-content[data-page="2-cate-says-si"] .content {
     padding: 0;
-  }
-
-  article.page.no-content[data-page="2-cate-says-si"] header {
-    margin-top: 150px;
   }
 
   article.page.no-content[data-page="2-cate-says-si"] header .title {
