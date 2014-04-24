@@ -1,12 +1,13 @@
 ---
 
+    category: Beauty
     title: Summer Survival Guide
-    byline: By Zyralyn Bacani, Content writer of Issue
+    author_name: Zyra Bacani
     
     author_icon: assets/zyra-avatar.png
     
     thumb_url: assets/toc/beauty-cover.jpg
-    cover_url: assets/6-summer-survival-guide/cover.jpg
+    cover_url: assets/6-summer-survival-guide/cover2.jpg
     
     layout:
       type: three-column

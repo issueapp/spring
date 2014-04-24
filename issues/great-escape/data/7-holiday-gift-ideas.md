@@ -1,7 +1,8 @@
 ---
 
+    category: Gift Ideas
     title: Holiday Gift Guide
-    byline: By Aubrey
+    author_name: Aubrey
     
     thumb_url: assets/toc/gift-guide.jpg
     cover_url: assets/7-holiday-gift-ideas/cover.jpg

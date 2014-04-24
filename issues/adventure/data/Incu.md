@@ -1,5 +1,5 @@
 ---
-    category: Fashion
+    category: Outdoor Fashion
     title: Stray into the Grasslands
     author_name: Incu
     byline: by Incu

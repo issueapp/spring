@@ -1,7 +1,9 @@
 ---
-
+    category: Blogger's Edit
     title: The Style Edit
     byline: By Jysla Kay
+    
+    author_name: Jysla Kay
     
     thumb_url: assets/toc/style-edit.jpg
     cover_url: assets/3-the-style-edit/cover.jpg

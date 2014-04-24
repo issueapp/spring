@@ -1,7 +1,7 @@
 ---
-
+    category: Style
     title: A Holiday in Style
-    author_name: Jessica Chung
+    author_name: Jysla Kay
     author_icon: assets/jysla-avatar.png
     byline: Jessica from Jysla Kay
     

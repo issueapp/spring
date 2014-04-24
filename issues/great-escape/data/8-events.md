@@ -12,50 +12,52 @@
       content_align: left
 
     links:
-      - title: Melbourne Food and Wine Festival 
-        image_url: http://www.australia.com/campaigns/eventscalendar/data/images/lrg/m03-02.jpg
-        summary: Indulge your taste buds with a world class program of over 300 culinary events filling Melbourne’s maze of hidden laneways, as well spectacular regional Victoria.
-        url: http://www.melbournefoodandwine.com.au/
-
-      - title: Sculptures by the Sea, Cottesloe 
-        summary: The stunning Cottesloe Beach will be transformed into a spectacular sculpture park, featuring more than 70 artists from Australia and across the world.
-        image_url: http://www.australia.com/campaigns/eventscalendar/data/images/lrg/m03-07.jpg
-        url: http://www.sculpturebythesea.com/exhibitions/cottesloe.aspx
-
-      - title: Opera on Sydney Harbour
-        summary: Indulge your love of opera performed on a shimmering stage on the waters of Sydney Harbour.
-        image_url: http://www.australia.com/campaigns/eventscalendar/data/images/lrg/m04-01.jpg 
-        url: http://opera.org.au/whatson/events/operaonsydneyharbour
-
-      - title: BMW Sydney Carnival 
-        summary: Experience the thrill of world-class racing, stunning fashion and fantastic entertainment at the Sydney Carnival.
-        image_url: http://www.australia.com/campaigns/eventscalendar/data/images/lrg/m04-07.jpg 
-        url: http://www.sydney.com/events/the-bmw-sydney-carnival
-
-      - title: Sydney Royal Easter Show
-        summary: Enjoy Australia’s agricultural heritage with great food, wine and carnival rides for the whole family.
-        image_url: http://www.australia.com/campaigns/eventscalendar/data/2013/lrg/m03-01.jpg 
-        url: http://www.eastershow.com.au/
-
-      - title: The Horizontal Falls
-        summary: Witness a spectacular phenomena of the Kimberley coast in Western Australia as seawater rushes through the narrow gorges.
-        image_url: http://www.australia.com/campaigns/eventscalendar/data/images/lrg/m03-10.jpg 
-        url: http://www.australia.com/nationallandscapes/the-kimberley.aspx?pagenotfound=/campaigns/nationallandscapes/thekimberley.htm 
-
-      - title: Aussie Wine Month
-        summary: Taste the quality and diversity of Australian wines from over 60 designated wine regions.
-        image_url: http://www.australia.com/campaigns/eventscalendar/data/images/lrg/m04-02.jpg 
-        url: http://www.wineaustralia.net.au/en/aussie-wine-month-2014.aspx 
-
       - title: Rosemount Australian Fashion Week, Sydney 
         summary: Get a sneak peek of the next spring/summer trends and be amongst Australia’s style-setters and celebrities before you claim your reserved seat next to the runaway.
-        image_url: http://wac.3e65.edgecastcdn.net/803E65/sydney/cdnzzz/560-274-aHR0cDovL2NvbmNyZXRlcGxheWdyb3VuZC5jb20uYXUvX3NuYWNrcy93cC1jb250ZW50L3VwbG9hZHMvMjAxMS8wNC81MTQyMDAtcmFmdy0yMDEwLWdhcnktYmlnZW5pLmpwZw==.jpg 
+        image_url: assets/8-events-calendar/rosemount.jpg
         url: http://sydney.concreteplayground.com.au/event/18754/rosemount-australian-fashion-week.htm 
-
+        
+      - title: Noosa International Food & Wine Festival, Queensland 
+        summary: The festival features a line-up of more than 200 leading international and national chefs, iconic winemakers, high profile food and wine media, restaurateurs and serious food lovers, who converge on the seaside setting of Noosa to taste, talk and indulge over four days. 
+        image_url: assets/8-events-calendar/food-wine.jpg
+        url: http://www.australia.com/explore/australian-events/food-wine-events.aspx
+        
       - title: Vivid Sydney 
         summary: Delight in a festival which transforms Sydney into a spectacular canvas of light and music.
-        image_url: http://www.australia.com/campaigns/eventscalendar/data/images/lrg/m05-06.jpg 
-        url: http://www.vividsydney.com/ 
+        image_url: assets/8-events-calendar/vivid.jpg
+        url: http://www.australia.com/explore/australian-events/major-events.aspx
+        
+      - title: Sydney Film Festival 
+        summary: One of the world's longest-running film festival. The 12-day festival screens more than 100 feature films, documentaries, short films and animation from more than 50 countries around the world and in almost as many languages.
+        image_url: assets/8-events-calendar/sydney-film.jpg
+        url: http://www.australia.com/explore/australian-events/art-events.aspx
+        
+      - title: Wildflowers in Bloom, Western Australia
+        summary: You can see a multitude of native Australian wildflowers bloom in a vivid spectacle across the landscape. More than 12,000 species of wildflower can be seen blooming across Western Australia, including hundreds of species of delicate orchids
+        image_url: assets/8-events-calendar/wildflowers.jpg
+        url: http://www.australia.com/explore/australian-events/natural-events.aspx
+        
+      - title: City of Perth Winter Arts Season 
+        summary: The season combines a world-class selection of events and performances including theatre, film, comedy, opera, literature, dance, visual arts, poetry, cabaret and a range of free and family events. There are more than 150 events from more than 60 participating arts organisations. 
+        image_url: assets/8-events-calendar/winter-arts.jpg
+        url: http://www.australia.com/explore/australian-events/art-events.aspx
+        
+      - title: Melbourne International Art Fair 
+        summary: Melbourne Art Fair is an exhibition of leading contemporary art, presented by more than 80 selected national and international galleries. The biennial event features paintings, sculpture, photography, installation and multi-media art works from over 900 artists.
+        image_url: assets/8-events-calendar/melbourne-fair.jpg
+        url: http://www.australia.com/explore/australian-events/art-events.aspx
+        
+      - title: Fireside Festival 
+        summary: The Fireside Festival is full of warming Southern Hemisphere winter experiences; from degustation dinners and wine tastings to performances. At various venues around Canberra, you can sip on exquisite cool climate wines, taste the delicacies from the region, meet passionate local artists, or just relax in front of an open fire.
+        image_url: assets/8-events-calendar/canberra.jpg
+        url: http://www.australia.com/explore/australian-events/art-events.aspx
+        
+      - title: Junction Arts Festival
+        summary: Junction Arts Festival is an annual arts festival that fills up Launceston’s CBD with playful, contemporary art and performance that invite the audience to take part. Held over five days and nights, the festival features over 50 free unique audience experience. Events include live performance, theatre, visual and media art, literature, music and dance from leading local, national and international artists. 
+        image_url: assets/8-events-calendar/tasmania.jpg
+        url: http://www.australia.com/explore/australian-events/art-events.aspx
+        
+        
 
 ---
 <style>
@@ -219,59 +221,58 @@
 
 <div id="event-month-list" class="content col x4">
   <h1 class="event-title">{{ title }}</h1>
-  <h2 class="event-month">MARCH-APRIL</h2>
+  <h2 class="event-month">MAY-JUNE</h2>
   <ol class="event-list">
     <li>
-      <h3>Melbourne Food and Wine Festival </h3>
-      <date>28 Feb-16 Mar</date>
-      <address>Melbourne, VIC</address>
+      <h3>Rosemount Australian Fashion Week</h3>
+      <date>2 - 6 May</date>
+      <address>SYDNEY, NSW</address>
     </li>
 
     <li>
-      <h3>Sculptures by the Sea</h3>
-      <date>7-24 Mar</date>
-      <address>Cottlesloe Beach, WA</address>
+      <h3>Noosa International Food & Wine Festival</h3>
+      <date>May</date>
+      <address>Noosa, QSLD</address>
     </li>
 
     <li>
-      <h3>Opera on Sydney Harbour</h3>
-      <date>21 Mar-12 Apr</date>
+      <h3>Vivid</h3>
+      <date>June</date>
       <address>Sydney, NSW</address>
     </li>
-
     <li>
-      <h3>BMW Sydney Carnival </h3>
-      <date>22 Mar-26 Apr</date>
+      <h3>Sydney Film Festival</h3>
+      <date>June</date>
       <address>Sydney, NSW</address>
+    </li>
+    <li>
+      <h3>Wildflowers in Bloom</h3>
+      <date>June-Nov</date>
+      <address>Western Australia</address>
     </li>
   </ol>
 
-  <h2 class="event-month">APRIL-MAY</h2>
+  <h2 class="event-month">JUNE-JULY</h2>
   <ol class="event-list" start="5">
     <li>
-      <h3>Sydney Royal Easter Show</h3>
-      <date>10 - 23 Apr</date>
+      <h3>City of Perth Winter Arts Season</h3>
+      <date>June-August</date>
       <address>Perth, WA</address>
     </li>
     <li>
-      <h3>The Horizontal Falls </h3>
-      <date>Mar - May</date>
-      <address>Talbot Bay, WA</address>
+      <h3>Melbourne International Art Fair</h3>
+      <date>August</date>
+      <address>Melbourne, VIC</address>
     </li>
     <li>
-      <h3>Aussie Wine Month</h3>
-      <date>1-30 Apr</date>
-      <address>Australia-wide</address>
+      <h3>Fireside Festival</h3>
+      <date>August</date>
+      <address>Canberra, ACT</address>
     </li>
     <li>
-      <h3>Rosemount Australian Fashion Week, Sydney </h3>
-      <date>2-6 May</date>
-      <address>Circular Quay, Sydney NSW</address>
-    </li>
-    <li>
-      <h3>Vivid Sydney</h3>
-      <date>May</date>
-      <address>Sydney, NSW</address>
+      <h3>Junction Arts Festival</h3>
+      <date>August</date>
+      <address>Launceston, Tasmania</address>
     </li>
   </ol>
 </div>
