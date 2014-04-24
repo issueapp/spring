@@ -1,5 +1,5 @@
 ---
-    category: "Calafornian Style"
+    category: "Californian Style"
     title: Chronicles of Adventure
     author_name: Taylor Stitch
     

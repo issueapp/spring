@@ -1,5 +1,6 @@
 ---
 
+    category: Destination
     title: Coastal Escape 
     byline: Aubrey from The Love Assembly
     author_name: Aubrey
