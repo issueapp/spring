@@ -1,5 +1,4 @@
 ---
-
     title: End
     
     thumb_url: assets/7-end/thumb.jpg

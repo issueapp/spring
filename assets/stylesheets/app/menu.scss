@@ -24,7 +24,7 @@ nav#menu {
 
   // Bottom
   .bottom {
-    @include box-sizing(border-box);
+    box-sizing: border-box;
 
     width: $menu-width;
     position: absolute;
@@ -182,7 +182,7 @@ nav#menu {
   .bottom             - user, settings icon aligned to the bottom
 */
 #menu .nav > li {
-  @include box-sizing(border-box);
+  box-sizing: border-box;
   display: block;
   height: 60px;
   line-height: 60px;

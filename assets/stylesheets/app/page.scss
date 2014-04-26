@@ -1,5 +1,5 @@
 .page {
-  @include box-sizing(border-box);
+  box-sizing: border-box;
   white-space: normal;
 }
 
@@ -45,7 +45,7 @@ article.page {
 
   // Cover area for image/video
   .cover-area {
-    @include box-sizing(border-box);
+    box-sizing: border-box;
     position: relative;
     min-height: 400px;
     width: 100%;
@@ -97,7 +97,7 @@ article.page {
   // Content Style
 
   .content {
-    @include box-sizing(border-box);
+    box-sizing: border-box;
     float: none;
     padding: 15px;
     vertical-align: middle;
@@ -132,7 +132,7 @@ article.page {
   big { font-size: 120% }
   
   header {
-    @include box-sizing(border-box);
+    box-sizing: border-box;
     position: relative;
     margin: 0 0 2% 0px;
     padding: 0;
@@ -314,7 +314,7 @@ article.page {
 
   .video-wrapper {
     position: relative;
-    @include box-sizing(border-box);
+    box-sizing: border-box;
     
     // Force webkit to render
     -webkit-transform: translate3d(0, 0, 0);
@@ -587,7 +587,7 @@ article.page.toc {
   }
 
   .menu li {
-    @include box-sizing(border-box);
+    box-sizing: border-box;
     padding: 20px;
   }
 
@@ -664,7 +664,7 @@ article.page.has-product {
     Product set
 */
 .product-set {
-  @include box-sizing(border-box);
+  box-sizing: border-box;
   margin: 0 0 20px 0;
   padding: 0;
   height: 88%;
@@ -677,7 +677,7 @@ article.page.has-product {
   position: relative;
   display: inline-block;
 
-  @include box-sizing(border-box);
+  box-sizing: border-box;
   padding: 5px 0;
   height: 33%;
   vertical-align: middle;

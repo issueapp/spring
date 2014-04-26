@@ -79,11 +79,12 @@ class LocalIssue::Page < Hashie::Mash
     end
     
     # Add cover url into images
-    if cover = attributes["cover_url"]
+    if attributes["cover_url"]
       attributes["images"].unshift(
-        "url" => cover,
-        "thumb_url" => attributes["thumb_url"], 
-        "cover" => true 
+        "caption"   => attributes["cover_caption"],
+        "url"       => attributes["cover_url"],
+        "thumb_url" => attributes["thumb_url"],
+        "cover"     => true
       )
     end
     
@@ -103,28 +104,14 @@ class LocalIssue::Page < Hashie::Mash
     
     content = RDiscount.new(content).to_html + script_and_style
     
-    # # doc.search requires valid HTML (markdown doesn't work)
-    # doc = Nokogiri::HTML.fragment(content)    
-    # 
-    # # Swap data-media-id
-    # doc.search("[data-media-id]").each do |node|
-    #   asset, index = node["data-media-id"].split(":")
-    #   index = index.to_i - 1
-    #   
-    #   if attributes[asset] && attributes[asset][index]
-    #     node["src"] = attributes[asset][index]["url"]
-    #   end
-    # end
-    # 
-    # content = doc.to_s
-    
+    # Layout
     if options[:layout]
       attributes["layout"].merge!(options[:layout])
     end
-
+    
     attributes.merge!(
       "handle"          => path.gsub("data/", '').gsub(".md", ''),
-      "published_at"    => attributes["published_at"] || File.mtime(path).to_i,
+      # "published_at"    => attributes["published_at"] || File.mtime(path).to_i,
       "layout"          => attributes.fetch("layout", {}),
       "content"         => content
     )

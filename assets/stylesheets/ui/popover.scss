@@ -39,7 +39,7 @@ div.popover {
   $dark-border-down-color: #1d1d1d;
 
   @include clearfix;
-  @include box-sizing(border-box);
+  box-sizing: border-box;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -94,7 +94,7 @@ div.popover {
   }
 
   .content {
-    @include box-sizing(border-box);
+    box-sizing: border-box;
     overflow: scroll;
     margin: 0 -20px 0;
     padding: 10px 20px 40px;
@@ -699,7 +699,7 @@ div.popover {
 //
 //
 //.product-popover {
-//  @include box-sizing(border-box);
+//  box-sizing: border-box;
 //  display: block;
 //  position: fixed;
 //  left: 0;

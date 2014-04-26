@@ -82,3 +82,16 @@ $(document).on "page:change", ->
     page_id: $("[data-page-id]").data("page-id"),
     author: $("[data-author]").data("author")
   )
+
+
+###
+  
+  Ajax start/stop loading indicators
+  
+###
+  
+$(document).on "ajaxStart", -> 
+  App.trigger("loading:start")
+  
+$(document).on "ajaxStop", -> 
+  App.trigger("loading:stop")

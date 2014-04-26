@@ -189,7 +189,7 @@
   }
   
   input.search {
-    @include box-sizing(border-box);
+    box-sizing: border-box;
     background: #333;
     color: white;
     border-color: transparent;
