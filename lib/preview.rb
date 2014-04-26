@@ -93,8 +93,12 @@ class IssuePreview < Sinatra::Base
   get %r{/(?<magazine>[^\/]+)/(?<issue>[^\/]+)/(?<page>[^\/]+)(?:\/(?<subpage>[^\/]+))?} do
     issue = current_issue
     path = [params["page"], params["subpage"]].compact.join('/')
-    page = LocalIssue::Page.find(path)
-
+    
+    asset_formatter = lambda do |asset|
+      asset.each{|key, value| asset[key] = asset_path(value) if key =~ /url$/ }
+    end
+    page = LocalIssue::Page.find(path, issue_path: issue.path, format_asset: asset_formatter)
+    
     erb page_template(page), locals: { issue: issue, page: page }, layout: !request.xhr? && :"/layouts/_app.html"
   end
 

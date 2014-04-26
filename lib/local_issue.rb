@@ -48,7 +48,7 @@ class LocalIssue < Hashie::Mash
   
   def items  
     self[:pages].to_a.map do |handle|
-      LocalIssue::Page.find(handle, self.path).tap do |p|
+      LocalIssue::Page.find(handle, issue_path: self.path).tap do |p|
         if p.handle == "index"
           p.thumb_url = self.thumb_url
           p.cover_url = self.cover_url
