@@ -14,6 +14,11 @@ class LocalIssue::Page < Hashie::Mash
   # virtual
   # cover -> images.where(cover:true)
   
+  # Page elements: media and entities
+  def self.elements
+    ["images", "audios", "videos", "products", "links"]
+  end
+    
   def self.index
     new(title: "Cover", handle: "index", thumb_url: "assets/background.jpg")
   end
@@ -29,21 +34,21 @@ class LocalIssue::Page < Hashie::Mash
     [index, toc].compact + pages
   end
   
-  def self.find(path, issue_path = nil)
+  def self.find(path, options = {})
     return index if path == "index"
-
-    if issue_path
+    
+    if issue_path = options[:issue_path]
       path = "#{issue_path}/data/#{path}.md"
     else
       path = "data/#{path}.md"
     end
         
     page_dir = Pathname(path).basename(".md")
-    page = self.build(path)
+    page = self.build(path, options)
     
     page.handle = page.handle.gsub(issue_path.to_s, "").gsub(/^\//, "")
     
-    page.children = self.recursive_build("data/#{page_dir}")
+    page.children = self.recursive_build("data/#{page_dir}", {}, options)
     page
   
    end
@@ -56,24 +61,62 @@ class LocalIssue::Page < Hashie::Mash
       source = source.force_encoding('binary')
     end
     
-    meta, content = source.split(/---\s?\n(.+?)---\n/nm)[1,2]
-
     ## Build attributes from YAML
+    meta, content = source.split(/---\s?\n(.+?)---\n/nm)[1,2]
     attributes = meta ? YAML.load(meta) : {}
+    
+    # Format attribute
+    if attributes["products"]
+      attributes["products"].each_with_index {|p, i| p["index"] = i + 1 }
+    end
+    
+    # Convert media and entity url array into hash
+    self.elements.each do |element|
+      attributes[element] = attributes[element].to_a.map do |object|
+        object = { "url" => object } if object.is_a?(String)
+        object
+      end
+    end
+    
+    # Add cover url into images
+    if cover = attributes["cover_url"]
+      attributes["images"].unshift(
+        "url" => cover,
+        "thumb_url" => attributes["thumb_url"], 
+        "cover" => true 
+      )
+    end
+    
+    # Custom Callback to format asset for app page elements
+    if formatter = options[:format_asset]
+      self.elements.each do |element|
+        attributes[element] = attributes[element].to_a.map(&formatter)
+      end
+    end
     
     # Render content part
     content = Mustache.render(content.to_s.strip, attributes)
-    doc     = Nokogiri::HTML(content)
     
-    if content
-      content = RDiscount.new(content).to_html + doc.search('style')[0].to_s + doc.search('script')[0].to_s
-    end
+    # Get script/style tag
+    doc = Nokogiri::HTML.fragment(content)
+    script_and_style = doc.search('style')[0].to_s + doc.search('script')[0].to_s
     
-    if products = attributes["products"]
-      products.each_with_index do |product, i|
-        product["index"] = i + 1
-      end
-    end
+    content = RDiscount.new(content).to_html + script_and_style
+    
+    # # doc.search requires valid HTML (markdown doesn't work)
+    # doc = Nokogiri::HTML.fragment(content)    
+    # 
+    # # Swap data-media-id
+    # doc.search("[data-media-id]").each do |node|
+    #   asset, index = node["data-media-id"].split(":")
+    #   index = index.to_i - 1
+    #   
+    #   if attributes[asset] && attributes[asset][index]
+    #     node["src"] = attributes[asset][index]["url"]
+    #   end
+    # end
+    # 
+    # content = doc.to_s
     
     if options[:layout]
       attributes["layout"].merge!(options[:layout])
@@ -81,7 +124,6 @@ class LocalIssue::Page < Hashie::Mash
 
     attributes.merge!(
       "handle"          => path.gsub("data/", '').gsub(".md", ''),
-      "products"        => products,
       "published_at"    => attributes["published_at"] || File.mtime(path).to_i,
       "layout"          => attributes.fetch("layout", {}),
       "content"         => content
@@ -89,13 +131,13 @@ class LocalIssue::Page < Hashie::Mash
     new(attributes)
   end
 
-  def self.recursive_build(start_path, cache = {})
+  def self.recursive_build(start_path, cache = {}, options = {})
     Dir.glob("#{start_path}/*").map do |path|
       if File.directory?(path)
         page = cache[path + '.md'] = build(path + '.md')
-        page.children = children = recursive_build(path, cache)
+        page.children = children = recursive_build(path, cache, options)
       elsif !cache[path]
-         page = cache[path] = build(path)
+         page = cache[path] = build(path, options)
       else
         page = cache[path]
       end

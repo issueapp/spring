@@ -5,9 +5,8 @@
     thumb_url: assets/7-end/thumb.jpg
     cover_url: assets/7-end/p1.jpg
     
-    nav: false
-        
     layout:
+      nav: false
       image_style: background
       content_style: black
       content_height: full
@@ -51,5 +50,5 @@
 
 
 <a href="http://minkpink.com/" title="Visit Minkpink" target="_blank">
-  <img id="image" src="assets/7-end/p1-1.png" alt="">
+  <img id="image" data-media-id="images:1" src="assets/7-end/p1-1.png" alt="">
 </a>

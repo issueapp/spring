@@ -30,9 +30,10 @@ gem "rdiscount" # Markdown
 # gem "less"
 #
 group :development, :test do
-
+  gem "rspec"
   gem "guard-jasmine"
   gem "guard-pow"
   # gem "jasminerice", github: "bradphelan/jasminerice"
   # gem "jquery-rails"
 end
+
