@@ -12,7 +12,7 @@
   ======================================================*/
 
 .col {
-  @include box-sizing(border-box);
+  box-sizing: border-box;
   position: relative;
   width: 100%;            // this should be default
   height: 100%;          /* // why*/
@@ -29,7 +29,7 @@
 }
 
 .row {
-  @include box-sizing(border-box);
+  box-sizing: border-box;
   clear: both;
   position: relative;
 

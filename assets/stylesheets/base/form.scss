@@ -11,7 +11,7 @@ form {
   // Form grid
 
   input.col, .col {
-    @include box-sizing(border-box);
+    box-sizing: border-box;
     position: relative;
 //    padding-bottom: 1.2em;
     margin-bottom: 1em;
@@ -78,7 +78,7 @@ form {
     vertical-align: top;
     border-radius: 2px;
     box-shadow: 1px 1px 2px #eee inset;
-    @include box-sizing(border-box);
+    box-sizing: border-box;
 
   }
 
@@ -173,7 +173,7 @@ form {
 ================================================*/
 
 div.notification {
-  @include box-sizing(border-box);
+  box-sizing: border-box;
   position: fixed;
   top: 30%;
   left: 50%;

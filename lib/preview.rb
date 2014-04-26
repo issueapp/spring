@@ -34,7 +34,7 @@ class IssuePreview < Sinatra::Base
 
   get '/magazines.json' do
     @issues = LocalIssue.all.each do |i|
-      i.background_url = "/issues/#{issue_path}/#{i.background_url}"
+      i.cover_url = "/issues/#{issue_path}/#{i.cover_url}"
       i.url = "/issues/#{issue_path}/"      
     end
     
@@ -107,7 +107,7 @@ class IssuePreview < Sinatra::Base
   def current_issue
     @issue = LocalIssue.find("#{params[:magazine]}/#{params[:issue]}")
 
-    apply_asset_path! @issue, :background_url, :background_large_url
+    apply_asset_path! @issue, :thumb_url, :cover_url
     @issue
   end
   

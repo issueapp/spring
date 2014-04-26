@@ -3,7 +3,7 @@
 
 
 [role=main] {
-  @include box-sizing(border-box);
+  box-sizing: border-box;
   z-index: 1;
 
   & > .content {
@@ -62,7 +62,7 @@ header.page-head {
   }
 
   hgroup {
-    @include box-sizing(border-box);
+    box-sizing: border-box;
     padding: 0 20px;
     width: 100%;
   }

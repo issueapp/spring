@@ -11,7 +11,7 @@
 }
 
 .modal {
-  @include box-sizing(border-box);
+  box-sizing: border-box;
   position: fixed;
   top: 0;
   right: 0;
@@ -54,7 +54,7 @@
 
   // Responsive desktop
   @include min-screen(768) {
-    @include box-sizing(border-box);
+    box-sizing: border-box;
     width: 100%;
     left: 50%;
     top: 50%;
