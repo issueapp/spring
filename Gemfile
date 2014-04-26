@@ -15,9 +15,12 @@ gem "hashie"
 gem "mime-types"
 # gem "actionpack", "~> 3.2"
 # # gem "railties",   "~> 3.2"
-gem "nokogiri"
-#
+
+gem "activesupport"
+gem "hashie"
+
 # # Markdown and Textile
+gem "nokogiri"
 gem "mustache"
 gem "rdiscount" # Markdown
 # gem "RedCloth"  # Textile
@@ -33,6 +36,7 @@ group :development, :test do
   gem "rspec"
   gem "guard-jasmine"
   gem "guard-pow"
+  gem "awesome_print"
   # gem "jasminerice", github: "bradphelan/jasminerice"
   # gem "jquery-rails"
 end
