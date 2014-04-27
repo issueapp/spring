@@ -7,7 +7,7 @@
     
     
     cover_url: assets/winter-wonderment/cover.jpg
-    thumb_url: assets/winter-wonderment/background.jpg
+    thumb_url: assets/winter-wonderment/autumn-season.png
     
     content_type: video  
     embed_content: '<video src="assets/winter-wonderment/Dissolve-042-17A042-016.mov" contorls autoplay></video>'
