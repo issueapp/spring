@@ -1,10 +1,10 @@
 ---
     category: "Californian Style"
-    title: Chronicles of Adventure
+    title: High Altitude Exploration 
     author_name: Taylor Stitch
     
-    thumb_url: assets/taylor-stitch/taylorstitch-cover.jpg 
-    cover_url: assets/taylor-stitch/taylorstitch-cover.jpg
+    thumb_url: assets/taylor-stitch/taylor-stitch1.jpg 
+    cover_url: assets/taylor-stitch/taylor-stitch1.jpg
 
     layout:
       type: one-column
