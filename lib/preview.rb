@@ -82,7 +82,8 @@ class IssuePreview < Sinatra::Base
 
   # Cache assets for 1H (cloudfront)
   get "/:magazine/:issue/assets/*" do
-    response.headers['Cache-Control'] = 'public, max-age=3600'
+    # response.headers['Cache-Control'] = 'public, max-age=3600'
+    # 
     file = params[:splat].first
     asset = sprockets[file]
     path = asset.pathname.to_s
