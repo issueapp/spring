@@ -34,46 +34,6 @@
         hidden: true
 
 ---
-<style>
-  article[data-page="2-head-or-heart"] header {
-    height: 60%;
-  }
-
-  article[data-page="2-head-or-heart"] .title {
-    background: url(assets/2-head-or-heart/cover-heading.svg) no-repeat;
-    background-size: contain;
-    color: transparent;
-    min-height: 140px;
-  }
-
-  article[data-page="2-head-or-heart"] .body {
-    font-family: "proxima-nova";
-  }
-
-  big { font-size: 120% }
-/*  p > span { font-style: normal; }*/
-
-  #header-image {
-    position: relative;
-    margin-left: -93px;
-    max-width: initial;
-    width: 310px;
-  }
-
-  @media only screen and (min-width: 768px) {
-    article[data-page="2-head-or-heart"] header .title {
-      position: absolute;
-      top: 15%;
-      height: 100%;
-      width: 100%;
-    }
-
-    article[data-page="2-head-or-heart"] .body {
-      position: relative;
-    }
-  }
-</style>
-
 IN NEED OF A STYLE UPDATE?
 WELL WHAT BETTER TIME
 THAN RIGHT NOW! INSPIRE
