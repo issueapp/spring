@@ -19,31 +19,6 @@
       content_overflow: paginate
 
 ---
-<style>
-  #s6-behind-the-scene header {
-    padding-top: 15%;
-    
-    margin-left: 20px;
-    margin-right: 20px;
-  }
-  
-  #s6-behind-the-scene h1.title {
-    color: transparent;
-    background: url(assets/6-behind-the-scene/cover-heading.svg) no-repeat;
-    background-size: contain;
-    background-position: right;
-    height: 0;
-    padding-bottom: 28%;   
-  }
-  
-   #s6-behind-the-scene .description {
-     font-family: 'proxima-nova';
-     font-size: 18px;
-     margin-top: 0px;
-     text-align: right;
-   }
-</style>
-
 <video src="http://vimeo.com/84820598" data-media-id="videos:1">
 
 <div class="column-break"></div>

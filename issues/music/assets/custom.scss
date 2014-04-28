@@ -201,7 +201,7 @@ article.page {
 }
 
 /*
-    1. Table of content - Hide category label, only show them on products page
+    Table of content - Hide category label, only show them on products page
 */
 
 article.toc.page {
@@ -248,7 +248,7 @@ article.toc.page {
 }
 
 /* 
-  2.  Editor's letter
+  1.  Editor's letter
 */
 
 article[data-page=editors-letter] {
@@ -272,7 +272,7 @@ article[data-page=editors-letter] {
 }
 
 /*
-    3. Styling it out
+    2. Styling it out
 */
 
 article[data-page="1-styling-it-out"] {
@@ -315,7 +315,7 @@ article[data-page="1-styling-it-out"] {
 }
 
 /*
-    2. Head or heard
+   3. Head or heard
 */
 
 article[data-page="2-head-or-heart"] {
@@ -353,7 +353,7 @@ article[data-page="2-head-or-heart"] {
 }
 
 /*
-    3. Shop the shoot
+    4. Shop the shoot
 */
 article[data-page="3-shop-the-shoot"] {
   
@@ -373,6 +373,247 @@ article[data-page="3-shop-the-shoot"] {
 }
 
 
+/*
+    5. Beauty
+*/
+article[data-page="4-beauty"] {
+  
+  .content header {
+    display: none;
+  }
+  
+  #uncovered {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 120px;
+  }
+
+  .product-set {
+    margin: -20% 0 -10%;
+    background-image: url('4-beauty/product-bg.png');
+    background-position: center;
+    background-size: 110%;
+  }
+  
+  .product-set li img {
+    visibility: hidden;
+  }
+
+  .product-set .hotspot {
+    display: block;
+  }
+
+  .product-set li:nth-child(1) .hotspot {
+    margin-top: 75px;
+  }
+
+  .product-set li:nth-child(2) .hotspot {
+    margin-top: -80px;
+  }
+
+  .product-set li:nth-child(3) .hotspot {
+    margin-top: 0;
+  }
+
+  .product-set li:nth-child(4) .hotspot {
+    margin-top: -130px;
+  }
+
+  .product-set li:nth-child(5) {
+    margin-top: -12%;
+    margin-left: 50%;
+  }
+
+  .product-set li:nth-child(5) .hotspot {
+    margin-top: -80px;
+  }
+
+  @media only screen and (min-width: 768px) {
+    #uncovered {
+      position: absolute;
+      right: initial;
+      left: 0;
+      width: 33%;
+    }
+  }
+  
+  @media only screen and (min-width: 768px) and (orientation: portrait) {
+    &.cover-left .content {
+      height: auto;
+    }
+
+    .content {
+      width: 100%;
+    }
+
+    .cover-area {
+      height: 50%;
+      width: 100%;
+    }
+
+    .product-set {
+      margin-top: -10%;
+      width: 40%;
+      float: left;
+    }
+
+    .body {
+      margin-left: 10%;
+      width: 50%;
+      float: left;
+    }
+  
+    .product-set li:nth-child(5) {
+      margin-left: 96px;
+    }
+
+    .product-set li:nth-child(5) .hotspot {
+      margin-top: -34px;
+    }
+  }
+  
+}
+
+article.page[data-page="4-beauty/1"].has-product {
+  
+  .product-set {
+    position: relative;
+    top: initial;
+    left: initial;
+    margin: 0;
+    padding: 0;
+  }
+
+  .product-set.set-4 li {
+    width: 100%;
+    height: 160px;
+  }
+
+  @media only screen and (min-width: 768px) {
+    .product-set {
+      margin: 0 -30px 0 -10px;
+      height: 100%;
+      width: 120%;
+    }
+
+    .product-set li {
+      height: 33%;
+    }
+  }
+  
+  
+} 
+
+/*
+    6. Travel
+*/
+
+article[data-page="5-travel"] {
+  .title {
+    font-size: 0;
+    color: transparent;
+    background: url(5-travel/LETLOOSE.svg) no-repeat;
+    background-size: contain;
+    height: 230px;
+    margin-top: 50px;
+  /*    width: 500px;*/
+  }
+
+  .description {
+    font-size: 20px;
+    font-family: 'proxima-nova';
+    text-shadow: 1px 1px 10px rgba(0,0,0,0.5);
+  /*    width: 500px;*/
+  }
+
+  #header-image {
+    margin-left: -26px;
+    max-width: initial;
+    max-height: initial;
+    width: 700px;
+  }
+
+  .body p.description {
+    text-align: left;
+    font-weight: lighter;
+    font-size: 18px;
+    font-family: 'proxima-nova';
+  }
+}
+
+article[data-page="5-travel/1"] {
+
+  h3 {
+    font-family: "EB Garamond";
+    font-size: 16px;
+    font-style: italic;
+  }
+
+  .place {
+    font-weight: normal;
+    font-style: italic;
+    font-size: 18px;
+    text-decoration: none;
+    color: #333;
+  }
+
+  .place a {
+    font-weight: bold;
+  }
+
+
+  .content .subtitle {
+    font-style: normal;
+    font-size: 14px;   
+  }
+
+  .content .subtitle em {
+    color: #111;
+    font-size: 18px;
+  }
+  
+}
+
+/*
+    7. Behind the scene
+*/
+
+article[data-page="6-behind-the-scene"] {
+  
+  header {
+    padding-top: 15%;
+  
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  
+  h1.title {
+    color: transparent;
+    background: url(assets/6-behind-the-scene/cover-heading.svg) no-repeat;
+    background-size: contain;
+    background-position: right;
+    height: 0;
+    padding-bottom: 28%;   
+  }
+  
+  .description {
+    font-family: 'proxima-nova';
+    font-size: 18px;
+    margin-top: 0px;
+    text-align: right;
+  }
+  
+}
+
+article[data-page="6-behind-the-scene/1"] {
+  overflow-y: auto !important;
+}
+
+
+/*
+      Backcover
+*/
 article.page[data-page=backcover] {
   -webkit-backface-visibility: hidden;
   -webkit-perspective: 1000;
@@ -507,6 +748,147 @@ article.five-shades .product-set li:nth-child(even) .hotspot .tag {
 article.five-shades .product-set li:nth-child(3n) .hotspot .tag {
   -webkit-animation-delay: 2s;
   animation-delay: 2s;
+}
+
+
+
+/*
+    Polaroid
+*/
+
+.polaroid-wrap {
+  list-style: none;
+}
+
+article.page ul.polaroids {
+  padding: 0;
+  margin: 0;
+}
+
+figure.polaroid {
+  float: left;
+
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  
+  display: inline-block;
+
+  max-width: 48%;
+  max-height: 300px;
+  
+  display: inline;
+  float: left;
+  
+  margin: 0 -5% -10% 1%;
+  width: auto;
+  
+  font-size: 18px;
+  text-align: center;
+  font-family: "Marker Felt", sans-serif;
+  text-decoration: none;
+  color: #333;
+  
+  -webkit-transform: rotate(-2deg);
+  -webkit-transition: all .15s linear;
+  
+  -moz-transform: rotate(-2deg);
+  -moz-transition: all .15s linear;
+  
+  transition: all .15s linear;
+}
+
+figure.polaroid figcaption {
+  text-decoration: none;
+  text-align: center;
+}
+
+figure.polaroid img {
+  
+  width: 100%;
+  padding: 15px 15px 20px;
+  background: #fff;
+  box-shadow: 0 3px 6px rgba(0,0,0,.25);
+  
+  vertical-align: middle;
+  width: 100%;
+}
+
+.polaroid-wrap:hover figure {
+  -webkit-transform: scale(1.7);
+  -moz-transform: scale(1.7);
+  transform: scale(1.7);
+  position: relative;
+  z-index: 5;
+}
+
+@media only screen and (min-width: 768px) {
+  figure.polaroid {
+    max-width: 24%;
+    margin: 0 0% -5% 5%;
+    max-height: 25vw;
+  }
+
+  .polaroid-wrap:nth-child(3n+1) {
+    clear: both;
+  }
+}
+
+.polaroid-wrap:nth-child(even) {
+  -webkit-transform: rotate(3deg);
+  -moz-transform: rotate(3deg);
+  transform: rotate(3deg);
+}
+
+.polaroid-wrap:nth-child(5) {
+  -webkit-transform: none;
+  -moz-transform: none;
+  transform: none;
+  
+  position: relative;
+  top: -11vh;
+  left: 2vh;
+}
+
+.polaroid-wrap:nth-child(8) {
+  -webkit-transform: none;
+  -moz-transform: none;
+  transform: none;
+  
+  position: relative;
+  top: 5vh;
+  left: -2vh;
+}
+
+.polaroid-wrap:nth-child(4) figure {
+  clear: left;
+}
+
+.polaroid-wrap:nth-child(11) {
+  -webkit-transform: rotate(3deg);
+  -moz-transform: rotate(3deg);
+  transform: rotate(3deg);
+  
+  position: relative;
+  left: -2vh;
+}
+
+.polaroid-wrap:nth-child(12) {
+  -webkit-transform: none;
+  -moz-transform: none;
+  transform: none;
+  
+  position: relative;
+  left: 5vh;
+}
+
+.polaroid-wrap:nth-child(13) {
+  -webkit-transform: none;
+  -moz-transform: none;
+  transform: none;
+  
+  position: relative;
+  top: -8vh;
+  left: 2vh;
 }
 
 
