@@ -190,4 +190,12 @@ class IssuePreview < Sinatra::Base
       :"issue/_page.html"
     end
   end
+  
+  # def sprockets
+  #   if defined?(Rails)
+  #     Rails.application.assets
+  #   else
+  #     Sprockets::Environment.new
+  #   end
+  # end
 end
