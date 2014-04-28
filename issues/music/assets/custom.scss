@@ -355,7 +355,9 @@ article[data-page="2-head-or-heart"] {
 /*
     4. Shop the shoot
 */
-article[data-page="3-shop-the-shoot"] {
+article[data-page="3-shop-the-shoot"],
+article[data-page="3-shop-the-shoot/1"],
+article[data-page="3-shop-the-shoot/2"] {
   
   header .title {
   /*  margin-left: -28px;*/
@@ -590,7 +592,7 @@ article[data-page="6-behind-the-scene"] {
   
   h1.title {
     color: transparent;
-    background: url(assets/6-behind-the-scene/cover-heading.svg) no-repeat;
+    background: url("6-behind-the-scene/cover-heading.svg") no-repeat;
     background-size: contain;
     background-position: right;
     height: 0;
