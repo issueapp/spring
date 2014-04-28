@@ -50,9 +50,3 @@
       content_style: transparent
 
 ---
-
-<style type="text/css" media="screen">
-  article.page .cover-area {
-    background-position: top;
-  }
-</style>

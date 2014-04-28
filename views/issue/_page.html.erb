@@ -5,27 +5,13 @@
 
     @affiliate_urls[url] || url
   end
-
-  products = page.products.to_a.select{|p| !p.hotspot && !p.hidden }
-
-  hotspots = (page.products.to_a + page.links.to_a).select{|p| p.hotspot }.map do |p|
-    left, right, radius = p.hotspot.split(',').map(&:strip)
-    p.hotspot = {
-      left: left,
-      right: right,
-      radius:  radius
-    }
-    p
-  end
-
+  
   has_cover = page.cover_url && page.layout.image_style != "none"
-
-  has_product = products.to_a.count > 0
 %>
 <article id="s<%= page.handle.to_s.split('/').first %>" class="page
  <%= page.layout.type || 'two-column' %>
  <%= 'no-image ' unless has_cover %>
- <%= 'has-product ' if has_product %>
+ <%= 'has-product ' if page.product_set? %>
  <%= 'no-header ' unless page.title || page.description %>
  <%= 'no-content ' unless page.content %>
  <%= page.content_type %>
@@ -41,7 +27,7 @@
 
    <%= "height-#{page.layout.content_height || 'auto'}" %>
    <%= "image-#{page.layout.image_style}" if page.layout.image_style %>
-   <%= "cover-#{page.layout.image_align}" if has_product || page.layout.image_align && page.cover_url %>
+   <%= "cover-#{page.layout.image_align}" if page.product_set? || page.layout.image_align && page.cover_url %>
  <% end %>"
   
   data-theme="<%= page.theme %>"
@@ -59,7 +45,7 @@
       <div class='video-wrapper'><%= video_embed %></div>
     <% end %>
 
-    <% hotspots.each_with_index do |item, index| %>
+    <% page.hotspots.each_with_index do |item, index| %>
       <a href="<%= item.url %>" title="<%= item.title %>" class="hotspot image product" style="left: <%= item.hotspot.left %>px; top: <%= item.hotspot.right %>px;"><i class="tag"><%= index + 1 %></i></a>
     <% end %>
 
@@ -99,8 +85,8 @@
       </div>
     </header>
     <% end %>
-
-    <% if has_product %>
+    
+    <% if page.product_set? %>
       <ul class="<%= "cover-area" unless page.cover_url %> product-set <%= "set-#{(page.products.to_a.count/2.0).ceil*2}" %>">
       <% page.products.each_with_index do |product, index| %>
         <li>
@@ -113,7 +99,7 @@
       </ul>
     <% end %>
 
-    <% if page.cover_url || has_product %>
+    <% if page.cover_url || page.product_set? %>
       <p class='column-break'></p>
     <% end %>
 
@@ -121,7 +107,7 @@
       <p class='column-break'></p>
     <% end %>
 
-    <div class='body'><%= page.content %></div>
+    <div class='body'><%= render_page page %></div>
   </div>
 
   <% if page.credits %>

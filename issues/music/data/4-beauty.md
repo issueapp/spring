@@ -5,12 +5,15 @@
 
     thumb_url: assets/toc/4-beauty.jpg
     cover_url: assets/4-beauty/cover.jpg
-    custom_class: five-shades
 
     layout:
+      custom_class: five-shades
       type: three-column
       image_align: left
       content_style: transparent
+
+    images:
+      - url: assets/4-beauty/uncovered.png
 
     products:
 
@@ -52,7 +55,6 @@
 
   article[data-page="4-beauty"] .product-set {
     margin: -35% 0 -20%;
-
     background-image: url('assets/4-beauty/product-bg.png');
     background-position: center;
     background-size: 110%;
@@ -136,15 +138,7 @@
       width: 50%;
       float: left;
     }
-
-    /*    article[data-page="4-beauty"] #uncovered-description {
-          position: absolute;
-          bottom: 30px;
-          left: 15%;
-          margin-bottom: 20px;
-          padding: 20px;
-          width: 60%;
-        }*/
+    
     article[data-page="4-beauty"] .product-set li:nth-child(5) {
       margin-left: 96px;
     }
@@ -155,7 +149,7 @@
   }
 </style>
 
-<img id="uncovered" src="assets/4-beauty/uncovered.png" alt="">
+<img id="uncovered" src="assets/4-beauty/uncovered.png" data-media-id="images:1">
 
 <p id="uncovered-description">
   Want to know the secrets to

@@ -2,8 +2,16 @@
     title: The Final Word
     description: CP TALKS MUSIC AND SPILLS ON HER LATEST ALBUM 'HEAD OR HEART'
     
-    cover_url: assets/6-behind-the-scene/cover.jpg
     thumb_url: assets/toc/6-behind-the-scene.jpg
+    
+    videos:
+      - url: http://vimeo.com/84820598
+        thumb_url: assets/6-behind-the-scene/cover.jpg
+    
+    images:
+      - url: assets/6-behind-the-scene/content-images.jpg
+      - url: assets/1-styling-it-out/_MG_5433_1024@2x.jpg
+      - url: assets/6-behind-the-scene/cover-heading.svg
     
     layout:
       type: two-column
@@ -11,9 +19,7 @@
       content_overflow: paginate
 
 ---
-
 <style>
-  
   #s6-behind-the-scene header {
     padding-top: 15%;
     
@@ -38,10 +44,7 @@
    }
 </style>
 
-<figure class="video">
-  <img class="thumbnail" src="assets/6-behind-the-scene/cover.jpg" alt="" />
-  <iframe data-src="//player.vimeo.com/video/84820598?autoplay=1&amp;byline=0&amp;portrait=0" width="100%" style="display:none" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-</figure>
+<video src="http://vimeo.com/84820598" data-media-id="videos:1">
 
 <div class="column-break"></div>
 
@@ -53,7 +56,7 @@ Head or Heart is all about learning which gut instinct to trust. Do you go with 
 
 I’m pretty lucky on this...I got the chance to record in London, LA and New York, which was awesome because travelling and seeing new places is totally one of my favourite things – and a huge source of inspiration!
 
-<img src="assets/6-behind-the-scene/content-images.jpg">
+<img src="assets/6-behind-the-scene/content-images.jpg" data-media-id="images:1">
 
 <h4>Who produced the album?</h4>
 
@@ -63,4 +66,4 @@ I worked with a few producers on Head or Heart, including Butch Walker, John Hil
 
 Actually yes, there are a couple! I worked with Jack Antanoff from the band FUN as well as Ed Sheeran which was so exciting! They’re both super talented guys and I absolutely adore them – I can’t wait for people to hear the tracks!
 
-<img src="assets/1-styling-it-out/_MG_5433_1024@2x.jpg">
+<img src="assets/1-styling-it-out/_MG_5433_1024@2x.jpg" data-media-id="images:2">

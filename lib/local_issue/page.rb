@@ -46,16 +46,15 @@ class LocalIssue::Page < Hashie::Mash
     page_dir = Pathname(path).basename(".md")
     page = self.build(path, options)
     
-    page.handle = page.handle.gsub(issue_path.to_s, "").gsub(/^\//, "")
-    
     page.children = self.recursive_build("data/#{page_dir}", {}, options)
+    
     page
-  
    end
   
   # Load markdown file into memory
   def self.build(path, options = {})
     source = open(path).read
+    issue_path = options[:issue_path]
     
     if "1.9".respond_to? :encoding
       source = source.force_encoding('binary')
@@ -80,7 +79,7 @@ class LocalIssue::Page < Hashie::Mash
     
     # Add cover url into images
     if attributes["cover_url"]
-      attributes["images"].unshift(
+      attributes["images"].push(
         "caption"   => attributes["cover_caption"],
         "url"       => attributes["cover_url"],
         "thumb_url" => attributes["thumb_url"],
@@ -110,7 +109,7 @@ class LocalIssue::Page < Hashie::Mash
     end
     
     attributes.merge!(
-      "handle"          => path.gsub("data/", '').gsub(".md", ''),
+      "handle"          => path.gsub("#{issue_path}/data/", '').gsub(".md", ''),
       # "published_at"    => attributes["published_at"] || File.mtime(path).to_i,
       "layout"          => attributes.fetch("layout", {}),
       "content"         => content
@@ -119,16 +118,36 @@ class LocalIssue::Page < Hashie::Mash
   end
 
   def self.recursive_build(start_path, cache = {}, options = {})
-    Dir.glob("#{start_path}/*").map do |path|
+    issue_path = options[:issue_path]
+    
+    Dir.glob("#{issue_path}/#{start_path}/*").map do |path|
+      # path.gsub!(issue_path.to_s + "/", '')
+      
       if File.directory?(path)
-        page = cache[path + '.md'] = build(path + '.md')
+        page = cache[path + '.md'] = build(path + '.md', options)
         page.children = children = recursive_build(path, cache, options)
+        
       elsif !cache[path]
          page = cache[path] = build(path, options)
+         
       else
         page = cache[path]
       end
       page
+    end
+  end
+  
+  def product_set?
+    products.to_a.select{|p| p.hotspot != false }.length > 0
+  end
+  
+  def hotspots
+    products = products.to_a.select{|p| !p.hotspot }
+    
+    hotspots = (products.to_a + self.links.to_a).select{|p| p.hotspot }.map do |p|
+      left, right, radius = p.hotspot.split(',').map(&:strip)
+      p.hotspot = { left: left, right: right, radius: radius }
+      p
     end
   end
   
