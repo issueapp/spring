@@ -38,6 +38,7 @@
 
 */
 article.page {
+  display: block;
   position: relative;
   margin: 0 auto;
   text-align: center;
@@ -80,6 +81,10 @@ article.page {
         left: 0;
         background: rgba(0,0,0,0.1);
         content: none;
+      }
+      
+      .video-wrapper {
+        height: 100%;
       }
     }
 
@@ -133,6 +138,7 @@ article.page {
   
   header {
     box-sizing: border-box;
+    
     position: relative;
     margin: 0 0 2% 0px;
     padding: 0;
@@ -185,7 +191,7 @@ article.page {
     position: relative;
     margin: 0.25em auto;
     padding: 0.5em 10px 0.25em 25px;
-    max-width: 500px;
+    max-width: 600px;
     font-style: italic;
     font-size: 18px;
     font-family: Georgia, serif;
@@ -308,7 +314,10 @@ article.page {
     line-height: 1.6;
   }
 
-  video {
+  figure video {
+    width: 100%;
+    position: absolute;
+    top: 0;
     -webkit-transform-style: preserve-3d;
   }
 
@@ -329,11 +338,6 @@ article.page {
       left: 0;
       width: 100%;
       height: 100%;
-    }
-    
-    .cover-area & {
-      height: 100%;
-      padding: 0;
     }
   }
   
@@ -380,7 +384,7 @@ article.page {
       position: absolute;
       z-index: 999;
       text-shadow: 0 0 3px rgba(0,0,0,0.4);
-      font-size: 10vh;
+      font-size: 10vmin;
       color: white;
       top: 30%;
       left: 0;
@@ -437,7 +441,7 @@ article.page {
   }
 
   &.white .content {
-    background: rgba(255, 255, 255,0.9);
+    background: #fff;
   }
 
   &.top .content {
@@ -449,13 +453,18 @@ article.page {
   }
 
   // Image layout
-
   &.cover-right .content {
     float: left;
   }
 
   &.cover-right .column-break {
     display: block;
+  }
+
+  &.image-none {
+    background: none;
+    
+    .cover-area { display:none }
   }
 
   &.image-background {
@@ -475,7 +484,7 @@ article.page {
     right: 0;
     bottom: 0;
     left: 0;
-    height: 50%;
+//    height: 50%;
   }
 
   &.image-background.transparent {
@@ -483,7 +492,6 @@ article.page {
   }
 
   &.image-background.video .content {
-    background: #000;
     position: relative;
     height: auto;
   }
@@ -676,7 +684,6 @@ article.page.has-product {
 .product-set li {
   position: relative;
   display: inline-block;
-
   box-sizing: border-box;
   padding: 5px 0;
   height: 33%;
@@ -745,12 +752,9 @@ article.page.has-product {
     }
 
     .product-set li img {
-      position:absolute;
-      left: 0;
-      bottom: 20px;
       
-      width: 100%;
-      height: auto;
+//      width: 100%;
+//      height: auto;
     }
     
   }
@@ -775,6 +779,7 @@ article.page.has-product {
       position: relative;
       display: inline-block;
       height: 95%;
+      padding: 20px 25px;
     }
 
     &.no-header.no-content {
@@ -994,8 +999,6 @@ article.page.has-product {
 
     &.no-image .product-set {
       position: absolute;
-      top: 50%;
-      margin-top: -300px;
     }
 
     &.no-image.right .product-set {

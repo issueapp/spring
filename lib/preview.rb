@@ -80,13 +80,15 @@ class IssuePreview < Sinatra::Base
   # Cache assets for 1H (cloudfront)
   get "/:magazine/:issue/assets/*" do
     response.headers['Cache-Control'] = 'public, max-age=3600'
+    asset = sprockets[params[:splat].first]
+    path = asset.pathname.to_s
+    
+    # asset_path = request.path_info.gsub(/^\/#{params[:magazine]}/, "issues")
+    # file = File.expand_path("../../#{CGI.unescape(asset_path)}", __FILE__)
 
-    asset_path = request.path_info.gsub(/^\/#{params[:magazine]}/, "issues")
-    file = File.expand_path("../../#{CGI.unescape(asset_path)}", __FILE__)
-
-    content_type MIME::Types.type_for(file).first.content_type
-
-    send_file file
+    content_type MIME::Types.type_for(path).first.content_type
+    
+    asset.to_s
   end
 
   # Page and subpage
@@ -145,13 +147,13 @@ class IssuePreview < Sinatra::Base
 
       prefix = params[:subpage] ? "../" : ""
 
-      return path.include?("#{prefix}assets/") ? path : File.join("#{prefix}assets", path.to_s)
+      return path.include?("#{prefix}assets/") ? path : File.join("#{prefix}assets/", path.to_s)
     end
 
     if options[:global]
-      "#{asset_host}/#{path}"
+      "#{asset_host}/assets/#{path}"
     else
-      "#{asset_host}#{issue_path(path)}"
+      "#{asset_host}#{issue_path("/#{path}")}"
     end
   end
 
@@ -189,5 +191,22 @@ class IssuePreview < Sinatra::Base
     else
       :"issue/_page.html"
     end
+  end
+  
+  def sprockets
+    asset_path = current_issue.path.join('assets')
+    
+    @sprockets ||= if defined?(Rails)
+      Rails.application.assets
+    else
+      settings.sprockets
+    end
+    
+    # Append issue asset path
+    unless @sprockets.paths.include?(asset_path)
+      @sprockets.append_path(asset_path)
+    end
+    
+    @sprockets
   end
 end
