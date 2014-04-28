@@ -3,9 +3,9 @@ require 'active_support/core_ext/string'
 class LocalIssue < Hashie::Mash
 
   def self.all    
-    Dir.chdir Pathname(File.expand_path("../../issues", __FILE__))
+    issues_path = Pathname(File.expand_path("../../issues", __FILE__))
     
-    Dir.glob("*/issue.yaml").map do |file|
+    Dir.glob("#{issues_path}/*/issue.yaml").map do |file|
       issue_path = file.split("/").first
       
       find issue_path
@@ -21,7 +21,7 @@ class LocalIssue < Hashie::Mash
     issue_path = Pathname(File.expand_path("../../issues/#{issue_handle}", __FILE__))
     
     if issue_path.exist?
-      Dir.chdir issue_path
+      # Dir.chdir issue_path
       yaml = issue_path.join("issue.yaml")
     
       if yaml.exist?
