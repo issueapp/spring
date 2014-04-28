@@ -57,7 +57,7 @@ class LocalIssue < Hashie::Mash
     end
   end
   
-  def pathes
+  def paths
     self.items.reduce([]) do |result, page|
       result << page.handle
       

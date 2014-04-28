@@ -47,45 +47,53 @@ small { font-size: 90%; }
 
 p > span {
   font-style: normal;
-  font size: 100%;
+  font-size: 100%;
 }
 
-article.page figure figcaption {
-  padding: 5px 0 10px;
-  text-align: right;
-  font-style: normal;
-  font-size: 70%;
-  font-family: "Courier New", Courier, monospace;
+article .category {
+  display: none;
 }
 
-article.page figure {
-  text-align: center;
+article.has-product .category {
+  display: block;
 }
 
-article.page .body {
-  font-family: "EB Garamond";
+article.page {
+  figure figcaption {
+    padding: 5px 0 10px;
+    text-align: right;
+    font-style: normal;
+    font-size: 70%;
+    font-family: "Courier New", Courier, monospace;
+  }
+
+  figure {
+    text-align: center;
+  }
+
+  .body {
+    font-family: "EB Garamond";
+  }
+
+  .body h3 {
+    display: inline-block;
+    margin-bottom: 0em;
+    margin-bottom: 0.5em;
+    background: black;
+    color: white;
+    font-weight: lighter;
+    font-size: 18px;
+  }
+
+  .body h4 {
+    margin-bottom: 0em;
+    font-family: "EB Garamond";
+  }
+
+  .body h2 {
+    font-size: 20px;
+  }
 }
-
-article.page .body h3 {
-  display: inline-block;
-  margin-bottom: 0em;
-  margin-bottom: 0.5em;
-  background: black;
-  color: white;
-  font-weight: lighter;
-  font-size: 18px;
-}
-
-article.page .body h4 {
-  margin-bottom: 0em;
-  font-family: "EB Garamond";
-}
-
-article.page .body h2 {
-  font-size: 20px;
-}
-
-
 
 @media only screen and (min-width: 768px) {
 
@@ -100,7 +108,6 @@ article.page .body h2 {
   }
 
 }
-
 
 .page-fadein {
   -webkit-animation-name: fade;
@@ -136,246 +143,265 @@ article.page .body h2 {
 /*
     0. Cover page
 */
-
-
-.page.cover #issue-logo {
-  bottom: 170px;
-  zoom: 0.6;
+.page.cover {
+  
+  #issue-logo {
+    bottom: 170px;
+    zoom: 0.6;
+  }
+  
+  nav[role="navigation"] {
+    display: none;
+  }
+  
+  .brand {
+    margin: 0 auto 22px;
+    width: 200px;
+    height: 80px;
+    background-image: url('brand_logo.png');
+    background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    color: transparent;
+    font-size: 0;
+    line-height: 0;
+  }
+  
+  .title {
+    text-align: center;
+    text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.5);
+    font-weight: normal;
+    font-size: 110px;
+    font-family: "rodondoregular";
+    line-height: 60px;
+  }
+  
+  .description {
+    display: none;
+  }
+  
+  .extra-1 {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    margin-left: -45%;
+    width: 90%;
+    height: 115px;
+    background-image: url('cover-christina-perri.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
 }
 
-.page.cover nav[role="navigation"] {
-  display: none;
-}
-
-.page.cover .brand {
-  margin: 0 auto 22px;
-  width: 200px;
-  height: 80px;
-  background-image: url('brand_logo.png');
-  background-position: center;
-  background-size: 100%;
-  background-repeat: no-repeat;
-  color: transparent;
-  font-size: 0;
-  line-height: 0;
-}
-
-.page.cover .title {
-  text-align: center;
-  text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.5);
-  font-weight: normal;
-  font-size: 110px;
-  font-family: "rodondoregular";
-  line-height: 60px;
-}
-.page.cover .description {
-  display: none;
-}
-.page.cover .extra-1 {
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  margin-left: -45%;
-  width: 90%;
-  height: 115px;
-  background-image: url('cover-christina-perri.png');
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
+@media only screen and (orientation: landscape) {
+  .magazine.cover hgroup {
+    margin-top: -4%;
+  }
 }
 
 /*
     1. Table of content - Hide category label, only show them on products page
 */
 
-/*
-  Table of content
-*/
-article.toc.page header {
-  display: none;
+article.toc.page {
+  
+  header {
+    display: none;
+  }
+  
+  #signature {
+    display: block;
+    margin: 0;
+    width: 180px;
+  }
+  
+  .cover-area {
+    min-height: 0;
+  }
+  
+  .body p:first-child {
+    margin-top: 1em;
+  }
+  
+  .cover-area .brand-logo {
+    position: static;
+    bottom: initial;
+    left: initial;
+    margin: 2% auto 0;
+    max-width: 280px;
+  }
+  
+  h2 {
+    font-family: "rodondoregular";
+  }
+  
+  .menu li .story {
+    text-decoration: none;
+    font-family: "rodondoregular";
+  }
+  
+  .menu .head {
+    display: none;
+  }
+  
 }
-
-article.toc.page #signature {
-  display: block;
-  margin: 0;
-  width: 180px;
-}
-
-article.toc.page .cover-area {
-  min-height: 0;
-}
-
-article.toc.page .body p:first-child {
-  margin-top: 1em;
-}
-
-article .category {
-  display: none;
-}
-
-article.has-product .category {
-  display: block;
-}
-
-article.page.toc .cover-area .brand-logo {
-  position: static;
-  bottom: initial;
-  left: initial;
-  margin: 2% auto 0;
-/*  margin-bottom: -20px;*/
-  max-width: 280px;
-}
-
-article.page.toc h2 {
-  font-family: "rodondoregular";
-}
-
-article.page.toc .menu li .story {
-  text-decoration: none;
-  font-family: "rodondoregular";
-}
-
-article.page.toc .menu .head {
-  display: none;
-}
-
 
 /* 
   2.  Editor's letter
 */
 
-#seditors-letter header {
-  margin: 0;
-}
-
-article[data-page=toc] .brand-logo {
+article[data-page=editors-letter] {
+  header {
+    margin: 0;
+  }
   
-}
-
-article[data-page=editors-letter] .title {
-  font-family: "rodondoregular" !important;
-  margin-bottom: 0.1em;
-}
-
-article[data-page=editors-letter] .body p {
-  font-style: italic;
-  margin: 0.15em 0 0.5em;
-}
-
-article[data-page=editors-letter] .body p:last-child {
-  margin-bottom: 0;
+  .title {
+    font-family: "rodondoregular" !important;
+    margin-bottom: 0.1em;
+  }
+  
+  .body p {
+    font-style: italic;
+    margin: 0.15em 0 0.5em;
+  }
+  
+  .body p:last-child {
+    margin-bottom: 0;
+  }
 }
 
 /*
     3. Styling it out
 */
 
-article[data-page="1-styling-it-out"] .content {
-  position: relative;
-}
-
-/*  Replace page heading with outline heading (change background url or height if needed) */
-article[data-page="1-styling-it-out"] .title {
-
-  background: url(1-styling-it-out/STYLINGITOUT.svg) no-repeat;
-  background-size: contain;
-  background-position: center;
-  color: transparent;
-
-  height: 0;
-  padding-bottom: 50%;
-}
-
-article[data-page="1-styling-it-out"] header .category {
-  top: 200px;
-  margin-top: 200px;
-  color: black;
-  text-align: left;
-  font-family: 'rodondoregular';
-}
-
-@media only screen and (min-width: 768px) {
-  article[data-page="1-styling-it-out"] header  {
-    padding-top: 25%;
+article[data-page="1-styling-it-out"] {
+  
+  .content {
+    position: relative;
   }
 
-  article[data-page="1-styling-it-out"] header .category {
-    font-size: 36px;
-    font-size: 3vw;
+  /*  Replace page heading with outline heading (change background url or height if needed) */
+  .title {
+    background: url(1-styling-it-out/STYLINGITOUT.svg) no-repeat;
+    background-size: contain;
+    background-position: center;
+    color: transparent;
+
+    height: 0;
+    padding-bottom: 50%;
   }
+
+  header .category {
+    top: 200px;
+    margin-top: 200px;
+    color: black;
+    text-align: left;
+    font-family: 'rodondoregular';
+  }
+  
+  /*  Responsive */
+  @media only screen and (min-width: 768px) {
+    header  {
+      padding-top: 25%;
+    }
+
+    header .category {
+      font-size: 36px;
+      font-size: 3vw;
+    }
+  }
+  
 }
 
 /*
-    Head or heard
+    2. Head or heard
 */
 
-  article[data-page="2-head-or-heart"] header {
+article[data-page="2-head-or-heart"] {
+  
+  header {
     height: 60%;
   }
-  
-  article[data-page="2-head-or-heart"] .title {
+
+  .title {
     background: url(2-head-or-heart/cover-heading.svg) no-repeat;
     background-size: contain;
     color: transparent;
     min-height: 140px;
   }
 
-  article[data-page="2-head-or-heart"] .body {
+  .body {
     font-family: "proxima-nova";
   }
-
-  #header-image {
-    position: relative;
-    margin-left: -93px;
-    max-width: initial;
-    width: 310px;
-  }
-
+  
+  /*  Responsive */
+  
   @media only screen and (min-width: 768px) {
-    article[data-page="2-head-or-heart"] header .title {
+    header .title {
       position: absolute;
       top: 15%;
       height: 100%;
       width: 100%;
     }
-
-    article[data-page="2-head-or-heart"] .body {
+    
+    .body {
       position: relative;
     }
   }
   
-
-#s3-shop-the-shoot header .title {
-/*  margin-left: -28px;*/
-/*  width: 338px;*/
-  height: 45px;
-  background: url('3-shop-the-shoot/heading-head-the-look.svg') no-repeat;
-  background-size: contain;
-  background-position: center;
-  color: transparent;
 }
 
-@media only screen and (min-width: 768px) {
-  section.page.cover nav[role="navigation"] {
-    display: block;
+/*
+    3. Shop the shoot
+*/
+article[data-page="3-shop-the-shoot"] {
+  
+  header .title {
+  /*  margin-left: -28px;*/
+  /*  width: 338px;*/
+    height: 45px;
+    background: url('3-shop-the-shoot/heading-head-the-look.svg') no-repeat;
+    background-size: contain;
+    background-position: center;
+    color: transparent;
   }
-
-  section.page.cover .title {
-    font-size: 160px;
-    line-height: 110px;
-  }
-
-  section.page.cover .extra-1 {
-    left: 50%;
-    margin-left: -25%;
-    width: 50%;
-    height: 20%;
+  
+  .cover_area {
+    background-position: top;
   }
 }
 
-@media only screen and (orientation: landscape) {
-  .magazine.cover hgroup, section.page.cover hgroup {
-    margin-top: -4%;
+
+article.page[data-page=backcover] {
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  
+  .title {
+    display: none;
+  }
+  
+  .content {
+    margin: 0;
+    max-height: initial;
+    width: 100%;
+    height: 100%;
+  }
+  
+  #image {
+    position: absolute;
+    bottom: 10%;
+    max-width: initial;
+    max-height: initial;
+    width: 300px;
+  }
+  
+  @media only screen and (min-width: 768px) {
+     #image {
+      left: 50%;
+      margin-left: -300px;
+      width: 640px;
+    }
   }
 }
 
@@ -520,7 +546,7 @@ article.five-shades .product-set li:nth-child(3n) .hotspot .tag {
   60% { background-color: #ff0093 }
   80% { background-color: #00dcff }
   90% { background-color: #fff600 }
-  to { background-color: #00dcff}
+  to { background-color: #00dcff }
 }
 
 @-moz-keyframes rainbow {
@@ -530,7 +556,7 @@ article.five-shades .product-set li:nth-child(3n) .hotspot .tag {
   60% { background-color: #ff0093 }
   80% { background-color: #00dcff }
   90% { background-color: #fff600 }
-  to { background-color: #00dcff}
+  to { background-color: #00dcff }
 }
 @keyframes rainbow {
   from { background-color: #ff5300 }
@@ -539,5 +565,5 @@ article.five-shades .product-set li:nth-child(3n) .hotspot .tag {
   60% { background-color: #ff0093 }
   80% { background-color: #00dcff }
   90% { background-color: #fff600 }
-  to { background-color: #00dcff}
+  to { background-color: #00dcff }
 }

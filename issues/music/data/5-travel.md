@@ -19,7 +19,6 @@
 ---
 
 <style>
-
   #s5-travel .title {
     font-size: 0;
     color: transparent;

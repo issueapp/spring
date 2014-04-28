@@ -4,49 +4,17 @@
     thumb_url: assets/7-end/thumb.jpg
     cover_url: assets/7-end/p1.jpg
     
+    images:
+      - url: assets/7-end/p1-1.png
+        title: minkpink logo
+        
     layout:
       nav: false
       image_style: background
-      content_style: black
+      content_style: transparent
       content_height: full
 
 ---
-<style>
-
-  article.page[data-page=backcover] {
-    -webkit-backface-visibility: hidden;
-    -webkit-perspective: 1000;
-  }
-
-  article.page[data-page="backcover"] .content {
-    margin: 0;
-    max-height: initial;
-    width: 100%;
-    height: 100%;
-  }
-  
-  article.page[data-page="backcover"] .cover-area {
-    background-position: top;
-  }
-
-  article.page[data-page="backcover"] #image {
-    
-    position: absolute;
-    bottom: 10%;
-    max-width: initial;
-    max-height: initial;
-    width: 300px;
-  }
-
-  @media only screen and (min-width: 768px) {
-    article.page[data-page="backcover"] #image {
-      left: 50%;
-      margin-left: -300px;
-      width: 640px;
-    }
-  }
-</style>
-
 
 <a href="http://minkpink.com/" title="Visit Minkpink" target="_blank">
   <img id="image" data-media-id="images:1" src="assets/7-end/p1-1.png" alt="">

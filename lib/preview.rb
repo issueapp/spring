@@ -5,8 +5,10 @@ require 'rdiscount'
 require 'hashie/mash'
 require 'sinatra/base'
 require 'sinatra/content_for'
+
 require 'local_issue'
 require 'local_issue/page'
+require 'local_issue/page_helpers'
 
 require 'nokogiri'
 
@@ -16,7 +18,8 @@ class IssuePreview < Sinatra::Base
     require 'sinatra/asset_pipeline'
     register Sinatra::AssetPipeline
   end
-
+  
+  helpers LocalIssue::PageHelpers
   helpers Sinatra::ContentFor
   
   set :root, File.expand_path("../../", __FILE__)
@@ -80,13 +83,13 @@ class IssuePreview < Sinatra::Base
   # Cache assets for 1H (cloudfront)
   get "/:magazine/:issue/assets/*" do
     response.headers['Cache-Control'] = 'public, max-age=3600'
-    asset = sprockets[params[:splat].first]
+    file = params[:splat].first
+    asset = sprockets[file]
     path = asset.pathname.to_s
     
     # asset_path = request.path_info.gsub(/^\/#{params[:magazine]}/, "issues")
     # file = File.expand_path("../../#{CGI.unescape(asset_path)}", __FILE__)
-
-    content_type MIME::Types.type_for(path).first.content_type
+    content_type MIME::Types.type_for(file).first.content_type
     
     asset.to_s
   end
