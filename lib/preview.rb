@@ -227,6 +227,6 @@ class IssuePreview < Sinatra::Base
   end
   
   def sprockets
-    @sprockets ||= settings.sprockets
+    @sprockets ||= Sprockets::Environment.new
   end
 end
