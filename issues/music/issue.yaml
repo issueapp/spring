@@ -2,6 +2,7 @@ title: Music
 magazine_title: Minkpink
 description: 
 featured: true
+
 theme: fashion
 thumb_url: "assets/background.jpg"
 cover_url: "assets/background_large.jpg"
@@ -14,8 +15,8 @@ assets:
   - "jplayer/mod.csstransforms.min.js"
   - "jplayer/circle.player.js"
   - "circle.skin/circle.player.css"
-  
-pages: 
+
+paths:
   - index
   - toc
   - editors-letter

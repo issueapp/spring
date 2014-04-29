@@ -768,6 +768,8 @@ article.page.has-product {
   }
 
   article.page.image-background {
+    // Use inline-block, vertical-align, text-align to position content element on full screen image bg
+    // Use &:before to render a full hight place holder for this to work.
     &:before {
       display: inline-block;
       margin-right: -0.25em; /* Adjusts for spacing */
@@ -775,9 +777,11 @@ article.page.has-product {
       content: '';
       vertical-align: middle;
     }
-
+    
+    // 
+    // this requires position: relative for positioning
     .content {
-//      position: relative;
+      position: relative;
       display: inline-block;
       height: 95%;
       padding: 20px 25px;

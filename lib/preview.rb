@@ -57,7 +57,7 @@ class IssuePreview < Sinatra::Base
   end
 
   get '/:magazine/:issue/products.json' do
-    current_issue.items.map(&:products).flatten.compact
+    current_issue.pages.map(&:products).flatten.compact
   end
 
   get "/:magazine/:issue/index/?" do
@@ -103,7 +103,7 @@ class IssuePreview < Sinatra::Base
     asset_formatter = lambda do |asset|
       asset.each{|key, value| asset[key] = asset_path(value) if key =~ /url$/ }
     end
-    page = LocalIssue::Page.find(path, issue_path: issue.path, format_asset: asset_formatter)
+    page = LocalIssue::Page.find(path, issue: issue, format_asset: asset_formatter)
     
     erb page_template(page), locals: { issue: issue, page: page }, layout: !request.xhr? && :"/layouts/_app.html"
   end

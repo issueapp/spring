@@ -65,7 +65,7 @@
       <hr />
     </div>
     <ul>
-      <% issue.items.each do |page| %>
+      <% issue.pages.each do |page| %>
         <% if page.nav != false && page.handle != "toc" %>
         <li>
           <a class="toc" href="<%= page.url %>">
