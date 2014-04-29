@@ -82,7 +82,7 @@ article.page {
         background: rgba(0,0,0,0.1);
         content: none;
       }
-      
+
       .video-wrapper {
         height: 100%;
       }
@@ -91,7 +91,7 @@ article.page {
     figcaption.inset {
       top: initial;
       bottom: 0;
-      
+
       a {
         text-decoration: none;
         color: white;
@@ -135,10 +135,10 @@ article.page {
 
   // Content formatting
   big { font-size: 120% }
-  
+
   header {
     box-sizing: border-box;
-    
+
     position: relative;
     margin: 0 0 2% 0px;
     padding: 0;
@@ -233,7 +233,7 @@ article.page {
 
     position: relative;
     width: 100%;
-    
+
     figcaption {
       padding: 10px 30px 20px;
       font-style: italic;
@@ -247,7 +247,7 @@ article.page {
       color: white;
       text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
       font-weight: bold;
-      
+
       a {
         text-decoration: none;
         color: white;
@@ -324,10 +324,10 @@ article.page {
   .video-wrapper {
     position: relative;
     box-sizing: border-box;
-    
+
     // Force webkit to render
     -webkit-transform: translate3d(0, 0, 0);
-    
+
     padding-top: 25px;
     padding-bottom: 56.25%; /* 16:9 */
     height: 0;
@@ -340,22 +340,22 @@ article.page {
       height: 100%;
     }
   }
-  
+
   figure.video {
     -webkit-transform: translate3d(0, 0, 0);
     cursor: pointer;
-    
+
     background-size: 100%;
     position: relative;
     width: 100%;
     padding-bottom: 56.25%; /* 16:9 */
     height: 0;
     margin-bottom: 40px;
-    
+
     figcaption {
       margin-top: 56.25%;
     }
-    
+
     .thumbnail {
       border: 1px;
       cursor: pointer;
@@ -368,7 +368,7 @@ article.page {
       width: 100%;
       max-height: 100%;
     }
-    
+
     iframe {
       display: none;
       position: absolute;
@@ -376,10 +376,10 @@ article.page {
       top: 0; left:0;
       height: 100%;
     }
-    
+
     @extend %icon-style;
     @extend .icon-arrow-right;
-    
+
     &:before {
       position: absolute;
       z-index: 999;
@@ -390,7 +390,7 @@ article.page {
       left: 0;
       width: 100%;
     }
-    
+
     &.play:before {
       content: none;
     }
@@ -463,7 +463,7 @@ article.page {
 
   &.image-none {
     background: none;
-    
+
     .cover-area { display:none }
   }
 
@@ -753,11 +753,11 @@ article.page.has-product {
     }
 
     .product-set li img {
-      
+
 //      width: 100%;
 //      height: auto;
     }
-    
+
   }
 
   article.page.toc {

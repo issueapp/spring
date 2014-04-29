@@ -1,22 +1,20 @@
 ---
+
     category: Blogger's Edit
     title: The Style Edit
     byline: By Jysla Kay
-    
     author_name: Jysla Kay
-    
     thumb_url: assets/toc/style-edit.jpg
     cover_url: assets/3-the-style-edit/cover.jpg
-    
     handle: 3-the-style-edit
-  
-    description: 
+
+    description:
       We show you how to style your basic black silk cami in three looks with blogger Jysla Kay - for day, for night and for a piece simply layered underneath it all. Whether worn alone or layered, a beautiful silk camisole is destined for any woman’s wardrobe. For the women who like to keep their prints to a minimal, get inspired by our take of a fresh twist on a classic look!
 
     products:
 
-      - url: http://www.shopbop.com/silk-camisole-lna/vp/v=1/1562218472.htm?fm=search-shopbysize  
-        image_url: http://cdnc.lystit.com/photos/2013/12/10/lna-ivory-silk-camisole-product-4-16050727-535007609_large_flex.jpeg 
+      - url: http://www.shopbop.com/silk-camisole-lna/vp/v=1/1562218472.htm?fm=search-shopbysize
+        image_url: http://cdnc.lystit.com/photos/2013/12/10/lna-ivory-silk-camisole-product-4-16050727-535007609_large_flex.jpeg
         title: LNA silk camisole
         description: A whisper of silk composes this LNA camisole, which features an asymmetrical hemline. Spaghetti straps trace the shoulders and crisscross at the back.  Semi-sheer.
         price: $177.12 AUD
@@ -40,7 +38,7 @@
 
       - title: Gorjana taner bar necklace
         url: http://www.shopbop.com/taner-bar-necklace-gorjana/vp/v=1/1559721636.htm?folderID=2534374302033527&colorId=29109&extid=affprg-4441350
-        image_url: http://www.shoptanktop.com/shop-2/images/3016/Taner%2BBar%2BNecklace%2BGold%2B2.jpg/ 
+        image_url: http://www.shoptanktop.com/shop-2/images/3016/Taner%2BBar%2BNecklace%2BGold%2B2.jpg/
         brand: Gorjana taner
         price: $69.92 AUD
         description: A simple Gorjana necklace with a delicate hammered bar. Ring clasp. 14k gold. Made in the USA.

@@ -1,9 +1,6 @@
 ---
 
     title: Events Calendar
-    category:
-    description:
-
     thumb_url: assets/toc/calendar.jpg
 
     layout:
@@ -57,152 +54,7 @@
         image_url: assets/8-events-calendar/tasmania.jpg
         url: http://www.australia.com/explore/australian-events/art-events.aspx
 
-
-
 ---
-<style>
-  #event-cards {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    list-style: none;
-
-    -webkit-perspective: 1000;
-    -moz-perspective: 1000;
-    -o-perspective: 1000;
-    perspective: 1000;
-  }
-
-  #event-cards li {
-    height: 33.3%;
-    width: 33.3%;
-    background-size: cover;
-  }
-
-  #event-cards .flipper {
-    position: relative;
-    width: 100%;
-    height: 100%;
-
-    -webkit-transition: 0.6s;
-    -moz-transition: 0.6s;
-    -o-transition: 0.6s;
-    transition: 0.6s;
-
-    -webkit-transform-style: preserve-3d;
-    -moz-transform-style: preserve-3d;
-    -o-transform-style: preserve-3d;
-    transform-style: preserve-3d;
-  }
-
-	#event-cards li:hover .flipper,
-  #event-cards li.hover .flipper {
-    -webkit-transform: rotateY(180deg);
-    -moz-transform: rotateY(180deg);
-    -o-transform: rotateY(180deg);
-    transform: rotateY(180deg);
-	}
-
-  #event-cards li .image {
-  	position: absolute;
-  	top: 0;
-  	left: 0;
-  }
-
-  /* front pane, placed above back */
-  #event-cards li .image {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 2;
-    background-position: center;
-    background-size: cover;
-
-    -webkit-backface-visibility: hidden;
-    -moz-backface-visibility: hidden;
-    -o-backface-visibility: hidden;
-    backface-visibility: hidden;
-  }
-
-  /* back, initially hidden pane */
-  #event-cards li .info {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 2;
-    overflow: auto;
-    padding: 20px;
-    background: #fff;
-    color: #333;
-    font-size: 14px;
-
-    -webkit-transform: rotateY(180deg);
-    -moz-transform: rotateY(180deg);
-    -o-transform: rotateY(180deg);
-    transform: rotateY(180deg);
-
-    -webkit-backface-visibility: hidden;
-    -moz-backface-visibility: hidden;
-    -o-backface-visibility: hidden;
-    backface-visibility: hidden;
-  }
-
-  #event-month-list {
-    float: left;
-    width: 33.33%;
-    margin: 0;
-    text-align: left;
-    font-weight: normal;
-    font-family: "EB Garamond";
-    overflow: auto;
-  }
-
-  #event-month-list .event-title {
-    margin: 20px 0;
-    text-align: center;
-    letter-spacing: 2px;
-    font-weight: normal;
-    font-size: 24px;
-  }
-
-  #event-month-list .event-month {
-    margin: 15px 0;
-    padding: 0;
-    border-bottom: 1px solid #111;
-    font-weight: normal;
-    font-size: 18px;
-    font-family: "EB Garamond";
-  }
-
-  #event-month-list .event-list {
-    margin: 0;
-    padding: 0;
-  }
-
-  #event-month-list .event-list h3 {
-    margin: 0;
-    font-weight: normal;
-    font-family: "EB Garamond";
-  }
-
-  #event-month-list .event-list li {
-    margin-bottom: 1em;
-    text-align: left;
-  }
-
-  #event-month-list address {
-    color: #404040;
-  }
-
-  #event-month-list date {
-    float: right;
-    color: #404040;
-  }
-</style>
 
 <div class="cover col x8">
   <ul id="event-cards" class="no-gutter">
@@ -278,4 +130,3 @@
     </li>
   </ol>
 </div>
-

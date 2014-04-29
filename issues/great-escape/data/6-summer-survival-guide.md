@@ -3,16 +3,14 @@
     category: Beauty
     title: Summer Survival Guide
     author_name: Zyra Bacani
-    
     author_icon: assets/zyra-avatar.png
-    
     thumb_url: assets/toc/beauty-cover.jpg
     cover_url: assets/6-summer-survival-guide/cover2.jpg
-    
+
     layout:
       type: three-column
       content_valign: middle
-    
+
 ---
 
 Shelve your matte cosmetics this season because it’s all about sporting that balmy, hydrated skin until it has drunk its fill! This was spotted in various runways in New York to the likes of Marni, Matthew Williamson and Balmain- so stocking up in cream highlighters is our top survival tip this season.
