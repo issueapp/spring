@@ -12,7 +12,7 @@
     layout:
       type: three-column
       image_align: right
-      content_style: transparent
+
     
     products:
       - title: MINKPINK Paisley Crush Dress
