@@ -6,6 +6,7 @@ gem "serve", github: "danielstutzman/serve"
 # gem "serve", :git => "git://github.com/jlong/serve.git"
 gem "sinatra"
 gem "sinatra-contrib"
+gem "activesupport"
 
 # # Use Compass and Sass
 gem "coffee-script"
@@ -16,8 +17,6 @@ gem "mime-types"
 # gem "actionpack", "~> 3.2"
 # # gem "railties",   "~> 3.2"
 
-gem "activesupport"
-gem "hashie"
 
 # # Markdown and Textile
 gem "nokogiri"

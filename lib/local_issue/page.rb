@@ -14,6 +14,7 @@ class LocalIssue::Page < Hashie::Mash
   # virtual
   # cover -> images.where(cover:true)
   
+  
   # Page elements: media and entities
   def self.elements
     ["images", "audios", "videos", "products", "links"]
@@ -37,8 +38,8 @@ class LocalIssue::Page < Hashie::Mash
   def self.find(path, options = {})
     return index if path == "index"
     
-    if issue_path = options[:issue_path]
-      path = "#{issue_path}/data/#{path}.md"
+    if issue = options[:issue]
+      path = "#{issue.path}/data/#{path}.md"
     else
       path = "data/#{path}.md"
     end
@@ -46,6 +47,7 @@ class LocalIssue::Page < Hashie::Mash
     page_dir = Pathname(path).basename(".md")
     page = self.build(path, options)
     
+    page.issue = options[:issue]
     page.children = self.recursive_build("data/#{page_dir}", {}, options)
     
     page
@@ -54,7 +56,7 @@ class LocalIssue::Page < Hashie::Mash
   # Load markdown file into memory
   def self.build(path, options = {})
     source = open(path).read
-    issue_path = options[:issue_path]
+    issue = options[:issue]
     
     if "1.9".respond_to? :encoding
       source = source.force_encoding('binary')
@@ -80,7 +82,7 @@ class LocalIssue::Page < Hashie::Mash
     # Add cover url into images
     if attributes["cover_url"]
       attributes["images"].push(
-        "caption"   => attributes["cover_caption"],
+        "caption"   => attributes.delete("cover_caption"),
         "url"       => attributes["cover_url"],
         "thumb_url" => attributes["thumb_url"],
         "cover"     => true
@@ -109,7 +111,8 @@ class LocalIssue::Page < Hashie::Mash
     end
     
     attributes.merge!(
-      "handle"          => path.gsub("#{issue_path}/data/", '').gsub(".md", ''),
+      "issue"           => issue,
+      "handle"          => path.gsub("#{issue.path}/data/", '').gsub(".md", ''),
       # "published_at"    => attributes["published_at"] || File.mtime(path).to_i,
       "layout"          => attributes.fetch("layout", {}),
       "content"         => content
@@ -118,9 +121,9 @@ class LocalIssue::Page < Hashie::Mash
   end
 
   def self.recursive_build(start_path, cache = {}, options = {})
-    issue_path = options[:issue_path]
+    issue = options[:issue]
     
-    Dir.glob("#{issue_path}/#{start_path}/*").map do |path|
+    Dir.glob("#{issue.path}/#{start_path}/*").map do |path|
       # path.gsub!(issue_path.to_s + "/", '')
       
       if File.directory?(path)
@@ -135,6 +138,15 @@ class LocalIssue::Page < Hashie::Mash
       end
       page
     end
+  end
+  
+  
+  def issue
+    @issue
+  end
+  
+  def issue=(issue)
+    @issue ||= issue
   end
   
   def product_set?
@@ -167,5 +179,29 @@ class LocalIssue::Page < Hashie::Mash
   
   def url
     self.handle
+  end
+  
+  def to_hash(options = {})
+    hash = super.except("id", "issue")
+    
+    self.class.elements.each do |element|
+      hash[element].to_a.each_with_index do |asset, index|
+        
+        asset.to_a.each do |key, value|
+          next unless options[:local_path]
+          
+          if key =~ /url$/ && value =~ /^assets\//
+            path = asset.delete(key) if asset.has_key?(key)
+            
+            key = "file_url" if key == "url"
+            asset[key.gsub('_url', '')] = issue.path.join(value)
+          end
+        end
+        
+        hash[element][index] = asset
+      end
+    end
+    
+    hash
   end
 end
