@@ -112,7 +112,7 @@ class IssuePreview < Sinatra::Base
     preview_paths.each do |path|
       sprockets.append_path path
     end
-    # 
+    
     # asset_path = request.path_info.gsub(/^\/#{params[:magazine]}/, "issues")
     # file = File.expand_path("../../#{CGI.unescape(asset_path)}", __FILE__)
     content_type MIME::Types.type_for(file).first.content_type
@@ -227,12 +227,6 @@ class IssuePreview < Sinatra::Base
   end
   
   def sprockets
-    @sprockets ||= if defined?(Rails)
-      Rails.application.assets
-    else
-      settings.sprockets
-    end
-    
-    @sprockets
+    @sprockets ||= Sprockets::Environment.new
   end
 end
