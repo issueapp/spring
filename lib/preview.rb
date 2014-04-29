@@ -80,14 +80,39 @@ class IssuePreview < Sinatra::Base
     end
   end
 
+  # /official/great-escape/assets/custom.css
+  # assets/custom.scss
+  # 
+  # params: 
+  #   splat: [custom.scss]
+  # 
+  # search paths:
+  # 
+  #  app/assets/images, 
+  #  app/assets/spreadsheets, 
+  #  app/assets/javascripts, 
+  #  issues/music/assets
+  #  issues/great-escape/assets
+  # 
   # Cache assets for 1H (cloudfront)
   get "/:magazine/:issue/assets/*" do
     # response.headers['Cache-Control'] = 'public, max-age=3600'
     # 
+    
+    # Append issue asset path and remember current search paths    
+    preview_paths = sprockets.paths
+    sprockets.append_path(current_issue.path.join('assets'))
+        
+    # Serve asset via sprockets
     file = params[:splat].first
     asset = sprockets[file]
-    path = asset.pathname.to_s
     
+    # Restore previous asset path
+    sprockets.clear_paths
+    preview_paths.each do |path|
+      sprockets.append_path path
+    end
+    # 
     # asset_path = request.path_info.gsub(/^\/#{params[:magazine]}/, "issues")
     # file = File.expand_path("../../#{CGI.unescape(asset_path)}", __FILE__)
     content_type MIME::Types.type_for(file).first.content_type
@@ -198,17 +223,10 @@ class IssuePreview < Sinatra::Base
   end
   
   def sprockets
-    asset_path = current_issue.path.join('assets')
-    
     @sprockets ||= if defined?(Rails)
       Rails.application.assets
     else
       settings.sprockets
-    end
-    
-    # Append issue asset path
-    unless @sprockets.paths.include?(asset_path)
-      @sprockets.append_path(asset_path)
     end
     
     @sprockets
