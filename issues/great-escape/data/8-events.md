@@ -1,8 +1,8 @@
 ---
 
-    title: Events Calendar 
-    category: 
-    description: 
+    title: Events Calendar
+    category:
+    description:
 
     thumb_url: assets/toc/calendar.jpg
 
@@ -12,52 +12,52 @@
       content_align: left
 
     links:
-      - title: Rosemount Australian Fashion Week, Sydney 
+      - title: Rosemount Australian Fashion Week, Sydney
         summary: Get a sneak peek of the next spring/summer trends and be amongst Australia’s style-setters and celebrities before you claim your reserved seat next to the runaway.
         image_url: assets/8-events-calendar/rosemount.jpg
-        url: http://sydney.concreteplayground.com.au/event/18754/rosemount-australian-fashion-week.htm 
-        
-      - title: Noosa International Food & Wine Festival, Queensland 
-        summary: The festival features a line-up of more than 200 leading international and national chefs, iconic winemakers, high profile food and wine media, restaurateurs and serious food lovers, who converge on the seaside setting of Noosa to taste, talk and indulge over four days. 
+        url: http://sydney.concreteplayground.com.au/event/18754/rosemount-australian-fashion-week.htm
+
+      - title: Noosa International Food & Wine Festival, Queensland
+        summary: The festival features a line-up of more than 200 leading international and national chefs, iconic winemakers, high profile food and wine media, restaurateurs and serious food lovers, who converge on the seaside setting of Noosa to taste, talk and indulge over four days.
         image_url: assets/8-events-calendar/food-wine.jpg
         url: http://www.australia.com/explore/australian-events/food-wine-events.aspx
-        
-      - title: Vivid Sydney 
+
+      - title: Vivid Sydney
         summary: Delight in a festival which transforms Sydney into a spectacular canvas of light and music.
         image_url: assets/8-events-calendar/vivid.jpg
         url: http://www.australia.com/explore/australian-events/major-events.aspx
-        
-      - title: Sydney Film Festival 
+
+      - title: Sydney Film Festival
         summary: One of the world's longest-running film festival. The 12-day festival screens more than 100 feature films, documentaries, short films and animation from more than 50 countries around the world and in almost as many languages.
         image_url: assets/8-events-calendar/sydney-film.jpg
         url: http://www.australia.com/explore/australian-events/art-events.aspx
-        
+
       - title: Wildflowers in Bloom, Western Australia
         summary: You can see a multitude of native Australian wildflowers bloom in a vivid spectacle across the landscape. More than 12,000 species of wildflower can be seen blooming across Western Australia, including hundreds of species of delicate orchids
         image_url: assets/8-events-calendar/wildflowers.jpg
         url: http://www.australia.com/explore/australian-events/natural-events.aspx
-        
-      - title: City of Perth Winter Arts Season 
-        summary: The season combines a world-class selection of events and performances including theatre, film, comedy, opera, literature, dance, visual arts, poetry, cabaret and a range of free and family events. There are more than 150 events from more than 60 participating arts organisations. 
+
+      - title: City of Perth Winter Arts Season
+        summary: The season combines a world-class selection of events and performances including theatre, film, comedy, opera, literature, dance, visual arts, poetry, cabaret and a range of free and family events. There are more than 150 events from more than 60 participating arts organisations.
         image_url: assets/8-events-calendar/winter-arts.jpg
         url: http://www.australia.com/explore/australian-events/art-events.aspx
-        
-      - title: Melbourne International Art Fair 
+
+      - title: Melbourne International Art Fair
         summary: Melbourne Art Fair is an exhibition of leading contemporary art, presented by more than 80 selected national and international galleries. The biennial event features paintings, sculpture, photography, installation and multi-media art works from over 900 artists.
         image_url: assets/8-events-calendar/melbourne-fair.jpg
         url: http://www.australia.com/explore/australian-events/art-events.aspx
-        
-      - title: Fireside Festival 
+
+      - title: Fireside Festival
         summary: The Fireside Festival is full of warming Southern Hemisphere winter experiences; from degustation dinners and wine tastings to performances. At various venues around Canberra, you can sip on exquisite cool climate wines, taste the delicacies from the region, meet passionate local artists, or just relax in front of an open fire.
         image_url: assets/8-events-calendar/canberra.jpg
         url: http://www.australia.com/explore/australian-events/art-events.aspx
-        
+
       - title: Junction Arts Festival
-        summary: Junction Arts Festival is an annual arts festival that fills up Launceston’s CBD with playful, contemporary art and performance that invite the audience to take part. Held over five days and nights, the festival features over 50 free unique audience experience. Events include live performance, theatre, visual and media art, literature, music and dance from leading local, national and international artists. 
+        summary: Junction Arts Festival is an annual arts festival that fills up Launceston’s CBD with playful, contemporary art and performance that invite the audience to take part. Held over five days and nights, the festival features over 50 free unique audience experience. Events include live performance, theatre, visual and media art, literature, music and dance from leading local, national and international artists.
         image_url: assets/8-events-calendar/tasmania.jpg
         url: http://www.australia.com/explore/australian-events/art-events.aspx
-        
-        
+
+
 
 ---
 <style>
@@ -153,10 +153,12 @@
 
   #event-month-list {
     float: left;
-    width: 31%;
+    width: 33.33%;
+    margin: 0;
     text-align: left;
     font-weight: normal;
     font-family: "EB Garamond";
+    overflow: auto;
   }
 
   #event-month-list .event-title {
