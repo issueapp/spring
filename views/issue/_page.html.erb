@@ -5,15 +5,16 @@
 
     @affiliate_urls[url] || url
   end
-  
+
   has_cover = page.cover_url && page.layout.image_style != "none"
+  has_content = page.content && !page.content.strip.empty?
 %>
 <article id="s<%= page.handle.to_s.split('/').first %>" class="page
  <%= page.layout.type || 'two-column' %>
  <%= 'no-image ' unless has_cover %>
  <%= 'has-product ' if page.product_set? %>
  <%= 'no-header ' unless page.title || page.description %>
- <%= 'no-content ' unless page.content %>
+ <%= 'no-content ' unless has_content %>
  <%= page.content_type %>
 
  <%= page.layout.custom_class %>
@@ -29,7 +30,7 @@
    <%= "image-#{page.layout.image_style}" if page.layout.image_style %>
    <%= "cover-#{page.layout.image_align}" if page.product_set? || page.layout.image_align && page.cover_url %>
  <% end %>"
-  
+
   data-theme="<%= page.theme %>"
   data-page="<%= page.handle + page_ext %>"
   data-author="<%= page.author_name %>"
@@ -49,7 +50,7 @@
       <a href="<%= item.url %>" title="<%= item.title %>" class="hotspot image product" style="left: <%= item.hotspot.left %>px; top: <%= item.hotspot.right %>px;"><i class="tag"><%= index + 1 %></i></a>
     <% end %>
 
-    <% if cover_caption = page.cover_caption %>
+    <% if cover_caption = page.images && page.images.first.caption %>
       <figcaption class="inset"><%= cover_caption %></figcaption>
     <% end %>
   </figure>
@@ -85,7 +86,7 @@
       </div>
     </header>
     <% end %>
-    
+
     <% if page.product_set? %>
       <ul class="<%= "cover-area" unless page.cover_url %> product-set <%= "set-#{(page.products.to_a.count/2.0).ceil*2}" %>">
       <% page.products.each_with_index do |product, index| %>
@@ -113,11 +114,11 @@
   <% if page.credits %>
     <div class="credits"><%= page.credits %></div>
   <% end %>
+
 <% else %>
-
   <%= page.content %>
-
 <% end %>
+
 <script>
   App = (typeof App == 'undefined') ? {} : App;
 

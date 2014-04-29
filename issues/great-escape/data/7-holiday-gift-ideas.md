@@ -3,10 +3,9 @@
     category: Gift Ideas
     title: Holiday Gift Guide
     author_name: Aubrey
-    
     thumb_url: assets/toc/gift-guide.jpg
     cover_url: assets/7-holiday-gift-ideas/cover.jpg
-    
+
     layout:
       type: two-column
       image_style: background
@@ -15,4 +14,5 @@
       content_valign: bottom
 
 ---
+
 Aubrey Daquinag of TheLoveAssembly.com shares the ultimate essentials for a stylish summer.
