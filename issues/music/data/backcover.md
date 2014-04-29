@@ -12,6 +12,7 @@
       - http://minkpink.com/
     
     layout:
+      type: one-column
       nav: false
       image_style: background
       content_style: transparent
