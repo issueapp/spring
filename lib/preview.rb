@@ -61,15 +61,15 @@ class IssuePreview < Sinatra::Base
   end
 
   get "/:magazine/:issue/index/?" do
-    erb :"issue/_cover.html", layout: :"/layouts/_app.html", locals: { issue: current_issue }
+    erb :"issue/_cover.html", layout: issue_layout, locals: { issue: current_issue }
   end
 
   get "/:magazine/:issue/?" do
-    erb :"issue/_cover.html", layout: :"/layouts/_app.html", locals: { issue: current_issue }
+    erb :"issue/_cover.html", layout: issue_layout, locals: { issue: current_issue }
   end
 
   get "/:magazine/:issue/_menu" do    
-    erb :"issue/_menu.html", locals: { issue: current_issue }, layout: !request.xhr? && :"/layouts/_app.html"
+    erb :"issue/_menu.html", locals: { issue: current_issue }, layout: issue_layout
   end
 
   get "/:magazine/:issue/issue.json" do
@@ -210,6 +210,10 @@ class IssuePreview < Sinatra::Base
 
   def issue_url(path = "")
     "#{request.base_url}#{request.script_name}/#{params[:magazine]}/#{params[:issue]}"
+  end
+  
+  def issue_layout
+    !request.xhr? && :"/layouts/_app.html"
   end
 
   def page_template(page)
