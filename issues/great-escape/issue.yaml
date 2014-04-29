@@ -9,7 +9,7 @@ cover_url: "assets/background_large.jpg"
 assets:
   - "custom.css"
   
-pages:
+paths:
 
   - index
   - toc

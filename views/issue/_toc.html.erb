@@ -46,7 +46,8 @@
   data-theme="<%= page.theme %>"
 >
   <div class="main col third-2">
-    <div class="cover-area <%= page.layout.image_style %>" style="background-image: url(<%= page.cover_url %>)">
+    <div class="cover-area <%= page.layout.image_style %>" 
+         style="background-image: url(<%= asset_path page.cover_url %>)">
       <% if video_embed = page.embed_content %>
         <div class="video-wrapper"><%= video_embed %></div>
       <% end %>

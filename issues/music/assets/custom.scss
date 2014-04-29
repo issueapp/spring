@@ -678,12 +678,12 @@ article.rainbow .product-set li .hotspot .tag {
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
 
-  animation: rainbow linear 8s infinite alternate;
+  animation: rainbow linear 10s infinite alternate;
   
   -webkit-backface-visibility: hidden;
-  -webkit-animation: rainbow linear 8s infinite alternate; /* Safari and Chrome */
+  -webkit-animation: rainbow linear 10s infinite alternate; /* Safari and Chrome */
   
-  -moz-animation: rainbow linear 8s infinite alternate; /* Firefox */
+  -moz-animation: rainbow linear 10s infinite alternate; /* Firefox */
 }
 
 /*article.rainbow .product-set li .hotspot:active .tag,*/
