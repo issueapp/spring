@@ -220,7 +220,7 @@
 
 <nav id="issue-menu" class="toc issue-menu <%= (webview? || offline?) ? "paginate" : "mobile-touch-overflow" %>" role="secondary">
   <ul class="contents-menu">
-    <% issue.items.each do |story| %>
+    <% issue.pages.each do |story| %>
 
     <% next if story.nav == false %>
     <% path = params[:subpage] ? "../" : "" %>

@@ -46,9 +46,9 @@ class LocalIssue < Hashie::Mash
     Pathname(File.expand_path("../../issues/#{handle}/", __FILE__))
   end
   
-  def items  
-    self[:pages].to_a.map do |handle|
-      LocalIssue::Page.find(handle, issue_path: self.path).tap do |p|
+  def pages
+    self[:paths].to_a.map do |handle|
+      LocalIssue::Page.find(handle, issue: self).tap do |p|
         if p.handle == "index"
           p.thumb_url = self.thumb_url
           p.cover_url = self.cover_url
@@ -58,7 +58,7 @@ class LocalIssue < Hashie::Mash
   end
   
   def paths
-    self.items.reduce([]) do |result, page|
+    self.pages.reduce([]) do |result, page|
       result << page.handle
       
       unless page.children.empty?
@@ -69,12 +69,8 @@ class LocalIssue < Hashie::Mash
     end
   end
   
-  def pages
-    self[:pages] || []
-  end
-  
   def to_hash(options = {})
-    hash = super
+    hash = super.except("id", "featured")
     
     hash.to_a.each do |key, value|
       if options[:local_path] && key =~ /_url/
