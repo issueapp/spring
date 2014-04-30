@@ -64,7 +64,7 @@
         <div class="image" style='background-image: url({{ image_url }})'></div>
         <div class="info">
           <h3>{{ title }}</h3>
-          <p>{{ summary }}</p>
+          <p class="summary">{{ summary }}</p>
           <a href="{{ url }}"  data-track="link:click" title="{{ url }} " target="_blank">Learn more</a>
         </div>
       </div>
