@@ -80,7 +80,7 @@ module LocalIssue::PageHelpers
     )
     
     if embed_video(video["url"])
-      figure.inner_html += video_iframe(video["url"])
+      figure.inner_html += video_iframe(video["url"], lazy: true)
     else
       
       options["src"] = video["url"]
@@ -126,15 +126,21 @@ module LocalIssue::PageHelpers
     figure
   end
   
-  def video_iframe(url)
+  def video_iframe(url, options = {})
     embed_url = case url
       when /youtube\.com\/watch\?v=(.+)/
-        "//youtube.com/embed/#{$1}?autohide=1&amp;autoplay=1&amp;color=white&amp;controls=0&amp;enablejsapi=1&amp;hd=1&amp;iv_load_policy=3&amp;origin=http%3A%2F%2Fissueapp.com&amp;rel=0&amp;showinfo=0&amp;wmode=transparent&amp;autoplay=1"
+        "http://youtube.com/embed/#{$1}?autohide=1&amp;autoplay=1&amp;color=white&amp;controls=0&amp;enablejsapi=1&amp;hd=1&amp;iv_load_policy=3&amp;origin=http%3A%2F%2Fissueapp.com&amp;rel=0&amp;showinfo=0&amp;wmode=transparent&amp;autoplay=1"
       when /vimeo\.com\/([^\/]+)/
-        "//player.vimeo.com/video/#{$1}?autoplay=1&amp;byline=0&amp;portrait=0"
+        "http://player.vimeo.com/video/#{$1}?autoplay=1&amp;byline=0&amp;portrait=0"
     end
     
-    "<iframe data-src=\"#{embed_url}\" frameborder=0 height=100% width=100% webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>"
+    if options[:lazy]
+      source = "data-src=\"#{embed_url}\""
+    else
+      source = "src=\"#{embed_url}\""
+    end
+    
+    "<iframe #{source} frameborder=0 height=100% width=100% webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>"
   end
   
   def embed_video(url)

@@ -42,10 +42,11 @@
   <% if page.cover_url %>
   <figure class="cover-area <%= page.layout.image_style %>"
     style="background-image: url(<%= asset_path page.cover_url %>)">
-    <% if video_embed = page.embed_content %>
-      <div class='video-wrapper'><%= video_embed %></div>
+    
+    <% if page.layout.type == "video" %>
+      <div class='video-wrapper'><%= video_iframe page.videos.first["url"]  %></div>
     <% end %>
-
+    
     <% page.hotspots.each_with_index do |item, index| %>
       <a href="<%= item.url %>" title="<%= item.title %>" class="hotspot image product" style="left: <%= item.hotspot.left %>px; top: <%= item.hotspot.right %>px;"><i class="tag"><%= index + 1 %></i></a>
     <% end %>
