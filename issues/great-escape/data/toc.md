@@ -5,6 +5,12 @@
     cover_url: assets/toc/background.jpg
     thumb_url: assets/toc/toc.jpg
     
+    images:
+      - url: assets/aubrey-avatar.png
+      - url: assets/michelle-avatar.png
+      - url: assets/jysla-avatar.png
+      - url: assets/zyra-avatar.png
+    
     layout:
       type: toc
       content_overflow: scroll
@@ -25,22 +31,22 @@ Indulge in the search for beauty. Whether you’re visiting Italy, Bali or stayi
 
 <ul class="contributors">
   <li>
-    <img class="avatar" src="assets/aubrey-avatar.png">
+    <img class="avatar" src="assets/aubrey-avatar.png" data-media-id="images:1">
     <span>Aubrey Daquinag</span>
     <span class="description">The Love Assembly</span>
   </li>
   <li>
-    <img class="avatar" src="assets/michelle-avatar.png">
+    <img class="avatar" src="assets/michelle-avatar.png" data-media-id="images:2">
     <span>Michelle Lau</span>
     <span class="description">A minute away from Snowlng</span>
   </li>
   <li>
-    <img class="avatar" src="assets/jysla-avatar.png">
+    <img class="avatar" src="assets/jysla-avatar.png" data-media-id="images:3">
     <span>Jessica Cheung</span>
     <span class="description">Jysla Kay</span>
   </li>
   <li>
-    <img class="avatar" src="assets/zyra-avatar.png">
+    <img class="avatar" src="assets/zyra-avatar.png" data-media-id="images:4">
     <span>Zyralyn Bacani</span>
     <span class="description">Content Writer of Issue</span>
   </li>
