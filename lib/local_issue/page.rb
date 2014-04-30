@@ -150,7 +150,7 @@ class LocalIssue::Page < Hashie::Mash
   end
   
   def product_set?
-    products.to_a.select{|p| p.hotspot != false }.length > 0
+    products.to_a.select{|p| !p.hotspot }.length > 0
   end
   
   def hotspots
