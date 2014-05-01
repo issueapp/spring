@@ -537,10 +537,18 @@ article[data-page="5-travel"] {
     font-family: 'proxima-nova';
   }
 
+  .content, .credits {
+    background-color: black;
+  }
+
   @media only screen and (min-width: 768px) {
     .title {
       height: 230px;
       margin-top: 50px;
+    }
+
+    .content, .credits {
+      background-color: initial;
     }
   }
 }

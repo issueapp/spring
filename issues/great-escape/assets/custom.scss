@@ -204,6 +204,10 @@ article.page[data-page="2-cate-says-si/2"] {
   }
 
   @media only screen and (min-width: 768px) and (orientation: landscape) {
+    .content header {
+      margin-top: 20%;
+    }
+
     .body .list li:nth-child(even) {
       font-size: 40px;
     }
