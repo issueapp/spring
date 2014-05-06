@@ -319,7 +319,6 @@ article[data-page="1-styling-it-out"] {
 */
 
 article[data-page="2-head-or-heart"] {
-
   header {
     height: 60%;
   }
@@ -350,6 +349,11 @@ article[data-page="2-head-or-heart"] {
     }
   }
 
+  @media only screen and (min-width: 768px) and (orientation: portrait) {
+    header {
+      height: 30%;
+    }
+  }
 }
 
 /*
