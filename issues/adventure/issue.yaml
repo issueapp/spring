@@ -8,7 +8,7 @@ theme: default
 assets:
   - "custom.css"
 
-pages:
+paths:
    - index
    - toc
    - winter-wonderment
