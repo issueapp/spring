@@ -17,7 +17,6 @@
       - title: Pearl Cat Ear Headband
         image_url: assets/3-shop-the-shoot/IMG_8796.jpg
         description:
-        url: "#1"
         action: false
 
       - title : Indy C Triple Triangle Chain Gold
