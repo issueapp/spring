@@ -286,7 +286,7 @@ article[data-page=editors-letter] {
     2. Styling it out
 */
 
-article[data-page="1-styling-it-out"] {
+article[data-page*="1-styling-it-out"] {
 
   .content {
     position: relative;
@@ -310,6 +310,19 @@ article[data-page="1-styling-it-out"] {
     text-align: left;
     font-family: 'rodondoregular';
   }
+  
+  .itunes-preview {
+    width: 70%;
+    margin: 0 auto 10px;
+    
+    audio { width: 100% }
+    
+    .itunes-download {
+      display: block;
+      text-align: center;
+    }
+  }
+
 
   /*  Responsive */
   @media only screen and (min-width: 768px) {
@@ -320,6 +333,10 @@ article[data-page="1-styling-it-out"] {
     header .category {
       font-size: 36px;
       font-size: 3vw;
+    }
+    
+    .itunes-preview {
+      width: 60%;
     }
   }
 
