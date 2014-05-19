@@ -155,7 +155,7 @@ article.page {
   }
 
   .brand {
-    margin: 0 auto 22px;
+    margin: 0 auto 20px;
     width: 200px;
     height: 80px;
     background-image: url('brand_logo.png');
@@ -194,6 +194,15 @@ article.page {
   }
 }
 
+@media only screen and (min-width: 768px) {
+  .page.cover {
+    .title {
+      font-size: 150px;
+      line-height: 100px;
+    }
+  }
+}
+
 @media only screen and (orientation: landscape) {
   .magazine.cover hgroup {
     margin-top: -4%;
@@ -224,11 +233,13 @@ article.toc.page {
     margin-top: 1em;
   }
 
-  .cover-area .brand-logo {
+  .brand-logo {
+    display: block;
     position: static;
     bottom: initial;
     left: initial;
-    margin: 2% auto 0;
+    margin: 20px auto 0;
+    width: 90%;
     max-width: 280px;
   }
 
@@ -275,7 +286,7 @@ article[data-page=editors-letter] {
     2. Styling it out
 */
 
-article[data-page="1-styling-it-out"] {
+article[data-page*="1-styling-it-out"] {
 
   .content {
     position: relative;
@@ -299,6 +310,19 @@ article[data-page="1-styling-it-out"] {
     text-align: left;
     font-family: 'rodondoregular';
   }
+  
+  .itunes-preview {
+    width: 70%;
+    margin: 0 auto 10px;
+    
+    audio { width: 100% }
+    
+    .itunes-download {
+      display: block;
+      text-align: center;
+    }
+  }
+
 
   /*  Responsive */
   @media only screen and (min-width: 768px) {
@@ -309,6 +333,10 @@ article[data-page="1-styling-it-out"] {
     header .category {
       font-size: 36px;
       font-size: 3vw;
+    }
+    
+    .itunes-preview {
+      width: 60%;
     }
   }
 
