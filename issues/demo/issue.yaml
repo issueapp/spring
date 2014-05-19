@@ -1,0 +1,16 @@
+title: New Markets
+description: "Emerging markets in 2014, Raise of Wearables"
+magazine_title: Tech in Asia
+magazine_handle: techinasia
+
+thumb_url: assets/background.jpg
+cover_url: assets/background_large.jpg
+
+assets:
+  - "custom.css"
+
+paths:
+  - index
+  - toc
+  - rise-of-wearables
+  - asian-ecommerce

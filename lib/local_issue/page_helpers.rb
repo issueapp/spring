@@ -115,7 +115,8 @@ module LocalIssue::PageHelpers
     options["controls"] = true if media["controls"]
     options["mute"] = true if media["mute"]
 
-    figure << create_element("audio", options)
+    audio = create_element("audio", options)
+    figure << audio
     
     if media["caption"]
       options = {}
