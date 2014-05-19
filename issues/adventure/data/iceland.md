@@ -16,5 +16,8 @@
         
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+It’s hard to describe what Iceland is truly like without having words fail me. It’s as about as far away as I can be from home, yet as soon as I touched down, I felt an overwhelming sense of calm wash over me. As if to suggest that I had, indeed, found home in this city so beautiful it could move me to tears (and it did).     
+
+Here’s my (mini) guide to Iceland. I hope it’s useful to anyone planning to visit soon.
+
 
