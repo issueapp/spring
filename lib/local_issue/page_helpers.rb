@@ -116,18 +116,15 @@ module LocalIssue::PageHelpers
     options["mute"] = true if media["mute"]
 
     audio = create_element("audio", options)
+    figure << audio
     
     if media["caption"]
-
-      figure << audio
       options = {}
       options[:class] = "inset" if media["caption_inset"]
       figure << create_element("figcaption", media["caption"], options)
-      
-      figure
     end
     
-
+    figure
   end
   
   def video_iframe(url, options = {})
