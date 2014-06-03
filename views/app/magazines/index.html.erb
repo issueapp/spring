@@ -21,18 +21,17 @@
 
   <section class="filters">
     <div class="button-group">
-      <% if current_user %>
-        <a href="/magazines?filter=subscribed" data-filter="all" class="black small button">Subscribed</a>
-      <% else %>
-        <a href="/magazines?filter=all" data-filter="all" class="black small button">All</a>
-      <% end %>
-      
+      <a href="/magazines?filter=subscribed" data-filter="subscribed" class="black small button">Subscribed</a>
+      <a href="/magazines?filter=all" data-filter="all" class="black small button" style="display: none">All</a>
       <a href="/magazines?filter=featured" data-filter="featured" class="black small  button">Featured</a>
       <a href="/magazines?filter=offline" data-filter="offline" class="black small active button">Offline</a>
     </div>
   </section>
   
   <ul class="magazine-list <%= "grid" if params[:layout] == "grid" %>">
+    <li class="loading">
+      <span class="one">.</span><span class="two">.</span><span class="three">.</span>
+    </li>
   </ul>
 </div>
 
