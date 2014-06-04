@@ -11,8 +11,8 @@
 
 ---
 
-Creating a digital magazine doesn't have to be complicated and expansive, May be they can be as simple as bloggering.
-Your In-App content doesn't have to be isolated so they can be reach by search and social.
+Creating a digital magazine doesn't have to be complicated and Expansive, may be they can be as simple as blogging.
+Your In-App content doesn't have to be isolated so it can be reached through the web and social media.
 
 At Issue we want to make your content more open and accessible, bringing beautiful mobile publishing to everyone.
 
