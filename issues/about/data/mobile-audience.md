@@ -19,7 +19,3 @@ Over 1 Billon mobile devices makeing 1/3 of all purchases. Mobile is the new fro
 Mobile publishing is a massive oppurturnity for brands and content creators,  from one-person media out or a major online retailer.
 
 With Issue, you can tell your story and build a lasting relationship right in your consumer's hand where content would love to be touched. Can't decide between Apps vs Site? How about the best of both world
-
-
-
-
