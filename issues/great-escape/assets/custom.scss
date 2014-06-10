@@ -108,6 +108,7 @@ article.page[data-page="2-cate-says-si"] {
     font-style: italic;
     font-size: 40px;
     font-family: "EB Garamond";
+    margin: 0;
   }
 
   header .category {
@@ -139,13 +140,14 @@ article.page[data-page="2-cate-says-si"] {
 }
 
 article.page[data-page="2-cate-says-si/1"] {
-  header {
-    margin: 30px;
-    text-align: center;
-  }
-
   header .title {
     text-transform: capitalize;
+  }
+
+  @media only screen and (min-width: 768px) {
+    header {
+      margin: 30px;
+    }
   }
 }
 
@@ -291,11 +293,6 @@ article.page[data-page="6-summer-survival-guide/4"] {
   .content {
     padding: 15px;
     width: 100%;
-    height: 100%;
-  }
-
-  .body {
-    height: 100%;
   }
 
   .products {
@@ -340,6 +337,10 @@ article.page[data-page="6-summer-survival-guide/4"] {
   }
 
   @media only screen and (min-width: 768px) {
+    .content {
+      height: 100%;
+    }
+
     #story5-giftset li:nth-child(odd) .details {
       padding-top: 50px;
     }
