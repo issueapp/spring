@@ -33,33 +33,6 @@ module ViewHelpers
     end
   end
 
-  def embed_video url
-    case url
-
-    when /player.vimeo.com\/video\/(.+)/, /http:\/\/vimeo.com\/(.+)/
-      vimeo_id = $1.strip
-      options = { autoplay: 1, byline: 0, portrait: 0 }
-
-      embed_url = "//player.vimeo.com/video/#{vimeo_id}?#{options.to_param}"
-
-    when /youtube.com\/watch\?v=(.+)/, /youtu.be\/(.+)/
-      youtube_id = $1.strip
-      options = { controls: 0, wmode: 'transparent', autoplay: 1,
-        iv_load_policy: 3, autohide: 1, hd: 1, color: 'white',
-        rel: 0, showinfo: 0, enablejsapi: 1,
-        origin: "http://issueapp.com"
-      }
-
-      embed_url = "//www.youtube.com/embed/#{youtube_id}?#{options.to_param}"
-
-    else
-      embed_url = url
-    end
-
-    %_<iframe src="#{embed_url}" frameborder="0" height="100%" width="100%" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>_.html_safe
-  end
-
-
   def lorem_ipsum(sentences = 3)
     Forgery(:lorem_ipsum).sentences(sentences)
   end

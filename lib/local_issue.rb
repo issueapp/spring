@@ -1,4 +1,5 @@
 require 'active_support/core_ext/string'
+require 'active_support/core_ext/hash'
 
 class LocalIssue < Hashie::Mash
 
