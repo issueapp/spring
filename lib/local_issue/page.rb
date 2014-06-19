@@ -123,7 +123,7 @@ class LocalIssue::Page < Hashie::Mash
   def self.recursive_build(start_path, cache = {}, options = {})
     issue = options[:issue]
     
-    Dir.glob("#{issue.path}/#{start_path}/*").map do |path|
+    Dir.glob("#{issue.path}/#{start_path}/*").sort.map do |path|
       # path.gsub!(issue_path.to_s + "/", '')
       
       if File.directory?(path)

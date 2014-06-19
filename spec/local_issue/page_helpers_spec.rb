@@ -19,9 +19,9 @@ describe "Page helpers" do
     let(:node) { view.create_element('img', 'data-media-id' => 'images:1') }
     
     let(:media) { {
-      url: "new_images/audio.png", 
-      caption: "caption text",
-      caption_inset: true
+      "url" => "new_images/audio.png", 
+      "caption" => "caption text",
+      "caption_inset" => true
     }}
       
     it "render image block around figure" do
@@ -57,14 +57,14 @@ describe "Page helpers" do
       output = view.video_node(node, media.merge("url" => 'https://www.youtube.com/watch?v=pTjS0o-ZIRg')).to_s
       
       output.should include "<iframe"
-      output.should include 'src="//youtube.com/embed/pTjS0o-ZIRg'
+      output.should include 'src="http://youtube.com/embed/pTjS0o-ZIRg'
     end
 
     it "renders vimeo video via iframe" do
       output = view.video_node(node, media.merge("url" => 'http://vimeo.com/92354665')).to_s
       
       output.should include "<iframe"
-      output.should include 'src="//player.vimeo.com/video/92354665'
+      output.should include 'src="http://player.vimeo.com/video/92354665'
     end
         
     it "might have custom thumbnail" do
@@ -73,10 +73,10 @@ describe "Page helpers" do
       output.should include 'poster="assets/preview.jpg"'
     end
     
-    it "adds playback attribute: :autoplay, :mute, :controls" do
+    it "adds playback attribute: :autoplay, :muted, :controls" do
       output = view.video_node(node, media.merge("autoplay" => true, "controls" => true)).to_s
       
-      output.should match %r{<video src="assets/to/video.mp4" autoplay([^>]+) controls([^>]+)>}
+      output.should match %r{<video src="assets/to/video.mp4"([^>]+)autoplay([^>]+)controls([^>]+)>}
     end
     
     it "adds caption" do
@@ -97,10 +97,10 @@ describe "Page helpers" do
       output.should include '<figure class="audio">'
     end
     
-    it "adds playback attribute: :autoplay, :mute, :controls" do
+    it "adds playback attribute: :autoplay, :muted, :controls" do
       output = view.audio_node(node, media.merge("autoplay" => true, "controls" => true)).to_s
       
-      output.should match %r{<audio src="assets/song.mp3" autoplay([^>]+) controls([^>]+)>}
+      output.should match %r{<audio src="assets/song.mp3"([^>]+)autoplay([^>]+)controls([^>]+)>}
     end
     
     it "might have custom thumbnail" do
