@@ -572,6 +572,10 @@ article[data-page="5-travel"] {
     background-color: black;
   }
 
+  &.no-content .content:before {
+    content: initial;
+  }
+
   .credits {
     top: 310px;
   }
