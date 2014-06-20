@@ -40,13 +40,13 @@
    <%= "image-#{page.layout.image_style}" if page.layout.image_style %>
    <%= "cover-#{page.layout.image_align}" if page.layout.image_align && page.cover_url %>
  <% end %>"
- 
-  data-page-id="<%= page.id %>" 
-  data-page="<%= page.handle + page_ext %>"
+
+  data-page-id="<%= page.id %>"
+  data-page="<%= page.handle %>"
   data-theme="<%= page.theme %>"
 >
   <div class="main col third-2">
-    <div class="cover-area <%= page.layout.image_style %>" 
+    <div class="cover-area <%= page.layout.image_style %>"
          style="background-image: url(<%= asset_path page.cover_url %>)">
       <% if video_embed = page.embed_content %>
         <div class="video-wrapper"><%= video_embed %></div>
