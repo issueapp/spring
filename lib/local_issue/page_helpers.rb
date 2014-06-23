@@ -75,7 +75,7 @@ module LocalIssue::PageHelpers
   # Params:
   #    autoplay: true | false
   #    controls: true | false
-  #    loop:     true | false
+  #    loop:     true | false
   def video_node(node, video)
     class_name = nil
     
@@ -161,7 +161,7 @@ module LocalIssue::PageHelpers
     
     embed_url = case url
       when /youtube\.com\/watch\?v=(.+)/
-        "http://youtube.com/embed/#{$1}?#{URI.escape(params.to_param)}&amp;autohide=1&amp;color=white&amp;enablejsapi=1&amp;hd=1&amp;iv_load_policy=3&amp;origin=http%3A%2F%2Fissueapp.com&amp;rel=0&amp;showinfo=0&amp;wmode=transparent"
+        "http://youtube.com/embed/#{$1}?#{URI.escape(params.to_param)}&amp;playlist=#{$1}&amp;autohide=1&amp;color=white&amp;enablejsapi=1&amp;hd=1&amp;iv_load_policy=3&amp;origin=http%3A%2F%2Fissueapp.com&amp;rel=0&amp;showinfo=0&amp;wmode=transparent"
       when /vimeo\.com\/([^\/]+)/
         "http://player.vimeo.com/video/#{$1}?#{URI.escape(params.to_param)}&amp;byline=0&amp;portrait=0"
     end
