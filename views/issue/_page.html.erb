@@ -32,7 +32,7 @@
  <% end %>"
 
   data-theme="<%= page.theme %>"
-  data-page="<%= page.handle + page_ext %>"
+  data-page="<%= page.handle %>"
   data-author="<%= page.author_name %>"
   data-page-id="<%= page.id %>"
 >
@@ -42,11 +42,11 @@
   <% if page.cover_url %>
   <figure class="cover-area <%= page.layout.image_style %>"
     style="background-image: url(<%= asset_path page.cover_url %>)">
-    
+
     <% if page.layout.type == "video" %>
       <div class='video-wrapper'><%= video_iframe page.videos.first["url"]  %></div>
     <% end %>
-    
+
     <% page.hotspots.each_with_index do |item, index| %>
       <a href="<%= item.url %>" title="<%= item.title %>" class="hotspot image product" style="left: <%= item.hotspot.left %>px; top: <%= item.hotspot.right %>px;"><i class="tag"><%= index + 1 %></i></a>
     <% end %>
@@ -92,15 +92,15 @@
       <ul class="<%= "cover-area" unless page.cover_url %> product-set <%= "set-#{(page.products.to_a.count/2.0).ceil*2}" %>">
       <% page.products.each_with_index do |product, index| %>
         <li>
-          <a href="<%= affiliate_url(product[:url]) || product[:url] %>" class='hotspot product'  
+          <a href="<%= affiliate_url(product[:url]) || product[:url] %>" class='hotspot product'
              title="<%= product.title %>"
-             data-track="hotspot:click" 
+             data-track="hotspot:click"
              data-action="<%= product[:action] %>"
              data-url="<%= product[:url] %>"
-             data-image="<%= asset_path product[:image_url] %>" 
+             data-image="<%= asset_path product[:image_url] %>"
              data-price="<%= product[:price] %>"
              data-description="<%= product[:description] %>">
-             
+
             <img src="<%= asset_path product[:image_url] %>" alt=''>
             <span class='tag'><%= index + 1 %></span>
           </a>
