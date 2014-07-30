@@ -75,17 +75,19 @@ class LocalIssue::Page < Hashie::Mash
     self.elements.each do |element|
       attributes[element] = attributes[element].to_a.map do |object|
         object = { "url" => object } if object.is_a?(String)
-        object
+        Hashie::Mash.new(object)
       end
     end
     
     # Add cover url into images
     if attributes["cover_url"]
       attributes["images"].push(
-        "caption"   => attributes.delete("cover_caption"),
-        "url"       => attributes["cover_url"],
-        "thumb_url" => attributes["thumb_url"],
-        "cover"     => true
+        Hashie::Mash.new(
+          "caption"   => attributes.delete("cover_caption"),
+          "url"       => attributes["cover_url"],
+          "thumb_url" => attributes["thumb_url"],
+          "cover"     => true
+        )
       )
     end
     
@@ -140,6 +142,9 @@ class LocalIssue::Page < Hashie::Mash
     end
   end
   
+  def cover
+    (images.to_a + videos.to_a).find {|media| media.cover == true }
+  end
   
   def issue
     @issue

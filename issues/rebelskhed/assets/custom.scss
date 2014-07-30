@@ -1,0 +1,151 @@
+
+article[data-page="end"] {
+  
+  .content {
+    display: block;
+  }
+  
+  img[data-media-id] {
+    display: block;
+    margin: 10% auto;
+  }
+}
+
+/*
+    Polaroid
+*/
+
+.polaroid-wrap {
+  list-style: none;
+}
+
+article.page ul.polaroids {
+  padding: 0;
+  margin: 0;
+}
+
+figure.polaroid {
+  float: left;
+
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
+
+  display: inline-block;
+
+  max-width: 48%;
+  max-height: 300px;
+
+  display: inline;
+  float: left;
+
+  margin: 0 -5% -10% 1%;
+  width: auto;
+
+  font-size: 18px;
+  text-align: center;
+  font-family: "Marker Felt", sans-serif;
+  text-decoration: none;
+  color: #333;
+
+  -webkit-transform: rotate(-2deg);
+  -webkit-transition: all .15s linear;
+
+  -moz-transform: rotate(-2deg);
+  -moz-transition: all .15s linear;
+
+  transition: all .15s linear;
+}
+
+figure.polaroid figcaption {
+  text-decoration: none;
+  text-align: center;
+}
+
+figure.polaroid img {
+
+  width: 100%;
+  padding: 15px 15px 20px;
+  background: #fff;
+  box-shadow: 0 3px 6px rgba(0,0,0,.25);
+
+  vertical-align: middle;
+  width: 100%;
+}
+
+.polaroid-wrap:hover figure {
+  -webkit-transform: scale(1.7);
+  -moz-transform: scale(1.7);
+  transform: scale(1.7);
+  position: relative;
+  z-index: 5;
+}
+
+@media only screen and (min-width: 768px) {
+  figure.polaroid {
+    max-width: 24%;
+    margin: 0 0% -5% 5%;
+    max-height: 25vw;
+  }
+
+  .polaroid-wrap:nth-child(3n+1) {
+    clear: both;
+  }
+}
+
+.polaroid-wrap:nth-child(even) {
+  -webkit-transform: rotate(3deg);
+  -moz-transform: rotate(3deg);
+  transform: rotate(3deg);
+}
+
+.polaroid-wrap:nth-child(5) {
+  -webkit-transform: none;
+  -moz-transform: none;
+  transform: none;
+
+  position: relative;
+  top: 14vh;
+  left: 2vh;
+}
+
+.polaroid-wrap:nth-child(8) {
+  -webkit-transform: none;
+  -moz-transform: none;
+  transform: none;
+
+  position: relative;
+  top: 5vh;
+  left: -2vh;
+}
+
+.polaroid-wrap:nth-child(4) figure {
+  clear: left;
+}
+
+.polaroid-wrap:nth-child(11) {
+  -webkit-transform: rotate(3deg);
+  -moz-transform: rotate(3deg);
+  transform: rotate(3deg);
+
+  position: relative;
+  left: -2vh;
+}
+
+.polaroid-wrap:nth-child(12) {
+  -webkit-transform: none;
+  -moz-transform: none;
+  transform: none;
+
+  position: relative;
+  left: 5vh;
+}
+
+.polaroid-wrap:nth-child(13) {
+  -webkit-transform: none;
+  -moz-transform: none;
+  transform: none;
+
+  position: relative;
+  top: -8vh;
+  left: 2vh;
+}
