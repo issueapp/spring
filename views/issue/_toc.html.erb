@@ -46,12 +46,20 @@
   data-theme="<%= page.theme %>"
 >
   <div class="main col third-2">
+    
     <div class="cover-area <%= page.layout.image_style %>"
          style="background-image: url(<%= asset_path page.cover_url %>)">
+      
+      <% if page.cover && page.cover.type =~ /video/ %>
+         <video src="<%= page.cover.url %>" <%= "autoplay" if page.cover.autoplay %> <%= "loop" if page.cover.autoplay %>></video>
+         
+      <% end %>
+
       <% if video_embed = page.embed_content %>
         <div class="video-wrapper"><%= video_embed %></div>
       <% end %>
     </div>
+
 
     <div class="content">
       <%= header_area %>
