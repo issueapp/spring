@@ -8,7 +8,7 @@
     byline: By Zyra Bacani
     
     cover_url: assets/story_one/woolmark.jpg
-    thumb_url: assets/story_one/woolmark.jpg
+    thumb_url: assets/story_one/thumb.jpg
 
     images:
       - url: assets/story_one/woolmark-judges.jpg

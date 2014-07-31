@@ -5,7 +5,8 @@
     thumb_url: assets/toc.png
     
     videos:
-      - url: assets/toc_header_480.mov
+      - url: assets/toc_header_480.mp4
+        thumb_url: assets/toc.png
         type: video
         cover: true
         autoplay: true

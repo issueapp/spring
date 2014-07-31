@@ -3,7 +3,7 @@
     title: A.J.L Madhouse
 
     cover_url: assets/madhouse/cover.jpg
-    thumb_url: assets/madhouse/cover.jpg
+    thumb_url: assets/madhouse/thumb.jpg
 
     layout:
       type: two-column
