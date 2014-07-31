@@ -12,7 +12,7 @@
 
     images:
       - url: assets/story_one/woolmark-judges.jpg
-        caption: Judges at work
+        caption:  " "
     
     layout:
       type: two-column
@@ -29,6 +29,6 @@ Having deservingly won the menswear contest between 20 promising talents in Euro
 Keep those eyes on a close look-out because for the next six to eight months, Asger will be developing his capsule collection in Merino wool. His exceptional pieces will be showcased in another event, where it will highlight the five finalists which will be selected from across the world for both menswear and womenswear. 
 
 
-<img data-media-id="images:1" width=70%>
+<img data-media-id="images:1" width=60%>
 
 

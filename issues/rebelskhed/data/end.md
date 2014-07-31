@@ -1,6 +1,4 @@
 ---
-    title: End.
-    
     images:
       - url: assets/end.gif
         
@@ -13,6 +11,9 @@
       image_style: background
       content_style: transparent
       content_height: full
+      content_align: center
+      content_valign: middle
+
 
 ---
 

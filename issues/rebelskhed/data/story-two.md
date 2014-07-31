@@ -1,8 +1,7 @@
 ---
     
-    title: "Asger Juel Larsen in AW14"
-    description: Looking for a sweet treat? Look no further! Our delicious recipe for Berry Cheesecake Parfait made with Philadelphia Cream Cheese, mixed berries, Nilla wafers and Cool Whip is definitely the perfect treat! 
-    category: Lookbook
+    title: Artic Suburb Manual
+    category: Lookbook AW14
     
     thumb_url: assets/story_two/10_i.jpg
     cover_url: assets/story_two/10_i.jpg
