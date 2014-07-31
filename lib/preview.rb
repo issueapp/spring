@@ -115,7 +115,14 @@ class IssuePreview < Sinatra::Base
     
     # asset_path = request.path_info.gsub(/^\/#{params[:magazine]}/, "issues")
     # file = File.expand_path("../../#{CGI.unescape(asset_path)}", __FILE__)
-    content_type MIME::Types.type_for(file).first.content_type
+    
+    mime_type = MIME::Types.type_for(file).first.content_type
+    
+    if mime_type == "application/mp4"
+      send_file current_issue.path.join('assets').join(file), type: "video/mp4"
+      return 
+    end
+    content_type mime_type
     
     asset.to_s
   end

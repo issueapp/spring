@@ -3,7 +3,7 @@
     title: Artic Suburb Manual
     category: Lookbook AW14
     
-    thumb_url: assets/story_two/10_i.jpg
+    thumb_url: assets/story_two/thumb.jpg
     cover_url: assets/story_two/10_i.jpg
     
 ---

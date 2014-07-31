@@ -3,7 +3,7 @@
     title: Dark and Sinister
     category: Shop the look
     cover_url: assets/madhouse/3.jpg
-    thumb_url: assets/madhouse/3.jpg
+    thumb_url: assets/shopping_thumb.jpg
         
     products:
 

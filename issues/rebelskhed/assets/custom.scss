@@ -2,12 +2,19 @@ article[data-page="toc"] {
   .menu .head {
     visibility: hidden;
   }
+  
+  figure video {
+    height: 100%;
+  }
 }
 
 article[data-page="story-two/1"] {
-  .title {
-    color: white;
-    text-shadow: 1px 1px 20px rgba(0,0,0,0.4);
+  
+  @media only screen and (min-width: 768px) {
+    .title {
+      color: white;
+      text-shadow: 1px 1px 20px rgba(0,0,0,0.4);
+    }
   }
 }
 
