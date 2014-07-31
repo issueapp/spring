@@ -1,9 +1,18 @@
+article[data-page="toc"] {
+  .menu .head {
+    visibility: hidden;
+  }
+}
+
+article[data-page="story-two/1"] {
+  .title {
+    color: white;
+    text-shadow: 1px 1px 20px rgba(0,0,0,0.4);
+  }
+}
 
 article[data-page="end"] {
-  
-  .content {
-    display: block;
-  }
+  text-align: center;
   
   img[data-media-id] {
     display: block;
@@ -104,7 +113,6 @@ figure.polaroid img {
   transform: none;
 
   position: relative;
-  top: 14vh;
   left: 2vh;
 }
 
