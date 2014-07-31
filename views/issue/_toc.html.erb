@@ -47,10 +47,10 @@
 >
   <div class="main col third-2">
     <% if page.cover && page.cover.type =~ /video/ %>
-      <div class="cover-area <%= page.layout.image_style %>"
-           style="background-image: url(<%= asset_path page.cover.thumb_url %>)">
-        <video src="<%= page.cover.url %>" <%= "autoplay" if page.cover.autoplay %> <%= "loop" if page.cover.autoplay %>></video>
-      </div>
+      <figure class="cover-area <%= page.layout.image_style %>"
+           style="">
+        <video src="<%= page.cover.url %>"  <%= "autoplay" if page.cover.autoplay %> <%= "loop" if page.cover.autoplay %> poster="<%= asset_path page.cover.thumb_url %>"></video>
+      </figure>
     <% else %>
     
       <div class="cover-area <%= page.layout.image_style %>"

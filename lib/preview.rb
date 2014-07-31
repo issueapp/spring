@@ -119,8 +119,7 @@ class IssuePreview < Sinatra::Base
     mime_type = MIME::Types.type_for(file).first.content_type
     
     if mime_type == "application/mp4"
-      send_file current_issue.path.join('assets').join(file), type: "video/mp4"
-      return 
+      return send_file current_issue.path.join('assets').join(file), type: "video/mp4"
     end
     content_type mime_type
     
