@@ -1,15 +1,11 @@
 article[data-page="toc"] {
   .menu .head {
-    visibility: hidden;
+    display: none;
   }
   
-  figure video {
-    height: 100%;
-  }
 }
 
 article[data-page="story-two/1"] {
-  
   @media only screen and (min-width: 768px) {
     .title {
       color: white;
