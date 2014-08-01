@@ -1,0 +1,301 @@
+#adventure-issue {
+  
+  article.page.white .content {
+    opacity: 0.9;
+  }
+  
+  .product-set li {
+    overflow: hidden;
+  }
+  
+}
+article[data-page="adventure/1"] {
+  .cover {
+    height: 100%;
+  }
+  
+  
+  .image h3 {
+    padding-top: 45%;
+    color: white;
+    font-size: 2em !important; 
+    text-transform: uppercase;
+    text-shadow: 1px 1px 25px rgba(0,0,0,0.1);
+    letter-spacing: 2px;
+  }
+  
+  .summary {
+    padding: 10%;
+  }
+}
+
+
+/*
+  Events Calendar
+*/
+
+#flip-cards {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  list-style: none;
+
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  -o-perspective: 1000;
+  perspective: 1000;
+
+  li {
+    float: left;
+    width: 100%;
+    height: 50%;
+    background-size: cover;
+  }
+
+//  li:first-child {
+//    width: 100%;
+//  }
+
+  h3 {
+    font-size: 1.4rem;
+  }
+
+  .summary {
+//    display: none;
+  }
+
+  .flipper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    -webkit-transition: 0.6s;
+    -moz-transition: 0.6s;
+    -o-transition: 0.6s;
+    transition: 0.6s;
+
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+  }
+
+  li .image {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  /* front pane, placed above back */
+  li .image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    background-position: center;
+    background-size: cover;
+
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+
+  /* back, initially hidden pane */
+  li .info {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    overflow: auto;
+    padding: 20px;
+    background: #fff;
+    color: #333;
+    font-size: 14px;
+
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+
+  @media only screen and (min-width: 768px) {
+    
+    li {
+      width: 50%;
+    }
+    
+    h3 {
+      font-size: 1.6rem;
+    }
+
+    .summary {
+      display: block;
+    }
+
+//    li {
+//      width: 33.3%;
+//      height: 33.33%;
+//    }
+//
+//    li:first-child {
+//      width: 33.3%;
+//    }
+  }
+}
+
+.no-touch #flip-cards li:hover .flipper,
+#flip-cards li.hover .flipper {
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+
+
+/*
+    Polaroid
+*/
+
+.polaroid-wrap {
+  list-style: none;
+}
+
+article.page ul.polaroids {
+  padding: 0;
+  margin: 0;
+}
+
+figure.polaroid {
+  float: left;
+
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
+
+  display: inline-block;
+
+  max-width: 48%;
+  max-height: 300px;
+
+  display: inline;
+  float: left;
+
+  margin: 0 -5% -10% 1%;
+  width: auto;
+
+  font-size: 18px;
+  text-align: center;
+  font-family: "Marker Felt", sans-serif;
+  text-decoration: none;
+  color: #333;
+
+  -webkit-transform: rotate(-2deg);
+  -webkit-transition: all .15s linear;
+
+  -moz-transform: rotate(-2deg);
+  -moz-transition: all .15s linear;
+
+  transition: all .15s linear;
+}
+
+figure.polaroid figcaption {
+  text-decoration: none;
+  text-align: center;
+}
+
+figure.polaroid img {
+
+  width: 100%;
+  padding: 15px 15px 20px;
+  background: #fff;
+  box-shadow: 0 3px 6px rgba(0,0,0,.25);
+
+  vertical-align: middle;
+  width: 100%;
+}
+
+.polaroid-wrap:hover figure {
+  -webkit-transform: scale(1.7);
+  -moz-transform: scale(1.7);
+  transform: scale(1.7);
+  position: relative;
+  z-index: 5;
+}
+
+@media only screen and (min-width: 768px) {
+  figure.polaroid {
+    max-width: 24%;
+    margin: 0 0% -5% 5%;
+    max-height: 25vw;
+  }
+
+  .polaroid-wrap:nth-child(3n+1) {
+    clear: both;
+  }
+}
+
+.polaroid-wrap:nth-child(even) {
+  -webkit-transform: rotate(3deg);
+  -moz-transform: rotate(3deg);
+  transform: rotate(3deg);
+}
+
+.polaroid-wrap:nth-child(5) {
+  -webkit-transform: none;
+  -moz-transform: none;
+  transform: none;
+
+  position: relative;
+  left: 2vh;
+}
+
+.polaroid-wrap:nth-child(8) {
+  -webkit-transform: none;
+  -moz-transform: none;
+  transform: none;
+
+  position: relative;
+  top: 5vh;
+  left: -2vh;
+}
+
+.polaroid-wrap:nth-child(4) figure {
+  clear: left;
+}
+
+.polaroid-wrap:nth-child(11) {
+  -webkit-transform: rotate(3deg);
+  -moz-transform: rotate(3deg);
+  transform: rotate(3deg);
+
+  position: relative;
+  left: -2vh;
+}
+
+.polaroid-wrap:nth-child(12) {
+  -webkit-transform: none;
+  -moz-transform: none;
+  transform: none;
+
+  position: relative;
+  left: 5vh;
+}
+
+.polaroid-wrap:nth-child(13) {
+  -webkit-transform: none;
+  -moz-transform: none;
+  transform: none;
+
+  position: relative;
+  top: -8vh;
+  left: 2vh;
+}
