@@ -1,21 +1,21 @@
 ---
+
     title: End
 
     images:
       - url: assets/end.gif
-        
-    links: 
+
+    links:
       - http://asgerjuellarsen.com/
-    
+
     layout:
       type: one-column
       nav: false
       image_style: background
-      content_style: transparent
+      content_style: white
       content_height: full
       content_align: center
       content_valign: middle
-
 
 ---
 
