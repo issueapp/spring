@@ -146,12 +146,8 @@ class LocalIssue::Page < Hashie::Mash
     (images.to_a + videos.to_a).find {|media| media.cover == true }
   end
   
-  def issue
-    @issue
-  end
-  
   def issue=(issue)
-    @issue ||= issue
+    self[:issue] ||= issue
   end
   
   def product_set?
