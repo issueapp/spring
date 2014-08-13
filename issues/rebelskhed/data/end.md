@@ -1,4 +1,6 @@
 ---
+    title: End
+
     images:
       - url: assets/end.gif
         
