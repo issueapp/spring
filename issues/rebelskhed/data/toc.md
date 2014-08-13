@@ -1,9 +1,9 @@
 ---
 
     title: "A.J.L. MADHOUSE Issue #1"
-    
+
     thumb_url: assets/toc.png
-    
+
     videos:
       - url: assets/toc_header_480.mp4
         thumb_url: assets/toc.png
@@ -11,7 +11,7 @@
         cover: true
         autoplay: true
         loop: true
-    
+
     layout:
       type: toc
       content_overflow: scroll
