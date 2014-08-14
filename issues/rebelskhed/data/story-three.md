@@ -12,7 +12,6 @@
       content_valign: middle
 
       content_style: black
-      content_overflow: paginate
 
 ---
 

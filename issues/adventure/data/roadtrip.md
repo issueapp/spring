@@ -3,7 +3,7 @@
     title: Road Tripping
     
     author_name: Sarah Agboola
-    by_line: Sarah Agboola
+    byline: Sarah Agboola
     
     cover_url: assets/Unbranded/cover.jpg
     thumb_url: assets/Unbranded/thumb.jpg
