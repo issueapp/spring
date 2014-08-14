@@ -14,6 +14,17 @@ class LocalIssue::Page < Hashie::Mash
   # virtual
   # cover -> images.where(cover:true)
   
+  DefaultLayout = {
+    'content_style'    => 'white',
+    'type'             => 'two-column',
+    'image_style'      => 'cover',
+    'image_align'      => 'left',
+    'content_align'    => 'left',
+    'content_valign'   => 'top',
+    'content_height'   => 'auto',
+    'content_overflow' => 'scroll',
+    'nav'              => true
+  }
   
   # Page elements: media and entities
   def self.elements
@@ -116,7 +127,7 @@ class LocalIssue::Page < Hashie::Mash
       "issue"           => issue,
       "handle"          => path.gsub("#{issue.path}/data/", '').gsub(".md", ''),
       # "published_at"    => attributes["published_at"] || File.mtime(path).to_i,
-      "layout"          => attributes.fetch("layout", {}),
+      "layout"          => attributes.fetch("layout", DefaultLayout),
       "content"         => content
     )
     new(attributes)
@@ -183,13 +194,15 @@ class LocalIssue::Page < Hashie::Mash
   end
   
   def to_hash(options = {})
-    hash = super.except("id", "issue")
+    hash = super.except("id", "issue", "cover_url", "thumb_url")
+    
+    hash["title"] ||= "Table of Content" if handle == "toc"
     
     self.class.elements.each do |element|
       hash[element].to_a.each_with_index do |asset, index|
         
         asset.to_a.each do |key, value|
-          next unless options[:local_path]
+          next unless options[:local_path] || asset["type"] =~ /video/
           
           if key =~ /url$/ && value =~ /^assets\//
             path = asset.delete(key) if asset.has_key?(key)
