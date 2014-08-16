@@ -14,17 +14,19 @@ class LocalIssue::Page < Hashie::Mash
   # virtual
   # cover -> images.where(cover:true)
   
-  DefaultLayout = {
-    'content_style'    => 'white',
-    'type'             => 'two-column',
-    'image_style'      => 'cover',
-    'image_align'      => 'left',
-    'content_align'    => 'left',
-    'content_valign'   => 'top',
-    'content_height'   => 'auto',
-    'content_overflow' => 'scroll',
-    'nav'              => true
-  }
+  def self.default_layout
+    {
+      'content_style'    => 'white',
+      'type'             => 'two-column',
+      'image_style'      => 'cover',
+      'image_align'      => 'left',
+      'content_align'    => 'left',
+      'content_valign'   => 'top',
+      'content_height'   => 'auto',
+      'content_overflow' => 'scroll',
+      'nav'              => true
+    }
+  end
   
   # Page elements: media and entities
   def self.elements
@@ -110,6 +112,7 @@ class LocalIssue::Page < Hashie::Mash
     end
     
     # Render content part
+    attributes["raw_content"] = content.to_s.strip
     content = Mustache.render(content.to_s.strip, attributes)
     
     # Get script/style tag
@@ -127,7 +130,7 @@ class LocalIssue::Page < Hashie::Mash
       "issue"           => issue,
       "handle"          => path.gsub("#{issue.path}/data/", '').gsub(".md", ''),
       # "published_at"    => attributes["published_at"] || File.mtime(path).to_i,
-      "layout"          => attributes.fetch("layout", DefaultLayout),
+      "layout"          => attributes.fetch("layout", self.default_layout),
       "content"         => content
     )
     new(attributes)
@@ -193,10 +196,13 @@ class LocalIssue::Page < Hashie::Mash
     self.handle
   end
   
+  # Map attributes for import
+  # 
   def to_hash(options = {})
     hash = super.except("id", "issue", "cover_url", "thumb_url")
     
     hash["title"] ||= "Table of Content" if handle == "toc"
+    hash["content"] = hash.delete("raw_content")
     
     self.class.elements.each do |element|
       hash[element].to_a.each_with_index do |asset, index|
