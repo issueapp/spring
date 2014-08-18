@@ -136,7 +136,7 @@ class LocalIssue::Page < Hashie::Mash
       "issue"           => issue,
       "handle"          => path.gsub("#{issue.path}/data/", '').gsub(".md", ''),
       # "published_at"    => attributes["published_at"] || File.mtime(path).to_i,
-      "layout"          => attributes.fetch("layout", self.default_layout),
+      "layout"          => attributes.fetch("layout", {}).reverse_merge(self.default_layout),
       "content"         => content
     )
     new(attributes)
