@@ -1,6 +1,6 @@
 ---
 
-    category: "#Spotted"
+    category: "Social"
     title: "#AJL Spotted"
     thumb_url: assets/spotted/3.jpg
 
@@ -22,15 +22,15 @@
 
 <div class="content">
   <header>
-    <span class="category">Social</span>
-    <h1 class="title">#AJL Spotted</h1>
+    <span class="category">{{ category }}</span>
+    <h1 class="title">{{ title }}</h1>
   </header>
 
   <ul class="polaroids">
   {{#images}}
     <li class="polaroid-wrap">
       <figure class="polaroid">
-        <img src="{{ url}}" alt="{{ title }}">
+        <img data-media-id="{{ index }}" src="{{ url}}" alt="{{ title }}">
         <figcaption>{{ caption }}</figcaption>
       </figure>
     </li>

@@ -81,7 +81,13 @@ class LocalIssue::Page < Hashie::Mash
     
     # Format attribute
     if attributes["products"]
-      attributes["products"].each_with_index {|p, i| p["index"] = i + 1 }
+      attributes["products"].each_with_index do|p, i| 
+        
+        p["index"] = i + 1
+        
+        p["link"] = p["url"]  
+        p["summary"] = p["description"]
+      end
     end
     
     # Convert media and entity url array into hash
@@ -202,7 +208,7 @@ class LocalIssue::Page < Hashie::Mash
     hash = super.except("id", "issue", "cover_url", "thumb_url")
     
     hash["title"] ||= "Table of Content" if handle == "toc"
-    hash["content"] = hash.delete("raw_content")
+    # hash["content"] = hash.delete("raw_content")
     
     self.class.elements.each do |element|
       hash[element].to_a.each_with_index do |asset, index|
