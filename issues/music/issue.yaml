@@ -10,11 +10,6 @@ cover_url: "assets/background_large.jpg"
 assets:
   - "custom.css"
   - "custom.js"
-  - "jplayer/zepto.grab.js"
-  - "jplayer/jquery.jplayer.js"
-  - "jplayer/mod.csstransforms.min.js"
-  - "jplayer/circle.player.js"
-  - "circle.skin/circle.player.css"
 
 paths:
   - index
