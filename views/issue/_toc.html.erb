@@ -41,6 +41,7 @@
    <%= "cover-#{page.layout.image_align}" if page.layout.image_align && page.cover_url %>
  <% end %>"
 
+  title="<%= page.title %>"
   data-page-id="<%= page.id %>"
   data-page="<%= page.handle %>"
   data-theme="<%= page.theme %>"
@@ -52,7 +53,7 @@
         <video src="<%= page.cover.url %>"  <%= "autoplay" if page.cover.autoplay %> <%= "loop" if page.cover.autoplay %> poster="<%= asset_path page.cover.thumb_url %>"></video>
       </figure>
     <% else %>
-    
+
       <div class="cover-area <%= page.layout.image_style %>"
            style="background-image: url(<%= asset_path page.cover_url %>)">
       </div>
