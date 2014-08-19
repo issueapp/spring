@@ -30,7 +30,8 @@
    <%= "image-#{page.layout.image_style}" if page.layout.image_style %>
    <%= "cover-#{page.layout.image_align}" if page.product_set? || page.layout.image_align && page.cover_url %>
  <% end %>"
-
+ 
+  title="<%= page.title %>"
   data-theme="<%= page.theme %>"
   data-page="<%= page.handle %>"
   data-author="<%= page.author_name %>"
