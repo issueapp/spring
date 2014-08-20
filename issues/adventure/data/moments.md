@@ -32,10 +32,10 @@
   {{#images}}
     <li class="polaroid-wrap"><a class="">
       <figure class="polaroid">
-        <img src="{{ url}}" alt=" {{ title }}" title=" {{ title }}">
+        <img data-media-id="images:{{ index }}" src="{{ url}}" alt=" {{ title }}" title=" {{ title }}">
         <figcaption>{{ caption }}</figcaption>
       </figure>
-    </a>
+    </a></li>
   {{/images}}
   </ul>
 </div>

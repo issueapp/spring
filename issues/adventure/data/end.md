@@ -1,5 +1,7 @@
 ---
 
+    title: End
+
     thumb_url: assets/background.jpg
     cover_url: assets/background_large.jpg
     
