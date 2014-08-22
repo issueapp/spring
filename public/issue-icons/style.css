@@ -1,10 +1,10 @@
 @font-face {
 	font-family: 'issue-icons';
-	src:url('fonts/issue-icons.eot?-2br4vx');
-	src:url('fonts/issue-icons.eot?#iefix-2br4vx') format('embedded-opentype'),
-		url('fonts/issue-icons.woff?-2br4vx') format('woff'),
-		url('fonts/issue-icons.ttf?-2br4vx') format('truetype'),
-		url('fonts/issue-icons.svg?-2br4vx#issue-icons') format('svg');
+	src:url('fonts/issue-icons.eot?-eqc8sd');
+	src:url('fonts/issue-icons.eot?#iefix-eqc8sd') format('embedded-opentype'),
+		url('fonts/issue-icons.woff?-eqc8sd') format('woff'),
+		url('fonts/issue-icons.ttf?-eqc8sd') format('truetype'),
+		url('fonts/issue-icons.svg?-eqc8sd#issue-icons') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -23,6 +23,90 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
+.icon-instagram:before {
+	content: "\e634";
+}
+.icon-tumblr:before {
+	content: "\e635";
+}
+.icon-bookmark3:before {
+	content: "\e613";
+}
+.icon-ios7-cloud-download-outline:before {
+	content: "\e60d";
+}
+.icon-share:before {
+	content: "\e616";
+}
+.icon-navicon:before {
+	content: "\e64c";
+}
+.icon-social-facebook:before {
+	content: "\e61b";
+}
+.icon-ios7-arrow-up:before {
+	content: "\e617";
+}
+.icon-ios7-arrow-down:before {
+	content: "\e61a";
+}
+.icon-ios7-arrow-back:before {
+	content: "\e648";
+}
+.icon-ios7-arrow-forward:before {
+	content: "\e646";
+}
+.icon-trash-a:before {
+	content: "\e655";
+}
+.icon-social-youtube-outline:before {
+	content: "\e651";
+}
+.icon-social-youtube:before {
+	content: "\e652";
+}
+.icon-shuffle:before {
+	content: "\e611";
+}
+.icon-ios7-circle-filled:before {
+	content: "\e65d";
+}
+.icon-play:before {
+	content: "\e62b";
+}
+.icon-ios7-world:before {
+	content: "\e60e";
+}
+.icon-ios7-world-outline:before {
+	content: "\e62f";
+}
+.icon-gear-a:before {
+	content: "\e649";
+}
+.icon-record:before {
+	content: "\e650";
+}
+.icon-social-apple:before {
+	content: "\e653";
+}
+.icon-social-android:before {
+	content: "\e654";
+}
+.icon-iphone:before {
+	content: "\e656";
+}
+.icon-ipad:before {
+	content: "\e657";
+}
+.icon-ios7-monitor:before {
+	content: "\e659";
+}
+.icon-ios7-circle-outline:before {
+	content: "\e65c";
+}
+.icon-books:before {
+	content: "\e619";
+}
 .icon-off:before {
 	content: "\f011";
 }
@@ -175,82 +259,4 @@
 }
 .icon-microphone:before {
 	content: "\e618";
-}
-.icon-bookmark3:before {
-	content: "\e613";
-}
-.icon-ios7-cloud-download-outline:before {
-	content: "\e60d";
-}
-.icon-share:before {
-	content: "\e616";
-}
-.icon-navicon:before {
-	content: "\e64c";
-}
-.icon-social-facebook:before {
-	content: "\e61b";
-}
-.icon-ios7-arrow-up:before {
-	content: "\e617";
-}
-.icon-ios7-arrow-down:before {
-	content: "\e61a";
-}
-.icon-ios7-arrow-back:before {
-	content: "\e648";
-}
-.icon-ios7-arrow-forward:before {
-	content: "\e646";
-}
-.icon-trash-a:before {
-	content: "\e655";
-}
-.icon-social-youtube-outline:before {
-	content: "\e651";
-}
-.icon-social-youtube:before {
-	content: "\e652";
-}
-.icon-shuffle:before {
-	content: "\e611";
-}
-.icon-ios7-circle-filled:before {
-	content: "\e65d";
-}
-.icon-play:before {
-	content: "\e62b";
-}
-.icon-ios7-world:before {
-	content: "\e60e";
-}
-.icon-ios7-world-outline:before {
-	content: "\e62f";
-}
-.icon-gear-a:before {
-	content: "\e649";
-}
-.icon-record:before {
-	content: "\e650";
-}
-.icon-social-apple:before {
-	content: "\e653";
-}
-.icon-social-android:before {
-	content: "\e654";
-}
-.icon-iphone:before {
-	content: "\e656";
-}
-.icon-ipad:before {
-	content: "\e657";
-}
-.icon-ios7-monitor:before {
-	content: "\e659";
-}
-.icon-ios7-circle-outline:before {
-	content: "\e65c";
-}
-.icon-books:before {
-	content: "\e619";
 }
