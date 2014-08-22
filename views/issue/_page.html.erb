@@ -42,7 +42,7 @@
 
   <% if page.cover_url %>
   <figure class="cover-area <%= page.layout.image_style %>"
-    style="background-image: url(<%= asset_path page.cover_url %>)">
+    style="background-image: url('<%= asset_path page.cover_url %>')">
 
     <% if page.layout.type == "video" %>
       <div class='video-wrapper'><%= video_iframe page.videos.first["url"]  %></div>
