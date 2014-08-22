@@ -22,12 +22,18 @@ article[data-page="toc"] {
   }
 
   .cover-area {
-    min-height: 180px;
+    min-height: 192px;
   }
 
   @media only screen and (min-width: 768px) {
     .cover-area {
-      min-height: 384px;
+      min-height: 306px;
+    }
+  }
+
+  @media only screen and (min-width: 768px) and (orientation: landscape) {
+    .cover-area {
+      min-height: 408px;
     }
   }
 }
