@@ -1,20 +1,16 @@
 ---
 
-    title: Dude Food: Build the ultimate burger for your Dad this Father’s Day
+    category: "Dude Food"
+    title: "Ultimate burger for Dad"
 
-
-    category: How to do
-    description: At a party for Noodles who is my friend Esther’s youngest, I had a blueberry cake that was utterly moist and delightful.
-
-    cover_url: assets/blueberry.jpg
-    thumb_url: assets/blueberry.jpg
-
+    cover_url: assets/burger/cover.jpg
+    thumb_url: assets/burger/cover.jpg
       
     layout:
-      type: two-column
-      image_style: background
+      type: three-column
+      image_style: cover
       content_align: center
-      content_style: black
+      content_valign: middle
       content_overflow: paginate
 
 ---
@@ -24,6 +20,7 @@ Treat Dad to one of his all-time favourite meals, burgers on the BBQ!  Making a 
 For those with a sweet tooth, there’s our delicious Philadelphia Creamy Orange Cheesecake for dessert.  No-one will ever guess that it took only 30 minutes to prepare.  And since the family can gather round the BBQ while burgers are being turned, it means more time together and less time slaving in the kitchen.
 
 ### MENU
+
 Ultimate Burger Recipe 
 Philadelphia Creamy Orange Cheesecake
 
@@ -44,8 +41,6 @@ Good pinch of salt and pepper
 8 brioche buns (buy these fresh the morning of your BBQ)
 Sliced, fresh tomatoes, onions and iceberg lettuce to serve
 Zoosh’s Hey Ho Free Range Egg Garlic Aioli
-
-
 
 
 ### Make it

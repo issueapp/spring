@@ -140,6 +140,9 @@ class LocalIssue::Page < Hashie::Mash
       "content"         => content
     )
     new(attributes)
+    
+  rescue Exception => e
+    raise "Page: #{path} failed to build, #{e.inspect}"
   end
 
   def self.recursive_build(start_path, cache = {}, options = {})
