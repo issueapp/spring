@@ -4,19 +4,18 @@
     title: Easy Does It Brunch
     description: Looking for a sweet treat? Look no further! Our delicious recipe for Berry Cheesecake Parfait made with Philadelphia Cream Cheese, mixed berries, Nilla wafers and Cool Whip is definitely the perfect treat! 
     
-    thumb_url: http://kitchenconfidante.com/wp-content/uploads/2012/04/Lemon-Berry-Cheesecake-Parfait-Kitchen-Confidante-Parfait.jpg
-    
-    cover_url: http://kitchenconfidante.com/wp-content/uploads/2012/04/Lemon-Berry-Cheesecake-Parfait-Kitchen-Confidante-Parfait.jpg
+    thumb_url: assets/brunch/cover.jpg
+    cover_url: assets/brunch/cover.jpg
     
     videos:
       - url: https://www.youtube.com/watch?v=d_eITVaO3jA
         thumb_url: http://i1.ytimg.com/vi/d_eITVaO3jA/hqdefault.jpg
         type: video/youtube
-        
+    
+    layout:
+      type: three-column
     
 ---
-
-
 
 A casual morning brunch is one of the easiest and most flexible ways 
 to entertain. Our menu keeps things simple with a back-to-basics 
@@ -27,8 +26,8 @@ your guests and on the guest of honour himself, Dad.
 
 Our cupcake recipe is a perfect one to do with the kids (and even Dad) 
 and it's a great way to share the workload and bond as a family before 
-you begin the celebrations. See our handy tips on cooking with kids. 
-(link to this section of the mag Food Culture story)
+you begin the celebrations. See our handy tips on 
+<a href="story-two/1">cooking with kids.</a>
 
 ### MENU
 
