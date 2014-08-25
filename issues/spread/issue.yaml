@@ -1,8 +1,8 @@
-title: Template Issue
-description: "Copy this folder and you are ready to go"
+title: Dad's Day
+description: ""
 
-magazine_handle: official
-magazine_title: Official
+magazine_handle: spread
+magazine_title: Spread
 
 theme: fashion
 thumb_url: "assets/background.jpg"
@@ -19,5 +19,6 @@ paths:
   - story-one
   - story-two
   - story-three
-  - shopping
   - video-six
+  - shopping
+  - end

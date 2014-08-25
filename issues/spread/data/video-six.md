@@ -1,10 +1,10 @@
 ---
 
-    title: Youtube Video
-    author_name: Zyralyn Bacani
-    author_icon: http://cl.ly/StPu/Image%202013.12.11%204%3A54%3A01%20pm.png
+    category: video
+    title: The Burger Book
 
     cover_url: http://i.vimeocdn.com/video/81574420_1280.jpg
+    thumb_url: http://i.vimeocdn.com/video/81574420_320.jpg
 
     videos:
       - thumb_url: http://i.vimeocdn.com/video/81574420_1280.jpg
