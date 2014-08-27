@@ -169,6 +169,15 @@ class LocalIssue::Page < Hashie::Mash
     (images.to_a + videos.to_a).find {|media| media.cover == true }
   end
   
+  def cover_url
+    
+    if !self["cover_url"] && cover
+      return cover.try(:type).include?("video") ? cover.thumb_url : cover.url
+    else
+      return self["cover_url"]
+    end
+  end
+  
   def issue=(issue)
     self[:issue] ||= issue
   end
