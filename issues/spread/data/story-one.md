@@ -14,5 +14,4 @@
 
 ---
 
-Food nourishes us, comforts us, and can bring us together in a way that nothing else
-can. So it’s no surprise that it plays such an important role in family life.
+Food nourishes us, comforts us, and can bring us together in a way that nothing else can.  So it’s no surprise that it plays such an important role in family life.

@@ -1,0 +1,25 @@
+title: Template Issue
+description: "Copy this folder and you are ready to go"
+
+magazine_handle: official
+magazine_title: Official
+
+theme: fashion
+thumb_url: "assets/background.jpg"
+cover_url: "assets/background_large.jpg"
+
+assets:
+  - "custom.css"
+  - "https://maps.googleapis.com/maps/api/js?key=AIzaSyBU8oz7xLt97BE9p1dm68z72t4sXQYAim4"
+  
+paths:
+
+  - index
+  - toc
+  - story-one
+  - story-two
+  - story-three
+  - story-four
+  - story-five
+  - shopping
+  - video-six
