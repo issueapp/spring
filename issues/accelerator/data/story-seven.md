@@ -1,6 +1,16 @@
 ---
     category: LEAN STARTUP
     title: A Quick Walkthrough Lean Dashboard
+    description: We are constantly developing our lean startup tools and we have recently updated our lean dashboard template for anybody to use. It has evolved through our own observations building companies, as well as the great practice of Ash Maurya, Alex Osterwalder, Lean Startup Machine and Jim Collins. You can grab a copy from our Tools page. This post is a quick introduction to get it out there. We’ll do more detailed posts on specific pieces in the future. You can also attend one of Building Lean Startups courses for a full immersion.
+
+
+    cover_url: assets/lean-startup/cover.jpg
+    thumb_url: assets/lean-startup/cover.jpg
+    
+    layout:
+      image_align: left
+      image_style: fit
+      content_overflow: paginate
 ---
 
 We are constantly developing our lean startup tools and we have recently updated our lean dashboard template for anybody to use. It has evolved through our own observations building companies, as well as the great practice of Ash Maurya, Alex Osterwalder, Lean Startup Machine and Jim Collins.
@@ -15,7 +25,7 @@ Here ‘s a very quick run through of how to use the Lean Dashboard
 
 
 
-SETUP
+### SETUP
 
 Log into your Google account
 Open the template
@@ -31,13 +41,13 @@ Change the ‘Phase’ to 1,2 or 3. This keeps us all aligned with the stage or 
 Write in how many weeks you have left. This is your runway. When does it all end? When do you run out of resources? This may be money, time that you can afford to not take a wage, patience of your partner, time a big company has given your team.
 We review this every week, even if it rarely changes.
 
-LEAN CANVAS
+### LEAN CANVAS
 
 This is your one page business plan. You can have lots of these as your startup evolves towards becoming a business. On the first day we collect our hypotheses and, over time, we mark which ones we prove to be a fact with our experiments. The process is, collect the whole canvas, hen mark which cells are HYPOTHESIS (all at the start) and which are FACT (because you have evidence to show from experiments).
 
 A lean canvas with empty cells is a fragile business that could have a hidden flaw. Complete it all. It is OK if the content is just a hypothesis for now. As long as it all makes sense.
 
-METRICS DASHBOARD
+### METRICS DASHBOARD
 
 How are you measuring that a sustainable business model is emerging?
 
@@ -56,7 +66,7 @@ Metric Tracking
 
 This is where we track each metric week on week. As with the dashboard, it is not necessary to track everything. You need to decide what is important.
 
-Experiments
+### EXPERIMENT
 
 This is where we track what we learn through the lean startup BUILD > MEASURE > LEARN loop.
 
