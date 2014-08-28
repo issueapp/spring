@@ -1,6 +1,6 @@
 ---
 
-    category: "#HashTag"
+    category: "#STARTUP HACKS"
     title: Pitching hacks
     
     thumb_url: http://media-cache-ak0.pinimg.com/236x/02/46/91/024691df69af6a545eb7d5060ac7e87c.jpg
