@@ -4,11 +4,6 @@
     title: Getting Into an Accelerator
     description: Accelerators didn’t exist before Y-Combinator was founded in Silicon Valley in 2005 but now they are in most cities.
     
-    author_name: Phil Morle
-    author_icon: http://m.c.dcdn.licdn.com/mpr/mpr/shrink_200_200/p/4/000/138/3a4/2288e32.jpg
-    
-    byline: by Phil Morle
-    
     thumb_url: http://31.media.tumblr.com/53b1b2ec56944c977cdd7ee10a9b4ba4/tumblr_n8zm0yzydj1st5lhmo1_1280.jpg
     cover_url: http://31.media.tumblr.com/53b1b2ec56944c977cdd7ee10a9b4ba4/tumblr_n8zm0yzydj1st5lhmo1_1280.jpg
     
