@@ -1,12 +1,8 @@
 ---
+    category: Inspiration
+    title: Six Startup Stories to Inspire You
+    description: Everyone involved in a startup can do with a bit of inspiration at any given moment. This is a collection of my favourite startup inspiration stories – ones that I’ve liked to remind myself of from time to time.
 
-    title: Six startup stories to inspire you
-    description: Everyone involved in a startup can do with a bit of inspiration at any given moment. These are a collection of my favourite startup inspiration stories – ones that I’ve liked to remind myself of from time to time.
-
-    author_name: Steve Jobs
-    author_icon: http://www.turnjs.com/samples/steve-jobs/pics/young.jpg
-    
-    byline: By Steve Jobs
     
     cover_url: http://38.media.tumblr.com/e77ef190ff20487acedb1d664a535c1b/tumblr_n8zlzxbFUT1st5lhmo1_1280.jpg
     thumb_url: http://lorempixel.com/200/150
@@ -23,10 +19,10 @@
 ---
 
 
-## YouTube
+### YouTube
 
 
-In the very early days of Facebook, when it had fewer than 15 employees,  there was an employee called Steve Chen who decided  that, after working there for only a few weeks, it just wasn’t for him. Like a lot of talented people, he just wanted to do his own thing and has an idea for a  video startup.
+In the very early days of Facebook, when it had fewer than 15 employees,  there was an employee called Steve Chen who decided  that, after working there for only a few weeks, it just wasn’t for him. Like a lot of talented people, he just wanted to do his own thing and had an idea for a video startup.
 
 Matt Cohler, who had hired him, tried to convince him that it was a bad idea, telling him that facebook was going to be huge, and that there were already many video startups around.
 
@@ -34,10 +30,12 @@ Chen wasn’t convinced. He left to start a company called YouTube.
 
 > TAKEAWAY: Go with your passion.
 
-## Angry Birds
+- - - 
+
+### Angry Birds
 
 
-In 2003 some Finnish guys decided to convert their love for making games into a video games company. Their plan was to make one game after another in the hope that one of them would catch on.
+In 2003 some Finnish guys decided to convert their love for making games into a video game company. Their plan was to make one game after another in the hope that one of them would catch on.
 
 51 games and 6 years later, they were still at it. Their 52nd game was a slingshot game involving birds.
 
@@ -45,9 +43,11 @@ Today, they have over a billion users, 500 employees and partnerships with some 
 
 > TAKEAWAY: It can take 51 failures to become a success.
 
-## Lego
+- - - 
 
-During the Great Depression, **Ole Kirk Christiansen**, a carpenter in a small rural town started making wooden toys as a side business.
+### Lego
+
+During the Great Depression, **Ole Kirk Christiansen**, a carpenter in a small rural town, started making wooden toys as a side business.
 
 Then, after WWII, he took a big gamble and invested most of his company’s cash into buying a plastic injection moulding machine. Its first plastic toy was a truck that could be taken apart and rebuilt.
 
@@ -57,10 +57,12 @@ But he took the plunge and invested in plastics all the same.  Over the next 10 
 
 > TAKEAWAY: Go against the grain and break the mould!
 
-## Pinterest
+- - - 
+
+### Pinterest
 
 
-There are many great pivot stories (Flickr and eBay some of the more well known), but it’s a trait common to more startups than not.
+There are many great pivot stories (Flickr and eBay are some of the more well known), but it’s a trait common to more startups than not.
 
 CEO Ben Silberman abandoned his long held plans to become a doctor and founded Pinterest during the recession.
 
@@ -68,7 +70,9 @@ Before Pinterest became social media’s fastest growing website, and landed on 
 
 > TAKEAWAY: Pivot is not a dirty word.
 
-## Airbnb
+- - - 
+
+### Airbnb
 
 
 Shortly after moving to San Francisco in October of 2007, Brian Chesky and Joe Gebbia created the initial concept for AirBed & Breakfast during the Industrial Design Conference held by Industrial Designers Society of America.
@@ -83,7 +87,9 @@ To help fund the site, the founders created special edition breakfast cereals, w
 
 > TAKEAWAY: Think outside the (cereal) box.
 
-## Pandora
+- - - 
+
+### Pandora
 
 What makes the Pandora story so compelling is not the enormous growth that the internet music streaming has had, but the depths of financial despair that it rose from.  At his most desperate, Founder Tim Westergren, had maxed out credit cards, had $500,000 of personal debt and was being sued by some of his former employees
 
@@ -92,3 +98,5 @@ It took 350 pitches to investors before Pandora got its first investment.  Weste
 In September last year, the company filed a prospectus to raise $230.8 million dollars through the sale of 10 million shares at a price of $23.99 per share. The offering dwarfed its $90 million IPO in 2011 by a factor of three.
 
 > TAKEAWAY: If you truly believe that what you’re doing is worth something, stick with it.
+
+- - - 
