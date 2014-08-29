@@ -1,4 +1,47 @@
 
+/*
+    Basic elements
+*/
+p:empty {
+  display: none;
+}
+
+p > span {
+  font-style: normal;
+  font-size: 100%;
+}
+
+article.page {
+}
+
+@media only screen and (min-width: 768px) {
+}
+
+
+/*
+    0. Cover page
+*/
+.page.cover {
+}
+
+/*
+    Table of content - Hide category label, only show them on products page
+*/
+
+article.page.toc {
+  .cover-area {
+    margin-bottom: 20px;
+  }
+
+  header {
+    display: none;
+  }
+
+  .signature {
+    font-family: 'JennaSue';
+    font-size: 32px;
+  }
+}
 
 
 /*

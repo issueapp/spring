@@ -1,21 +1,22 @@
 ---
-    
-    title: Berry Cheesecake Parfait
-    description: Looking for a sweet treat? Look no further! Our delicious recipe for Berry Cheesecake Parfait made with Philadelphia Cream Cheese, mixed berries, Nilla wafers and Cool Whip is definitely the perfect treat! 
-    category: Show me how
-    
-    thumb_url: http://kitchenconfidante.com/wp-content/uploads/2012/04/Lemon-Berry-Cheesecake-Parfait-Kitchen-Confidante-Parfait.jpg
-    
-    cover_url: http://kitchenconfidante.com/wp-content/uploads/2012/04/Lemon-Berry-Cheesecake-Parfait-Kitchen-Confidante-Parfait.jpg
-    
-    videos:
-      - url: https://www.youtube.com/watch?v=d_eITVaO3jA
-        thumb_url: http://i1.ytimg.com/vi/d_eITVaO3jA/hqdefault.jpg
-        type: video/youtube
-        
-    
+
+    title: Norm Architects Copenhagen
+    category: Featured Designers
+
+    cover_url: assets/story-two/p1-1.png
+    thumb_url: assets/story-two/p1-1.png
+
+    layout:
+      type: three-column
+      image_style: background
+      content_style: white
+      content_align: left
+      content_valign: top
+
 ---
 
-Looking for a sweet treat? Look no further! Our delicious recipe for Berry Cheesecake Parfait made with Philadelphia Cream Cheese, mixed berries, Nilla wafers and Cool Whip is definitely the perfect treat! 
+NORM.ARCHITECTS was founded in 2008 and represents the vision of Jonas Bjerre-Poulsen and Kasper Rønn.
 
-<video data-media-id="videos:1">
+In spirit with the tradition for Scandinavian simplicity NORM strives to cut to the bone in their designs. To find the simplest shape for a given task without forgetting the beauty of the shape and the details, in order to reach a point where there is nothing to add and nothing to take away that can make the product better. Like true Scandinavians they pride themselves in their culture and history, and hope and aspire to create new norms for Nordic design.
+
+They want their designs to not only be of good materials and good craftsmanship, but to embody beauty, history and, most importantly, outlive fleeting trends.

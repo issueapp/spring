@@ -1,0 +1,20 @@
+---
+
+  title: Timber Trivet
+
+  cover_url: assets/story-six/p1-1.jpg
+
+  layout:
+    type: three-column
+    image_style: background
+    content_align: left
+    content_valign: middle
+
+---
+
+Timber is a stylish and practical trivet with a beautifully designed finish by Adam Goodrum. Timber trivets are made of natural materials and are useful both in the kitchen and for laying the table with.
+
+Andrew enjoys using Trivet to share home cooked Indian spiced curries with his family at the dining table.
+
+<a href="#" class="button">Shop Now</a>
+$33
