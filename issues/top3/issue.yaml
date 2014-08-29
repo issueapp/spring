@@ -1,5 +1,5 @@
-title: Template Issue
-description: "Copy this folder and you are ready to go"
+title: Man Cave
+description:
 
 magazine_handle: official
 magazine_title: Official
@@ -11,9 +11,8 @@ cover_url: "assets/background_large.jpg"
 assets:
   - "custom.css"
   - "https://maps.googleapis.com/maps/api/js?key=AIzaSyBU8oz7xLt97BE9p1dm68z72t4sXQYAim4"
-  
-paths:
 
+paths:
   - index
   - toc
   - story-one
@@ -21,5 +20,4 @@ paths:
   - story-three
   - story-four
   - story-five
-  - shopping
-  - video-six
+  - story-six
