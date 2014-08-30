@@ -3,21 +3,21 @@
     category: "Father's Day"
     title: Gift for Dad
 
-    cover_url: assets/shopping/cover.jpg
-    thumb_url: assets/shopping/cover.jpg
+    cover_url: assets/shopping/cover.png
+    thumb_url: assets/shopping/cover.png
     
     products:
 
       
       - title: Happy Socks for Dad
-        url: http://www.top3.com.au/categories/accessories-and-jewellery/socks-and-jocks/happy-socks/xsa09-601-3640
+        url: http://www.top3.com.au/categories/accessories-and-jewellery/socks-and-jocks/happy-socks/bd01-068-4146
         description: It all started under the cloud-ridden April sky of yet another belayed Swedish Spring in 2008. A vision to spread happiness by turning an everyday essential into a colourful design piece. A rigid standard of ultimate quality, craftsmanship, and creativity. A philosophy brought to perfection by the Happy Socks collective of creators, most recently spotted in a 400 year-old shrieking red cottage among the cherry trees and berry bushes in a park located in the midst of Stockholm.
-        image_url: http://www.top3.com.au/images/800/happy_socks_rainbow_pack_xz1.jpg
-        price: $50
+        image_url: http://assets.top3.com.au/800/happy_socks_big_dot_bl_org_yell_xz1.jpg
+        price: $17
         
       - title: Braun Watch
-        url: http://www.top3.com.au/categories/accessories-and-jewellery/watches---classic/braun-watch-series/bn0021bkbkl
-        image_url: http://www.top3.com.au/images/800/braun_classic_ladies_watch_black_xz1.jpg
+        url: http://www.top3.com.au/categories/accessories-and-jewellery/watches---classic/braun-watch-series/bn0021bkbkg
+        image_url: http://assets.top3.com.au/800/braun_classic_watch_38mm_black_xz1.jpg
         description: This Braun classic watch has a thick matt stainless steel case, and features a leather strap. It has a quartz 3 hand movement and a 50m water resistance, with a scratch resistant mineral glass.
         price: $175
         
@@ -39,10 +39,10 @@
         description: An award-winning premium espresso system for home use. The quality of the espresso shots and the milk texture equal or better any machine in the world, commercial machines included. The Little Guy has no moving parts, ensuring near zero servicing and perfect performance for the rest of your life. 
         price: "$699"
 
-      - url: http://www.top3.com.au/categories/bar-and-wine-and-water/beer-accessories/menu-beer-foamer/men4690239
+      - url: http://www.top3.com.au/categories/bar-and-wine-and-water/beer-and-accessories/menu-beer-foamer/men4690239
         title: Menu Beer Foamer Copper
         description: The Beer Foamer gets you as close to the Pub experience as you can without leaving your home. Denser beer foam will significantly increase the taste, aroma and feeling of the beer - just like beer fresh from the tap.
-        image_url: "http://www.top3.com.au/images/800/menu_beer-Foamer_xz1.jpg"
+        image_url: "http://assets.top3.com.au/800/73582559814-menu_beer-foamer_xz3.jpg"
         price: "$99"
 
         

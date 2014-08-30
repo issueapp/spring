@@ -4,7 +4,15 @@
     thumb_url: assets/story-three/p1-1.jpg
 
     layout:
-      type: one-column
+      type: two-column
       image_style: background
+      content_style: transparent
+      content_height: auto
+      content_valign: middle
+      
 
 ---
+
+> Arne Jacobsen is the father of modern Danish design
+
+-- Terri Winter, Top 3 by Design

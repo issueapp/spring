@@ -3,15 +3,15 @@
     title: Masculine Interiors
     category: Inspire
 
-    cover_url: assets/story-one/p1-1.png
-    thumb_url: assets/story-one/p1-1.png
+    cover_url: assets/story-one/p1-1.jpg
+    thumb_url: assets/story-one/p1-1.jpg
 
     images:
       - url: assets/books.jpg
         caption: book by stage
 
     layout:
-      type: two-column
+      type: three-column
       image_style: cover
       content_valign: middle
 

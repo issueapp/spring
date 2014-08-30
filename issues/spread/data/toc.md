@@ -3,6 +3,9 @@
     cover_url: assets/toc/smudge-girls.jpg
     thumb_url: assets/toc/smudge-girls.jpg
     
+    images:
+      - assets/toc/signiture.png
+    
     layout:
       type: toc
       content_overflow: scroll
@@ -18,7 +21,8 @@ Maybe you'd prefer to spoil Dad with something a bit more substantial.  Well loo
 I hope you enjoy reading these stories as much as we've enjoyed creating them, and that this issue inspires you create beautiful memories with your family.  Until next time...
 
 
-Daniele Wilton
+<img alt="Daniele Wilton" data-media-id="images:1" width="30%">
 
-*Editor of Spread, Smudge Publishign*
+
+*Editor of Spread, Smudge Publishing*
 
