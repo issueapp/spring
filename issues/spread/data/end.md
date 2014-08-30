@@ -1,17 +1,24 @@
 ---
-
-    title: end
+    category: Preview
+    title: "#MySpread"
     
-    thumb_url: assets/Sweet-Chargrilled-Peaches-Sourdough.jpg
-    cover_url: assets/Sweet-Chargrilled-Peaches-Sourdough.jpg
+    thumb_url: assets/end.png
+    cover_url: assets/end.png
     
     layout:
-      type: one-column
-
+      type: two-column
+      image_style: background
+      
 ---
 
-Spreading Modern food culture
+Next Issue- September 2014
 
-Describe	the	collaboration	between	ISSUE,	SMUDGE	+	PHILLY.
+Thanks for making time to sit down with Spread. Each month we will bring inspiring features about family life and effortless entertaining. In our pages you’ll also find fabulously simple recipes that will get the whole family cooking. 
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Share your memories with us on Instagram
+
+We hope you’ve enjoyed this special Dad’s Day edition of Spread. We’d love to see what you got up to with the special Dads in your life. Post your Father’s Day celebration photos on Instagram, using the hashtag #myspread and using the tag 
+
+@smudgepublishing to share them with us. We will select the best photos and 
+
+publish them in next month’s issue.
