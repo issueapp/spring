@@ -1,21 +1,24 @@
 ---
 
-    title: Your story begins here
-    
-    cover_url: http://38.media.tumblr.com/602b98ac6bb0131b0e5720edeb925aa0/tumblr_n8gyt99PoN1st5lhmo1_1280.jpg
-    thumb_url: http://38.media.tumblr.com/602b98ac6bb0131b0e5720edeb925aa0/tumblr_n8gyt99PoN1st5lhmo1_640.jpg
-    
+    title: Table of Content
+    cover_url: assets/TerriWinter.jpg
+    thumb_url: assets/TerriWinter.jpg
+
     layout:
       type: toc
       content_overflow: scroll
 
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Builders, lawyers, doctors, teachers..
+Fathers come in all shapes and sizes and this September we are celebrating all of them.
 
+My dad is a builder.  He lives on a property up North with my mum. He is a simple man but that doesn’t mean he doesn’t desire and dream. As a builder, it makes sense that he is an inquisitive type, constantly checking and rechecking how objects are crafted. He appreciates how things are made and even though he isn’t a regular in my store he loves special pieces of design I share with him.
 
+Father’s day is a special opportunity to uncover the disguised interests of the men in our lives and show them we notice. Whether it is a pair of whisky glasses to compliment his evening nips or comfy slippers for story time with the kids, we’ve got it covered this spring.
 
-<p>
-  <em>Editor</em></br></br>
-  My name
-</p>
+In this Issue we share with you some of our favorite masculine interiors, pay tribute to the father of modern Danish Design and speak to Award wining Industrial Designer Adam Goodrum about a typical Fathers Day inside his Aussie home.
+
+Until next month, Happy Family filled Father’s day everyone.
+
+<p class="signature">Terri Winter</p>
