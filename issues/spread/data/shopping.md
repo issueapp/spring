@@ -1,7 +1,7 @@
 ---
 
     category: "Father's Day"
-    title: Gifts
+    title: Gifts for Dad
 
     cover_url: assets/shopping/cover.png
     thumb_url: assets/shopping/cover.png
@@ -53,8 +53,3 @@
       content_align: left
 
 ---
-
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, sapiente nulla dignissimos animi velit quae dolorem non optio iusto voluptates quaerat sint illum repellendus possimus dolorum minima porro odio modi.
-
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, sapiente nulla dignissimos animi velit quae dolorem non optio iusto voluptates quaerat sint illum repellendus possimus dolorum minima porro odio modi.
-
