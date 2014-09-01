@@ -1,20 +1,21 @@
 ---
 
-    category: Video
+    category: video
     title: Georg Jensen & Alfredo Häberli
-    
-    cover_url: http://img.youtube.com/vi/LysSN4DKqyE/hqdefault.jpg
-    
-    videos:
-      - thumb_url: http://img.youtube.com/vi/LysSN4DKqyE/hqdefault.jpg
-        url: https://youtube.com/watch?v=LysSN4DKqyE
-        type: video/youtube
 
+    thumb_url: http://img.youtube.com/vi/LysSN4DKqyE/maxresdefault.jpg
+
+    videos:
+      - thumb_url: http://img.youtube.com/vi/LysSN4DKqyE/maxresdefault.jpg
+        url: https://www.youtube.com/watch?v=LysSN4DKqyE
+        type: video/youtube
+        autoplay: true
+        cover: true
+        
     layout:
       type: video
       image_style: background
-      content_style: black
-      content_valign: top
+      content_valign: middle
       content_align: center
-      
+
 ---
