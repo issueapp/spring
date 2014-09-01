@@ -1,4 +1,4 @@
-title: Accelerator Hacks
+title: Accelerator Ready
 
 magazine_handle: official
 magazine_title: Official
@@ -9,7 +9,6 @@ cover_url: "assets/background_large.jpg"
 
 assets:
   - "custom.css"
-  - "https://maps.googleapis.com/maps/api/js?key=AIzaSyBU8oz7xLt97BE9p1dm68z72t4sXQYAim4"
   
 paths:
 
