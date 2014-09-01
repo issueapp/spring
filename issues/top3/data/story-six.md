@@ -24,12 +24,14 @@
       image_url: assets/story-six/p3-product-3.jpg
       title: Sphere Bottle Opener Natural
       brand: Fort Standard for Areaware
+      price: $30
       description: A smooth, ergonomic bottle opener that fits perfectly in the palm of your hand. Made From Beechwood.
 
 
     - url: http://top3.com.au/categories/bar-and-wine-and-water/drinks---cooling-accessories/whisky-stones/whiskystone
       image_url: assets/story-six/p3-product-4.jpg
       title: Whisky stones
+      price: $30
       description: Ideal for chilling your favorite spirit without diluting its flavor with melting ice.
     
 
