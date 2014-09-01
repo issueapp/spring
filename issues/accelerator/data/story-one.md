@@ -5,12 +5,8 @@
 
     
     cover_url: http://38.media.tumblr.com/e77ef190ff20487acedb1d664a535c1b/tumblr_n8zlzxbFUT1st5lhmo1_1280.jpg
-    thumb_url: http://lorempixel.com/200/150
+    thumb_url: http://38.media.tumblr.com/e77ef190ff20487acedb1d664a535c1b/tumblr_n8zlzxbFUT1st5lhmo1_1280.jpg
 
-    images:
-      - url: assets/books.jpg
-        caption: book by stage
-    
     layout:
       type: three-column
       content_overflow: paginate
