@@ -4,6 +4,7 @@
     title: Georg Jensen & Alfredo Häberli
     
     cover_url: http://img.youtube.com/vi/LysSN4DKqyE/hqdefault.jpg
+    thumb_url: http://img.youtube.com/vi/LysSN4DKqyE/hqdefault.jpg
     
     videos:
       - thumb_url: http://img.youtube.com/vi/LysSN4DKqyE/hqdefault.jpg

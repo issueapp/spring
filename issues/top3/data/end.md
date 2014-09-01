@@ -4,6 +4,7 @@
   title: Normann Copenhagen
   
   cover_url: assets/end.jpg
+  thumb_url: assets/end.jpg
   
   layout:
     type: one-column
