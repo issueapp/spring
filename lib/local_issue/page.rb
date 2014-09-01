@@ -110,6 +110,11 @@ class LocalIssue::Page < Hashie::Mash
       )
     end
     
+    attributes["images"].map! do |image|
+      image.layout = image.layout || !!image.cover
+      image
+    end
+    
     # Custom Callback to format asset for app page elements
     if formatter = options[:format_asset]
       self.elements.each do |element|
@@ -123,7 +128,7 @@ class LocalIssue::Page < Hashie::Mash
     
     
     Rails.logger.info "*"*80
-    Rails.logger.info content
+    Rails.logger.info attributes["images"]
     
     # Get script/style tag
     doc = Nokogiri::HTML.fragment(content)
@@ -178,7 +183,6 @@ class LocalIssue::Page < Hashie::Mash
   end
   
   def cover_url
-    
     if !self["cover_url"] && cover
       return cover.try(:type).include?("video") ? cover.thumb_url : cover.url
     else

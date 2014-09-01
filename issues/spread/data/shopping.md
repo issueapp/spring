@@ -1,7 +1,7 @@
 ---
 
     category: "Father's Day"
-    title: Gift for Dad
+    title: Gifts
 
     cover_url: assets/shopping/cover.png
     thumb_url: assets/shopping/cover.png
