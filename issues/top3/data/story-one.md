@@ -6,10 +6,6 @@
     cover_url: assets/story-one/p1-1.jpg
     thumb_url: assets/story-one/p1-1.jpg
 
-    images:
-      - url: assets/books.jpg
-        caption: book by stage
-
     layout:
       type: three-column
       image_style: cover
