@@ -93,6 +93,7 @@
       </div>
     </header>
     <% end %>
+    
 
     <% if page.product_set? %>
       <ul class="<%= "cover-area" unless page.cover_url %> product-set <%= "set-#{(page.products.to_a.count/2.0).ceil*2}" %>">
@@ -122,6 +123,7 @@
     <% if false &&  page.layout.type == 'three-column' && page.cover_url %>
       <p class='column-break'></p>
     <% end %>
+
 
     <div class='body'><%= render_page page %></div>
   </div>
