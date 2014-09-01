@@ -6,11 +6,40 @@
 
 [data-page="end"] {
   .content .title {
+    font-family: "proxima-nova";
+    letter-spacing: 1px;
     font-weight: bold;
   }
   
   .content header {
     padding-top: 10%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .magazine.cover {
+    
+    .brand {
+      display: block;
+      background: url(spread-03.svg) no-repeat;
+      background-size: 100%;
+      width: 22vmin;
+      height: 9vmin;
+      margin: 10px auto;
+      color: transparent;
+      text-shadow: none;
+    }
+    
+    .title {
+      display: block;
+      background: url(title-06.svg) no-repeat;
+      background-size: 100%;
+      width: 65vmin;
+      height: 20vmin;
+      margin: 10px auto;
+      color: transparent;
+      text-shadow: none;
+    }
   }
 }
 
@@ -25,7 +54,7 @@
 
 article.page ul.polaroids {
   padding: 0;
-  margin: 0;
+  margin: 15% 0 0;
 }
 
 figure.polaroid {
@@ -108,8 +137,8 @@ figure.polaroid img {
   transform: none;
 
   position: relative;
-  top: 14vh;
-  left: 2vh;
+  top: 10vh;
+  left: 1vh;
 }
 
 .polaroid-wrap:nth-child(8) {
