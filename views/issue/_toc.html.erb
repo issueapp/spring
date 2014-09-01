@@ -73,7 +73,7 @@
     </div>
     <ul>
       <% issue.pages.each do |page| %>
-        <% if page.nav != false && page.handle != "toc" %>
+        <% if page.layout.try(:nav) != false && page.handle != "toc" %>
         <li>
           <a class="toc" href="<%= page.url %>" data-app-view="magazine">
             <span class="category"><%= page.category %></span>

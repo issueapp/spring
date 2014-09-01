@@ -222,7 +222,7 @@
   <ul class="contents-menu">
     <% issue.pages.each do |story| %>
 
-    <% next if story.nav == false %>
+    <% next if story.layout.try(:nav) == false %>
     <% path = params[:subpage] ? "../" : "" %>
     <% ext = offline? ? ".html" : "" %>
 
