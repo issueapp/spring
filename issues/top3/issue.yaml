@@ -1,8 +1,8 @@
 title: Father's Day
 description:
 
-magazine_handle: official
-magazine_title: Official
+magazine_handle: top3
+magazine_title: Top3 by Design
 
 theme: fashion
 thumb_url: "assets/background.jpg"
@@ -10,7 +10,6 @@ cover_url: "assets/background_large.jpg"
 
 assets:
   - "custom.css"
-  - "https://maps.googleapis.com/maps/api/js?key=AIzaSyBU8oz7xLt97BE9p1dm68z72t4sXQYAim4"
 
 paths:
   - index
@@ -18,6 +17,7 @@ paths:
   - story-one
   - story-two
   - story-three
-  - story-four
   - story-five
+  - video-1
   - story-six
+  - end

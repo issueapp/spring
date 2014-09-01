@@ -9,7 +9,7 @@
     layout:
       type: three-column
       image_style: background
-      content_style: transparent
+      content_style: white
       content_align: left
       content_valign: top
 
