@@ -121,11 +121,19 @@ class LocalIssue::Page < Hashie::Mash
     attributes["raw_content"] = content.to_s.strip
     content = Mustache.render(content.to_s.strip, attributes)
     
+    
+    Rails.logger.info "*"*80
+    Rails.logger.info content
+    
     # Get script/style tag
     doc = Nokogiri::HTML.fragment(content)
     script_and_style = doc.search('style')[0].to_s + doc.search('script')[0].to_s
     
-    content = RDiscount.new(content).to_html + script_and_style
+    content = RDiscount.new(content.to_s.strip).to_html + script_and_style
+    
+    Rails.logger.info "*"*80
+    Rails.logger.info content
+    
     
     # Layout
     if options[:layout]

@@ -4,6 +4,16 @@
   background: #fdfdfb;
 }
 
+[data-page="end"] {
+  .content .title {
+    font-weight: bold;
+  }
+  
+  .content header {
+    padding-top: 10%;
+  }
+}
+
 
 /*
     Polaroid

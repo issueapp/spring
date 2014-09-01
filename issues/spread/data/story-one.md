@@ -11,6 +11,8 @@
       image_style: background
       content_style: transparent
       content_valign: middle
+      custom_class: transparent-black
+
 
 ---
 
