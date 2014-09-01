@@ -23,7 +23,7 @@
 
       
 ---
-<div><figure class="cover-area background" style="background-image: url('assets/end-bg.jpg')"></figure></div>
+<div style="display:inline-block"><figure class="cover-area background" style="background-image: url('assets/end-bg.jpg')"></figure></div>
 <div class="content">
   
   <header>
