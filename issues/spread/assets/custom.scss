@@ -1,4 +1,16 @@
-
+article.page {
+  
+  ol, ul {
+    
+    p {
+      margin-bottom: 0.5em;
+    }
+    
+    ol, ul {
+      margin: 0.5em 0 0.5em;
+    }
+  }
+}
 
 [data-page="story-one/1"] {
   background: #fdfdfb;

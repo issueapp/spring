@@ -27,11 +27,11 @@
         description: Your guide to the humble hamburger in all its forms. We’ve searched through pubs and parlours, trekked from cafés to corner stores and roamed from restaurants to bars to compile this book about the best burgers Victoria has to offer.  
         price: "$39.99"
 
-      - url: "http://www.smudgepub.com.au/#!bookshop/c1tdo"
-        image_url: 'assets/shopping/The Specialty Coffee Book Victoria.jpg'
-        title: Specialty Coffee Book Victoria 
-        description: Enjoy the story of the coffee bean’s journey from crop to cup in this stunning, pictorial guide to everything you ever wanted to know about coffee and the cafes producing some of the best flavours in Victoria. 
-        price: "$39.99"
+      - url: "http://www.smudgepub.com.au/#!product/prd12/2604218781/coffee-encounters"
+        image_url: 'assets/shopping/Coffee Encounters-Adventures to Origin.jpg'
+        title: Coffee Encounters, Adventures To Origin
+        description: Welcome to the world of coffee – from crop to cup. Enjoy the journey through Latin America and Indonesia, following the humble coffee bean’s journey and the passion that has gone into producing the coffee you love to drink. 
+        price: "$69.99"
 
       - url: "https://www.thelittleguy.info/"
         image_url: 'assets/shopping/little-guy.jpg'
