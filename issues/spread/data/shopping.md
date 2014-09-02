@@ -28,7 +28,7 @@
         price: "$39.99"
 
       - url: "http://www.smudgepub.com.au/#!product/prd12/2604218781/coffee-encounters"
-        image_url: 'assets/shopping/Coffee Encounters-Adventures to Origin.jpg'
+        image_url: 'assets/shopping/Coffee-Encounters-Adventures-to-Origin.jpg'
         title: Coffee Encounters, Adventures To Origin
         description: Welcome to the world of coffee – from crop to cup. Enjoy the journey through Latin America and Indonesia, following the humble coffee bean’s journey and the passion that has gone into producing the coffee you love to drink. 
         price: "$69.99"
