@@ -1,7 +1,7 @@
 ---
 
     category: video
-    title: The Burger Book
+    title: How Do You Do Your Burger?
 
     videos:
       - thumb_url: assets/video.png

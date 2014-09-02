@@ -1,12 +1,12 @@
 ---
 
     category: video
-    title: Do your thing
+    title: Do Your Thing
 
-    thumb_url: http://img.youtube.com/vi/IZjhUzv1YKw/maxresdefault.jpg
+    thumb_url: assets/video-your-way.png
 
     videos:
-      - thumb_url: http://img.youtube.com/vi/IZjhUzv1YKw/maxresdefault.jpg
+      - thumb_url: assets/video-your-way.png
         url: https://www.youtube.com/watch?v=IZjhUzv1YKw
         type: video/youtube
         autoplay: true
