@@ -3,8 +3,8 @@
     category: "Father's Day"
     title: Gifts for Dad
 
-    cover_url: assets/shopping/cover.png
-    thumb_url: assets/shopping/cover.png
+    cover_url: assets/shopping/cover.jpg
+    thumb_url: assets/shopping/cover.jpg
     
     products:
 
