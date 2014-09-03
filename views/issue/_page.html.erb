@@ -30,7 +30,7 @@
    <%= "image-#{page.layout.image_style}" if page.layout.image_style %>
    <%= "cover-#{page.layout.image_align}" if page.product_set? || page.layout.image_align && page.cover_url %>
  <% end %>"
- 
+
   title="<%= page.title %>"
   data-theme="<%= page.theme %>"
   data-page="<%= page.handle %>"
@@ -42,21 +42,21 @@
     <% if page.cover && page.cover.type =~ /video/ %>
       <figure class="cover-area video <%= page.layout.image_style %>">
         <%
-          video_url = page.cover.try(:file).try(:url) || page.cover.url 
+          video_url = page.cover.try(:file).try(:url) || page.cover.url
           thumb_url = page.thumb.try(:file).try(:url) || page.cover.thumb_url
         %>
-        
+
         <% unless embed_video? video_url %>
-        
+
         <video src="<%= video_url %>" <%#= "autoplay" if page.cover.autoplay %> <%= "loop" if page.cover.autoplay %> poster="<%= asset_path page.cover.thumb_url %>"></video>
         <% else %>
-        
+
           <img class="thumbnail" src="<%= thumb_url %>">
           <%= video_iframe video_url, page.cover.to_hash.merge(lazy: true, autoplay: true) %>
-          
+
         <% end %>
       </figure>
-      
+
     <% elsif page.cover %>
       <figure class="cover-area <%= page.layout.image_style %>"
            style="background-image: url(<%= asset_path page.cover_url %>)">
@@ -94,7 +94,7 @@
       </div>
     </header>
     <% end %>
-    
+
 
     <% if page.product_set? %>
       <ul class="<%= "cover-area" unless page.cover_url %> product-set <%= "set-#{(page.products.to_a.count/2.0).ceil*2}" %>">
@@ -124,18 +124,21 @@
     <% if false &&  page.layout.type == 'three-column' && page.cover_url %>
       <p class='column-break'></p>
     <% end %>
-    
+
     <div class='body'><%= render_page page %></div>
-    
+
     <% if page.credits %>
       <div class="credits">Credits: <%= page.credits %></div>
     <% end %>
-    
+
   </div>
 
 <% else %>
   <%= page.content %>
 <% end %>
+
+<span class="prev-page">‹</span>
+<span class="next-page">›</span>
 
 <script>
   App = (typeof App == 'undefined') ? {} : App;
