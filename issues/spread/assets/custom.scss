@@ -1,11 +1,10 @@
 article.page {
-  
   ol, ul {
-    
+
     p {
       margin-bottom: 0.5em;
     }
-    
+
     ol, ul {
       margin: 0.5em 0 0.5em;
     }
@@ -22,15 +21,87 @@ article.page {
     letter-spacing: 1px;
     font-weight: bold;
   }
-  
+
   .content header {
     padding-top: 10%;
   }
 }
 
+// Ad Page
+
+#sad {
+  .cover-area {
+    min-height: initial;
+    height: 100%;
+  }
+
+  .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    p:empty {
+      display: none;
+    }
+
+    .body {
+      position: relative;
+      height: 100%;
+    }
+
+    img {
+      position: absolute;
+      width: 100%;
+    }
+
+    img[data-media-id="images:1"] {
+      top: 20px;
+      right: 0;
+    }
+
+    img[data-media-id="images:2"] {
+      left: 0;
+      bottom: 16px;
+      max-width: 200px;
+    }
+
+    img[data-media-id="images:3"] {
+      right: 0;
+      bottom: 0;
+      max-width: 100px;
+    }
+  }
+
+  @media only screen and (min-width: 768px) {
+    .content {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      max-width: initial;
+      max-height: initial;
+
+      img[data-media-id="images:1"] {
+        max-width: 600px;
+      }
+
+      img[data-media-id="images:2"] {
+        bottom: 30px;
+        max-width: 350px;
+      }
+
+      img[data-media-id="images:3"] {
+        right: 50px;
+        max-width: 150px;
+      }
+    }
+  }
+}
+
 @media only screen and (min-width: 768px) {
   .magazine.cover {
-    
+
     .brand {
       display: block;
       background: url(spread.svg) no-repeat;
@@ -41,7 +112,7 @@ article.page {
       color: transparent;
       text-shadow: none;
     }
-    
+
     .title {
       display: block;
       background: url(title.svg) no-repeat;
