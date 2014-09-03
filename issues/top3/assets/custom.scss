@@ -14,7 +14,32 @@ p > span {
 article.page {
 }
 
+
 @media only screen and (min-width: 768px) {
+  .magazine.cover {
+    
+    .brand {
+      display: block;
+      background: url(brand.png) no-repeat;
+      background-size: 100%;
+      width: 15vmin;
+      height: 10vmin;
+      margin: 10px auto;
+      color: transparent;
+      text-shadow: none;
+    }
+    
+//    .title {
+//      display: block;
+//      background: url(title.svg) no-repeat;
+//      background-size: 100%;
+//      width: 65vmin;
+//      height: 20vmin;
+//      margin: 10px auto;
+//      color: transparent;
+//      text-shadow: none;
+//    }
+  }
 }
 
 
