@@ -3,8 +3,8 @@
   category: Gift Guide
   title: Top Dad
 
-  cover_url: assets/story-six/p2-1.png
-  thumb_url: assets/story-six/p3-1.jpg
+  cover_url: assets/story-six/p2-1.jpg
+  thumb_url: assets/story-six/p2-1.jpg
   
   products:
 
@@ -52,8 +52,6 @@
   
     type: three-column
     image_align: right
-    content_style: transparent
-
 ---
 
 Set Dad up with an uber- cool home bar and provide him with the tunes he needs to unwind at home. From playful accessories to sophisticated bar essentials let your thoughts wander about the types of activities Dad likes to do when he gets home.

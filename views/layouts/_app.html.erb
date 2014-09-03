@@ -48,7 +48,7 @@
     data-issue="<%= issue.title %>"
   >
 
-    <div role=main class="<%= issue.theme %>-theme content-view">
+    <div id="<%= issue.handle %>-issue" role=main class="<%= issue.theme %>-theme content-view">
       <%= yield %>
     </div>
 

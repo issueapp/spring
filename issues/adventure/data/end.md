@@ -15,5 +15,3 @@
       content_align: center
 
 ---
-
-.

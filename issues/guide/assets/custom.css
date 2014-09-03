@@ -11,10 +11,6 @@ section.page.cover .title {
   font-size: 36px;
 }
 
-article.page[data-page="fullscreen/2"] .content {
-  color: white;
-}
-
 @media only screen and (min-width: 768px) and (orientation: landscape) {
   section.page.cover .title {
     font-size: 110px;

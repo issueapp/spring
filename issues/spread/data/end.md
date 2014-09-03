@@ -18,7 +18,7 @@
       content_align: left
       content_valign: middle
 
-      custom_class: one-column image-background transparent center middle
+      custom_class: one-column image-background transparent black center middle
 
 ---
 

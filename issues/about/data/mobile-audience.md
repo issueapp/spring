@@ -11,7 +11,7 @@
       content_style: transparent
       content_align: center
       content_valign: middle
-
+      custom_class: black
 ---
 
 Over 1 Billon mobile devices makeing 1/3 of all purchases. Mobile is the new front tier.

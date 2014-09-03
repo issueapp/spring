@@ -10,6 +10,7 @@
       content_style: transparent
       content_height: auto
       content_valign: middle
+      custom_class: black
       
 
 ---

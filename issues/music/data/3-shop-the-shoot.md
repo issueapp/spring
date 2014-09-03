@@ -45,6 +45,5 @@
     layout:
       custom_class: rainbow
       type: three-column
-      content_style: transparent
 
 ---

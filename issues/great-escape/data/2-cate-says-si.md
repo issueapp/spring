@@ -15,5 +15,6 @@
       content_style: transparent
       content_align: right
       content_height: full
+      custom_class: black
 
 ---
