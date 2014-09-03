@@ -11,13 +11,9 @@ p > span {
   font-size: 100%;
 }
 
-article.page {
-}
-
-
 @media only screen and (min-width: 768px) {
   .magazine.cover {
-    
+
     .brand {
       display: block;
       background: url(brand.png) no-repeat;
@@ -28,7 +24,7 @@ article.page {
       color: transparent;
       text-shadow: none;
     }
-    
+
 //    .title {
 //      display: block;
 //      background: url(title.svg) no-repeat;
