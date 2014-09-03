@@ -13,4 +13,5 @@
     content_height: auto
     content_align: center
     content_valign: middle
+    custom_class: black
 ---

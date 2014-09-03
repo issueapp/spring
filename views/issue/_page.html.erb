@@ -7,7 +7,7 @@
   end
 
   has_cover = page.cover_url && page.layout.image_style != "none"
-  has_content = page.content && !page.content.strip.empty?
+  has_content = (page.content && !page.content.strip.empty?) || page.credits
 %>
 <article id="s<%= page.handle.to_s.split('/').first %>" class="page
  <%= page.layout.type || 'two-column' %>
@@ -124,14 +124,14 @@
     <% if false &&  page.layout.type == 'three-column' && page.cover_url %>
       <p class='column-break'></p>
     <% end %>
-
-
+    
     <div class='body'><%= render_page page %></div>
+    
+    <% if page.credits %>
+      <div class="credits">Credits: <%= page.credits %></div>
+    <% end %>
+    
   </div>
-
-  <% if page.credits %>
-    <div class="credits"><%= page.credits %></div>
-  <% end %>
 
 <% else %>
   <%= page.content %>

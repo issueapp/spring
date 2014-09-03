@@ -4,6 +4,8 @@
     
     cover_url: assets/california-voyage/background.jpg
     thumb_url: assets/california-voyage/background.jpg
+    
+    credits: "© Peter Jamus Photography"
 
     author_name: Interview with Peter Jamus
     byline: by Nkechi Njaka

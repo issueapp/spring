@@ -15,5 +15,5 @@
       image_style: background
       content_style: transparent
       content_height: full
-
+      custom_class: black
 ---
