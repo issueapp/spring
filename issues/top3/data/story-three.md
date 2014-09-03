@@ -14,6 +14,6 @@
 
 ---
 
-> Arne Jacobsen is the father of modern Danish design
+> Arne Jacobsen is the father of modern Danish design"
 
 -- Terri Winter, Top 3 by Design
