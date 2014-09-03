@@ -60,6 +60,7 @@
     <% elsif page.cover %>
       <figure class="cover-area <%= page.layout.image_style %>"
            style="background-image: url(<%= asset_path page.cover_url %>)">
+        <figcaption class="inset"><%= page.cover.caption %></figcaption>
       </figure>
     <% end %>
 

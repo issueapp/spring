@@ -20,4 +20,4 @@
     
 ---
 
-A casual morning brunch is one of the easiest and most flexible ways to entertain.  Our menu keeps things simple with a back-to-basics cupcake recipe topped with delicious PHILIDELPHIA cream cheese icing and specialty roast coffee (or hot chocolate for the kids).  
+A casual morning brunch is one of the easiest and most flexible ways to entertain.  Our menu keeps things simple with a back-to-basics cupcake recipe topped with delicious PHILADELPHIA cream cheese icing and specialty roast coffee (or hot chocolate for the kids).  

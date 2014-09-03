@@ -1,6 +1,6 @@
 ---
 
-    title: Chargrilled Peaches on PHILLY Sourdough
+    title: Chargrilled Peaches on PHILADELPHIA Sourdough
     category: Recipe 
     
     thumb_url: assets/Sweet-Chargrilled-Peaches-Sourdough.jpg
@@ -32,7 +32,7 @@
         action: Store Location
 
 ---
-SPREAD each piece of sourdough with PHILLY. Place on serving plates. DUST the peaches with icing sugar and chargrill for 2-3 minutes on each side or until tender. Arrange on PHILLY and serve immediately.
+SPREAD each piece of sourdough with PHILADELPHIA. Place on serving plates. DUST the peaches with icing sugar and chargrill for 2-3 minutes on each side or until tender. Arrange on PHILLY and serve immediately.
 
 ### What you need
 
