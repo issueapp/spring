@@ -23,7 +23,7 @@
         price: $175
         
       - url: "http://www.smudgepub.com.au/#!product/prd12/2604218831/the-burger-book---victoria"
-        image_url: 'assets/shopping/The Burger Book Victoria.jpg'
+        image_url: 'assets/shopping/The-Burger-Book-Victoria.jpg'
         title: "The Burger Book Victoria"
         description: Your guide to the humble hamburger in all its forms. We’ve searched through pubs and parlours, trekked from cafés to corner stores and roamed from restaurants to bars to compile this book about the best burgers Victoria has to offer.  
         price: "$39.99"
