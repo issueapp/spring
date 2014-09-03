@@ -1,6 +1,6 @@
 ---
 
-  category: In Next Issue we explore
+  category: In the next Issue we explore
   title: Normann Copenhagen
   
   cover_url: assets/end.jpg
