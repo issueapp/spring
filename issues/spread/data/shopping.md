@@ -4,11 +4,12 @@
     title: Gifts for Dad
 
     cover_url: assets/shopping/cover.jpg
+    cover_caption: "Disclaimer: The links below/above are for websites which are not associated with Mondelēz International. Mondelēz International does not endorse any of the third party’s products/services."
+    
     thumb_url: assets/shopping/cover.jpg
     
     products:
-
-      
+    
       - title: Happy Socks for Dad
         url: http://www.top3.com.au/categories/accessories-and-jewellery/socks-and-jocks/happy-socks/bd01-068-4146
         description: It all started under the cloud-ridden April sky of yet another belayed Swedish Spring in 2008. A vision to spread happiness by turning an everyday essential into a colourful design piece. A rigid standard of ultimate quality, craftsmanship, and creativity. A philosophy brought to perfection by the Happy Socks collective of creators, most recently spotted in a 400 year-old shrieking red cottage among the cherry trees and berry bushes in a park located in the midst of Stockholm.

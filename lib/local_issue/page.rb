@@ -108,6 +108,8 @@ class LocalIssue::Page < Hashie::Mash
           "cover"     => true
         )
       )
+      Rails.logger.info "<"*80
+      Rails.logger.info attributes.inspect
     end
     
     attributes["images"].map! do |image|
