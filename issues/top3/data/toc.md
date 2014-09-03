@@ -3,6 +3,9 @@
     title: Table of Content
     cover_url: assets/TerriWinter.jpg
     thumb_url: assets/TerriWinter.jpg
+    
+    images:
+      - url: assets/signature.png
 
     layout:
       type: toc
@@ -21,4 +24,8 @@ In this Issue we share with you some of our favorite masculine interiors, pay tr
 
 Until next month, Happy Family filled Father’s day everyone.
 
-<p class="signature">Terri Winter</p>
+Terri Winter
+
+*Founder of Top3 by Design*
+
+<img data-media-id="images:1" width=150>
