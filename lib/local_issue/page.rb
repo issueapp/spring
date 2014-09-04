@@ -50,7 +50,9 @@ class LocalIssue::Page < Hashie::Mash
 
   def self.find(path, options = {})
     return index if path == "index"
-
+    
+    parent, child_path = path.split("/")
+    
     if issue = options[:issue]
       path = "#{issue.path}/data/#{path}.md"
     else
@@ -62,9 +64,20 @@ class LocalIssue::Page < Hashie::Mash
 
     page.issue = options[:issue]
     page.children = self.recursive_build("data/#{page_dir}", {}, options)
-
+    page.children.each do |child|
+      child.issue = page.issue
+      child.parent = page
+    end
+    
+    if child_path
+      page.parent = find(parent, options)
+    end
+    
     page
-   end
+    
+  rescue Exception => e
+    raise path.inspect
+  end
 
   # Load markdown file into memory
   def self.build(path, options = {})
@@ -190,7 +203,24 @@ class LocalIssue::Page < Hashie::Mash
       return self["cover_url"]
     end
   end
-
+  
+  def number
+    if parent
+      count = parent.children.map(&:handle).index(handle) + 1
+      count = count + parent.number
+    else
+      issue.pages.index(self) + 1
+    end
+  end
+  
+  def byline
+    if author_name
+      "by #{author_name}"
+    else
+      self[:byline]
+    end
+  end
+  
   def issue=(issue)
     self[:issue] ||= issue
   end

@@ -49,6 +49,10 @@ class LocalIssue < Hashie::Mash
     Pathname(File.expand_path("../../issues/#{handle}/", __FILE__))
   end
 
+  def pages_count
+    pages.map(&:children).flatten.count + pages.count
+  end
+
   def pages
     self[:paths].to_a.map do |handle|
       LocalIssue::Page.find(handle, issue: self).tap do |p|

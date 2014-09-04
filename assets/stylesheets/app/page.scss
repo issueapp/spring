@@ -402,10 +402,12 @@ article.page {
   }
 
   footer {
+    display: block;
     float: none;
     clear: both;
     margin: 0 auto !important;
     min-height: 110px;
+    
   }
 
   // Content Layout
@@ -416,6 +418,10 @@ article.page {
     .content {
       @extend .dark-theme;
       background: rgba(0, 0, 0, 0.7);
+    }
+    
+    .cover-area, footer {
+      @extend .dark-theme
     }
   }
 

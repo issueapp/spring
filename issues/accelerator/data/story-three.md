@@ -2,7 +2,8 @@
 
     category: interview
     title: Annie Parker from muru-D
-
+    author_name: Nicola Farrell
+    
     cover_url: assets/murud/cover.jpg
     thumb_url: assets/murud/cover.jpg
      
