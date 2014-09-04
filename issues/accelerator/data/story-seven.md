@@ -2,7 +2,7 @@
     category: LEAN STARTUP
     title: A Quick Walkthrough Lean Dashboard
     description: We are constantly developing our lean startup tools and we have recently updated our lean dashboard template for anybody to use. It has evolved through our own observations building companies, as well as the great practice of Ash Maurya, Alex Osterwalder, Lean Startup Machine and Jim Collins. You can grab a copy from our Tools page. This post is a quick introduction to get it out there. We’ll do more detailed posts on specific pieces in the future. You can also attend one of Building Lean Startups courses for a full immersion.
-
+    author_name: Phil Morle
 
     cover_url: assets/lean-startup/cover.jpg
     thumb_url: assets/lean-startup/cover.jpg

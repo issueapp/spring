@@ -2,6 +2,7 @@
 
     category: FEATURED
     title: Marketing is customer development
+    author_name: Bronwen Clune
     
     thumb_url: assets/customer/cover.jpg
     cover_url: assets/customer/cover.jpg
