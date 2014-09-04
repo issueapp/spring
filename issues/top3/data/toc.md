@@ -3,7 +3,7 @@
     title: Table of Content
     cover_url: assets/TerriWinter.jpg
     thumb_url: assets/TerriWinter.jpg
-    
+
     images:
       - url: assets/signature.png
 
