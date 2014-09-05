@@ -142,19 +142,21 @@
   App.pages = App.pages || {}
 
   App.pages["<%= page.handle %>"] = {
+    handle: "<%= page.handle %>",
     title: "<%= page.title %>",
+    parentTitle: "<%= page.parent.title if page.parent %>",
     links: <%= page.links.to_json %>,
     products: <%= page.products.to_json %>
   }
 
-  $(function() {
-    <% unless request.xhr? %>
+  <% unless request.xhr? %>
+    $(function() {
       App.pageView = new PageView({ path: "<%= page.handle + page_ext %>",  model: App.pages["<%= page.handle %>"] })
 
       // Force browser to render first
       App.pageView.render()
-    <% end %>
-  })
+    });
+  <% end %>
 </script>
   <%#= render 'debug', locals: { page: page } %>
   
