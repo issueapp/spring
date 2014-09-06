@@ -137,12 +137,13 @@
 <% end %>
 
 <script>
-  App || App = {}
-
+  App = (typeof App == 'undefined') ? {} : App;
   App.pages = App.pages || {}
 
   App.pages["<%= page.handle %>"] = {
+    handle: "<%= page.handle %>",
     title: "<%= page.title %>",
+    parentTitle: "<%= page.parent.title if page.parent %>",
     links: <%= page.links.to_json %>,
     products: <%= page.products.to_json %>
   }
