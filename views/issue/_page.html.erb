@@ -137,7 +137,7 @@
 <% end %>
 
 <script>
-  App = (typeof App == 'undefined') ? {} : App;
+  App || App = {}
 
   App.pages = App.pages || {}
 
@@ -147,14 +147,19 @@
     products: <%= page.products.to_json %>
   }
 
-  $(function() {
-    <% unless request.xhr? %>
-      App.pageView = new PageView({ path: "<%= page.handle + page_ext %>",  model: App.pages["<%= page.handle %>"] })
+  // In-App browsing uses non-AJAX request
+  <% unless request.xhr? %>
+    App.pageView = new PageView({ path: "<%= page.handle + page_ext %>",  model: App.pages["<%= page.handle %>"] })
 
-      // Force browser to render first
-      App.pageView.render()
-    <% end %>
-  })
+    // Force browser to render first
+    App.pageView.render()
+  
+    // Toggle page active
+    $(document).on('page:change', function () {
+      App.pageView.setActive()
+    })
+  <% end %>
+
 </script>
   <%#= render 'debug', locals: { page: page } %>
   
