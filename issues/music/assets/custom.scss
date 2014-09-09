@@ -173,9 +173,9 @@
       text-align: center;
       text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.5);
       font-weight: normal;
-      font-size: 110px;
+      font-size: 80px;
       font-family: "rodondoregular";
-      line-height: 60px;
+      line-height: 40px;
     }
 
     .description {
@@ -199,7 +199,7 @@
   @media only screen and (min-width: 768px) {
     .page.cover {
       .title {
-        font-size: 150px;
+        font-size: 130px;
         line-height: 100px;
       }
     }
@@ -630,7 +630,6 @@
   [data-page="6-behind-the-scene"] {
     header {
       padding-top: 15%;
-      margin-left: 20px;
       margin-right: 20px;
     }
 
