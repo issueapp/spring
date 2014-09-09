@@ -27,5 +27,26 @@
 </article>
 
 <script>
+  App = (typeof App == 'undefined') ? {} : App;
+  App.pages = App.pages || {}
+
+  App.pages["index"] = {
+    handle: "index",
+    title: "<%= issue.title %>"
+  }
+
+  // In-App browsing uses non-AJAX request
+  <% unless request.xhr? %>
+    App.currentPage = new PageView({ path: "<%= "index" + page_ext %>",  model: App.pages["index"] })
+
+    // Force browser to render first
+    App.currentPage.render()
+
+    // Toggle page active
+    $(document).on('page:change', function () {
+      if (App.support.webview) App.currentPage.setActive()
+    })
+  <% end %>
+
   App.trigger('page:loaded', "index<%= page_ext %>", { path: "index<%= page_ext %>", theme: 'black' })
 </script>
