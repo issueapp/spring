@@ -157,7 +157,8 @@
   
     // Toggle page active
     $(document).on('page:change', function () {
-      if (App.currentPage) App.currentPage.setActive()
+      console.log("FIRED: page:change")
+      if (App.support.webview) App.currentPage.setActive()
     })
   <% end %>
 

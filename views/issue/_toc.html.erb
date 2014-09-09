@@ -89,7 +89,6 @@
 
 <% content_for :js do %>
 <script>
-$(function () {
   App = (typeof App == 'undefined') ? {} : App;
 
   App.page = {
@@ -99,9 +98,14 @@ $(function () {
   }
 
   <% unless request.xhr? %>
-    App.currentView = new PageView({ path: "<%= page.handle + page_ext %>", model: App.page })
-    App.currentView.render()
+    App.currentPage = new PageView({ path: "<%= page.handle + page_ext %>", model: App.page })
+    App.currentPage.render()
+    
+    // Toggle page active
+    $(document).on('page:change', function () {
+        console.log("FIRED: page:change")
+      if (App.support.webview) App.currentPage.setActive()
+    })
   <% end %>
-})
 </script>
 <% end %>
