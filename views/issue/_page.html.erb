@@ -150,18 +150,17 @@
 
   // In-App browsing uses non-AJAX request
   <% unless request.xhr? %>
-    App.pageView = new PageView({ path: "<%= page.handle + page_ext %>",  model: App.pages["<%= page.handle %>"] })
+    App.currentPage = new PageView({ path: "<%= page.handle + page_ext %>",  model: App.pages["<%= page.handle %>"] })
 
     // Force browser to render first
-    App.pageView.render()
+    App.currentPage.render()
   
     // Toggle page active
     $(document).on('page:change', function () {
-      App.pageView.setActive()
+      if (App.currentPage) App.currentPage.setActive()
     })
   <% end %>
 
 </script>
-  <%#= render 'debug', locals: { page: page } %>
   
 </article>
