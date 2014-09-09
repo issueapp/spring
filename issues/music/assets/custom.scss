@@ -818,13 +818,15 @@
 
   .polaroid-wrap {
     list-style: none;
+    display: inline-block;
+    max-width: 48%;
   }
 
   figure.polaroid {
     display: inline;
     float: left;
-    margin: 0 -5% -10% 1%;
-    max-width: 48%;
+    margin: 0;
+    max-width: 80%;
     max-height: 300px;
     width: auto;
     color: #333;
@@ -877,6 +879,11 @@
       padding: 15px 15px 20px;
     }
 
+    .polaroid-wrap {
+      display: inline;
+      max-width: initial;
+    }
+
     .polaroid-wrap:nth-child(3n+1) {
       clear: both;
     }
@@ -887,7 +894,6 @@
 
     .polaroid-wrap:nth-child(5) figure {
       position: relative;
-      top: -11vh;
       left: 2vh;
 
       -webkit-transform: none;
@@ -897,8 +903,8 @@
 
     .polaroid-wrap:nth-child(8) figure {
       position: relative;
-      top: 5vh;
-      left: -2vh;
+      top: -5vh;
+      left: 1vh;
 
       -webkit-transform: none;
       -moz-transform: none;
@@ -919,6 +925,7 @@
 
     .polaroid-wrap:nth-child(12) figure {
       position: relative;
+      top: -20vh;
       left: 5vh;
       margin: 0;
 
