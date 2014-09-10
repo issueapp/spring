@@ -11,7 +11,7 @@
         type: video/youtube
         autoplay: true
         cover: true
-        
+
     layout:
       type: video
       image_style: background

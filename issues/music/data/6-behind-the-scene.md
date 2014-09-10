@@ -1,24 +1,26 @@
 ---
+
     title: The Final Word
     description: CP TALKS MUSIC AND SPILLS ON HER LATEST ALBUM 'HEAD OR HEART'
-    
+
     thumb_url: assets/toc/6-behind-the-scene.jpg
-    
+
     videos:
       - url: http://vimeo.com/84820598
         thumb_url: assets/6-behind-the-scene/cover.jpg
-    
+
     images:
       - url: assets/6-behind-the-scene/content-images.jpg
       - url: assets/1-styling-it-out/_MG_5433_1024@2x.jpg
       - url: assets/6-behind-the-scene/cover-heading.svg
-    
+
     layout:
       type: two-column
       image_style: none
       content_overflow: paginate
 
 ---
+
 <video src="http://vimeo.com/84820598" data-media-id="videos:1">
 
 <div class="column-break"></div>
