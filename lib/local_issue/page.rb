@@ -54,28 +54,29 @@ class LocalIssue::Page < Hashie::Mash
     parent, child_path = path.split("/")
     
     if issue = options[:issue]
-      path = "#{issue.path}/data/#{path}.md"
+      full_path = "#{issue.path}/data/#{path}.md"
     else
-      path = "data/#{path}.md"
+      full_path = "data/#{path}.md"
     end
 
-    page_dir = Pathname(path).basename(".md")
-    page = self.build(path, options)
+    page_dir = Pathname(full_path).basename(".md")
+    page = self.build(full_path, options)
 
     page.issue = options[:issue]
     page.children = self.recursive_build("data/#{page_dir}", {}, options)
+    
     page.children.each do |child|
       child.issue = page.issue
-      child.parent = page
-    end
-    
-    if child_path
-      page.parent = find(parent, options)
+      child.parent_path = parent
+      
+      # Rails.logger.info "Set page child: #{path}"
+      # child.parent = page
     end
     
     page
     
   rescue Exception => e
+    puts e.inspect
     raise path.inspect
   end
 
@@ -202,6 +203,10 @@ class LocalIssue::Page < Hashie::Mash
     else
       return self["cover_url"]
     end
+  end
+  
+  def parent
+    @parent ||= LocalIssue::Page.find(parent_path, issue: issue) if parent_path
   end
   
   def number
