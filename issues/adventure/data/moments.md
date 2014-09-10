@@ -2,9 +2,9 @@
 
     category: "Moments"
     title: "#AcademyMoments"
-    
+
     thumb_url: assets/moments/3.jpg
-  
+
     images:
       - url: assets/moments/1.jpg
       - url: assets/moments/2.jpg
@@ -15,7 +15,7 @@
       - url: assets/moments/7.jpg
       - url: assets/moments/8.jpg
       - url: assets/moments/9.jpg
-      
+
     layout:
       nav: true
       type: custom
@@ -27,15 +27,15 @@
     <span class="category">Social</span>
     <h1 class="title">#AcademyMoments</h1>
   </header>
-  
-  <ul clas="polaroids">
+
+  <ul class="polaroids">
   {{#images}}
-    <li class="polaroid-wrap"><a class="">
+    <li class="polaroid-wrap">
       <figure class="polaroid">
-        <img data-media-id="images:{{ index }}" src="{{ url}}" alt=" {{ title }}" title=" {{ title }}">
+        <img data-media-id="images:{{ index }}" src="{{ url }}" alt="{{ title }}" title="{{ title }}">
         <figcaption>{{ caption }}</figcaption>
       </figure>
-    </a></li>
+    </li>
   {{/images}}
   </ul>
 </div>
