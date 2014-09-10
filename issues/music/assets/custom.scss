@@ -42,6 +42,7 @@
   /*
       Basic elements
   */
+
   p:empty {
     display: none;
   }
@@ -419,7 +420,8 @@
     }
 
     .product-set {
-      margin: -20% 0 0;
+      margin: 0 auto;
+      width: 70%;
       background-image: url('4-beauty/product-bg.png');
       background-position: center;
       background-size: 110%;
@@ -468,6 +470,7 @@
 
       .product-set {
         margin: -20% 0 -10%;
+        width: 100%;
       }
     }
 

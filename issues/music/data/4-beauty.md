@@ -16,7 +16,6 @@
       - url: assets/4-beauty/uncovered.png
 
     products:
-
       - title: Chanel Illusion d’Ombre Long-Wear Eyeshadow in Fatal
         image_url: assets/4-beauty/cover-product-1.png
         url: "#1"
@@ -43,7 +42,6 @@
         action: false
 
 ---
-
 
 <img id="uncovered" src="assets/4-beauty/uncovered.png" data-media-id="images:1">
 
