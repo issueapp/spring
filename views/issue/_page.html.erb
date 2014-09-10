@@ -51,9 +51,8 @@
         <video src="<%= video_url %>" <%#= "autoplay" if page.cover.autoplay %> <%= "loop" if page.cover.autoplay %> poster="<%= asset_path page.cover.thumb_url %>"></video>
         <% else %>
 
-          <img class="thumbnail" src="<%= thumb_url %>">
+          <div class="thumbnail" style="background-image: url(<%= thumb_url %>)"></div>
           <%= video_iframe video_url, page.cover.to_hash.merge(lazy: true, autoplay: true) %>
-
         <% end %>
       </figure>
 
@@ -154,7 +153,7 @@
 
     // Force browser to render first
     App.currentPage.render()
-  
+
     // Toggle page active
     $(document).on('page:change', function () {
       console.log("FIRED: page:change")
@@ -163,5 +162,5 @@
   <% end %>
 
 </script>
-  
+
 </article>
