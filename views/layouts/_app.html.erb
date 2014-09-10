@@ -44,8 +44,8 @@
   </head>
 
   <body class="<%= @body_class %> <%= 'webview' if webview? || offline? %>"
-    data-magazine="<%= issue.magazine_title %>"
-    data-issue="<%= issue.title %>"
+    data-magazine="<%= issue.magazine_handle %>"
+    data-issue="<%= issue.handle %>"
   >
 
     <div id="<%= issue.handle %>-issue" role=main class="<%= issue.theme %>-theme content-view">
