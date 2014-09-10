@@ -42,7 +42,7 @@
     {{^layout}}
     <li class="polaroid-wrap">
       <figure class="polaroid">
-        <img data-media-id="images:{{ index }}" src="{{ url}}" alt=" {{ title }}" title=" {{ title }}">
+        <img data-media-id="images:{{ index }}" src="{{ url }}" alt="{{ title }}" title="{{ title }}">
         <figcaption>{{ caption }}</figcaption>
       </figure>
     </li>
