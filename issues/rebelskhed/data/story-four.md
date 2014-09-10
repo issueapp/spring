@@ -30,7 +30,7 @@
   {{#images}}
     <li class="polaroid-wrap">
       <figure class="polaroid">
-        <img data-media-id="{{ index }}" src="{{ url}}" alt="{{ title }}">
+        <img data-media-id="{{ index }}" src="{{ url }}" alt="{{ title }}">
         <figcaption>{{ caption }}</figcaption>
       </figure>
     </li>

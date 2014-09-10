@@ -30,6 +30,22 @@
     background: #fdfdfb;
   }
 
+  [data-page="story-one/2"] {
+    ul.polaroids {
+      margin-top: 10%;
+    }
+
+    @media only screen and (min-width: 768px) {
+      ul.polaroids {
+        margin-top: 20%;
+      }
+
+      figure.polaroid {
+        padding-left: 15px;
+      }
+    }
+  }
+
   [data-page="end"] {
     .content .title {
       font-family: "proxima-nova";
@@ -143,11 +159,11 @@
     }
   }
 
-
   /*
       Polaroid
   */
-  article.page ul.polaroids {
+
+  ul.polaroids {
     margin: 0;
     padding: 0;
   }
