@@ -7,9 +7,9 @@
     cover_url: assets/end-bg.jpg
 
     images:
-      - url: assets/food-culture/1.jpg
-      - url: assets/food-culture/2.jpg
-      - url: assets/food-culture/3.jpg
+      - url: assets/story-one/p3-1.jpg
+      - url: assets/story-one/p3-2.jpg
+      - url: assets/story-one/p3-3.jpg
 
     layout:
       type: custom
