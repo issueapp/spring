@@ -1,33 +1,33 @@
 ---
+
     category: LEAN STARTUP
     title: A Quick Walkthrough Lean Dashboard
     description: We are constantly developing our lean startup tools and we have recently updated our lean dashboard template for anybody to use. It has evolved through our own observations building companies, as well as the great practice of Ash Maurya, Alex Osterwalder, Lean Startup Machine and Jim Collins. You can grab a copy from our Tools page. This post is a quick introduction to get it out there. We’ll do more detailed posts on specific pieces in the future. You can also attend one of Building Lean Startups courses for a full immersion.
     author_name: Phil Morle
 
-    cover_url: assets/lean-startup/cover.jpg
-    thumb_url: assets/lean-startup/cover.jpg
-    
-    images: 
-      - url: assets/lean-startup/Lean Canvas.png
+    cover_url: assets/story-seven/p1-1.jpg
+    thumb_url: assets/story-seven/p1-1.jpg
+
+    images:
+      - url: assets/story-seven/p1-2.jpg
         caption: Lean Canvas
-      - url: assets/lean-startup/Validate and learn - LD post.png
-      - url: assets/lean-startup/skitch - LC post.png
-      
+      - url: assets/story-seven/p1-3.jpg
+      - url: assets/story-seven/p1-4.jpg
+
     layout:
       image_align: left
       image_style: fit
       content_overflow: paginate
+
 ---
 
 We are constantly developing our lean startup tools and we have recently updated our lean dashboard template for anybody to use. It has evolved through our own observations building companies, as well as the great practice of Ash Maurya, Alex Osterwalder, Lean Startup Machine and Jim Collins.
-
 
 You can grab a copy from our Tools page. This post is a quick introduction to get it out there. We’ll do more detailed posts on specific pieces in the future. You can also attend one of Building Lean Startups courses for a full immersion.
 
 The Lean Dashboard is the tool that we use to track our progress of BUILD > MEASURE > LEARN that is at the heart of Lean Startup.
 
 Here ‘s a very quick run through of how to use the Lean Dashboard
-
 
 ### SETUP
 
@@ -57,7 +57,8 @@ This is your one page business plan. You can have lots of these as your startup 
 A lean canvas with empty cells is a fragile business that could have a hidden flaw. Complete it all. It is OK if the content is just a hypothesis for now. As long as it all makes sense.
 
 ### METRICS DASHBOARD
-<img data-media-id="images:3" width=80%>
+
+<img data-media-id="images:2" width=60%>
 
 How are you measuring that a sustainable business model is emerging?
 
@@ -79,7 +80,7 @@ This is where we track each metric week on week. As with the dashboard, it is no
 
 This is where we track what we learn through the lean startup BUILD > MEASURE > LEARN loop.
 
-<img data-media-id="images:2" width=60%>
+<img data-media-id="images:3" width=80%>
 
 - Add the date that the experiment starts.
 - Write the hypothesis that you want to prove in the BUILD cell, indicating that the experiment is being assembled. This could be a manual test or an actual feature being built in your product to validate a hypothesis.
