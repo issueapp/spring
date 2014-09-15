@@ -3,19 +3,18 @@
     category: "#STARTUP HACKS"
     title: Pitching hacks
     author_name: Phil Morle
-    
-    thumb_url: http://media-cache-ak0.pinimg.com/236x/02/46/91/024691df69af6a545eb7d5060ac7e87c.jpg
-  
+
+    thumb_url: assets/story-six/p1-1.jpg
+
     videos:
       - type: video/youtube
         url: "http://www.youtube.com/watch?v=juR49xtSj68"
-        thumb_url: "assets/pitching/video.jpg"
+        thumb_url: assets/story-six/p1-2.jpg
         cover: true
-    
+
     layout:
-      type: two-column
-      image_style: cover
-      image_align: right
+      type: video
+      custom_class: one-column
 
 ---
 
@@ -37,7 +36,6 @@ Hack 3: Use a ‘Gaddy Pitch’ to explain your startup without the BS. Here’s
 
 > Canva: You know how everyone has a blog or Facebook page these days and needs images to stand out from the crowd and get better engagement. Well, what we do is, create a dead simple too for anyone to make a gorgeous original image online in just a few minutes for next to no money. In fact, we are only a few months old and we already have a few thousand people using Canva all over the world.
 
-
 Get the idea? Do you communicate this in your bigger pitch? Make sure the value proposition of your startup is crystal clear, there is always time in the Q&A and follow-up meetings for your to answer complex questions in detail and demonstrate how much you know what you are doing.
 
 ###  4. What is the riskiest thing about YOUR startup?
@@ -48,4 +46,4 @@ Hack 4: Share your pitch as often as you can with people that know the space and
 
 Generally, I am distrusting pitches more and more. A great pitch does not mean that the business is also great and accelerators all over the world are spewing out awesome pitches for crappy businesses.
 
-But you still need to be good at it. 
+But you still need to be good at it.

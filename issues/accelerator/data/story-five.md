@@ -3,15 +3,14 @@
     category: FEATURED
     title: Marketing is customer development
     author_name: Bronwen Clune
-    
-    thumb_url: assets/customer/cover.jpg
-    cover_url: assets/customer/cover.jpg
-    
+
+    thumb_url: assets/story-five/p1-1.jpg
+    cover_url: assets/story-five/p1-1.jpg
+
     layout:
       image_style: fit
 
 ---
-
 
 If you build a product and then think about marketing, you’re doing it wrong. Or, as Patrick Vlaskovitz from Superpowered puts it, “how your people learn about your product is part of your product.” And to drive the point home, Reid Hoffman’s take is: “If you are making a networked product, then you must know what your strategy is for being found.”
 
