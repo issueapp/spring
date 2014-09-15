@@ -3,8 +3,8 @@
     title: Norm Architects Copenhagen
     category: Featured Designers
 
-    cover_url: assets/story-two/p1-1-v1.jpg
-    thumb_url: assets/story-two/p1-1-v1.jpg
+    cover_url: assets/story-two/p1-1.jpg
+    thumb_url: assets/story-two/p1-1.jpg
 
     layout:
       type: three-column
