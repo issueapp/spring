@@ -1,11 +1,11 @@
 ---
+
     category: Inspiration
     title: Six Startup Stories to Inspire You
     description: Everyone involved in a startup can do with a bit of inspiration at any given moment. This is a collection of my favourite startup inspiration stories – ones that I’ve liked to remind myself of from time to time.
 
-    
-    cover_url: http://38.media.tumblr.com/e77ef190ff20487acedb1d664a535c1b/tumblr_n8zlzxbFUT1st5lhmo1_1280.jpg
-    thumb_url: http://38.media.tumblr.com/e77ef190ff20487acedb1d664a535c1b/tumblr_n8zlzxbFUT1st5lhmo1_1280.jpg
+    cover_url: assets/story-one/p1-1.jpg
+    thumb_url: assets/story-one/p1-1.jpg
 
     layout:
       type: three-column
@@ -13,7 +13,6 @@
       image_style: cover
 
 ---
-
 
 ### YouTube
 
@@ -26,7 +25,7 @@ Chen wasn’t convinced. He left to start a company called YouTube.
 
 > TAKEAWAY: Go with your passion.
 
-- - - 
+- - -
 
 ### Angry Birds
 
@@ -39,7 +38,7 @@ Today, they have over a billion users, 500 employees and partnerships with some 
 
 > TAKEAWAY: It can take 51 failures to become a success.
 
-- - - 
+- - -
 
 ### Lego
 
@@ -53,7 +52,7 @@ But he took the plunge and invested in plastics all the same.  Over the next 10 
 
 > TAKEAWAY: Go against the grain and break the mould!
 
-- - - 
+- - -
 
 ### Pinterest
 
@@ -66,7 +65,7 @@ Before Pinterest became social media’s fastest growing website, and landed on 
 
 > TAKEAWAY: Pivot is not a dirty word.
 
-- - - 
+- - -
 
 ### Airbnb
 
@@ -83,7 +82,7 @@ To help fund the site, the founders created special edition breakfast cereals, w
 
 > TAKEAWAY: Think outside the (cereal) box.
 
-- - - 
+- - -
 
 ### Pandora
 
@@ -95,4 +94,4 @@ In September last year, the company filed a prospectus to raise $230.8 million d
 
 > TAKEAWAY: If you truly believe that what you’re doing is worth something, stick with it.
 
-- - - 
+- - -

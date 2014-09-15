@@ -68,6 +68,10 @@
   // Ad Page
 
   [data-page="ad"] {
+    header {
+      display: none;
+    }
+
     .cover-area {
       min-height: initial;
       height: 100%;

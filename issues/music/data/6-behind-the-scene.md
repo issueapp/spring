@@ -8,6 +8,7 @@
     videos:
       - url: http://vimeo.com/84820598
         thumb_url: assets/6-behind-the-scene/cover.jpg
+        type: video/vimeo
 
     images:
       - url: assets/6-behind-the-scene/content-images.jpg
@@ -21,7 +22,7 @@
 
 ---
 
-<video src="http://vimeo.com/84820598" data-media-id="videos:1">
+<video data-media-id="videos:1" type="video/vimeo" src="http://vimeo.com/84820598" poster="../assets/6-behind-the-scene/cover.jpg"/>
 
 <div class="column-break"></div>
 

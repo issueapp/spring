@@ -1,5 +1,6 @@
 ---
 
+    title: Ads
     cover_url: assets/ad/background.jpg
 
     images:
