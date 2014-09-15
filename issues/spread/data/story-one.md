@@ -3,8 +3,8 @@
     category: Family
     title: Building Family Food Culture
 
-    cover_url: assets/food-culture/cover.jpg
-    thumb_url: assets/food-culture/cover.jpg
+    cover_url: assets/story-one/p1-1.jpg
+    thumb_url: assets/story-one/p1-1.jpg
 
     layout:
       type: three-column
@@ -12,7 +12,6 @@
       content_style: transparent
       content_valign: middle
       custom_class: transparent-black
-
 
 ---
 

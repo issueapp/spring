@@ -10,9 +10,8 @@ cover_url: "assets/background_large.jpg"
 
 assets:
   - "custom.css"
-  
-paths:
 
+paths:
   - index
   - toc
   - story-two
