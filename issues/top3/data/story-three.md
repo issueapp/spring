@@ -1,6 +1,7 @@
 ---
+
     category: Designer's Den
-    title: Arne Jcobsen    
+    title: Arne Jcobsen
     cover_url: assets/story-three/p1-1.jpg
     thumb_url: assets/story-three/p1-1.jpg
 
@@ -11,7 +12,6 @@
       content_height: auto
       content_valign: middle
       custom_class: black
-      
 
 ---
 

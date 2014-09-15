@@ -1,15 +1,15 @@
 title: Accelerator Ready
 
-magazine_handle: official
+magazine_handle: pollenizer
 magazine_title: Pollenizer
 
-theme: 
+theme:
 thumb_url: "assets/background.jpg"
 cover_url: "assets/background_large.jpg"
 
 assets:
   - "custom.css"
-  
+
 paths:
 
   - index
