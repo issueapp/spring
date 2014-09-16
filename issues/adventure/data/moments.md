@@ -4,6 +4,7 @@
     title: "#AcademyMoments"
 
     thumb_url: assets/moments/3.jpg
+    cover_url: assets/moments/3.jpg
 
     images:
       - url: assets/moments/1.jpg
@@ -17,7 +18,6 @@
       - url: assets/moments/9.jpg
 
     layout:
-      nav: true
       type: custom
 
 ---
