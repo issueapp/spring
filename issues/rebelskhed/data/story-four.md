@@ -1,7 +1,8 @@
 ---
 
-    category: "Social"
+    category: Social
     title: "#AJL Spotted"
+
     thumb_url: assets/spotted/3.jpg
 
     images:
@@ -15,7 +16,6 @@
       - url: assets/spotted/8.jpg
 
     layout:
-      nav: true
       type: custom
 
 ---
