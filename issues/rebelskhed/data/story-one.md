@@ -2,8 +2,6 @@
 
     category: Featured
     title: Asger wins Woolmark
-    #author_name: Steve Jobs
-    #author_icon: http://www.turnjs.com/samples/steve-jobs/pics/young.jpg
 
     byline: By Zyra Bacani
 
@@ -12,7 +10,6 @@
 
     images:
       - url: assets/story_one/woolmark-judges.jpg
-        caption:  " "
 
     layout:
       type: two-column
