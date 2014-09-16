@@ -4,7 +4,7 @@
 
     thumb_url: assets/background.jpg
     cover_url: assets/background_large.jpg
-    
+
     layout:
       type: two-column
       nav: false

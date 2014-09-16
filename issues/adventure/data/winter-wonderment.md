@@ -1,18 +1,19 @@
 ---
+
     category: Feature
     title: Winter Wonderment
     author_name: Nkechi Njaka
-    
+
     cover_url: assets/winter-wonderment/cover2.jpg
     thumb_url: assets/winter-wonderment/cover2.jpg
-    
+
     layout:
       type: two-column
-      image_style: background 
+      image_style: background
       content_align: left
       content_valign: middle
-      content_style: white 
-        
+      content_style: white
+
 ---
 
 Anticipate those moments of crisp cold air and beautiful white landscapes, the smell of pine and sandalwood with a new, more adventurous perspective.
