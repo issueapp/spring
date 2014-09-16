@@ -11,7 +11,6 @@
       image_style: background
       content_align: center
       content_valign: middle
-
       content_style: black
 
 ---
