@@ -4,15 +4,14 @@
     title: The Style Edit
     byline: By Jysla Kay
     author_name: Jysla Kay
+
     thumb_url: assets/toc/style-edit.jpg
     cover_url: assets/3-the-style-edit/cover.jpg
-    handle: 3-the-style-edit
 
     description:
       We show you how to style your basic black silk cami in three looks with blogger Jysla Kay - for day, for night and for a piece simply layered underneath it all. Whether worn alone or layered, a beautiful silk camisole is destined for any woman’s wardrobe. For the women who like to keep their prints to a minimal, get inspired by our take of a fresh twist on a classic look!
 
     products:
-
       - url: http://www.shopbop.com/silk-camisole-lna/vp/v=1/1562218472.htm?fm=search-shopbysize
         image_url: assets/3-the-style-edit/p1-product-1.jpg
         title: LNA silk camisole
