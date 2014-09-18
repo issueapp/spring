@@ -10,7 +10,7 @@
   has_content = (page.content && !page.content.strip.empty?) || page.credits
 %>
 <article id="s<%= page.handle.to_s.split('/').first %>" class="page
-  embed 
+  embed
  <%= page.layout.type || 'two-column' %>
  <%= 'no-image ' unless has_cover %>
  <%= 'has-product ' if page.product_set? %>
