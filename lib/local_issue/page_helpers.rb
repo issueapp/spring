@@ -19,9 +19,12 @@ module LocalIssue::PageHelpers
         node["src"] = media["url"]
 
         if asset == "images"
-          img_node = image_node(node, media)
-
-          node.replace(img_node) if img_node != node
+          if tag["data-background-image"]
+            node["style"] = "background-image:url (#{media["url"]})"
+          else
+            img_node = image_node(node, media)
+            node.replace(img_node) if img_node != node
+          end
         end
 
         if asset == "videos"
