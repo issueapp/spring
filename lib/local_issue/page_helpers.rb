@@ -5,7 +5,7 @@ module LocalIssue::PageHelpers
 
   # <%= render_page page %>
   def render_page(page)
-    doc = Nokogiri::HTML.fragment(page.content)
+    doc = Nokogiri::HTML.fragment("<div>" + page.content + "</div>")
 
     # Swap data-media-id
     # videos:1
@@ -19,8 +19,8 @@ module LocalIssue::PageHelpers
         node["src"] = media["url"]
 
         if asset == "images"
-          if tag["data-background-image"]
-            node["style"] = "background-image:url (#{media["url"]})"
+          if node["data-background-image"]
+            node["style"] = "background-image:url(#{media["url"]})"
           else
             img_node = image_node(node, media)
             node.replace(img_node) if img_node != node
@@ -37,7 +37,7 @@ module LocalIssue::PageHelpers
       end
     end
 
-    doc.to_s
+    doc.child.inner_html
   end
 
   # <img>
