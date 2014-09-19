@@ -10,6 +10,8 @@
       - url: assets/story-one/p3-1.jpg
       - url: assets/story-one/p3-2.jpg
       - url: assets/story-one/p3-3.jpg
+      - url: assets/end-bg.jpg
+        cover: true
 
     layout:
       type: custom
@@ -23,7 +25,7 @@
 
 ---
 
-<figure class="cover-area background" style="background-image: url('assets/end-bg.jpg')"></figure>
+<figure data-media-id="images:4" data-background-image=true class="cover-area background"></figure>
 
 <div class="content">
   <header>
@@ -43,7 +45,7 @@
     {{^layout}}
     <li class="polaroid-wrap">
       <figure class="polaroid">
-        <img data-media-id="images:{{ index }}" src="{{ url }}" alt="{{ title }}" title="{{ title }}">
+        <img src="{{ url }}" alt="{{ title }}" title="{{ title }}">
         <figcaption>{{ caption }}</figcaption>
       </figure>
     </li>
