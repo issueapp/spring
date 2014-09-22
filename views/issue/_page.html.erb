@@ -135,6 +135,7 @@
 <% else %>
   <%= render_page page %>
 <% end %>
+</article>
 
 <script>
   App = (typeof App == 'undefined') ? {} : App;
@@ -146,22 +147,19 @@
     parentTitle: "<%= page.parent.title if page.parent %>",
     links: <%= page.links.to_json %>,
     products: <%= page.products.to_json %>
-  }
+  };
 
   // In-App browsing uses non-AJAX request
   <% unless request.xhr? %>
     App.currentPage = new PageView({ path: "<%= page.handle + page_ext %>",  model: App.pages["<%= page.handle %>"] })
 
     // Force browser to render first
-    App.currentPage.render()
+    App.currentPage.render()    // Toggle page active
 
-    // Toggle page active
+
     $(document).on('page:change', function () {
       console.log("FIRED: page:change")
       if (App.support.webview) App.currentPage.setActive()
     })
   <% end %>
-
 </script>
-
-</article>
