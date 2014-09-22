@@ -1,0 +1,22 @@
+title: Mummyhacks
+description: ""
+
+magazine_handle: dairylea
+magazine_title: Dairylea
+
+theme: fashion
+thumb_url: "assets/background.jpg"
+cover_url: "assets/background_large.jpg"
+
+assets:
+  - "custom.css"
+
+paths:
+  - index
+  - toc
+  - story-one
+  - story-two
+  - story-three
+  - story-four
+  - video-one
+  - end
