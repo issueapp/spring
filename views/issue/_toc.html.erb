@@ -1,3 +1,7 @@
+<%
+  page_title = page.title || "Table of Content - #{issue.title}"
+%>
+
 <% header_area = capture do %>
 <header>
   <% if page.category %>
@@ -41,7 +45,7 @@
    <%= "cover-#{page.layout.image_align}" if page.layout.image_align && page.cover_url %>
  <% end %>"
 
-  title="<%= page.title %>"
+  title="<%= page_title %>"
   data-page-id="<%= page.id %>"
   data-page="<%= page.handle %>"
   data-theme="<%= page.theme %>"
@@ -87,20 +91,20 @@
   </div>
 </article>
 
-<% content_for :js do %>
 <script>
   App = (typeof App == 'undefined') ? {} : App;
+  App.pages = App.pages || {}
 
-  App.page = {
-    title: "<%= page.title %>",
-    links: <%= page.links.to_json %>,
-    products: <%= page.products.to_json %>
-  }
+  App.pages["<%= page.handle %>"] = {
+    handle: "<%= page.handle %>",
+    title: "<%= page_title %>",
+    links: <%= page.links.to_json %>
+  };
 
   <% unless request.xhr? %>
     App.currentPage = new PageView({ path: "<%= page.handle + page_ext %>", model: App.page })
     App.currentPage.render()
-    
+
     // Toggle page active
     $(document).on('page:change', function () {
         console.log("FIRED: page:change")
@@ -108,4 +112,3 @@
     })
   <% end %>
 </script>
-<% end %>

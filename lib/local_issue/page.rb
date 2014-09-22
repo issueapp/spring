@@ -50,9 +50,9 @@ class LocalIssue::Page < Hashie::Mash
 
   def self.find(path, options = {})
     return index if path == "index"
-    
-    parent, child_path = path.split("/")
-    
+
+    parent_path, child_path = path.split("/")
+
     if issue = options[:issue]
       full_path = "#{issue.path}/data/#{path}.md"
     else
@@ -61,20 +61,21 @@ class LocalIssue::Page < Hashie::Mash
 
     page_dir = Pathname(full_path).basename(".md")
     page = self.build(full_path, options)
+    page.parent_path = parent_path if child_path
 
     page.issue = options[:issue]
     page.children = self.recursive_build("data/#{page_dir}", {}, options)
-    
+
     page.children.each do |child|
       child.issue = page.issue
-      child.parent_path = parent
-      
+      child.parent_path = parent_path
+
       # Rails.logger.info "Set page child: #{path}"
       # child.parent = page
     end
-    
+
     page
-    
+
   rescue Exception => e
     puts e.inspect
     raise path.inspect
@@ -167,6 +168,7 @@ class LocalIssue::Page < Hashie::Mash
       "layout"          => attributes.fetch("layout", {}).reverse_merge(self.default_layout),
       "content"         => content
     )
+
     new(attributes)
 
   rescue Exception => e
@@ -204,11 +206,11 @@ class LocalIssue::Page < Hashie::Mash
       return self["cover_url"]
     end
   end
-  
+
   def parent
     @parent ||= LocalIssue::Page.find(parent_path, issue: issue) if parent_path
   end
-  
+
   def number
     if parent
       count = parent.children.map(&:handle).index(handle) + 1
@@ -217,7 +219,7 @@ class LocalIssue::Page < Hashie::Mash
       issue.pages.index(self) + 1
     end
   end
-  
+
   def byline
     if author_name
       "by #{author_name}"
@@ -225,7 +227,7 @@ class LocalIssue::Page < Hashie::Mash
       self[:byline]
     end
   end
-  
+
   def issue=(issue)
     self[:issue] ||= issue
   end
