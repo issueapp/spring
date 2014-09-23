@@ -37,6 +37,10 @@
     font-size: 18px;
   }
 
+  .description, .subtitle {
+    font-style: normal;
+  }
+
   @media only screen and (min-width: 768px) {
     article.page {
       header {
@@ -45,7 +49,7 @@
           font-size: 3.6vmin;
         }
 
-        .description {
+        .description, .subtitle {
           font-size: 20px;
           font-size: 2.5vmin;
         }
@@ -104,7 +108,7 @@
     .content {
       background: $light-brand-color;
 
-      h1, p, .description {
+      h1, p, .description, .subtitle {
         color: $dark-brand-color;
       }
     }
@@ -116,7 +120,7 @@
       .content {
         background: rgba(0, 0, 0, 0.7);
 
-        h1, p, .description {
+        h1, p, .description, .subtitle {
           color: $light-brand-color;
         }
       }
@@ -136,7 +140,7 @@
         text-decoration-style: double;
       }
 
-      .description {
+      .description, .subtitle {
         font-family: 'BokkaSolidOT';
         color: $light-brand-color;
         font-weight: bold;
@@ -192,7 +196,7 @@
         color: $dark-brand-color;
       }
 
-      .description {
+      .description, .subtitle {
         color: $dark-brand-color;
       }
     }
