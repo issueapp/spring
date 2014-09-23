@@ -24,18 +24,36 @@
     text-transform: uppercase;
   }
 
+  .title, header {
+    font-family: 'BokkaSolidOT';
+    color: $light-brand-color;
+  }
+
+  .body {
+    font-family: OpenSans;
+  }
+
   @media only screen and (min-width: 768px) {
-    article.page .body p {
-      text-align: center;
+    article.page {
+      header {
+        h1 {
+          font-size: 28px;
+          font-size: 3.6vmin;
+        }
+
+        .description {
+          font-size: 20px;
+          font-size: 2.5vmin;
+        }
+      }
+
+      .body p {
+        text-align: center;
+      }
     }
   }
 
   [data-page="index"] {
-    h1 {
-      color: $light-brand-color;
-      font-family: 'BokkaSolidOT';
-    }
-
     @media only screen and (min-width: 768px) {
       .brand {
         display: block;
@@ -66,66 +84,8 @@
       color: $dark-brand-color;
     }
 
-    .body {
-      color: $dark-brand-color;
-    }
-  }
-
-  [data-page="story-two"] {
-    header {
-      h1 {
-        font-family: 'BokkaSolidOT';
-        color: $light-brand-color;
-        text-decoration: underline;
-        text-decoration-style: double;
-      }
-
-      .description {
-        font-family: 'BokkaSolidOT';
-        color: $light-brand-color;
-        font-weight: bold;
-        text-align: center;
-      }
-    }
-
-    .body {
-      color: $light-brand-color;
-    }
-
-    .body ul {
-      font-family: 'BokkaSolidOT';
-      margin: 0;
-      padding: 0;
-      text-align: center;
-      list-style: none;
-      font-weight: bold;
-      color: #d8162d;
-      text-transform: uppercase;
-    }
-  }
-
-  [data-page="story-three"],
-  [data-page="story-four"] {
-    background: $light-brand-color;
-
     .content {
-      background: $light-brand-color;
-    }
-
-    header {
-      h1 {
-        font-family: 'BokkaSolidOT';
-        color: $dark-brand-color;
-        text-decoration: underline;
-        text-decoration-style: double;
-      }
-
-      .description {
-        font-family: 'BokkaSolidOT';
-        color: $dark-brand-color;
-        font-weight: bold;
-        text-align: center;
-      }
+      margin: 20px;
     }
 
     .body {
@@ -133,6 +93,9 @@
     }
   }
 
+  [data-page="story-two"],
+  [data-page="story-three"],
+  [data-page="story-four"],
   [data-page="end"] {
     header {
       h1 {
@@ -153,5 +116,32 @@
     .body {
       color: $light-brand-color;
     }
+  }
+
+  [data-page="story-three"],
+  [data-page="story-four"] {
+    background: $light-brand-color;
+
+    .content {
+      background: $light-brand-color;
+    }
+
+    header {
+      h1 {
+        color: $dark-brand-color;
+      }
+
+      .description {
+        color: $dark-brand-color;
+      }
+    }
+
+    .body {
+      color: $dark-brand-color;
+    }
+  }
+
+  [data-page="story-three"] {
+    height: auto !important;
   }
 }

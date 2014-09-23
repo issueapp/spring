@@ -16,9 +16,11 @@
 
 ---
 
-- Limited Budget
-- no Awareness
-- stagnant Category
+<ul class="highlights">
+  <li>Limited Budget</li>
+  <li>no Awareness</li>
+  <li>stagnant Category</li>
+</ul>
 
 DAIRYLEA was faced with an interesting challenge: replace KRAFT Kids Cheese products in the fridges of their Australian consumer.
 
