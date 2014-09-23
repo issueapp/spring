@@ -7,7 +7,7 @@
 
     videos:
       - thumb_url: assets/video-one/p1-1.jpg
-        url: http://vimeo.com/63818162
+        url: https://vimeo.com/106875356
         type: video/vimeo
         autoplay: true
         cover: true

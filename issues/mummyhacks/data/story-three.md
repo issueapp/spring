@@ -1,6 +1,7 @@
 ---
 
   title: "The Approach"
+  description: "Build Partnerships, Use Existing Behaviours <br>& Make Shareable Content"
 
   cover_url: assets/story-three/p1-1.jpg
   thumb_url: assets/story-three/p1-1.jpg
@@ -9,8 +10,6 @@
     type: one-column
 
 ---
-
-Build Partnerships, Use Existing Behaviours & Make Shareable Content
 
 In order to achieve our goals we partnered with Sapient Nitro. Together we developed an idea that was funny, helpful, had feeling and was useful for Mum (just the sort of information Aussie woman will share).
  

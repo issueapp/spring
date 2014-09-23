@@ -1,6 +1,7 @@
 ---
 
   title: "The Strategy"
+  description: "ORGANISING IDEA: support through play"
 
   cover_url: assets/story-four/p1-1.jpg
   thumb_url: assets/story-four/p1-1.jpg
@@ -15,11 +16,10 @@
 
 ---
 
-ORGANISING IDEA: support through play
-
-Be on her side in the here and now
-
-In real ways that express the sense of play & childhood she wants to hold onto
+<div class="highlights">
+  <p>Be on her side <br>in the here and now</p>
+  <p>In real ways that express the sense of play & childhood she wants to hold onto</p>
+</div>
 
 Our product, our category is a ‘life hack’ for balancer mothers.
 
