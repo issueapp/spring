@@ -1,0 +1,157 @@
+#mummyhacks-issue {
+  @font-face {
+    font-weight: normal;
+    font-style: normal;
+    font-family: 'BokkaSolidOT';
+    src: url('fonts/BokkaSolidOT.eot');
+    src: url('fonts/BokkaSolidOT.eot?#iefix') format('embedded-opentype'),
+         url('fonts/BokkaSolidOT.woff') format('woff'),
+         url('fonts/BokkaSolidOT.ttf') format('truetype'),
+         url('fonts/BokkaSolidOT.svg#BokkaSolidOT') format('svg');
+  }
+
+  $light-brand-color: #fdf0d5;
+  $dark-brand-color: #512f2a;
+
+  .highlights {
+    font-family: 'BokkaSolidOT';
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    list-style: none;
+    font-weight: bold;
+    color: #d8162d;
+    text-transform: uppercase;
+  }
+
+  @media only screen and (min-width: 768px) {
+    article.page .body p {
+      text-align: center;
+    }
+  }
+
+  [data-page="index"] {
+    h1 {
+      color: $light-brand-color;
+      font-family: 'BokkaSolidOT';
+    }
+
+    @media only screen and (min-width: 768px) {
+      .brand {
+        display: block;
+        background: url(logo.png) no-repeat;
+        background-size: 100%;
+        width: 20vmin;
+        height: 8vmin;
+        margin: 30px auto 0;
+        color: transparent;
+        text-shadow: none;
+      }
+
+      .title {
+        line-height: 100px;
+      }
+    }
+  }
+
+  [data-page="toc"] {
+    header h1 {
+      display: none;
+    }
+  }
+
+  [data-page="story-one"] {
+    header h1 {
+      font-family: 'BokkaSolidOT';
+      color: $dark-brand-color;
+    }
+
+    .body {
+      color: $dark-brand-color;
+    }
+  }
+
+  [data-page="story-two"] {
+    header {
+      h1 {
+        font-family: 'BokkaSolidOT';
+        color: $light-brand-color;
+        text-decoration: underline;
+        text-decoration-style: double;
+      }
+
+      .description {
+        font-family: 'BokkaSolidOT';
+        color: $light-brand-color;
+        font-weight: bold;
+        text-align: center;
+      }
+    }
+
+    .body {
+      color: $light-brand-color;
+    }
+
+    .body ul {
+      font-family: 'BokkaSolidOT';
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      list-style: none;
+      font-weight: bold;
+      color: #d8162d;
+      text-transform: uppercase;
+    }
+  }
+
+  [data-page="story-three"],
+  [data-page="story-four"] {
+    background: $light-brand-color;
+
+    .content {
+      background: $light-brand-color;
+    }
+
+    header {
+      h1 {
+        font-family: 'BokkaSolidOT';
+        color: $dark-brand-color;
+        text-decoration: underline;
+        text-decoration-style: double;
+      }
+
+      .description {
+        font-family: 'BokkaSolidOT';
+        color: $dark-brand-color;
+        font-weight: bold;
+        text-align: center;
+      }
+    }
+
+    .body {
+      color: $dark-brand-color;
+    }
+  }
+
+  [data-page="end"] {
+    header {
+      h1 {
+        font-family: 'BokkaSolidOT';
+        color: $light-brand-color;
+        text-decoration: underline;
+        text-decoration-style: double;
+      }
+
+      .description {
+        font-family: 'BokkaSolidOT';
+        color: $light-brand-color;
+        font-weight: bold;
+        text-align: center;
+      }
+    }
+
+    .body {
+      color: $light-brand-color;
+    }
+  }
+}
