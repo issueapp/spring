@@ -1,15 +1,11 @@
-#mummyhacks-issue {
-  @font-face {
-    font-weight: normal;
-    font-style: normal;
-    font-family: 'BokkaSolidOT';
-    src: url('fonts/BokkaSolidOT.eot');
-    src: url('fonts/BokkaSolidOT.eot?#iefix') format('embedded-opentype'),
-         url('fonts/BokkaSolidOT.woff') format('woff'),
-         url('fonts/BokkaSolidOT.ttf') format('truetype'),
-         url('fonts/BokkaSolidOT.svg#BokkaSolidOT') format('svg');
-  }
+@font-face {
+  font-weight: normal;
+  font-style: normal;
+  font-family: "BokkaSolidOT";
+  src: url("fonts/BokkaSolidOT.otf") format("opentype");
+}
 
+#mummyhacks-issue {
   $light-brand-color: #fdf0d5;
   $dark-brand-color: #512f2a;
 
@@ -137,7 +133,6 @@
         font-family: 'BokkaSolidOT';
         color: $light-brand-color;
         text-decoration: underline;
-        text-decoration-style: double;
       }
 
       .description, .subtitle {
