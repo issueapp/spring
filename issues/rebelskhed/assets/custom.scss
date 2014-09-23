@@ -1,171 +1,176 @@
 #rebelskhed-issue {
   .product-set li {
-    overflow: hidden !important;
-  }
-}
-
-article[data-page="index"].magazine.cover {
-  h1.title {
-    font-size: 40px;
+    overflow: hidden;
   }
 
-  @media only screen and (min-width: 768px) {
+  [data-page="index"] {
     h1.title {
-      font-size: 100px;
+      font-size: 40px;
+    }
+
+    @media only screen and (min-width: 768px) {
+      h1.title {
+        font-size: 100px;
+      }
     }
   }
-}
 
-article[data-page="toc"] {
-  .menu .head {
-    display: none;
-  }
+  [data-page="toc"] {
+    .menu .head {
+      display: none;
+    }
 
-  .cover-area {
-    min-height: 192px;
-  }
+    .menu li:first-of-type {
+      padding-top: 20px;
+    }
 
-  @media only screen and (min-width: 768px) {
     .cover-area {
-      min-height: 306px;
+      min-height: 192px;
+    }
+
+    @media only screen and (min-width: 768px) {
+      .cover-area {
+        min-height: 306px;
+      }
+    }
+
+    @media only screen and (min-width: 768px) and (orientation: landscape) {
+      .cover-area {
+        min-height: 408px;
+      }
     }
   }
 
-  @media only screen and (min-width: 768px) and (orientation: landscape) {
-    .cover-area {
-      min-height: 408px;
+  [data-page="story-two/1"] {
+    @media only screen and (min-width: 768px) {
+      .title {
+        text-shadow: 1px 1px 20px rgba(0,0,0,0.4);
+      }
     }
   }
-}
 
-article[data-page="story-two/1"] {
-  @media only screen and (min-width: 768px) {
-    .title {
-      text-shadow: 1px 1px 20px rgba(0,0,0,0.4);
+  [data-page="end"] {
+    text-align: center;
+
+    img[data-media-id] {
+      display: block;
+      margin: 10% auto;
     }
   }
-}
 
-article[data-page="end"] {
-  text-align: center;
+  /*
+      Polaroid
+  */
 
-  img[data-media-id] {
-    display: block;
-    margin: 10% auto;
+  ul.polaroids {
+    margin: 0;
+    padding: 0;
   }
-}
 
-/*
-    Polaroid
-*/
-article.page ul.polaroids {
-  margin: 0;
-  padding: 0;
-}
+  .polaroid-wrap {
+    list-style: none;
+  }
 
-.polaroid-wrap {
-  list-style: none;
-}
-
-figure.polaroid {
-  display: inline;
-  float: left;
-  margin: 0 -5% -10% 1%;
-  max-width: 48%;
-  max-height: 300px;
-  width: auto;
-  color: #333;
-  text-align: center;
-  text-decoration: none;
-
-  font-size: 18px;
-  font-family: "Marker Felt", sans-serif;
-
-  -webkit-transition: all .15s linear;
-  -moz-transition: all .15s linear;
-  transition: all .15s linear;
-
-  -webkit-transform: rotate(-2deg);
-  -moz-transform: rotate(-2deg);
-  transform: rotate(-2deg);
-
-  -webkit-backface-visibility: hidden;
-  -webkit-perspective: 1000;
-}
-
-figure.polaroid figcaption {
-  text-align: center;
-  text-decoration: none;
-}
-
-figure.polaroid img {
-  padding: 6px;
-  width: 100%;
-  background: #fff;
-  box-shadow: 0 3px 6px rgba(0,0,0,.25);
-  vertical-align: middle;
-}
-
-.polaroid-wrap:nth-child(even) figure {
-  -webkit-transform: rotate(3deg);
-  -moz-transform: rotate(3deg);
-  transform: rotate(3deg);
-}
-
-@media only screen and (min-width: 768px) {
   figure.polaroid {
-    margin: 0 0% -5% 5%;
-    padding-left: 20px;
-    max-width: 24%;
-    max-height: 25vw;
+    display: inline;
+    float: left;
+    margin: 0 -5% -10% 1%;
+    max-width: 48%;
+    max-height: 300px;
+    width: auto;
+    color: #333;
+    text-align: center;
+    text-decoration: none;
+
+    font-size: 18px;
+    font-family: "Marker Felt", sans-serif;
+
+    -webkit-transition: all .15s linear;
+    -moz-transition: all .15s linear;
+    transition: all .15s linear;
+
+    -webkit-transform: rotate(-2deg);
+    -moz-transform: rotate(-2deg);
+    transform: rotate(-2deg);
+
+    -webkit-backface-visibility: hidden;
+    -webkit-perspective: 1000;
+  }
+
+  figure.polaroid figcaption {
+    text-align: center;
+    text-decoration: none;
   }
 
   figure.polaroid img {
-    padding: 15px 15px 20px;
+    padding: 6px;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 3px 6px rgba(0,0,0,.25);
+    vertical-align: middle;
   }
 
-  .polaroid-wrap:nth-child(3n+1) {
-    clear: both;
+  .polaroid-wrap:nth-child(even) figure {
+    -webkit-transform: rotate(3deg);
+    -moz-transform: rotate(3deg);
+    transform: rotate(3deg);
   }
 
-  .polaroid-wrap:nth-child(4) figure {
-    clear: left;
+  @media only screen and (min-width: 768px) {
+    figure.polaroid {
+      margin: 0 0% -5% 5%;
+      padding-left: 20px;
+      max-width: 24%;
+      max-height: 25vw;
+    }
+
+    figure.polaroid img {
+      padding: 15px 15px 20px;
+    }
+
+    .polaroid-wrap:nth-child(3n+1) {
+      clear: both;
+    }
+
+    .polaroid-wrap:nth-child(4) figure {
+      clear: left;
+    }
+
+    .polaroid-wrap:nth-child(5) figure {
+      position: relative;
+      top: 0;
+      left: 2vh;
+
+      -webkit-transform: none;
+      -moz-transform: none;
+      transform: none;
+    }
+
+    .polaroid-wrap:nth-child(6) figure {
+      left: -2vh;
+
+      -webkit-transform: rotate(6deg);
+      -moz-transform: rotate(6deg);
+      transform: rotate(6deg);
+    }
+
+    .polaroid-wrap:nth-child(8) figure {
+      position: relative;
+      top: 5vh;
+      left: -2vh;
+
+      -webkit-transform: none;
+      -moz-transform: none;
+      transform: none;
+    }
   }
 
-  .polaroid-wrap:nth-child(5) figure {
+  .polaroid-wrap:hover figure {
     position: relative;
-    top: 0;
-    left: 2vh;
+    z-index: 5;
 
-    -webkit-transform: none;
-    -moz-transform: none;
-    transform: none;
+    -webkit-transform: scale(1.5);
+    -moz-transform: scale(1.5);
+    transform: scale(1.5);
   }
-
-  .polaroid-wrap:nth-child(6) figure {
-    left: -2vh;
-
-    -webkit-transform: rotate(6deg);
-    -moz-transform: rotate(6deg);
-    transform: rotate(6deg);
-  }
-
-  .polaroid-wrap:nth-child(8) figure {
-    position: relative;
-    top: 5vh;
-    left: -2vh;
-
-    -webkit-transform: none;
-    -moz-transform: none;
-    transform: none;
-  }
-}
-
-.polaroid-wrap:hover figure {
-  position: relative;
-  z-index: 5;
-
-  -webkit-transform: scale(1.5);
-  -moz-transform: scale(1.5);
-  transform: scale(1.5);
 }
