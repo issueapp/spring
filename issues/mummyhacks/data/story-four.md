@@ -3,12 +3,13 @@
   title: "The Strategy"
   description: "ORGANISING IDEA: support through play"
 
-  cover_url: assets/story-four/p1-1.jpg
   thumb_url: assets/story-four/p1-1.jpg
+  cover_url: assets/story-four/p1-1.jpg
+  cover_caption: " "
 
   layout:
     type: three-column
-    image_style: fit
+    image_style: cover
     content_style: black
     content_align: right
     content_valign: top
