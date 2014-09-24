@@ -13,7 +13,6 @@
     font-size: 100%;
   }
 
-
   /*
       Pages override
   */
@@ -48,10 +47,17 @@
 
     .content {
       background: none;
-      height: auto;
-      display: inline-block;
-      height: 90%;
-      padding: 20px 25px;
+      position: absolute;
+      top: 50%;
+      margin-top: -64px;
+    }
+
+    @media only screen and (min-width: 768px) {
+      .content {
+        position: static;
+        margin-top: 0;
+        top: initial;
+      }
     }
   }
 
