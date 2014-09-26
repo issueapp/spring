@@ -4,7 +4,6 @@
     title: "#MySpread"
 
     thumb_url: assets/end-bg.jpg
-    cover_url: assets/end-bg.jpg
 
     images:
       - url: assets/story-one/p3-1.jpg

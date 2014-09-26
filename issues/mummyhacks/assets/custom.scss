@@ -9,32 +9,36 @@
   $light-brand-color: #fdf0d5;
   $dark-brand-color: #512f2a;
 
-  .highlights,
-  .highlights p {
-    font-family: 'BokkaSolidOT';
-    padding: 0;
-    text-align: center;
-    list-style: none;
-    font-weight: bold;
-    color: #d8162d;
-    text-transform: uppercase;
-  }
+  article.page {
+    .highlights,
+    .highlights p {
+      font-family: 'BokkaSolidOT';
+      padding: 0;
+      text-align: center;
+      list-style: none;
+      font-weight: bold;
+      color: #d8162d;
+      text-transform: uppercase;
+    }
 
-  .title, header {
-    font-family: 'BokkaSolidOT';
-    color: $light-brand-color;
-  }
+    .title, header {
+      font-family: 'BokkaSolidOT';
+      color: $light-brand-color;
+    }
 
-  .body {
-    font-family: OpenSans;
+    .body {
+      font-family: OpenSans;
+    }
+
+    .description, .subtitle {
+      font-style: normal;
+    }
   }
 
   .issue-menu li a .title {
+    font-family: 'BokkaSolidOT';
+    color: $light-brand-color;
     font-size: 18px;
-  }
-
-  .description, .subtitle {
-    font-style: normal;
   }
 
   @media only screen and (min-width: 768px) {

@@ -121,7 +121,6 @@
     }
 
     @media only screen and (min-width: 768px) {
-
       li {
         width: 50%;
       }
@@ -136,7 +135,7 @@
     }
   }
 
-  .no-touch #flip-cards li:hover .flipper,
+  .no-touch & #flip-cards li:hover .flipper,
   #flip-cards li.hover .flipper {
     -webkit-transform: rotateY(180deg);
     -moz-transform: rotateY(180deg);

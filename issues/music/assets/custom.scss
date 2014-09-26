@@ -40,6 +40,7 @@
 }
 
 #music-issue {
+
   /*
       Basic elements
   */
@@ -160,7 +161,7 @@
 
     .brand {
       margin: 0 auto 20px;
-      width: 200px;
+      width: 180px;
       height: 80px;
       background-image: url('brand_logo.png');
       background-position: center;
@@ -426,10 +427,11 @@
 
     .product-set {
       margin: 0 auto;
-      width: 70%;
+      width: 100%;
       background-image: url('4-beauty/product-bg.png');
       background-position: center;
       background-size: 110%;
+      background-repeat: no-repeat;
     }
 
     .product-set li img {
@@ -475,7 +477,6 @@
 
       .product-set {
         margin: -20% 0 -10%;
-        width: 100%;
       }
     }
 

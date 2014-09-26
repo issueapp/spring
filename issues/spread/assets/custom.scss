@@ -16,13 +16,33 @@
     }
   }
 
+  [data-page="index"] {
+    .brand {
+      display: block;
+      background: url(spread.svg) no-repeat;
+      background-size: 100%;
+      width: 22vmin;
+      height: 9vmin;
+      margin: 20px auto 0;
+      color: transparent;
+      text-shadow: none;
+    }
+
+    .title {
+      display: block;
+      background: url(title.svg) no-repeat;
+      background-size: 100%;
+      width: 65vmin;
+      height: 20vmin;
+      margin: 0 auto;
+      color: transparent;
+      text-shadow: none;
+    }
+  }
+
   [data-page="toc"] {
     header {
       display: none;
-    }
-
-    .body {
-      padding: 20px 0;
     }
   }
 
@@ -133,32 +153,6 @@
           right: 50px;
           max-width: 150px;
         }
-      }
-    }
-  }
-
-  @media only screen and (min-width: 768px) {
-    [data-page="index"] {
-      .brand {
-        display: block;
-        background: url(spread.svg) no-repeat;
-        background-size: 100%;
-        width: 22vmin;
-        height: 9vmin;
-        margin: 10px auto;
-        color: transparent;
-        text-shadow: none;
-      }
-
-      .title {
-        display: block;
-        background: url(title.svg) no-repeat;
-        background-size: 100%;
-        width: 65vmin;
-        height: 20vmin;
-        margin: 10px auto;
-        color: transparent;
-        text-shadow: none;
       }
     }
   }
