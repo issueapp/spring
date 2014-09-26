@@ -17,18 +17,27 @@
       Pages override
   */
 
+  [data-page="index"] {
+    .brand {
+      display: block;
+      background: url(brand.png) no-repeat;
+      background-size: 100%;
+      width: 15vmin;
+      height: 10vmin;
+      margin: 10px auto;
+      color: transparent;
+      text-shadow: none;
+    }
+  }
+
   [data-page="toc"] {
-    .cover-area {
-      margin-bottom: 20px;
-    }
-
-    header {
-      display: none;
-    }
-
     .signature {
       font-family: 'JennaSue';
       font-size: 32px;
+    }
+
+    .body img {
+      margin: 0;
     }
   }
 
@@ -60,25 +69,4 @@
       }
     }
   }
-
-  /*
-      Responsive queries
-  */
-
-  @media only screen and (min-width: 768px) {
-    [data-page="index"] {
-      .brand {
-        display: block;
-        background: url(brand.png) no-repeat;
-        background-size: 100%;
-        width: 15vmin;
-        height: 10vmin;
-        margin: 10px auto;
-        color: transparent;
-        text-shadow: none;
-      }
-    }
-  }
-
-  // End Issue
 }

@@ -4,6 +4,7 @@
     description: CP TALKS MUSIC AND SPILLS ON HER LATEST ALBUM 'HEAD OR HEART'
 
     thumb_url: assets/toc/6-behind-the-scene.jpg
+    cover_url: assets/toc/6-behind-the-scene.jpg
 
     videos:
       - url: http://vimeo.com/84820598
