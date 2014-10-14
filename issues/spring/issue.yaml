@@ -1,0 +1,20 @@
+title: Spring
+description: ""
+
+magazine_handle: spread
+magazine_title: Spread
+
+theme: fashion
+thumb_url: "assets/background.jpg"
+cover_url: "assets/background_large.jpg"
+
+assets:
+  - "custom.css"
+
+paths:
+  - index
+  - toc
+  - story-one
+  - story-two
+  - story-three
+  - story-four
