@@ -46,18 +46,12 @@
   }
 
   [data-page="toc"] {
-    .cover-area.cover {
-      display: none;
-    }
-
     .menu li .story {
       text-decoration: initial;
       text-transform: initial;
     }
 
     .content {
-      padding-top: 100px;
-
       header {
         display: none;
       }
