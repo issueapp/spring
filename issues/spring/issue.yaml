@@ -6,7 +6,7 @@ magazine_title: Spread
 
 theme: fashion
 thumb_url: "assets/background.jpg"
-cover_url: "assets/background_large.jpg"
+cover_url: "assets/background_large_1.png"
 
 assets:
   - "custom.css"
