@@ -1,14 +1,15 @@
 ---
 
     category: video
-    title: "Cheesecake of the Year 2014 Contest | Philadelphia Cream Cheese"
+    title: Do Your Thing
 
     thumb_url: assets/video/cover.jpg
 
     videos:
-      - type: video/youtube
-        url: "http://www.youtube.com/watch?v=aBe0JvrrvUI"
-        thumb_url: assets/video/cover.jpg
+      - thumb_url: assets/video/cover.jpg
+        url: https://www.youtube.com/watch?v=IZjhUzv1YKw
+        type: video/youtube
+        autoplay: true
         cover: true
 
     layout:

@@ -3,15 +3,19 @@
     category: recipe
     title: PassionFruit Cheesecake with Caramelised Pineapple
 
-    cover_url: assets/story-one/p1-1.jpeg
-    thumb_url: assets/story-one/p1-1.jpeg
+    cover_url: assets/story-one/1.jpg
+    thumb_url: assets/story-one/1.jpg
 
     layout:
-      type: two-column
-      image_style: background
+      type: three-column
+      image_style: cover
       content_align: center
-      content_valign: middle
+      # content_valign: middle
 
 ---
 
-When the weather warms up I crave for a lighter and refreshing dessert. It took me a while to discover how to use almond meal to make a crust.  Seriously, it is so delicious and totally fits with my fuss free theme. Plus It's gluten free! I love the added nuttiness almond meal crust brings. Enjoy this sweet, tart and summery dessert! 
+Being born and raised in Malaysia, I will always have a soft spot for tropical fruits. Melbourne has had a sunny start to Spring, which has made me reminisce of summer in Orange.
+
+Personally, I am up for a tropical themed cheesecake at any occasion and season. But when the weather gets warmer I crave for a lighter and refreshing dessert. I love how the tang from passionfruit and pineapple mellows the richness of the cheesecake which makes an ideal dessert to cool off a warm backyard barbecue meal.  Furthermore, I love the colors they bring to the cheesecake, coupled with a drizzling of maple syrup, it feels like this cheesecake has been sun-kissed!
+
+It took me a while to discover how to use almond meal to make a crust.  Seriously, it is so delicious and totally fits with my fuss free theme. I love the added nuttiness almond meal crust brings. In fact it is so delicious that I think I can eat the crust on its own!  I also love the convenience of not having to process biscuits, which makes the cheesecake gluten free, which also means that more people can enjoy this sweet, tart and summery dessert! 
