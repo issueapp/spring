@@ -10,6 +10,7 @@ cover_url: "assets/background_large.png"
 
 assets:
   - "custom.css"
+  - "spread.svg"
 
 paths:
   - index
