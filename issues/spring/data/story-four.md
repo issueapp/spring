@@ -4,8 +4,7 @@
     title: Turkish Delight
     description: Day to day I can be somewhat conservative when it comes to dinnerware. However, as the sun starts to shine I like to keep a look out for some bright and colourful touches to add to my dinner table. Recently I’ve fallen in love with Turkish inspired pieces - I can’t help but fall in love with the vibrancy of colours and exotic patterns! These beautiful pieces will be making their way out this Spring!
 
-    # cover_url: assets/story-four/p1-1.jpeg
-    thumb_url: assets/story-four/p1-1.jpeg
+    thumb_url: assets/story-four/p1-product-1.jpg
 
     products:
       - url: "http://www.petersofkensington.com.au/Public/Le-Souk-Ceramique-Tabarka-Sauce-Dish-Set-4pce.aspx"

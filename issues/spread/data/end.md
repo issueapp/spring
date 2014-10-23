@@ -4,6 +4,7 @@
     title: "#MySpread"
 
     thumb_url: assets/end-bg.jpg
+    cover_url: assets/end-bg.jpg
 
     images:
       - url: assets/story-one/p3-1.jpg
@@ -18,10 +19,8 @@
       type: custom
       image_style: background
       content_style: transparent
-
       content_align: left
       content_valign: middle
-
       custom_class: one-column image-background transparent black center middle
 
 ---

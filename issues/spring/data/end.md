@@ -4,6 +4,7 @@
     title: "#MySpread"
 
     thumb_url: assets/end/background.jpg
+    cover_url: assets/end/background.jpg
 
     images:
       - url: assets/end/background.jpg
@@ -33,7 +34,7 @@
   <header>
     <span class="category">{{ category }}</span>
     <h1 class="title">{{ title }}</h1>
-    <p>Thanks for making time to sit down with Spread.  Each month we will bring you inspiring features about family life and effortless entertaining.   In our pages you’ll also find fabulously simple recipes that will get the whole family cooking.  </p>
+    <p>Thanks for making time to sit down with Spread.  Each month we will bring you inspiring features about family life and effortless entertaining. In our pages you’ll also find fabulously simple recipes that will get the whole family cooking.  </p>
   </header>
 
   <ul class="polaroids">
