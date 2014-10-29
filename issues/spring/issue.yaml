@@ -5,19 +5,20 @@ magazine_handle: spread
 magazine_title: Spread
 
 theme: fashion
-thumb_url: "assets/background.png"
-cover_url: "assets/background_large.png"
+thumb_url: "assets/background.jpg"
+cover_url: "assets/background_large.jpg"
 
 assets:
   - "custom.css"
   - "spread.svg"
+  - "title.svg"
 
 paths:
   - index
   - toc
+  - story-two
   - story-one
   - ad
-  - story-two
   - story-three
   - video
   - story-four

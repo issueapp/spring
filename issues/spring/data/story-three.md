@@ -1,7 +1,7 @@
 ---
 
-    category: recipe
-    title: Thai Style Chicken Meatballs With Rice Noodle Salad
+    category: Thai Recipe
+    title: Chicken Meatballs With Rice Noodle Salad
 
     cover_url: assets/story-three/cover.jpg
     thumb_url: assets/story-three/cover.jpg
