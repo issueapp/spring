@@ -59,7 +59,7 @@
           "Le Souk Ceramique is a truly hidden gem within the world of ceramics. Originating from Tunisia, just a little way away from the Mediterranean coast, Le Souk Ceramique’s tidy little studio is a marvel of hands-on artisans throwing clay and painting fired works without the aid of expensive machinery. Pots and bowls are still made on a traditional potter’s wheel; the only modern innovations are the high-tech paints and glazes."
 
     layout:
-      type: two-column
+      type: three-column
       image_style: cover
 
 ---

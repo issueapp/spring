@@ -35,10 +35,23 @@
     .brand {
       display: block;
       background: url(spread.svg) no-repeat;
-      background-size: 100%;
+      background-size: contain;
+      background-position: center;
       width: 22vmin;
       height: 9vmin;
       margin: 20px auto 0;
+      color: transparent;
+      text-shadow: none;
+    }
+
+    .title {
+      display: block;
+      background: url(title.svg) no-repeat;
+      background-size: contain;
+      background-position: center;
+      width: 65vmin;
+      height: 20vmin;
+      margin: 0 auto;
       color: transparent;
       text-shadow: none;
     }
@@ -51,7 +64,7 @@
     }
 
     .cover-area {
-      background-size: contain;
+      min-height: 350px;
     }
 
     .content {
@@ -64,9 +77,50 @@
       }
 
       .author {
-        font-family: SavoyeLetPlain;
-        font-size: 40px;
+        width: 150px;
         margin: 0;
+      }
+
+      .contributors {
+        overflow: hidden;
+        padding: 0;
+        list-style-type: none;
+        text-align: center;
+      }
+
+      .contributors li {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        padding: 5px 0 5px 80px;
+        width: 100%;
+        text-align: left;
+      }
+
+      .contributors .avatar {
+        position: absolute;
+        margin-left: -65px;
+      }
+
+      .contributors .description {
+        color: #555;
+        font-style: italic;
+      }
+
+      @media only screen and (min-width: 768px) {
+        .contributors li {
+          float: left;
+          width: 50%;
+        }
+      }
+    }
+  }
+
+  [data-page="story-two/1"] {
+    .content .body {
+      figure img {
+        width: 80%;
+        margin-bottom: 0;
       }
     }
   }

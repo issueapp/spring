@@ -1,16 +1,15 @@
 ---
 
     category: recipe
-    title: PassionFruit Cheesecake with Caramelised Pineapple
+    title: Caramelised PassionFruit Cheesecake
 
-    cover_url: assets/story-one/1.jpg
-    thumb_url: assets/story-one/1.jpg
+    cover_url: assets/story-one/2.jpg
+    thumb_url: assets/story-one/2.jpg
 
     layout:
       type: three-column
       image_style: cover
       content_align: center
-      # content_valign: middle
 
 ---
 
