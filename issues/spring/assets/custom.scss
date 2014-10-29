@@ -1,5 +1,4 @@
 #spring-issue {
-
   article.page {
     ol, ul {
 
@@ -88,8 +87,12 @@
       position: absolute;
       top: 0;
       left: 0;
+      margin: 0;
       width: 100%;
       height: 100%;
+      overflow: hidden;
+      max-width: initial;
+      max-height: initial;
 
       .body {
         position: relative;
@@ -97,52 +100,119 @@
       }
 
       img {
+        margin: 0;
+      }
+
+      a {
         position: absolute;
-        width: 100%;
+        text-decoration: none;
       }
 
-      img[data-media-id="images:1"] {
-        top: 20px;
-        right: 0;
+      .message {
+        top: -10%;
+        left: 10%;
       }
 
-      img[data-media-id="images:2"] {
+      .product {
         left: 0;
-        bottom: 16px;
-        max-width: 215px;
+        bottom: 2%;
+        max-width: 85%;
+
+        p {
+          display: none;
+          margin: 0;
+          color: #0F3553;
+          padding-left: 10px;
+          font-family: serif;
+          text-shadow: 0 0 1px rgba(0,0,0,0.2);
+        }
+
+        img {
+          max-width: 85%;
+        }
       }
 
-      img[data-media-id="images:3"] {
+      .brand {
         right: 0;
-        bottom: 0;
-        max-width: 100px;
+        bottom: 2%;
+        width: 15%;
+
+        img {
+          width: 100%;
+        }
       }
     }
 
     @media only screen and (min-width: 768px) {
-      .content {
-        width: 100%;
-        height: 100%;
-        margin: 0;
-        max-width: initial;
-        max-height: initial;
-
-        img[data-media-id="images:1"] {
-          max-width: 600px;
+      .content .product {
+        p {
+          display: block;
         }
 
-        img[data-media-id="images:2"] {
-          bottom: 30px;
-          max-width: 350px;
-        }
-
-        img[data-media-id="images:3"] {
-          right: 50px;
-          max-width: 150px;
+        img {
+          max-width: 70%;
         }
       }
     }
   }
+
+  // [data-page="story-four/1"] {
+  //   .content {
+  //     height: 100%;
+  //   }
+
+  //   .content ul {
+  //     margin: 0;
+  //     padding: 0;
+  //     width: 100%;
+  //     height: 100%;
+  //     list-style: none;
+
+  //     li {
+  //       position: relative;
+  //       display: inline-block;
+  //       width: 33%;
+  //       height: 33%;
+  //     }
+
+  //     li .hotspot {
+  //       width: 100%;
+  //       height: 100%;
+  //       margin: 0;
+  //     }
+
+  //     li .image {
+  //       height: 100%;
+  //       background-repeat: no-repeat;
+  //       background-size: contain;
+  //       background-position: center;
+  //     }
+
+  //     li h3 {
+  //       position: absolute;
+  //       bottom: 0;
+  //       left: 0;
+  //     }
+  //   }
+
+  //   @media only screen and (min-width: 768px) {
+  //     header {
+  //       position: absolute;
+  //       top: 33%;
+  //       left: 33%;
+  //       width: 33%;
+  //       height: 33%;
+  //       margin: 0;
+  //       padding: 45px 15px 15px;
+  //       overflow: scroll;
+  //     }
+  //     .content ul {
+  //       li:nth-of-type(5) {
+  //         margin-left: 33%;
+  //       }
+  //     }
+  //   }
+  // }
 
   /*
       Polaroid
