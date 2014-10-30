@@ -1,36 +1,4 @@
 #spring-issue {
-  article.page {
-    ol, ul {
-
-      p {
-        margin-bottom: 0.5em;
-      }
-
-      ol, ul {
-        margin: 0.5em 0 0.5em;
-      }
-    }
-
-    @media only screen and (min-width: 768px) {
-      h3 {
-        font-size: 2.1vmin;
-      }
-
-      &.two-column,
-      &.three-column {
-        img {
-          -webkit-column-break-before: initial;
-          -moz-column-break-before: initial;
-          column-break-before: initial;
-          -webkit-column-break-inside: avoid;
-          -moz-column-break-inside: avoid;
-          column-break-inside: avoid;
-          margin-bottom: 20px;
-        }
-      }
-    }
-  }
-
   [data-page="index"] {
     .brand {
       display: block;
@@ -116,12 +84,9 @@
     }
   }
 
-  [data-page="story-two/1"] {
-    .content .body {
-      figure img {
-        width: 80%;
-        margin-bottom: 0;
-      }
+  [data-page="story-two"] {
+    .cover-area {
+      background-position: center;
     }
   }
 
