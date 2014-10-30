@@ -3,8 +3,8 @@
     category: Do It Yourself
     title: "Double Life: Candle holder vases"
 
-    cover_url: assets/story-two/p1-4.jpeg
-    thumb_url: assets/story-two/p1-4.jpeg
+    cover_url: assets/story-two/cover.jpg
+    thumb_url: assets/story-two/cover.jpg
 
     layout:
       type: three-column
