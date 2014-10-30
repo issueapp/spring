@@ -1,6 +1,6 @@
 ---
 
-    title: Tabel of Content
+    title: Table of Content
 
     thumb_url: assets/toc/cover.jpg
     cover_url: assets/toc/cover.jpg
