@@ -16,6 +16,7 @@ assets:
 paths:
   - index
   - toc
+  - nibble
   - story-two
   - story-one
   - ad
