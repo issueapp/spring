@@ -4,7 +4,7 @@
     cover_url: assets/ad/background.jpg
 
     images:
-      - url: assets/ad/message.svg
+      - url: assets/ad/message.png
       - url: assets/ad/product.png
       - url: assets/ad/call-to-action.svg
       - url: assets/ad/brand_product.svg
