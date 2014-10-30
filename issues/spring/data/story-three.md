@@ -1,7 +1,7 @@
 ---
 
-    category: Thai Recipe
-    title: Chicken Meatballs With Rice Noodle Salad
+    category: Recipe
+    title: Caramelised PassionFruit Cheesecake
 
     cover_url: assets/story-three/cover.jpg
     thumb_url: assets/story-three/cover.jpg
@@ -9,11 +9,12 @@
     layout:
       type: three-column
       image_style: cover
+      content_align: center
 
 ---
 
-It’s not difficult to pick up that I love making meatballs and grilled them. Well today, my mince chicken has gone through the similar treatment: Thai style, meatballs and grilled. But this time I’ve coupled these tasty meatballs with rice noodle salad.
+Being born and raised in Malaysia, I will always have a soft spot for tropical fruits. Melbourne has had a sunny start to Spring, which has made me reminisce of summer in Orange.
 
-This salad has lots of flavours: the crowd pleasing sweet chilli sauce, the tanginess from the white vinegar, the aromatic and very mildly bitter fresh lemongrass (yes you can eat lemongrass raw), coupled with rice noodles (vermicelli) which naturally soak up the flavours around them, citrusy fresh coriander leaves and last but not least, Thai red curry spiced grilled chicken meatballs. I’ve also added paper thin (sliced using a vegetable peeler) cucumber and carrots to further enhance the colour and texture to the salad.
+Personally, I am up for a tropical themed cheesecake at any occasion and season. But when the weather gets warmer I crave for a lighter and refreshing dessert. I love how the tang from passionfruit and pineapple mellows the richness of the cheesecake which makes an ideal dessert to cool off a warm backyard barbecue meal.  Furthermore, I love the colors they bring to the cheesecake, coupled with a drizzling of maple syrup, it feels like this cheesecake has been sun-kissed!
 
-Needless to say, I am really into Thai style dishes lately. You can’t believe how much fresh coriander I have been keeping in my fridge. It’s crazy! I hope you’ll like this rice noodle salad recipe. Enjoy!
+It took me a while to discover how to use almond meal to make a crust.  Seriously, it is so delicious and totally fits with my fuss free theme. I love the added nuttiness almond meal crust brings. In fact it is so delicious that I think I can eat the crust on its own!  I also love the convenience of not having to process biscuits, which makes the cheesecake gluten free, which also means that more people can enjoy this sweet, tart and summery dessert! 

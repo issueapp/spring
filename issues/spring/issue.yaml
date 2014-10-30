@@ -16,12 +16,12 @@ assets:
 paths:
   - index
   - toc
-  - nibble
-  - story-two
   - story-one
+  - story-two
   - ad
   - story-three
-  - video
   - story-four
   - story-five
+  - story-six
+  - video
   - end

@@ -8,7 +8,6 @@
     images:
       - url: assets/toc/emily-signature.jpg
       - url: assets/toc/emily.jpg
-      - url: assets/toc/lindelle.jpg
 
     layout:
       type: toc
@@ -26,10 +25,5 @@ Guest Editor
     <img class="avatar" src="assets/toc/emily.jpg" data-media-id="images:2">
     <span>Emily Tan</span>
     <span class="description">Fuss Free Cooking</span>
-  </li>
-  <li>
-    <img class="avatar" src="assets/toc/lindelle.jpg" data-media-id="images:3">
-    <span>Lindelle Smith</span>
-    <span class="description">Spread Team</span>
   </li>
 </ul>
