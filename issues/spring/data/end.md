@@ -11,9 +11,12 @@
         cover: true
       - url: assets/end/instagram-512.png
         layout: true
-      - url: assets/story-two/p1-1.jpeg
-      - url: assets/story-three/cover.jpg
-      - url: assets/story-two/p1-3.jpeg
+      - url: assets/end/story-one-cover.jpg
+      - url: assets/end/story-two-cover.jpg
+      - url: assets/end/story-three-cover.jpg
+      - url: assets/end/story-four-cover.jpg
+      - url: assets/end/story-five-cover.jpg
+      - url: assets/end/story-six-cover.jpg
 
     layout:
       type: custom
@@ -38,6 +41,8 @@
     <h3>
       Share your memories with us on <a href="http://instagram.com/phillyaus"><img src="assets/instagram-512.png" data-media-id="images:2" width="32px">Instagram</a>
     </h3>
+
+    <p class="center">Follow Emily's Food Adventures at <b><a href="http://www.fussfreecooking.com">Fuss Free Cooking</a></b></p>
   </header>
 
   <ul class="polaroids">
