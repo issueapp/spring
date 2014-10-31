@@ -33,14 +33,14 @@ Besides the dresses and fascinators, party nibbles are what I would associate sp
 <div class="single-item">
   <img class="thumb-image" data-media-id="images:1"/>
   <h2 class="title">Chickpea & Polenta Homemade Crackers</h2>
-  <a class="button outline open-layer" href="#bagel_chips_recipe">View recipe</a>
+  <a class="button outline open-layer" href="#biscuits_recipe">View recipe</a>
 </div>
 
 <div class="single-item">
   <img class="thumb-image" data-media-id="images:2"/>
 
   <h2 class="title">Bagel Chips With Walnut Dukkah Crusted Cream Cheese</h2>
-  <a class="button outline  open-layer" href="#biscuits_recipe">View recipe</a>
+  <a class="button outline  open-layer" href="#bagel_chips_recipe">View recipe</a>
 </div>
 
 <section id="bagel_chips_recipe" class="stack">
