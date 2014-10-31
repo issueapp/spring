@@ -43,7 +43,7 @@ Besides the dresses and fascinators, party nibbles are what I would associate sp
   <a class="button outline  open-layer" href="#bagel_chips_recipe">View recipe</a>
 </div>
 
-<section id="bagel_chips_recipe" class="stack">
+<article id="bagel_chips_recipe" class="page stack">
   <div class="content">
     <h2>Bagel Chips with Walnut Dukkah Crusted Cream Cheese</h2>
     <img data-media-id="images:7">
@@ -84,9 +84,9 @@ Besides the dresses and fascinators, party nibbles are what I would associate sp
   <footer>
     <a href="#bagel_chips_recipe" class="button outline small close action">Continue</a>
   </footer>
-</section>
+</article>
 
-<section id="biscuits_recipe" class="stack">
+<article id="biscuits_recipe" class="page stack">
   <div class="content">
     <h2>Chickpea & Polenta Homemade Crackers</h2>
     <img data-media-id="images:8">
@@ -115,4 +115,4 @@ Besides the dresses and fascinators, party nibbles are what I would associate sp
   <footer>
     <a href="#biscuits_recipe" class="button outline small close action">Continue</a>
   </footer>
-</section>
+</article>
