@@ -4,6 +4,7 @@
     title: Spring Party Nibble You Can Do at Home
 
     cover_url: assets/story-one/cover.jpg
+    cover_caption: "Credits: Photo from visitvictoria.com"
     thumb_url: assets/story-one/cover.jpg
 
     images:
@@ -19,7 +20,7 @@
       - url: assets/nibble/crackers_2.jpg
 
     layout:
-      type: two-column
+      type: three-column
       image_style: cover
       content_valign: middle
 
