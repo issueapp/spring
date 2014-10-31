@@ -8,8 +8,8 @@
     thumb_url: assets/story-one/cover.jpg
 
     images:
-      - url: assets/nibble-bagel-chips.jpg
-      - url: assets/nibble-crackers.jpg
+      - url: assets/nibble/crackers-thumb.jpg
+      - url: assets/nibble/bagel-chips-thumb.jpg
       - url: assets/nibble/bagel_1.jpg
       - url: assets/nibble/bagel_2.jpg
       - url: assets/nibble/bagel_3.jpg
@@ -33,14 +33,14 @@ Besides the dresses and fascinators, party nibbles are what I would associate sp
 <div class="single-item">
   <img class="thumb-image" data-media-id="images:1"/>
   <h2 class="title">Chickpea & Polenta Homemade Crackers</h2>
-  <a class="button outline open-layer" href="#biscuits_recipe">View recipe</a>
+  <a class="button outline small open-layer" href="#biscuits_recipe">View recipe</a>
 </div>
 
 <div class="single-item">
   <img class="thumb-image" data-media-id="images:2"/>
 
   <h2 class="title">Bagel Chips With Walnut Dukkah Crusted Cream Cheese</h2>
-  <a class="button outline  open-layer" href="#bagel_chips_recipe">View recipe</a>
+  <a class="button outline small open-layer" href="#bagel_chips_recipe">View recipe</a>
 </div>
 
 <article id="bagel_chips_recipe" class="page stack">
