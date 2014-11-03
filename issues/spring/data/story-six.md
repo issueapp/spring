@@ -27,10 +27,10 @@
         description:
           "These polished copper mugs are classics for serving iced cocktails such as the Moscow Mule, a blend of vodka, ginger beer and lime juice. The metal keeps cocktails and other refreshments ice-cold. Our mugs are handcrafted by artisans in Turkey who carry on the ancient traditions of Anatolian metalworking. Each is spun and hammered by hand of solid copper, with riveted handles and a tin lining. The copper will age naturally to a rich bronze patina."
 
-      - url: "http://www.t2tea.com/shop/teaware-2/cups-and-saucers/turkish-delight-aqua-gold/"
+      - url: "http://www.t2tea.com/shop/teaware-2/cups-and-saucers/turkish-delight-cherry/"
         image_url: assets/story-six/product-4.jpg
-        title: "Turkish Delight Aqua/Gold"
-        price: "$22 AUD"
+        title: "Turkish Delight Cherry"
+        price: "$20.00 AUD"
         description:
           "So Delightful! Turkish Delight Cup & Saucer is sure to impress. Mix and match this colourful range or add to your existing set. Now there's an excuse to purchase more than one colour!"
 
