@@ -2,7 +2,7 @@
 
     category: Style & Shopping
     title: Turkish Delight
-    summary: By Emily Tan
+    author_name: Emily Tan
 
     thumb_url: assets/story-six/cover.jpg
     cover_url: assets/story-six/cover.jpg

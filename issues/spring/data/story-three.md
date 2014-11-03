@@ -2,7 +2,7 @@
 
     category: Recipe
     title: Passionfruit Cheesecake with Caramelised Pineapple
-    summary: By Emily Tan
+    author_name: Emily Tan
 
     cover_url: assets/story-three/cover.jpg
     thumb_url: assets/story-three/cover.jpg
