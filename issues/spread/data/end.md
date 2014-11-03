@@ -34,7 +34,7 @@
     <p>Thanks for making time to sit down with Spread.  Each month we will bring you inspiring features about family life and effortless entertaining.   In our pages you’ll also find fabulously simple recipes that will get the whole family cooking.  </p>
 
     <h3>
-      Share your memories with us on <img src="assets/instagram-512.png" data-media-id="images:5" width="32px">Instagram
+      Share your memories with us on <a href="http://instagram.com/phillyaus"><img src="assets/instagram-512.png" data-media-id="images:5" width="32px">Instagram</a>
     </h3>
 
     <p>We hope you’ve enjoyed this special Dad’s Day edition of Spread.  We’d love to see what you got up to with the special Dads in your life.  Post your Father’s Day celebration photos on Instagram, using the hashtag #myspread and using the tag @smudgepublishing to share them with us.  We will select the best photos and publish them in next month’s issue.  </p>

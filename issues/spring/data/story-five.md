@@ -1,7 +1,8 @@
 ---
 
-    category: Thai Recipe
+    category: Recipe
     title: Chicken Meatballs With Rice Noodle Salad
+    summary: By Emily Tan
 
     cover_url: assets/story-five/cover.jpg
     thumb_url: assets/story-five/cover.jpg
