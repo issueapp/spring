@@ -2,7 +2,7 @@
 
     category: Do It Yourself
     title: "Double Life: Candle holder vases"
-    summary: By Emily Tan
+    author_name: Emily Tan
 
     cover_url: assets/story-four/cover.jpg
     thumb_url: assets/story-four/cover.jpg

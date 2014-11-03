@@ -2,7 +2,7 @@
 
     category: Recipe
     title: Chicken Meatballs With Rice Noodle Salad
-    summary: By Emily Tan
+    author_name: Emily Tan
 
     cover_url: assets/story-five/cover.jpg
     thumb_url: assets/story-five/cover.jpg

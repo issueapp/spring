@@ -2,7 +2,7 @@
 
     category: recipe
     title: Spring Party Nibbles
-    summary: By Emily Tan
+    author_name: Emily Tan
 
     cover_url: assets/story-one/cover.jpg
     cover_caption: "Credits: Photo from <a href='http://www.visitvictoria.com/'>visitvictoria.com</a>"
