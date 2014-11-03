@@ -1,7 +1,8 @@
 ---
 
     category: recipe
-    title: Spring Party Nibble You Can Do at Home
+    title: Spring Party Nibbles
+    summary: By Emily Tan
 
     cover_url: assets/story-one/cover.jpg
     cover_caption: "Credits: Photo from visitvictoria.com"
@@ -26,9 +27,9 @@
 
 ---
 
-Since I am now living in Melbourne, it is only natural to be all festive about the approaching Melbourne Cup. Despite my zero knowledge in horse racing, I love to follow the fashion at the races. Beautiful dresses and colourful fascinators, what’s not too love?
+Since I am now living in Melbourne, it is only natural to be all festive about the Melbourne Cup. Despite my zero knowledge in horse racing, I love to follow the fashion at the races. Beautiful dresses and colourful fascinators, what’s not too love?
 
-Besides the dresses and fascinators, party nibbles are what I would associate spring races with. So in the spirit of the upcoming Spring Racing Carnival I wanted to share my take on fuss free party nibbles recipes.
+Besides the dresses and fascinators, party nibbles are what I would associate spring races with. So in the spirit of the upcoming Carnival I wanted to share my take on fuss free party nibbles recipes.
 
 <div class="single-item">
   <img class="thumb-image" data-media-id="images:1"/>
@@ -59,10 +60,10 @@ Besides the dresses and fascinators, party nibbles are what I would associate sp
       <li>1 tsp cumin seeds </li>
       <li>2 tsps sesame seeds </li>
       <li>Light sprinkling of paprika optional</li>
-      <li>150g tub of Philadelphia Spreadable Chive & Onion Cream Cheese</li>
+      <li>150g tub of PHILADELPHIA Spreadable Chive & Onion Cream Cheese</li>
     </ul>
     <p>
-      N.B. For larger groups, use the 250g tub of Philadelphia Spreadable, or for a different flavour you can also try this nibbles dish with Philly’s 150g Smoked Salmon and Dill or Garlic and Herb Spreadable!
+      N.B. For larger groups, use the 250g tub of PHILADELPHIA Spreadable, or for a different flavour you can also try this nibbles dish with PHILLY’s 150g Smoked Salmon and Dill or Garlic and Herb Spreadable!
     </p>
     <h3>Instructions</h3>
     <p>To make bagel chips: </p>
@@ -73,13 +74,14 @@ Besides the dresses and fascinators, party nibbles are what I would associate sp
     <p>To make the walnut dukkah crusted cream cheese: </p>
     <ul>
       <li>Toast the walnut, cumin seeds and sesame seeds until slightly aromatic and transfer to a plate to cool. Process the walnut-seeds mixture in a small processor until resembles coarse breadcrumbs.</li>
-      <li>Remove the Philadelphia cream cheese from its container (as a whole). Line the container with cling wrap and press the walnut dukkah on the base and the side of the container. Carefully transfer the cream cheese back to the container and press gently to fit the cream cheese in the container snugly. Refrigerate the cream cheese until you are ready to serve.
+      <li>Remove the PHILADELPHIA cream cheese from its container (as a whole). Line the container with cling wrap and press the walnut dukkah on the base and the side of the container. Carefully transfer the cream cheese back to the container and press gently to fit the cream cheese in the container snugly. Refrigerate the cream cheese until you are ready to serve.
       </li>
     </ul>
     <img data-media-id="images:3">
     <img data-media-id="images:4">
     <img data-media-id="images:5">
     <img data-media-id="images:6">
+    <p><em>Emily Tan is the special editor of the Spread magazine with thanks to PHILADELPHIA Australia for supporting her contents and sending her samples of PHILADELPHIA CREAM CHEESE products</em></p>
   </div>
   <footer>
     <a href="#bagel_chips_recipe" class="button outline small close action">Continue</a>
@@ -90,7 +92,7 @@ Besides the dresses and fascinators, party nibbles are what I would associate sp
   <div class="content">
     <h2>Chickpea & Polenta Homemade Crackers</h2>
     <img data-media-id="images:8">
-    <p>The amount of crackers are designed to go with the 220g Philadelphia Pourovers.</p>
+    <p>The amount of crackers are designed to go with the 220g PHILADELPHIA Pourovers.</p>
     <h3>Ingredients</h3>
     <ul>
       <li>Olive oil </li>
@@ -107,10 +109,11 @@ Besides the dresses and fascinators, party nibbles are what I would associate sp
       <li>Slowly stir in cold water until a dough is form. Use your hand to knead until the dough is pliable. If the dough feels sticky, add more chickpea flour. </li>
       <li>Dust the rolling pin and the pastry board generously with chickpeas flour. Pinch a quarter portion of the dough and dust it with chickpea flour. Flatten the dough with a rolling pin as flat as you can without breaking the dough. Use a knife to cut into squares or rectangles. Repeat this step with the remaining dough. </li>
       <li>Place them on the prepared baking tray and gently prick the surface with a fork. Lightly drizzle with olive oil. Bake in the preheated oven for 10 to 15 minutes until the crackers become golden brown. </li>
-      <li>Serve these crackers with your choice of dips or in my case, with the super saucy and delicious Mexican Salsa Philadelphia Pourover.</li>
+      <li>Serve these crackers with your choice of dips or in my case, with the super saucy and delicious Mexican Salsa PHILADELPHIA Pourover.</li>
     </ul>
     <img data-media-id="images:9">
     <img data-media-id="images:10">
+    <p><em>Emily Tan is the special editor of the Spread magazine with thanks to PHILADELPHIA Australia for supporting her contents and sending her samples of PHILADELPHIA CREAM CHEESE products</em></p>
   </div>
   <footer>
     <a href="#biscuits_recipe" class="button outline small close action">Continue</a>
