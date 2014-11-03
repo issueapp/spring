@@ -23,10 +23,8 @@
 
 </p><a href="http://philly.com.au/" class="href product" target="_blank">
   <img src="assets/ad/product.png" data-media-id="images:2">
-  <p><b>Philadelphia</b> Pourovers make a deliciously creamy centrepiece to any entertaining spread.</p>
-  <p>Now available in Mexican Salsa, Apricot & Fig and the classic Sweet Chilli.</p>
   <img src="assets/ad/call-to-action.svg" data-media-id="images:3">
-  <p>DO YOUR THING is a trade mark of Mondelēz International Group used under licence.</p>
+  <p class="trademark">DO YOUR THING is a trade mark of Mondelēz International Group used under licence.</p>
 </a>
 
 </p><a href="http://philly.com.au/" class="href brand" target="_blank">

@@ -36,13 +36,13 @@
   <header>
     <span class="category">{{ category }}</span>
     <h1 class="title">{{ title }}</h1>
-    <p>Thanks for making time to sit down with Spread.  Each month we will bring you inspiring features about family life and effortless entertaining. In our pages you’ll also find fabulously simple recipes that will get the whole family cooking.</p>
-
+    <p>
+      Thanks for making time to sit down with Spread. Each month we'll bring you features about life, food and effortless entertaining. In our pages you'll find fabulously delicious and simple recipes that will hopefully inspire your next entertaining spread.</p>
     <h3>
       Share your memories with us on <a href="http://instagram.com/phillyaus"><img src="assets/instagram-512.png" data-media-id="images:2" width="32px">Instagram</a>
     </h3>
 
-    <p class="center">Follow Emily's Food Adventures at <b><a href="http://www.fussfreecooking.com">Fuss Free Cooking</a></b></p>
+    <p class="center">Follow Emily Tan's Food Adventures at <b><a href="http://www.fussfreecooking.com">Fuss Free Cooking</a></b></p>
   </header>
 
   <ul class="polaroids">
