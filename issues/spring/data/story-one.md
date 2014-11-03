@@ -5,7 +5,7 @@
     summary: By Emily Tan
 
     cover_url: assets/story-one/cover.jpg
-    cover_caption: "Credits: Photo from visitvictoria.com"
+    cover_caption: "Credits: Photo from <a href='http://www.visitvictoria.com/'>visitvictoria.com</a>"
     thumb_url: assets/story-one/cover.jpg
 
     images:
