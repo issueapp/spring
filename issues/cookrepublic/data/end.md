@@ -1,7 +1,10 @@
 ---
 
     category: SHARE YOUR STORY
-    title: #cookrepublic
+    title: "#cookrepublic"
+
+    cover_url: assets/end/pantry.jpg
+    thumb_url: assets/end/pantry.jpg
 
     images:
       - url: assets/end/pantry.jpg
@@ -18,15 +21,21 @@
       type: custom
 ---
 
-<ul class="polaroids">
-  {{#images}}
-    {{^layout}}
-    <li class="polaroid-wrap">
-      <figure class="polaroid">
-        <img src="{{ url }}" alt="{{ title }}" title="{{ title }}">
-        <figcaption>{{ caption }}</figcaption>
-      </figure>
-    </li>
-    {{/layout}}
-  {{/images}}
-</ul>
+<div class="content">
+  <header>
+    <h1 class="title">#cookrepublic</h1>
+  </header>
+
+  <ul class="polaroids">
+    {{#images}}
+      {{^layout}}
+      <li class="polaroid-wrap">
+        <figure class="polaroid">
+          <img src="{{ url }}" alt="{{ title }}" title="{{ title }}">
+          <figcaption>{{ caption }}</figcaption>
+        </figure>
+      </li>
+      {{/layout}}
+    {{/images}}
+  </ul>
+</div>

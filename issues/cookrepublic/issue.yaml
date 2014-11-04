@@ -1,17 +1,16 @@
-title: Cookrepublic Issue
+title: Cookrepublic
 
 magazine_handle: cookrepublic
 magazine_title: Cookrepublic
 
 theme: fashion
-#thumb_url: "assets/background.jpg"
-#cover_url: "assets/background_large.jpg"
+thumb_url: "assets/background.jpg"
+cover_url: "assets/background_large.jpg"
 
 assets:
   - "custom.css"
 
 paths:
-
   - index
   - toc
   - story-one

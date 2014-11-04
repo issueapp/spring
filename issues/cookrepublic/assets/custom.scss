@@ -1,5 +1,12 @@
 #cookrepublic-issue {
 
+  [data-page="toc"] {
+    .menu li .story {
+      text-decoration: initial;
+      text-transform: initial;
+    }
+  }
+
   /*
       Polaroid
   */

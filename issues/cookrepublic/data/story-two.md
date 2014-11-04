@@ -1,9 +1,10 @@
 ---
+
     title: Foodie Confessions
     author_name: Sneh Roy
-    description: What is your quirky foodie trait??
 
     cover_url: assets/2-confession/cover.jpg
+    thumb_url: assets/2-confession/cover.jpg
 
     layout:
       type: two-column
@@ -11,8 +12,10 @@
 
 ---
 
+What is your quirky foodie trait??
+
 1. I cannot peel a boiled egg without giving it cellulite.
-1. I have panic attacks before icing a cake for a special occasion. 
+1. I have panic attacks before icing a cake for a special occasion.
 1. I cannot sleep if I fail at a recipe, making batch after batch till I get it right. My kitchen looks like a catering house for a party of 60 when that happens.
 1. I need therapy for my cookbook addiction. I think I buy more cookbooks every month than I cook from (Yes, I am blaming marketing departments of those darned publishing houses).
 1. In my next life, I would like to be a pastry chef.
@@ -21,7 +24,7 @@
 1. When the urge to cook something hits, I first head to my windows and visually measure the amount of light streaking in. If it is dark and blustery, I let my whim to cook pass because I know I won’t be able to get good shots of the food I cook. Well hello ISO and M mode! I am no longer a slave to the light outside the window!
 1. When I watch movies or television shows, I am sub consciously scoping out surfaces, kitchen props and food on display.
 1. Whenever we go out to dine, Nick sits with an exasperated expression on his face, his stomach rumbling louder with each passing minute as I try to get a decent shot of the food that has arrived at our table. I only feel guilty sometimes.
-1. I grow a cartload of herb varieties in my backyard so I can have a fresh garnish for that perfect food shot. 
+1. I grow a cartload of herb varieties in my backyard so I can have a fresh garnish for that perfect food shot.
 1. I once licked my finger and dabbed it on the lens to clean a smudge. ON THE LENS!!! SPIT!!!
 1. As days go by, obsessing about food, food and more food; I find myself becoming something of a food snob. Why buy a birthday cake when I can bake my own! Cookies from the supermarket? Blasphemy!! I need to bake my own gourmet cookies every week.
 1. I have taken up thrifting for unusual food photography props. As I head into a thrift store or op shop, I can feel the blood pounding in my veins and my heart hammering away in my chest. The thrill of scoring a rare vintage English floral plate or a hallmarked ornate silver spoon is tremedously palpable. Who needs to bungee jump after that kind of excitement?
@@ -44,7 +47,7 @@
 1. My first attempt at making macarons was also my last. They looked like whoopie pies who needed to get to the gym.
 1. Shaking Jamie Oliver’s hand would be akin to being in the same room as Dalai Lama.
 1. I have peelers and cutters for everything under the sun. Mango, corn, avocado, strawberry, banana, pineapple … you name it. Do I use them? No. That is where my trusty knife comes in.
-1. At a 2 hatted restaurant for an extraordinary degustation lunch, the thing that I was most looking forward to was their bread and churned butter. I dreamt about it for days and stared at pictures of it longingly on other blogs that had reviewed the restaurant. 
+1. At a 2 hatted restaurant for an extraordinary degustation lunch, the thing that I was most looking forward to was their bread and churned butter. I dreamt about it for days and stared at pictures of it longingly on other blogs that had reviewed the restaurant.
 1. I would love to possess knife skills of a fruit ninja. But I am scared to learn. So instead I practice on Fruit Ninja – the APP!
 1. When cutting chicken, I freak out if the head is till on. Sometimes I freak out more, if the head is unattached. So chicken cutting is left to Nick.
 1. Some of the most adventurous things I have eaten have to be tortoise eggs and frog legs.
