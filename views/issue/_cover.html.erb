@@ -35,8 +35,7 @@
     title: "<%= issue.title %>"
   }
 
-  // In-App browsing uses non-AJAX request
-  <% unless request.xhr? %>
+  if (App.support.webview) {
     App.currentPage = new PageView({ path: "<%= "index" + page_ext %>",  model: App.pages["index"] })
 
     // Force browser to render first
@@ -46,7 +45,7 @@
     $(document).on('page:change', function () {
       if (App.support.webview) App.currentPage.setActive()
     })
-  <% end %>
+  }
 
   App.trigger('page:loaded', "index<%= page_ext %>", { path: "index<%= page_ext %>", theme: 'black' })
 </script>

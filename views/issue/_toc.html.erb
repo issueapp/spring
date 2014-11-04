@@ -79,7 +79,7 @@
       <% issue.pages.each do |page| %>
         <% if page.layout.try(:nav) != false && page.handle != "toc" %>
         <li>
-          <a class="toc" href="<%= page.url %>" data-app-view="magazine">
+          <a class="toc" href="<%= page.url + page_ext %>" data-app-view="magazine">
             <span class="category"><%= page.category %></span>
             <span class="story"><%= page.title %></span>
             <span class="author"><%= "By #{page.author_name}" if page.author_name %></span>
@@ -101,7 +101,7 @@
     links: <%= page.links.to_json %>
   };
 
-  <% unless request.xhr? %>
+  if (App.support.webview) {
     App.currentPage = new PageView({ path: "<%= page.handle + page_ext %>", model: App.page })
     App.currentPage.render()
 
@@ -110,5 +110,5 @@
         console.log("FIRED: page:change")
       if (App.support.webview) App.currentPage.setActive()
     })
-  <% end %>
+  }
 </script>
