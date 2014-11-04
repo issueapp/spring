@@ -79,7 +79,7 @@ App.extend Backbone.Events
 Core = {
   # Support & feature detection
   support: {
-    
+
     embed: !!document.location.href.match(/\/embed\/|embed=1/)
 
     standalone: !!window.navigator.standalone

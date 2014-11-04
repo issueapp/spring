@@ -149,8 +149,7 @@
     products: <%= page.products.to_json %>
   };
 
-  // In-App browsing uses non-AJAX request
-  <% unless request.xhr? %>
+  if (App.support.webview) {
     App.currentPage = new PageView({ path: "<%= page.handle + page_ext %>",  model: App.pages["<%= page.handle %>"] })
 
     // Force browser to render first
@@ -161,5 +160,5 @@
       console.log("FIRED: page:change")
       if (App.support.webview) App.currentPage.setActive()
     })
-  <% end %>
+  }
 </script>
