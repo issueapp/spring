@@ -10,6 +10,7 @@
     layout:
       type: two-column
       content_valign: middle
+      image_style: fit
       image_align: right
 
 ---
