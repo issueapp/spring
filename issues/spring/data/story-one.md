@@ -47,7 +47,7 @@ Besides the dresses and fascinators, party nibbles are what I would associate sp
 <article id="bagel_chips_recipe" class="page stack">
   <div class="content">
     <h2>Bagel Chips with Walnut Dukkah Crusted Cream Cheese</h2>
-    <img data-media-id="images:7">
+    <p><img data-media-id="images:7"></p>
     <h3>Ingredients</h3>
     <p>Bagel Chips:</p>
     <ul>
@@ -91,7 +91,7 @@ Besides the dresses and fascinators, party nibbles are what I would associate sp
 <article id="biscuits_recipe" class="page stack">
   <div class="content">
     <h2>Chickpea & Polenta Homemade Crackers</h2>
-    <img data-media-id="images:8">
+    <p><img data-media-id="images:8"></p>
     <p>The amount of crackers are designed to go with the 220g PHILADELPHIA Pourovers.</p>
     <h3>Ingredients</h3>
     <ul>
