@@ -15,7 +15,7 @@
       margin-top: -40px;
       width: 150px;
       height: 80px;
-      background-image: url(../assets/cover-extra-1.png);
+      background-image: url(cover-extra-1.png);
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;
@@ -261,7 +261,7 @@
 
     @media only screen and (min-width: 768px) {
       .content {
-        background-image: url(../assets/6-summer-survival-guide/p1-must-have.png);
+        background-image: url(6-summer-survival-guide/p1-must-have.png);
         background-position: 365px -10px;
         background-repeat: no-repeat;
       }
@@ -277,7 +277,7 @@
 
   [data-page="6-summer-survival-guide/2"] {
     @media only screen and (min-width: 768px) {
-      background-image: url(../assets/6-summer-survival-guide/p2-brush.png);
+      background-image: url(6-summer-survival-guide/p2-brush.png);
       background-position: bottom left;
       background-repeat: no-repeat;
     }
