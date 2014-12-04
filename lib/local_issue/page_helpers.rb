@@ -78,7 +78,7 @@ module LocalIssue::PageHelpers
   # Params:
   #    autoplay: true | false
   #    controls: true | false
-  #    loop:     true | false
+  #    loop:     true | false
   def video_node(node, video)
     class_name = nil
 
