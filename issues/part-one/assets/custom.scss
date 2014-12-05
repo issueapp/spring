@@ -1,0 +1,26 @@
+#part-one-issue {
+  [data-page="toc"] {
+    .menu li .story {
+      text-decoration: initial;
+      text-transform: initial;
+    }
+
+    .cover-area {
+      min-height: 350px;
+    }
+
+    .content {
+      header {
+        display: none;
+      }
+
+      h1 {
+        text-align: center;
+      }
+
+      .author {
+        margin: 0;
+      }
+    }
+  }
+}
