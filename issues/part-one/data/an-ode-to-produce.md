@@ -7,7 +7,7 @@
 
     layout:
       type: three-column
-      image_style: fit
+      image_style: cover
       image_align: right
       content_valign: middle
 

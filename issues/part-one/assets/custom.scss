@@ -65,6 +65,26 @@ $text-color: #8b9ca5;
     }
   }
 
+  [data-page="index"] {
+    h1.title {
+      color: white;
+      font-weight: normal;
+      letter-spacing: 6px;
+    }
+
+    .brand {
+      display: block;
+      background: url(opera-bar-logo-white.png) no-repeat;
+      background-size: contain;
+      background-position: center;
+      width: 22vmin;
+      height: 12vmin;
+      margin: 0 auto;
+      color: transparent;
+      text-shadow: none;
+    }
+  }
+
   [data-page="toc"] {
     .menu li .story {
       text-decoration: initial;
@@ -106,16 +126,7 @@ $text-color: #8b9ca5;
       }
     }
 
-    .cover-area.fit {
-      background-size: cover;
-    }
-
     @media only screen and (min-width: 768px) {
-      .cover-area.fit {
-        background-position: 50% 100%;
-        background-size: 100%;
-      }
-
       .content {
         .author-details {
           padding-left: 20px;
@@ -127,8 +138,8 @@ $text-color: #8b9ca5;
 
         header {
           position: absolute;
-          top: 28%;
-          left: 20%;
+          top: 20%;
+          left: 15%;
           width: 500px;
 
           h1.title {
@@ -235,7 +246,7 @@ $text-color: #8b9ca5;
 
     @media only screen and (min-width: 768px) {
       .cover-area.fit {
-        background-position: 100px 200px;
+        background-position: 100px 100px;
         background-size: 100%;
       }
 
