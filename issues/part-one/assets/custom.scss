@@ -1,4 +1,49 @@
+@font-face {
+  font-family: 'ag-old-face-bold';
+  font-weight: bold;
+  font-style: normal;
+  src: url('fonts/AG-Old-Face-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'GillSans';
+  font-weight: normal;
+  font-style: normal;
+  src: url('fonts/GillSans.ttc');
+}
+
+@font-face {
+  font-family: 'GillSans';
+  font-weight: 300;
+  font-style: normal;
+  src: url('fonts/GillSansLight.ttf');
+}
+
+$header-color: #8ebbd1;
+$text-color: #8b9ca5;
+
 #part-one-issue {
+  h1 {
+    font-family: 'GillSans';
+    font-weight: 300;
+    letter-spacing: 4px;
+  }
+
+  p {
+    font-family: 'GillSans';
+    font-weight: 300;
+  }
+
+  @media only screen and (min-width: 768px) {
+    h1 {
+      color: $header-color;
+    }
+
+    // .highlights {
+    //   color: $text-color;
+    // }
+  }
+
   [data-page="toc"] {
     .menu li .story {
       text-decoration: initial;
@@ -23,4 +68,72 @@
       }
     }
   }
+
+  [data-page="an-ode-to-produce"] {
+    .author-details {
+      p {
+        margin: 0;
+        font-weight: normal;
+        font-style: italic;
+        font-size: 14px;
+        text-align: left;
+        color: $text-color;
+      }
+
+      .author-name {
+        font-weight: bold;
+      }
+    }
+
+    .cover-area.fit {
+      background-size: cover;
+    }
+
+    @media only screen and (min-width: 768px) {
+      .cover-area.fit {
+        background-position: 50% 100%;
+        background-size: 100%;
+      }
+
+      .content {
+        .author-details {
+          padding-left: 20px;
+
+          p {
+            width: 100px;
+          }
+        }
+
+        header {
+          position: absolute;
+          top: 20%;
+          right: -20%;
+          font-size: 80px;
+
+          h1.title {
+            width: 500px;
+            font-size: 80px;
+            text-align: left;
+          }
+        }
+      }
+    }
+  }
+
+  [data-page="an-ode-to-produce/2"] {
+    @media only screen and (min-width: 768px) {
+      .highlights {
+        position: absolute;
+        left: 40px;
+        bottom: 40px;
+        width: 400px;
+        padding: 20px;
+        color: white;
+        font-size: 24px;
+        border-radius: 3px;
+        background: rgba(0,0,0,0.65);
+      }
+    }
+  }
+
 }
