@@ -8,8 +8,9 @@
 
     layout:
       type: three-column
-      image_style: cover
+      image_style: background
       content_valign: middle
+      content_align: right
 
 ---
 
