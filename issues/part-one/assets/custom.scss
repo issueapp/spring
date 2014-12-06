@@ -309,4 +309,118 @@ $text-color: #8b9ca5;
     }
   }
 
+  /*
+      Polaroid
+  */
+
+  article.page ul.polaroids {
+    margin: 0;
+    padding: 0;
+  }
+
+  .polaroid-wrap {
+    list-style: none;
+    display: inline-block;
+    max-width: 48%;
+  }
+
+  figure.polaroid {
+    display: inline;
+    float: left;
+    margin: 0;
+    max-width: 80%;
+    max-height: 300px;
+    width: auto;
+    color: #333;
+    text-align: center;
+    text-decoration: none;
+
+    font-size: 18px;
+    font-family: "Marker Felt", sans-serif;
+
+    -webkit-transition: all .15s linear;
+    -moz-transition: all .15s linear;
+    transition: all .15s linear;
+
+    -webkit-transform: rotate(-2deg);
+    -moz-transform: rotate(-2deg);
+    transform: rotate(-2deg);
+
+    -webkit-backface-visibility: hidden;
+    -webkit-perspective: 1000;
+  }
+
+  figure.polaroid figcaption {
+    text-align: center;
+    text-decoration: none;
+  }
+
+  figure.polaroid img {
+    padding: 6px;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 3px 6px rgba(0,0,0,.25);
+    vertical-align: middle;
+  }
+
+  .polaroid-wrap:nth-child(even) figure {
+    -webkit-transform: rotate(3deg);
+    -moz-transform: rotate(3deg);
+    transform: rotate(3deg);
+  }
+
+  @media only screen and (min-width: 768px) {
+    figure.polaroid {
+      margin: 0 0% -5% 5%;
+      padding-left: 20px;
+      max-width: 24%;
+      max-height: 25vw;
+    }
+
+    figure.polaroid img {
+      padding: 15px 15px 20px;
+    }
+
+    .polaroid-wrap {
+      display: inline;
+      max-width: initial;
+    }
+
+    .polaroid-wrap:nth-child(3n+1) {
+      clear: both;
+    }
+
+    .polaroid-wrap:nth-child(4) figure {
+      clear: left;
+    }
+
+    .polaroid-wrap:nth-child(5) figure {
+      position: relative;
+      left: 2vh;
+
+      -webkit-transform: none;
+      -moz-transform: none;
+      transform: none;
+    }
+
+    .polaroid-wrap:nth-child(8) figure {
+      position: relative;
+      top: -1vh;
+      left: 1vh;
+
+      -webkit-transform: none;
+      -moz-transform: none;
+      transform: none;
+    }
+  }
+
+  .polaroid-wrap:hover figure {
+    position: relative;
+    z-index: 5;
+
+    -webkit-transform: scale(1.5);
+    -moz-transform: scale(1.5);
+    transform: scale(1.5);
+  }
+
 }
