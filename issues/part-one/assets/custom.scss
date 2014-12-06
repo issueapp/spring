@@ -23,12 +23,12 @@ $header-color: #8ebbd1;
 $text-color: #8b9ca5;
 
 #part-one-issue {
-  h1, h3 {
+  h1.title, h3.subtitle {
     font-family: 'GillSans';
     font-weight: 300;
   }
 
-  h1 {
+  h1.title {
     letter-spacing: 4px;
   }
 
@@ -38,7 +38,7 @@ $text-color: #8b9ca5;
   }
 
   @media only screen and (min-width: 768px) {
-    h1 {
+    h1.title {
       color: $header-color;
     }
 
@@ -133,6 +133,7 @@ $text-color: #8b9ca5;
 
           h1.title {
             font-size: 80px;
+            line-height: 80px;
             text-align: left;
           }
         }
@@ -182,7 +183,7 @@ $text-color: #8b9ca5;
 
       .circle {
         left: 40%;
-        bottom: 2%;
+        bottom: 20px;
       }
     }
   }
@@ -208,6 +209,84 @@ $text-color: #8b9ca5;
     @media only screen and (min-width: 768px) {
       header {
         text-align: left;
+      }
+    }
+  }
+
+  [data-page="reel-experts"] {
+    .author-details {
+      p {
+        margin: 0;
+        font-weight: normal;
+        font-style: italic;
+        font-size: 14px;
+        text-align: left;
+        color: $text-color;
+      }
+
+      .author-name {
+        font-weight: bold;
+      }
+    }
+
+    .cover-area.fit {
+      background-size: cover;
+    }
+
+    @media only screen and (min-width: 768px) {
+      .cover-area.fit {
+        background-position: 100px 200px;
+        background-size: 100%;
+      }
+
+      .content {
+        .author-details {
+          padding-left: 20px;
+        }
+
+        header {
+          position: absolute;
+          top: 20%;
+          left: 20%;
+          width: 500px;
+
+          h1.title {
+            font-size: 80px;
+            line-height: 80px;
+            text-align: left;
+          }
+        }
+      }
+    }
+  }
+
+  [data-page="reel-experts/1"] {
+    .cover-area.fit {
+      background-size: cover;
+    }
+
+    @media only screen and (min-width: 768px) {
+      .cover-area.fit {
+        background-position: 50% 40px;
+        background-size: 100%;
+      }
+
+      .content header {
+        position: absolute;
+        top: 40px;
+        left: 40px;
+        width: 460px;
+
+        h1.title {
+          font-size: 80px;
+          line-height: 80px;
+          text-align: left;
+        }
+      }
+
+      .circle {
+        left: 50%;
+        bottom: 20px;
       }
     }
   }
