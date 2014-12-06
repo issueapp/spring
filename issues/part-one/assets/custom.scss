@@ -1,8 +1,8 @@
 @font-face {
-  font-family: 'ag-old-face-bold';
+  font-family: 'AGOldFaceBold';
   font-weight: bold;
   font-style: normal;
-  src: url('fonts/AG-Old-Face-Bold.ttf');
+  src: url('fonts/AGOldFaceBold.ttf');
 }
 
 @font-face {
@@ -23,13 +23,16 @@ $header-color: #8ebbd1;
 $text-color: #8b9ca5;
 
 #part-one-issue {
-  h1 {
+  h1, h3 {
     font-family: 'GillSans';
     font-weight: 300;
+  }
+
+  h1 {
     letter-spacing: 4px;
   }
 
-  p {
+  li, p {
     font-family: 'GillSans';
     font-weight: 300;
   }
@@ -39,9 +42,27 @@ $text-color: #8b9ca5;
       color: $header-color;
     }
 
-    // .highlights {
-    //   color: $text-color;
-    // }
+    .circle {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border: 5px solid #8EBBD1;
+      border-radius: 50%;
+      padding: 50px 40px;
+      box-sizing: border-box;
+      overflow-x: hidden;
+      overflow-y: scroll;
+      text-align: center;
+      color: $text-color;
+
+      h2 {
+        font-weight: bold;
+      }
+
+      p {
+        font-weight: normal;
+      }
+    }
   }
 
   [data-page="toc"] {
@@ -107,11 +128,10 @@ $text-color: #8b9ca5;
         header {
           position: absolute;
           top: 20%;
-          right: -20%;
-          font-size: 80px;
+          left: 20%;
+          width: 500px;
 
           h1.title {
-            width: 500px;
             font-size: 80px;
             text-align: left;
           }
@@ -122,7 +142,7 @@ $text-color: #8b9ca5;
 
   [data-page="an-ode-to-produce/2"] {
     @media only screen and (min-width: 768px) {
-      .highlights {
+      .quotes {
         position: absolute;
         left: 40px;
         bottom: 40px;
@@ -132,6 +152,62 @@ $text-color: #8b9ca5;
         font-size: 24px;
         border-radius: 3px;
         background: rgba(0,0,0,0.65);
+      }
+    }
+  }
+
+  [data-page="a-taste-of-the-sea"] {
+    .cover-area.fit {
+      background-size: cover;
+    }
+
+    @media only screen and (min-width: 768px) {
+      .cover-area.fit {
+        background-position: 260px 100px;
+        background-size: 100%;
+      }
+
+      .content header {
+        position: absolute;
+        top: 40px;
+        left: 40px;
+        width: 460px;
+
+        h1.title {
+          font-size: 80px;
+          line-height: 80px;
+          text-align: left;
+        }
+      }
+
+      .circle {
+        left: 40%;
+        bottom: 2%;
+      }
+    }
+  }
+
+  [data-page="a-taste-of-the-sea/1"] {
+    h1.title {
+      font-family: 'AGOldFaceBold';
+      font-weight: bold;
+      color: white
+    }
+
+    h3.subtitle {
+      font-weight: normal;
+      color: white;
+    }
+
+    .content {
+      li, p {
+        font-weight: normal;
+      }
+    }
+
+    @media only screen and (min-width: 768px) {
+      header {
+        text-align: left;
       }
     }
   }
