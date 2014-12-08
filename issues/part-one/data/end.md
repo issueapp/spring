@@ -3,6 +3,9 @@
     category: "Operabar Moments"
     title: "#LoveOperaBar"
 
+    thumb_url: assets/end/5.jpg
+    cover_url: assets/end/5.jpg
+
     images:
       - title: Opera Bar
         url: assets/end/1.jpg
@@ -18,6 +21,7 @@
 
       - title: Opera Bar
         url: assets/end/5.jpg
+        cover: true
 
       - title: Opera Bar
         url: assets/end/6.jpg

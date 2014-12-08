@@ -14,29 +14,29 @@
 
 ---
 
-### °How did you get started in music?
+### How did you get started in music?
 My dad played a lot of music and we had a piano as well as all these guitars lying around. When I was 16, I just picked one up and started playing with some mates who were already in bands. And it was probably also to get a little bit of attention from girls! But I don’t remember the guitar ever being hard - I really enjoyed it and it very quickly became part of my life.
 
-### °What’s the strangest place you’ve played?
+### What’s the strangest place you’ve played?
 I did a gig at Petersons Winery and I was just in the corner and everyone pretty much ignored me. But they were handing out Penfold’s Grange and I made friends with the waitress who was hooking me up with this amazing wine!
 
-### °Who was your greatest inspiration?
+### Who was your greatest inspiration?
 Jeff Buckley was a massive influence early on and then I’ve endlessly listened to Radiohead for years. And an American singer-songwriter called Laura Veirs. Her albums really got me into sound and layering. I never get tired of her stuff.
 
-### °What does an average day look like?
+### What does an average day look like?
 When I’m on the road, like the East Coast tour I just did with Missy Higgins, I try to get a run or a swim in early, then jump in my hatchback and drive to the next place. I’ve seen quite a bit of Australia that I wouldn’t normally have seen. Otherwise it’s in the studio and trying to come up with new songs. Everyday is so different - you don’t really have plans.
 
-### °Favourite secret Sydney spot?
+### Favourite secret Sydney spot?
 It’s probably not that secret but I love the pool at Milsons Point. Being here reminds me of the romantic view I had of Sydney when I visited from the country. It’s peaceful and restores my faith in the city.
 
-### °What three words sum up Sydney in summer for you?
+### What three words sum up Sydney in summer for you?
 Shorts too late! (I always miss the boat in getting into my summer kit!)
 
-### °What can’t you live without?
+### What can’t you live without?
 My guitar and coffee. I’m pretty happy if I’ve got those two things - I used to roast coffee beans.
 
-### °What three songs would be on a mixed tape for a beer by the harbour with mates?
+### What three songs would be on a mixed tape for a beer by the harbour with mates?
 I get really picky about my songs! Lost in the Light by Bahamas is awesome, Crayon Sun by the Latin Playboys and No-one’s Going to Love You by Band of Horses.
 
-### °First memory of the Opera House?
+### First memory of the Opera House?
 It’s not the first memory but I used to work at the Opera House as a temp hospitality worker. At one function I did in the Utzon Room, which has this amazing, untreated wooden floor, they had somehow been allowed to bring in drinks. And I was walking around with a tray of red wine and this gorgeous supermodel swung around and knocked it all over the floor. Oops!
