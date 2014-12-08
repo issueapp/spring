@@ -23,11 +23,11 @@ $header-color: #8ebbd1;
 $text-color: #8b9ca5;
 
 #part-one-issue {
-  
+
   .issue-menu li a .title {
     font-family: 'GillSans';
   }
-  
+
   h1.title, h3.subtitle {
     font-family: 'GillSans';
     font-weight: 300;
@@ -48,22 +48,21 @@ $text-color: #8b9ca5;
   li, p {
     font-family: 'GillSans';
     font-weight: 300;
-    
+
     word-break: normal;
     -webkit-hyphens: none;
   }
-  
+
   .quotes {
     font-family: 'GillSans';
     font-weight: 300;
   }
-  
-  
+
   @media only screen and (min-width: 768px) {
-    
     article.page.black .content {
       background: rgba(12, 29, 39, 0.45);
     }
+
     h1.title {
       color: $header-color;
     }
@@ -77,11 +76,9 @@ $text-color: #8b9ca5;
       padding: 50px 40px;
       box-sizing: border-box;
       overflow: visible;
-//      overflow-x: hidden;
-//      overflow-y: scroll;
       text-align: center;
       color: $text-color;
-      
+
       h2 {
         font-family: 'AGOldFaceBold';
         font-weight: bold;
@@ -114,18 +111,17 @@ $text-color: #8b9ca5;
       color: transparent;
       text-shadow: none;
     }
-    
+
     a.browse {
       font-size: 14px;
       color: #eee;
       background-color: rgba(0, 0, 0, 0.4);
       height: 60px;
       padding: 0px 20px 0 10px;
-      margin-top: -30px;      
+      margin-top: -30px;
       line-height: 60px;
       font-family: "HelveticaNeue-CondensedBold", "sans-serif-condensed";
     }
-    
 
     a.browse:before {
       position: relative;
@@ -140,16 +136,14 @@ $text-color: #8b9ca5;
       color: rgb(238, 238, 238);
       left: -2px;
     }
-    
   }
 
   [data-page="toc"] {
-    
     .menu .head h2 {
       font-family: 'GillSans';
     }
 
-    .menu li .category,    
+    .menu li .category,
     .menu li .story,
     .menu li .author {
       font-family: 'GillSans' !important;
@@ -157,13 +151,15 @@ $text-color: #8b9ca5;
       text-decoration: initial;
       text-transform: initial;
     }
-    
+
     .cover-area {
       min-height: 300px;
       background-position: bottom;
     }
 
     .content {
+      overflow: auto;
+
       header {
         display: none;
       }
@@ -188,7 +184,7 @@ $text-color: #8b9ca5;
         text-align: left;
         color: $text-color;
       }
-      
+
       .author-name {
         font-weight: bold;
         font-style: normal;
@@ -197,9 +193,8 @@ $text-color: #8b9ca5;
 
     @media only screen and (min-width: 768px) {
       .content {
-        
         .category { display: none }
-        
+
         .author-details {
           padding-left: 20px;
 
@@ -251,7 +246,7 @@ $text-color: #8b9ca5;
         background-size: 100%;
       }
       .content .category { display: none }
-      
+
       .content header {
 //        position: absolute;
 //        top: 40px;
@@ -319,7 +314,7 @@ $text-color: #8b9ca5;
       .content .category {
         display: none;
       }
-      
+
       .content {
         .author-details {
           padding-left: 20px;
