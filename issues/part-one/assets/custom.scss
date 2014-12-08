@@ -120,6 +120,33 @@ $text-color: #8b9ca5;
       color: transparent;
       text-shadow: none;
     }
+    
+    a.browse {
+      font-size: 14px;
+      color: #eee;
+      background-color: rgba(0, 0, 0, 0.4);
+      height: 60px;
+      padding: 0px 20px 0 10px;
+      margin-top: -30px;      
+      line-height: 60px;
+      font-family: "HelveticaNeue-CondensedBold", "sans-serif-condensed";
+    }
+    
+
+    a.browse:before {
+      position: relative;
+      display: inline-block;
+      font-family: "proxima-nova";
+      content: "›";
+      vertical-align: middle;
+      text-shadow: none;
+      font-size: 50px;
+      height: 60px;
+      line-height: 60px;
+      color: rgb(238, 238, 238);
+      left: -2px;
+    }
+    
   }
 
   [data-page="toc"] {
