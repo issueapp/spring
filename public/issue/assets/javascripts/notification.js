@@ -19,7 +19,7 @@
     action = $(this).data('action');
     title = $(this).attr('title') || $(this).attr('data-title') || $(this).text();
     options = {
-      edition_id: $(this).data("edition-id") || $(this).parents("[data-edition-id]").data("edition-id"),
+      magazine_id: $(this).data("magazine-id") || $(this).parents("[data-magazine-id]").data("magazine-id"),
       item_id: $(this).data("item-id") || $(this).parents("[data-item-id]").data("item-id"),
       url: $(this).data('url') || this.href
     };

@@ -1,6 +1,6 @@
 ---
 
-    category: Opera Bar Ambassadors
+    category: Opera Bar Ambassador
     title: Megan Washington
 
     cover_url: assets/opera-bar-ambassadors/megan.jpg

@@ -54,7 +54,8 @@ $text-color: #8b9ca5;
       overflow-y: scroll;
       text-align: center;
       color: $text-color;
-
+      font-size: 14px;
+      
       h2 {
         font-weight: bold;
       }
@@ -78,7 +79,7 @@ $text-color: #8b9ca5;
       background-size: contain;
       background-position: center;
       width: 22vmin;
-      height: 12vmin;
+      height: 15vmin;
       margin: 0 auto;
       color: transparent;
       text-shadow: none;
@@ -92,7 +93,8 @@ $text-color: #8b9ca5;
     }
 
     .cover-area {
-      min-height: 350px;
+      min-height: 300px;
+      background-position: bottom;
     }
 
     .content {
@@ -120,7 +122,7 @@ $text-color: #8b9ca5;
         text-align: left;
         color: $text-color;
       }
-
+      
       .author-name {
         font-weight: bold;
       }
@@ -128,6 +130,9 @@ $text-color: #8b9ca5;
 
     @media only screen and (min-width: 768px) {
       .content {
+        
+        .category { display: none }
+        
         .author-details {
           padding-left: 20px;
 
@@ -178,7 +183,8 @@ $text-color: #8b9ca5;
         background-position: 260px 100px;
         background-size: 100%;
       }
-
+      .content .category { display: none }
+      
       .content header {
         position: absolute;
         top: 40px;
@@ -203,7 +209,8 @@ $text-color: #8b9ca5;
     h1.title {
       font-family: 'AGOldFaceBold';
       font-weight: bold;
-      color: white
+      color: white;
+      font-size: 18px;
     }
 
     h3.subtitle {
@@ -249,7 +256,11 @@ $text-color: #8b9ca5;
         background-position: 100px 100px;
         background-size: 100%;
       }
-
+      
+      .content .category {
+        display: none;
+      }
+      
       .content {
         .author-details {
           padding-left: 20px;
@@ -302,8 +313,8 @@ $text-color: #8b9ca5;
     }
   }
 
-  [data-page="opera-bar-ambassadors"],
-  [data-page="opera-bar-ambassadors/1"] {
+  [data-page="ambassador-megan"],
+  [data-page="ambassador-dustin"] {
     h1.title {
       color: #222;
     }
@@ -373,8 +384,8 @@ $text-color: #8b9ca5;
     figure.polaroid {
       margin: 0 0% -5% 5%;
       padding-left: 20px;
-      max-width: 24%;
-      max-height: 25vw;
+      max-width: 23%;
+      max-height: 23vw;
     }
 
     figure.polaroid img {

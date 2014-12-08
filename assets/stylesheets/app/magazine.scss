@@ -239,6 +239,9 @@
     // flat tiles
     @include min-screen(1024) {
       float: none;
+      
+      margin-bottom: 0;
+      
     }
   }
 
