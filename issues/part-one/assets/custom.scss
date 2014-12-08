@@ -37,8 +37,12 @@ $text-color: #8b9ca5;
     letter-spacing: 4px;
   }
   
-  h2 {
+  h2, h3 {
     font-family: 'GillSans';
+  }
+
+  h3 {
+    font-weight: normal;
   }
 
   li, p {
@@ -79,6 +83,7 @@ $text-color: #8b9ca5;
       color: $text-color;
       
       h2 {
+        font-family: 'AGOldFaceBold';
         font-weight: bold;
         font-size: 18px;
       }
@@ -86,6 +91,7 @@ $text-color: #8b9ca5;
       p {
         font-weight: normal;
         font-size: 16px;
+        text-align: inherit;
       }
     }
   }
@@ -147,6 +153,7 @@ $text-color: #8b9ca5;
     .menu li .story,
     .menu li .author {
       font-family: 'GillSans' !important;
+      font-style: normal;
       text-decoration: initial;
       text-transform: initial;
     }
