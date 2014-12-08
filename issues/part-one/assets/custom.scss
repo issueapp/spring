@@ -35,6 +35,11 @@ $header-color: #8ebbd1;
 $text-color: #8b9ca5;
 
 #part-one-issue {
+  
+  .issue-menu li a .title {
+    font-family: 'GillSans';
+  }
+  
   h1.title, h3.subtitle {
     font-family: 'GillSans';
     font-weight: 300;
