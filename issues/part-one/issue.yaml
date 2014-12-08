@@ -1,8 +1,8 @@
 title: Part One
 description: "Escape the Ordinary"
 
-magazine_handle: opera-bar
-magazine_title: opera-bar
+magazine_handle: operabar
+magazine_title: Opera Bar
 
 theme: fashion
 thumb_url: "assets/background.jpg"
@@ -17,5 +17,6 @@ paths:
   - an-ode-to-produce
   - a-taste-of-the-sea
   - reel-experts
-  - opera-bar-ambassadors
+  - ambassador-megan
+  - ambassador-dustin
   - end

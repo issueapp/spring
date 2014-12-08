@@ -1,6 +1,7 @@
 ---
 
-    title: "Opera Bar"
+    category: "Operabar Moments"
+    title: "#LoveOperaBar"
 
     images:
       - title: Opera Bar
@@ -36,6 +37,9 @@
 ---
 
 <div class="content">
+  <header>
+    <h1 class="title">{{ title }}</h1>
+  </header>
   <ul class="polaroids">
   {{#images}}
     <li class="polaroid-wrap">

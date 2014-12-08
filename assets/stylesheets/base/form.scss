@@ -95,7 +95,7 @@ form {
 
     @extend .text_field;
 
-    @include input-placeholder {
+    @include placeholder {
       color: #555;
       font-family: georgia;
       font-weight: normal !important;

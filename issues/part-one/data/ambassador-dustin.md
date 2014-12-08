@@ -1,6 +1,6 @@
 ---
 
-    category: Opera Bar Ambassadors
+    category: Opera Bar Ambassador
     title: Dustin Tebbutt
 
     cover_url: assets/opera-bar-ambassadors/dustin.jpg
