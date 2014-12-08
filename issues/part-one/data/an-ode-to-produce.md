@@ -1,5 +1,5 @@
 ---
-    category: Feature
+    category: feature
     title: An ode to produce
 
     author_name: Matt Moran

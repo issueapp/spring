@@ -1,6 +1,6 @@
 ---
 
-    category: Seafood
+    category: seafood
     title: Reel Experts
 
     author_name: Charlie Janni & Peter Tzavaras
