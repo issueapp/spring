@@ -1,6 +1,6 @@
 ---
     category: feature
-    title: An ode to produce
+    title: An Ode to Produce
 
     author_name: Matt Moran
     cover_url: assets/an-ode-to-produce/p1-cover.jpg
