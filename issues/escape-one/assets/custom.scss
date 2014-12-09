@@ -22,7 +22,7 @@
 $header-color: #8ebbd1;
 $text-color: #8b9ca5;
 
-#part-one-issue {
+#escape-one-issue {
 
   .issue-menu li a .title {
     font-family: 'GillSans';
@@ -36,7 +36,7 @@ $text-color: #8b9ca5;
   h1.title {
     letter-spacing: 4px;
   }
-  
+
   h2, h3 {
     font-family: 'GillSans';
   }
@@ -69,11 +69,11 @@ $text-color: #8b9ca5;
 
     .circle {
       position: absolute;
-      width: 300px;
-      height: 300px;
+      width: 280px;
+      height: 280px;
       border: 5px solid #8EBBD1;
       border-radius: 50%;
-      padding: 50px 40px;
+      padding: 40px;
       box-sizing: border-box;
       overflow: visible;
       text-align: center;
@@ -83,9 +83,11 @@ $text-color: #8b9ca5;
         font-family: 'AGOldFaceBold';
         font-weight: bold;
         font-size: 18px;
+        margin-bottom: 0.25em;
       }
 
       p {
+        margin-top: 0;
         font-weight: normal;
         font-size: 16px;
         text-align: inherit;
@@ -97,7 +99,7 @@ $text-color: #8b9ca5;
     h1.title {
       color: white;
       font-weight: normal;
-      letter-spacing: 6px;
+      font-size: 14vw;
     }
 
     .brand {
@@ -106,8 +108,8 @@ $text-color: #8b9ca5;
       background-size: contain;
       background-position: center;
       width: 22vmin;
-      height: 15vmin;
-      margin: 0 auto;
+      height: 18vmin;
+      margin: 0 auto 0.5em;
       color: transparent;
       text-shadow: none;
     }
@@ -136,6 +138,16 @@ $text-color: #8b9ca5;
       color: rgb(238, 238, 238);
       left: -2px;
     }
+
+    @media only screen and (min-width: 768px) {
+      h1.title {
+        font-size: 9vw;
+      }
+
+      .brand {
+        height: 14vmin;
+      }
+    }
   }
 
   [data-page="toc"] {
@@ -150,6 +162,13 @@ $text-color: #8b9ca5;
       font-style: normal;
       text-decoration: initial;
       text-transform: initial;
+    }
+
+    .menu li .category {
+      font-family: 'AGOldFaceBold' !important;
+      font-size: 10px;
+      text-transform: uppercase;
+      color: #999;
     }
 
     .cover-area {
@@ -178,6 +197,7 @@ $text-color: #8b9ca5;
     .author-details {
       p {
         margin: 0;
+        line-height: 1;
         font-weight: normal;
         font-style: italic;
         font-size: 14px;
@@ -186,6 +206,7 @@ $text-color: #8b9ca5;
       }
 
       .author-name {
+        margin-bottom: 0.25em;
         font-weight: bold;
         font-style: normal;
       }
@@ -263,6 +284,10 @@ $text-color: #8b9ca5;
       .circle {
         left: 44%;
         bottom: 20px;
+
+        h2 {
+          margin-top: 0.75em;
+        }
       }
     }
   }
@@ -296,6 +321,7 @@ $text-color: #8b9ca5;
   [data-page="reel-experts"] {
     .author-details {
       p {
+        line-height: 1;
         margin: 0;
         font-weight: normal;
         font-style: italic;
@@ -305,6 +331,7 @@ $text-color: #8b9ca5;
       }
 
       .author-name {
+        margin-bottom: 0.25em;
         font-style: normal;
         font-weight: bold;
       }
@@ -318,6 +345,10 @@ $text-color: #8b9ca5;
       .content {
         .author-details {
           padding-left: 20px;
+        }
+
+        .author-name {
+          width: 7em;
         }
 
         header {
