@@ -1,7 +1,7 @@
 ---
 
     category: food & wine
-    title: A Taste of The Sea
+    title: A Taste of the Sea
 
     cover_url: assets/a-taste-of-the-sea/p1-cover.jpg
     thumb_url: assets/a-taste-of-the-sea/p1-cover.jpg
