@@ -20,12 +20,6 @@ There’s nothing better in summer than tucking into some amazing local seafood 
 
 Scampi are small crustaceans with delicious, sweet flesh. Serving them with their cleaned heads as trimming will be a real summer showstopper - and that's before anyone has tasted the scampi dressed up with refreshing flavours of lime, chilli and chives.
 
-<div class="single-item">
-  <img class="thumb-image" data-media-id="images:1"/>
-  <h2 class="title">WESTERN AUSTRALIAN SCAMPI, FINGER LIMES, CHILLI, CHIVES</h2>
-  <a class="button outline open-layer" href="a-taste-of-the-sea/1" data-app-view="magazine">View recipe</a>
-</div>
-
 <div class="circle">
   <h2>Wine Pairing</h2>
 
