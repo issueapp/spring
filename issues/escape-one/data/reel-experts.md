@@ -17,6 +17,6 @@
 ---
 
 <div class="author-details">
-  <p class="author-name">Charlie Ianni & Peter Tzavaras</p>
+  <p class="author-name">Charlie Ianni<br/>& Peter Tzavaras</p>
   <p>of Northside Seafood Supplies</p>
 </div>
