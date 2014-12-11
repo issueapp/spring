@@ -35,6 +35,7 @@ $text-color: #8b9ca5;
 
   h1.title {
     letter-spacing: 4px;
+    color: $header-color;
   }
 
   h2, h3 {
@@ -100,6 +101,7 @@ $text-color: #8b9ca5;
       color: white;
       font-weight: normal;
       font-size: 14vw;
+      line-height: 1;
     }
 
     .brand {
@@ -142,6 +144,7 @@ $text-color: #8b9ca5;
     @media only screen and (min-width: 768px) {
       h1.title {
         font-size: 9vw;
+        line-height: 1;
       }
 
       .brand {
@@ -172,25 +175,36 @@ $text-color: #8b9ca5;
     }
 
     .cover-area {
-      min-height: 300px;
+      min-height: 290px;
       background-position: bottom;
     }
 
     .content {
       overflow: auto;
 
-      header {
-        display: none;
+      p {
+        margin: 1em 0;
       }
 
       h1 {
-        text-align: center;
+        display: block;
       }
 
       .author {
-        margin: 0;
+        
+        margin: -30px 0 0;
       }
     }
+    
+    
+    @media only screen and (min-width: 768px) {
+      h1.title {
+        font-size: 80px;
+        line-height: 60px;
+        text-align: left;
+      }
+    }
+    
   }
 
   [data-page="an-ode-to-produce"] {

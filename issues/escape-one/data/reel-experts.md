@@ -3,7 +3,7 @@
     category: seafood
     title: Reel Experts
 
-    author_name: Charlie Lanni & Peter Tzavaras
+    author_name: Charlie Ianni & Peter Tzavaras
     cover_url: assets/reel-experts/p1-cover.jpg
     thumb_url: assets/reel-experts/p1-cover.jpg
 
