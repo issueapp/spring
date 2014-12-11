@@ -1,4 +1,6 @@
 ---
+
+    title: "Welcome!"
     thumb_url: assets/toc/cover.jpg
     cover_url: assets/toc/cover.jpg
 
