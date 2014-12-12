@@ -125,6 +125,7 @@ $text-color: #8b9ca5;
       margin-top: -30px;
       line-height: 60px;
       font-family: "HelveticaNeue-CondensedBold", "sans-serif-condensed";
+      border-radius: 0px;
     }
 
     a.browse:before {
@@ -132,7 +133,7 @@ $text-color: #8b9ca5;
       display: inline-block;
       font-family: "proxima-nova";
       content: "›";
-      vertical-align: middle;
+      vertical-align: bottom;
       text-shadow: none;
       font-size: 50px;
       height: 60px;
@@ -191,12 +192,12 @@ $text-color: #8b9ca5;
       }
 
       .author {
-        
+
         margin: -30px 0 0;
       }
     }
-    
-    
+
+
     @media only screen and (min-width: 768px) {
       h1.title {
         font-size: 80px;
@@ -204,7 +205,7 @@ $text-color: #8b9ca5;
         text-align: left;
       }
     }
-    
+
   }
 
   [data-page="an-ode-to-produce"] {
