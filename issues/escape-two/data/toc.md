@@ -10,11 +10,8 @@
 
 ---
 
-It is a great pleasure to welcome Opera Bar back to the Sydney Opera House, reimagined and ready for summer.
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam ipsum ipsam vero maxime, iste aut eligendi sapiente sed nisi soluta pariatur distinctio dicta, expedita, illum molestias iusto perferendis odit voluptatum!
 
-Since its inception more than a decade ago, the partnership between Solotel, Matt Moran and MorSul has played an integral part in transforming the Lower Concourse of the Sydney Opera House into an exceptional bar, food and entertainment experience. The view hasn’t hurt either. Framed by the city skyline, the Harbour Bridge and the white sails of Jørn Utzon’s masterpiece, it is postcard pretty, every day of the year.
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam ipsum ipsam vero maxime, iste aut eligendi sapiente sed nisi soluta pariatur distinctio dicta, expedita, illum molestias iusto perferendis odit voluptatum!
 
-Opera Bar’s latest incarnation builds on a very strong foundation to again set the standard. With a diverse food experience that showcases the best Australian produce across a charcuterie room, raw seafood bar and new café, it will strengthen Opera Bar’s position as one of the city’s most exciting and popular destinations.
-
-Louise Herron (AM)<br>
-Sydney Opera House CEO
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam ipsum ipsam vero maxime, iste aut eligendi sapiente sed nisi soluta pariatur distinctio dicta, expedita, illum molestias iusto perferendis odit voluptatum!
