@@ -393,6 +393,11 @@
     }
 
     @media only screen and (min-width: 768px) {
+      
+      .content, .image {
+        width: 49.9%;
+      }
+      
       #summary {
         margin-top: 350px;
       }
