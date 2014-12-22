@@ -32,11 +32,8 @@
     font-weight: normal;
     font-style: normal;
     font-family: 'rodondoregular';
-    src: url('fonts/rodondo-webfont.eot');
-    src: url('fonts/rodondo-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/rodondo-webfont.woff') format('woff'),
-         url('fonts/rodondo-webfont.ttf') format('truetype'),
-         url('fonts/rodondo-webfont.svg#rodondoregular') format('svg');
+    src: url('fonts/rodondo-webfont.woff') format('woff'),
+         url('fonts/rodondo-webfont.ttf') format('truetype');
 }
 
 #music-issue {

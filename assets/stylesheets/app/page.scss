@@ -1018,13 +1018,6 @@ article.page.has-product {
   }
 }
 
-// TODO: MOVE TO ADMIN
-#preview_item_content {
-  clear: both;
-  &.no-cover [data-cover], img[data-size=tiny] {
-    display: none; }
-}
-
 /*
   Stream paging
 */
@@ -1083,45 +1076,6 @@ article.page.has-product {
     }
   }
 }
-
-#next-page, #prev-page {
-  position: fixed;
-  top: 50%;
-  right: 0;
-  z-index: 2000;
-  display: none;
-  margin-top: -50px;
-  width: 50px;
-  height: 100px;
-  color: #999;
-  text-align: center;
-
-  &:before {
-    font-size: 30px;
-    line-height: 100px;
-  }
-
-  .no-touch &:hover, &:active {
-    background: #666;
-  }
-}
-
-/*
-  Content paging
-*/
-#next-page {
-  @extend .icon-arrow-right-2;
-}
-
-#prev-page {
-  @extend .icon-arrow-left-2;
-  left: 0;
-
-  .admin & {
-    left: 80px;
-  }
-}
-
 
 /*
   Landscape Styles

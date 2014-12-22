@@ -1,3 +1,5 @@
+require 'mustache'
+
 class LocalIssue::Page < Hashie::Mash
 
   # title

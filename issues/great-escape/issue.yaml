@@ -5,6 +5,8 @@ magazine_handle: official
 magazine_title: Official
 
 theme: fashion
+
+icon_url: "assets/icon.jpg"
 thumb_url: "assets/background.jpg"
 cover_url: "assets/background_large.jpg"
 
