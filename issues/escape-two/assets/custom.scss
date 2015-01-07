@@ -23,7 +23,6 @@ $header-color: #8ebbd1;
 $text-color: #8b9ca5;
 
 #escape-two-issue {
-
   .issue-menu li a .title {
     font-family: 'GillSans';
   }
@@ -125,6 +124,7 @@ $text-color: #8b9ca5;
       margin-top: -30px;
       line-height: 60px;
       font-family: "HelveticaNeue-CondensedBold", "sans-serif-condensed";
+      border-radius: 0px;
     }
 
     a.browse:before {
@@ -249,10 +249,73 @@ $text-color: #8b9ca5;
     }
   }
 
-  [data-page="meat-and-greet/1"] {
+  [data-page="meat-and-greet/2"] {
     @media only screen and (min-width: 768px) {
       .circle {
         position: static;
+        margin: 0 auto;
+      }
+    }
+  }
+
+  [data-page="all-in-flavour"] {
+    .author-details {
+      p {
+        margin: 0;
+        line-height: 1;
+        font-weight: normal;
+        font-style: italic;
+        font-size: 14px;
+        text-align: right;
+        color: $text-color;
+      }
+
+      .author-name {
+        margin-bottom: 0.25em;
+        font-weight: bold;
+        font-style: normal;
+      }
+    }
+
+    @media only screen and (min-width: 768px) {
+      .content {
+        .category { display: none }
+
+        .author-details {
+          text-align: right;
+          padding-right: 20px;
+
+          p:last-of-type {
+            width: 90px;
+            display: inline-block;
+          }
+        }
+
+        header {
+          position: absolute;
+          top: 20%;
+          right: 4px;
+          width: 500px;
+          text-shadow: 1px 1px 1px rgba(0,0,0,0.4);
+
+          h1.title {
+            font-size: 80px;
+            line-height: 80px;
+            text-align: left;
+          }
+        }
+
+        .quotes {
+          position: absolute;
+          left: 40px;
+          bottom: 40px;
+          width: 400px;
+          padding: 20px;
+          color: white;
+          font-size: 24px;
+          border-radius: 3px;
+          background: rgba(12, 29, 39, 0.45);
+        }
       }
     }
   }
