@@ -1,8 +1,7 @@
 ---
 
-    category: category
+    category: Opera Bar Ambassador
     title: Carmen Hamilton
-    summary: "Carmen Hamilton is the founder and editor of fashion blog, The Chronicles of Her, and she also blogs for Vogue Australia. She moved from the Gold Coast to Sydney in mid-2013 and has quickly developed a huge Instagram following. You can see her fashion musings at. thechroniclesofher.blogspot.com"
 
     cover_url: assets/carmen-hamilton/carmen1.jpg
 
@@ -10,11 +9,15 @@
       - url: assets/carmen-hamilton/carmen2.jpg
 
     layout:
-      type: two-column
+      type: three-column
       image_style: cover
-      content_valign: middle
+      image_align: right
 
 ---
+
+<div class="quotes">
+  Carmen Hamilton is the founder and editor of fashion blog, The Chronicles of Her, and she also blogs for Vogue Australia. She moved from the Gold Coast to Sydney in mid-2013 and has quickly developed a huge Instagram following. You can see her fashion musings at. thechroniclesofher.blogspot.com
+</div>
 
 <img data-media-id="images:1">
 
