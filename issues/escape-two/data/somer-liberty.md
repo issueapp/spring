@@ -1,18 +1,20 @@
 ---
 
-    category: category
+    category: Opera Bar Ambassador
     title: "Somer & Liberty"
-    summary: "Sisters Somer (right) and Liberty (left)Watson are the co-founders of Watson x Watson, their fashion label, born in 2010. Known for their simple, elegant designs, the Sydneysiders operate out of Paddington’s fashion precinct on William Street. watsonxwatson.com"
 
     cover_url: assets/somer-liberty/cover.jpg
     thumb_url: assets/somer-liberty/cover.jpg
 
     layout:
-      type: two-column
+      type: three-column
       image_style: cover
-      content_valign: middle
 
 ---
+
+<div class="quotes">
+  Sisters Somer (right) and Liberty (left)Watson are the co-founders of Watson x Watson, their fashion label, born in 2010. Known for their simple, elegant designs, the Sydneysiders operate out of Paddington’s fashion precinct on William Street. watsonxwatson.com
+</div>
 
 ### ºWhat does an average day look like?
 In our world there’s no such thing. Some mornings it's cups of tea over fabric selection, planning new ranges, dreaming up new silhouettes, other days it's celebrities for big events and some days we are on two planes in different states selling our ranges. It’s all fun though, we love it!

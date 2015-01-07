@@ -320,6 +320,58 @@ $text-color: #8b9ca5;
     }
   }
 
+  [data-page="nikki-phillips"] {
+    @media only screen and (min-width: 768px) {
+      .subtitle {
+        text-align: justify;
+      }
+
+      .quotes {
+        position: absolute;
+        left: 40px;
+        bottom: 40px;
+        width: 400px;
+        padding: 20px;
+        color: white;
+        font-size: 24px;
+        border-radius: 3px;
+        background: rgba(12, 29, 39, 0.45);
+      }
+    }
+  }
+
+  [data-page="carmen-hamilton"] {
+    @media only screen and (min-width: 768px) {
+      .quotes {
+        position: absolute;
+        right: 40px;
+        bottom: 40px;
+        width: 400px;
+        padding: 20px;
+        color: white;
+        font-size: 18px;
+        border-radius: 3px;
+        background: rgba(12, 29, 39, 0.55);
+      }
+    }
+  }
+
+  [data-page="somer-liberty"] {
+    @media only screen and (min-width: 768px) {
+      .quotes {
+        position: absolute;
+        left: 40px;
+        bottom: 40px;
+        width: 400px;
+        padding: 20px;
+        color: white;
+        font-size: 18px;
+        border-radius: 3px;
+        background: rgba(12, 29, 39, 0.45);
+      }
+    }
+  }
+
   /*
       Polaroid
   */
