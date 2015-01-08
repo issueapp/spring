@@ -17,29 +17,29 @@
   “I remember being completely blown away by its architecture, and the vibrant buzz that surrounds this beautiful icon”
 </div>
 
-### ºWho or what has been your greatest inspiration?
+### *Who or what has been your greatest inspiration?*
 My parents are my greatest inspiration in both love and life. My dad is a hard worker and has been my mentor from the beginning.
 
-### ºWhat does an average day look like?
+### *What does an average day look like?*
 My days are never a structured routine, which I enjoy. My blog allows me to travel the world and shoot in the most incredible and exotic places. Whereas when I’m home, a day could be filming or shooting or traveling nationally hosting Style classes. With my job you can never get bored.
 
-### ºWhat was the best thing about starting your blog?
+### *What was the best thing about starting your blog?*
 I’ve always loved writing and being creative with fashion. When I started my blog not only could I do both, but I also got a chance to share with others the crazy ins and outs of my roller-coaster life. The jobs I do and people I meet fascinate me, so I love sharing that with others.
 
-### ºFavourite secret Sydney spot?
+### *Favourite secret Sydney spot?*
 For food it’s Bruce Leaves in Bondi. It does the most sensational fresh salads that are so flavorsome. For a place it’s Rose Bay Beach Flats, which is dog friendly so it’s where I spend most mornings with my dogs.
 
-### ºWhat three words sum up Sydney in summer for you?
+### *What three words sum up Sydney in summer for you?*
 Not, long, enough!
 
-### ºWhat can’t you live without?
+### *What can’t you live without?*
 My two dogs. Tygalilly (11 years old) and Lochie (10 months), both staffies and both rescued. They are my shadows and best buds.
 
-### ºHow would you describe Sydney style?
+### *How would you describe Sydney style?*
 We are so fortunate to have incredible designers here in Australia and I think we get style right. I love how everyone adapts trends for themselves and are creative with fashion.
 
-### ºBest fashion advice for having drinks by the Harbour?
+### *Best fashion advice for having drinks by the Harbour?*
 Keep it casual, cocktail, chic. Fashion is all about being experimental and having fun. This kind of environment really lets you address that. Whether it’s a structured jumpsuit with flat sandals or a gelato-toned cocktail dress with heels, you will look the part.
 
-### ºFirst memory of the Sydney Opera House?
+### *First memory of the Sydney Opera House?*
 My first memory of the Sydney Opera House was sunset drinks followed by Madame Butterfly. I remember being completely blown away by its architecture and the vibrant buzz that surrounds this beautiful icon.
