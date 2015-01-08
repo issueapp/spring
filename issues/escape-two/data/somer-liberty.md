@@ -25,7 +25,7 @@ Creating beautiful product that brings joy to a lot of people. We have women gus
 ### ºFavourite secret Sydney spot?
 S: Wattamolla Beach in the Royal National Park.
 
-L: Camp Cove Beach. Its my little hideaway perfect for swims, picnics and I’m even getting hitched there on the sand in a couple of months.
+L: Camp Cove Beach. It's my little hideaway perfect for swims, picnics and I’m even getting hitched there on the sand in a couple of months.
 
 ### ºWhat food sums up Sydney in summer for you?
 S: Gelato, gelato, gelato!
