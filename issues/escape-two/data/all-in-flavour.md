@@ -20,7 +20,5 @@
 </div>
 
 <div class="quotes">
-  <blockquote>
-    I’m a very, very firm believer in using Australian products and not overcomplicating that product.
-  </blockquote>
+  I’m a very, very firm believer in using Australian products and not overcomplicating that product.
 </div>
