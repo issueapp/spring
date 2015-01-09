@@ -12,9 +12,7 @@
 
 ---
 
-<blockquote>
-  <p>I remember being completely blown away by its architecture, and the vibrant buzz that surrounds this beautiful icon</p>
-</blockquote>
+I remember being completely blown away by its architecture, and the vibrant buzz that surrounds this beautiful icon.
 
 <div class="quotes">
   Nikki Phillips is a model, blogger, TV personality, businesswoman, self-confessed animal lover and foodie. She is a regular on Channel 7’s Morning Show and her Styled By Phillips fashion blog is one of Australia’s best read online diaries.
