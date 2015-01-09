@@ -19,8 +19,8 @@
   src: url('fonts/GillSansLight.ttf');
 }
 
-$header-color: #8ebbd1;
-$text-color: #8b9ca5;
+$light-color: #8ebbd1;
+$dark-color: #8b9ca5;
 
 #escape-two-issue {
   .issue-menu li a .title {
@@ -34,7 +34,7 @@ $text-color: #8b9ca5;
 
   h1.title {
     letter-spacing: 4px;
-    color: $header-color;
+    color: $light-color;
   }
 
   h2, h3 {
@@ -58,13 +58,17 @@ $text-color: #8b9ca5;
     font-weight: 300;
   }
 
+  .circle {
+    h2 { color: $light-color; }
+  }
+
   @media only screen and (min-width: 768px) {
     article.page.black .content {
       background: rgba(12, 29, 39, 0.45);
     }
 
     h1.title {
-      color: $header-color;
+      color: $light-color;
     }
 
     .circle {
@@ -77,13 +81,14 @@ $text-color: #8b9ca5;
       box-sizing: border-box;
       overflow: visible;
       text-align: center;
-      color: $text-color;
+      color: $dark-color;
 
       h2 {
         font-family: 'AGOldFaceBold';
         font-weight: bold;
         font-size: 18px;
         margin-bottom: 0.25em;
+        color: $dark-color;
       }
 
       p {
@@ -92,6 +97,18 @@ $text-color: #8b9ca5;
         font-size: 16px;
         text-align: inherit;
       }
+    }
+
+    .quotes {
+      position: absolute;
+      left: 40px;
+      bottom: 40px;
+      width: 400px;
+      padding: 20px;
+      color: white;
+      border-radius: 3px;
+      font-size: 24px;
+      background: rgba(12, 29, 39, 0.45);
     }
   }
 
@@ -191,7 +208,6 @@ $text-color: #8b9ca5;
       }
 
       .author {
-
         margin: -30px 0 0;
       }
     }
@@ -215,7 +231,7 @@ $text-color: #8b9ca5;
         font-style: italic;
         font-size: 14px;
         text-align: left;
-        color: $text-color;
+        color: $dark-color;
       }
 
       .author-name {
@@ -261,13 +277,12 @@ $text-color: #8b9ca5;
   [data-page="all-in-flavour"] {
     .author-details {
       p {
-        margin: 0;
+        margin: 0 0 0.25em;
         line-height: 1;
         font-weight: normal;
         font-style: italic;
         font-size: 14px;
-        text-align: right;
-        color: $text-color;
+        color: $dark-color;
       }
 
       .author-name {
@@ -285,6 +300,10 @@ $text-color: #8b9ca5;
           text-align: right;
           padding-right: 20px;
 
+          p {
+            text-align: right;
+          }
+
           p:last-of-type {
             width: 90px;
             display: inline-block;
@@ -300,18 +319,6 @@ $text-color: #8b9ca5;
             text-align: left;
           }
         }
-
-        .quotes {
-          position: absolute;
-          left: 40px;
-          bottom: 40px;
-          width: 400px;
-          padding: 20px;
-          color: white;
-          font-size: 24px;
-          border-radius: 3px;
-          background: rgba(12, 29, 39, 0.45);
-        }
       }
     }
   }
@@ -321,32 +328,15 @@ $text-color: #8b9ca5;
       .subtitle {
         text-align: justify;
       }
-
-      .quotes {
-        position: absolute;
-        left: 40px;
-        bottom: 40px;
-        width: 400px;
-        padding: 20px;
-        color: white;
-        font-size: 24px;
-        border-radius: 3px;
-        background: rgba(12, 29, 39, 0.45);
-      }
     }
   }
 
   [data-page="carmen-hamilton"] {
     @media only screen and (min-width: 768px) {
       .quotes {
-        position: absolute;
+        left: initial;
         right: 40px;
-        bottom: 40px;
-        width: 400px;
-        padding: 20px;
-        color: white;
         font-size: 18px;
-        border-radius: 3px;
         background: rgba(12, 29, 39, 0.55);
       }
     }
@@ -355,15 +345,7 @@ $text-color: #8b9ca5;
   [data-page="somer-liberty"] {
     @media only screen and (min-width: 768px) {
       .quotes {
-        position: absolute;
-        left: 40px;
-        bottom: 40px;
-        width: 400px;
-        padding: 20px;
-        color: white;
         font-size: 18px;
-        border-radius: 3px;
-        background: rgba(12, 29, 39, 0.45);
       }
     }
   }
