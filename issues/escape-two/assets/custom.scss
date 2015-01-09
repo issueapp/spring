@@ -56,6 +56,7 @@ $dark-color: #8b9ca5;
   .quotes {
     font-family: 'GillSans';
     font-weight: 300;
+    margin-bottom: 20px;
   }
 
   .circle {
@@ -109,6 +110,7 @@ $dark-color: #8b9ca5;
       border-radius: 3px;
       font-size: 24px;
       background: rgba(12, 29, 39, 0.45);
+      margin-bottom: 0;
     }
   }
 
@@ -133,6 +135,7 @@ $dark-color: #8b9ca5;
     }
 
     a.browse {
+      right: -21px;
       font-size: 14px;
       color: #eee;
       background-color: rgba(0, 0, 0, 0.4);
@@ -155,7 +158,8 @@ $dark-color: #8b9ca5;
       height: 60px;
       line-height: 60px;
       color: rgb(238, 238, 238);
-      left: -2px;
+      left: -5px;
+      top: -4px;
     }
 
     @media only screen and (min-width: 768px) {
@@ -198,26 +202,14 @@ $dark-color: #8b9ca5;
 
     .content {
       overflow: auto;
+      padding: 15px 25px;
 
       p {
         margin: 1em 0;
       }
 
-      h1 {
-        display: block;
-      }
-
       .author {
         margin: -30px 0 0;
-      }
-    }
-
-
-    @media only screen and (min-width: 768px) {
-      h1.title {
-        font-size: 80px;
-        line-height: 60px;
-        text-align: left;
       }
     }
   }
@@ -246,7 +238,7 @@ $dark-color: #8b9ca5;
         .category { display: none }
 
         .author-details {
-          padding-left: 20px;
+          padding-left: 4px;
         }
 
         header {
@@ -297,13 +289,6 @@ $dark-color: #8b9ca5;
         .category { display: none }
 
         .author-details {
-          text-align: right;
-          padding-right: 20px;
-
-          p {
-            text-align: right;
-          }
-
           p:last-of-type {
             width: 90px;
             display: inline-block;
@@ -314,10 +299,16 @@ $dark-color: #8b9ca5;
           position: relative;
 
           h1.title {
-            font-size: 60px;
-            line-height: 60px;
+            font-size: 66px;
+            line-height: 66px;
             text-align: left;
           }
+        }
+
+        .quotes {
+          left: initial;
+          right: 40px;
+          background: rgba(12, 29, 39, 0.55);
         }
       }
     }
@@ -325,27 +316,90 @@ $dark-color: #8b9ca5;
 
   [data-page="nikki-phillips"] {
     @media only screen and (min-width: 768px) {
-      .subtitle {
-        text-align: justify;
+      .content {
+        header { margin: 10px; }
+        h3 { margin: 0; }
+        p:not(:empty) { margin: 0.75em 0; }
+
+        .quotes {
+          font-size: 18px;
+          background: rgba(12, 29, 39, 0.55);
+        }
+
+        .quotes p {
+          margin-bottom: 0;
+        }
+
+        .quotes a {
+          font-size: 18px;
+          color: white;
+          text-decoration: none;
+        }
+
+        .quotes a:hover {
+          text-decoration: underline;
+        }
+
+        .subtitle {
+          text-align: justify;
+          margin: 0;
+        }
       }
     }
   }
 
   [data-page="carmen-hamilton"] {
     @media only screen and (min-width: 768px) {
-      .quotes {
-        left: initial;
-        right: 40px;
-        font-size: 18px;
-        background: rgba(12, 29, 39, 0.55);
+      .content {
+        header { margin: 0; }
+        h3 { margin: 0; }
+        p:not(:empty) { margin: 0.75em 0; }
+
+        .quotes {
+          left: initial;
+          right: 40px;
+          font-size: 18px;
+          background: rgba(12, 29, 39, 0.55);
+        }
+
+        .quotes p {
+          margin-bottom: 0;
+        }
+
+        .quotes a {
+          font-size: 18px;
+          color: white;
+          text-decoration: none;
+        }
+
+        .quotes a:hover {
+          text-decoration: underline;
+        }
       }
     }
   }
 
   [data-page="somer-liberty"] {
     @media only screen and (min-width: 768px) {
-      .quotes {
-        font-size: 18px;
+      .content {
+        header { margin: 0; }
+        h3 { margin: 0; }
+        p:not(:empty) { margin: 0.75em 0; }
+        .quotes { font-size: 18px; }
+
+        .quotes a {
+          font-size: 18px;
+          color: white;
+          text-decoration: none;
+        }
+
+        .quotes p {
+          margin-bottom: 0;
+        }
+
+        .quotes a:hover {
+          text-decoration: underline;
+        }
       }
     }
   }

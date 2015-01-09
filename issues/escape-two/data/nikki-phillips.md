@@ -2,7 +2,6 @@
 
     category: Opera Bar Ambassador
     title: Nikki Phillips
-    summary: "Nikki Phillips is a model, blogger, TVpersonality, businesswoman, self-confessed animal lover and foodie. She is a regular on Channel 7’s Morning Show and her Styled By Phillips fashion blog is one of Australia’s best read online diaries. styledbyphillips.com"
 
     cover_url: assets/nikki-phillips/nikki2.jpg
     thumb_url: assets/nikki-phillips/nikki2.jpg
@@ -13,8 +12,13 @@
 
 ---
 
+<blockquote>
+  <p>I remember being completely blown away by its architecture, and the vibrant buzz that surrounds this beautiful icon</p>
+</blockquote>
+
 <div class="quotes">
-  “I remember being completely blown away by its architecture, and the vibrant buzz that surrounds this beautiful icon”
+  Nikki Phillips is a model, blogger, TV personality, businesswoman, self-confessed animal lover and foodie. She is a regular on Channel 7’s Morning Show and her Styled By Phillips fashion blog is one of Australia’s best read online diaries.
+  <p><a href="http://styledbyphillips.com">styledbyphillips.com</a></p>
 </div>
 
 ### *Who or what has been your greatest inspiration?*

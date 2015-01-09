@@ -13,7 +13,8 @@
 ---
 
 <div class="quotes">
-  Sisters Somer (right) and Liberty (left)Watson are the co-founders of Watson x Watson, their fashion label, born in 2010. Known for their simple, elegant designs, the Sydneysiders operate out of Paddington’s fashion precinct on William Street. watsonxwatson.com
+  Sisters Somer (right) and Liberty (left)Watson are the co-founders of Watson x Watson, their fashion label, born in 2010. Known for their simple, elegant designs, the Sydneysiders operate out of Paddington’s fashion precinct on William Street.
+  <p><a href="http://watsonxwatson.com">watsonxwatson.com</a></p>
 </div>
 
 ### *What does an average day look like?*

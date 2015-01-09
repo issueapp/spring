@@ -117,6 +117,7 @@ $text-color: #8b9ca5;
     }
 
     a.browse {
+      right: -21px;
       font-size: 14px;
       color: #eee;
       background-color: rgba(0, 0, 0, 0.4);
@@ -139,7 +140,7 @@ $text-color: #8b9ca5;
       height: 60px;
       line-height: 60px;
       color: rgb(238, 238, 238);
-      left: -2px;
+      left: -5px;
     }
 
     @media only screen and (min-width: 768px) {
