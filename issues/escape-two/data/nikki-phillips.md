@@ -3,8 +3,8 @@
     category: Opera Bar Ambassador
     title: Nikki Phillips
 
-    cover_url: assets/nikki-phillips/nikki2.jpg
-    thumb_url: assets/nikki-phillips/nikki2.jpg
+    cover_url: assets/nikki-phillips/nikki3.jpg
+    thumb_url: assets/nikki-phillips/nikki3.jpg
 
     layout:
       type: three-column
