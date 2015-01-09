@@ -202,14 +202,23 @@ $dark-color: #8b9ca5;
 
     .content {
       overflow: auto;
-      padding: 15px 25px;
 
       p {
         margin: 1em 0;
       }
 
+      .body p:first-child {
+        margin-top: 0;
+      }
+
       .author {
         margin: -30px 0 0;
+      }
+    }
+
+    @media only screen and (min-width: 768px) {
+      .content {
+        padding: 15px 25px;
       }
     }
   }
