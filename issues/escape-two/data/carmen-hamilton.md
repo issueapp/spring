@@ -16,7 +16,8 @@
 ---
 
 <div class="quotes">
-  Carmen Hamilton is the founder and editor of fashion blog, The Chronicles of Her, and she also blogs for Vogue Australia. She moved from the Gold Coast to Sydney in mid-2013 and has quickly developed a huge Instagram following. You can see her fashion musings at. thechroniclesofher.blogspot.com
+  Carmen Hamilton is the founder and editor of fashion blog, The Chronicles of Her, and she also blogs for Vogue Australia. She moved from the Gold Coast to Sydney in mid-2013 and has quickly developed a huge Instagram following. You can see her fashion musings at.
+  <p><a href="http://thechroniclesofher.blogspot.com">thechroniclesofher.blogspot.com</a></p>
 </div>
 
 <img data-media-id="images:1">
