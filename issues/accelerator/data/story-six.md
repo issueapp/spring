@@ -13,8 +13,7 @@
         cover: true
 
     layout:
-      type: video
-      custom_class: one-column
+      type: one-column
 
 ---
 

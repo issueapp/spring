@@ -10,9 +10,9 @@
       - thumb_url: http://i.vimeocdn.com/video/457264187_640.jpg
         url: http://vimeo.com/81183852
         type: video/vimeo
+        cover: true
 
     layout:
-      type: video
       image_style: background
       content_valign: middle
       content_align: center
