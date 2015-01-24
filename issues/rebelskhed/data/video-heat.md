@@ -14,7 +14,6 @@
         cover: true
 
     layout:
-      type: video
       image_style: background
       content_valign: middle
       content_align: center
