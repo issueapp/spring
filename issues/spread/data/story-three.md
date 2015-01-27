@@ -11,7 +11,6 @@
       image_style: cover
       content_align: center
       content_valign: middle
-      content_overflow: paginate
 
 ---
 
