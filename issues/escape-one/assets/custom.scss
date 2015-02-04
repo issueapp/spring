@@ -273,21 +273,13 @@ $text-color: #8b9ca5;
   }
 
   [data-page="a-taste-of-the-sea"] {
-    .cover-area.fit {
-      background-size: cover;
-    }
-
     @media only screen and (min-width: 768px) {
-      .cover-area.fit {
+      &.image-cover .cover-area {
         background-position: 260px 100px;
-        background-size: 100%;
       }
       .content .category { display: none }
 
       .content header {
-//        position: absolute;
-//        top: 40px;
-//        left: 40px;
         width: 460px;
 
         h1.title {
