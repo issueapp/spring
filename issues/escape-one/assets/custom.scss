@@ -380,12 +380,8 @@ $text-color: #8b9ca5;
   }
 
   [data-page="reel-experts/1"] {
-    .cover-area.fit {
-      background-size: cover;
-    }
-
     @media only screen and (min-width: 768px) {
-      .cover-area.fit {
+      &.image-cover .cover-area {
         background-position: 50% 40px;
         background-size: 100%;
       }
