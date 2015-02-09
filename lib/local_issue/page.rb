@@ -87,6 +87,7 @@ class LocalIssue::Page < Hashie::Mash
   def self.build(path, options = {})
     source = open(path).read
     issue = options[:issue]
+    parent_path, child_path = path.split("/")
 
     if "1.9".respond_to? :encoding
       source = source.force_encoding('binary')
@@ -99,7 +100,6 @@ class LocalIssue::Page < Hashie::Mash
     # Format attribute
     if attributes["products"]
       attributes["products"].each_with_index do|p, i|
-
         p["index"] = i + 1
 
         p["link"] = p["url"]
@@ -125,8 +125,6 @@ class LocalIssue::Page < Hashie::Mash
           "cover"     => true
         )
       )
-      # Rails.logger.info "<"*80
-      # Rails.logger.info attributes.inspect
     end
 
     attributes["images"].map! do |image|
@@ -145,29 +143,24 @@ class LocalIssue::Page < Hashie::Mash
     attributes["raw_content"] = content.to_s.strip
     content = Mustache.render(content.to_s.strip, attributes)
 
-    # Rails.logger.info "*"*80
-    # Rails.logger.info attributes["images"]
-
     # Get script/style tag
     doc = Nokogiri::HTML.fragment(content)
     script_and_style = doc.search('style')[0].to_s + doc.search('script')[0].to_s
 
     content = RDiscount.new(content.to_s.strip).to_html + script_and_style
 
-    # Rails.logger.info "*"*80
-    # Rails.logger.info content
-
-
     # Layout
     if options[:layout]
       attributes["layout"].merge!(options[:layout])
     end
-
+    layout = attributes.fetch("layout", {}).reverse_merge(self.default_layout)
+    layout["hide_author"] = "1" if child_path
+    
     attributes.merge!(
       "issue"           => issue,
       "handle"          => path.gsub("#{issue.path}/data/", '').gsub(".md", ''),
       # "published_at"    => attributes["published_at"] || File.mtime(path).to_i,
-      "layout"          => attributes.fetch("layout", {}).reverse_merge(self.default_layout),
+      "layout"          => layout,
       "content"         => content
     )
 
