@@ -21,7 +21,7 @@
   color: #333;
   font-size: 0;
   background: #fff;
-  
+
   .dark-theme & {
     color: #fff;
 
@@ -86,7 +86,7 @@
 
     cursor: pointer;
     color: #666;
-    
+
     &:active {
       @include transition-duration(0.5s);
       background: rgba(0,0,0, 0.1);
@@ -124,7 +124,7 @@
 
     @extend %icon-style;
     @extend .icon-ios7-arrow-back;
-    
+
     span { display: none }
   }
 
@@ -142,12 +142,12 @@
 
   a.subscribe {
     @extend %icon-style;
-    @extend .icon-bookmark3;
+    @extend .icon-bookmark;
   }
-  
+
   .title {
     display: inline-block;
-    
+
     font: lighter 17px/50px 'proxima-nova';
     font-weight: 300 ;
 
@@ -155,7 +155,7 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     letter-spacing: 0.7px;
-    
+
     cursor: pointer;
     overflow: hidden;
     width: 50%;
@@ -168,26 +168,26 @@
 //      top: 20px;
     }
   }
-  
-  
+
+
   .search-issue {
     display: inline-block;
     font-weight: normal;
     font-size: 24px;
     width: 60%;
     max-width: 500px;
-    
+
     &:before {
       position: absolute;
       color: #666;
       top: 18px;
       margin-left: 10px;
     }
-    
+
     @extend %icon-style;
     @extend .icon-search;
   }
-  
+
   input.search {
     box-sizing: border-box;
     background: #333;
@@ -197,10 +197,10 @@
     margin-top: 10px;
     height: 40px;
     padding-left: 40px;
-    
+
     box-shadow: none;
-    
-    
+
+
   }
 
   div.actions {
@@ -224,7 +224,7 @@
 //      background: url('/images/action-share.png') no-repeat center;
     }
   }
-  
+
   @include min-screen(768) {
     a.back span {
       display: inline
@@ -235,10 +235,10 @@
 .toolbar.transparent {
   position: absolute;
   background: transparent;
-  
+
   &.dark-theme {
     @include background( linear-gradient(top, rgba(0,0,0,0.1) 20%, rgba(0,0,0,0.0) ) );
-    
+
     text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
   }
 }
@@ -288,7 +288,7 @@
 //  %dark-theme {
 //    @include background(linear-gradient( rgba(0,0,0, 0.5), rgba(0,0,0,0)));
 //    color: #fff;
-//    
+//
 //    a:not(.button), a:hover {
 //      color: white;
 //    }
@@ -296,9 +296,9 @@
 //
 //  &.overtop {
 //    position: absolute;
-//    
+//
 ////    @include background(linear-gradient( rgba(255, 255,255, 0.5), rgba(255,255,255,0)));
-////    
+////
 ////    text-shadow: 1px 1px 1px #fff;
 //  }
 //
@@ -457,9 +457,9 @@
 ////      background: url('/images/action-share.png') no-repeat center;
 //    }
 //  }
-//  
+//
 //  // Buttons
-//  
+//
 //  .button {
 //    margin-top: 10px;
 //    height: 30px;
@@ -477,7 +477,7 @@
 //}
 //
 //.dark-theme.toolbar {
-//  a { 
+//  a {
 //    color: white;
 //  }
 //}
