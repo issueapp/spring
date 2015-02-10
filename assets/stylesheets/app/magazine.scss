@@ -126,7 +126,7 @@
 
   .subscribe {
     @extend %touch-icon-style;
-    @extend .icon-bookmark3;
+    @extend .icon-bookmark;
     top: 0;
     right: 0;
     left: initial;
@@ -137,7 +137,7 @@
     @extend .icon-ios7-cloud-download-outline;
     display: none;
   }
-  
+
   .show-menu {
     @extend %touch-icon-style;
     @extend .icon-ios7-arrow-up;
@@ -162,7 +162,7 @@
     margin: 0 auto;
     margin-top: 50%;
   }
-  
+
   .more-actions {
     @extend %touch-icon-style;
     @extend .icon-ellipsis;
@@ -239,9 +239,9 @@
     // flat tiles
     @include min-screen(1024) {
       float: none;
-      
+
       margin-bottom: 0;
-      
+
     }
   }
 
