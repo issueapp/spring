@@ -15,7 +15,7 @@ class LocalIssue < Hashie::Mash
 
   # music
   # insight/guide
-  def self.find(path)
+  def self.find path
     issue_handle = path.split("/").last
 
     # cd issues/music
@@ -35,8 +35,7 @@ class LocalIssue < Hashie::Mash
         attributes["id"]     ||= Digest::MD5.hexdigest("#{attributes["handle"]}/#{attributes["magazine_handle"]}")
         attributes["assets"] ||= []
 
-        new(attributes).tap do
-        end
+        new attributes
       end
     end
   end
@@ -76,15 +75,23 @@ class LocalIssue < Hashie::Mash
     end
   end
 
-  def to_hash(options = {})
+  def to_hash options={}
     hash = super.except("id", "featured")
 
-    hash.to_a.each do |key, value|
-      if options[:local_path] && key =~ /_url/
+    if options[:local_path]
+      convert_local_path = lambda do |hash|
+        hash.keys.each do |key|
+          if key =~ /_url/
+            url = hash.delete(key)
+            hash[key.sub(/_url$/, '')] = path.join(url)
+          end
+        end
+      end
 
-        url = hash.delete(key)
+      convert_local_path.call(hash)
 
-        hash[key.gsub('_url', '')] = path.join(value)
+      Array(hash['collaborators']).each do |h|
+        convert_local_path.call(h)
       end
     end
 

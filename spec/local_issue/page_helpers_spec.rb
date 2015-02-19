@@ -1,5 +1,5 @@
-require 'spec_helper'
-require 'pp'
+require 'hashie'
+require 'local_issue'
 require 'local_issue/page'
 require 'local_issue/page_helpers'
 
