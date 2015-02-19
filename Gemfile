@@ -1,27 +1,28 @@
 source 'https://rubygems.org'
 
-gem "serve", github: "danielstutzman/serve"
+gem "serve", github: "danielstutzman/serve",  require: nil
 
 # Use the edge instead:
 # gem "serve", :git => "git://github.com/jlong/serve.git"
-gem "sinatra"
-gem "sinatra-contrib"
-gem "activesupport"
+gem "sinatra",                require: nil
+gem "sinatra-contrib",        require: nil
+gem "activesupport",          require: nil
 
 # # Use Compass and Sass
-gem "coffee-script"
-gem "sinatra-asset-pipeline"
-gem "bourbon"
-gem "hashie"
-gem "mime-types"
+gem "coffee-script",          require: nil
+gem "sinatra-asset-pipeline", require: nil
+gem "bourbon",                require: nil
+gem "hashie",                 require: nil
+gem "mime-types",             require: nil
 # gem "actionpack", "~> 3.2"
 # # gem "railties",   "~> 3.2"
 
 
 # # Markdown and Textile
-gem "nokogiri"
-gem "mustache"
-gem "rdiscount" # Markdown
+gem "nokogiri",               require: nil
+gem "mustache",               require: nil
+gem "rdiscount",              require: nil
+# Markdown
 # gem "RedCloth"  # Textile
 #
 # Other templating languages
@@ -32,10 +33,10 @@ gem "rdiscount" # Markdown
 # gem "less"
 #
 group :development, :test do
-  gem "rspec"
-  gem "guard-jasmine"
-  gem "guard-pow"
-  gem "awesome_print"
+  gem "rspec",                require: nil
+  gem "guard-jasmine",        require: nil
+  gem "guard-pow",            require: nil
+  gem "awesome_print",        require: nil
   # gem "jasminerice", github: "bradphelan/jasminerice"
   # gem "jquery-rails"
 end
