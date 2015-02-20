@@ -8,7 +8,6 @@
     cover_url: assets/4-summer-love/cover.jpg
 
     author_name: Michelle Lau
-    author_icon: assets/author/michelle-avatar.png
 
     layout:
       type: three-column
