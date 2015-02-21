@@ -1,16 +1,12 @@
 $: << File.expand_path("../", __FILE__)
 
-require 'mime/types'
-require 'rdiscount'
-require 'hashie/mash'
 require 'sinatra/base'
 require 'sinatra/content_for'
 
+require 'hashie/mash'
 require 'local_issue'
 require 'local_issue/page'
 require 'local_issue/page_helpers'
-
-require 'nokogiri'
 
 class IssuePreview < Sinatra::Base
 
@@ -96,6 +92,8 @@ class IssuePreview < Sinatra::Base
   # 
   # Cache assets for 1H (cloudfront)
   get "/:magazine/:issue/assets/*" do
+    require 'mime/types'
+    
     # response.headers['Cache-Control'] = 'public, max-age=3600'
     # 
     

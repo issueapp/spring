@@ -350,7 +350,7 @@
 //    }
 //
 //    vertical-align: top;
-//    @include inline-block;
+//    display: inline-block;
 //
 //    padding-left: 15px;
 //    padding-right:15px;
@@ -414,7 +414,7 @@
 //  }
 //
 //  .title {
-//    @include inline-block;
+//    display: inline-block;
 //    text-transform: uppercase;
 //    text-overflow: ellipsis;
 //    white-space: nowrap;

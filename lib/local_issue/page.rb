@@ -1,6 +1,7 @@
-require 'mustache'
-
 class LocalIssue::Page < Hashie::Mash
+  
+  require 'mustache'
+  require 'rdiscount'
 
   # title
   # handle
