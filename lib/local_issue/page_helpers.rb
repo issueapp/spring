@@ -1,10 +1,11 @@
-require 'nokogiri'
 require 'uri'
 
 module LocalIssue::PageHelpers
 
   # <%= render_page page %>
   def render_page(page)
+    require 'nokogiri'
+    
     doc = Nokogiri::HTML.fragment("<div>" + page.content + "</div>")
 
     # Swap data-media-id

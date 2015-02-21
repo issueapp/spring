@@ -5,7 +5,7 @@ gem "serve", github: "danielstutzman/serve",  require: nil
 # Use the edge instead:
 # gem "serve", :git => "git://github.com/jlong/serve.git"
 gem "sinatra",                require: nil
-gem "sinatra-contrib",        require: nil
+gem "sinatra-contrib",        require: nil, github: "ocapi/sinatra-contrib"
 gem "activesupport",          require: nil
 
 # # Use Compass and Sass
