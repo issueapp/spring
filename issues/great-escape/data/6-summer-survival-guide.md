@@ -4,7 +4,6 @@
     title: Summer Survival Guide
 
     author_name: Zyra Bacani
-    author_icon: assets/author/zyra-avatar.png
 
     thumb_url: assets/toc/beauty-cover.jpg
     cover_url: assets/6-summer-survival-guide/cover2.jpg

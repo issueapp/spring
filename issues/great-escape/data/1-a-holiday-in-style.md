@@ -4,7 +4,6 @@
     title: A Holiday in Style
 
     author_name: Jysla Kay
-    author_icon: assets/author/jysla-avatar.png
     byline: Jessica from Jysla Kay
 
     thumb_url: assets/toc/holiday-in-style.jpg
@@ -13,6 +12,7 @@
     layout:
       type: three-column
       content_valign: top
+      hide_author: "0"
 
 ---
 
