@@ -1,27 +1,28 @@
 source 'https://rubygems.org'
 
-gem "serve", github: "danielstutzman/serve",  require: nil
+gem "serve", github: "danielstutzman/serve",  require: false
 
 # Use the edge instead:
 # gem "serve", :git => "git://github.com/jlong/serve.git"
-gem "sinatra",                require: nil
-gem "sinatra-contrib",        require: nil, github: "ocapi/sinatra-contrib"
-gem "activesupport",          require: nil
+
+gem "sinatra",                require: false
+gem "sinatra-contrib",        require: false, github: "ocapi/sinatra-contrib"
+gem "activesupport",          require: false
 
 # # Use Compass and Sass
-gem "coffee-script",          require: nil
-gem "sinatra-asset-pipeline", require: nil
-gem "bourbon",                require: nil
-gem "hashie",                 require: nil
-gem "mime-types",             require: nil
+gem "coffee-script",          require: false
+gem "sinatra-asset-pipeline", require: false
+gem "bourbon",                require: false
+gem "hashie",                 require: false
+gem "mime-types",             require: false
 # gem "actionpack", "~> 3.2"
 # # gem "railties",   "~> 3.2"
 
 
 # # Markdown and Textile
-gem "nokogiri",               require: nil
-gem "mustache",               require: nil
-gem "rdiscount",              require: nil
+gem "nokogiri",               require: false
+gem "mustache",               require: false
+gem "rdiscount",              require: false
 # Markdown
 # gem "RedCloth"  # Textile
 #
@@ -33,10 +34,10 @@ gem "rdiscount",              require: nil
 # gem "less"
 #
 group :development, :test do
-  gem "rspec",                require: nil
-  gem "guard-jasmine",        require: nil
-  gem "guard-pow",            require: nil
-  gem "awesome_print",        require: nil
+  gem "rspec",                require: false
+  gem "guard-jasmine",        require: false
+  gem "guard-pow",            require: false
+  gem "awesome_print",        require: false
   # gem "jasminerice", github: "bradphelan/jasminerice"
   # gem "jquery-rails"
 end
