@@ -12,7 +12,7 @@
     layout:
       type: one-column
       image_style: background
-      content_style: transparent
+      content_transparent: "1"
       nav: false
 
 ---

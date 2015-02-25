@@ -9,9 +9,10 @@
       type: two-column
       nav: false
       image_style: background
-      content_style: transparent
+      content_style: black
       content_height: auto
       content_valign: middle
       content_align: center
+      content_transparent: "1"
 
 ---

@@ -21,12 +21,13 @@
     layout:
       type: custom
       image_style: background
-      content_style: transparent
+      content_style: black
 
       content_align: left
       content_valign: middle
+      content_transparent: "1"
 
-      custom_class: one-column image-background transparent black center middle
+      custom_class: one-column image-background center middle
 
 ---
 

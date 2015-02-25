@@ -16,7 +16,7 @@
       type: one-column
       nav: false
       image_style: background
-      content_style: transparent
+      content_transparent: "1"
       content_height: auto
       content_align: center
       content_valign: middle

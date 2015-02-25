@@ -8,10 +8,10 @@
     layout:
       type: one-column
       image_style: background
-      content_style: transparent
+      content_style: black
       content_align: center
       content_valign: middle
-      custom_class: black
+      content_transparent: "1"
 ---
 
 Over 1 Billon mobile devices makeing 1/3 of all purchases. Mobile is the new front tier.
