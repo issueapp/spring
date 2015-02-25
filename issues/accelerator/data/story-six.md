@@ -8,7 +8,7 @@
 
     videos:
       - type: video/youtube
-        url: "http://www.youtube.com/watch?v=juR49xtSj68"
+        link: "http://www.youtube.com/watch?v=juR49xtSj68"
         thumb_url: assets/story-six/p1-2.jpg
         cover: true
 

@@ -1,5 +1,6 @@
 require 'mustache'
 require 'rdiscount'
+require 'nokogiri'
 
 class LocalIssue::Page < Hashie::Mash
 
@@ -19,15 +20,16 @@ class LocalIssue::Page < Hashie::Mash
 
   def self.default_layout
     {
-      'content_style'    => 'white',
-      'type'             => 'two-column',
-      'image_style'      => 'cover',
-      'image_align'      => 'left',
-      'content_align'    => 'left',
-      'content_valign'   => 'top',
-      'content_height'   => 'auto',
-      'content_overflow' => 'scroll',
-      'nav'              => true
+      'content_style'          => 'white',
+      'type'                   => 'two-column',
+      'image_style'            => 'cover',
+      'image_align'            => 'left',
+      'content_align'          => 'left',
+      'content_valign'         => 'top',
+      'content_height'         => 'auto',
+      'content_overflow'       => 'scroll',
+      'content_transparent_bg' => 'scroll',
+      'nav'                    => true
     }
   end
 

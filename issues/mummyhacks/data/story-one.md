@@ -8,9 +8,10 @@
   layout:
     type: one-column
     image_style: background
-    content_style: transparent
+    content_style: black
     content_align: center
     content_valign: middle
+    content_transparent: true
 
 ---
 

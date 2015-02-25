@@ -10,7 +10,8 @@
       custom_class: five-shades
       type: three-column
       image_align: left
-      content_style: transparent
+      content_style: white
+      content_transparent: "1"
 
     images:
       - url: assets/4-beauty/uncovered.png

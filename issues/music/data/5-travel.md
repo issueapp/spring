@@ -14,8 +14,8 @@
     layout:
       type: one-column
       image_style: background
-      content_style: transparent
+      content_style: black
       content_height: full
-      custom_class: black
+      content_transparent: "1"
 
 ---

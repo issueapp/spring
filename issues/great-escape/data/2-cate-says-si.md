@@ -13,9 +13,9 @@
     layout:
       type: three-column
       image_style: background
-      content_style: transparent
+      content_style: black
       content_align: right
       content_height: full
-      custom_class: black
+      content_transparent: "1"
 
 ---

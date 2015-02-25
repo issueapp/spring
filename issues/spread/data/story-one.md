@@ -9,9 +9,8 @@
     layout:
       type: three-column
       image_style: background
-      content_style: transparent
+      content_transparent: "1"
       content_valign: middle
-      custom_class: transparent-black
 
 ---
 
