@@ -7,7 +7,7 @@
     cover_url: assets/toc/6-behind-the-scene.jpg
 
     videos:
-      - url: http://vimeo.com/84820598
+      - link: http://vimeo.com/84820598
         thumb_url: assets/6-behind-the-scene/cover.jpg
         type: video/vimeo
 

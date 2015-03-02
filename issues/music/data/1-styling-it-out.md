@@ -14,7 +14,7 @@
 
 #    products:
 #      - title: MINKPINK Paisley Crush Dress
-#        url: http://www1.bloomingdales.com/buy/mink-pink?cm_sp=shop_by_brand-_-ALL%20DESIGNERS-_-MINK%20PINK
+#        link: http://www1.bloomingdales.com/buy/mink-pink?cm_sp=shop_by_brand-_-ALL%20DESIGNERS-_-MINK%20PINK
 #        image_url: assets/1-styling-it-out/MinkPink_ChristinaPerri_0005-31_opt.jpeg
 #        price: 1
 #        description: SHOP THE MINKPINK COLLECTION

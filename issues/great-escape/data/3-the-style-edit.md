@@ -12,7 +12,7 @@
       We show you how to style your basic black silk cami in three looks with blogger Jysla Kay - for day, for night and for a piece simply layered underneath it all. Whether worn alone or layered, a beautiful silk camisole is destined for any woman’s wardrobe. For the women who like to keep their prints to a minimal, get inspired by our take of a fresh twist on a classic look!
 
     products:
-      - url: http://www.shopbop.com/silk-camisole-lna/vp/v=1/1562218472.htm?fm=search-shopbysize
+      - link: http://www.shopbop.com/silk-camisole-lna/vp/v=1/1562218472.htm?fm=search-shopbysize
         image_url: assets/3-the-style-edit/p1-product-1.jpg
         title: LNA silk camisole
         description: A whisper of silk composes this LNA camisole, which features an asymmetrical hemline. Spaghetti straps trace the shoulders and crisscross at the back.  Semi-sheer.
@@ -20,7 +20,7 @@
         hotspot: "640,735,30"
 
       - title: ACNE Scene Mini Str Wide Sleeve Shirt-
-        url: http://www.my-wardrobe.com/acne/scene-mini-str-wide-sleeve-shirt-631036
+        link: http://www.my-wardrobe.com/acne/scene-mini-str-wide-sleeve-shirt-631036
         image_url: assets/3-the-style-edit/p1-product-2.jpg
         brand: ACNE
         price: $230 AUD
@@ -28,7 +28,7 @@
         hotspot: "800,600,30"
 
       - title: Ray-ban Highstreet Matte Aviator Sunglasses
-        url: http://www.shopbop.com/highstreet-matte-aviator-sunglasses-ray/vp/v=1/1593573019.htm?folderID=2534374302094311&fm=other-shopbysize&colorId=58684
+        link: http://www.shopbop.com/highstreet-matte-aviator-sunglasses-ray/vp/v=1/1593573019.htm?folderID=2534374302094311&fm=other-shopbysize&colorId=58684
         image_url: assets/3-the-style-edit/p1-product-3.jpg
         brand: Ray-ban
         price: $186.44 AUD
@@ -36,7 +36,7 @@
         hotspot: "715,240,30"
 
       - title: Gorjana taner bar necklace
-        url: http://www.shopbop.com/taner-bar-necklace-gorjana/vp/v=1/1559721636.htm?folderID=2534374302033527&colorId=29109&extid=affprg-4441350
+        link: http://www.shopbop.com/taner-bar-necklace-gorjana/vp/v=1/1559721636.htm?folderID=2534374302033527&colorId=29109&extid=affprg-4441350
         image_url: assets/3-the-style-edit/p1-product-4.jpg
         brand: Gorjana taner
         price: $69.92 AUD

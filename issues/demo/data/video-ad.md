@@ -9,7 +9,7 @@
     
     videos:
       - thumb_url: http://img.youtube.com/vi/IZjhUzv1YKw/hqdefault.jpg
-        url: http://youtube.com/watch?v=IZjhUzv1YKw
+        link: http://youtube.com/watch?v=IZjhUzv1YKw
         type: video/youtube
 
     layout:

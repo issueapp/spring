@@ -7,7 +7,7 @@
 
     videos:
       - thumb_url: http://img.youtube.com/vi/LysSN4DKqyE/maxresdefault.jpg
-        url: https://www.youtube.com/watch?v=LysSN4DKqyE
+        link: https://www.youtube.com/watch?v=LysSN4DKqyE
         type: video/youtube
         autoplay: true
         cover: true
