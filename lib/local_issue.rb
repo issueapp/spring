@@ -1,5 +1,10 @@
+require 'hashie'
+require 'pathname'
+require 'yaml'
 require 'active_support/core_ext/string'
 require 'active_support/core_ext/hash'
+
+ISSUE_PATH = Pathname(File.expand_path("../../issues/", __FILE__))
 
 class LocalIssue < Hashie::Mash
 
@@ -78,21 +83,21 @@ class LocalIssue < Hashie::Mash
   def to_hash options={}
     hash = super.except("id", "featured")
 
-    if options[:local_path]
-      convert_local_path = lambda do |hash|
-        hash.keys.each do |key|
-          if key =~ /_url/
-            url = hash.delete(key)
-            hash[key.sub(/_url$/, '')] = path.join(url) if url !~ /https?:\/\//
-          end
-        end
-      end
+    return hash unless options[:local_path]
 
-      convert_local_path.call(hash)
+    convert_local_path = lambda do |hash|
+      hash.keys.each do |key|
+        next unless should_convert = key =~ /_url/ && hash[key] !~ %r{https?://}
 
-      Array(hash['collaborators']).each do |h|
-        convert_local_path.call(h)
+        url = hash.delete(key)
+        hash[key.sub(/_url$/, '')] = path.join(url)
       end
+    end
+
+    convert_local_path.call(hash)
+
+    Array(hash['collaborators']).each do |h|
+      convert_local_path.call(h)
     end
 
     hash
