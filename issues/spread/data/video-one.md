@@ -7,7 +7,7 @@
 
     videos:
       - thumb_url: assets/video-your-way.jpg
-        url: https://www.youtube.com/watch?v=IZjhUzv1YKw
+        link: https://www.youtube.com/watch?v=IZjhUzv1YKw
         type: video/youtube
         autoplay: true
         cover: true

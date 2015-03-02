@@ -9,7 +9,7 @@
 
     videos:
       - thumb_url: http://i.vimeocdn.com/video/479274132_640.jpg
-        url: http://vimeo.com/98524032
+        link: http://vimeo.com/98524032
         type: video/vimeo
         cover: true
 

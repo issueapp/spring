@@ -5,7 +5,7 @@
 
     videos:
       - thumb_url: assets/video.png
-        url: http://vimeo.com/81574420
+        link: http://vimeo.com/81574420
         type: video/vimeo
         autoplay: true
         cover: true

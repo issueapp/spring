@@ -10,23 +10,23 @@
     products:
 
       - title: French Sourdough
-        url: http://www.coles.com.au
+        link: http://www.coles.com.au
         image_url: assets/recipes/french_sourdough.jpg
         price:
         description: 8 slices of French Sourdough
 
       - title: Icing sugar
-        url: http://shop.coles.com.au/online/national/coles-sugar-icing-mixture-soft
+        link: http://shop.coles.com.au/online/national/coles-sugar-icing-mixture-soft
         image_url: assets/recipes/icing-sugar.png
         description: Ground white refined sugar blended with starch as an anti-caking agent
 
       - title: 4-6 Firm Ripe Peaches
-        url: http://minkpink.com/global/store-locator#4
+        link: http://minkpink.com/global/store-locator#4
         image_url: assets/recipes/summer-peaches.jpg
         description: From your local Coles super markets
 
       - title: PHILADELPHIA Spreadable Cream Cheese
-        url: http://www2.woolworthsonline.com.au/shop/ProductDetails?Stockcode=48062&name=kraft-philadelphia-cream-cheese-block
+        link: http://www2.woolworthsonline.com.au/shop/ProductDetails?Stockcode=48062&name=kraft-philadelphia-cream-cheese-block
         image_url: assets/recipes/philly-cream-cheese.jpg
         description: With PHILADELPHIA Spreadable, you can snack without sin.
         action: Store Location

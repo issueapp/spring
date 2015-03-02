@@ -9,7 +9,7 @@
     cover_url: assets/story-two/p1-1.jpg
 
     videos:
-      - url: https://www.youtube.com/watch?v=d_eITVaO3jA
+      - link: https://www.youtube.com/watch?v=d_eITVaO3jA
         thumb_url: http://i1.ytimg.com/vi/d_eITVaO3jA/hqdefault.jpg
         type: video/youtube
 
