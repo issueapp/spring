@@ -1,3 +1,4 @@
+require 'local_issue'
 require 'mustache'
 require 'rdiscount'
 require 'nokogiri'
@@ -264,26 +265,25 @@ class LocalIssue::Page < Hashie::Mash
 
   # Map attributes for import
   #
-  def to_hash(options = {})
+  def to_hash options={}
     hash = super.except("id", "issue", "cover_url", "thumb_url")
 
     hash["title"] ||= "Table of Content" if handle == "toc"
-    # hash["content"] = hash.delete("raw_content")
+
+    return hash unless options[:local_path]
+
+    convert_local_path = lambda do |hash|
+      hash.keys.each do |key|
+        next unless should_convert = key =~ /_url/ && hash[key] !~ %r{https?://}
+
+        url = hash.delete(key)
+        hash[key.sub(/_url$/, '')] = path.join(url)
+      end
+    end
 
     self.class.elements.each do |element|
-      hash[element].to_a.each_with_index do |asset, index|
-
-        asset.to_a.each do |key, value|
-          next unless options[:local_path] || asset["type"] =~ /video/
-
-          if key =~ /url$/ && value =~ /^assets\//
-            path = asset.delete(key) if asset.has_key?(key)
-
-            key = "file_url" if key == "url"
-            asset[key.gsub('_url', '')] = issue.path.join(value)
-          end
-        end
-
+      Array(hash[element]).each_with_index do |asset, index|
+        convert_local_path.call(element, asset)
         hash[element][index] = asset
       end
     end
