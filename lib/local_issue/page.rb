@@ -84,6 +84,7 @@ class LocalIssue::Page < Hashie::Mash
 
   rescue Exception => e
     puts e.inspect
+    puts e.backtrace.join("\n")
     raise path.inspect
   end
 
@@ -112,7 +113,18 @@ class LocalIssue::Page < Hashie::Mash
     # Convert media and entity url array into hash
     self.elements.each do |element|
       attributes[element] = attributes[element].to_a.map do |object|
-        object = {'link' => object} if element == 'links' && object.is_a?(String)
+        if object.is_a? String
+          if element == 'links'
+            key = 'link'
+          elsif element == 'images'
+            key = 'url'
+          else
+            raise "Unsupported element: #{element}"
+          end
+
+          object = {key => object}
+        end
+
         Hashie::Mash.new(object)
       end
     end
