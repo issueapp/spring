@@ -1,8 +1,20 @@
 require 'local_issue/page'
 
+# get rid of deprecation warning
+I18n.enforce_available_locales = false
+
 RSpec.describe LocalIssue::Page do
   let(:rebelskhed) {local_issue 'rebelskhed'}
   let(:music) {local_issue 'music'}
+
+  describe '.build' do
+    it 'builds images from a list of URLs' do
+      toc_path = issue_path('music/data/toc.md').to_s
+      page = LocalIssue::Page.build(toc_path, issue: music)
+
+      expect( page.images.first.url ).to eq 'assets/toc/brand_logo.png'
+    end
+  end
 
   describe '#to_hash(local_path: true)' do
     context 'when page has children' do
