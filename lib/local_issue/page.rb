@@ -105,8 +105,6 @@ class LocalIssue::Page < Hashie::Mash
     if attributes["products"]
       attributes["products"].each_with_index do|p, i|
         p["index"] = i + 1
-
-        p["link"] = p["url"]
         p["summary"] = p["description"]
       end
     end
@@ -182,7 +180,7 @@ class LocalIssue::Page < Hashie::Mash
 
       if File.directory?(path)
         page = cache[path + '.md'] = build(path + '.md', options)
-        page.children = children = recursive_build(path, cache, options)
+        page.children = recursive_build(path, cache, options)
 
       elsif !cache[path]
          page = cache[path] = build(path, options)
@@ -272,22 +270,30 @@ class LocalIssue::Page < Hashie::Mash
 
     return hash unless options[:local_path]
 
-    convert_local_path = lambda do |hash|
-      hash.keys.each do |key|
-        next unless should_convert = key =~ /_url/ && hash[key] !~ %r{https?://}
-
-        url = hash.delete(key)
-        hash[key.sub(/_url$/, '')] = path.join(url)
-      end
-    end
-
     self.class.elements.each do |element|
       Array(hash[element]).each_with_index do |asset, index|
-        convert_local_path.call(element, asset)
+        convert_local_path!(asset)
         hash[element][index] = asset
       end
     end
 
+    hash['children'] = children.map do |page|
+      page.to_hash(options)
+    end
+
     hash
+  end
+
+  def convert_local_path! asset
+    asset.keys.each do |key|
+      next unless should_convert = (key.end_with?('_url') || key == 'url') && asset[key] && ! asset[key].start_with?('http://', 'https://')
+
+      field = key.end_with?('_url') ? key.sub(/_url$/, '') : 'file'
+      url = asset.delete(key)
+
+      asset[field] = issue.path.join(url)
+    end
+
+    asset
   end
 end
