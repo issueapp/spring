@@ -85,21 +85,21 @@ class LocalIssue < Hashie::Mash
 
     return hash unless options[:local_path]
 
-    convert_local_path = lambda do |hash|
-      hash.keys.each do |key|
-        next unless should_convert = key =~ /_url/ && hash[key] !~ %r{https?://}
-
-        url = hash.delete(key)
-        hash[key.sub(/_url$/, '')] = path.join(url)
-      end
-    end
-
-    convert_local_path.call(hash)
+    convert_local_path! hash
 
     Array(hash['collaborators']).each do |h|
-      convert_local_path.call(h)
+      convert_local_path! h
     end
 
     hash
+  end
+
+  def convert_local_path! hash
+    hash.keys.each do |key|
+      next unless should_convert = key.end_with?('_url') && ! String(hash[key]).start_with?('http://', 'https://')
+
+      url = hash.delete(key)
+      hash[key.sub(/_url$/, '')] = path.join(url)
+    end
   end
 end
