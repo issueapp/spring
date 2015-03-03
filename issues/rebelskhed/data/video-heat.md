@@ -3,7 +3,7 @@
     category: video
     title: Feel the HEAT
     author_name: Zyralyn Bacani
-    author_icon: assets/video-heat/zyra.png
+    #author_icon: assets/video-heat/zyra.png
 
     thumb_url: assets/video_thumb.jpg
 

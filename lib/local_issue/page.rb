@@ -112,7 +112,7 @@ class LocalIssue::Page < Hashie::Mash
     # Convert media and entity url array into hash
     self.elements.each do |element|
       attributes[element] = attributes[element].to_a.map do |object|
-        object = { "url" => object } if object.is_a?(String)
+        object = {'link' => object} if element == 'links' && object.is_a?(String)
         Hashie::Mash.new(object)
       end
     end
