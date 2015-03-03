@@ -62,6 +62,6 @@ RSpec.describe LocalIssue::Page do
 
   def pretty_json hash
     require 'json'
-    puts JSON.pretty_generate hash
+    JSON.pretty_generate hash
   end
 end
