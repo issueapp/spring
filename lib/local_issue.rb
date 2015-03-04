@@ -83,7 +83,7 @@ class LocalIssue < Hashie::Mash
         hash.keys.each do |key|
           if key =~ /_url/
             url = hash.delete(key)
-            hash[key.sub(/_url$/, '')] = path.join(url)
+            hash[key.sub(/_url$/, '')] = path.join(url) if url !~ /https?:\/\//
           end
         end
       end
