@@ -298,7 +298,7 @@ class LocalIssue::Page < Hashie::Mash
 
   def convert_local_path! asset
     asset.keys.each do |key|
-      next unless should_convert = (key.end_with?('_url') || key == 'url') && asset[key] && ! asset[key].start_with?('http://', 'https://')
+      next unless is_local = (key.end_with?('_url') || key == 'url') && asset[key] && ! asset[key].start_with?('http://', 'https://')
 
       field = key.end_with?('_url') ? key.sub(/_url$/, '') : 'file'
       url = asset.delete(key)

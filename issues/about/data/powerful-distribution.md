@@ -6,7 +6,7 @@
     thumb_url: assets/distribution.jpg
     
     images:
-      - link: assets/distribution-social.png
+      - assets/distribution-social.png
       
     layout:
       type: one-column
