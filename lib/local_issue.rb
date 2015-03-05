@@ -40,7 +40,10 @@ class LocalIssue < Hashie::Mash
         attributes["id"]     ||= Digest::MD5.hexdigest("#{attributes["handle"]}/#{attributes["magazine_handle"]}")
         attributes["assets"] ||= []
 
-        new attributes
+        local = new
+        local.update attributes.except('collaborators')
+        local.regular_writer('collaborators', attributes['collaborators'])
+        local
       end
     end
   end
