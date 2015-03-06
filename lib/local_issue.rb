@@ -99,7 +99,7 @@ class LocalIssue < Hashie::Mash
 
   def convert_local_path! hash
     hash.keys.each do |key|
-      next unless should_convert = key.end_with?('_url') && ! String(hash[key]).start_with?('http://', 'https://')
+      next unless is_local = key.end_with?('_url') && ! String(hash[key]).start_with?('http://', 'https://')
 
       url = hash.delete(key)
       hash[key.sub(/_url$/, '')] = path.join(url)
