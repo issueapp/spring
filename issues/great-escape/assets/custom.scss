@@ -11,7 +11,7 @@
     .extra-1 {
       position: absolute;
       top: 50%;
-      right: 10px;
+      right: 20px;
       margin-top: -40px;
       width: 150px;
       height: 80px;
@@ -393,11 +393,11 @@
     }
 
     @media only screen and (min-width: 768px) {
-      
+
       .content, .image {
         width: 49.9%;
       }
-      
+
       #summary {
         margin-top: 350px;
       }
