@@ -4,15 +4,38 @@ require 'local_issue/page'
 I18n.enforce_available_locales = false
 
 RSpec.describe LocalIssue::Page do
+  let(:spring) {local_issue 'spring'}
   let(:rebelskhed) {local_issue 'rebelskhed'}
   let(:music) {local_issue 'music'}
 
+  describe '.all' do
+    it 'returns all pages for an issue' do
+    end
+  end
+
   describe '.build' do
     it 'builds images from a list of URLs' do
-      toc_path = issue_path('music/data/toc.md').to_s
-      page = LocalIssue::Page.build(toc_path, issue: music)
-
+      page = LocalIssue::Page.build('toc', issue: music)
       expect( page.images.first.url ).to eq 'assets/toc/brand_logo.png'
+    end
+
+    it 'hides author on subpage' do
+      page = LocalIssue::Page.build('story-one/1', issue: rebelskhed)
+      expect( page.layout.hide_author ).to eq '1'
+    end
+
+    it 'shows author on page' do
+      page = LocalIssue::Page.build('story-three', issue: spring)
+      expect( page.layout.hide_author ).to be_nil
+    end
+  end
+
+  describe '.recursive_build' do
+    it 'builds children pages' do
+      pages = LocalIssue::Page.recursive_build('story-four', {}, issue: spring)
+
+      expect( pages.count ).to eq 2
+      expect(pages).to all( be_a(LocalIssue::Page) )
     end
   end
 
