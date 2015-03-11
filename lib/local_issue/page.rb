@@ -43,34 +43,28 @@ class LocalIssue::Page < Hashie::Mash
     new(title: "Cover", handle: "index", thumb_url: "assets/background.jpg")
   end
 
-  def self.all
-    cache = {}
+  # TODO should this be scoped to an issue?
+  #def self.all
+  #  cache = {}
 
-    pages = recursive_build('data', cache).uniq
-    toc = pages.find{|p| p.handle == "toc" }
+  #  pages = recursive_build('data', cache).uniq
+  #  toc = pages.find{|p| p.handle == "toc" }
 
-    pages.delete(toc)
+  #  pages.delete(toc)
 
-    [index, toc].compact + pages
-  end
+  #  [index, toc].compact + pages
+  #end
 
   def self.find(path, options = {})
     return index if path == "index"
 
     parent_path, child_path = path.split("/")
 
-    if issue = options[:issue]
-      full_path = "#{issue.path}/data/#{path}.md"
-    else
-      full_path = "data/#{path}.md"
-    end
-
-    page_dir = Pathname(full_path).basename(".md")
-    page = self.build(full_path, options)
+    page = self.build(path, options)
     page.parent_path = parent_path if child_path
 
     page.issue = options[:issue]
-    page.children = self.recursive_build("data/#{page_dir}", {}, options)
+    page.children = self.recursive_build(path, {}, options)
 
     page.children.each do |child|
       child.issue = page.issue
@@ -90,7 +84,7 @@ class LocalIssue::Page < Hashie::Mash
 
   # Load markdown file into memory
   def self.build(path, options = {})
-    source = open(path).read
+    source = data_path(path, options).read
     issue = options[:issue]
     parent_path, child_path = path.split("/")
 
@@ -172,8 +166,8 @@ class LocalIssue::Page < Hashie::Mash
     
     attributes.merge!(
       "issue"           => issue,
-      "handle"          => path.gsub("#{issue.path}/data/", '').gsub(".md", ''),
-      # "published_at"    => attributes["published_at"] || File.mtime(path).to_i,
+      "handle"          => path,
+      # "published_at"    => attributes["published_at"] || File.mtime(handle).to_i,
       "layout"          => layout,
       "content"         => content
     )
@@ -184,24 +178,35 @@ class LocalIssue::Page < Hashie::Mash
     raise "Page: #{path} failed to build, #{e.inspect}"
   end
 
-  def self.recursive_build(start_path, cache = {}, options = {})
+  def self.recursive_build path, cache={}, options={}
     issue = options[:issue]
 
-    Dir.glob("#{issue.path}/#{start_path}/*").sort.map do |path|
-      # path.gsub!(issue_path.to_s + "/", '')
+    data_path = data_path(path, options).sub_ext('')
 
-      if File.directory?(path)
-        page = cache[path + '.md'] = build(path + '.md', options)
-        page.children = recursive_build(path, cache, options)
+    Dir.glob("#{data_path}/*").sort.map do |child_path|
+      if File.directory? child_path
+        page = cache[child_path + '.md'] = build(child_path, options)
+        page.children = recursive_build(child_path, cache, options)
 
-      elsif !cache[path]
-         page = cache[path] = build(path, options)
+      elsif ! cache[child_path]
+        page = cache[child_path] = build("#{path}/#{File.basename(child_path, '.md')}", options)
 
       else
-        page = cache[path]
+        page = cache[child_path]
       end
+
       page
     end
+  end
+
+  def self.data_path path, options={}
+    if issue = options[:issue]
+      full_path = issue.path.join("data/#{path}.md")
+    else
+      full_path = "data/#{path}.md"
+    end
+
+    Pathname full_path
   end
 
   def cover
