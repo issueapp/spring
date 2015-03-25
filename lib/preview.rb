@@ -3,6 +3,7 @@ $: << File.expand_path("../", __FILE__)
 require 'sinatra/base'
 require 'sinatra/content_for'
 
+require 'bourbon'
 require 'hashie/mash'
 require 'local_issue'
 require 'local_issue/page'
