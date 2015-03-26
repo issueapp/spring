@@ -28,6 +28,7 @@
         margin: 0 auto;
         position: relative;
         top: 50%;
+        padding: 0 10px;
 
         transform: translateY(-50%);
         -webkit-transform: translateY(-50%);
@@ -50,9 +51,9 @@
 
       figcaption {
         position: absolute;
-        left: 20px;
+        left: 10px;
         bottom: 20px;
-        font-size: 14px;
+        font-size: 12px;
         color: white;
         padding: 0;
       }
@@ -89,14 +90,31 @@
       }
 
       figure.wrapping {
-        float: left;
-        width: 320px;
-        margin: 0 30px 10px 0;
+        text-align: center;
 
         figcaption {
+          text-align: left;
           padding: 10px 0 0;
         }
       }
     }
+
+    @media only screen and (min-width: 768px) {
+      .cover-area {
+        figcaption {
+          left: 20px;
+          font-size: 14px;
+        }
+      }
+
+      .content {
+        figure.wrapping {
+          float: left;
+          max-width: 320px;
+          margin: 0 30px 10px 0;
+        }
+      }
+    }
   }
+
 }
