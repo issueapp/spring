@@ -1,0 +1,16 @@
+title: Broad Horizons
+description: "The Flinders Range and Outback"
+
+magazine_handle: southaustralia
+magazine_title: South Australia
+
+thumb_url: "assets/background.jpg"
+cover_url: "assets/background_large.jpg"
+
+assets:
+  - "custom.css"
+  
+paths:
+
+  - index
+  - finders-range
