@@ -82,5 +82,21 @@
         }
       }
     }
+
+    .content {
+      h2 {
+        text-align: center;
+      }
+
+      figure.wrapping {
+        float: left;
+        width: 320px;
+        margin: 0 30px 10px 0;
+
+        figcaption {
+          padding: 10px 0 0;
+        }
+      }
+    }
   }
 }
