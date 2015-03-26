@@ -6,7 +6,7 @@
 
 <a href="/issue/demo/googlemap">Back</a> | <a href="/issue/demo/googlemap/embed">embed</a> | <a href="/issue/demo/googlemap/static">static</a>
 
-<div id="map-canvas" style="width: 500px; height: 500px"></div>
+<div id="map-canvas" class="map" style="width: 500px; height: 500px"></div>
 
 Issue.
 
