@@ -134,7 +134,7 @@ class PageView extends Backbone.View
 
     $closeButton = $('#close-map')
     if $closeButton.length < 1
-      $closeButton = $('<a id="close-map" style="position: absolute; bottom: 20px; right: 15px" href="#" onclick="$(' + '\'.map\'' + ').hide(); $(this).hide()">close</a>')
+      $closeButton = $('<a id="close-map" style="position: absolute; bottom: 8px; right: 20px" href="#" onclick="$(' + '\'.map\'' + ').hide(); $(this).hide()"><i class="icon-cancel" style="font-size: 32px; color: #303030;"></i></a>')
       $(document.body).append $closeButton
     $closeButton.show()
 
@@ -269,16 +269,16 @@ class PageView extends Backbone.View
   playVideo: (e)->
     container = $(e.currentTarget)
     thumb = $(e.currentTarget).addClass('play').find('.thumbnail').hide()
-    
+
     video = container.find('video')
     iframe = container.find('iframe')
-    
+
     if video.length > 0
 
       video[0].play()
-      
+
     else if iframe.length > 0
-      
+
       iframe.attr('src', iframe.data('src')).show()
 
       notifyPlayer = (data)->
