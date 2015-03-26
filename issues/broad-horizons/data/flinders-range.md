@@ -45,8 +45,8 @@
 
     <h2>A drive on the wild side</h2>
 
-    <figure class="image">
-      <img src="http://placehold.it/320x300" class="col">
+    <figure class="image wrapping">
+      <img src="http://placehold.it/320x240">
       <figcaption>Something about this lonely cow that inspires a lot of confidence<figcaption>
     </figure>
 
