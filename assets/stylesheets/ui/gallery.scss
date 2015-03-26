@@ -1,5 +1,136 @@
+/*
+  
+  .gallery - responsive grid style image gallery 
+
+*/
+.gallery {
+  
+  position: relative;
+  margin: 40px 0;
+
+  .col img {
+    width: 100%;
+    margin-bottom: 2px;
+  }
+}
+
+
+@media (min-width: 768px) {
+
+  .image-block {
+    width: 150%;
+    left: -25%;
+  }
+
+  .gallery {
+    
+    @extend .image-block;
+    
+    .aspect-ratio {
+      width: 100%;
+      height: 0;
+      padding-bottom: 75%;
+    }
+  
+    .photos {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0;
+    }
+    
+    // Widths
+    
+    %col-last-child {
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+    
+    .half {
+      width: 49.5%;
+      margin-right: 0.5%;
+      &:last-child { width: 50%; margin-right: 0 }
+    }
+    
+    .third {
+      width: 32.83%;
+      margin-right: 0.5%;
+      &:last-child { width: 33.33%; margin-right: 0 }
+   }
+    
+    
+    // heights
+    .v-half {
+      height: 49.5%;
+      margin-bottom: 0.5%;
+      
+      &:last-child {
+        height: 50%;
+        margin-bottom: 0;
+      }
+    }
+  
+  }
+  
+  // Aspect ratio
+//  .col.full {
+//    position: relative;
+//    height: 0;
+//    padding-bottom: 75%;
+//  }
+  
+  .gallery .col img {
+    position: absolute; 
+    height: 100%
+  }
+  
+  /*  grid-3 (portrait + 2 landscale) */
+  
+  .gallery.grid-3 {
+    
+    .aspect-ratio {
+      padding-bottom: 65%;
+    }
+        
+    .row.v-half:first-child {
+      position:absolute; width: 100%
+    }
+
+
+    .row.v-half:last-child {
+      position:absolute; top: 50%; width: 100%
+    } 
+    
+  }
+  
+  .gallery.grid-2-third {
+    
+    .aspect-ratio {
+      padding-bottom: 55%;
+    }
+    
+    .row.first {
+      height: 60%;
+      margin-bottom: 0.5%;
+    }
+    
+    .row.second {
+      height: 39.5%;
+    }
+    
+  }
+  
+}
+
  
-/* Gallery Style*/
+ 
+/*
+
+   Outdated
+   Gallery Style
+
+*/
 .swipe-paging .gallery i {
   position: absolute;
   bottom: 0;

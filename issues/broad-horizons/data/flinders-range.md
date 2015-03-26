@@ -9,6 +9,12 @@
           name:
           coordinates: []
         cover: true
+        
+      - url: "assets/flinders-range/image-1.jpg"
+      - url: "assets/flinders-range/image-2.jpg"
+      - url: "assets/flinders-range/image-3.jpg"
+      - url: "assets/flinders-range/image-4.jpg"
+      - url: "assets/flinders-range/lake-eyre.jpg"
 
     layout:
       type: custom
@@ -35,24 +41,39 @@
 
     <p>There is no line to indicate you are leaving outback South Australia (please come again). But once returned to your office, home or school, there&#8217;ll be no question where it was or what it was. You&#8217;ll be able to point to a map and say, &#8221;There - I found it there.&#8221;</p>
 
-    <div class="gallery row">
-      <img src="http://placehold.it/500x768" class="col half">
-      <div class="col half">
-        <img src="http://placehold.it/500x382" class="row half">
-        <img src="http://placehold.it/500x382" class="row half">
+    <div class="gallery grid-3">
+      <div class="aspect-ratio"></div>
+      <div class="photos">
+        <div class="col half">
+          <img data-media=id="images:2" src="assets/flinders-range/image-1.jpg">
+        </div>
+    
+        <div class="col half">
+          <div class="row v-half">
+            <img data-media=id="images:3" src="assets/flinders-range/image-2.jpg">
+          </div>
+        
+          <div class="row v-half">      
+            <img data-media=id="images:4" src="assets/flinders-range/image-3.jpg">
+          </div>
+        </div>
       </div>
     </div>
 
     <h2>A drive on the wild side</h2>
 
     <figure class="image wrapping">
-      <img src="http://placehold.it/320x240">
+      <img data-media=id="images:5" src="assets/flinders-range/image-4.jpg">
       <figcaption>Something about this lonely cow that inspires a lot of confidence<figcaption>
     </figure>
 
     <p>A 300-kilometre, two-day tour of the unsealed Oodnadatta Track is safe and surprising, with weirdness and wilderness aplenty. Start with Mutonia Sculpture Park near Marree (home of Plane Henge and Spinning Car - mildly deranged but compelling) then head into the yawning gibber plains. You&#8217;ll follow the remains of the first Ghan railway, where ruins of sidings and repeater stations for the overland telegraph line are dotted along a &#8221;string of springs&#8221;. </p>
 
     <p>Camp at Coward Springs, a delicious respite to wash off the dust in the hot mineral waters and barbecue under gums cackling with cockatoos. Stop to allow Lake Eyre South to boggle your eye and be sure to detour to the Mound Springs - these blisters in the plains are leaky ecosystems the size of houses that have evolved their own species of shrimp. Similarly unique species are at William Creek, especially at the famous pub; air tours over Lake Eyre are available with Wrightsair. Finish in Coober Pedy.</p>
+
+    <figure class="image">
+      <img data-media=id="images:6" src="assets/flinders-range/lake-eyre.jpg">
+    </figure>
 
   </div>
 </div>
