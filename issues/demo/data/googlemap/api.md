@@ -26,9 +26,7 @@ Issue.
       document.getElementById('map-canvas'),
       {
         zoom: 15,
-        center: center,
-        mapTypeId: google.maps.MapTypeId.ROADMAP,
-        disableDefaultUI: true
+        center: center
       }
     );
     var info = new google.maps.InfoWindow({
