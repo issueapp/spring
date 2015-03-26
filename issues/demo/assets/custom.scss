@@ -1,4 +1,10 @@
-
+/* fix google map API */
+article.two-column,
+article.three-column {
+  .content .map img {
+    max-height: inherit;
+  }
+}
 
 article.page[data-page="blueberry-cream-cheese-cake/1"] .content {
   background: url(blueberry-cake-bg.png) repeat-y !important;
