@@ -15,10 +15,10 @@ class IssuePreview < Sinatra::Base
     require 'sinatra/asset_pipeline'
     register Sinatra::AssetPipeline
   end
-  
+
   helpers LocalIssue::PageHelpers
   helpers Sinatra::ContentFor
-  
+
   set :root, File.expand_path("../../", __FILE__)
   set :protection, :except => :frame_options
 
@@ -35,12 +35,12 @@ class IssuePreview < Sinatra::Base
   get '/magazines.json' do
     @issues = LocalIssue.all.each do |i|
       i.cover_url = "/issues/#{issue_path}/#{i.cover_url}"
-      i.url = "/issues/#{issue_path}/"      
+      i.url = "/issues/#{issue_path}/"
     end
-    
+
     if params[:q]
       pattern = Regexp.compile(params[:q], Regexp::IGNORECASE)
-      
+
       @issues.select! do |issue|
         if params[:filter] == "featured"
           issue.featured
@@ -49,7 +49,7 @@ class IssuePreview < Sinatra::Base
         end
       end
     end
-    
+
     @issues.to_json
   end
 
@@ -65,7 +65,7 @@ class IssuePreview < Sinatra::Base
     erb :"issue/_cover.html", layout: issue_layout, locals: { issue: current_issue }
   end
 
-  get "/:magazine/:issue/_menu" do    
+  get "/:magazine/:issue/_menu" do
     erb :"issue/_menu.html", locals: { issue: current_issue }, layout: issue_layout
   end
 
@@ -79,49 +79,49 @@ class IssuePreview < Sinatra::Base
 
   # /official/great-escape/assets/custom.css
   # assets/custom.scss
-  # 
-  # params: 
+  #
+  # params:
   #   splat: [custom.scss]
-  # 
+  #
   # search paths:
-  # 
-  #  app/assets/images, 
-  #  app/assets/spreadsheets, 
-  #  app/assets/javascripts, 
+  #
+  #  app/assets/images,
+  #  app/assets/spreadsheets,
+  #  app/assets/javascripts,
   #  issues/music/assets
   #  issues/great-escape/assets
-  # 
+  #
   # Cache assets for 1H (cloudfront)
   get "/:magazine/:issue/assets/*" do
     require 'mime/types'
-    
+
     # response.headers['Cache-Control'] = 'public, max-age=3600'
-    # 
-    
-    # Append issue asset path and remember current search paths    
+    #
+
+    # Append issue asset path and remember current search paths
     preview_paths = sprockets.paths
     sprockets.append_path(current_issue.path.join('assets'))
-        
+
     # Serve asset via sprockets
     file = params[:splat].first
     asset = sprockets[file]
-    
+
     # Restore previous asset path
     sprockets.clear_paths
     preview_paths.each do |path|
       sprockets.append_path path
     end
-    
+
     # asset_path = request.path_info.gsub(/^\/#{params[:magazine]}/, "issues")
     # file = File.expand_path("../../#{CGI.unescape(asset_path)}", __FILE__)
-    
+
     mime_type = MIME::Types.type_for(file).first.content_type
-    
+
     if mime_type == "application/mp4"
       return send_file current_issue.path.join('assets').join(file), type: "video/mp4"
     end
     content_type mime_type
-    
+
     asset.to_s
   end
 
@@ -129,7 +129,7 @@ class IssuePreview < Sinatra::Base
   get %r{/(?<magazine>[^\/]+)/(?<issue>[^\/]+)/(?<page>[^\/]+)(?:\/(?<subpage>[^\/]+))?} do
     issue = current_issue
     path = [params["page"], params["subpage"]].compact.join('/')
-    
+
     asset_formatter = lambda do |asset|
       asset.each{|key, value| asset[key] = asset_path(value) if key =~ /url$/ }
     end
@@ -146,7 +146,7 @@ class IssuePreview < Sinatra::Base
     apply_asset_path! @issue, :thumb_url, :cover_url
     @issue
   end
-  
+
   def apply_asset_path!(issue, *attrs)
     attrs.each do |attribute|
       issue.send("#{attribute}=", asset_path(issue.send(attribute)))
@@ -162,9 +162,10 @@ class IssuePreview < Sinatra::Base
   def asset_path(path, options = {})
     return path if path.nil? || path =~ /^https?:/
 
-    if path && path =~ /^\/?assets\//
-      path.gsub!(/^\/?assets\//, '')
-    end
+    # TODO: ???
+    # if path && path =~ /^\/?assets\//
+    #   path.gsub!(/^\/?assets\//, '')
+    # end
 
     if ENV["ASSET_HOST"]
       asset_host = ENV["ASSET_HOST"]
@@ -216,7 +217,7 @@ class IssuePreview < Sinatra::Base
   def issue_url(path = "")
     "#{request.base_url}#{request.script_name}/#{params[:magazine]}/#{params[:issue]}"
   end
-  
+
   def issue_layout
     !request.xhr? && :"/layouts/_app.html"
   end
@@ -230,7 +231,7 @@ class IssuePreview < Sinatra::Base
       :"issue/_page.html"
     end
   end
-  
+
   def sprockets
     @sprockets ||= Sprockets::Environment.new
   end
