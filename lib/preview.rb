@@ -134,7 +134,7 @@ class IssuePreview < Sinatra::Base
       asset.each{|key, value| asset[key] = asset_path(value) if key =~ /url$/ }
     end
     page = LocalIssue::Page.find(path, issue: issue, format_asset: asset_formatter)
-    
+
     erb page_template(page), locals: { issue: issue, page: page }, layout: !request.xhr? && :"/layouts/_app.html"
   end
 
