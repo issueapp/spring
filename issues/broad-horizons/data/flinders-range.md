@@ -35,11 +35,11 @@
 
     <p>There is no line to indicate you are leaving outback South Australia (please come again). But once returned to your office, home or school, there&#8217;ll be no question where it was or what it was. You&#8217;ll be able to point to a map and say, &#8221;There - I found it there.&#8221;</p>
 
-    <div class="gallery">
-      <img src="http://placehold.it/500x758" class="col">
-      <div class="col">
-        <img src="http://placehold.it/500x358" class="row half">
-        <img src="http://placehold.it/500x358" class="row half">
+    <div class="gallery row">
+      <img src="http://placehold.it/500x768" class="col half">
+      <div class="col half">
+        <img src="http://placehold.it/500x382" class="row half">
+        <img src="http://placehold.it/500x382" class="row half">
       </div>
     </div>
 

@@ -50,10 +50,11 @@
 
       figcaption {
         position: absolute;
-        left: 0;
-        bottom: 0;
+        left: 20px;
+        bottom: 20px;
         font-size: 14px;
         color: white;
+        padding: 0;
       }
 
       .show-map {
@@ -83,6 +84,3 @@
     }
   }
 }
-
-// @media only screen and (min-width: 768px) {
-// }
