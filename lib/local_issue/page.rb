@@ -215,9 +215,9 @@ class LocalIssue::Page < Hashie::Mash
 
   def cover_url
     if !self["cover_url"] && cover
-      return cover.try(:type).include?("video") ? cover.thumb_url : cover.url
+      cover.type.try(:include?, "video") ? cover.thumb_url : cover.url
     else
-      return self["cover_url"]
+      self["cover_url"]
     end
   end
 
