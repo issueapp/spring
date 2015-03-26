@@ -4,10 +4,6 @@
 
 ---
 
-<style>
-#map-canvas img { max-width: inherit }
-</style>
-
 <a href="/issue/demo/googlemap">Back</a> | <a href="/issue/demo/googlemap/embed">embed</a> | <a href="/issue/demo/googlemap/static">static</a>
 
 <div id="map-canvas" style="width: 500px; height: 500px"></div>
