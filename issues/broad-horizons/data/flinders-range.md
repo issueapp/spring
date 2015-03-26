@@ -23,7 +23,7 @@
     <h3 class='subtitle'>{{summary}}</h3>
   </header>
   <figcaption>Arkaba, Adelaide, Australia</figcaption>
-  <a href='geo:' class='show-map'><i class='icon-ios7-world-outline'></i></a>
+  <a href='geo:-30.0588604,138.9712576?label=Flinders Range' class='show-map'><i class='icon-ios7-world-outline'></i></a>
   <a href='#' class='page-scroll'><i class='icon-ios7-arrow-down'></i></a>
 </figure>
 
