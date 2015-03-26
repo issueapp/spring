@@ -2,6 +2,7 @@
 
     title: The Flinders Rangers & Outback
     summary: The Flinders Rangers and Outback. Roads to somewhere ... afternoon drinks. It may be hard to define, but the rich history and stunning landscape of the outback provides an ideal backdrop for journeys of discovery, writes Max Anderson.
+
     images: 
       - url: assets/background_large.jpg
         location:
