@@ -133,6 +133,8 @@ class LocalIssue::Page < Hashie::Mash
           "cover"     => true
         )
       )
+    else
+      attributes["cover_url"] = attributes["images"].find{|img| img.cover }.try(:url)
     end
 
     attributes["images"].map! do |image|
@@ -163,7 +165,7 @@ class LocalIssue::Page < Hashie::Mash
     end
     layout = attributes.fetch("layout", {}).reverse_merge(self.default_layout)
     layout["hide_author"] = "1" if child_path
-    
+
     attributes.merge!(
       "issue"           => issue,
       "handle"          => path,

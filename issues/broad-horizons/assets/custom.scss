@@ -3,14 +3,13 @@
   line-height: 16px;
 }
 
-#broad-horizons {
+#broad-horizons-issue {
   p:empty {
     display: none;
   }
 
   [data-page='flinders-range'] {
     .cover-area {
-      background-image: url('flinders-range/cover.jpg');
       height: 100vh;
 
       &:before {

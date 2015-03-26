@@ -4,7 +4,7 @@
     summary: The Flinders Rangers and Outback. Roads to somewhere ... afternoon drinks. It may be hard to define, but the rich history and stunning landscape of the outback provides an ideal backdrop for journeys of discovery, writes Max Anderson.
 
     images:
-      - url: assets/background_large.jpg
+      - url: "assets/flinders-range/cover.jpg"
         location:
           name:
           coordinates: []
@@ -17,7 +17,7 @@
 
 ---
 
-<figure class='cover-area image'>
+<figure class='cover-area image' style="background-image: url({{ cover_url }})">
   <header>
     <h1 class='title'>{{title}}</h1>
     <h3 class='subtitle'>{{summary}}</h3>
