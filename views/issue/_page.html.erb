@@ -142,6 +142,9 @@
   App = (typeof App == 'undefined') ? {} : App;
   App.pages = App.pages || {}
 
+  // Not sure why layout is not being set.
+  App.refresh()
+
   App.pages["<%= page.handle %>"] = {
     handle: "<%= page.handle %>",
     title: "<%= page.title %>",
@@ -155,7 +158,7 @@
   // Force browser to render first
   App.currentPage.render()    // Toggle page active
 
-
+  
   $(document).on('page:change', function () {
     console.log("FIRED: page:change")
     if (App.support.webview) App.currentPage.setActive()
