@@ -16,6 +16,7 @@
     layout:
       type: custom
       image_style: background
+      content_style: black
       custom_class: one-column page-snap
 
 ---
@@ -28,4 +29,5 @@
     </header>
     <audio data-media-id="audios:1"></audio>
   </div>
+  <a href="#" class="audio audio-on"></audio>
 </figure>

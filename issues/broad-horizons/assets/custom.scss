@@ -4,7 +4,7 @@
 }
 
 #broad-horizons-issue {
-  
+
   p:empty {
     display: none;
   }
@@ -79,18 +79,6 @@
         padding: 0;
       }
 
-      .show-map {
-        position: absolute;
-        right: 40px;
-        bottom: 10px;
-        text-decoration: none;
-
-        i {
-          font-size: 32px;
-          color: white;
-        }
-      }
-
       .page-scroll {
         position: absolute;
         bottom: 4px;
@@ -106,6 +94,9 @@
     }
 
     .content {
+      background: white;
+      color: #222;
+
       h2 {
         text-align: center;
       }
@@ -144,17 +135,17 @@
     .cover-area {
       display: block;
       height: 100vh;
-      
+
     	-webkit-backface-visibility: hidden;
     	-webkit-perspective: 1000;
       -webkit-transform: translate3d(0, 0, 0);
-      
+
     	background-position: 0px 0px;
     	background-repeat: repeat-x;
-      
+
     	animation: animatedBackground 50s linear infinite;
     	-webkit-animation: animatedBackground 50s linear infinite;
-      
+
       .container {
         background-color: rgba(0, 0, 0, 0.3);
       }

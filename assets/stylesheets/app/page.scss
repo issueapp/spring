@@ -1,3 +1,8 @@
+/*
+  Generic pages
+    - article, stream, modal ..etc
+*/
+
 .page {
   box-sizing: border-box;
   white-space: normal;
@@ -31,62 +36,65 @@
     .fullscreen       -
 
   Content type
-
     .content      -     content page
     .product      -     product page
     .gallery      -     gallery page
 
 */
+
 article.page {
-  display: block;
   position: relative;
   margin: 0 auto;
   text-align: center;
   font: 16px/1.25 "proxima-nova";
 
+  // HACK: hide empty Ps
+  // TODO: remove empty tags when import local issues
+  p:empty {
+    display: none;
+  }
+
+  // NOTE: Keep this link selector at the top of this block
+  // so other link styles can overwrite this
+  a:not(.button) {
+    text-decoration: underline;
+  }
+
+
+  %page-icon-style {
+    @extend %icon-style;
+
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    padding: 0;
+    font-size: 32px;
+    color: #222;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: none;
+    z-index: 2;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+
+    .no-touch &:hover {
+      background: rgba(100,100,100, 0.4);
+    }
+  }
+
   // Cover area for image/video
   .cover-area {
     box-sizing: border-box;
     position: relative;
-    min-height: 400px;
+
     width: 100%;
     height: auto;
+    min-height: 400px;
     background-position: 50% 20%;
     background-size: cover;
     background-repeat: no-repeat;
-
-    &.fit {
-      position: relative;
-      background-size: 100%;
-
-      .video-wrapper {
-        position: relative;
-      }
-    }
-
-    &.background {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-
-      &:before {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        background: rgba(0,0,0,0.1);
-        content: none;
-      }
-
-      .video-wrapper {
-        height: 100%;
-      }
-    }
 
     figcaption.inset {
       top: initial;
@@ -106,15 +114,28 @@ article.page {
     float: none;
     padding: 15px;
     vertical-align: middle;
+    color: #222;
+    width: 100%;
 
     img {
       vertical-align: middle;
+      display: inline-block;
       max-width: 100%;
     }
-  }
 
-  &.scroll .content {
-    overflow: auto;
+    header em {
+      display: inline-block;
+      max-width: 180px;
+      vertical-align: middle;
+    }
+
+    // Fixes video aspect ratio in content
+    figure.video {
+      width: 100%;
+      padding-bottom: 56.25%;
+      height: 0;
+      margin-bottom: 50px;
+    }
   }
 
   // vertical middle align header if there's no content
@@ -129,7 +150,6 @@ article.page {
 
     header {
       display: inline-block;
-      vertical-align: middle;
     }
   }
 
@@ -138,11 +158,11 @@ article.page {
 
   header {
     box-sizing: border-box;
-
     position: relative;
-    margin: 0 0 2% 0px;
+    margin: 0 0 20px 0;
     padding: 0;
     text-align: center;
+    width: 100%;
 
     hgroup {
       padding-top: 50px;
@@ -154,20 +174,23 @@ article.page {
       letter-spacing: 2px;
       font: bold 12px "proxima-nova";
     }
+
   }
 
   .column-break {
-    display: none;
+    display: block;
     margin: 0;
     break-before: column;
-    -webkit-column-break-before: always;
     -webkit-column-break-after: always;
+    -moz-column-break-after: always;
+    column-break-after: always;
   }
 
   .title {
     text-transform: uppercase;
     font-weight: normal;
     font-size: 24px;
+    margin-bottom: 0.25em;
   }
 
   .avatar {
@@ -179,12 +202,7 @@ article.page {
   }
 
   .credits {
-    position: absolute;
-    right: 20px;
-    bottom: 20px;
-    width: 200px;
-
-    font: bold 12px "proxima-nova";
+    font: italic 12px "proxima-nova";
   }
 
   blockquote {
@@ -208,6 +226,21 @@ article.page {
     font-size: 50px;
   }
 
+  blockquote:after {
+    position: absolute;
+    bottom: 0px;
+    right: 0;
+    display: block;
+    color: #999;
+    content: "\201D";
+    font-size: 80px;
+    height: 40px;
+  }
+
+  blockquote.single:after {
+    content: none;
+  }
+
   blockquote cite {
     display: block;
     margin-top: 5px;
@@ -225,7 +258,7 @@ article.page {
   }
 
   figure {
-    display: inline-block;
+    display: block;
 
     -webkit-column-break-inside: avoid;
     -moz-column-break-inside: avoid;
@@ -233,9 +266,11 @@ article.page {
 
     position: relative;
     width: 100%;
+    text-align: center;
 
     figcaption {
-      padding: 10px 30px 20px;
+      padding: 10px 20px;
+      text-align: left;
       font-style: italic;
       font-size: 80%;
     }
@@ -243,10 +278,11 @@ article.page {
     figcaption.inset {
       position: absolute;
       top: 0;
-      right: 10px;
+      right: 0;
       color: white;
       text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
       font-weight: bold;
+      white-space: normal;
 
       a {
         text-decoration: none;
@@ -255,13 +291,13 @@ article.page {
     }
   }
 
-  .image.cover {
-    position:relative;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-  }
+//  .image.cover {
+//    position:relative;
+//    top: -50%;
+//    left: -50%;
+//    width: 200%;
+//    height: 200%;
+//  }
 
   .author, .published-at {
     color: #333;
@@ -272,16 +308,20 @@ article.page {
   p {
     margin: 1.25em 0;
     text-align: justify;
-    word-break:hyphenate;
+    word-break: hyphenate;
     -webkit-hyphens: auto;
-    line-height: 1.4;
   }
 
-  ul {
+  p.center {
+    text-align: center;
+  }
+
+  ul, ol {
     padding-left: 20px;
   }
 
   .body {
+    width: 100%;
     text-align: left;
 
     p:first-child {
@@ -292,15 +332,20 @@ article.page {
       margin-bottom: 0;
     }
 
+    img {
+      display: block;
+      margin: 0 auto;
+    }
+
     .right {
       margin: 0;
       text-align: right;
     }
   }
 
-  a:not(.button) {
-    text-decoration: underline;
-  }
+  /*
+      Page media
+  */
 
   img.medium, img.large {
     display: block;
@@ -314,23 +359,18 @@ article.page {
     line-height: 1.6;
   }
 
-  figure video {
-    width: 100%;
-    position: absolute;
-    top: 0;
-    -webkit-transform-style: preserve-3d;
-  }
-
   .video-wrapper {
-    position: relative;
+    position: absolute;
+    top: 50%;
     box-sizing: border-box;
+    margin-top: -102px;
+    padding-top: 25px;
+    padding-bottom: 56.25%; /* 16:9 */
+    width: 100%;
+    height: 0;
 
     // Force webkit to render
     -webkit-transform: translate3d(0, 0, 0);
-
-    padding-top: 25px;
-    padding-bottom: 56.25%; /* 16:9 */
-    height: 0;
 
     iframe, object, embed {
       position: absolute;
@@ -341,32 +381,38 @@ article.page {
     }
   }
 
-  figure.video {
-    -webkit-transform: translate3d(0, 0, 0);
-    cursor: pointer;
-
-    background-size: 100%;
-    position: relative;
+  figure video {
     width: 100%;
-    padding-bottom: 56.25%; /* 16:9 */
-    height: 0;
-    margin-bottom: 40px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-transform: translate3d(0, 0, 0);
+    -webkit-transform-style: preserve-3d;
+  }
 
-    figcaption {
-      margin-top: 56.25%;
-    }
+  figure.audio {
+    margin-bottom: 10px;
+  }
+
+  figure.video {
+    position: relative;
+    display: block;
+    background-size: 100%;
+    clear: both;
+    -webkit-transform: translate3d(0, 0, 0);
+    background-color: black;
 
     .thumbnail {
-      border: 1px;
-      cursor: pointer;
-
       position: absolute;
-      left: 0;
-      height: 100%;
-      width: 100%;
+      background-repeat: no-repeat;
       top: 0;
+      left: 0;
       width: 100%;
-      max-height: 100%;
+      height: 100%;
+      background-size: contain;
+      background-position: center;
+      cursor: pointer;
     }
 
     iframe {
@@ -377,23 +423,64 @@ article.page {
       height: 100%;
     }
 
+    figcaption {
+      position: absolute;
+      left: 0;
+      bottom: -50px;
+      width: 100%;
+    }
+
     @extend %icon-style;
     @extend .icon-arrow-right;
 
     &:before {
+      cursor: pointer;
       position: absolute;
-      z-index: 999;
-      text-shadow: 0 0 3px rgba(0,0,0,0.4);
-      font-size: 10vmin;
-      color: white;
-      top: 30%;
+      top: 50%;
       left: 0;
+      z-index: 999;
+      margin-top: -50px;
       width: 100%;
+      color: white;
+      text-align: center;
+      text-shadow: 0 0 3px rgba(0,0,0,0.4);
+      font-size: 100px;
     }
 
     &.play:before {
       content: none;
     }
+  }
+
+  a.audio {
+    @extend %page-icon-style;
+
+    left: initial;
+    right: 50px;
+    color: white;
+    text-decoration: none;
+
+    &.audio-on {
+      @extend .icon-ion-ios-volume-high;
+      display: block;
+    }
+
+    &.audio-off {
+      @extend .icon-ion-ios-volume-low;
+      display: block;
+    }
+  }
+
+  a.show-map {
+    @extend %page-icon-style;
+    @extend .icon-ios7-world-outline;
+
+    display: block;
+    left: initial;
+    right: 50px;
+    color: white;
+    z-index: 0;
+    font-size: 26px;
   }
 
   .description {
@@ -402,12 +489,10 @@ article.page {
   }
 
   footer {
-    display: block;
     float: none;
     clear: both;
     margin: 0 auto !important;
     min-height: 110px;
-    
   }
 
   // Content Layout
@@ -415,13 +500,25 @@ article.page {
   &.black {
     background-color: black;
 
+    header .category {
+      color: #eee;
+    }
+
     .content {
       @extend .dark-theme;
-      background: rgba(0, 0, 0, 0.7);
+      background: black;
     }
-    
-    .cover-area, footer {
-      @extend .dark-theme
+  }
+
+  &.no-content.no-header {
+    background: initial;
+
+    .content {
+      display: none;
+    }
+
+    &.has-product .content {
+      display: block;
     }
   }
 
@@ -450,15 +547,124 @@ article.page {
     background: #fff;
   }
 
-  &.top .content {
-    vertical-align: top;
+  /*
+    Image layout
+
+    .image-none
+    .image-fit
+    .image-background
+    .image-cover
+
+    # migrate
+    .cover-area.fit .cover-area.background .cover-area.cover
+
+    .cover-area.video, .cover-area.image
+  */
+
+  &.image-none {
+    background: none;
+
+    .cover-area { display:none }
   }
 
-  &.bottom .content {
-    vertical-align: bottom;
+  &.image-fit {
+    .cover-area {
+      position: relative;
+      background-size: 100%;
+
+      .video-wrapper {
+        position: relative;
+      }
+    }
   }
 
-  // Image layout
+  &.image-cover {
+  }
+
+  &.image-background {
+    position: relative;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    .column-break {
+      height: 0;
+    }
+
+    .content {
+      position: relative;
+    }
+
+    .cover-area.video {
+//      position: relative;
+      display: block;
+      height: 100%;
+      background-color: black;
+      width: 100%;
+      height: 0;
+      padding-bottom: 56.25%; /* 16:9 */
+      margin-bottom: 30px;
+    }
+
+    &.left {
+      text-align: left;
+    }
+
+    &.right {
+      text-align: right;
+    }
+
+    // Transparent content
+    &.transparent .category {
+        color: #ccc;
+    }
+
+    &.transparent.transparent-black .content {
+      color: initial !important;
+    }
+
+    &.transparent.transparent-black .category {
+      color: #666;
+    }
+
+    // When there is no text or image content
+    &.no-content {
+      .content {
+        position: relative;
+      }
+
+      figcaption.inset {
+        overflow: auto;
+        padding: 10px 20px;
+        max-height: 120px;
+        background: black;
+        white-space: normal;
+      }
+    }
+
+    // When there is no title and no summary
+    &.no-header {
+      figcaption.inset {
+        overflow: auto;
+        padding: 10px 20px;
+        max-height: 120px;
+        background: black;
+        white-space: normal;
+      }
+
+      .cover-area {
+        display: block;
+        height: 100%;
+        background-color: black;
+        background-position: 50%;
+        background-size: 120%;
+      }
+    }
+  }
+
+  /*
+      Image alignment
+  */
   &.cover-right .content {
     float: left;
   }
@@ -467,93 +673,32 @@ article.page {
     display: block;
   }
 
-  &.image-none {
-    background: none;
-
-    .cover-area { display:none }
-  }
-
-  &.image-background {
-    position: relative;
-    overflow: auto;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-  }
-
-  &.image-background .column-break {
-    height: 0;
-  }
-
-  &.image-background .content {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-//    height: 50%;
-  }
-
-  &.image-background.transparent {
-    color: white;
-  }
-
-  &.image-background.video .content {
-    position: relative;
-    height: auto;
-  }
-
-  &.image-background.video .cover-area {
-    position: relative;
-    display: block;
-    height: 100%;
-  }
-
-  &.image-background.left {
-    text-align: left;
-  }
-
-  &.image-background.right {
-    text-align: right;
-  }
-
   .single-item {
     position: relative;
     overflow: hidden;
+    padding: 10px 0;
 
     .thumb-image {
       float: left;
-      width: 180px;
-      height: 180px;
-      background-position: center;
-      background-size: cover;
-      background-repeat: no-repeat;
+      width: 140px;
+      height: auto;
+      margin: 0 20px 10px 0;
     }
 
     .title {
-      font-size: 24px;
-      font-family: "EB Garamond";
+      font-size: 110%;
+      text-transform: initial;
     }
 
     .subtitle {
+      font-size: 90%;
       margin: 0;
     }
   }
 }
 
-article.one-column {
-  .cover-area {
-    h1 {
-      padding-top: 130px;
-    }
-  }
-
-  &.image-background:before {
-    content: none;
-  }
-}
-
 article.page.toc {
+  background: #fff;
 
   h2 {
     text-transform: none;
@@ -563,15 +708,27 @@ article.page.toc {
   }
 
   .content {
-    padding: 0 20px;
+    padding: 15px;
   }
 
   .content header {
-    padding: 20px 0 0;
+    margin: 0;
+    padding: 0;
+
+    h1.title {
+      display: none;
+    }
   }
 
   .cover-area {
     position: relative;
+    overflow: hidden;
+
+    video {
+      object-fit: cover;
+      width: 100%;
+      bottom: 0;
+    }
 
     .brand-logo {
       position: absolute;
@@ -595,6 +752,10 @@ article.page.toc {
     text-align: center;
   }
 
+  .menu h2 {
+    margin: 0.2em 0 0;
+  }
+
   .menu ul {
     margin: 0;
     padding: 0;
@@ -604,6 +765,10 @@ article.page.toc {
   .menu li {
     box-sizing: border-box;
     padding: 20px;
+  }
+
+  .menu li:first-of-type {
+    padding-top: 0;
   }
 
   .menu li a {
@@ -640,11 +805,6 @@ article.page.toc {
 }
 
 article.page.has-product {
-  text-align: left;
-
-  &.no-image .cover-area.cover {
-    display: none;
-  }
 
   &.no-content {
     .content:before {
@@ -661,6 +821,7 @@ article.page.has-product {
 
     .product-set {
       margin: 0;
+      padding: 0;
     }
   }
 
@@ -669,75 +830,110 @@ article.page.has-product {
     font: bold 24px "proxima-nova";
   }
 
-  .content h3 {
+  .content h3:not(.subtitle) {
     text-align: left;
     font-weight: normal;
     font-family: "EB Garamond";
   }
+
+  /*
+      Product set
+  */
+  .product-set {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    text-align: left;
+    white-space: normal;
+    margin-bottom: 20px;
+    font-size: 0;
+  }
+
+  .product-set li {
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 5px 0;
+    height: 200px;
+    vertical-align: middle;
+    text-align: center;
+  }
+
+  .product-set li img {
+    max-height: 85%;
+  }
+
+  .product-set a {
+    width: 100%;
+    height: 100%;
+  }
+
+  .product-set.set-0 {
+    height: 0;
+  }
+
+  .product-set.set-2 li {
+    width: 100%;
+  }
+
+  .product-set.set-4 li {
+    width: 49%;
+  }
+
+  .product-set.set-6 li {
+    width: 49%;
+  }
+
+  .product-set.set-9 li {
+    width: 49%;
+  }
 }
+
 /*
-    Product set
+    Responsive large screen
 */
-.product-set {
-  box-sizing: border-box;
-  margin: 0 0 20px 0;
-  padding: 0;
-  height: 88%;
-  list-style-type: none;
-  text-align: left;
-  white-space: normal;
-}
-
-.product-set li {
-  position: relative;
-  display: inline-block;
-  box-sizing: border-box;
-  padding: 5px 0;
-  height: 33%;
-  vertical-align: middle;
-  text-align: center;
-}
-
-.product-set a {
-  width: 100%;
-}
-
-.product-set.set-2 li {
-  width: 100%;
-}
-
-.product-set.set-4 li {
-  width: 49%;
-}
-
-.product-set.set-6 li {
-  width: 49%;
-}
-
 @include min-screen(768) {
+
   article.page {
     .title {
-      font-size: 34px;
+      font-size: 28px;
+      font-size: 3.5vmin;
+    }
+
+    figure {
+      display: inline-block;
+    }
+
+    &.scroll .content {
+      overflow: auto;
     }
 
     .cover-area {
       background-position: center;
     }
 
-    &.cover-right .cover-area {
-      position: absolute;
-      top: 0;
-    }
-
     .content {
       padding: 50px 25px 25px;
     }
 
+    &.top .content {
+      vertical-align: top;
+      -webkit-box-pack: start;
+      -moz-box-pack: start;
+    }
+
     &.middle .content {
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
+      padding: 25px;
+      vertical-align: middle;
       -webkit-box-pack: center;
-      -webkit-box-align: center;
+      -moz-box-pack: center;
+    }
+
+    &.bottom .content {
+      vertical-align: bottom;
+      -webkit-box-pack: end;
+      -moz-box-pack: end;
     }
 
     blockquote {
@@ -747,23 +943,39 @@ article.page.has-product {
     blockquote:before {
       left: 5px;
       font-size: 80px;
+      min-width: 36px;
     }
 
-    .single-item {
-      .button {
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        margin: 0;
+    .credits {
+      position: absolute;
+      top: initial;
+      left: 20px;
+      padding: 0;
+      width: 250px;
+    }
+
+    &.right .credits {
+      left: initial;
+      right: 20px;
+    }
+
+    &.black .content {
+      background: rgba(0, 0, 0, 0.7);
+    }
+
+    figure.video {
+//      &:before {
+//        margin-top: -50px;
+//      }
+
+      figcaption {
+        margin-top: 56.25%;
       }
     }
 
-    .product-set li img {
-
-//      width: 100%;
-//      height: auto;
+    &.paginate .content {
+      display: block;
     }
-
   }
 
   article.page.toc {
@@ -773,122 +985,68 @@ article.page.has-product {
     }
   }
 
-  article.page.image-background {
-    // Use inline-block, vertical-align, text-align to position content element on full screen image bg
-    // Use &:before to render a full hight place holder for this to work.
-    &:before {
-      display: inline-block;
-      margin-right: -0.25em; /* Adjusts for spacing */
-      height: 100%;
-      content: '';
-      vertical-align: middle;
-    }
-    
-    // 
-    // this requires position: relative for positioning
-    .content {
-      position: relative;
-      display: inline-block;
-      height: 95%;
-      padding: 20px 25px;
-    }
-
-    &.no-header.no-content {
-      background-size: cover;
-    }
-
-    &.height-auto .content {
-      margin: 2% 0;
-      max-height: 90%;
-      height: auto;
-    }
-
-    &.height-full .content {
-      margin: 0 auto;
-      height: 100%;
-    }
-
-    &.video {
-      position: relative;
-      overflow: auto;
-    }
-
-    &.video:before {
-      content: none;
-    }
-
-    &.video .cover-area {
-      display: block;
-      height: 100%;
-    }
-
-    &.video .content {
-      margin: 0;
-      width: 100%;
-    }
-  }
-
-  article.page.has-product {
-    &.cover-right .column-break {
-      display: block;
-    }
-
-    // Use product set as cover area, need to remove height
-    &.no-image .cover-area {
-      position: absolute;
-      top: 0;
-      right: initial;
-      bottom: 0;
-      height: initial;
-    }
-
-    &.scroll.cover-left .content,
-    &.scroll.cover-right .content {
-      overflow: auto;
-      height: 100%;
-    }
-
-    &.cover-left .cover-area {
-      left: 0;
-    }
-
-    &.paginate .content header {
-      padding: 18px 0;
-    }
-
-    .product-set.set-4 li {
-      height: 280px;
-    }
-  }
-
   article.one-column {
-    &.image-background:before {
-    }
-
     .content {
       display: inline-block;
+
+      margin: 0 auto;
+      max-width: 45em;
+
+      float: none;
     }
 
-    .content, .cover-area.fit {
-      margin: 0 auto;
-      width: 45em;
+    .cover-area {
+      position: relative;
+    }
+
+    &.page.has-product .product-set {
+      padding: 10px 0;
+      width: 100%;
+
+      li {
+        height: 255px;
+      }
+
+      &.set-4 li {
+        width: 24%;
+      }
+
+      &.set-6 li {
+        width: 28%;
+        margin-right: 4.9%;
+      }
+
+      &.set-9 li {
+        width: 33.33%;
+      }
     }
   }
 
   article.two-column,
   article.three-column {
+
     padding-bottom: 0;
     white-space: nowrap;
 
     .content {
       width: 50%;
       height: 100%;
-      vertical-align: middle;
       white-space: normal;
 
+      // Multi column system
+      display: -webkit-box;
+      display: -moz-box;
+      display: box;
+
+      -webkit-box-orient: vertical;
+      -webkit-box-pack: start;
+      -webkit-box-align: center;
+
+      -moz-box-orient: vertical;
+      -moz-box-pack: start;
+      -moz-box-align: center;
+
       img {
-        display: inline-block;
-        max-height: 85%;
         -webkit-column-break-before: always;
         -moz-column-break-before: always;
         column-break-before: always;
@@ -906,7 +1064,7 @@ article.page.has-product {
       }
 
       header {
-        padding-top: 30%;
+        padding-top: 20%;
       }
 
       .content {
@@ -922,7 +1080,6 @@ article.page.has-product {
 
     .cover-area {
       position: relative;
-      float: left;
       padding: 0;
       width: 50%;
       height: 100%;
@@ -935,9 +1092,19 @@ article.page.has-product {
         height: 100%;
       }
     }
+
+    &.cover-right .cover-area {
+      position: absolute;
+      top: 0;
+    }
+
+    &.cover-left.image-cover .cover-area,
+    &.cover-left.image-fit .cover-area {
+      float: left;
+    }
   }
 
-  article.three-column {
+  article.page.three-column {
     &.paginate .content {
       -webkit-column-count:3;
       -moz-column-count:3;
@@ -956,10 +1123,158 @@ article.page.has-product {
     }
   }
 
-  #issue-viewer:not(.mobile) article.one-column {
-    .content, .cover-area.fit {
+  // Image backgorund in large screen (>768)
+
+  article.page.image-fit {
+
+    &.one-column .cover-area {
       margin: 0 auto;
-      width: 45em;
+      max-width: 45em;
+    }
+
+  }
+
+  article.page.image-background {
+
+    // Use inline-block, vertical-align, text-align to position content element on full screen image bg
+    // Use &:before to render a full hight place holder for this to work.
+    &:before {
+      display: inline-block;
+      margin-right: -0.25em; /* Adjusts for spacing */
+      height: 100%;
+      content: '';
+      vertical-align: middle;
+    }
+
+    .cover-area {
+      position: absolute;
+      display: inline-block;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+
+      .video-wrapper {
+        position: relative;
+        top: initial;
+        margin: 0;
+        height: 100%;
+      }
+    }
+
+    .cover-area.video {
+      display: block;
+      height: 100%;
+    }
+
+    .cover-area.video + .content {
+      display: block;
+      margin: 0 auto;
+    }
+
+    //
+    // this requires position: relative for positioning
+    .content {
+      position: relative;
+      display: inline-block;
+      height: 95%;
+      padding: 20px 25px;
+      float: none;
+    }
+
+    // Remove any content colour
+    &.transparent .content {
+      background: none;
+    }
+
+    &.no-content.no-header figure {
+      figcaption.inset {
+        background: rgba(0, 0, 0, 0.7);
+      }
+    }
+
+    &.no-header.no-content {
+      background-size: cover;
+    }
+
+    &.height-auto .content {
+      margin: 50px 20px 20px;
+      max-height: 90%;
+      height: auto;
+    }
+
+    &.height-full .content header {
+      width: 98%;
+    }
+
+    &.height-full .content {
+      box-sizing: border-box;
+      margin: 0 auto;
+      height: 100%;
+      padding-top: 50px;
+    }
+  }
+
+  /*
+    Product set
+
+    - Set style and layout for 2, 4, 6 products
+    - product set becomes cover when there is no cover image
+  */
+
+  article.page.has-product {
+    &.cover-right .column-break {
+      display: block;
+    }
+
+    // Use product set as cover area, need to remove height
+    &.no-image.two-column .cover-area,
+    &.no-image.three-column .cover-area {
+      position: absolute;
+      top: 0;
+      right: initial;
+      bottom: 0;
+      height: initial;
+
+      &.product-set {
+        margin: 0;
+      }
+
+      &.product-set.set-2,
+      &.product-set.set-4 {
+        top: 17%;
+
+        li {
+          height: 33%;
+        }
+      }
+
+      &.product-set.set-6,
+      &.product-set.set-9 {
+        top: 5%;
+
+        li {
+          height: 30%;
+        }
+      }
+    }
+
+    &.cover-left .cover-area {
+      left: 0;
+    }
+
+    &.paginate .content header {
+      padding: 18px 0;
+    }
+
+    .product-set.set-4 li {
+      height: 200px;
+    }
+
+    .product-set.set-9 li {
+      width: 33.33%;
     }
   }
 }
@@ -977,44 +1292,35 @@ article.page.has-product {
   article.page.has-product {
     &.no-image .cover-area {
       position: static;
-      left: 0;
       float: none;
-      width: 100%;
       height: auto;
     }
 
-    &.no-image .content {
-      // width: 100%;
+    &.no-image.cover-right .cover-area{
+      left: initial;
+      right: 0;
     }
 
-    &.no-image .product-set li {
-      height: 200px;
-    }
-
-    &.no-image .product-set.set-6 li {
-      // width: 30%;
-    }
   }
 }
 
 @media only screen and (min-width: 768px) and (orientation: landscape) {
+
   article.page.has-product {
 
     &.no-image .content {
       margin: 0;
     }
 
-    .product-set.set-6 li {
-      width: 49%;
+    &.no-image.cover-left .content {
+      margin: 0;
     }
 
     &.no-image .product-set {
       position: absolute;
+      background-color: white;
     }
 
-    &.no-image.right .product-set {
-      left: 0;
-    }
   }
 }
 
@@ -1042,11 +1348,24 @@ article.page.has-product {
 
   @include min-screen(480) {
     margin-top: -10px !important;
+
+    /*
+        Admin stream has toolbar
+    */
+
+    .admin & {
+      margin-top: 50px !important;
+    }
   }
+
   overflow: visible;
   padding-bottom: 100px;
   width: 100% !important;
   line-height: 0;
+
+  [role=main] &.container {
+    padding: 0;
+  }
 
   .vertical & {
     top: 50px;
@@ -1060,7 +1379,7 @@ article.page.has-product {
     white-space: nowrap;
 
     .page {
-      display: inline-block;
+      display: inline-bottom;
     }
 
     .view-more {
@@ -1074,15 +1393,5 @@ article.page.has-product {
         margin-top: 350px;
       }
     }
-  }
-}
-
-/*
-  Landscape Styles
-*/
-
-[role="main"].landscape {
-  article.page.image-background .cover-area {
-    background-position: top;
   }
 }
