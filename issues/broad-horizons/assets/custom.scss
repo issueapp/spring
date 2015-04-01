@@ -140,6 +140,32 @@
           margin-top: -50px;
         }
       }
+
+      .page-footer {
+        margin: 30px 0 10px;
+        padding: 0 25px;
+
+        div {
+          line-height: 34px;
+        }
+
+        img {
+          width: 60px;
+        }
+
+        hr {
+          margin: 17px 0;
+          clear: none;
+          background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.05));
+          background-image: linear-gradient(to right, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.05));
+        }
+
+        span {
+          color: #555;
+          text-transform: uppercase;
+          font-weight: bold;
+        }
+      }
     }
 
     @media only screen and (min-width: 768px) {
