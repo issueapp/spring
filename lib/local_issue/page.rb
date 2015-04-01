@@ -125,17 +125,21 @@ class LocalIssue::Page < Hashie::Mash
 
     # Add cover url into images
     if attributes["cover_url"]
-      attributes["images"].push(
-        Hashie::Mash.new(
-          "caption"   => attributes.delete("cover_caption"),
-          "url"       => attributes["cover_url"],
-          "thumb_url" => attributes["thumb_url"],
-          "cover"     => true
-        )
+      cover = Hashie::Mash.new(
+        "caption"   => attributes.delete("cover_caption"),
+        "url"       => attributes["cover_url"],
+        "thumb_url" => attributes["thumb_url"],
+        "cover"     => true
       )
+        
+      attributes["images"].push(cover)
+      
     else
-      attributes["cover_url"] = attributes["images"].find{|img| img.cover }.try(:url)
+      cover = (attributes["images"] + attributes["videos"]).compact.find{|img| img.cover }
+      attributes["cover_url"] = cover.try(:url)
     end
+    
+    attributes["cover"] = cover
 
     attributes["images"].map! do |image|
       image.layout = image.layout || !!image.cover
@@ -151,6 +155,10 @@ class LocalIssue::Page < Hashie::Mash
 
     # Render content part
     attributes["raw_content"] = content.to_s.strip
+    
+    puts "Render Mustache"
+    puts attributes.inspect
+    
     content = Mustache.render(content.to_s.strip, attributes)
 
     # Get script/style tag

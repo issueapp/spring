@@ -9,7 +9,7 @@
         cover: true
 
     audios:
-      - url: "luxe-hotel/jazz-ambient.mp3"
+      - url: "assets/luxe-hotel/jazz-ambient.mp3"
         autoplay: true
         controls: false
 
