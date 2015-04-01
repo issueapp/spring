@@ -162,11 +162,6 @@ class IssuePreview < Sinatra::Base
   def asset_path(path, options = {})
     return path if path.nil? || path =~ /^https?:/
 
-    # TODO: ???
-    # if path && path =~ /^\/?assets\//
-    #   path.gsub!(/^\/?assets\//, '')
-    # end
-
     if ENV["ASSET_HOST"]
       asset_host = ENV["ASSET_HOST"]
     else
@@ -205,6 +200,11 @@ class IssuePreview < Sinatra::Base
   end
 
   def issue_path(path = nil)
+    # TODO: ??? Remove double assets/assets/ in spring
+    if path && path =~ /^\/?assets\//
+      path.gsub!(/^\/?assets\//, '/')
+    end
+    
     asset = File.expand_path("../../issues/#{params[:issue]}/assets#{path}", __FILE__)
 
     if File.exist?(asset) && !path.nil? && !path.empty?
