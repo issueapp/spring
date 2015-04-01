@@ -24,7 +24,25 @@
 
     @media only screen and (min-width: 768px) {
       .content {
-        width: 50em;
+        max-width: initial;
+        padding: 50px 0 25px;
+
+        .body > {
+          h1, h2, h3, p, figure, section {
+            max-width: 720px;
+            margin-left: auto;
+            margin-right: auto;
+            box-sizing: border-box;
+
+            &.full {
+              max-width: initial;
+            }
+          }
+
+          section {
+            margin-bottom: 20px;
+          }
+        }
       }
     }
   }
@@ -107,6 +125,19 @@
         figcaption {
           text-align: left;
           padding: 10px 0 0;
+        }
+      }
+
+      figure.full {
+        .container {
+          position: absolute;
+          top: 50%;
+          color: white;
+          left: 50%;
+          width: 240px;
+          margin-left: -120px;
+          height: 100px;
+          margin-top: -50px;
         }
       }
     }
