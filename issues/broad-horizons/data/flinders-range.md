@@ -3,12 +3,15 @@
     title: The Flinders Rangers & Outback
     summary: The Flinders Rangers and Outback. Roads to somewhere ... afternoon drinks. It may be hard to define, but the rich history and stunning landscape of the outback provides an ideal backdrop for journeys of discovery, writes Max Anderson.
 
-    images:
-      - url: "assets/flinders-range/cover.jpg"
+    videos:
+      - thumb_url: "assets/flinders-range/cover.jpg"
+        url: "assets/flinders-range/video.mp4"
         location:
           name:
           coordinates: []
         cover: true
+
+    images:
 
       - url: "assets/flinders-range/image-1.jpg"
       - url: "assets/flinders-range/image-2.jpg"
@@ -24,12 +27,13 @@
 
 ---
 
-<figure class='cover-area image' style="background-image: url({{ cover_url }})">
+<figure class='cover-area video' style="background-image: url({{ cover.thumb_url }})">
   <header>
     <h1 class='title'>{{title}}</h1>
     <h3 class='subtitle'>{{summary}}</h3>
   </header>
-  <figcaption>Arkaba, Adelaide, Australia</figcaption>
+  <video src="{{ cover.url }}" poster="/transparent.png" type="video/mp4" style="background: {{ cover.thumb_url }} no-repeat; background-size: cover" autoplay loop></video>
+  <figcaption>Flinders Ranges National Park, South Australia</figcaption>
   <a href='geo:-30.0588604,138.9712576?label=Flinders Range' class='show-map'></a>
   <a href='#' class='page-scroll'><i class='icon-ios7-arrow-down'></i></a>
 </figure>
