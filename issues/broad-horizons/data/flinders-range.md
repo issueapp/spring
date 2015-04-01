@@ -9,7 +9,7 @@
           name:
           coordinates: []
         cover: true
-        
+
       - url: "assets/flinders-range/image-1.jpg"
       - url: "assets/flinders-range/image-2.jpg"
       - url: "assets/flinders-range/image-3.jpg"
@@ -19,6 +19,7 @@
     layout:
       type: custom
       image_style: background
+      content_style: black
       custom_class: one-column page-snap
 
 ---
@@ -29,7 +30,7 @@
     <h3 class='subtitle'>{{summary}}</h3>
   </header>
   <figcaption>Arkaba, Adelaide, Australia</figcaption>
-  <a href='geo:-30.0588604,138.9712576?label=Flinders Range' class='show-map'><i class='icon-ios7-world-outline'></i></a>
+  <a href='geo:-30.0588604,138.9712576?label=Flinders Range' class='show-map'></a>
   <a href='#' class='page-scroll'><i class='icon-ios7-arrow-down'></i></a>
 </figure>
 
@@ -47,13 +48,13 @@
         <div class="col half">
           <img data-media=id="images:2" src="assets/flinders-range/image-1.jpg">
         </div>
-    
+
         <div class="col half">
           <div class="row v-half">
             <img data-media=id="images:3" src="assets/flinders-range/image-2.jpg">
           </div>
-        
-          <div class="row v-half">      
+
+          <div class="row v-half">
             <img data-media=id="images:4" src="assets/flinders-range/image-3.jpg">
           </div>
         </div>
