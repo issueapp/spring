@@ -5,6 +5,10 @@
 
 #broad-horizons-issue {
 
+  #issue-branding {
+    font-size: 10px;
+  }
+
   figure.cover-area .gallery {
     height: 100%;
     margin: 0;
@@ -205,15 +209,25 @@
       }
 
       figure.full {
+        margin: 50px 0;
+        
+        max-height: 600px;
+        overflow: hidden;
+        
         .container {
           position: absolute;
           top: 50%;
           color: white;
           left: 50%;
-          width: 240px;
+          width: 280px;
           margin-left: -120px;
           height: 100px;
           margin-top: -50px;
+          text-align: center;
+        }
+        
+        .subtitle {
+          color: white;
         }
       }
 
