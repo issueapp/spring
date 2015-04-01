@@ -63,18 +63,24 @@
 
     <h2>A drive on the wild side</h2>
 
-    <figure class="image wrapping">
-      <img data-media=id="images:5" src="assets/flinders-range/image-4.jpg">
-      <figcaption>Something about this lonely cow that inspires a lot of confidence<figcaption>
-    </figure>
+    <section>
+      <figure class="image wrapping">
+        <img data-media=id="images:5" src="assets/flinders-range/image-4.jpg">
+        <figcaption>Something about this lonely cow that inspires a lot of confidence<figcaption>
+      </figure>
 
-    <p>A 300-kilometre, two-day tour of the unsealed Oodnadatta Track is safe and surprising, with weirdness and wilderness aplenty. Start with Mutonia Sculpture Park near Marree (home of Plane Henge and Spinning Car - mildly deranged but compelling) then head into the yawning gibber plains. You&#8217;ll follow the remains of the first Ghan railway, where ruins of sidings and repeater stations for the overland telegraph line are dotted along a &#8221;string of springs&#8221;. </p>
+      <p>A 300-kilometre, two-day tour of the unsealed Oodnadatta Track is safe and surprising, with weirdness and wilderness aplenty. Start with Mutonia Sculpture Park near Marree (home of Plane Henge and Spinning Car - mildly deranged but compelling) then head into the yawning gibber plains. You&#8217;ll follow the remains of the first Ghan railway, where ruins of sidings and repeater stations for the overland telegraph line are dotted along a &#8221;string of springs&#8221;. </p>
+    </section>
+
+    <figure class="image full">
+      <img data-media=id="images:6" src="assets/flinders-range/lake-eyre-dark.jpg">
+      <div class="container">
+        <h2>Lake Eyre</h2>
+        <span>Takes you 15 metres below sea</span>
+      </div>
+    </figure>
 
     <p>Camp at Coward Springs, a delicious respite to wash off the dust in the hot mineral waters and barbecue under gums cackling with cockatoos. Stop to allow Lake Eyre South to boggle your eye and be sure to detour to the Mound Springs - these blisters in the plains are leaky ecosystems the size of houses that have evolved their own species of shrimp. Similarly unique species are at William Creek, especially at the famous pub; air tours over Lake Eyre are available with Wrightsair. Finish in Coober Pedy.</p>
-
-    <figure class="image">
-      <img data-media=id="images:6" src="assets/flinders-range/lake-eyre.jpg">
-    </figure>
-
+    </p>
   </div>
 </div>
