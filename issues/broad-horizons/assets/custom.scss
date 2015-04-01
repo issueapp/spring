@@ -7,26 +7,28 @@
   p:empty {
     display: none;
   }
-  
+
   article.one-column {
-    
     h2 {
       font-weight: bold;
       letter-spacing: 3px;
       margin-bottom: 40px;
     }
-    
-    .content {
-      width: 50em;
-    }
-    
+
     .body p {
       font-family: georgia;
       line-height: 30px;
       font-size: 18px;
     }
+
+    @media only screen and (min-width: 768px) {
+      .content {
+        width: 50em;
+      }
+    }
   }
 
+  // Start Flinders Range Custom Styles
   [data-page='flinders-range'] {
     .cover-area {
       height: 100vh;
@@ -78,7 +80,7 @@
 
       .show-map {
         position: absolute;
-        right: 20px;
+        right: 40px;
         bottom: 10px;
         text-decoration: none;
 
@@ -134,5 +136,47 @@
       }
     }
   }
+  // End Flinders Range Custom Styles
 
+  // Start Luxe Hotel Custom Styles
+  [data-page='luxe-hotel'] {
+    .cover-area {
+      display: block;
+      height: 100vh;
+
+      .container {
+        background-color: rgba(0, 0, 0, 0.3);
+      }
+
+      header {
+        max-width: 45em;
+        margin: 0 auto;
+        position: relative;
+        top: 50%;
+        padding: 0 10px;
+
+        transform: translateY(-50%);
+        -webkit-transform: translateY(-50%);
+
+        .title, .subtitle, .category {
+          color: white;
+        }
+
+        .title {
+          font-size: 26px;
+          font-weight: bold;
+          padding: 0;
+          margin-bottom: 30px;
+        }
+
+        .subtitle {
+          font-family: proxima-nova;
+          font-weight: lighter;
+          font-style: normal;
+          text-align: left;
+        }
+      }
+    }
+  }
+  // End Luxe Hotel Custom Styles
 }

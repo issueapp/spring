@@ -134,7 +134,7 @@ class PageView extends Backbone.View
 
     $closeButton = $('#close-map')
     if $closeButton.length < 1
-      $closeButton = $('<a id="close-map" style="position: absolute; bottom: 8px; right: 20px" href="#" onclick="$(' + '\'.map\'' + ').hide(); $(this).hide()"><i class="icon-cancel" style="font-size: 32px; color: #303030;"></i></a>')
+      $closeButton = $('<a id="close-map" style="position: absolute; bottom: 8px; right: 40px" href="#" onclick="$(' + '\'.map\'' + ').hide(); $(this).hide(); return false;"><i class="icon-cancel" style="font-size: 32px; color: #303030;"></i></a>')
       $(document.body).append $closeButton
     $closeButton.show()
 
