@@ -15,6 +15,7 @@
       - url: "assets/flinders-range/image-3.jpg"
       - url: "assets/flinders-range/image-4.jpg"
       - url: "assets/flinders-range/lake-eyre.jpg"
+      - url: "assets/flinders-range/made.png"
 
     layout:
       type: custom
@@ -82,5 +83,11 @@
 
     <p>Camp at Coward Springs, a delicious respite to wash off the dust in the hot mineral waters and barbecue under gums cackling with cockatoos. Stop to allow Lake Eyre South to boggle your eye and be sure to detour to the Mound Springs - these blisters in the plains are leaky ecosystems the size of houses that have evolved their own species of shrimp. Similarly unique species are at William Creek, especially at the famous pub; air tours over Lake Eyre are available with Wrightsair. Finish in Coober Pedy.</p>
     </p>
+  </div>
+
+  <div class="page-footer">
+    <div class="col x3"><img data-media=id="images:7" src="assets/flinders-range/made.png"></div>
+    <div class="col x6"><hr></div>
+    <div class="col x3"><span>Broad Horizons</span> ISSUE #2</div>
   </div>
 </div>
