@@ -4,6 +4,7 @@
 }
 
 #broad-horizons-issue {
+  
   p:empty {
     display: none;
   }
@@ -143,7 +144,17 @@
     .cover-area {
       display: block;
       height: 100vh;
-
+      
+    	-webkit-backface-visibility: hidden;
+    	-webkit-perspective: 1000;
+      -webkit-transform: translate3d(0, 0, 0);
+      
+    	background-position: 0px 0px;
+    	background-repeat: repeat-x;
+      
+    	animation: animatedBackground 50s linear infinite;
+    	-webkit-animation: animatedBackground 50s linear infinite;
+      
       .container {
         background-color: rgba(0, 0, 0, 0.3);
       }
@@ -180,3 +191,16 @@
   }
   // End Luxe Hotel Custom Styles
 }
+
+@keyframes animatedBackground {
+	0% { background-position: 0 0; }
+  50% { background-position: 100% 0; }
+	100% { background-position: 0 0; }
+}
+
+@-webkit-keyframes animatedBackground {
+	0% { background-position: 0 0; }
+  50% { background-position: 100% 0; }
+	100% { background-position: 0 0; }
+}
+
