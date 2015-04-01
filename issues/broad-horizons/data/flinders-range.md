@@ -77,11 +77,11 @@
       <p>A 300-kilometre, two-day tour of the unsealed Oodnadatta Track is safe and surprising, with weirdness and wilderness aplenty. Start with Mutonia Sculpture Park near Marree (home of Plane Henge and Spinning Car - mildly deranged but compelling) then head into the yawning gibber plains. You&#8217;ll follow the remains of the first Ghan railway, where ruins of sidings and repeater stations for the overland telegraph line are dotted along a &#8221;string of springs&#8221;. </p>
     </section>
 
-    <figure class="image full">
+    <figure class="image full"  data-media=id="images:6" data-background=true>
       <img data-media=id="images:6" src="assets/flinders-range/lake-eyre-dark.jpg">
       <div class="container">
         <h2>Lake Eyre</h2>
-        <span>Takes you 15 metres below sea</span>
+        <p class="subtitle">Takes you 15 metres below sea</p>
       </div>
     </figure>
 
@@ -92,6 +92,10 @@
   <div class="page-footer">
     <div class="col x3"><img data-media=id="images:7" src="assets/flinders-range/made.png"></div>
     <div class="col x6"><hr></div>
-    <div class="col x3"><span>Broad Horizons</span> ISSUE #2</div>
+    <div class="col x3">
+      <small id="issue-branding">
+        <span>Broad Horizons</span> ISSUE #2
+      </small>
+    </div>
   </div>
 </div>
