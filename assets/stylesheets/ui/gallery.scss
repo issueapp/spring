@@ -22,9 +22,11 @@
     left: -25%;
   }
 
-  .gallery {
-    
+  .content .gallery {
     @extend .image-block;
+  }
+
+  .gallery {
     
     .aspect-ratio {
       width: 100%;
@@ -82,7 +84,8 @@
   
   .gallery .col img {
     position: absolute; 
-    height: 100%
+    height: 100%;
+    left: 0;
   }
   
   /*  grid-3 (portrait + 2 landscale) */
