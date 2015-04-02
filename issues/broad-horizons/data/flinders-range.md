@@ -88,7 +88,7 @@
     </p>
   </div>
 
-  <div class="page-footer">
+  <footer>
     <div class="col x3"><img data-media=id="images:7" src="assets/flinders-range/made.png"></div>
     <div class="col x6"><hr></div>
     <div class="col x3">
@@ -96,5 +96,5 @@
         <span>Broad Horizons</span> ISSUE #2
       </small>
     </div>
-  </div>
+  </footer>
 </div>
