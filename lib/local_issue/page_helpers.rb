@@ -21,7 +21,7 @@ module LocalIssue::PageHelpers
 
         if asset == "images"
           if node["data-background-image"]
-            node["style"] = "background-image:url(#{media["url"]})"
+            node["style"] = "background-size: cover; background-image:url(#{media["url"]})"
           else
             img_node = image_node(node, media)
             node.replace(img_node) if img_node != node
