@@ -10,7 +10,7 @@
 
     audios:
       - url: "assets/luxe-hotel/jazz-ambient.mp3"
-        autoplay: true
+        autoplay: false
         controls: false
 
     layout:
@@ -20,7 +20,7 @@
       custom_class: one-column page-snap
 
 ---
-<figure class='cover-area image' style="background-image: url({{ cover_url }})">
+<figure class='cover-area image' data-media-id="images:1" style="background-image:url( {{ cover_url }} )" data-background-cover="true" >
   <div class='container col third'>
     <header>
       <span class='category'>{{category}}</span>

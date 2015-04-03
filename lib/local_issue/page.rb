@@ -131,16 +131,9 @@ class LocalIssue::Page < Hashie::Mash
         "thumb_url" => attributes["thumb_url"],
         "cover"     => true
       )
-        
       attributes["images"].push(cover)
-      
-    else
-      cover = (attributes["images"] + attributes["videos"]).compact.find{|img| img.cover }
-      attributes["cover_url"] = cover.try(:url)
     end
     
-    attributes["cover"] = cover
-
     attributes["images"].map! do |image|
       image.layout = image.layout || !!image.cover
       image
@@ -152,15 +145,20 @@ class LocalIssue::Page < Hashie::Mash
         attributes[element] = attributes[element].to_a.map(&formatter)
       end
     end
-
+    
+    # Find cover from video/image
+    if !attributes["cover_url"]
+      cover = (attributes["images"] + attributes["videos"]).compact.find{|img| img.cover }
+      attributes["cover_url"] = cover.try(:url)
+    end
+    attributes["cover"] = cover
+    
+    
     # Render content part
     attributes["raw_content"] = content.to_s.strip
     
-    puts "Render Mustache"
-    puts attributes.inspect
-    
     content = Mustache.render(content.to_s.strip, attributes)
-
+    
     # Get script/style tag
     doc = Nokogiri::HTML.fragment(content)
     script_and_style = doc.search('style')[0].to_s + doc.search('script')[0].to_s
