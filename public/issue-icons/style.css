@@ -1,10 +1,10 @@
 @font-face {
 	font-family: 'issue-icons';
-	src:url('fonts/issue-icons.eot?-ltnmsp');
-	src:url('fonts/issue-icons.eot?#iefix-ltnmsp') format('embedded-opentype'),
-		url('fonts/issue-icons.woff?-ltnmsp') format('woff'),
-		url('fonts/issue-icons.ttf?-ltnmsp') format('truetype'),
-		url('fonts/issue-icons.svg?-ltnmsp#issue-icons') format('svg');
+	src:url('fonts/issue-icons.eot?-rledka');
+	src:url('fonts/issue-icons.eot?#iefix-rledka') format('embedded-opentype'),
+		url('fonts/issue-icons.woff?-rledka') format('woff'),
+		url('fonts/issue-icons.ttf?-rledka') format('truetype'),
+		url('fonts/issue-icons.svg?-rledka#issue-icons') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -39,10 +39,6 @@
 	content: "\e641";
 }
 
-.icon-location2:before {
-	content: "\e642";
-}
-
 .icon-social-android:before {
 	content: "\e654";
 }
@@ -59,7 +55,7 @@
 	content: "\e635";
 }
 
-.icon-social-facebook:before {
+.icon-facebook:before {
 	content: "\e61b";
 }
 
@@ -139,7 +135,7 @@
 	content: "\e659";
 }
 
-.icon-gear-a:before {
+.icon-cog:before {
 	content: "\e649";
 }
 
@@ -159,10 +155,6 @@
 	content: "\e613";
 }
 
-.icon-facebook:before {
-	content: "\e620";
-}
-
 .icon-twitter:before {
 	content: "\e621";
 }
@@ -173,10 +165,6 @@
 
 .icon-docs:before {
 	content: "\e610";
-}
-
-.icon-cog:before {
-	content: "\e600";
 }
 
 .icon-ios7-checkmark-outline:before {
