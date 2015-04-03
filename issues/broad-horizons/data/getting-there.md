@@ -6,7 +6,6 @@
     layout:
       type: three-column
       
-
 ---
 
 <div class="single-item">
