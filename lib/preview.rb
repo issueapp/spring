@@ -131,7 +131,9 @@ class IssuePreview < Sinatra::Base
     path = [params["page"], params["subpage"]].compact.join('/')
 
     asset_formatter = lambda do |asset|
-      asset.each{|key, value| asset[key] = asset_path(value) if key =~ /url$/ }
+      asset.each{|key, value| 
+        asset[key] = asset_path(value) if key =~ /url$/ 
+      }
     end
     page = LocalIssue::Page.find(path, issue: issue, format_asset: asset_formatter)
 
@@ -162,6 +164,11 @@ class IssuePreview < Sinatra::Base
   def asset_path(path, options = {})
     return path if path.nil? || path =~ /^https?:/
 
+    # TODO: ??? Remove double assets/assets/ in spring
+    if path && path =~ /^\/?assets\//
+      path.gsub!(/^\/?assets\//, '/')
+    end
+    
     if ENV["ASSET_HOST"]
       asset_host = ENV["ASSET_HOST"]
     else
@@ -170,16 +177,15 @@ class IssuePreview < Sinatra::Base
 
     if defined?(Rails)
       if !Rails.application.config.offline_assets && options[:global]
-        return  ActionController::Base.helpers.asset_path(path)
+        return ActionController::Base.helpers.asset_path(path)
       end
 
-      Rails.logger.info "offline: #{Rails.application.config.offline_assets} " + File.join("assets", path.to_s)
-
       prefix = params[:subpage] ? "../" : ""
-
-      return path.include?("#{prefix}assets/") ? path : File.join("#{prefix}assets/", path.to_s)
+      path = path.include?("#{prefix}assets/") ? path : File.join("#{prefix}assets/", path.to_s)
+      
+      return path
     end
-
+    
     if options[:global]
       "#{asset_host}/assets/#{path}"
     else
@@ -200,11 +206,7 @@ class IssuePreview < Sinatra::Base
   end
 
   def issue_path(path = nil)
-    # TODO: ??? Remove double assets/assets/ in spring
-    if path && path =~ /^\/?assets\//
-      path.gsub!(/^\/?assets\//, '/')
-    end
-    
+  
     asset = File.expand_path("../../issues/#{params[:issue]}/assets#{path}", __FILE__)
 
     if File.exist?(asset) && !path.nil? && !path.empty?
