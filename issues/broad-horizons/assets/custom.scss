@@ -44,14 +44,14 @@
       margin: 50px 0;
       height: 600px;
       overflow: hidden;
-      
+
       &:before {
         content: '';
         position: absolute;
         top: 0; left:0; right: 0; bottom: 0;
         background: rgba(0,0,0,0.3);
       }
-      
+
       .container {
         position: absolute;
         top: 50%;
@@ -63,19 +63,20 @@
         margin-top: -50px;
         text-align: center;
       }
-      
+
       .subtitle {
         color: white;
+        text-align: center;
       }
     }
 
 
     footer {
       max-width: 1280px;
-      
       margin: 0px 0 10px;
       padding-top: 100px;
-      
+      min-height: initial;
+
       div {
         line-height: 34px;
       }
@@ -122,9 +123,9 @@
       }
     }
   }
-  
+
   [data-page=index] {
-    
+
     .brand {
       position: relative;
       display: block;
@@ -137,14 +138,14 @@
       color: transparent;
       text-shadow: none;
     }
-    
+
     .title {
       font-family: "HelveticaNeue-CondensedBold", "sans-serif-condensed";
       font-size: 36px;
       font-weight: bold;
       letter-spacing: 4px;
     }
-    
+
     .description {
       font-family: georgia;
       font-style: italic;
@@ -154,25 +155,25 @@
       padding: 5px 0;
       margin: 0 auto 2vmin;
     }
-    
+
     .issue-logo {
       display: none;
     }
-    
+
     @media only screen and (min-width: 768px) {
-    
+
       .title {
-        
+
         font-size: 90px;
         letter-spacing: 5px;
       }
-    
-    
+
+
       .description {
         width: 26em;
       }
     }
-    
+
   }
 
   // Start Flinders Range Custom Styles
@@ -182,7 +183,7 @@
       background-size: cover;
       background-repeat: no-repeat;
       overflow: hidden;
-      
+
       &:before {
         content: none;
       }
@@ -192,7 +193,7 @@
         margin: 0 auto;
         position: absolute;
         bottom: 0;
-        left: 0; 
+        left: 0;
         right: 0;
         top: 50%;
         padding: 0 10px;
@@ -213,7 +214,7 @@
           font-weight: lighter;
         }
       }
-      
+
       video {
         margin-left: -0.25em; // offset inline block white space
         position: absolute;
@@ -226,14 +227,14 @@
         width: auto;
         height: auto;
         background-repeat: no-repeat;
-        
+
         animation:  fade 0.8s ease both;
         -webkit-animation:  fade 0.8s ease both;
 
         animation-delay: 0.8s;
         -webkit-animation-delay: 0.8s;
       }
-      
+
       figcaption {
         position: absolute;
         left: 10px;
@@ -242,6 +243,7 @@
         color: white;
         padding: 0;
         width: auto;
+        max-width: 200px;
       }
 
       .page-scroll {
@@ -273,6 +275,7 @@
         figcaption {
           left: 20px;
           font-size: 14px;
+          max-width: initial;
         }
       }
 
