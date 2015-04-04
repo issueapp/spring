@@ -58,7 +58,7 @@
         color: white;
         left: 50%;
         width: 280px;
-        margin-left: -120px;
+        margin-left: -140px;
         height: 100px;
         margin-top: -50px;
         text-align: center;
@@ -198,6 +198,10 @@
         top: 50%;
         padding: 0 10px;
         z-index: 1;
+
+        transform: translateY(-20%);
+        -webkit-transform: translateY(-20%);
+
         // Video background image
         .title, .subtitle {
           color: white;
@@ -243,7 +247,7 @@
         color: white;
         padding: 0;
         width: auto;
-        max-width: 200px;
+        max-width: 100px;
       }
 
       .page-scroll {
