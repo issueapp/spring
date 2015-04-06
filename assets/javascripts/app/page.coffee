@@ -13,7 +13,7 @@ class PageView extends Backbone.View
     "click a[data-app-view=layer]" : "openLayer"
 
     "click a[href^='geo:']" : 'showMap'
-    "click a[href]:not(.hotspot)" : "visit"
+    # "click a[href]:not(.hotspot)" : "visit"
 
   initialize: (data)->
     @url = data.url
@@ -110,7 +110,7 @@ class PageView extends Backbone.View
     e.preventDefault()
     e.stopImmediatePropagation()
     target = $(e.currentTarget).parent()
-      
+
     geo = e.currentTarget.href.match(/(-?\d+.?\d*),(-?\d+.?\d*)/)
     latitude = geo[1]
     longitude = geo[2]
@@ -128,14 +128,14 @@ class PageView extends Backbone.View
     # Setup map view
     mapView = target.data('map-view')
     App.loading(true)
-    
+
     unless mapView
       mapView = new MapView(location: location, target: target)
       target.data('map-view', mapView)
 
     mapView.render()
     @mapView = mapView
-    
+
   visit: (e)->
     e.preventDefault()
 

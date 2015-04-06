@@ -8,13 +8,14 @@
 
   has_cover = page.cover_url && page.layout.image_style != "none"
   has_content = (page.content && !page.content.strip.empty?) || page.credits
+  description = page.description || page.summary
 %>
 <article id="s<%= page.handle.to_s.split('/').first %>" class="page
   embed
  <%= page.layout.type || 'two-column' %>
  <%= 'no-image ' unless has_cover %>
  <%= 'has-product ' if page.product_set? %>
- <%= 'no-header ' unless page.title || page.description %>
+ <%= 'no-header ' unless page.title || description %>
  <%= 'no-content ' unless has_content %>
  <%= page.content_type %>
 
@@ -60,12 +61,14 @@
   <% elsif page.cover %>
     <figure class="cover-area <%= page.layout.image_style %>"
          style="background-image: url(<%= asset_path page.cover_url %>)">
+      <% if page.cover.caption %>
       <figcaption class="inset"><%= page.cover.caption %></figcaption>
+      <% end %>
     </figure>
   <% end %>
 
   <div class='content'>
-    <% if page.title || page.description %>
+    <% if page.title || description %>
     <header>
       <% if page.category %>
         <span class='category'><%= page.category %></span>
@@ -88,8 +91,8 @@
           <em><%= page.byline %></em>
         <% end %>
 
-        <% if page.description %>
-          <p class="description"><%= page.description %></p>
+        <% if description %>
+          <p class="description"><%= description %></p>
         <% end %>
       </div>
     </header>
@@ -158,7 +161,7 @@
   // Force browser to render first
   App.currentPage.render()    // Toggle page active
 
-  
+
   $(document).on('page:change', function () {
     console.log("FIRED: page:change")
     if (App.support.webview) App.currentPage.setActive()
