@@ -12,7 +12,7 @@ class PageView extends Backbone.View
     "click .hotspot": "showHotspot"
     "click a[data-app-view=layer]" : "openLayer"
 
-    "click a[href|='geo:']" : 'showMap'
+    "click a[href^='geo:']" : 'showMap'
     "click a[href]:not(.hotspot)" : "visit"
 
   initialize: (data)->
@@ -125,16 +125,16 @@ class PageView extends Backbone.View
       zoom = zoom[1]
 
     mapContainerId = "map#{latitude}__#{longitude}".replace(/\./g, '_')
-    mapContainerStyle = 'width:' + Math.max(document.documentElement.clientWidth, window.innerWidth or 0) + 'px;' + 'height:' + Math.max(document.documentElement.clientHeight, window.innerHeight or 0) + 'px;' + 'position: absolute; top: 0; left: 0'
+    mapContainerStyle = 'width:' + Math.max(document.documentElement.clientWidth, window.innerWidth or 0) + 'px;' + 'height:' + Math.max(document.documentElement.clientHeight, window.innerHeight or 0) + 'px;' + 'position: fixed; top: 0; left: 0'
     $mapContainer = $('#' + mapContainerId)
     if $mapContainer.length < 1
-      $mapContainer = $('<div id="' + mapContainerId + '" class="map" style="' + mapContainerStyle + '"></div>')
+      $mapContainer = $('<div id="' + mapContainerId + '" class="map-container" style="' + mapContainerStyle + '"><div id="map" class="map" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0;"></div></div>')
       $(document.body).append $mapContainer
     $mapContainer.show()
 
     $closeButton = $('#close-map')
     if $closeButton.length < 1
-      $closeButton = $('<a id="close-map" style="width: 50px; height: 50px; position: absolute; bottom: 0px; right: 50px; text-align: center;" href="#" onclick="$(' + '\'.map\'' + ').hide(); $(this).hide(); return false;"><i class="icon-cancel" style="font-size: 28px; line-height: 50px;color: #303030;"></i></a>')
+      $closeButton = $('<a id="close-map" style="width: 50px; height: 50px; position: fixed; bottom: 0; right: 50px; z-index: 1; text-align: center;" href="#" onclick="$(' + '\'.map-container\'' + ').hide(); $(this).hide(); return false;"><i class="icon-cancel" style="font-size: 28px; line-height: 50px; color: #303030;"></i></a>')
       $(document.body).append $closeButton
     $closeButton.show()
 
@@ -142,7 +142,7 @@ class PageView extends Backbone.View
     marker = new (google.maps.Marker)(
       position: center
       animation: google.maps.Animation.DROP)
-    map = new (google.maps.Map)($mapContainer[0],
+    map = new google.maps.Map($mapContainer.find('#map')[0],
       zoom: zoom or 7
       center: center)
     marker.setMap map
