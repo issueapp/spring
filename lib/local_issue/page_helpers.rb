@@ -90,7 +90,8 @@ module LocalIssue::PageHelpers
     options = {
       type:     video["type"],
       src:      video["url"],
-      autoplay: video["autoplay"] ? true : nil,
+      # autoplay: video["autoplay"] ? true : nil,
+      'data-autoplay': video["autoplay"] ? true : nil,
       controls: video["controls"] ? true : nil,
       height:   video["height"],
       width:    video["width"],
@@ -132,7 +133,7 @@ module LocalIssue::PageHelpers
     options = {
       type:     media["type"],
       src:      media["url"],
-      autoplay: media["autoplay"] ? true : nil,
+      'data-autoplay': media["autoplay"] ? true : nil,
       controls: media["controls"] ? true : nil,
       loop:     media["loop"],
       muted:    media["muted"]
