@@ -35,7 +35,7 @@
   </header>
   <video src="{{ cover.url }}" type="video/mp4" style="background: {{ cover.thumb_url }} no-repeat; background-size: cover" autoplay loop></video>
   <figcaption>Flinders Ranges National Park, South Australia</figcaption>
-  <a href='geo:-30.0588604,138.9712576?label=Flinders Range' class='show-map'></a>
+  <a href='geo:-31.648238,139.013542?label=Flinders Range' class='show-map'></a>
   <a href='#' class='page-scroll'><i class='icon-ios7-arrow-down'></i></a>
 </figure>
 
@@ -82,6 +82,7 @@
         <h2>Lake Eyre</h2>
         <p class="subtitle">Takes you 15 metres below sea</p>
       </div>
+      <a href='geo:-28.6726392,137.4081662?label=Lake Eyre' class='show-map'></a>
     </figure>
 
     <p>Camp at Coward Springs, a delicious respite to wash off the dust in the hot mineral waters and barbecue under gums cackling with cockatoos. Stop to allow Lake Eyre South to boggle your eye and be sure to detour to the Mound Springs - these blisters in the plains are leaky ecosystems the size of houses that have evolved their own species of shrimp. Similarly unique species are at William Creek, especially at the famous pub; air tours over Lake Eyre are available with Wrightsair. Finish in Coober Pedy.</p>
