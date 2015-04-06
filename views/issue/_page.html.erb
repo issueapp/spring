@@ -107,7 +107,7 @@
              title="<%= product.title %>"
              data-track="hotspot:click"
              data-action="<%= product[:action] %>"
-             data-url="<%= product[:url] %>"
+             data-url="<%= product[:url] || product[:link] %>"
              data-image="<%= asset_path product[:image_url] %>"
              data-price="<%= product[:price] %>"
              data-currency="<%= product[:currency] %>"

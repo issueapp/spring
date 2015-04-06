@@ -357,6 +357,15 @@
       }
     }
   }
+
+  [data-page='luxe-hotel/1'] {
+    @media only screen and (min-width: 768px) and (orientation:portrait) {
+      figure.cover-area .gallery {
+        height: 50%;
+        margin-top: 50%;
+      }
+    }
+  }
   // End Luxe Hotel Custom Styles
 
   // Start Outback Tours Custom Styles
