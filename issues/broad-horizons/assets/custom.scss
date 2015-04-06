@@ -3,6 +3,14 @@
   line-height: 16px;
 }
 
+.toolbar a.share {
+  display: none;
+}
+
+.toolbar a.subscribe {
+  right: 0;
+}
+
 #broad-horizons-issue {
 
   #issue-branding {
@@ -70,7 +78,6 @@
       }
     }
 
-
     footer {
       max-width: 1280px;
       margin: 0px 0 10px;
@@ -120,6 +127,10 @@
             margin-bottom: 20px;
           }
         }
+      }
+
+      &.image-background .content {
+        max-width: 45em;
       }
     }
   }
@@ -345,6 +356,51 @@
     }
   }
   // End Luxe Hotel Custom Styles
+
+  // Start Outback Tours Custom Styles
+  [data-page='outback-tours'] {
+    header {
+      .title, .subtitle, .category {
+        color: white;
+      }
+
+      .title {
+        font-size: 26px;
+        font-weight: bold;
+        padding: 0;
+      }
+
+      .subtitle {
+        font-family: proxima-nova;
+        font-weight: lighter;
+        font-style: normal;
+        text-align: left;
+      }
+    }
+
+    @media only screen and (min-width: 768px) {
+      header {
+        text-align: left;
+      }
+    }
+  }
+
+  [data-page='outback-tours/1'] {
+    .content {
+      h3 {
+        text-transform: uppercase;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      .links {
+        text-align: left;
+      }
+    }
+  }
+  // End Outback Tours Custom Styles
 }
 
 @keyframes animatedBackground {
