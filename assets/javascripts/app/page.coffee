@@ -109,7 +109,8 @@ class PageView extends Backbone.View
   showMap: (e)->
     e.preventDefault()
     e.stopImmediatePropagation()
-
+    target = $(e.currentTarget).parent()
+      
     geo = e.currentTarget.href.match(/(-?\d+.?\d*),(-?\d+.?\d*)/)
     latitude = geo[1]
     longitude = geo[2]
@@ -124,34 +125,17 @@ class PageView extends Backbone.View
     if zoom
       zoom = zoom[1]
 
-    mapContainerId = "map#{latitude}__#{longitude}".replace(/\./g, '_')
-    mapContainerStyle = 'width:' + Math.max(document.documentElement.clientWidth, window.innerWidth or 0) + 'px;' + 'height:' + Math.max(document.documentElement.clientHeight, window.innerHeight or 0) + 'px;' + 'position: fixed; top: 0; left: 0'
-    $mapContainer = $('#' + mapContainerId)
-    if $mapContainer.length < 1
-      $mapContainer = $('<div id="' + mapContainerId + '" class="map-container" style="' + mapContainerStyle + '"><div id="map" class="map" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0;"></div></div>')
-      $(document.body).append $mapContainer
-    $mapContainer.show()
+    # Setup map view
+    mapView = target.data('map-view')
+    App.loading(true)
+    
+    unless mapView
+      mapView = new MapView(location: location, target: target)
+      target.data('map-view', mapView)
 
-    $closeButton = $('#close-map')
-    if $closeButton.length < 1
-      $closeButton = $('<a id="close-map" style="width: 50px; height: 50px; position: fixed; bottom: 0; right: 50px; z-index: 1; text-align: center;" href="#" onclick="$(' + '\'.map-container\'' + ').hide(); $(this).hide(); return false;"><i class="icon-cancel" style="font-size: 28px; line-height: 50px; color: #303030;"></i></a>')
-      $(document.body).append $closeButton
-    $closeButton.show()
-
-    center = new (google.maps.LatLng)(latitude, longitude)
-    marker = new (google.maps.Marker)(
-      position: center
-      animation: google.maps.Animation.DROP)
-    map = new google.maps.Map($mapContainer.find('#map')[0],
-      zoom: zoom or 7
-      center: center)
-    marker.setMap map
-    if label
-      info = new (google.maps.InfoWindow)(content: label)
-      info.open map, marker
-      google.maps.event.addListener marker, 'click', ->
-        info.open map, marker
-
+    mapView.render()
+    @mapView = mapView
+    
   visit: (e)->
     e.preventDefault()
 
