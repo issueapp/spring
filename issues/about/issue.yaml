@@ -8,6 +8,7 @@ cover_url: assets/background_large.jpg
 
 assets:
   - "custom.css"
+  - "custom.js"
 
 paths:
   - index
