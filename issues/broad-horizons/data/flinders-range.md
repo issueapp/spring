@@ -36,10 +36,10 @@
   <video src="{{ cover.url }}" type="video/mp4" style="background: {{ cover.thumb_url }} no-repeat; background-size: cover" autoplay loop></video>
   <figcaption>Flinders Ranges National Park, South Australia</figcaption>
   <a href='geo:-31.648238,139.013542?label=Flinders Range' class='show-map'></a>
-  <a href='#' class='page-scroll'><i class='icon-ios7-arrow-down'></i></a>
+  <a href='#page-content' class='page-scroll'><i class='icon-ios7-arrow-down'></i></a>
 </figure>
 
-<div class="content">
+<div class="content" id="page-content">
   <div class="body">
     <p>No line is painted on the road to indicate you are entering outback South Australia (please drive carefully). However, you know the outback when you see it.</p>
 
