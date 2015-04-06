@@ -362,10 +362,11 @@
   // Start Outback Tours Custom Styles
   [data-page='outback-tours'] {
     header {
+              
       .title, .subtitle, .category {
         color: white;
       }
-
+      
       .title {
         font-size: 26px;
         font-weight: bold;
@@ -382,7 +383,7 @@
 
     @media only screen and (min-width: 768px) {
       header {
-        text-align: left;
+//        text-align: left;
       }
     }
   }
