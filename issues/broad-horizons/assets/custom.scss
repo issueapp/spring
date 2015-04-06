@@ -216,6 +216,8 @@
         // Video background image
         .title, .subtitle {
           color: white;
+          text-shadow: 1px 1px 20px rgba(0, 0, 0, 0.3);
+          z-index: 2;
         }
 
         .title {
@@ -226,7 +228,7 @@
 
         .subtitle {
           font-family: proxima-nova;
-          font-weight: lighter;
+          font-size: 1.9rem;
         }
       }
 
