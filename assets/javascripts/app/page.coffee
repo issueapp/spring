@@ -13,7 +13,8 @@ class PageView extends Backbone.View
     "click a[data-app-view=layer]" : "openLayer"
 
     "click a[href^='geo:']" : 'showMap'
-    # "click a[href]:not(.hotspot)" : "visit"
+    "click a[href]:not(.hotspot)" : "visit"
+    "click a.audio": "toggleAudio"
 
   initialize: (data)->
     @url = data.url
@@ -137,11 +138,13 @@ class PageView extends Backbone.View
     @mapView = mapView
 
   visit: (e)->
-    e.preventDefault()
-
     link = e.currentTarget
     $link = $(link)
-
+    
+    return if $link.attr('href') == "#"
+    
+    e.preventDefault()
+    
     # Tracking
     track_click = ! $link.data("track") && ! $link.hasClass("browse")
     if track_click
@@ -270,6 +273,24 @@ class PageView extends Backbone.View
 
     App.trigger("track", "video:play", iframe.data('src'))
 
+  toggleAudio: (e)->
+    button = $(e.currentTarget)
+    audio = this.$('audio')[0]
+    
+    return unless audio
+    console.log("Toggle audio", audio.playing, button)
+    
+    button.removeClass('audio-on audio-off')
+
+    if audio.paused
+      button.addClass("audio-on")
+      audio.play()
+    else
+      button.addClass("audio-off")
+      audio.pause()
+      
+    false
+  
   showHotspot: (e)->
     hotspot = e.currentTarget
     model = App.pages[this.$el.attr("data-page")]
