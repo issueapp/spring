@@ -2,7 +2,7 @@
 
     category: What To Do
     title: Outback Experience
-    summary: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. "
+    summary: "When the camera has taken its fill of ranges, waterholes and landforms, it's the local people who add some of the landscape's most meaningful layers."
 
     images:
       - url: "assets/outback-tours/cover.jpg"

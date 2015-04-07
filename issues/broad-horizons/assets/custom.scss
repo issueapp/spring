@@ -285,7 +285,6 @@
       h2 {
         text-align: center;
       }
-
     }
 
     @media only screen and (min-width: 768px) {
@@ -354,7 +353,7 @@
         }
       }
     }
-    
+
     &.current .cover-area {
     	animation: animatedBackground 50s linear infinite;
     	-webkit-animation: animatedBackground 50s linear infinite;
@@ -369,16 +368,26 @@
       }
     }
   }
+
+  [data-page='luxe-hotel/2'] {
+    h3 {
+      margin: 0;
+    }
+
+    .product-set li {
+      height: 190px;
+    }
+  }
   // End Luxe Hotel Custom Styles
 
   // Start Outback Tours Custom Styles
   [data-page='outback-tours'] {
     header {
-              
+
       .title, .subtitle, .category {
         color: white;
       }
-      
+
       .title {
         font-size: 26px;
         font-weight: bold;
