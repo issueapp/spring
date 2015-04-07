@@ -51,16 +51,16 @@
       <div class="aspect-ratio"></div>
       <div class="photos">
         <div class="col half">
-          <img data-media=id="images:2" src="assets/flinders-range/image-1.jpg">
+          <img data-media-id="images:2" src="assets/flinders-range/image-1.jpg">
         </div>
 
         <div class="col half">
           <div class="row v-half">
-            <img data-media=id="images:3" src="assets/flinders-range/image-2.jpg">
+            <img data-media-id="images:3" src="assets/flinders-range/image-2.jpg">
           </div>
 
           <div class="row v-half">
-            <img data-media=id="images:4" src="assets/flinders-range/image-3.jpg">
+            <img data-media-id="images:4" src="assets/flinders-range/image-3.jpg">
           </div>
         </div>
       </div>
@@ -70,7 +70,7 @@
 
     <section>
         <figure class="image wrapping">
-          <img data-media=id="images:5" src="assets/flinders-range/image-4.jpg">
+          <img data-media-id="images:5" src="assets/flinders-range/image-4.jpg">
           <figcaption>Something about this lonely cow that inspires a lot of confidence<figcaption>
         </figure>
         <p>
