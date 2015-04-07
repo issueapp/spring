@@ -6,6 +6,7 @@ magazine_title: South Australia
 
 thumb_url: assets/background.jpg
 cover_url: assets/background_large.jpg
+icon_url: assets/icon.png
 
 assets:
   - custom.css
