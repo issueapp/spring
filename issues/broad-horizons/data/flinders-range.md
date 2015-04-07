@@ -18,7 +18,7 @@
       - url: "assets/flinders-range/image-3.jpg"
       - url: "assets/flinders-range/image-4.jpg"
       - url: "assets/flinders-range/lake-eyre.jpg"
-      - url: "assets/flinders-range/made.png"
+      - url: "assets/made.png"
 
     layout:
       type: custom
@@ -90,7 +90,7 @@
   </div>
 
   <footer>
-    <div class="col x3"><img data-media-id="images:7" src="assets/flinders-range/made.png"></div>
+    <div class="col x3"><img data-media-id="images:6" width="90" src="assets/made.png"></div>
     <div class="col x6"><hr></div>
     <div class="col x3">
       <small id="issue-branding">
