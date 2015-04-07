@@ -90,7 +90,7 @@
   </div>
 
   <footer>
-    <div class="col x3"><img data-media=id="images:7" src="assets/flinders-range/made.png"></div>
+    <div class="col x3"><img data-media-id="images:7" src="assets/flinders-range/made.png"></div>
     <div class="col x6"><hr></div>
     <div class="col x3">
       <small id="issue-branding">
