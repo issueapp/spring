@@ -23,6 +23,7 @@ gem "mime-types",             require: false
 gem "nokogiri",               require: false
 gem "mustache",               require: false
 gem "rdiscount",              require: false
+gem "fastimage",              require: false
 # Markdown
 # gem "RedCloth"  # Textile
 #
