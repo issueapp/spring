@@ -147,7 +147,6 @@
 
   // Not sure why layout is not being set.
   // App.refresh()
-
   App.pages["<%= page.handle %>"] = {
     handle: "<%= page.handle %>",
     title: "<%= page.title %>",
@@ -156,14 +155,14 @@
     products: <%= page.products.to_json %>
   };
 
-  App.currentPage = new PageView({ path: "<%= page.handle + page_ext %>",  model: App.pages["<%= page.handle %>"] })
-
+  var page = new PageView({ path: "<%= page.handle + page_ext %>",  model: App.pages["<%= page.handle %>"] })
   // Force browser to render first
-  App.currentPage.render()    // Toggle page active
-
+  // page.render()    // Toggle page active
 
   $(document).on('page:change', function () {
     console.log("FIRED: page:change")
-    if (App.support.webview) App.currentPage.setActive()
+    if (App.support.webview) page.setActive()
   })
+  
+  App.currentPage = page
 </script>

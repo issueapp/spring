@@ -1,4 +1,5 @@
 require 'uri'
+require 'fastimage'
 
 module LocalIssue::PageHelpers
 
@@ -56,17 +57,23 @@ module LocalIssue::PageHelpers
   def image_node(node, image)
     options = {}
 
-    if image["caption"]
-      figure = create_element('figure')
-      figure.inner_html = node.to_s
+    # get local image size
+    # image_get_size!(image)
 
-      options[:class] = "inset" if image["caption_inset"]
-      figure << create_element('figcaption', image["caption"], options)
+    # if image["caption"].present?
+    figure = create_element('figure')
+    figure.inner_html = node.to_s
 
-      figure
-    else
-      node
-    end
+    options[:class] = "inset" if image["caption_inset"]
+        
+    figure << create_element("div", title: @issue.path.join(image.url), class_name: "aspect-ratio", style: "padding-bottom: 75%")
+    figure << create_element('figcaption', image["caption"], options) if image["caption"].present?
+
+    figure
+    
+    # else
+    #   node
+    # end
   end
 
   # <video data-media-id="videos:1" type="video/youtube" src="http://youtube.com/watch?v=8v_4O44sfjM"  poster="../assets/1-styling-it-out/Jar-of-Hearts-christina-perri-16882990-1280-720.jpg"/>
@@ -186,5 +193,16 @@ module LocalIssue::PageHelpers
 
   def create_element(*args)
     Nokogiri::HTML("").create_element(*args)
+  end
+  
+  def image_get_size!(asset)
+    width, height = FastImage.size @issue.path.join(asset.url)
+    aspect_ratio = width.to_f / height
+    
+    asset.width = width
+    asset.height = height
+    asset.aspect_ratio = aspect_ratio
+    
+    asset
   end
 end
