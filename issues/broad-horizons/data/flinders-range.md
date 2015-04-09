@@ -51,16 +51,16 @@
       <div class="aspect-ratio"></div>
       <div class="photos">
         <div class="col half">
-          <img data-media-id="images:1" src="assets/flinders-range/image-1.jpg">
+          <img data-media-id="images:1" data-original src="assets/flinders-range/image-1.jpg">
         </div>
 
         <div class="col half">
           <div class="row v-half">
-            <img data-media-id="images:2" src="assets/flinders-range/image-2.jpg">
+            <img data-media-id="images:2" data-original src="assets/flinders-range/image-2.jpg">
           </div>
 
           <div class="row v-half">
-            <img data-media-id="images:3" src="assets/flinders-range/image-3.jpg">
+            <img data-media-id="images:3" data-original src="assets/flinders-range/image-3.jpg">
           </div>
         </div>
       </div>

@@ -1,5 +1,6 @@
 require 'uri'
 require 'fastimage'
+require 'timeout'
 
 module LocalIssue::PageHelpers
 
@@ -57,16 +58,25 @@ module LocalIssue::PageHelpers
   def image_node(node, image)
     options = {}
 
+    return node if node["data-original"]
+
     # get local image size
-    # image_get_size!(image)
+    image_get_size!(image)
+
 
     # if image["caption"].present?
     figure = create_element('figure')
     figure.inner_html = node.to_s
 
     options[:class] = "inset" if image["caption_inset"]
-        
-    figure << create_element("div", title: @issue.path.join(image.url), class_name: "aspect-ratio", style: "padding-bottom: 75%")
+    
+    padding = 100/(image.aspect_ratio || 1.5)
+    
+    figure << create_element("div", 
+      class_name: "aspect-ratio", 
+      style: "padding-bottom: #{padding}%;"
+    )
+    
     figure << create_element('figcaption', image["caption"], options) if image["caption"].present?
 
     figure
@@ -196,13 +206,26 @@ module LocalIssue::PageHelpers
   end
   
   def image_get_size!(asset)
-    width, height = FastImage.size @issue.path.join(asset.url)
-    aspect_ratio = width.to_f / height
+
+    path = asset.url.sub("../assets/", "assets/")
     
-    asset.width = width
-    asset.height = height
-    asset.aspect_ratio = aspect_ratio
+    Rails.logger.info ">>>> image_get_size!"
+    Rails.logger.info path
+    file = @issue.path.join(path)
+    
+    return unless file.exist?
+    Timeout::timeout(0.2) {
+      
+      width, height = FastImage.size file
+      aspect_ratio = width.to_f / height
+    
+      asset.width = width
+      asset.height = height
+      asset.aspect_ratio = aspect_ratio
+    }
     
     asset
+  rescue 
+    nil
   end
 end
