@@ -1,10 +1,10 @@
 @font-face {
 	font-family: 'issue-icons';
-	src:url('fonts/issue-icons.eot?-rledka');
-	src:url('fonts/issue-icons.eot?#iefix-rledka') format('embedded-opentype'),
-		url('fonts/issue-icons.woff?-rledka') format('woff'),
-		url('fonts/issue-icons.ttf?-rledka') format('truetype'),
-		url('fonts/issue-icons.svg?-rledka#issue-icons') format('svg');
+	src:url('fonts/issue-icons.eot?3n2bqb');
+	src:url('fonts/issue-icons.eot?#iefix3n2bqb') format('embedded-opentype'),
+		url('fonts/issue-icons.woff?3n2bqb') format('woff'),
+		url('fonts/issue-icons.ttf?3n2bqb') format('truetype'),
+		url('fonts/issue-icons.svg?3n2bqb#issue-icons') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -53,10 +53,6 @@
 
 .icon-tumblr:before {
 	content: "\e635";
-}
-
-.icon-facebook:before {
-	content: "\e61b";
 }
 
 .icon-ios7-cloud-download-outline:before {
@@ -153,6 +149,10 @@
 
 .icon-bookmark:before {
 	content: "\e613";
+}
+
+.icon-facebook:before {
+	content: "\e61b";
 }
 
 .icon-twitter:before {
