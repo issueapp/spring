@@ -226,7 +226,11 @@
       margin: 0;
       width: 180px;
     }
-
+    
+    figure.image:last-child {
+      margin: 0;
+    }
+    
     .cover-area {
       min-height: 0;
     }

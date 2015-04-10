@@ -49,5 +49,6 @@
       content_align: left
       content_style: black
       content_height: full
+      hide_author: "1"
 
 ---

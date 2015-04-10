@@ -30,22 +30,22 @@ Indulge in the search for beauty. Whether you’re visiting Italy, Bali or stayi
 
 <ul class="contributors">
   <li>
-    <img class="avatar" src="assets/author/aubrey-avatar.png" data-media-id="images:1">
+    <img class="avatar" src="assets/author/aubrey-avatar.png" data-original data-media-id="images:1">
     <span>Aubrey Daquinag</span>
     <span class="description">The Love Assembly</span>
   </li>
   <li>
-    <img class="avatar" src="assets/author/michelle-avatar.png" data-media-id="images:2">
+    <img class="avatar" src="assets/author/michelle-avatar.png" data-original data-media-id="images:2">
     <span>Michelle Lau</span>
     <span class="description">A minute away from Snowlng</span>
   </li>
   <li>
-    <img class="avatar" src="assets/author/jysla-avatar.png" data-media-id="images:3">
+    <img class="avatar" src="assets/author/jysla-avatar.png" data-original data-media-id="images:3">
     <span>Jessica Cheung</span>
     <span class="description">Jysla Kay</span>
   </li>
   <li>
-    <img class="avatar" src="assets/author/zyra-avatar.png" data-media-id="images:4">
+    <img class="avatar" src="assets/author/zyra-avatar.png" data-original data-media-id="images:4">
     <span>Zyralyn Bacani</span>
     <span class="description">Content Writer of Issue</span>
   </li>

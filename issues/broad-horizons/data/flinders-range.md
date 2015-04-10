@@ -16,8 +16,14 @@
       - url: "assets/flinders-range/image-1.jpg"
       - url: "assets/flinders-range/image-2.jpg"
       - url: "assets/flinders-range/image-3.jpg"
+      
       - url: "assets/flinders-range/image-4.jpg"
+        caption: Something about this lonely cow that inspires a lot of confidence
+        
       - url: "assets/flinders-range/lake-eyre.jpg"
+        title: Lake Eyre
+        caption: Takes you 15 metres below sea
+        
       - url: "assets/made.png"
 
     layout:
@@ -67,17 +73,19 @@
     </div>
 
     <h2>A drive on the wild side</h2>
-
     <section>
-        <figure class="image wrapping">
-          <img data-media-id="images:4" src="assets/flinders-range/image-4.jpg">
-          <figcaption>Something about this lonely cow that inspires a lot of confidence<figcaption>
-        </figure>
+      
+      <figure class="image wrapping">
+        <img data-original data-media-id="images:4" src="assets/flinders-range/image-4.jpg">
+        <div class="aspect-ratio" style="padding-bottom: 76%"></div>
+        <figcaption>Something about this lonely cow that inspires a lot of confidence</figcaption>
+      </figure>
+      
         <p>
         A 300-kilometre, two-day tour of the unsealed Oodnadatta Track is safe and surprising, with weirdness and wilderness aplenty. Start with Mutonia Sculpture Park near Marree (home of Plane Henge and Spinning Car - mildly deranged but compelling) then head into the yawning gibber plains. You&#8217;ll follow the remains of the first Ghan railway, where ruins of sidings and repeater stations for the overland telegraph line are dotted along a &#8221;string of springs&#8221;. </p>
     </section>
 
-    <figure class="image full" data-media-id="images:5" data-background-image="true"  src="assets/flinders-range/lake-eyre-dark.jpg">
+    <figure class="image full" data-media-id="images:5" data-original data-background-image="true" src="assets/flinders-range/lake-eyre-dark.jpg">
       <div class="container">
         <h2>Lake Eyre</h2>
         <p class="subtitle">Takes you 15 metres below sea</p>
