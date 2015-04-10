@@ -8,6 +8,8 @@ module LocalIssue::PageHelpers
   def render_page(page)
     require 'nokogiri'
     
+    is_custom_html = page.custom_html || page.layout.type == 'custom'
+    
     doc = Nokogiri::HTML.fragment("<div>" + page.content + "</div>")
 
     # Swap data-media-id
@@ -24,8 +26,9 @@ module LocalIssue::PageHelpers
         if asset == "images"
           if node["data-background-image"]
             node["style"] = "background-size: cover; background-image:url(#{media["url"]})"
+            
           else
-            img_node = image_node(node, media)
+            img_node = image_node(node, media) 
             node.replace(img_node) if img_node != node
           end
         end
@@ -65,13 +68,12 @@ module LocalIssue::PageHelpers
 
 
     # if image["caption"].present?
-    figure = create_element('figure')
+    figure = create_element('figure', class: "image")
     figure.inner_html = node.to_s
 
     options[:class] = "inset" if image["caption_inset"]
     
     padding = 100/(image.aspect_ratio || 1.5)
-    
     figure << create_element("div", 
       class_name: "aspect-ratio", 
       style: "padding-bottom: #{padding}%;"

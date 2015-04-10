@@ -40,7 +40,7 @@
     <p>
       Thanks for making time to sit down with Spread. Each month we'll bring you features about life, food and effortless entertaining. In our pages you'll find fabulously delicious and simple recipes that will hopefully inspire your next entertaining spread.</p>
     <h3>
-      Share your memories with us on <a href="http://instagram.com/phillyaus"><img src="assets/instagram-512.png" data-media-id="images:2" width="32px">Instagram</a>
+      Share your memories with us on <a href="http://instagram.com/phillyaus"><img src="assets/instagram-512.png" data-media-id="images:2" width="32px" data-original>Instagram</a>
     </h3>
 
     <p class="center">Follow Emily Tan's Food Adventures at <b><a href="http://www.fussfreecooking.com">Fuss Free Cooking</a></b></p>
@@ -51,7 +51,7 @@
     {{^layout}}
     <li class="polaroid-wrap">
       <figure class="polaroid">
-        <img src="{{ url }}" alt="{{ title }}" title="{{ title }}">
+        <img src="{{ url }}" alt="{{ title }}" title="{{ title }}" data-original>
         <figcaption>{{ caption }}</figcaption>
       </figure>
     </li>

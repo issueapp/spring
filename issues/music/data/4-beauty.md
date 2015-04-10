@@ -44,7 +44,7 @@
 
 ---
 
-<img id="uncovered" src="assets/4-beauty/uncovered.png" data-media-id="images:1">
+<img id="uncovered" src="assets/4-beauty/uncovered.png" data-media-id="images:1" data-original>
 
 <p id="uncovered-description">
   Want to know the secrets to

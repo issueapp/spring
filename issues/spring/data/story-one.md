@@ -32,14 +32,14 @@ Since I am now living in Melbourne, it is only natural to be all festive about t
 Besides the dresses and fascinators, party nibbles are what I would associate spring races with. So in the spirit of the upcoming Carnival I wanted to share my take on fuss free party nibbles recipes.
 
 <div class="single-item">
-  <img class="thumb-image" data-media-id="images:1"/>
+  <img class="thumb-image" data-media-id="images:1" data-original/>
   
   <h2 class="title">Chickpea & Polenta Homemade Crackers</h2>
   <a class="button outline small" href="#biscuits_recipe" data-app-view="layer">View recipe</a>
 </div>
 
 <div class="single-item">
-  <img class="thumb-image" data-media-id="images:2"/>
+  <img class="thumb-image" data-media-id="images:2" data-original/>
   
   <h2 class="title">Bagel Chips With Walnut Dukkah Crusted Cream Cheese</h2>
   <a class="button outline small" href="#bagel_chips_recipe" data-app-view="layer">View recipe</a>
@@ -48,7 +48,7 @@ Besides the dresses and fascinators, party nibbles are what I would associate sp
 <article id="bagel_chips_recipe" class="page stack">
   <div class="content">
     <h2>Bagel Chips with Walnut Dukkah Crusted Cream Cheese</h2>
-    <p><img data-media-id="images:7"></p>
+    <p><img data-media-id="images:7" data-original></p>
     <h3>Ingredients</h3>
     <p>Bagel Chips:</p>
     <ul>
