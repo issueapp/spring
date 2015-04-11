@@ -14,6 +14,6 @@ assets:
 paths:
   - index
   - turbine-or-not-turbine
-  # - return-to-investment
+  - return-to-investment
   # - where-your-power-comes-from
   # - ge-oil-and-gas-opens-new-facility-for-the-inpex
