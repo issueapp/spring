@@ -140,7 +140,8 @@
   }
 
   [data-page='turbine/3'],
-  [data-page='turbine/4'] {
+  [data-page='turbine/4'],
+  .page.infographic {
     @media only screen and (min-width: 768px) {
       .cover-area.background {
         background-size: contain;
