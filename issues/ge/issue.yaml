@@ -1,0 +1,19 @@
+title: GE
+description: "abc"
+
+magazine_handle: energy
+magazine_title: Energy
+
+thumb_url: assets/background.jpg
+cover_url: assets/background_large.jpg
+icon_url: assets/icon.png
+
+assets:
+  - custom.css
+
+paths:
+  - index
+  - turbine-or-not-turbine
+  # - return-to-investment
+  # - where-your-power-comes-from
+  # - ge-oil-and-gas-opens-new-facility-for-the-inpex
