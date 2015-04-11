@@ -65,7 +65,7 @@
   }
   // End Cover Page Custom Styles
 
-  // Start Flinders Range Custom Styles
+  // Start Return To Investment Custom Styles
   [data-page='return-to-investment/2'] {
     @media only screen and (min-width: 768px) {
       .cover-area.background {
@@ -73,5 +73,15 @@
       }
     }
   }
-  // End Flinders Range Custom Styles
+  // End Return To Investment Custom Styles
+
+  // Start The People's Power Custom Styles
+  [data-page='the-peoples-power/2'] {
+    @media only screen and (min-width: 768px) {
+      .cover-area.background {
+        background-size: contain;
+      }
+    }
+  }
+  // End The People's Power Custom Styles
 }
