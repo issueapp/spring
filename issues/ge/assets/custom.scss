@@ -1,0 +1,77 @@
+
+// .toolbar a.share {
+//   display: none;
+// }
+
+// .toolbar a.subscribe {
+//   right: 0;
+// }
+
+#ge-issue {
+  p:empty {
+    display: none;
+  }
+
+  article.one-column {
+  }
+
+  // Start Cover Page Custom Styles
+  [data-page=index] {
+    .brand {
+      position: relative;
+      display: block;
+      background: url(brand.png) no-repeat;
+      background-size: contain;
+      background-position: center;
+      width: 45vmin;
+      height: 15vmin;
+      margin: 0 auto 0em;
+      color: transparent;
+      text-shadow: none;
+    }
+
+    .title {
+      font-family: "HelveticaNeue-CondensedBold", "sans-serif-condensed";
+      font-size: 36px;
+      font-weight: bold;
+      letter-spacing: 4px;
+      text-shadow: 1px 1px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .description {
+      font-family: georgia;
+      font-style: italic;
+      text-transform: capitalize;
+      border: 0.5px solid rgba(255,255,255,0.5);
+      border-width: 1px 0;
+      padding: 5px 0;
+      margin: 0 auto 2vmin;
+    }
+
+    .issue-logo {
+      display: none;
+    }
+
+    @media only screen and (min-width: 768px) {
+      .title {
+        font-size: 90px;
+        letter-spacing: 5px;
+      }
+
+      .description {
+        width: 26em;
+      }
+    }
+  }
+  // End Cover Page Custom Styles
+
+  // Start Flinders Range Custom Styles
+  [data-page='return-to-investment/2'] {
+    @media only screen and (min-width: 768px) {
+      .cover-area.background {
+        background-size: contain;
+      }
+    }
+  }
+  // End Flinders Range Custom Styles
+}
