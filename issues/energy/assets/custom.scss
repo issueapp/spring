@@ -72,7 +72,7 @@
   // End Cover Page Custom Styles
 
   // Start Return To Investment Custom Styles
-  [data-page='turbine-or-not-turbine'] {
+  [data-page='turbine'] {
     @media only screen and (min-width: 768px) {
       header {
         text-align: left;
@@ -80,7 +80,7 @@
     }
   }
 
-  [data-page='turbine-or-not-turbine/2'] {
+  [data-page='turbine/2'] {
     figure.cover-area {
       &:before {
         content: '';
@@ -129,7 +129,8 @@
     }
   }
 
-  [data-page='turbine-or-not-turbine/3'] {
+  [data-page='turbine/3'],
+  [data-page='turbine/4'] {
     @media only screen and (min-width: 768px) {
       .cover-area.background {
         background-size: contain;
@@ -139,7 +140,7 @@
   // End Return To Investment Custom Styles
 
   // Start Return To Investment Custom Styles
-  [data-page='return-to-investment/2'] {
+  [data-page='ret-question/2'] {
     @media only screen and (min-width: 768px) {
       .cover-area.background {
         background-size: contain;
@@ -149,7 +150,7 @@
   // End Return To Investment Custom Styles
 
   // Start The People's Power Custom Styles
-  [data-page='the-peoples-power/2'] {
+  [data-page='peoples-power/2'] {
     @media only screen and (min-width: 768px) {
       .cover-area.background {
         background-size: contain;
@@ -159,7 +160,7 @@
   // End The People's Power Custom Styles
 
   // Start Where your power comes from Custom Styles
-  [data-page='where-your-power-comes-from/2'] {
+  [data-page='power-source/2'] {
     @media only screen and (min-width: 768px) {
       .cover-area.background {
         background-size: contain;
