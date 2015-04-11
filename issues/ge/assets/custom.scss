@@ -84,4 +84,14 @@
     }
   }
   // End The People's Power Custom Styles
+
+  // Start Where your power comes from Custom Styles
+  [data-page='where-your-power-comes-from/2'] {
+    @media only screen and (min-width: 768px) {
+      .cover-area.background {
+        background-size: contain;
+      }
+    }
+  }
+  // End Where your power comes from Custom Styles
 }
