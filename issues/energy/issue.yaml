@@ -1,4 +1,4 @@
-title: Energy
+title: Renewable Energy
 description: "Renewable Energy Target, Oil, Gas and Electricity"
 
 magazine_handle: ge
@@ -13,8 +13,8 @@ assets:
 
 paths:
   - index
-  - turbine-or-not-turbine
-  - return-to-investment
-  - the-peoples-power
-  - where-your-power-comes-from
-  - ge-oil-and-gas-opens-new-facility-for-the-inpex
+  - turbine
+  - ret-question
+  - peoples-power
+  - power-source
+  - new-facility

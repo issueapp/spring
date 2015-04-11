@@ -5,7 +5,7 @@
     summary: "As discussions on Australia’s renewable energy target are re-ignited, GEreports asked three renewable-energy supporters what RET certainty would mean—and added the GE perspective, too"
 
     images:
-      - url: 'assets/return-to-investment/cover.jpg'
+      - url: 'assets/ret-question/cover.jpg'
         cover: true
 
     layout:
