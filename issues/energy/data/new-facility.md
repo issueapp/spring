@@ -4,9 +4,9 @@
     title: 'GE Oil & Gas opens new facility for the INPEX Ichthys LNG project'
 
     images:
-      - url: 'assets/ge-oil-and-gas-opens-new-facility-for-the-inpex/cover.jpg'
+      - url: 'assets/new-facility/cover.jpg'
         cover: true
-      - url: 'assets/ge-oil-and-gas-opens-new-facility-for-the-inpex/p1-1.png'
+      - url: 'assets/new-facility/p1-1.png'
 
     layout:
       type: two-column
@@ -14,7 +14,7 @@
 
 ---
 
-<img data-media-id="images:2" src="assets/ge-oil-and-gas-opens-new-facility-for-the-inpex/p1-1.png">
+<img data-media-id="images:2" src="assets/new-facility/p1-1.png">
 
 <p>
   In the beautiful town of Broome, Western Australia, they are expecting some incredible technologies to come visit.&nbsp; Not the usual tourists, these massive subsea machines will check their bags in at the newly opened GE Oil &amp; Gas subsea facility, before heading 220 km offshore to the&nbsp;<u><a href="http://gereports.com.au/post/19-12-2014/o-christmas-tree-o-christmas-tree" target="_blank">INPEX operated Ichthys LNG project</a>.</u>
