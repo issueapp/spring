@@ -69,6 +69,14 @@
   }
   // End Cover Page Custom Styles
 
+  // TOC
+  [data-page='toc'] {
+    .menu a.toc .story {
+      text-decoration: none;
+    }
+  }
+  // TOC
+
   // Start Return To Investment Custom Styles
   // Start Flinders Range Custom Styles
   [data-page='turbine'] {
@@ -253,7 +261,7 @@
   [data-page='turbine/4'] {
     &.page.infographic {
       @media only screen and (min-width: 768px) {
-        .cover-area.background {
+        .cover-area {
           background-size: contain;
         }
       }
@@ -322,20 +330,19 @@
       text-align: left;
       text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 
-      .category {
+      .category,
+      .subtitle {
         color: white
       }
     }
   }
 
-  [data-page='peoples-power/3'],
-  [data-page='peoples-power/4'],
-  [data-page='peoples-power/5'] {
-    &.page.infographic {
-      @media only screen and (min-width: 768px) {
-        .cover-area.background {
-          background-size: contain;
-        }
+  [data-page='peoples-power/3'].infographic,
+  [data-page='peoples-power/4'].infographic,
+  [data-page='peoples-power/5'].infographic {
+    @media only screen and (min-width: 768px) {
+      .cover-area {
+        background-size: contain;
       }
     }
   }
