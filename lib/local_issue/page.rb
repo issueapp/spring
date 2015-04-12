@@ -136,7 +136,13 @@ class LocalIssue::Page < Hashie::Mash
     
     attributes["images"].map! do |image|
       image.layout = image.layout || !!image.cover
+      image.type = "image"
       image
+    end
+    
+    attributes["videos"].map! do |video|
+      video.type = "video"
+      video
     end
 
     # Custom Callback to format asset for app page elements
