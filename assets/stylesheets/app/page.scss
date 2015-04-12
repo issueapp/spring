@@ -229,8 +229,8 @@ article.page {
 
   blockquote:after {
     position: absolute;
-    bottom: 0px;
-    right: 0;
+    bottom: 0;
+    right: 5px;
     display: block;
     color: #999;
     content: "\201D";
