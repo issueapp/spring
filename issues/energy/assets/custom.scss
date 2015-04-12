@@ -261,19 +261,54 @@
   // End Return To Investment Custom Styles
 
   // Start Return To Investment Custom Styles
-  [data-page='ret-question/1'] {
+  [data-page='ret-question/1'],
+  [data-page='ret-question/3'] {
+    figure.original {
+      img {
+        position: static;
+      }
+
+      figcaption {
+        bottom: 0;
+      }
+
+      blockquote:before,
+      blockquote:after {
+        color: white;
+      }
+    }
+
     @media only screen and (min-width: 768px) {
       p {
         margin: 1em 0;
       }
 
       .content {
-        .image {
+        blockquote {
+          padding-top: 1.5em;
+
+          -webkit-column-break-before: always;
+          -moz-column-break-before: always;
+          column-break-before: always;
+        }
+
+        figure.image {
+          margin: 20px 0 0;
+
           -webkit-column-break-after: always;
           -moz-column-break-after: always;
           column-break-after: always;
         }
       }
+    }
+  }
+
+  [data-page='ret-question/2'] {
+    figcaption {
+      width: 100%;
+      height: 50px;
+      background: none;
+      padding: 0;
     }
   }
   // End Return To Investment Custom Styles
