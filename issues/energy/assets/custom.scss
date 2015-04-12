@@ -70,17 +70,22 @@
   // End Cover Page Custom Styles
 
   // Start Return To Investment Custom Styles
+  // Start Flinders Range Custom Styles
   [data-page='turbine'] {
-    
-    figure.overlay {
+    .cover-area {
+      height: 100vh;
+      background-size: cover;
+      background-repeat: no-repeat;
+      overflow: hidden;
+
       &:before {
         content: none;
       }
-      
+
       header {
-        // Generic 
         max-width: 45em;
-        margin: 0 auto;
+        margin: 0 0 0 5%;
+        text-align: left;
         position: absolute;
         bottom: 0;
         left: 0;
@@ -91,39 +96,99 @@
 
         transform: translateY(-20%);
         -webkit-transform: translateY(-20%);
-        
-        white-space: normal;
-        
-        
-        // page specific
-        width: 50%;
+
+        // Video background image
+        .title, .subtitle {
+          color: white;
+          text-shadow: 1px 1px 20px rgba(0, 0, 0, 0.3);
+          z-index: 2;
+        }
+
+        .title {
+          font-weight: bold;
+          padding: 0;
+          margin-bottom: 30px;
+        }
+
+        .subtitle {
+          font-family: proxima-nova;
+          font-size: 1.9rem;
+        }
       }
-      
-      // Video background image
-      .title, .subtitle, .description {
+
+      video {
+        margin-left: -0.25em; // offset inline block white space
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        background-repeat: no-repeat;
+
+        animation:  fade 0.8s ease both;
+        -webkit-animation:  fade 0.8s ease both;
+
+        animation-delay: 0.8s;
+        -webkit-animation-delay: 0.8s;
+      }
+
+      figcaption {
+        position: absolute;
+        left: 10px;
+        bottom: 20px;
+        font-size: 12px;
         color: white;
-        text-shadow: 1px 1px 20px rgba(0, 0, 0, 0.3);
-        z-index: 2;
-      }
-
-      .title {
-        font-weight: bold;
         padding: 0;
-        margin-bottom: 30px;
+        width: auto;
+        max-width: 100px;
       }
 
-      .subtitle {
-        font-family: proxima-nova;
-        font-size: 1.9rem;
+      .page-scroll {
+        position: absolute;
+        bottom: 4px;
+        left: 50%;
+        margin-left: -20px;
+        text-decoration: none;
+
+        i {
+          font-size: 40px;
+          color: white;
+        }
       }
     }
-    
+
+    .content {
+      background: white;
+      color: #222;
+
+      h2 {
+        text-align: center;
+      }
+    }
+
     @media only screen and (min-width: 768px) {
-      header {
-        text-align: left;
+      .cover-area {
+        figcaption {
+          left: 20px;
+          font-size: 14px;
+          max-width: initial;
+        }
+      }
+
+      .content {
+        figure.wrapping {
+          float: left;
+          max-width: 320px;
+          margin: 0 30px 10px 0;
+        }
       }
     }
   }
+  // End 
 
   [data-page='turbine/2'] {
     figure.cover-area {
