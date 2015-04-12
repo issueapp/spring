@@ -10,6 +10,7 @@ icon_url: assets/icon.png
 
 assets:
   - custom.css
+  - custom.js
 
 paths:
   - index
