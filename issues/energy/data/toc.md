@@ -1,14 +1,11 @@
 ---
 
-    cover_url: ""
-    
-    images:
-      - url: 'assets/toc_cover.jpg'
-        cover: true
+    cover_url: assets/toc_cover.jpg
+    thumb_url: assets/toc_cover.jpg
 
     layout:
-      type: two-column
-      image_style: background
+      type: toc
+      image_style: cover
 
 ---
 
