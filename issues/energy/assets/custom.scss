@@ -150,10 +150,18 @@
   // End Return To Investment Custom Styles
 
   // Start Return To Investment Custom Styles
-  [data-page='ret-question/2'] {
+  [data-page='ret-question/1'] {
     @media only screen and (min-width: 768px) {
-      .cover-area.background {
-        background-size: contain;
+      p {
+        margin: 1em 0;
+      }
+
+      .content {
+        .image {
+          -webkit-column-break-after: always;
+          -moz-column-break-after: always;
+          column-break-after: always;
+        }
       }
     }
   }
