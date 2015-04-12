@@ -27,6 +27,6 @@
   </header>
   <video src="{{ cover.url }}" type="video/mp4" style="background: {{ cover.thumb_url }} no-repeat; background-size: cover" data-autoplay=true loop></video>
   <figcaption>{{ cover.caption }}</figcaption>
-  <a href='geo:-31.648238,139.013542?label=Albany Wind farm' class='show-map'></a>
-  <a href='#page-content' class='page-scroll'><i class='icon-ios7-arrow-down'></i></a>
+  <a href='geo:-35.042977,117.90521?label=Albany Wind farm' class='show-map'></a>
+  <!-- <a href='#page-content' class='page-scroll'><i class='icon-ios7-arrow-down'></i></a> -->
 </figure>
