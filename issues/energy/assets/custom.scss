@@ -188,7 +188,7 @@
       }
     }
   }
-  // End 
+  // End
 
   [data-page='turbine/2'] {
     figure.cover-area {
@@ -250,11 +250,12 @@
   }
 
   [data-page='turbine/3'],
-  [data-page='turbine/4'],
-  .page.infographic {
-    @media only screen and (min-width: 768px) {
-      .cover-area.background {
-        background-size: contain;
+  [data-page='turbine/4'] {
+    &.page.infographic {
+      @media only screen and (min-width: 768px) {
+        .cover-area.background {
+          background-size: contain;
+        }
       }
     }
   }
@@ -316,10 +317,25 @@
   // End Return To Investment Custom Styles
 
   // Start The People's Power Custom Styles
-  [data-page='peoples-power/2'] {
-    @media only screen and (min-width: 768px) {
-      .cover-area.background {
-        background-size: contain;
+  [data-page='peoples-power'] {
+    header {
+      text-align: left;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+
+      .category {
+        color: white
+      }
+    }
+  }
+
+  [data-page='peoples-power/3'],
+  [data-page='peoples-power/4'],
+  [data-page='peoples-power/5'] {
+    &.page.infographic {
+      @media only screen and (min-width: 768px) {
+        .cover-area.background {
+          background-size: contain;
+        }
       }
     }
   }

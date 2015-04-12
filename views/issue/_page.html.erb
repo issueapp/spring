@@ -79,10 +79,10 @@
 
 <% unless page.layout.type == "custom" %>
 
-<% if page.cover %>
-  <figure class="cover-area <%= page.cover.type.split('/').first %> <%= page.layout.image_style %> <%= page.cover.style %>" 
-    
-    <% if page.cover.type.include?("video") %>
+<% if page.cover  %>
+  <figure class="cover-area <%= page.cover.type && page.cover.type.split('/').first %> <%= page.layout.image_style %> <%= page.cover.style %>"
+
+    <% if page.cover.type && page.cover.type.include?("video") %>
       style="background-image: url(<%= thumb_url %>)"
     <% else %>
       style="background-image: url(<%= cover_url %>)"
@@ -93,14 +93,14 @@
       <%= header_area %>
     <% end %>
 
-    <% if page.cover.type.include?("video") %>
+    <% if page.cover.type && page.cover.type.include?("video") %>
       <% unless embed_video? cover_url %>
         <video src="<%= cover_url %>" data-media-id="<%= page.cover.id %>" <%= "data-autoplay" if page.cover.autoplay %> <%= "loop" if page.cover.autoplay %> poster="<%= asset_path page.cover.thumb_url %>"></video>
       <% else %>
           <%= video_iframe cover_url, page.cover.to_hash.merge(lazy: true, autoplay: true) %>
       <% end %>
     <% end %>
-    
+
     <% if page.cover.caption %>
       <figcaption class="inset"><%= page.cover.caption %></figcaption>
     <% end %>
@@ -177,6 +177,6 @@
     console.log("FIRED: page:change")
     if (App.support.webview) page.setActive()
   })
-  
+
   App.currentPage = page
 </script>
