@@ -7,11 +7,11 @@
   end
 
   has_cover = page.cover_url && page.layout.image_style != "none"
-  has_content = (page.content && !page.content.strip.empty?) || page.credits
   description = page.description || page.summary
+  has_content = (page.content && !page.content.strip.empty?) || page.credits || page.summary
   
-  cover_url = page.cover.try(:file).try(:url) || page.cover.url
-  thumb_url = page.thumb.try(:file).try(:url) || page.cover.thumb_url
+  cover_url = page.cover.try(:file).try(:url) || page.cover.try(:url)
+  thumb_url = page.thumb.try(:file).try(:url) || page.cover.try(:thumb_url)
 %>
 
 <% if page.title || description %>
@@ -79,7 +79,15 @@
 
 <% unless page.layout.type == "custom" %>
 
-  <figure class="cover-area video <%= page.layout.image_style %> <%= page.cover.style %>" style="background-image: url(<%= thumb_url %>)">
+<% if page.cover %>
+  <figure class="cover-area <%= page.cover.type.split('/').first %> <%= page.layout.image_style %> <%= page.cover.style %>" 
+    
+    <% if page.cover.type.include?("video") %>
+      style="background-image: url(<%= thumb_url %>)"
+    <% else %>
+      style="background-image: url(<%= cover_url %>)"
+    <% end %>
+    >
 
     <% if page.cover.style == 'overlay' %>
       <%= header_area %>
@@ -87,7 +95,7 @@
 
     <% if page.cover.type.include?("video") %>
       <% unless embed_video? cover_url %>
-        <video src="<%= cover_url %>" <%#= "autoplay" if page.cover.autoplay %> <%= "loop" if page.cover.autoplay %> poster="<%= asset_path page.cover.thumb_url %>"></video>
+        <video src="<%= cover_url %>" data-media-id="<%= page.cover.id %>" <%= "data-autoplay" if page.cover.autoplay %> <%= "loop" if page.cover.autoplay %> poster="<%= asset_path page.cover.thumb_url %>"></video>
       <% else %>
           <%= video_iframe cover_url, page.cover.to_hash.merge(lazy: true, autoplay: true) %>
       <% end %>
@@ -97,12 +105,11 @@
       <figcaption class="inset"><%= page.cover.caption %></figcaption>
     <% end %>
   </figure>
-
+<% end %>
 
 
   <div class='content'>
-
-    <% unless page.cover.style == "overlay" %>
+    <% if !page.cover || (page.cover && page.cover.style != "overlay") %>
       <%= header_area %>
     <% end %>
 
