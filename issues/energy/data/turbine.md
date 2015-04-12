@@ -6,6 +6,7 @@
 
     videos:
       - url: 'assets/turbine/cover.mp4'
+        thumb_url: 'assets/turbine/cover.jpg'
         cover: true
 
     layout:
