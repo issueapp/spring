@@ -9,7 +9,44 @@
   has_cover = page.cover_url && page.layout.image_style != "none"
   has_content = (page.content && !page.content.strip.empty?) || page.credits
   description = page.description || page.summary
+  
+  cover_url = page.cover.try(:file).try(:url) || page.cover.url
+  thumb_url = page.thumb.try(:file).try(:url) || page.cover.thumb_url
 %>
+
+<% if page.title || description %>
+  <% header_area = capture do %>
+  <header>
+    <% if page.category %>
+      <span class='category'><%= page.category %></span>
+    <% end %>
+
+    <% if page.title %>
+    <h1 class='title preview_item_title'><%= page.title %></h1>
+    <% end %>
+
+    <% if page.subtitle %>
+      <h3 class='subtitle'><%= page.subtitle %></h3>
+    <% end %>
+
+    <div class='extras'>
+      <% if page.author_icon %>
+        <img src="<%= page.author_icon %>" class='avatar' >
+      <% end %>
+
+      <% if page.byline %>
+        <em><%= page.byline %></em>
+      <% end %>
+
+      <% if description %>
+        <p class="description"><%= description %></p>
+      <% end %>
+    </div>
+  </header>
+  <% end %>
+<% end %>
+
+
 <article id="s<%= page.handle.to_s.split('/').first %>" class="page
   embed
  <%= page.layout.type || 'two-column' %>
@@ -41,63 +78,33 @@
 >
 
 <% unless page.layout.type == "custom" %>
-  <% if page.layout.type == "video" %>
-    <figure class="cover-area video <%= page.layout.image_style %>">
-      <%
-        video_url = page.cover.try(:file).try(:url) || page.cover.url
-        thumb_url = page.thumb.try(:file).try(:url) || page.cover.thumb_url
-      %>
 
-      <% unless embed_video? video_url %>
+  <figure class="cover-area video <%= page.layout.image_style %> <%= page.cover.style %>" style="background-image: url(<%= thumb_url %>)">
 
-      <video src="<%= video_url %>" <%#= "autoplay" if page.cover.autoplay %> <%= "loop" if page.cover.autoplay %> poster="<%= asset_path page.cover.thumb_url %>"></video>
-      <% else %>
-
-        <div class="thumbnail" style="background-image: url(<%= thumb_url %>)"></div>
-        <%= video_iframe video_url, page.cover.to_hash.merge(lazy: true, autoplay: true) %>
-      <% end %>
-    </figure>
-
-  <% elsif page.cover %>
-    <figure class="cover-area <%= page.layout.image_style %>"
-         style="background-image: url(<%= asset_path page.cover_url %>)">
-      <% if page.cover.caption %>
-      <figcaption class="inset"><%= page.cover.caption %></figcaption>
-      <% end %>
-    </figure>
-  <% end %>
-
-  <div class='content'>
-    <% if page.title || description %>
-    <header>
-      <% if page.category %>
-        <span class='category'><%= page.category %></span>
-      <% end %>
-
-      <% if page.title %>
-      <h1 class='title preview_item_title'><%= page.title %></h1>
-      <% end %>
-
-      <% if page.subtitle %>
-        <h3 class='subtitle'><%= page.subtitle %></h3>
-      <% end %>
-
-      <div class='extras'>
-        <% if page.author_icon %>
-          <img src="<%= page.author_icon %>" class='avatar' >
-        <% end %>
-
-        <% if page.byline %>
-          <em><%= page.byline %></em>
-        <% end %>
-
-        <% if description %>
-          <p class="description"><%= description %></p>
-        <% end %>
-      </div>
-    </header>
+    <% if page.cover.style == 'overlay' %>
+      <%= header_area %>
     <% end %>
 
+    <% if page.cover.type.include?("video") %>
+      <% unless embed_video? cover_url %>
+        <video src="<%= cover_url %>" <%#= "autoplay" if page.cover.autoplay %> <%= "loop" if page.cover.autoplay %> poster="<%= asset_path page.cover.thumb_url %>"></video>
+      <% else %>
+          <%= video_iframe cover_url, page.cover.to_hash.merge(lazy: true, autoplay: true) %>
+      <% end %>
+    <% end %>
+    
+    <% if page.cover.caption %>
+      <figcaption class="inset"><%= page.cover.caption %></figcaption>
+    <% end %>
+  </figure>
+
+
+
+  <div class='content'>
+
+    <% unless page.cover.style == "overlay" %>
+      <%= header_area %>
+    <% end %>
 
     <% if page.product_set? %>
       <ul class="<%= "cover-area" unless page.cover_url %> product-set <%= "set-#{(page.products.to_a.count/2.0).ceil*2}" %>">
