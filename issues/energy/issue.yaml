@@ -18,5 +18,5 @@ paths:
   - turbine
   - ret-question
   - peoples-power
-  - power-source
-  - new-facility
+  # - power-source
+  # - new-facility

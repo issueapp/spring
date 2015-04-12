@@ -1,8 +1,7 @@
 ---
 
     category: Special Report
-    title: RETurn to Investment - Why We Need the Renewable Energy Target
-    summary: "As discussions on Australia’s renewable energy target are re-ignited, GEreports asked three renewable-energy supporters what RET certainty would mean—and added the GE perspective, too"
+    title: RETurn to Investment
 
     images:
       - url: 'assets/ret-question/stocksy-187292.jpg'
@@ -12,3 +11,5 @@
       type: three-column
       content_valign: middle
 ---
+
+As discussions on Australia’s renewable energy target are re-ignited, GEreports asked three renewable-energy supporters what RET certainty would mean—and added the GE perspective, too
