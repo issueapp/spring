@@ -7,17 +7,17 @@ $(function() {
   script.type = 'text/javascript';
   script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCV5jQkaOQYZO9szxfYYyb06lAvihOjbMw&callback=setupGeoLink';
   document.body.appendChild(script);
-  
-  
+
   function resizeBgVideo() {
     var video        = $('.cover-area.video video');
     var imageWidth   = 1922;
     var imageHeight  = 1080;
     var headerHeight = video.parent().height();
-    
+
+
     if (video.length == 0)
       return;
-    
+
     // video.playbackRate = 1.5
 
     videoWidth  = video.parent().width();
