@@ -36,8 +36,12 @@ $(function() {
 
   $('.infographic .tabs a').live('click', function() {
     var target = this.getAttribute('href');
+
     $('.info-box').hide();
-    $(target).fadeIn();
+    $(target).show();
+
+    $(this).parent().find('.active').removeClass('active');
+    $(this).addClass('active');
 
     return false;
   })
