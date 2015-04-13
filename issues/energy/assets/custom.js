@@ -31,16 +31,15 @@ $(function() {
     video[0].style.width  = parseInt(videoWidth) + 'px';
     video[0].style.height = parseInt(videoHeight) + 'px';
   }
-  
+
   resizeBgVideo();
-  
+
   $('.infographic .tabs a').live('click', function() {
-    var target =  this.getAttribute('href')
-    $('.info-box').hide()
-    
-    $(target).fadeIn()
-    
-    return false
+    var target = this.getAttribute('href');
+    $('.info-box').hide();
+    $(target).fadeIn();
+
+    return false;
   })
-  
+
 });
