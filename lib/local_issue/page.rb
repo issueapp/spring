@@ -148,7 +148,9 @@ class LocalIssue::Page < Hashie::Mash
     # Custom Callback to format asset for app page elements
     if formatter = options[:format_asset]
       self.elements.each do |element|
-        attributes[element] = attributes[element].to_a.map(&formatter)
+        attributes[element] = attributes[element].to_a.map do |item|
+          formatter.call(item, element)
+        end
       end
     end
     
@@ -158,7 +160,6 @@ class LocalIssue::Page < Hashie::Mash
       attributes["cover_url"] = cover.try(:url)
     end
     attributes["cover"] = cover
-    
     
     # Render content part
     attributes["raw_content"] = content.to_s.strip

@@ -46,7 +46,6 @@
   <% end %>
 <% end %>
 
-
 <article id="s<%= page.handle.to_s.split('/').first %>" class="page
   embed
  <%= page.layout.type || 'two-column' %>
@@ -55,10 +54,13 @@
  <%= 'no-header ' unless page.title || description %>
  <%= 'no-content ' unless has_content %>
  <%= page.content_type %>
-
+ <%= "transparent" if page.layout.content_transparent == "1" %>
+  
  <%= page.layout.custom_class %>
  page-fadein
 
+ 
+ 
  <% if page.layout.type != "custom" %>
    <%= page.layout.content_overflow || 'scroll' %>
    <%= page.layout.content_style || 'white' %>
