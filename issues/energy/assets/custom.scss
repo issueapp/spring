@@ -302,11 +302,17 @@
         }
 
         figure.image {
-          margin: 20px 0 0;
+          margin: 0;
+          max-height: 600px;
+          max-height: 80vh;
 
           -webkit-column-break-after: always;
           -moz-column-break-after: always;
           column-break-after: always;
+
+          img {
+            max-height: 100%;
+          }
         }
       }
     }
