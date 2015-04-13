@@ -130,9 +130,9 @@ class IssuePreview < Sinatra::Base
     issue = current_issue
     path = [params["page"], params["subpage"]].compact.join('/')
 
-    asset_formatter = lambda do |asset|
+    asset_formatter = lambda do |asset, element|
       asset.each{|key, value| 
-        asset[key] = asset_path(value) if key =~ /url$/ 
+        asset[key] = asset_path(value) if key =~ /url$/
       }
     end
     page = LocalIssue::Page.find(path, issue: issue, format_asset: asset_formatter)

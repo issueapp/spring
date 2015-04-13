@@ -65,10 +65,11 @@ module LocalIssue::PageHelpers
 
     # get local image size
     image_get_size!(image)
+    max_dimension = "max-height:#{image.height}px; max-width: #{image.width}px"
 
 
     # if image["caption"].present?
-    figure = create_element('figure', class: "image")
+    figure = create_element('figure', class: "image", style: max_dimension)
     figure.inner_html = node.to_s
 
     options[:class] = "inset" if image["caption_inset"]

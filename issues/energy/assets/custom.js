@@ -34,4 +34,13 @@ $(function() {
   
   resizeBgVideo();
   
+  $('.infographic .tabs a').live('click', function() {
+    var target =  this.getAttribute('href')
+    $('.info-box').hide()
+    
+    $(target).fadeIn()
+    
+    return false
+  })
+  
 });
