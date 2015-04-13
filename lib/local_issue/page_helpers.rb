@@ -7,9 +7,9 @@ module LocalIssue::PageHelpers
   # <%= render_page page %>
   def render_page(page)
     require 'nokogiri'
-    
+
     is_custom_html = page.custom_html || page.layout.type == 'custom'
-    
+
     doc = Nokogiri::HTML.fragment("<div>" + page.content + "</div>")
 
     # Swap data-media-id
@@ -26,9 +26,9 @@ module LocalIssue::PageHelpers
         if asset == "images"
           if node["data-background-image"]
             node["style"] = "background-size: cover; background-image:url(#{media["url"]})"
-            
+
           else
-            img_node = image_node(node, media) 
+            img_node = image_node(node, media)
             node.replace(img_node) if img_node != node
           end
         end
@@ -73,17 +73,17 @@ module LocalIssue::PageHelpers
     figure.inner_html = node.to_s
 
     options[:class] = "inset" if image["caption_inset"]
-    
+
     padding = 100/(image.aspect_ratio || 1.5)
-    figure << create_element("div", 
-      class_name: "aspect-ratio", 
+    figure << create_element("div",
+      class_name: "aspect-ratio",
       style: "padding-bottom: #{padding}%;"
     )
-    
+
     figure << create_element('figcaption', image["caption"], options) if image["caption"].present?
 
     figure
-    
+
     # else
     #   node
     # end
@@ -106,10 +106,13 @@ module LocalIssue::PageHelpers
     video["autoplay"] ||= true
     video["controls"] ||= false
 
+    # TODO: Double check video url & link
+    video_url = video["url"] || video["link"]
+
     # Setup video params
     options = {
       type:     video["type"],
-      src:      video["url"],
+      src:      video_url,
       # autoplay: video["autoplay"] ? true : nil,
       'data-autoplay': video["autoplay"] ? true : nil,
       controls: video["controls"] ? true : nil,
@@ -126,8 +129,8 @@ module LocalIssue::PageHelpers
     )
 
     # Detect embed videos
-    if embed_video? video["url"]
-      figure.inner_html += video_iframe(video["url"], options.merge(lazy: true))
+    if embed_video? video_url
+      figure.inner_html += video_iframe(video_url, options.merge(lazy: true))
 
     # Use HTML5 native Video element
     else
@@ -207,28 +210,28 @@ module LocalIssue::PageHelpers
   def create_element(*args)
     Nokogiri::HTML("").create_element(*args)
   end
-  
+
   def image_get_size!(asset)
 
     path = asset.url.sub("../assets/", "assets/")
-    
+
     Rails.logger.info ">>>> image_get_size!"
     Rails.logger.info path
     file = @issue.path.join(path)
-    
+
     return unless file.exist?
     Timeout::timeout(0.2) {
-      
+
       width, height = FastImage.size file
       aspect_ratio = width.to_f / height
-    
+
       asset.width = width
       asset.height = height
       asset.aspect_ratio = aspect_ratio
     }
-    
+
     asset
-  rescue 
+  rescue
     nil
   end
 end
