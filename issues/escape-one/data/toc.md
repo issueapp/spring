@@ -19,7 +19,7 @@ Since its inception more than a decade ago, the partnership between Solotel, Mat
 
 Opera Bar’s latest incarnation builds on a very strong foundation to again set the standard. With a diverse food experience that showcases the best Australian produce across a charcuterie room, raw seafood bar and new café, it will strengthen Opera Bar’s position as one of the city’s most exciting and popular destinations.
 
-<img class="author" src="assets/toc/Louise-Herron.jpg" data-media-id="images:1" style="float: right">
+<img class="author" src="assets/toc/Louise-Herron.jpg" data-media-id="images:1" style="float: right" data-original>
 
 Louise Herron (AM)<br>
 Sydney Opera House CEO

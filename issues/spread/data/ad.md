@@ -17,7 +17,7 @@
 ---
 
 </p><a href="http://philly.com.au/" class="href" target="_blank">
-  <img src="assets/ad/message.svg" data-media-id="images:1">
-  <img src="assets/ad/call-to-action.svg" data-media-id="images:2">
-  <img src="assets/ad/brand_product.svg" data-media-id="images:3">
+  <img src="assets/ad/message.svg" data-media-id="images:1" data-original>
+  <img src="assets/ad/call-to-action.svg" data-media-id="images:2" data-original>
+  <img src="assets/ad/brand_product.svg" data-media-id="images:3" data-original>
 </a>
