@@ -341,7 +341,7 @@
   // End Return To Investment Custom Styles
 
   // Infographic
-  
+
   .info-container {
     display: block;
     margin: 0 auto;
@@ -352,6 +352,14 @@
 
     .wind-bg, .solar-bg {
       display: none;
+    }
+
+    header {
+      text-align: left;
+    }
+
+    .subtitle {
+      color: white;
     }
 
     @media only screen and (min-width: 768px) {
@@ -374,6 +382,7 @@
         width: 100%;
         height: 100%;
         overflow: visible;
+        position: absolute;
       }
 
       .body {
@@ -479,7 +488,15 @@
 
   [data-page='peoples-power/3'] {
     .content {
-      position: static;
+      position: absolute;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      bottom: 0;
+      margin: 0;
+      max-height: initial;
     }
 
     .content header {
