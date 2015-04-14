@@ -46,14 +46,14 @@ $(function() {
       tas:  0.05
     }
     var solarData = {
-      nsw: 0.75,
-      vic: 0.15,
-      qld: 0.5,
-      sa:  0.25,
-      nt:  0.15,
-      act: 0.25,
-      wa:  0.15,
-      tas:  0.05
+      nsw: 0,
+      vic: 0,
+      qld: 0,
+      sa:  0.75,
+      nt:  0.0,
+      act: 0.0,
+      wa:  0.5,
+      tas:  0
     }
     
     if (target == "wind") {
