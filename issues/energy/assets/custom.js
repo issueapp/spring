@@ -34,12 +34,80 @@ $(function() {
 
   resizeBgVideo();
 
-  $('.infographic .tabs a').live('click', function() {
+  function updateStateGraph(target) {
+    var windData = {
+      nsw: 0.75,
+      vic: 0.15,
+      qld: 0.5,
+      sa:  0.25,
+      nt:  0.15,
+      act: 0.25,
+      wa:  0.15,
+      tas:  0.05
+    }
+    var solarData = {
+      nsw: 0.75,
+      vic: 0.15,
+      qld: 0.5,
+      sa:  0.25,
+      nt:  0.15,
+      act: 0.25,
+      wa:  0.15,
+      tas:  0.05
+    }
+    
+    if (target == "wind") {
+      var data = windData
+      var color = 'rgba(156, 215, 235, 1)'
+    } else {
+      var data = solarData
+      var color = 'rgba(255, 130, 39, 1)'
+    }
+    
+    for (var state in data) {
+      var area = $('svg').find(".state."+state)
+      var level = data[state]
+      
+      console.log("update", target, state, level)
+      
+      area.css({ opacity: level })
+      area.attr('fill', color)
+    }
+  }
+
+  updateStateGraph('wind')
+  
+  $('[data-page="turbine/3"].infographic .tabs a').live('click', function() {
+    var page = $('[data-page="turbine/3"]')
+    var target = this.getAttribute('href');
+    var infos = $('.info-box').hide();
+    var legends = $('.legend').hide()
+    var header = page.find('.cover-area')
+    var background = $(target).find('.background').attr('src')
+    
+    console.log(page)
+    $(target).show();
+
+    $(this).parent().find('.active').removeClass('active');
+    $(this).addClass('active');
+    header[0].style.backgroundImage = "url(" +background+ ")";
+    
+    if (target == "#infographic-wind") {
+      updateStateGraph('wind')
+      $('.legend.wind').show()
+    } else {
+      updateStateGraph('solar')
+      $('.legend.solar').show()
+    }
+    return false;
+  })
+  
+  $('[data-page="peoples-power/3"].infographic .tabs a').live('click', function() {
     var target = this.getAttribute('href');
 
     $('.info-box').hide();
-    $(target).show();
-
+    $(target).fadeIn();
+    $(target).css('-webkit-transform', '')
     $(this).parent().find('.active').removeClass('active');
     $(this).addClass('active');
 
