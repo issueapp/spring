@@ -35,7 +35,7 @@ $(function() {
   resizeBgVideo();
 
   function updateStateGraph(target) {
-    var windData = {
+    var solarData = {
       nsw: 0.75,
       vic: 0.15,
       qld: 0.5,
@@ -45,7 +45,7 @@ $(function() {
       wa:  0.15,
       tas:  0.05
     }
-    var solarData = {
+    var windData = {
       nsw: 0,
       vic: 0,
       qld: 0,
@@ -55,7 +55,7 @@ $(function() {
       wa:  0.5,
       tas:  0
     }
-    
+
     if (target == "wind") {
       var data = windData
       var color = 'rgba(156, 215, 235, 1)'
@@ -63,20 +63,20 @@ $(function() {
       var data = solarData
       var color = 'rgba(255, 130, 39, 1)'
     }
-    
+
     for (var state in data) {
       var area = $('svg').find(".state."+state)
       var level = data[state]
-      
+
       console.log("update", target, state, level)
-      
+
       area.css({ opacity: level })
       area.attr('fill', color)
     }
   }
 
   updateStateGraph('wind')
-  
+
   $('[data-page="turbine/3"].infographic .tabs a').live('click', function() {
     var page = $('[data-page="turbine/3"]')
     var target = this.getAttribute('href');
@@ -84,14 +84,14 @@ $(function() {
     var legends = $('.legend').hide()
     var header = page.find('.cover-area')
     var background = $(target).find('.background').attr('src')
-    
+
     console.log(page)
     $(target).show();
 
     $(this).parent().find('.active').removeClass('active');
     $(this).addClass('active');
     header[0].style.backgroundImage = "url(" +background+ ")";
-    
+
     if (target == "#infographic-wind") {
       updateStateGraph('wind')
       $('.legend.wind').show()
@@ -99,15 +99,23 @@ $(function() {
       updateStateGraph('solar')
       $('.legend.solar').show()
     }
+
+    $(target).css('-webkit-transform', '')
+    $(target).css('-webkit-transform-origin', '')
+
     return false;
   })
-  
+
   $('[data-page="peoples-power/3"].infographic .tabs a').live('click', function() {
     var target = this.getAttribute('href');
+    var background = $(target).find('.background').attr('src')
+    var page = $(target).parents('article.page')
+    var cover = page.find('.cover-area')
 
     $('.info-box').hide();
-    $(target).fadeIn();
+    $(target).show();
     $(target).css('-webkit-transform', '')
+    $(cover).css('background-image', "url(" + background + ")")
     $(this).parent().find('.active').removeClass('active');
     $(this).addClass('active');
 
