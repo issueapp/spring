@@ -76,35 +76,61 @@
       }
     }
 
-    figure.image {
+    .body {
+      text-align: center;
+    }
+
+    .body > figure.image {
       margin: 0 auto;
+      z-index: 1;
     }
 
     .cover-area {
+      position: absolute;
+      display: inline-block;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+
       -webkit-transition: all 0.3s ease-out;
       -moz-transition: all 0.3s ease-out;
       transition: all 0.3s ease-out;
     }
 
     .info-box {
-      .background { display: none }
+      .background { display: none; }
     }
 
     .legend {
       position: absolute;
-      left: 20px;
-      bottom: 50px;
+      left: 0;
+      bottom: 200px;
+    }
+
+    .hotspot {
+      @extend %icon-style;
+
+      color: rgba(255, 255, 255, 0.7);
+      width: 30px;
+      z-index: 2;
+
+      &:before{
+        content: "\e65d";
+      }
+
+      &:active {
+        color: #fff;
+      }
     }
 
     .tabs {
-      position: absolute;
-      right: 20px;
-      top: 50px;
-
       .button {
         line-height: 33px;
         height: 33px;
-
         padding: 0 30px;
 
         &:last-child {
@@ -113,18 +139,16 @@
       }
     }
 
-    .hotspot {
-      @extend %icon-style;
-
-      color: rgba(255, 255, 255, 0.7);
-      width: 30px;
-
-      &:before{
-        content: "\e65d";
+    @media only screen and (min-width: 768px) {
+      .tabs {
+        position: absolute;
+        right: 20px;
+        top: 50px;
       }
 
-      &:active {
-        color: #fff;
+      .legend {
+        left: 20px;
+        bottom: 50px;
       }
     }
   }
@@ -500,6 +524,7 @@
       left: 0;
       width: 100%;
       margin: 0;
+      z-index: 1;
     }
 
     .chart {
@@ -515,17 +540,7 @@
       position: absolute;
       bottom: 20px;
       left: 20px;
-      z-index: 1;
-    }
-
-    .info-box img {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      width: 100%;
-      height: 100%;
+      z-index: 2;
     }
 
     @media only screen and (min-width: 768px) {
