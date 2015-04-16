@@ -1,7 +1,7 @@
-require 'local_issue'
 require 'mustache'
 require 'rdiscount'
 require 'nokogiri'
+require 'local_issue'
 
 class LocalIssue::Page < Hashie::Mash
 
