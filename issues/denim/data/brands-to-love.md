@@ -4,46 +4,46 @@
     summary: 'What is your inspiration?'
 
     images:
-      - url: 'assets/brands-to-love/Levis.jpg'
-        title: 'Levis'
-        caption: '
-          <h2>Levis</h2>
-          <p>A must-have in every woman’s wardrobe, the skinny jeans add height, enhance your natural body shape and never go out of style.</p>
-          <a href="#" class="button outline">SHOP NOW</a>
-        '
-      - url: 'assets/brands-to-love/Nobody-Jeans.jpg'
+      - url: 'assets/brands-to-love/Levis.png'
+        title: "Levi's"
+        caption: "
+          <h2>Levi's</h2>
+          <p>Born in 1853 in San Francisco, this iconic name is loved for its head-to-toe denim range, designed for the long haul.</p>
+          <a href='#' class='button outline'>SHOP NOW</a>
+        "
+      - url: 'assets/brands-to-love/Nobody-Jeans.png'
         title: 'Nobody Jeans'
         caption: '
           <h2>Nobody Jeans</h2>
-          <p>Tighter & higher on the hips than the boyfriend cut, this new fit proves that the right jeans look and feel good.</p>
+          <p>Starting from the backstreets of Melbourne, the premium brand’s jeans, denim shorts and skirts are highly in demand.</p>
           <a href="#" class="button outline">SHOP NOW</a>
         '
-      - url: 'assets/brands-to-love/Ziggy.jpg'
+      - url: 'assets/brands-to-love/Ziggy.png'
         title: 'Ziggy'
         caption: '
           <h2>Ziggy</h2>
-          <p>Loved for its relaxed appeal, the boyfriend jean is the most effortlessly cool staple that can easily be dressed up with pumps.</p>
+          <p>The label offers denim plus street style dresses and staples inspired by Melbourne’s creative, art-infused alleyways.</p>
           <a href="#" class="button outline">SHOP NOW</a>
         '
-      - url: 'assets/brands-to-love/Mavi-Jeans.jpg'
+      - url: 'assets/brands-to-love/Mavi-Jeans.png'
         title: 'Mavi Jeans'
         caption: '
           <h2>Mavi Jeans</h2>
-          <p>Flares are back in this season to add fun curves to your silhouette. It’s the perfect fit to wear over your boots.</p>
+          <p>Founded in Istanbul, the brand’s philosophy stays true to creating the perfect fits for women around the world.</p>
           <a href="#" class="button outline">SHOP NOW</a>
         '
-      - url: 'assets/brands-to-love/Jack-Jones.jpg'
-        title: 'Jack Jones'
+      - url: 'assets/brands-to-love/Jack-Jones.png'
+        title: 'Jack & Jones'
         caption: '
           <h2>Jack Jones</h2>
-          <p>Flares are back in this season to add fun curves to your silhouette. It’s the perfect fit to wear over your boots.</p>
+          <p>One of Europe’s leading names for quality jeans, apparel and street shoes with an urban edge.</p>
           <a href="#" class="button outline">SHOP NOW</a>
         '
-      - url: 'assets/brands-to-love/Gstar-raw.jpg'
+      - url: 'assets/brands-to-love/Gstar-raw.png'
         title: 'Gstar Raw'
         caption: '
           <h2>Gstar Raw</h2>
-          <p>Flares are back in this season to add fun curves to your silhouette. It’s the perfect fit to wear over your boots.</p>
+          <p>Pioneering denim since 1989, the brand is known for its cutting-edge style and no-fuss quality jeans and apparel.</p>
           <a href="#" class="button outline">SHOP NOW</a>
         '
 
