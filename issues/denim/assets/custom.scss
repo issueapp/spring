@@ -1,4 +1,51 @@
 #denim-issue {
+  [data-page="index"] {
+    .brand {
+      position: relative;
+      display: block;
+      background: url(brand.png) no-repeat;
+      background-size: contain;
+      background-position: center;
+      width: 45vmin;
+      height: 12vmin;
+      margin: 0 auto 0.5em;
+      color: transparent;
+      text-shadow: none;
+    }
+
+    .title {
+      font-family: "proxima-nova";
+      font-size: 56px;
+      letter-spacing: 4px;
+      letter-spacing: 20px;
+    }
+
+    .description {
+      text-transform: uppercase;
+      padding: 5px 0;
+      margin: 0 auto 2vmin;
+      left: 0;
+      right: 0;
+    }
+
+    .container {
+      padding-top: 0;
+    }
+
+    @media only screen and (min-width: 768px) {
+      .title {
+        font-size: 120px;
+        letter-spacing: 20px;
+        font-family: "proxima-nova";
+        font-weight: normal;
+      }
+
+      .description {
+        width: 26em;
+      }
+    }
+  }
+
   [data-page="perfect-fit"] {
     .cover {
       height: 100%;
