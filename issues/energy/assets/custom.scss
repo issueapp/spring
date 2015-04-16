@@ -71,6 +71,10 @@
         text-align: left;
       }
 
+      .subtitle {
+        text-align: left;
+      }
+
       .description {
         margin-top: 0;
       }
@@ -108,7 +112,7 @@
     .legend {
       position: absolute;
       left: 0;
-      bottom: 200px;
+      bottom: 22%;
     }
 
     .hotspot {
@@ -211,7 +215,7 @@
   // Start Flinders Range Custom Styles
   [data-page='turbine'] {
     .cover-area {
-      height: 100vh;
+      height: 100%;
       background-size: cover;
       background-repeat: no-repeat;
       overflow: hidden;
@@ -221,8 +225,6 @@
       }
 
       header {
-        max-width: 45em;
-        margin: 0 0 0 5%;
         text-align: left;
         position: absolute;
         bottom: 0;
@@ -277,12 +279,12 @@
       figcaption {
         position: absolute;
         left: 10px;
-        bottom: 20px;
+        bottom: 14px;
         font-size: 12px;
         color: white;
         padding: 0;
         width: auto;
-        max-width: 100px;
+        max-width: 160px;
       }
 
       .page-scroll {
@@ -314,6 +316,11 @@
           left: 20px;
           font-size: 14px;
           max-width: initial;
+        }
+
+        header {
+          max-width: 45em;
+          margin: 0 0 0 5%;
         }
       }
 
@@ -396,14 +403,6 @@
   [data-page='turbine/3'] {
     .wind-bg, .solar-bg {
       display: none;
-    }
-
-    header {
-      text-align: left;
-    }
-
-    .subtitle {
-      color: white;
     }
 
     figure.image {
@@ -543,7 +542,14 @@
       z-index: 2;
     }
 
+    .tabs.button-group .button {
+      padding: 0 14px;
+    }
+
     @media only screen and (min-width: 768px) {
+      .tabs .button {
+        padding: 0 30px;
+      }
     }
   }
   // End The People's Power Custom Styles

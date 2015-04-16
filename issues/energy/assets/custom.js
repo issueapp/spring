@@ -33,93 +33,94 @@ $(function() {
   }
 
   resizeBgVideo();
+});
 
-  function updateStateGraph(target) {
-    var solarData = {
-      nsw: 0.75,
-      vic: 0.15,
-      qld: 0.5,
-      sa:  0.25,
-      nt:  0.15,
-      act: 0.25,
-      wa:  0.15,
-      tas:  0.05
-    }
-    var windData = {
-      nsw: 0,
-      vic: 0,
-      qld: 0,
-      sa:  0.75,
-      nt:  0.0,
-      act: 0.0,
-      wa:  0.5,
-      tas:  0
-    }
 
-    if (target == "wind") {
-      var data = windData
-      var color = 'rgba(156, 215, 235, 1)'
-    } else {
-      var data = solarData
-      var color = 'rgba(255, 130, 39, 1)'
-    }
-
-    for (var state in data) {
-      var area = $('svg').find(".state."+state)
-      var level = data[state]
-
-      console.log("update", target, state, level)
-
-      area.css({ opacity: level })
-      area.attr('fill', color)
-    }
+function updateStateGraph(target) {
+  var solarData = {
+    nsw: 0.75,
+    vic: 0.15,
+    qld: 0.5,
+    sa:  0.25,
+    nt:  0.15,
+    act: 0.25,
+    wa:  0.15,
+    tas:  0.05
+  }
+  var windData = {
+    nsw: 0,
+    vic: 0,
+    qld: 0,
+    sa:  0.75,
+    nt:  0.0,
+    act: 0.0,
+    wa:  0.5,
+    tas:  0
   }
 
-  updateStateGraph('wind')
+  if (target == "wind") {
+    var data = windData;
+    var color = 'rgba(156, 215, 235, 1)';
+  } else {
+    var data = solarData;
+    var color = 'rgba(255, 130, 39, 1)';
+  }
 
-  $('[data-page="turbine/3"].infographic .tabs a').live('click', function() {
-    var page = $('[data-page="turbine/3"]')
-    var target = this.getAttribute('href');
-    var infos = $('.info-box').hide();
-    var legends = $('.legend').hide()
-    var header = page.find('.cover-area')
-    var background = $(target).find('.background').attr('src')
+  for (var state in data) {
+    var area = $('svg').find(".state."+state);
+    var level = data[state];
 
-    console.log(page)
-    $(target).show();
+    area.css({ opacity: level });
+    area.attr('fill', color);
+  }
+}
 
-    $(this).parent().find('.active').removeClass('active');
-    $(this).addClass('active');
-    header[0].style.backgroundImage = "url(" +background+ ")";
+App.on("page:active", function(path) {
+  if (path == "turbine/3") {
+    updateStateGraph('wind');
+  }
+});
 
-    if (target == "#infographic-wind") {
-      updateStateGraph('wind')
-      $('.legend.wind').show()
-    } else {
-      updateStateGraph('solar')
-      $('.legend.solar').show()
-    }
+$(document).on("click", '[data-page="turbine/3"].infographic .tabs a', function() {
+  var page = $('[data-page="turbine/3"]');
+  var target = this.getAttribute('href');
+  var infos = $('.info-box').hide();
+  var legends = $('.legend').hide();
+  var header = page.find('.cover-area');
+  var background = $(target).find('.background').attr('src');
 
-    $(target).css('-webkit-transform', '')
-    $(target).css('-webkit-transform-origin', '')
+  $(target).show();
 
-    return false;
-  })
+  $(this).parent().find('.active').removeClass('active');
+  $(this).addClass('active');
+  header[0].style.backgroundImage = "url(" +background+ ")";
 
-  $('[data-page="peoples-power/3"].infographic .tabs a').live('click', function() {
-    var target = this.getAttribute('href');
-    var background = $(target).find('.background').attr('src')
-    var page = $(target).parents('article.page')
-    var cover = page.find('.cover-area')
+  if (target == "#infographic-wind") {
+    updateStateGraph('wind');
+    $('.legend.wind').show();
+  } else {
+    updateStateGraph('solar');
+    $('.legend.solar').show();
+  }
 
-    $('.info-box').hide();
-    $(target).show();
-    $(target).css('-webkit-transform', '')
-    $(cover).css('background-image', "url(" + background + ")")
-    $(this).parent().find('.active').removeClass('active');
-    $(this).addClass('active');
+  $(target).css('-webkit-transform', '');
+  $(target).css('-webkit-transform-origin', '');
 
-    return false;
-  })
+  return false;
+});
 
+$(document).on("click", '[data-page="peoples-power/3"].infographic .tabs a', function() {
+  var target = this.getAttribute('href');
+  var background = $(target).find('.background').attr('src');
+  var page = $(target).parents('article.page');
+  var cover = page.find('.cover-area');
+
+  $('.info-box').hide();
+  $(target).show();
+  $(target).css('-webkit-transform', '');
+  $(cover).css('background-image', "url(" + background + ")");
+  $(this).parent().find('.active').removeClass('active');
+  $(this).addClass('active');
+
+  return false;
 });
