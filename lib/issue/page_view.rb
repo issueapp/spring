@@ -2,10 +2,86 @@ require 'fastimage'
 require 'nokogiri'
 require 'timeout'
 require 'uri'
-require 'local_issue/page'
 
+unless defined? Issue
+  Issue = Module.new
+end
 
-class LocalIssue::PageView < Struct.new(:page)
+class Issue::PageView < Struct.new(:page)
+
+  def dom_id
+  end
+
+  def layout_class
+  end
+
+  def page_id
+  end
+
+  def path
+  end
+
+  def handle
+  end
+
+  def title
+  end
+
+  def summary
+  end
+
+  def category
+  end
+
+  def theme
+  end
+
+  def author
+  end
+
+  def credits
+  end
+
+  def has_parent?
+  end
+
+  def parent
+  end
+
+  def layout
+  end
+
+  def column_break_count
+  end
+
+  def custom_layout?
+  end
+
+  def custom_layout_class
+  end
+
+  def custom_html
+  end
+
+  def content_html
+  end
+
+  def cover?
+  end
+
+  def cover
+  end
+
+  def cover_html
+  end
+
+  def product?
+  end
+
+  def products_html
+  end
+
+  private
 
   # <%= render_page page %>
   def render_page(page)
