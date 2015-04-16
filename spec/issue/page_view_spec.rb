@@ -1,5 +1,5 @@
-require 'local_issue/page'
 require 'issue/page_view'
+require 'local_issue/page'
 
 RSpec.describe Issue::PageView do
   let(:page) { LocalIssue::Page.new }
@@ -69,13 +69,42 @@ RSpec.describe Issue::PageView do
   end
 
   describe 'page elements' do
-    describe 'video'
-    describe 'audio'
-    describe 'image'
+    describe 'video' do
+      it 'renders video block around figure'
+      it 'renders youtube video within iframe'
+      it 'renders vimeo video within iframe'
+      it 'may have custom thumbnail'
+      it 'adds playback attribute: :autoplay, :muted, :controls'
+      it 'adds caption'
+    end
+
+    describe 'image' do
+      it 'renders image block around figure'
+      it 'renders captions in figcaption tag'
+      it 'adds inset class'
+    end
+
     describe 'link'
+
+    describe 'audio' do
+      it 'render video block around figure'
+      it 'adds playback attribute: :autoplay, :muted, :controls'
+      it 'might have custom thumbnail'
+    end
   end
 
-  describe 'custom html'
+  describe 'content html' do
+    it 'decorates data-* attributes with corresponding page element'
+  end
 
-  describe 'layout'
+  describe 'custom html' do
+    it 'decorates data-* attributes with corresponding page element'
+  end
+
+  describe 'layout' do
+    it 'defaults layout type to two-column'
+    it 'outputs custom layout class'
+    it 'outputs page layout class'
+    it 'returns layout object'
+  end
 end
