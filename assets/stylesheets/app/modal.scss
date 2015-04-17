@@ -1,0 +1,295 @@
+#products-modal {
+  height: 554px;
+  overflow: hidden;
+
+  .content {
+    padding: 0 20px;
+  }
+
+  .icon-search {
+    position: relative;
+    margin: 20px auto;
+    text-align: left;
+    font-size: 0;
+    width: 360px;
+
+    &:before {
+      position: absolute;
+      top: 10px;
+      font-size: 22px;
+      margin-left: 10px;
+    }
+
+    input {
+      padding-left: 34px;
+      width: 310px;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    .button {
+      margin: 0;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    @media screen and (min-width: 768px) {
+      width: 400px;
+
+      input {
+        width: 350px;
+      }
+    }
+  }
+
+  ul.products {
+    box-sizing: border-box;
+    list-style: none;
+    padding: 0;
+    overflow-y: auto;
+
+    li {
+      position: relative;
+      min-height: 156px;
+    }
+
+    .title {
+      margin-right: 40px;
+      font-size: 16px;
+    }
+
+    img {
+      display: block;
+      margin: 0 auto;
+      width: 90px;
+    }
+
+    .description {
+      margin-top: 0.25em;
+      margin-bottom: 0;
+      line-height: 20px;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      display: -webkit-box;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+
+    .add-product {
+      margin: 0;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+
+    .col.x8 {
+      float: right;
+      text-align: left;
+    }
+
+    hr {
+      margin: 1em 0;
+    }
+
+    @media screen and (min-width: 768px) {
+      max-height: 400px;
+
+      .col.x8 {
+        padding-right: 50px;
+      }
+    }
+  }
+
+  .new-product-btn {
+    position: absolute;
+    top: 22px;
+    left: 20px;
+    font-size: 12px;
+    color: white;
+
+    &:before {
+      padding-right: 4px;
+      font-size: 22px;
+      vertical-align: middle;
+    }
+  }
+}
+
+#subscribe-modal {
+  .content {
+    padding: 0 20px;
+  }
+
+  font-size: 16px;
+  -webkit-animation: fadeInSmall 0.3s;
+  animation: fadeInSmall 0.3s; /* Safari and Chrome */
+
+  .facebook {
+    display: block;
+    margin: 1rem 0 0;
+  }
+
+  .subscribe-panel {
+    padding-bottom: 80px;
+  }
+
+  .subscribe-email {
+    position: relative;
+  }
+
+  #subscribe-email {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 0;
+    width: 120px;
+  }
+
+  .preview-subscribe {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  .webview & {
+    padding: 0;
+    -webkit-animation: initial; /* Safari and Chrome */
+    animation: initial;
+  }
+
+  @media screen and (min-width: 768px) {
+    margin-left: -240px;
+    max-width: 480px;
+
+    .preview-subscribe {
+      left: 50px;
+      width: initial;
+    }
+  }
+}
+
+#collaborators-modal {
+  .new_user {
+    position: absolute;
+    top: 22px;
+    left: 20px;
+    font-size: 12px;
+    color: white;
+
+    &:before {
+      padding-right: 4px;
+      font-size: 22px;
+      vertical-align: middle;
+    }
+  }
+
+  .actions {
+    line-height: 96px;
+    
+    .button:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .list {
+    max-height: 350px;
+    overflow-y: scroll;
+  }
+}
+
+#assets-modal {
+  input[type=file] {
+    display: none;
+  }
+
+  .col {
+    line-height: 48px;
+  }
+
+  .list {
+    max-height: 350px;
+    overflow-y: scroll;
+  }
+
+  .upload-file {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+  }
+
+  .upload-file label {
+    color: white;
+  }
+
+  .image {
+    width: 48px;
+    height: 48px;
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+
+  i {
+    font-size: 28px;
+    margin-left: 12px;
+    line-height: 48px;
+  }
+
+  i, .title, .actions {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  hr {
+    margin: 16px 0 8px;
+  }
+}
+
+#modal-json-viewer {
+  pre {
+    overflow-y: scroll;
+  }
+
+  @media screen and (min-width: 768px) {
+    pre {
+      max-height: 400px;
+    }
+  }
+}
+
+#publish-issue-modal {
+  .summary {
+    box-sizing: border-box;
+    list-style: none;
+    padding: 0;
+    text-align: center;
+    margin: 10px 0 20px;
+
+    li {
+      h4 {
+        font-size: 28px;
+        margin-bottom: 0;
+      }
+
+      span {
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 14px;
+      }
+    }
+  }
+
+  .input-group {
+    margin-bottom: 20px;
+
+    input {
+      width: 360px;
+    }
+
+    span .button {
+      width: auto;
+      padding: 0 44px;
+    }
+  }
+}

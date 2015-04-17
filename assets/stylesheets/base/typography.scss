@@ -2,48 +2,43 @@
 
 @font-face {
   font-family: 'proxima-nova';
-  font-weight: lighter;
+  font-weight: normal;
   font-style: normal;
-  src: font-url('proximanova-light-webfont.eot');
-  src: font-url('proximanova-light-webfont.eot?#iefix') format('embedded-opentype'),
-       font-url('proximanova-light-webfont.woff') format('woff'),
-       font-url('proximanova-light-webfont.ttf') format('truetype'),
-       font-url('proximanova-light-webfont.svg#proxima_nova_ltregular') format('svg');
+  src: font-url('proximanova-regular-webfont.woff') format('woff'),
+       font-url('proximanova-regular-webfont.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'proxima-nova';
+  font-weight: 300;
+  font-style: normal;
+  src: font-url('proximanova-light-webfont.woff') format('woff'),
+       font-url('proximanova-light-webfont.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'proxima-nova';
   font-weight: bold;
   font-style: normal;
-  src: font-url('proximanova-bold-webfont.eot');
-  src: font-url('proximanova-bold-webfont.eot?#iefix') format('embedded-opentype'),
-       font-url('proximanova-bold-webfont.woff') format('woff'),
-       font-url('proximanova-bold-webfont.ttf') format('truetype'),
-       font-url('proximanova-bold-webfont.svg#proxima_nova_bold') format('svg');
+  src: font-url('proximanova-bold-webfont.woff') format('woff'),
+       font-url('proximanova-bold-webfont.ttf') format('truetype');
 }
 
-@font-face {
-  font-family: 'proxima-nova';
-  font-weight: normal;
-  font-style: normal;
-  src: font-url('proximanova-regular-webfont.eot');
-  src: font-url('proximanova-regular-webfont.eot?#iefix') format('embedded-opentype'),
-       font-url('proximanova-regular-webfont.woff') format('woff'),
-       font-url('proximanova-regular-webfont.ttf') format('truetype'),
-       font-url('proximanova-regular-webfont.svg#proxima_nova_regular') format('svg');
-}
 
 // Font-family
-// 
+//
 $proxima_nova: "proxima-nova", "Helvetica Neue", sans-serif;
+
+//$helvetica_condensed_bold: "HelveticaNeue-CondensedBold", "HelveticaNeueBoldCondensed", "HelveticaNeue-Bold-Condensed", "Helvetica Neue Bold Condensed", "HelveticaNeueBold", "HelveticaNeue-Bold", "Helvetica Neue Bold", "HelveticaNeue", "Helvetica Neue", 'TeXGyreHerosCnBold', "Helvetica", "Tahoma", "Geneva", "Arial Narrow", "Arial", sans-serif;
+// Font size: font-weight:600; font-stretch:condensed;
+
 
 html {
   font-size: 16px;
   font-size: 62.5%;
-  
+
 	-moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  
   -webkit-tap-highlight-color: #f3f5f6;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
@@ -58,14 +53,14 @@ body {
 ================================================== */
 h1, h2, h3, h4, h5, h6, .title {
   margin: 0;
-  
+
   font-family: $proxima_nova;
   font-weight: bold;
-  text-rendering: optimizelegibility; 
+  text-rendering: optimizelegibility;
 }
 
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
-  font-weight: inherit; 
+  font-weight: inherit;
 }
 
 h1 {
@@ -81,20 +76,20 @@ h1 {
 
 h2 {
   margin-bottom: 0.75em;
-    
+
   font-size: 18px;
   font-size: 1.115em;
   font-size: 1.8rem;
   font-weight: lighter;
-  line-height: 1.2; 
-  
+  line-height: 1.2;
+
   text-transform: uppercase;
   letter-spacing: 2px;
 }
 
 h3 {
   margin-bottom: 1em;
-  
+
   font-size: 16px;
   font-size: 1em;
   font-size: 1.6rem;
@@ -102,7 +97,7 @@ h3 {
 
 h4, h5, h6  {
   margin-bottom: 0.75em;
-  
+
   font-size: 14px;
   font-size: 0.875em;
   font-size: 1.4rem;
@@ -121,6 +116,7 @@ h4, h5, h6  {
 .subtitle {
   font-style: italic;
   font-family: georgia;
+  font-weight: normal;
   text-transform: none;
   color: #666;
 }
@@ -151,11 +147,85 @@ a:hover {
 
 a.large {
   font-size: 18px;
-  text-transform: uppercase;
+//  text-transform: uppercase;
+  text-decoration: underline;
 }
 
 p.center {
   text-align: center;
+}
+
+
+
+%heading-text {
+  font-size: 2.1vmin;
+  line-height: 1.4;
+//  line-height: 3.2vmin;
+}
+
+%standard-text {
+  font-size: 2.1vmin;
+  line-height: 1.4;
+//  line-height: 3.2vmin;
+}
+
+article.page {
+
+
+  @include min-screen(768) {
+
+    h1 {
+      font-size: 2.8vmin;
+//      line-height: 4vmin;
+    }
+
+    h2 {
+      font-size: 2.4vmin;
+//      line-height: 4vmin;
+    }
+
+    h3 {
+      font-size: 2.2vmin;
+    }
+
+    p, ol, ul {
+      font-size: 2.1vmin;
+      line-height: 1.4;
+    }
+
+  }
+
+  /* ====
+        Responsive (Wide screen)
+    ====*/
+  @include min-screen(1280) {
+    h1 {
+      font-size: 30px;
+      font-size: 1.875em;
+      font-size: 3rem;
+      line-height: 1.2;
+    }
+
+    h2 {
+      font-size: 24px;
+      font-size: 1.5em;
+      font-size: 2.2rem;
+      line-height: 1.2;
+    }
+
+    h3 {
+      font-size: 18px;
+      font-size: 1.115em;
+      font-size: 1.8rem;
+      line-height: 1.3;
+    }
+
+    p, ol, ul {
+      font-size: 20px;
+    }
+  }
+
+
 }
 
 /*======================================================
@@ -163,35 +233,13 @@ p.center {
   ======================================================*/
 
 .text-centered {
-  text-align: center
+  text-align: center;
 }
 
+.text-right-align {
+  text-align: right;
+}
 
-/* ====
-      Responsive (larger screen)
-  ====*/
-
-@include min-screen(768) {
-
-  h1 {
-    font-size: 30px;
-    font-size: 1.875em;
-    font-size: 3rem;
-    line-height: 1.2;
-  }
-
-  h2 {
-    font-size: 24px;
-    font-size: 1.5em;
-    font-size: 2.4rem;
-    line-height: 1.2;
-  }
-
-  h3 {
-    font-size: 18px;
-    font-size: 1.115em;
-    font-size: 1.8rem;
-    line-height: 1.3;
-  }
-
+.text-left-align {
+  text-align: left;
 }
