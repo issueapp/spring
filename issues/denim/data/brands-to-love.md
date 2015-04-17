@@ -12,9 +12,9 @@
           <a href='#' class='button outline'>SHOP NOW</a>
         "
       - url: 'assets/brands-to-love/Nobody-Jeans.png'
-        title: 'Nobody Jeans'
+        title: 'Nobody Denim'
         caption: '
-          <h2>Nobody Jeans</h2>
+          <h2>Nobody Denim</h2>
           <p>Starting from the backstreets of Melbourne, the premium brand’s jeans, denim shorts and skirts are highly in demand.</p>
           <a href="#" class="button outline">SHOP NOW</a>
         '
@@ -35,14 +35,14 @@
       - url: 'assets/brands-to-love/Jack-Jones.png'
         title: 'Jack & Jones'
         caption: '
-          <h2>Jack Jones</h2>
+          <h2>Jack & Jones</h2>
           <p>One of Europe’s leading names for quality jeans, apparel and street shoes with an urban edge.</p>
           <a href="#" class="button outline">SHOP NOW</a>
         '
       - url: 'assets/brands-to-love/Gstar-raw.png'
-        title: 'Gstar Raw'
+        title: 'G-Star Raw'
         caption: '
-          <h2>Gstar Raw</h2>
+          <h2>G-Star Raw</h2>
           <p>Pioneering denim since 1989, the brand is known for its cutting-edge style and no-fuss quality jeans and apparel.</p>
           <a href="#" class="button outline">SHOP NOW</a>
         '
