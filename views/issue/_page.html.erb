@@ -2,12 +2,7 @@
   require 'issue/page_view'
   page = Issue::PageView.new(page)
 
-  has_cover = page.cover_url && page.layout.image_style != "none"
   description = page.description || page.summary
-  has_content = (page.content && !page.content.strip.empty?) || page.credits || page.summary
-  
-  cover_url = page.cover.try(:file).try(:url) || page.cover.try(:url)
-  thumb_url = page.thumb.try(:file).try(:url) || page.cover.try(:thumb_url)
 %>
 
 <% if page.title || description %>
@@ -49,36 +44,12 @@
   data-page-id="<%= page.page_id %>"
 >
 
-<% unless page.layout.type == "custom" %>
+<% if page.layout.type == 'custom' %>
+  <%= render_page page %>
 
-<% if page.cover  %>
-  <figure class="cover-area <%= page.cover.type && page.cover.type.split('/').first %> <%= page.layout.image_style %> <%= page.cover.style %>"
+<% else %>
 
-    <% if page.cover.type && page.cover.type.include?("video") %>
-      style="background-image: url(<%= thumb_url %>)"
-    <% else %>
-      style="background-image: url(<%= cover_url %>)"
-    <% end %>
-    >
-
-    <% if page.cover.style == 'overlay' %>
-      <%= header_area %>
-    <% end %>
-
-    <% if page.cover.type && page.cover.type.include?("video") %>
-      <% unless embed_video? cover_url %>
-        <video src="<%= cover_url %>" data-media-id="<%= page.cover.id %>" <%= "data-autoplay" if page.cover.autoplay %> <%= "loop" if page.cover.autoplay %> poster="<%= asset_path page.cover.thumb_url %>"></video>
-      <% else %>
-          <%= video_iframe cover_url, page.cover.to_hash.merge(lazy: true, autoplay: true) %>
-      <% end %>
-    <% end %>
-
-    <% if page.cover.caption %>
-      <figcaption class="inset"><%= page.cover.caption %></figcaption>
-    <% end %>
-  </figure>
-<% end %>
-
+  <%= page.cover_html %>
 
   <div class='content'>
     <% if !page.cover || (page.cover && page.cover.style != "overlay") %>
@@ -86,15 +57,11 @@
     <% end %>
 
     <%= page.product_set_html if page.has_product_set? %>
+
+    <% page.column_break_count.times do %>
+      <p class='column-break'></p>
+    <% end %>
     
-    <% if page.cover_url || page.product_set? %>
-      <p class='column-break'></p>
-    <% end %>
-
-    <% if false &&  page.layout.type == 'three-column' && page.cover_url %>
-      <p class='column-break'></p>
-    <% end %>
-
     <div class='body'><%= render_page page %></div>
 
     <% if page.credits %>
@@ -102,8 +69,6 @@
     <% end %>
   </div>
 
-<% else %>
-  <%= render_page page %>
 <% end %>
 </article>
 
