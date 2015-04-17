@@ -7,57 +7,154 @@ unless defined? Issue
   Issue = Module.new
 end
 
-class Issue::PageView < Struct.new(:page)
+Struct.new('Author', :name, :icon)
 
-  def dom_id
+class Issue::PageView # < Struct.new(:page)
+
+  attr_reader :page
+  def initialize(page); @page = page end
+
+  def method_missing name, *args
+    page.send(name, *args)
   end
 
-  def layout_class
+  def dom_id
+    "s#{handle}"
+  end
+
+  # page embed
+  # <%= page.layout.type || 'two-column' %>
+  # <%= 'no-image ' unless has_cover %>
+  # <%= 'has-product ' if page.product_set? %>
+  # <%= 'no-header ' unless page.title || description %>
+  # <%= 'no-content ' unless has_content %>
+  # <%= page.content_type %>
+  # <%= "transparent" if page.layout.content_transparent == "1" %>
+  # 
+  # <%= page.layout.custom_class %>
+  # page-fadein
+  # 
+  # 
+  # 
+  # <% if page.layout.type != "custom" %>
+  #   <%= page.layout.content_overflow || 'scroll' %>
+  #   <%= page.layout.content_style || 'white' %>
+  #   <%= page.layout.content_align || 'left' %>
+  #   <%= page.layout.content_valign || 'top' %>
+  # 
+  #   <%= "height-#{page.layout.content_height || 'auto'}" %>
+  #   <%= "image-#{page.layout.image_style}" if page.layout.image_style %>
+  #   <%= "cover-#{page.layout.image_align}" if page.product_set? || page.layout.image_align && page.cover_url %>
+  # <% end %>
+  def layout_class options={}
+    has_header  = !empty_content?(page.title) || !empty_content?(page.description)
+    has_content = !empty_content?(page.content)
+    has_product = !page.products.empty?
+    has_cover   = page.cover_url && page.layout.image_style != "none"
+    editing     = options[:editing]
+
+    classes = ["page", "page-fadein", page.type, page.layout.custom_class]
+
+    # HACK: Migrate all page type video with one column, use video.cover = true instead
+    page.layout.type = "one-column" if page.layout.type == "video"
+
+    classes << (page.layout.type || 'two-column') if page.handle != "toc"
+    
+    classes << ('has-product' if has_product)
+    classes << ('no-header'   if !editing && !has_header)
+    classes << ('no-content ' if !editing && !has_content)
+    classes << ('no-image'    if !editing && !has_cover)
+    
+    classes << (page.layout.content_style    || 'white')
+    classes << ('transparent') if page.layout.content_transparent == "1"
+
+    if page.layout.type != "custom"
+      classes << (page.layout.content_overflow || 'scroll')
+      classes << (page.layout.content_align    || 'left')
+      classes << (page.layout.content_valign   || 'middle')
+
+      classes << ("height-#{page.layout.content_height || 'auto'}")
+      classes << "image-#{page.layout.image_style}" if page.layout.image_style
+      classes << ("cover-#{page.layout.image_align || "left" }")
+    end
+
+    classes.join(' ').squeeze(' ')
   end
 
   def page_id
+    page.id
   end
 
   def path
+    page.path
   end
 
   def handle
+    page.handle
   end
 
   def title
+    page.title
   end
 
   def summary
+    if page.respond_to? 'summary'
+      page.summary
+    elsif page.respond_to? 'description'
+      page.description
+    end
   end
 
   def category
+    page.category
   end
 
   def theme
+    page.theme
+  end
+
+  def show_author?
+    ! layout.hide_author && ! has_parent? && author
   end
 
   def author
+    name = page.author_name
+    icon = page.author_icon if page.respond_to? 'author_icon'
+    icon ||= page.author.image.url if page.respond_to? 'author'
+
+    if name
+      Struct::Author.new(name, icon)
+    end
   end
 
   def credits
+    page.credits
   end
 
   def has_parent?
+    !! parent
   end
 
   def parent
+    page.parent
   end
 
   def layout
+    page.layout
   end
 
   def column_break_count
+    count = 0
+
+    has_cover_url = ! page.cover_url.blank?
+
+    count += 1 if has_cover_url || product?
+    count += 1 if layout.type == 'three-column' && has_cover_url
+
+    count
   end
 
   def custom_layout?
-  end
-
-  def custom_layout_class
   end
 
   def custom_html
@@ -66,22 +163,86 @@ class Issue::PageView < Struct.new(:page)
   def content_html
   end
 
-  def cover?
+  def has_cover?
+    !! cover
   end
 
   def cover
+    page.cover
   end
 
   def cover_html
   end
 
-  def product?
+  def has_product_set?
+    page.product_set?
   end
 
-  def products_html
+  def product_set_html
+    container_class = 'product-set'
+    container_class << " set-#{(page.products.to_a.count/2.0).ceil*2}" 
+    container_class << ' cover-area' unless page.cover_url 
+
+    doc = Nokogiri::HTML::DocumentFragment.parse('')
+    Nokogiri::HTML::Builder.with(doc) do |d|
+      d.ul(:class => container_class) do
+        page.products.each_with_index do |product, index|
+          d.li do
+            d.a(product_hotspot_attributes(product)) do
+              d.img(:src => asset_path(product[:image_url]))
+              d.span(:class => 'tag') do
+                d.text(index + 1)
+              end
+            end
+          end
+        end
+      end
+    end
+
+    doc.to_html
   end
 
   private
+
+  def affiliate_url url
+    data_path = File.expand_path("../../../issues/#{page.issue.handle}/affiliate_products.yml", __FILE__)
+    @affiliate_urls ||= File.readable?(data_path) && YAML.load_file(data_path) || {}
+
+    @affiliate_urls[url] || url
+  end
+
+  def product_hotspot_attributes product
+    {
+      :href => affiliate_url(product[:url]),
+      :class => 'product hotspot',
+      :title => product.title,
+      :'data-track' => 'hotspot:click',
+      :'data-action' => product[:action],
+      :'data-url' => product[:url] || product[:link],
+      :'data-image' => asset_path(product[:image_url]),
+      :'data-price' => product[:price],
+      :'data-currency' =>  product[:currency],
+      :'data-description' => product[:description],
+    }
+  end
+
+  def asset_path value
+    value
+  end
+
+  def affiliate_url value
+    value
+  end
+
+  def empty_content? content
+    fragment = Nokogiri::HTML.fragment(content)
+
+    fragment.inner_text.blank? &&
+      #fragment.css('img,video,[data-media-id]').length == 0 &&
+      fragment.css('img').length == 0 &&
+        fragment.css('video').length == 0 &&
+          fragment.css('[data-media-id]').length == 0
+  end
 
   # <%= render_page page %>
   def render_page(page)
