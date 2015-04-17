@@ -1,11 +1,86 @@
 //    Render App UI element in HTML, This is not required in the native app version
-//    
+//
 //    - Menu
 //    - Toolbar
 //    - Popover
 
 @import 'bourbon';
 @import 'base/media-queries';
+@import 'base/typography';
 @import 'ui/icons';
+@import "ui/swipe-view";
+
 @import 'app/menu';
 @import 'app/toolbar';
+@import 'app/popover';
+@import 'app/modal';
+
+#menu {
+  position: fixed;
+  top: 0;
+  z-index: 1;
+}
+
+#sections {
+  position: relative;
+
+  .view-more {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+  }
+}
+
+%touch-icon-style {
+  @extend %icon-style;
+
+  height: 50px;
+  line-height: 50px;
+  padding: 0 10px;
+  font-size: 32px;
+  color: #222;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: none;
+  z-index: 2;
+  cursor: pointer;
+
+  .no-touch &:hover {
+    background: rgba(100,100,100, 0.4);
+  }
+}
+
+
+/*
+    Embed
+*/
+.embed-issue {
+  [role=main].magazine-view {
+    height: 768px;
+    background-color: white;
+  }
+
+  .share-facebook {
+    @extend %touch-icon-style;
+    @extend .icon-facebook;
+    position: relative;
+    display: block;
+    width: 40px;
+    float: right;
+  }
+
+  .share-twitter {
+    @extend %touch-icon-style;
+    @extend .icon-twitter;
+    position: relative;
+    display: block;
+    width: 40px;
+    float: right;
+  }
+
+  .subscribe-text {
+    color: white;
+    display: inline-block;
+  }
+}

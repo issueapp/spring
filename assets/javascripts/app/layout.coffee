@@ -118,7 +118,7 @@ Layout = {
     #
     App.trigger("layout:detect", { orientation: @orientation, height: @viewport.height, width: @viewport.width  })
 
-  # Calcualte page layout
+  # Calculate page layout
   updateLayout: ->
 
     if @support.swipe
