@@ -42,7 +42,7 @@
   <ul id="flip-cards" class="no-gutter">
 
     {{#images}}
-    <li class="event col half v-half" ontouchstart="this.classList.toggle('hover')" data-track="hotspot:click" title="{{ title }}">
+    <li class="event col half v-half" ontouchstart="this.classList.toggle('hover')" data-track="hotspot:click">
       <div href="#" class="flipper">
         <div class="image" style='background-image: url({{ url }})'></div>
         <h3>{{ title }}</h3>
