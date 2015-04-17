@@ -4,8 +4,6 @@ require 'yaml'
 require 'active_support/core_ext/string'
 require 'active_support/core_ext/hash'
 
-ISSUE_PATH = Pathname(File.expand_path("../../issues/", __FILE__))
-
 class LocalIssue < Hashie::Mash
 
   def self.all

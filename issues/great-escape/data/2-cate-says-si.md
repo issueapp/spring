@@ -2,7 +2,7 @@
 
     title: Cate says Si
     category: Cover story
-    byline: By Zyra Bacani
+    #byline: By Zyra Bacani
     author_name: Zyra Bacani
 
     thumb_url: assets/toc/cate-thumbnail.jpg

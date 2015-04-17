@@ -181,7 +181,8 @@ class LocalIssue::Page < Hashie::Mash
 
     attributes.merge!(
       "issue"           => issue,
-      "handle"          => path,
+      "handle"          => path.split('/').last,
+      "path"            => path,
       # "published_at"    => attributes["published_at"] || File.mtime(handle).to_i,
       "layout"          => layout,
       "content"         => content

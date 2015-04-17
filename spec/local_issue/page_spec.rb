@@ -1,3 +1,4 @@
+require 'support/local_issue'
 require 'local_issue/page'
 
 # get rid of deprecation warning
@@ -81,22 +82,5 @@ RSpec.describe LocalIssue::Page do
         'thumb_url' => 'http://i.vimeocdn.com/video/479274132_640.jpg'
       )
     end
-  end
-
-  def local_issue handle
-    LocalIssue.find handle
-  end
-
-  def local_page path, local_issue
-    LocalIssue::Page.find(path, issue: local_issue)
-  end
-
-  def issue_path path
-    ISSUE_PATH.join path
-  end
-
-  def pretty_json hash
-    require 'json'
-    JSON.pretty_generate hash
   end
 end
