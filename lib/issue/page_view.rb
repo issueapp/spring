@@ -172,6 +172,53 @@ class Issue::PageView # < Struct.new(:page)
   end
 
   def cover_html
+    return unless has_cover?
+
+    container_class = 'cover-area'
+    container_class << " #{layout.image_style}"
+    container_class << " #{cover.style}"
+    container_class << " #{cover.type.to_s.split('/').first}"
+
+    if cover.type.to_s.include? 'video'
+      container_background = "background-image: url(#{cover.thumb_url})"
+    else
+      container_background = "background-image: url(#{cover.url})"
+    end
+
+    doc = Nokogiri::HTML.fragment('')
+    Nokogiri::HTML::Builder.with(doc) do |d|
+      d.figure(:class => container_class, :style => container_background) do
+        #  <% if page.cover.style == 'overlay' %>
+        #    <%= header_area %>
+        #  <% end %>
+
+        if cover.type.include? 'video'
+          if embed_video? cover.link
+            d << video_iframe_html(cover.link, page.cover.to_hash.merge(lazy: true, autoplay: true))
+          else
+            attributes = {
+              :src => cover.link,
+              'data-media-id' => cover.id,
+              :poster => asset_path(cover.thumb_url)
+            }
+            if cover.autoplay
+              attributes['data-autoplay'] = ''
+              attributes['loop'] = ''
+            end
+
+            d.video(attributes)
+          end
+        end
+
+        if cover.caption.present?
+          d.figcaption(:class => 'inset') do
+            d << cover.caption
+          end
+        end
+      end
+    end
+
+    doc.to_html
   end
 
   def has_product_set?
@@ -181,9 +228,9 @@ class Issue::PageView # < Struct.new(:page)
   def product_set_html
     container_class = 'product-set'
     container_class << " set-#{(page.products.to_a.count/2.0).ceil*2}" 
-    container_class << ' cover-area' unless page.cover_url 
+    container_class << ' cover-area' unless has_cover?
 
-    doc = Nokogiri::HTML::DocumentFragment.parse('')
+    doc = Nokogiri::HTML.fragment('')
     Nokogiri::HTML::Builder.with(doc) do |d|
       d.ul(:class => container_class) do
         page.products.each_with_index do |product, index|
@@ -417,8 +464,7 @@ class Issue::PageView # < Struct.new(:page)
 
   # TODO: pass html5 compatible params
   # autoplay, controls, loop, width, height
-  def video_iframe(url, options = {})
-
+  def video_iframe_html url, options={}
     params = {
       autoplay: options[:autoplay] ? "1" : "0",
       controls: options[:controls] ? "1" : "0",
@@ -441,7 +487,7 @@ class Issue::PageView # < Struct.new(:page)
     "<iframe #{source} frameborder=0 height=#{options[:height] || "100%" } width=#{options[:width] || "100%" } webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>"
   end
 
-  def embed_video?(url)
+  def embed_video? url
     !! (url.match(/youtube\.com\/watch\?v=(.+)/) || url.match(/vimeo\.com\/([^\/]+)/))
   end
 
