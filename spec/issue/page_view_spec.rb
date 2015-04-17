@@ -4,11 +4,13 @@ require 'local_issue/page'
 
 RSpec.describe Issue::PageView do
   let(:spring) {local_issue 'spring'}
+  let(:spread) {local_issue 'spread'}
   let(:rebelskhed) {local_issue 'rebelskhed'}
   let(:music) {local_issue 'music'}
 
   describe 'Rendering Helpers' do
-    let(:page) { LocalIssue::Page.build('story-three', issue: spring) }
+    #let(:page) { LocalIssue::Page.build('story-three', issue: spring) }
+    let(:page) { LocalIssue::Page.build('video-one', issue: spread) }
     let(:view) { Issue::PageView.new(page) }
 
     subject { view }
@@ -69,10 +71,20 @@ RSpec.describe Issue::PageView do
     end
   end
 
-  describe 'cover' do
-    it 'detects image cover'
-    it 'detects video cover'
-    it 'renders cover html'
+  describe 'cover html' do
+    it 'renders image background'
+
+    it 'renders video background' do
+      page = LocalIssue::Page.build('video-one', issue: spread)
+      view = Issue::PageView.new(page)
+
+      # view.cover_html to have
+      #   figure.cover-area > iframe|video
+      #   figure style=video.thumb_url
+    end
+
+    it 'renders caption' do
+    end
   end
 
   describe 'page elements' do
