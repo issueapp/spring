@@ -7,19 +7,21 @@ article.page .content.stop-scrolling {
   display: inline-block;
 
   .tag {
+    font-family: $proxima_nova;
     position: absolute;
     bottom: 0;
     left: 50%;
+    font-size: 16px;
     z-index: 1;
     margin-left: -15px;
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    background-color: #333;
-    color: white;
+    background-color: rgba(0,0,0,0.7);
+    color: #eee;
     text-align: center;
     font-weight: bold;
-    line-height: 1.8;
+    line-height: 2;
   }
 }
 
@@ -37,30 +39,32 @@ div.popover {
   $dark-content-color: #202020;
   $dark-border-up-color: #555;
   $dark-border-down-color: #1d1d1d;
+  $arrow-offset: 48px;
 
   @include clearfix;
-  box-sizing: border-box;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  z-index: 999;
 
-  display: block;
-  padding: 10px 20px;
-  min-height: 100px;
+  position: absolute;
   width: 100%;
-
-  background: $content-color;
-  color: $text-color;
-  white-space: normal;
-  font-size: 16px;
+  max-width: 480px;
+  min-height: 100px;
+  margin: 0;
+  padding: 10px 20px;
 
   font-family: $proxima_nova;
+  font-size: 16px;
+  color: $text-color;
   line-height: 24px;
-  opacity: 0;
+
+  background: $content-color;
+  box-sizing: border-box;
+  white-space: normal;
+
+  border: 1px solid $border-color;
+  border-radius: 6px;
+  box-shadow: 2px 2px 10px rgba(0,0,0,.15);
+  z-index: 99999;
 
   /*  Popover content style */
-
   h3, .title {
     margin: 10px 0 0.5em;
     text-transform: uppercase;
@@ -69,44 +73,8 @@ div.popover {
     line-height: 24px;
   }
 
-  footer {
-    @include linear-gradient(rgba(36,36,36, 0.3) 0%, rgba(36,36,36, 1) 50%, rgba(36,36,36,1) 90%);
-    position: absolute;
-    bottom: 0;
-    left: 1px;
-    clear: left;
-    overflow: hidden;
-    min-height: 40px;
-    max-height: 240px;
-    width: 100%;
-    border-radius: 6px;
-    color: white;
-    vertical-align: middle;
-    text-align: right;
-    white-space: normal;
-  }
-
-  .thumb-image {
-    display: block;
-    margin: 0 auto;
-    max-height: 260px;
-    vertical-align: top;
-  }
-
-  .content {
-    box-sizing: border-box;
-    overflow: scroll;
-    margin: 0 -20px 0;
-    padding: 10px 20px 40px;
-    max-height: 300px;
-  }
-
-  .button {
-    margin: 5px 5px 0 0;
-    border: none !important;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: bold;
+  p {
+    margin: .5em 0;
   }
 
   p.subtitle {
@@ -115,15 +83,8 @@ div.popover {
     font: italic 14px georgia;
   }
 
-  p {
-    margin: .5em 0;
-  }
-
-  /*
-      Style
-  */
   ul {
-    overflow: auto;
+    overflow-y: auto;
     margin: -10px -20px;
     padding: 0;
     min-height: 200px;
@@ -148,8 +109,6 @@ div.popover {
     padding: 18px;
     height: 15px;
     color: $text-color;
-    color: #b9b9b9;
-    color: #6f6f6f;
     text-transform: uppercase;
     text-shadow: none;
     font-weight: normal;
@@ -161,57 +120,140 @@ div.popover {
     }
   }
 
-  li:hover a {
-   background: #eee;
-   color: #555;
+  li:hover a,
+  li a:hover,
+  .no-touch .dark-theme & li a:hover {
+    background: #eee;
+    color: #555;
   }
 
   li:first-child {
     border-top: none;
   }
 
-  /*
+  footer {
+    @include linear-gradient(rgba(36,36,36, 0.3) 0%, rgba(36,36,36, 1) 50%, rgba(36,36,36,1) 90%);
+    position: absolute;
+    bottom: 0;
+    left: 1px;
+    clear: left;
+    overflow: hidden;
+    padding: 0;
+    min-height: 40px;
+    max-height: 240px;
+    width: 100%;
+    border-radius: 6px;
+    color: white;
+    vertical-align: middle;
+    white-space: normal;
 
-      Transitions
+    .action.button {
+      float: right;
+    }
+  }
 
-  */
+  .thumb-image {
+    display: block;
+    margin: 0 auto;
+    min-height: 200px;
+    max-height: 240px;
+    vertical-align: top;
+  }
+
+  .content {
+    box-sizing: border-box;
+    overflow-y: auto;
+    margin: 0 -20px 0;
+    padding: 10px 20px 40px;
+    max-height: 230px;
+    border-radius: 6px;
+  }
+
+  .button {
+    margin: 5px 5px 0 0;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+
+    &.outline {
+      border: none;
+    }
+  }
+
+  .popover-list {
+    overflow: initial;
+    margin: 0 -20px;
+
+    a:not(.button) {
+      padding: 18px 34px 18px 18px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    li:first-child {
+      border-top: 1px solid #eee;
+      border-top-left-radius: 6px;
+      border-top-right-radius: 6px;
+    }
+
+    li:last-child {
+      border-bottom-left-radius: 6px;
+      border-bottom-right-radius: 6px;
+    }
+
+    &.issue-list {
+      .thumb {
+        position: absolute;
+        left: 15px;
+        top: 9px;
+        width: 32px;
+        height: 44.8px;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+
+      a:not(.button) {
+        padding: 24px 34px 24px 60px;
+      }
+    }
+  }
+
+  /* Transitions */
 
   &.show {
-    -webkit-animation: slideupa 0.35s forwards;
-    animation: show 0.35s forwards;
+    -webkit-animation: fade 0.3s forwards;
+    animation: show 0.3s forwards;
   }
 
   &.hide {
-    -webkit-animation: slidedowna 0.35s forwards;
-    animation: hide 0.35s forwards;
+    -webkit-animation: fadeOut 0.3s forwards;
+    animation: hide 0.3s forwards;
   }
 
-
-  &.slidedown {
-    top: 0;
-    bottom: initial;
-    left: 0;
-
-    &.show {
-      -webkit-animation: down 0.35s forwards;
-      animation: show 0.35s forwards;
-    }
-
-    &.hide {
-      -webkit-animation: up 0.35s forwards;
-      animation: hide 0.35s forwards;
-    }
-  }
-
-  /*
-      Themes
-  */
+  /* Themes */
 
   &.small {
     width: 200px;
+    padding: 0 20px;
 
     ul.popover-list {
       min-height: 180px;
+    }
+
+    header .title {
+      margin: 0;
+      color: #666;
+      font-size: 14px;
+      line-height: 32px;
+      text-align: center;
+      font-weight: 300;
+    }
+
+    .content {
+      padding: 0 20px;
     }
   }
 
@@ -243,51 +285,143 @@ div.popover {
   }
 
   &.dark-theme {
-    @include radial-gradient( #303030, $dark-content-color );
+    @include radial-gradient( #161717, $dark-content-color );
     border-color: transparent;
     box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.2), 1px 0 10px rgba(0, 0, 0, 0.3);
     color: #fff;
     text-shadow: 0 -1px 0 #000;
+
+    a:not(.button) {
+      color: #eee;
+    }
+
+    .arrow {
+      &:after {
+        border-bottom-color: $dark-content-color;
+      }
+
+      &.up {
+        border-bottom-color: $dark-border-up-color;
+      }
+
+      &.down {
+        border-top-color: $dark-border-down-color;
+      }
+
+      &.down:after {
+        border-top-color: $dark-content-color;
+      }
+    }
   }
 
-
-  /*
-      Large screen style
-  */
-  @include min-screen(768) {
-    $arrow-offset: 48px;
-    @extend %dropdown-arrow;
-
-    //    display: none;
+  .arrow {
     position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    border-width: 11px;
+    border-style: solid;
+    border-color: transparent;
+
+    &.up {
+      top: -10px;
+      margin-left: -10px;
+      left: 50%;
+      border-top-width: 0;
+      border-bottom-color: $border-color;
+    }
+
+    &:after {
+      position: absolute;
+      top: 1px;
+      display: block;
+      margin-left: -10px;
+      width: 0;
+      height: 0;
+      border-width: 10px;
+      border-style: solid;
+      border-color: transparent;
+      border-top-width: 0;
+      border-bottom-color: $content-color;
+      content: " ";
+    }
+
+    &.down {
+      bottom: -11px;
+      left: 50%;
+      margin-left: -10px;
+      border-top-color: $border-color;
+      border-bottom-width: 0;
+
+      &:after {
+        top: -11px;
+        margin-left: -10px;
+        border-width: 10px;
+
+        border-top-color: $content-color;
+        border-bottom-width: 0;
+      }
+    }
+
+    &.left{
+      right: auto;
+      left: $arrow-offset;
+    }
+
+    &.right {
+      right: $arrow-offset;
+      left: auto;
+    }
+  }
+
+  @include min-screen(768) {
+    margin-bottom: 50px;
     top: initial;
     right: initial;
-    bottom: initial;
     left: initial;
-    margin-bottom: 50px;
-    max-width: 480px;
-    border: 1px solid $border-color;
+    bottom: initial;
+
+    .thumb-image {
+      margin: 10px 15px 10px 0;
+      width: 120px;
+      min-height: 120px;
+      outline: 1px solid #ddd;
+      float: left;
+    }
+
+    &.dark-theme {
+      border: 1px solid $dark-border-down-color;
+    }
+  }
+}
+
+div.popover.page-hotspot {
+  position: fixed;
+  bottom: 0;
+  border-radius: initial;
+
+  .content {
+    max-height: 400px;
+  }
+
+  &.show {
+    -webkit-animation: slideup-mobile 0.35s forwards;
+    animation: show 0.35s forwards;
+  }
+
+  &.hide {
+    -webkit-animation: slidedown-mobile 0.35s forwards;
+    animation: hide 0.35s forwards;
+  }
+
+  @include min-screen(768) {
+    position: fixed;
     border-radius: 6px;
-    box-shadow: 2px 2px 10px rgba(0,0,0,.15);
-    opacity: 1;
+    bottom: initial;
 
     .content {
       max-height: 230px;
     }
-
-    .thumb-image {
-      float: left;
-      margin: 10px 15px 10px 0;
-      width: 120px;
-      outline: 1px solid #ddd;
-      background-color: white;
-      background-position: center;
-      background-size: cover;
-      background-repeat: no-repeat;
-      vertical-align: top;
-    }
-
-    // Transition
 
     &.show {
       -webkit-animation: fade 0.3s forwards;
@@ -298,582 +432,27 @@ div.popover {
       -webkit-animation: fadeOut 0.3s forwards;
       animation: hide 0.3s forwards;
     }
-
-    // Arrow
-    .arrow {
-      position: absolute;
-      display: block;
-      width: 0;
-      height: 0;
-      border-width: 11px;
-      border-style: solid;
-      border-color: transparent;
-
-      &.up {
-        top: -10px;
-        left: 50%;
-        border-top-width: 0;
-        border-bottom-color: $border-color;
-      }
-
-      &:after {
-        position: absolute;
-        top: 1px;
-        display: block;
-        margin-left: -10px;
-        width: 0;
-        height: 0;
-        border-width: 10px;
-        border-style: solid;
-        border-color: transparent;
-        border-top-width: 0;
-        border-bottom-color: $content-color;
-        content: " ";
-      }
-
-      &.down {
-        bottom: -11px;
-        left: 50%;
-        border-top-color: $border-color;
-        border-bottom-width: 0;
-
-        &:after {
-          top: -11px;
-          margin-left: -10px;
-          border-width: 10px;
-
-          border-top-color: $content-color;
-          border-bottom-width: 0;
-        }
-      }
-
-      &.left{
-        right: auto;
-        left: $arrow-offset;
-      }
-
-      &.right {
-        right: $arrow-offset;
-        left: auto;
-      }
-    }
-
-    &.dark-theme {
-      border: 1px solid $dark-border-down-color;
-
-      .arrow {
-        &:after {
-          border-bottom-color: $dark-content-color;
-        }
-
-        &.up {
-          border-bottom-color: $dark-border-up-color;
-        }
-
-        &.down {
-          border-top-color: $dark-border-down-color;
-        }
-
-        &.down:after {
-          border-top-color: $dark-content-color;
-        }
-      }
-    }
-
   }
 }
 
-
-
-@-webkit-keyframes slideupa {
+@include keyframes( slideup-mobile ) {
   0% {
     opacity: 0;
-    -webkit-transform: translateY(100%);
+    @include transform( translateY(100%) );
   }
   100% {
     opacity: 1;
-    -webkit-transform: translateY(0);
+    @include transform( translateY(0) );
   }
 }
 
-@-webkit-keyframes slidedowna {
+@include keyframes( slidedown-mobile ) {
   0% {
     opacity: 1;
-    -webkit-transform: translateY(0);
+    @include transform( translateY(0) );
   }
   100% {
     opacity: 0;
-    -webkit-transform: translateY(100%);
+    @include transform( translateY(100%) );
   }
 }
-
-//
-//
-//div.popover {
-//  position: absolute;
-//  top: 15px;
-//  font-size:13px;
-//  z-index: 1000000;
-//  text-align: left;
-//  width: 300px;
-//
-//  &.small {
-//    width: 200px;
-//
-//    ul.popover-list {
-//      min-height: 180px;
-//    }
-//  }
-//
-//  &.left {
-//    top: 15px;
-//    left: 10px;
-//
-//    .drop-top {
-//      margin-left: 10px;
-//      background-position: left top;
-//    }
-//  }
-//
-//  &.right {
-//    top: 15px;
-//    right: 10px;
-//
-//    .drop-top {
-//      margin-right: 10px;
-//      background-position: right top;
-//    }
-//  }
-//
-//  &.centered {
-//
-//  }
-//
-//  span.drop-top {
-//    display: block;
-//    margin: -7px 0 0;
-//    padding: 7px 15px 0px;
-//    background: image-url("ui/top-arrow.png") no-repeat center top;
-//  }
-//
-//  div.drop-wrapper {
-//    @include box-shadow(#c9c9c9 2px 2px 5px);
-//    position: absolute;
-//    width: 100%;
-//
-//    top: 36px;
-//    border:1px solid #eee;
-//    background-color: white;
-//    font-family: "Helvetica Neue", Hevetica, Arial, sans-serif;
-//  }
-//
-//  ul.popover-list {
-//    overflow: auto;
-//    margin: 0;
-//    padding: 0;
-//    min-height: 250px;
-//    max-height: 360px;
-//
-//    li {
-//      display: block;
-//      float: none;
-//      margin: 0;
-//      border-top: 1px solid #eee;
-//      background-image: none;
-//
-//      a {
-//        height: 15px;
-//        line-height: 17px;
-//        text-transform: uppercase;
-//        font-size: 12px;
-//        font-family: "proxima_nova_regular";
-//        position: relative;
-//        display: block;
-//        margin: 0;
-//        padding: 18px 0px 18px 18px;
-//        color: #b9b9b9;
-//        text-shadow: none;
-//        font-weight: normal;
-//
-//        &:active, &.active {
-//          color: #6f6f6f;
-//        }
-//      }
-//
-//      &.header {
-//        color: #999;
-//        text-align: center;
-//        font-size: 14px;
-//        font-family: "proxima_nova_regular";
-//      }
-//    }
-//
-//    li:hover a {
-//     background: #eee;
-//     color: #555;
-//    }
-//
-//    li:first-child {
-//      border-top: none;
-//    }
-//  }
-//
-//  .popover-list a.checked {
-//    &:after {
-//      position: absolute;
-//      top: 50%;
-//      margin-top: -9px;
-//      font-size: 15px;
-//      right: 10px;
-//      content: "\2714";
-//      color: #9ccea6;
-//    }
-//  }
-//}
-//
- 
-.filter-icon-styles {
-  &.recent {
-    @extend .icon-clock;
-  }
-
-  &.published {
-    @extend .icon-checkmark-circle;
-  }
-
-  &.queued {
-    @extend .icon-stack;
-  }
-
-  &.archived {
-    @extend .icon-archive;
-  }
-
-  &.everything {
-    @extend .icon-grid;
-  }
-
-  &.article {
-    @extend .icon-book;
-  }
-
-  &.product {
-    @extend .icon-tshirt;
-  }
-
-  &.photo {
-    @extend .icon-pictures;
-  }
-}
-
-/*
-      Application specific
-*/
-
-#filter_toggle {
-  @extend .icon-menu;
-
-  &:not(.everything) {
-    @extend .filter-icon-styles;
-  }
-
-  &:not(.everything):after {
-    font-size: 13px;
-    line-height: 50px;
-    font-family: 'issue-icons';
-    speak: none;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
-    -webkit-font-smoothing: antialiased;  content: "\e006";
-    top: -3px;
-    left: 3px;
-    position: relative;
-    margin-right: 3px;
-  }
-}
-
-#filter_menu {
-  right: -10px;
-
-  .drop-wrapper {
-    left: -26px;
-  }
-
-  .drop-top {
-    margin-left: 115px;
-    padding-right: 30px;
-  }
-
-  ul.popover-list {
-    max-height: 440px;
-  }
-
-  a {
-    @extend .filter-icon-styles;
-
-    &:before {
-      top: 5px;
-      position: relative;
-      line-height: 10px;
-      padding-right: 10px;
-    }
-
-    &:hover {
-
-    }
-  }
-}
-//
-//#sectionFilter {
-//  left: 50%;
-//  margin-left: -151px;
-//
-//  .drop-wrapper {
-//    min-height: 94px;
-//
-//    li {
-//      padding: 0;
-//
-//      a {
-//        height: 18px;
-//        color: #6F6F6F;
-//        font-size: 13px;
-//        line-height: 20px;
-//      }
-//
-//      a.active {
-//        background-color: #f3f3f3;
-//      }
-//    }
-//  }
-//}
-//
-//#new_content_button {
-//
-//  a i {
-//    font-size: 18px;
-//    padding-right: 10px;
-//  }
-//
-//  li {
-//    padding: 0;
-//  }
-//
-//}
-//
-//#addToDropdown {
-//  right: 20px;
-//
-//  .drop-top {
-//    margin-left: 100px;
-//    padding-right: 30px;
-//  }
-//}
-//
-//
-//#shareDropdown {
-//  right: -10px;
-//
-//  .drop-wrapper {
-//    left: -26px;
-//
-//  }
-//
-//  .drop-top {
-//    margin-left: 170px;
-//    padding-right: 10px;
-//  }
-//}
-//
-//#edition_menu {
-//  right: 15px;
-//
-//  .drop-top {
-//    margin-left: 170px;
-//  }
-//}
-
-//
-//
-//
-//.product-popover {
-//  box-sizing: border-box;
-//  display: block;
-//  position: fixed;
-//  left: 0;
-//  max-height: 260px;
-//  width: 100%;
-//  opacity: 0;
-//
-//  background-color: rgba(50, 50, 50, 1);
-//  box-shadow: 1px 0 10px rgba(0,0,0,0.6);
-//  text-shadow: rgba(0,0,0,0.3) 1px 1px 3px;
-//}
-//
-//@-webkit-keyframes slideup {
-//  0% {
-//    opacity: 0;
-//    -webkit-transform: translateY(0px);
-//  }
-//  100% {
-//    opacity: 1;
-//    -webkit-transform: translateY(-100%);
-//  }
-//}
-//
-//@-webkit-keyframes slidedown {
-//  0% {
-//    opacity: 1;
-//    -webkit-transform: translateY(-100%);
-//  }
-//  100% {
-//    opacity: 0;
-//    -webkit-transform: translateY(0px);
-//  }
-//}
-//
-//.product-popover.show {
-//  -webkit-animation: slideup 0.35s forwards;
-//  animation: show 0.35s forwards;
-//}
-//
-//.product-popover.hide {
-//  -webkit-animation: slidedown 0.35s forwards;
-//  animation: hide 0.35s forwards;
-//}
-//
-///*  Content styling */
-//
-//.product-popover .details {
-//  overflow: scroll;
-//  padding: 20px 20px 40px;
-//  max-height: 200px;
-//}
-//
-//.product-popover .thumb-image {
-//  float: left;
-//  margin: 0 15px 10px 0;
-//  width: 100px;
-//  height: 120px;
-//  outline: 1px solid #ddd;
-//  background-position: center;
-//  background-size: cover;
-//  background-repeat: no-repeat;
-//  vertical-align: top;
-//}
-//
-//.product-popover .title,
-//.product-popover .subtitle {
-//  display: -webkit-box;
-//
-//  overflow : hidden;
-//  text-overflow: ellipsis;
-//  white-space: normal;
-//
-//  -webkit-line-clamp: 2;
-//  -webkit-box-orient: vertical;
-//}
-//
-//.product-popover .title {
-//  font-size: 14px;
-//  font-family: "proxima_nova_bold";
-//  line-height: 1.6;
-//  margin: 0;
-//}
-//
-//.product-popover .subtitle {
-//  color: white;
-//  font-size: 14px;
-//  margin-bottom: 0.5em;
-//}
-//
-//.product-popover .description {
-//  clear: none;
-//  margin: 0;
-//  font-size: 14px;
-//  font-family: proxima_nova_regular;
-//  line-height: 1.3;
-//}
-//
-//.product-popover .actions {
-//  position: absolute;
-//  bottom: 0;
-//  left: 0;
-//  overflow: hidden;
-//  min-height: 40px;
-//  max-height: 240px;
-//  width: 100%;
-//
-//  background: linear-gradient(to bottom, rgba(50, 50, 50, 0.3) 0%, rgba(50,50,50, 1) 50%, rgba(50,50,50,1) 100%);
-//  color: white;
-//  vertical-align: middle;
-//  text-align: right;
-//  white-space: normal;
-//}
-//
-//.product-popover .button {
-//  margin: 5px 5px 0 0;
-//  border: none;
-//  text-transform: uppercase;
-//  letter-spacing: 1px;
-//}
-//
-//@media only screen and (min-width: 768px) {
-//  .product-popover {
-//    position: absolute;
-////    display: none;
-//
-//    visibility: hidden;
-//    width: 480px;
-//    opacity: 1;
-//  }
-//
-//  .arrow {
-//    position: absolute;
-//    width: 0;
-//    height: 0;
-//  }
-//
-//  .arrow.up {
-//    top: -10px;
-//    border-right: 10px solid transparent;
-//    border-bottom: 10px solid rgba(50, 50, 50, 1);
-//    border-left: 10px solid transparent;
-//  }
-//
-//  .arrow.down {
-//    bottom: -10px;
-//    border-top: 10px solid rgba(50, 50, 50, 1);
-//    border-right: 10px solid transparent;
-//    border-left: 10px solid transparent;
-//  }
-//
-//  .arrow.left {
-//    left: 100px;
-//  }
-//
-//  .arrow.right {
-//    right: 100px;
-//  }
-//
-//  .product-popover.show {
-//    visibility: visible;
-//
-//    -webkit-animation: initial;
-//    animation: initial;
-//  }
-//
-//  .product-popover.hide {
-//    visibility: hidden;
-//
-//    -webkit-animation: initial;
-//    animation: initial;
-//  }
-//
-//  .product-popover .description {
-//    white-space: normal;
-//  }
-//}
