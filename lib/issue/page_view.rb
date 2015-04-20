@@ -2,6 +2,8 @@ require 'fastimage'
 require 'nokogiri'
 require 'timeout'
 require 'uri'
+require 'active_support/core_ext/object/to_param'
+require 'active_support/core_ext/object/to_query'
 
 unless defined? Issue
   Issue = Module.new
