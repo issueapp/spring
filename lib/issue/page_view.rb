@@ -116,7 +116,8 @@ class Issue::PageView # < Struct.new(:page)
   end
 
   def show_author?
-    ! layout.hide_author && ! has_parent? && author
+    hide_author = [/true/i, /yes/i, '1'].any?{|v| v === layout.hide_author.to_s}
+    ! hide_author && ! has_parent? && author
   end
 
   def author
@@ -157,12 +158,48 @@ class Issue::PageView # < Struct.new(:page)
   end
 
   def custom_layout?
+    page.layout.type == 'custom'
   end
 
-  def custom_html
+  def custom_html?
+    !! page.custom_html || custom_layout?
   end
 
   def content_html
+    doc = Nokogiri::HTML.fragment("<div>" + page.content + "</div>")
+
+    # Swap data-media-id
+    # videos:1
+    # images:1
+    doc.search("[data-media-id]").each do |node|
+      asset, index = node["data-media-id"].split(":")
+      index = index.to_i - 1
+
+      if page[asset] && page[asset][index]
+        media = page[asset][index]
+        node["src"] = media["url"]
+
+        if asset == "images"
+          if node["data-background-image"]
+            node["style"] = "background-size: cover; background-image:url(#{media["url"]})"
+
+          else
+            img_node = image_node(node, media)
+            node.replace(img_node) if img_node != node
+          end
+        end
+
+        if asset == "videos"
+          node.replace video_node(node, media)
+        end
+
+        if asset == "audios"
+          node.replace audio_node(node, media)
+        end
+      end
+    end
+
+    doc.child.inner_html
   end
 
   def has_cover?
@@ -291,46 +328,6 @@ class Issue::PageView # < Struct.new(:page)
       fragment.css('img').length == 0 &&
         fragment.css('video').length == 0 &&
           fragment.css('[data-media-id]').length == 0
-  end
-
-  # <%= render_page page %>
-  def render_page(page)
-    is_custom_html = page.custom_html || page.layout.type == 'custom'
-
-    doc = Nokogiri::HTML.fragment("<div>" + page.content + "</div>")
-
-    # Swap data-media-id
-    # videos:1
-    # images:1
-    doc.search("[data-media-id]").each do |node|
-      asset, index = node["data-media-id"].split(":")
-      index = index.to_i - 1
-
-      if page[asset] && page[asset][index]
-        media = page[asset][index]
-        node["src"] = media["url"]
-
-        if asset == "images"
-          if node["data-background-image"]
-            node["style"] = "background-size: cover; background-image:url(#{media["url"]})"
-
-          else
-            img_node = image_node(node, media)
-            node.replace(img_node) if img_node != node
-          end
-        end
-
-        if asset == "videos"
-          node.replace video_node(node, media)
-        end
-
-        if asset == "audios"
-          node.replace audio_node(node, media)
-        end
-      end
-    end
-
-    doc.child.inner_html
   end
 
   # <img>

@@ -24,6 +24,7 @@
       type: three-column
       image_style: cover
       content_valign: middle
+      hide_author: true
 
 ---
 
