@@ -132,10 +132,6 @@
       }
 
       #flip-cards {
-        .info {
-          padding: 80px 50px 40px;
-        }
-
         h3 {
           margin-top: -40px;
           height: 30px;
@@ -243,20 +239,29 @@
       }
 
       #flip-cards {
-        .info {
-          padding: 80px 50px 40px;
-        }
-
         li {
           width: 33.33%;
         }
-      }
-    }
 
-    @media only screen and (min-width: 768px) and (orientation: portrait) {
-      #flip-cards {
-        .info {
-          padding: 80px 20px 40px;
+        li:nth-of-type(1) .flipper,
+        li:nth-of-type(3) .flipper,
+        li:nth-of-type(5) .flipper {
+          -webkit-transform: rotateY(180deg);
+          -moz-transform: rotateY(180deg);
+          -o-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+        }
+
+        li.hover:nth-of-type(1) .flipper,
+        li.hover:nth-of-type(3) .flipper,
+        li.hover:nth-of-type(5) .flipper,
+        li:nth-of-type(1):hover .flipper,
+        li:nth-of-type(3):hover .flipper,
+        li:nth-of-type(5):hover .flipper {
+          -webkit-transform: rotateY(0deg);
+          -moz-transform: rotateY(0deg);
+          -o-transform: rotateY(0deg);
+          transform: rotateY(0deg);
         }
       }
     }
@@ -328,7 +333,6 @@
       left: 0;
       z-index: 2;
       overflow: auto;
-      padding: 40px;
       background: #fff;
       color: #333;
       font-size: 14px;
@@ -342,6 +346,17 @@
       -moz-backface-visibility: hidden;
       -o-backface-visibility: hidden;
       backface-visibility: hidden;
+    }
+
+    li .info .wrapper {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      width: 80%;
+      height: 70%;
     }
 
     li .flip {
@@ -360,6 +375,10 @@
 
       .summary {
         display: block;
+      }
+
+      li .info .wrapper {
+        height: 50%;
       }
     }
   }

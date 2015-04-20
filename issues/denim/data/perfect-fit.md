@@ -46,7 +46,7 @@
       <div href="#" class="flipper">
         <div class="image" style='background-image: url({{ url }})'></div>
         <h3>{{ title }}</h3>
-        <div class="info">{{{ caption }}}</div>
+        <div class="info"><div class="wrapper">{{{ caption }}}</div></div>
       </div>
     </li>
     {{/images}}
