@@ -242,27 +242,6 @@
         li {
           width: 33.33%;
         }
-
-        li:nth-of-type(1) .flipper,
-        li:nth-of-type(3) .flipper,
-        li:nth-of-type(5) .flipper {
-          -webkit-transform: rotateY(180deg);
-          -moz-transform: rotateY(180deg);
-          -o-transform: rotateY(180deg);
-          transform: rotateY(180deg);
-        }
-
-        li.hover:nth-of-type(1) .flipper,
-        li.hover:nth-of-type(3) .flipper,
-        li.hover:nth-of-type(5) .flipper,
-        li:nth-of-type(1):hover .flipper,
-        li:nth-of-type(3):hover .flipper,
-        li:nth-of-type(5):hover .flipper {
-          -webkit-transform: rotateY(0deg);
-          -moz-transform: rotateY(0deg);
-          -o-transform: rotateY(0deg);
-          transform: rotateY(0deg);
-        }
       }
     }
   }
