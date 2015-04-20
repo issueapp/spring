@@ -64,7 +64,7 @@
     <li class="event col half v-half" ontouchstart="this.classList.toggle('hover')" data-track="hotspot:click">
       <div href="#" class="flipper">
         <div class="image" style='background-image: url({{ url }})'></div>
-        <div class="info">{{{ caption }}}</div>
+        <div class="info"><div class="wrapper">{{{ caption }}}</div></div>
       </div>
     </li>
     {{/images}}
