@@ -62,7 +62,10 @@
       <p class='column-break'></p>
     <% end %>
     
-    <div class='body'><%= render_page page %></div>
+    <div class='body'>
+      <%= page.content_html %>
+      <%#= render_page page %>
+    </div>
 
     <% if page.credits %>
       <div class="credits">Credits: <%= page.credits %></div>
