@@ -9,8 +9,7 @@ RSpec.describe Issue::PageView do
   let(:music) {local_issue 'music'}
 
   describe 'Rendering Helpers' do
-    #let(:page) { LocalIssue::Page.build('story-three', issue: spring) }
-    let(:page) { LocalIssue::Page.build('video-one', issue: spread) }
+    let(:page) { LocalIssue::Page.build('story-three', issue: spring) }
     let(:view) { Issue::PageView.new(page) }
 
     subject { view }
@@ -26,7 +25,7 @@ RSpec.describe Issue::PageView do
     it { expect( view.category ).to eq 'Recipe' }
 
     it { expect( view.theme    ).to eq 'white' }
-    it { expect( view.credits  ).to be_nil? }
+    it { expect( view.credits  ).to be_nil }
 
     it { expect( view.show_author? ).to be_truthy }
     it { expect( view.author ).to eq Struct::Author.new('Emily Tan', nil) }
@@ -47,7 +46,7 @@ RSpec.describe Issue::PageView do
     it { should respond_to('cover_html') }
 
     it { expect( view ).not_to have_product_set }
-    it { should respond_to('products_set_html') }
+    it { should respond_to('product_set_html') }
   end
 
   describe 'author' do
@@ -72,18 +71,34 @@ RSpec.describe Issue::PageView do
   end
 
   describe 'cover html' do
-    it 'renders image background'
+    it 'detects and renders image background' do
+      page = LocalIssue::Page.build('2-head-or-heart/1', issue: music)
+      view = Issue::PageView.new(page)
 
-    it 'renders video background' do
+      expect(view.cover_html).to eq(
+        %{<figure class="cover-area cover  image" style="background-image: url(assets/2-head-or-heart/p1-cover.jpg)"><figcaption class="inset">MINKPINK Funday Sunday Dress.</figcaption></figure>}
+      )
+    end
+
+    it 'detects and renders video iframe for vimeo and youtube' do
       page = LocalIssue::Page.build('video-one', issue: spread)
       view = Issue::PageView.new(page)
 
       # view.cover_html to have
       #   figure.cover-area > iframe|video
       #   figure style=video.thumb_url
+      expect(view.cover_html).to eq(
+        %{<figure class="cover-area background  video" style="background-image: url(assets/video-your-way.jpg)"><iframe data-src="http://youtube.com/embed/IZjhUzv1YKw?autoplay=1&amp;controls=0&amp;loop=0&amp;playlist=IZjhUzv1YKw&amp;autohide=1&amp;color=white&amp;enablejsapi=1&amp;hd=1&amp;iv_load_policy=3&amp;origin=http%3A%2F%2Fissueapp.com&amp;rel=0&amp;showinfo=0&amp;wmode=transparent" frameborder="0" height="100%" width="100%" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></figure>}
+      )
     end
 
     it 'renders caption' do
+      page = LocalIssue::Page.build('2-head-or-heart/1', issue: music)
+      view = Issue::PageView.new(page)
+
+      expect(view.cover_html).to include(
+        %{<figcaption class="inset">MINKPINK Funday Sunday Dress.</figcaption>}
+      )
     end
   end
 
