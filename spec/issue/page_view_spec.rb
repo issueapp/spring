@@ -3,6 +3,7 @@ require 'issue/page_view'
 require 'local_issue/page'
 
 RSpec.describe Issue::PageView do
+  let(:top3) {local_issue 'top3'}
   let(:spring) {local_issue 'spring'}
   let(:spread) {local_issue 'spread'}
   let(:rebelskhed) {local_issue 'rebelskhed'}
@@ -64,9 +65,35 @@ RSpec.describe Issue::PageView do
 
   describe 'products' do
     it 'detects product set' do
+      page = LocalIssue::Page.build('story-six', issue: top3)
+      view = Issue::PageView.new(page)
+
+      expect(view).to have_product_set
     end
 
     it 'renders product set html' do
+      page = LocalIssue::Page.build('story-six', issue: top3)
+      view = Issue::PageView.new(page)
+
+      expect(view.product_set_html).to eq(
+        %{<ul class="product-set set-6">
+<li><a href="" class="product hotspot" title="Chillsner Beer Chiller 2pk" data-track="hotspot:click" data-action="" data-url="http://top3.com.au/categories/bar-and-wine-and-water/beer-and-accessories/chillsner-beer-chiller/4002c" data-image="assets/story-six/p1-product-1.jpg" data-price="$40" data-currency="" data-description="Chillsner by Corkcicle. Just freeze, insert into any bottled beer and never suffer through another warm brew. Respect the beer. Chillsner is perfect for parties, tailgating and pretty much any occasion where beloved beers are enjoyed."><img src="assets/story-six/p1-product-1.jpg"><span class="tag">1</span></a></li>
+<li><a href="" class="product hotspot" title="Elipson Timber" data-track="hotspot:click" data-action="" data-url="http://top3.com.au/categories/home-and-living/audio---bluetooth-speakers/elipson-bluetooth-speakers/elipsontimber" data-image="assets/story-six/p1-product-2.jpg" data-price="$499" data-currency="" data-description="The Timber is a compact wireless speaker born from cooperation between Habitat &amp; Elipson, that works according to the Bluetooth 2.1 protocol."><img src="assets/story-six/p1-product-2.jpg"><span class="tag">2</span></a></li>
+<li><a href="" class="product hotspot" title="Sphere Bottle Opener Natural" data-track="hotspot:click" data-action="" data-url="http://top3.com.au/categories/bar-and-wine-and-water/bottle-openers/areaware-sphere-bottle-opener/aw-fsbon" data-image="assets/story-six/p1-product-3.jpg" data-price="$30" data-currency="" data-description="A smooth, ergonomic bottle opener that fits perfectly in the palm of your hand. Made From Beechwood."><img src="assets/story-six/p1-product-3.jpg"><span class="tag">3</span></a></li>
+<li><a href="" class="product hotspot" title="Whisky stones" data-track="hotspot:click" data-action="" data-url="http://top3.com.au/categories/bar-and-wine-and-water/drinks---cooling-accessories/whisky-stones/whiskystone" data-image="assets/story-six/p1-product-4.jpg" data-price="$30" data-currency="" data-description="Ideal for chilling your favorite spirit without diluting its flavor with melting ice."><img src="assets/story-six/p1-product-4.jpg"><span class="tag">4</span></a></li>
+<li><a href="" class="product hotspot" title="Block Table by Norman Copenhagen" data-track="hotspot:click" data-action="" data-url="http://top3.com.au/categories/bar-and-wine-and-water/bar-trolleys/nm-block-table/602205" data-image="assets/story-six/p1-product-5.jpg" data-price="$465" data-currency="" data-description="The Block table by Normann Copenhagen is a versatile and mobile table - perfect for use as a bar trolley, or for countless other uses in the home."><img src="assets/story-six/p1-product-5.jpg"><span class="tag">5</span></a></li>
+<li><a href="" class="product hotspot" title="Beer Foamer Copper by Menu" data-track="hotspot:click" data-action="" data-url="http://top3.com.au/categories/bar-and-wine-and-water/beer-and-accessories/menu-beer-foamer/men4690239" data-image="assets/story-six/p1-product-6.jpg" data-price="AUD $99" data-currency="" data-description="The Beer Foamer gets you as close to the Pub experience as you can without leaving your home. Denser beer foam will significantly increase the taste, aroma and feeling of the beer - just like beer fresh from the tap."><img src="assets/story-six/p1-product-6.jpg"><span class="tag">6</span></a></li>
+</ul>}
+      )
+    end
+
+    it 'detects and renders product set according to size' do
+      page = LocalIssue::Page.build('story-six', issue: top3)
+      view = Issue::PageView.new(page)
+
+      expect(view.product_set_html).to start_with(
+        %{<ul class="product-set set-6">}
+      )
     end
   end
 
