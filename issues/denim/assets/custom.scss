@@ -68,12 +68,27 @@
     }
 
     #flip-cards {
+      > li:nth-of-type(1) .info {
+        background-image: url('perfect-fit/skinny-bg.jpg');
+      }
+
+      > li:nth-of-type(2) .info {
+        background-image: url('perfect-fit/gf-bg.jpg');
+      }
+
+      > li:nth-of-type(3) .info {
+        background-image: url('perfect-fit/bf-bg.jpg');
+      }
+
+      > li:nth-of-type(4) .info {
+        background-image: url('perfect-fit/flare-bg.jpg');
+      }
+
       .flipper {
         padding-bottom: 40px;
       }
 
       .info {
-        background-image: url('perfect-fit/bg.jpg');
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
@@ -117,10 +132,6 @@
       }
 
       #flip-cards {
-        .info {
-          padding: 80px 50px 40px;
-        }
-
         h3 {
           margin-top: -40px;
           height: 30px;
@@ -159,8 +170,31 @@
     }
 
     #flip-cards {
+      > li:nth-of-type(1) .info {
+        background-image: url('brands-to-love/levis-bg.jpg');
+      }
+
+      > li:nth-of-type(2) .info {
+        background-image: url('brands-to-love/nobody-bg.jpg');
+      }
+
+      > li:nth-of-type(3) .info {
+        background-image: url('brands-to-love/ziggy-bg.jpg');
+      }
+
+      > li:nth-of-type(4) .info {
+        background-image: url('brands-to-love/mavi-bg.jpg');
+      }
+
+      > li:nth-of-type(5) .info {
+        background-image: url('brands-to-love/jack-bg.jpg');
+      }
+
+      > li:nth-of-type(6) .info {
+        background-image: url('brands-to-love/gstart-bg.jpg');
+      }
+
       .info {
-        background-image: url('brands-to-love/bg.jpg');
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
@@ -205,20 +239,8 @@
       }
 
       #flip-cards {
-        .info {
-          padding: 80px 50px 40px;
-        }
-
         li {
           width: 33.33%;
-        }
-      }
-    }
-
-    @media only screen and (min-width: 768px) and (orientation: portrait) {
-      #flip-cards {
-        .info {
-          padding: 80px 20px 40px;
         }
       }
     }
@@ -290,7 +312,6 @@
       left: 0;
       z-index: 2;
       overflow: auto;
-      padding: 40px;
       background: #fff;
       color: #333;
       font-size: 14px;
@@ -304,6 +325,17 @@
       -moz-backface-visibility: hidden;
       -o-backface-visibility: hidden;
       backface-visibility: hidden;
+    }
+
+    li .info .wrapper {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      width: 80%;
+      height: 70%;
     }
 
     li .flip {
@@ -322,6 +354,10 @@
 
       .summary {
         display: block;
+      }
+
+      li .info .wrapper {
+        height: 50%;
       }
     }
   }
