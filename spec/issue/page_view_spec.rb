@@ -3,11 +3,15 @@ require 'issue/page_view'
 require 'local_issue/page'
 
 RSpec.describe Issue::PageView do
-  let(:top3) {local_issue 'top3'}
-  let(:spring) {local_issue 'spring'}
-  let(:spread) {local_issue 'spread'}
-  let(:rebelskhed) {local_issue 'rebelskhed'}
+  let(:accelerator) {local_issue 'accelerator'}
+  let(:adventure) {local_issue 'adventure'}
+  let(:escape_one) {local_issue 'escape-one'}
+  let(:great_escape) {local_issue 'great-escape'}
   let(:music) {local_issue 'music'}
+  let(:rebelskhed) {local_issue 'rebelskhed'}
+  let(:spread) {local_issue 'spread'}
+  let(:spring) {local_issue 'spring'}
+  let(:top3) {local_issue 'top3'}
 
   describe 'Rendering Helpers' do
     let(:page) { LocalIssue::Page.build('story-three', issue: spring) }
@@ -38,7 +42,7 @@ RSpec.describe Issue::PageView do
     it { expect( view.column_break_count).to be 2 }
 
     it { expect( view ).not_to be_custom_layout }
-    it { should respond_to('custom_html') }
+    it { expect( view.custom_html? ).to be_falsy }
 
     it { should respond_to('content_html') }
 
@@ -51,16 +55,53 @@ RSpec.describe Issue::PageView do
   end
 
   describe 'author' do
-    it 'includes author name and icon'
-    it 'shows/hides author based on switch'
-    it 'shows author when there is an author'
-    it 'hides author on child pages'
+    it 'includes author name and icon' do
+      page = LocalIssue::Page.build('video-six', issue: accelerator)
+      view = Issue::PageView.new(page)
+
+      expect(view.author).to eq Struct::Author.new('Zyralyn Bacani', 'http://cl.ly/StPu/Image%202013.12.11%204%3A54%3A01%20pm.png')
+    end
+
+    it 'shows author when there is an author' do
+      page = LocalIssue::Page.build('1-a-holiday-in-style', issue: great_escape)
+      view = Issue::PageView.new(page)
+
+      expect(view.show_author?).to be_truthy
+    end
+
+    it 'shows/hides author based on switch' do
+      page = LocalIssue::Page.build('an-ode-to-produce', issue: escape_one)
+      view = Issue::PageView.new(page)
+
+      expect(view.show_author?).to be_falsy
+
+      page.layout.hide_author = false
+      expect(view.show_author?).to be_truthy
+    end
+
+    it 'hides author on child pages' do
+      page = LocalIssue::Page.build('1-styling-it-out/1', issue: music)
+      view = Issue::PageView.new(page)
+
+      expect(view.show_author?).to be_falsy
+    end
   end
 
   describe 'multicolumn' do
     it 'has 0 column break by default'
-    it 'has 1 column break for cover or product set'
-    it 'has 2 column breaks when three column cover takes up 2 column'
+
+    it 'has 1 column break for cover or product set' do
+      page = LocalIssue::Page.build('video-six', issue: accelerator)
+      view = Issue::PageView.new(page)
+      expect(view.column_break_count).to eq 1
+    end
+
+    it 'has 2 column breaks when three column cover takes up 2 column' do
+      page = LocalIssue::Page.build('story-one', issue: top3)
+      view = Issue::PageView.new(page)
+
+      expect(view.column_break_count).to eq 2
+    end
   end
 
   describe 'products' do
@@ -155,7 +196,14 @@ RSpec.describe Issue::PageView do
   end
 
   describe 'content html' do
-    it 'decorates data-* attributes with corresponding page element'
+    it 'decorates data-* attributes with corresponding page element' do
+      page = LocalIssue::Page.build('story-one', issue: spring)
+      view = Issue::PageView.new(page)
+
+      expect(view.content_html).to include(
+        %{<figure class="image" style="max-height:px; max-width: px"><img data-media-id="images:10" src="assets/nibble/crackers_2.jpg"><div class_name="aspect-ratio" style="padding-bottom: 66.66666666666667%;"></div></figure>}
+      )
+    end
   end
 
   describe 'custom html' do
