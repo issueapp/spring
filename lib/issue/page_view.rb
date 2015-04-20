@@ -161,6 +161,10 @@ class Issue::PageView # < Struct.new(:page)
     page.layout.type == 'custom'
   end
 
+  def custom_html
+    page.custom_html
+  end
+
   def custom_html?
     !! page.custom_html || custom_layout?
   end
@@ -494,18 +498,17 @@ class Issue::PageView # < Struct.new(:page)
     Nokogiri::HTML("").create_element(*args)
   end
 
-  def image_get_size!(asset)
-
+  def image_get_size! asset
     path = asset.url.sub("../assets/", "assets/")
 
     Rails.logger.info ">>>> image_get_size!"
     Rails.logger.info path
-    file = @issue.path.join(path)
+    file = page.issue.path.join(path)
 
     return unless file.exist?
     Timeout::timeout(0.2) {
 
-      width, height = FastImage.size file
+      width, height = FastImage.size(file)
       aspect_ratio = width.to_f / height
 
       asset.width = width
@@ -514,6 +517,7 @@ class Issue::PageView # < Struct.new(:page)
     }
 
     asset
+
   rescue
     nil
   end
