@@ -20,6 +20,7 @@ Layout = {
   #
   # Refreshes application layout on orientation change
   refresh: ->
+
     # Previous viewport
     previous = {
       orientation: @orientation,
@@ -42,8 +43,12 @@ Layout = {
       width: page.width()
     }
 
+    # Magazine slides resize
+    if @magazine && @magazine.slides
+      @magazine.slides.__resize()
+
     # Update content UI    #
-    this.updateContentWidth()
+    # this.updateContentWidth()
 
     # Trigger layout refresh event with previous dimension
     App.trigger("layout:refresh", previous: previous)
@@ -70,18 +75,25 @@ Layout = {
   #   set @viewport height & width
   #   hide tablet & mobile safari address bar
   detectLayout: ->
-    container = $('[role=main]')
-    
-    # flag embed
-    document.documentElement.className += " embed" if @support.embed
+    # Initial env detection (no-touch, embed, resolution)
+    #
+    unless @detected
+      # flag embed
+      document.documentElement.className += " embed" if @support.embed
 
-    # detect touch event
-    document.documentElement.className += " no-touch" unless @support.touch
-    
-    # Set screen resolution cookie
-    document.cookie='resolution='+Math.max(screen.width,screen.height)+'; path=/'
+      # detect touch event
+      document.documentElement.className += " no-touch" unless @support.touch
 
+      # Set screen resolution cookie
+      document.cookie='resolution='+Math.max(screen.width,screen.height)+'; path=/'
 
+      @detected = true
+
+    # Mobile Safari: Hide address bar
+    # window.scrollTo(0, 1) if @support.swipe && !@support.webview
+
+    # Orientation detection
+    #
     if navigator.userAgent.match(/(iPhone|iPod)/)
       # NOTE: Temporary fix to support app.io ipad detection
       @support.swipe = if window.screen.height > 568 then "horizontal" else "vertical"
@@ -89,13 +101,11 @@ Layout = {
     else if !!navigator.userAgent.match(/iPad/)
       @support.swipe = "horizontal"
 
-    window.scrollTo(0, 1) if @support.swipe && !@support.webview
-
     # Support horizontal swipe
-    if @support.swipe == "horizontal" || window.innerHeight < window.innerWidth
-      container.removeClass("portrait").addClass("landscape")
-    else
-      container.removeClass("landscape").addClass("portrait")
+    viewable = {
+      height: window.innerHeight,
+      width: window.innerWidth
+    }
 
     if window.orientation
       @orientation = if window.orientation % 180 == 0 then 'portrait' else 'landscape'
@@ -105,68 +115,75 @@ Layout = {
     @landscape = @orientation == "landscape"
     @portraite = @orientation == "portrait"
 
-    # Refresh view port
+    # Refresh view port calculation
+    #
     if @support.swipe
-      @viewport.width = Math.max(320, container.width())
-      @viewport.height = container.height() #- $('header.toolbar').height()
+      @viewport.width = Math.max(320, viewable.width)
+      @viewport.height = viewable.height #- $('header.toolbar').height()
     else
-      @viewport.width = if @viewport.maxWidth then Math.min(@viewport.maxWidth, container.width() ) else container.width()
-      @viewport.height = if @viewport.maxHeight then Math.min(@viewport.maxHeight, container.height() ) else container.height()
+      if @viewport.maxWidth
+        @viewport.width = Math.min(@viewport.maxWidth, viewable.width)
+      else
+        @viewport.width = viewable.width - this.menuWidth()
 
+      @viewport.height = if @viewport.maxHeight then Math.min(@viewport.maxHeight, viewable.height) else viewable.height
 
     # Notify layout detected and propagate layout object
     #
-    App.trigger("layout:detect", { orientation: @orientation, height: @viewport.height, width: @viewport.width  })
+    App.trigger("layout:detect", { orientation: @orientation, height: @viewport.height, width: @viewport.width })
 
   # Calculate page layout
   updateLayout: ->
-
-    if @support.swipe
-      css = "
+    # return if @viewport.width < 480
+    css = "
       @media only screen and (min-width: 768px) {\n
         #sections { max-width: #{@viewport.width}px }\n
 
-        article.paginate .content { width: #{@viewport.width}px }\n
+        article.paginate .content { width: #{@viewport.width}px !important }\n
 
         article.two-column .cover-area { width: #{@viewport.width / 2}px }\n
         article.three-column .cover-area { width: #{@viewport.width * 2 / 3}px }\n
 
-        article.two-column.cover-right .cover-area { left: #{@viewport.width / 2}px }\n
-        article.three-column.cover-right .cover-area { left: #{@viewport.width / 3}px }\n
+        article.two-column.image-cover.cover-right .cover-area { left: #{@viewport.width / 2}px }\n
+        article.three-column.image-cover.cover-right .cover-area { left: #{@viewport.width / 3}px }\n
       }\n
 
-      @media only screen and (min-width: 768px) and (orientation: landscape) {\n
-        article.two-column.no-image.has-product.cover-left .content { margin-left: #{@viewport.width / 2}px }\n
-      }\n
-
-      [role=main] .page {\n
-        width: #{@viewport.width}px;
-        height: #{@viewport.height}px;
-      }\n
-      "
-    else
-      css = "
       @media only screen and (min-width: 768px) {\n
-        #sections { max-width: #{@viewport.width}px }\n
-
-        article.paginate .content { width: #{@viewport.width}px }\n
-
-        article.two-column .cover-area { width: #{@viewport.width / 2}px }\n
-        article.three-column .cover-area { width: #{@viewport.width * 2 / 3}px }\n
-
-        article.two-column.cover-right .cover-area { left: #{@viewport.width / 2}px }\n
-        article.three-column.cover-right .cover-area { left: #{@viewport.width / 3}px }\n
+        article.two-column.has-product.no-image.cover-left .content { margin-left: #{@viewport.width / 2}px }\n
+        article.three-column.has-product.no-image.cover-left .content { margin-left: #{@viewport.width / 3 * 2}px }\n
       }\n
 
-      @media only screen and (min-width: 768px) and (orientation: landscape) {\n
-        article.two-column.no-image.has-product.cover-left .content { margin-left: #{@viewport.width / 2}px }\n
-      }\n
-
-      [role=main] .page {\n
+      .webview [role=main] article.page {\n
         width: #{@viewport.width}px;
+      }\n
+
+      [role=main] article.page {\n
+        width: #{@viewport.width}px;\n
         height: #{@viewport.height}px;
       }\n
+    "
+
+    #  Prepend default css rules before admin/embed
+    unless @support.swipe
+      css = "
+      #{css} \n
+
+      body.admin [role=main] {\n
+        width: #{@viewport.width}px;
+      }\n
+
+      body.admin #issue-menu {\n
+        width: #{@viewport.width}px;
+      }\n
+
+      .embed-issue [role=main] article.page {\n
+        width: #{App.viewport.width}px;\n
+        height: #{App.viewport.height - 60}px;
+      }\n
       "
+
+    App.trigger("layout:update", @viewport)
+
     style = document.createElement('style')
     style.type = 'text/css'
     style.id = "touch-layout"
@@ -179,6 +196,15 @@ Layout = {
     # Remove and reset the style
     $('#touch-layout').remove()
     $(document.head).append(style)
+
+    # Set Orientation on main container
+    container = $('[role=main]')
+
+    if @support.swipe == "horizontal" || window.innerHeight < window.innerWidth
+      container.removeClass("portrait").addClass("landscape")
+    else
+      container.removeClass("landscape").addClass("portrait")
+
 
     # console.log("[Layout] Set layout size")
 
@@ -255,6 +281,39 @@ Layout = {
 
     # console.log('[issue.coffee] image sizes detected:', @imageSizes)
 
+  # Lock body scroll
+  #  toggle can be true, false
+  lockScroll: (mode)->
+    $(document.body).toggleClass("locked", mode)
+
+  # show overlay in app context
+  overlay: (mode)->
+    unless mode?
+      mode = $('.overlay').css('display') == "none"
+
+    # lock body/content scroll mode overlay is active
+    this.lockScroll(mode)
+
+    $('.overlay').toggle(mode)
+
+  # Overlay inside a page
+  pageOverlay: (toggle)->
+    if toggle == false
+      $('.page-overlay').hide()
+      this.lockScroll(false)
+    else
+      $('.page-overlay').show()
+      this.lockScroll(true)
+
+  # Detect app menu width
+  menuWidth: ->
+
+    if $('#menu').is(':visible')
+      $('#menu').width()
+    else
+      0
+
+  # TODO: Paginate is now in page view
   # Update content width for 2-col layout
   updateContentWidth: ->
     paginate_page = $('.page.paginate').removeClass('paginate')
@@ -270,7 +329,7 @@ Layout = {
         setTimeout =>
           width = Math.ceil( paginate_page[0].scrollWidth / App.viewport.width ) * App.viewport.width
           paginate_page.width(width)
-        , 200
+        , 300
 
   # Layout related
   scrollTop: (element, duration = 200)->
@@ -293,13 +352,6 @@ Layout = {
         element.scrollTop = 0
     )()
 
-  overlay: (toggle)->
-    if toggle == false
-      $('.overlay').false()
-      $(document.body).toggleClass('locked', false)
-    else
-      $('.overlay').show()
-      $(document.body).toggleClass('locked', true)
 }
 
 App.extend Layout
