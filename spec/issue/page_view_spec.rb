@@ -43,6 +43,7 @@ RSpec.describe Issue::PageView do
 
     it { expect( view ).not_to be_custom_layout }
     it { expect( view.custom_html? ).to be_falsy }
+    it { should respond_to('custom_html') }
 
     it { should respond_to('content_html') }
 
@@ -196,7 +197,9 @@ RSpec.describe Issue::PageView do
   end
 
   describe 'content html' do
-    it 'decorates data-* attributes with corresponding page element' do
+    it 'compiles mustache'
+
+    it 'decorates data-media-id attributes' do
       page = LocalIssue::Page.build('story-one', issue: spring)
       view = Issue::PageView.new(page)
 
@@ -207,7 +210,44 @@ RSpec.describe Issue::PageView do
   end
 
   describe 'custom html' do
-    it 'decorates data-* attributes with corresponding page element'
+    let(:page) do
+      page = double
+
+      allow(page).to receive('title') { 'Gyft' }
+      allow(page).to receive('attributes') { {'title' => 'Gyft'} }
+
+      page
+    end
+
+    let(:view) { Issue::PageView.new page }
+
+    it 'detects custom html' do
+      allow(page).to receive('custom_html') { 'custom' }
+      expect(view).to be_custom_html
+    end
+
+    it 'compiles mustache' do
+      allow(page).to receive('custom_html') { '{{title}}' }
+      expect(view.custom_html).to eq('Gyft')
+    end
+
+    it 'decorates data-media-id attributes' do
+      image = double
+      allow(image).to receive('[]').with('caption_inset') { false }
+      allow(image).to receive('[]').with('url') { 'assets/preview.jpg' }
+      allow(image).to receive('[]').with('caption') { '' }
+
+      issue = double
+      allow(issue).to receive('path') { Pathname.new('issues/top3') }
+
+      allow(page).to receive('issue') { issue }
+      allow(page).to receive('[]').with('images') { [image] }
+      allow(page).to receive('custom_html') { '<img data-media-id="images:1">' }
+
+      expect(view.custom_html).to eq(
+        '<figure class="image" style="max-height: 614px; max-width: 614px"><img data-media-id="images:1" src="assets/preview.jpg"><div class_name="aspect-ratio" style="padding-bottom: 100.0%; max-height: 614px"></div></figure>'
+      )
+    end
   end
 
   describe 'layout' do
