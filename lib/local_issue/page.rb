@@ -1,4 +1,3 @@
-require 'mustache'
 require 'rdiscount'
 require 'nokogiri'
 require 'local_issue'
@@ -82,26 +81,25 @@ class LocalIssue::Page < Hashie::Mash
     raise path.inspect
   end
 
-  # Load markdown file into memory
-  def self.build(path, options = {})
-    source = data_path(path, options).read
+  # Convert page data from file into memory
+  def self.build path, options={}, source=nil
+    source ||= data_path(path, options).read
     issue = options[:issue]
     parent_path, child_path = path.split("/")
 
-    if "1.9".respond_to? :encoding
-      source = source.force_encoding('binary')
-    end
+    #if "1.9".respond_to? :encoding
+    #  source = source.force_encoding('binary')
+    #end
 
     ## Build attributes from YAML
     meta, content = source.split(/---\s?\n(.+?)---\n/nm)[1,2]
+    content = content.to_s
     attributes = meta ? YAML.load(meta) : {}
 
-    # Format attribute
-    if attributes["products"]
-      attributes["products"].each_with_index do|p, i|
-        p["index"] = i + 1
-        p["summary"] = p["description"]
-      end
+    # Add index and summary to products
+    Array(attributes['products']).each_with_index do|p, i|
+      p['index'] = i + 1
+      p['summary'] = p['description']
     end
 
     # Convert media and entity url array into hash
@@ -145,15 +143,18 @@ class LocalIssue::Page < Hashie::Mash
       video
     end
 
+
+    # TODO push this responsibility to view model
+    #
     # Custom Callback to format asset for app page elements
-    if formatter = options[:format_asset]
-      self.elements.each do |element|
-        attributes[element] = attributes[element].to_a.map do |item|
-          formatter.call(item, element)
-        end
-      end
-    end
-    
+    #if formatter = options[:format_asset]
+    #  self.elements.each do |element|
+    #    attributes[element] = attributes[element].to_a.map do |item|
+    #      formatter.call(item, element)
+    #    end
+    #  end
+    #end
+
     # Find cover from video/image
     if !attributes["cover_url"]
       cover = (attributes["images"] + attributes["videos"]).compact.find{|img| img.cover }
@@ -161,37 +162,27 @@ class LocalIssue::Page < Hashie::Mash
     end
     attributes["cover"] = cover
     
-    # Render content part
-    attributes["raw_content"] = content.to_s.strip
-    
-    content = Mustache.render(content.to_s.strip, attributes)
-    
-    # Get script/style tag
-    doc = Nokogiri::HTML.fragment(content)
-    script_and_style = doc.search('style')[0].to_s + doc.search('script')[0].to_s
-
-    content = RDiscount.new(content.to_s.strip).to_html + script_and_style
-
-    # Layout
-    if options[:layout]
-      attributes["layout"].merge!(options[:layout])
+    # construct HTML-mustache for content or custom_html
+    if attributes.key? 'custom_html'
+      attributes['custom_html'] = content
+    else
+      attributes['content'] = RDiscount.new(content).to_html
     end
-    layout = attributes.fetch("layout", {}).reverse_merge(self.default_layout)
-    layout["hide_author"] = "1" if child_path
+
+    layout = self.default_layout.merge(attributes['layout'] || {})
+    layout.merge!(options['layout'] || options[:layout] || {})
 
     attributes.merge!(
-      "issue"           => issue,
-      "handle"          => path.split('/').last,
-      "path"            => path,
-      # "published_at"    => attributes["published_at"] || File.mtime(handle).to_i,
-      "layout"          => layout,
-      "content"         => content
+      "issue"    => issue,
+      "handle"   => path.split('/').last,
+      "path"     => path,
+      "layout"   => layout,
     )
 
-    new(attributes)
+    new attributes
 
-  rescue Exception => e
-    raise "Page: #{path} failed to build, #{e.inspect}"
+  #rescue Exception => e
+  #  raise "Page: #{path} failed to build, #{e.inspect}"
   end
 
   def self.recursive_build path, cache={}, options={}
@@ -224,6 +215,12 @@ class LocalIssue::Page < Hashie::Mash
 
     Pathname full_path
   end
+
+  def self.boolean_value value
+    value = value.to_s.strip
+    [/true/i, /yes/i, '1'].any?{|v| v === value}
+  end
+
 
   def cover
     (images.to_a + videos.to_a).find {|media| media.cover == true }

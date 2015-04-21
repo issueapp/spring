@@ -189,7 +189,7 @@ class IssuePreview < Sinatra::Base
     if options[:global]
       "#{asset_host}/assets/#{path}"
     else
-      "#{asset_host}#{issue_path("/#{path}")}"
+      "#{asset_host}#{issue_path("/#{path}")}".squeeze('/')
     end
   end
 
