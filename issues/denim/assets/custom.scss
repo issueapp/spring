@@ -1,4 +1,20 @@
 #denim-issue {
+  
+  .dark-theme {
+    .subtitle {
+      color: #eee;
+    } 
+    
+    .category {
+      color: #eee;
+    }
+  }
+  
+  .title {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
   [data-page="index"] {
     .brand {
       position: relative;
@@ -57,7 +73,8 @@
     }
   }
 
-  [data-page="perfect-fit"] {
+  [data-page="perfect-fit/1"],
+  [data-page="perfect-fit-men/1"] {
     .cover {
       height: 100%;
     }
