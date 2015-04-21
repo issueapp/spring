@@ -2,6 +2,7 @@ class PageView extends Backbone.View
   el: 'article.page'
 
   # scroller
+  number: 1
   width: 0
   offset: 0
   clientX: 0
@@ -13,8 +14,8 @@ class PageView extends Backbone.View
     "click a[data-app-view=layer]" : "openLayer"
 
     "click a[href^='geo:']" : 'showMap'
-    "click a[href]:not(.hotspot)" : "visit"
     "click a.audio": "toggleAudio"
+    "click a[href]:not(.hotspot)" : "visit"
 
   initialize: (data)->
     @url = data.url
@@ -27,7 +28,10 @@ class PageView extends Backbone.View
     theme = this.$el.data('theme')
     theme = 'black' if this.$el.hasClass('cover') # || typeof theme == "undefined"
 
-    App.trigger('page:loaded', @path, path: @path, theme: theme)
+    opts = { path: @path, theme: theme }
+    opts['pageSnap'] = true if this.$el.hasClass('page-snap')
+
+    App.trigger('page:loaded', @path, opts)
 
     # @hotspot = new Hotspot(el: "##{@el.id} .hotspot") if @el && @el.parentNode
 
@@ -51,6 +55,7 @@ class PageView extends Backbone.View
     deltaX = e.clientX - @clientX
 
     # console.log("Move/scroll", @width, @offset, deltaX, e)
+    $('.popover.page-hotspot').remove() if $('.popover.page-hotspot').length > 0
 
     if this.isPaginated()
       # left edge
@@ -110,11 +115,12 @@ class PageView extends Backbone.View
   showMap: (e)->
     e.preventDefault()
     e.stopImmediatePropagation()
-    target = $(e.currentTarget).parent()
 
+    target = $(e.currentTarget).parent()
     geo = e.currentTarget.href.match(/(-?\d+.?\d*),(-?\d+.?\d*)/)
     latitude = geo[1]
     longitude = geo[2]
+
     if !latitude or !longitude
       throw 'Latitude and/or longitude not found'
 
@@ -126,22 +132,26 @@ class PageView extends Backbone.View
     if zoom
       zoom = zoom[1]
 
-    # Setup map view
-    mapView = target.data('map-view')
-    App.loading(true)
+    location = { latitude: latitude, longitude: longitude, name: label }
 
-    unless mapView
-      mapView = new MapView(location: location, target: target)
-      target.data('map-view', mapView)
+    if App.support.webview
+      App.trigger('open', 'geo', location)
+    else
+      mapView = target.data('map-view')
+      App.loading(true)
 
-    mapView.render()
-    @mapView = mapView
+      unless mapView
+        mapView = new MapView(location: location, target: target)
+        target.data('map-view', mapView)
+
+      mapView.render()
+      @mapView = mapView
 
   visit: (e)->
     link = e.currentTarget
     $link = $(link)
 
-    return if $link.attr('href') == "#"
+    return if $link.attr('href')[0] == "#"
 
     e.preventDefault()
 
@@ -216,14 +226,20 @@ class PageView extends Backbone.View
     this.$el.addClass('current')
 
     # set autoplay
-    this.$('video').each -> this.play() if @autoplay && @paused
+    this.$('video, audio').each -> this.play() if this.hasAttribute('data-autoplay')
 
     App.trigger("page:active", @path)
+
+  # set page as inactive
+  setInactive: ->
+    this.$('video, audio').each -> this.pause()
 
   getTheme: ->
     this.$el.data('theme') || "white"
 
   next: ->
+    @number += 1
+
     if this.isSwipe()
       $(@el).addClass('animate')
       this.updatePos(@offset -= @viewport.width)
@@ -231,6 +247,8 @@ class PageView extends Backbone.View
       window.scrollTo(@container.scrollLeft() + @viewport.width, 0)
 
   prev: ->
+    @number -= 1
+
     if this.isSwipe()
       $(@el).addClass('animate')
       this.updatePos(@offset += @viewport.width)
@@ -243,7 +261,8 @@ class PageView extends Backbone.View
   canScroll: (dir)->
     if dir == 'prev' || dir == 'left'
       if this.isSwipe()
-        @offset >= @viewport.width
+        # @offset >= @viewport.width
+        @offset < 0 && @offset < @viewport.width
       else
         @container.scrollLeft() >= @viewport.width
     else
@@ -351,22 +370,31 @@ class PageView extends Backbone.View
 
     this.delegateEvents()
 
-    this.$el.removeClass('paginate')
+    # Method 1 - scroll height to test overflow
+    # this.$el.removeClass('paginate')
+    # overflown = @el.scrollHeight > (@el.offsetHeight + 20)
+    # console.log("Paginate overflow height", @el.scrollHeight, @el.offsetHeight)
 
-    overflown = @el.scrollHeight > (@el.offsetHeight + 20)
+    # Method 2 - scroll width to test overflow
+    overflown = @el.scrollWidth > @el.offsetWidth
+    console.log("Paginate overflow width?", @el.scrollWidth, @el.offsetWidth)
 
     # detect if content overflows then
     if overflown
 
-      console.log("paginate overflow content")
+      console.log("paginate overflow content", this.$('.body').width())
 
       this.$el.css('width', '')
-      this.$el.addClass('paginate')
+      # Method 1 # this.$el.addClass('paginate')
 
+      App.on("layout:refresh", this.refreshPaginate)
+
+      # Wait for browser to render pagination
       setTimeout =>
-        @width = Math.ceil( this.$el[0].scrollWidth / @viewport.width ) * @viewport.width
+        @width = Math.ceil( this.el.scrollWidth / @viewport.width ) * @viewport.width
         this.$el.width(@width)
 
+        # ???
         # if this.isSwipe()
         #   $(@el).addClass('animate')
         #   this.updatePos(@offset -= @viewport.width)
@@ -374,6 +402,31 @@ class PageView extends Backbone.View
         #   window.scrollTo( @container.scrollLeft() + @viewport.width, 0)
 
       , 200
+
+  refreshPaginate: =>
+    return if @number == 1
+    this.el.style.width = ""
+
+    # Wait for browser to apply width and update scrollWidth
+    setTimeout =>
+      @width = Math.ceil( this.el.scrollWidth / @viewport.width ) * @viewport.width
+
+      console.log("Refresh pagination", this.el.scrollWidth, @viewport.width, @width, this.el.style.width)
+
+      this.$el.width(@width)
+
+      # calculate offset
+      offset = @viewport.width * ( @number - 1 )
+
+      if this.isSwipe()
+        @offset = - offset
+        this.updatePos(@offset)
+      else
+        window.scrollTo(offset, 0)
+    , 200
+    # setTimeout =>
+    #   this.el.style.visibility = ""
+    # , 150
 
   # Scroll end
   isSwipe: ->
