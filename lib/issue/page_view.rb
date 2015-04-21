@@ -1,9 +1,11 @@
+require 'active_support/core_ext/object/to_param'
+require 'active_support/core_ext/object/to_query'
+require 'active_support/core_ext/object/blank'
 require 'fastimage'
+require 'mustache'
 require 'nokogiri'
 require 'timeout'
 require 'uri'
-require 'active_support/core_ext/object/to_param'
-require 'active_support/core_ext/object/to_query'
 
 unless defined? Issue
   Issue = Module.new
@@ -11,10 +13,10 @@ end
 
 Struct.new('Author', :name, :icon)
 
-class Issue::PageView # < Struct.new(:page)
+class Issue::PageView # < Struct.new(:page, :context)
 
   attr_reader :page
-  def initialize(page); @page = page end
+  def initialize(page, context=nil); @page = page; @context = context; end
 
   def method_missing name, *args
     page.send(name, *args)
@@ -162,48 +164,17 @@ class Issue::PageView # < Struct.new(:page)
   end
 
   def custom_html
-    page.custom_html
+    #page.images.select(&:new_record?).each(&:destroy)
+    content = Mustache.render(page.custom_html, page.attributes)
+    decorate_media content
   end
 
   def custom_html?
-    !! page.custom_html || custom_layout?
+    page.custom_html.present?
   end
 
   def content_html
-    doc = Nokogiri::HTML.fragment("<div>" + page.content + "</div>")
-
-    # Swap data-media-id
-    # videos:1
-    # images:1
-    doc.search("[data-media-id]").each do |node|
-      asset, index = node["data-media-id"].split(":")
-      index = index.to_i - 1
-
-      if page[asset] && page[asset][index]
-        media = page[asset][index]
-        node["src"] = media["url"]
-
-        if asset == "images"
-          if node["data-background-image"]
-            node["style"] = "background-size: cover; background-image:url(#{media["url"]})"
-
-          else
-            img_node = image_node(node, media)
-            node.replace(img_node) if img_node != node
-          end
-        end
-
-        if asset == "videos"
-          node.replace video_node(node, media)
-        end
-
-        if asset == "audios"
-          node.replace audio_node(node, media)
-        end
-      end
-    end
-
-    doc.child.inner_html
+    decorate_media page.content
   end
 
   def has_cover?
@@ -294,6 +265,41 @@ class Issue::PageView # < Struct.new(:page)
 
   private
 
+  # Swap data-media-id
+  # videos:1
+  # images:1
+  def decorate_media content
+    doc = Nokogiri::HTML.fragment('<div>' << content << '</div>')
+
+    doc.search('[data-media-id]').each do |node|
+      asset, index = node['data-media-id'].split(':')
+      index = index.to_i - 1
+
+      next unless page[asset] && page[asset][index]
+
+      media = page[asset][index]
+      node['src'] = media['url']
+
+      case asset
+      when 'images'
+        if node['data-background-image']
+          node['style'] = "background-size: cover; background-image:url(#{media['url']})"
+
+        elsif ! node['data-original']
+          node.replace image_node(node, media)
+        end
+
+      when "videos"
+        node.replace video_node(node, media)
+
+      when "audios"
+        node.replace audio_node(node, media)
+      end
+    end
+
+    doc.child.inner_html
+  end
+
   def affiliate_url url
     data_path = File.expand_path("../../../issues/#{page.issue.handle}/affiliate_products.yml", __FILE__)
     @affiliate_urls ||= File.readable?(data_path) && YAML.load_file(data_path) || {}
@@ -346,35 +352,30 @@ class Issue::PageView # < Struct.new(:page)
   #   </figcaption>
   #   <figcaption>Although a tomboy at heart, Christina admits the last 3 years have seen her become ‘obsessed’ with fashion.</figcaption>
   # </figure>
-  def image_node(node, image)
-    options = {}
+  def image_node node, image
+    caption_options = {}
+    caption_options[:class] = 'inset' if image['caption_inset']
 
-    return node if node["data-original"]
+    width, height, aspect_ratio = image_get_size(image)
+    max_dimension = "max-height: #{height}px; max-width: #{width}px"
+    padding = 100/(aspect_ratio || 1.5)
 
-    # get local image size
-    image_get_size!(image)
-    max_dimension = "max-height:#{image.height}px; max-width: #{image.width}px"
-
-
-    # if image["caption"].present?
-    figure = create_element('figure', class: "image", style: max_dimension)
+    if node.parent && node.parent.name == "figure"
+      figure = node.parent.clone
+      figure['style'] = max_dimension
+    else
+      figure = create_element('figure', class: 'image', style: max_dimension)
+    end
     figure.inner_html = node.to_s
 
-    options[:class] = "inset" if image["caption_inset"]
-
-    padding = 100/(image.aspect_ratio || 1.5)
-    figure << create_element("div",
-      class_name: "aspect-ratio",
-      style: "padding-bottom: #{padding}%;"
+    figure << create_element('div',
+      class_name: 'aspect-ratio', 
+      style: "padding-bottom: #{padding}%; max-height: #{height}px"
     )
 
-    figure << create_element('figcaption', image["caption"], options) if image["caption"].present?
+    figure << create_element('figcaption', image["caption"], caption_options) if image["caption"].present?
 
     figure
-
-    # else
-    #   node
-    # end
   end
 
   # <video data-media-id="videos:1" type="video/youtube" src="http://youtube.com/watch?v=8v_4O44sfjM"  poster="../assets/1-styling-it-out/Jar-of-Hearts-christina-perri-16882990-1280-720.jpg"/>
@@ -498,27 +499,15 @@ class Issue::PageView # < Struct.new(:page)
     Nokogiri::HTML("").create_element(*args)
   end
 
-  def image_get_size! asset
-    path = asset.url.sub("../assets/", "assets/")
+  def image_get_size image
+    file = page.issue.path.join(image['url'])
+    raise "local image not found: #{file}" unless file.exist?
 
-    Rails.logger.info ">>>> image_get_size!"
-    Rails.logger.info path
-    file = page.issue.path.join(path)
-
-    return unless file.exist?
-    Timeout::timeout(0.2) {
-
+    Timeout::timeout(0.2) do
       width, height = FastImage.size(file)
       aspect_ratio = width.to_f / height
 
-      asset.width = width
-      asset.height = height
-      asset.aspect_ratio = aspect_ratio
-    }
-
-    asset
-
-  rescue
-    nil
+      [width, height, aspect_ratio]
+    end
   end
 end
