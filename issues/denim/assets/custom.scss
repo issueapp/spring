@@ -1,20 +1,20 @@
 #denim-issue {
-  
+
   .dark-theme {
     .subtitle {
       color: #eee;
-    } 
-    
+    }
+
     .category {
       color: #eee;
     }
   }
-  
+
   .title {
     font-size: 24px;
     font-weight: bold;
   }
-  
+
   [data-page="index"] {
     .brand {
       position: relative;
@@ -260,6 +260,12 @@
           width: 33.33%;
         }
       }
+    }
+  }
+
+  [data-page="spotify"] {
+    .body {
+      text-align: center;
     }
   }
 
