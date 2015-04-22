@@ -139,18 +139,6 @@ class LocalIssue::Page < Hashie::Mash
       video
     end
 
-
-    # TODO push this responsibility to view model
-    #
-    # Custom Callback to format asset for app page elements
-    #if formatter = options[:format_asset]
-    #  self.elements.each do |element|
-    #    attributes[element] = attributes[element].to_a.map do |item|
-    #      formatter.call(item, element)
-    #    end
-    #  end
-    #end
-
     # Find cover from video/image
     if !attributes["cover_url"]
       cover = (attributes["images"] + attributes["videos"]).compact.find{|img| img.cover }

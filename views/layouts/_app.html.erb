@@ -32,8 +32,7 @@
     </script>
 
     <% if defined?(current_issue) %>
-      <%# issue_asset_path = params[:subpage] ? "../assets/" : "assets/" %>
-      <% current_issue.assets.to_a.each do |asset| %>
+      <% Array(current_issue.assets).each do |asset| %>
         <% if asset.match(/\.js$/) %>
           <script src="<%= asset_path asset %>"></script>
         <% elsif asset.match(/\.css$/) %>
