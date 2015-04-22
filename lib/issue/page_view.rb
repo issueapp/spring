@@ -369,7 +369,7 @@ class Issue::PageView # < Struct.new(:page, :context)
     figure.inner_html = node.to_s
 
     figure << create_element('div',
-      class_name: 'aspect-ratio', 
+      class: 'aspect-ratio', 
       style: "padding-bottom: #{padding}%; max-height: #{height}px"
     )
 
@@ -390,8 +390,6 @@ class Issue::PageView # < Struct.new(:page, :context)
   #    controls: true | false
   #    loop:     true | false
   def video_node(node, video)
-    class_name = nil
-
     video["autoplay"] ||= true
     video["controls"] ||= false
 
@@ -439,8 +437,6 @@ class Issue::PageView # < Struct.new(:page, :context)
   end
 
   def audio_node(node, media)
-    class_name = nil
-
     # Setup audio params
     options = {
       type:     media["type"],
