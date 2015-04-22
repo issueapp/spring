@@ -93,22 +93,6 @@
     }
 
     #flip-cards {
-      > li:nth-of-type(1) .info {
-        background-image: url('perfect-fit/skinny-bg.jpg');
-      }
-
-      > li:nth-of-type(2) .info {
-        background-image: url('perfect-fit/gf-bg.jpg');
-      }
-
-      > li:nth-of-type(3) .info {
-        background-image: url('perfect-fit/bf-bg.jpg');
-      }
-
-      > li:nth-of-type(4) .info {
-        background-image: url('perfect-fit/flare-bg.jpg');
-      }
-
       .flipper {
         padding-bottom: 40px;
       }
@@ -170,6 +154,46 @@
         h3 {
           margin-top: -80px;
         }
+      }
+    }
+  }
+
+  [data-page="perfect-fit/1"] {
+    #flip-cards {
+      > li:nth-of-type(1) .info {
+        background-image: url('perfect-fit/skinny-bg.jpg');
+      }
+
+      > li:nth-of-type(2) .info {
+        background-image: url('perfect-fit/gf-bg.jpg');
+      }
+
+      > li:nth-of-type(3) .info {
+        background-image: url('perfect-fit/bf-bg.jpg');
+      }
+
+      > li:nth-of-type(4) .info {
+        background-image: url('perfect-fit/flare-bg.jpg');
+      }
+    }
+  }
+
+  [data-page="perfect-fit-men/1"] {
+    #flip-cards {
+      > li:nth-of-type(1) .info {
+        background-image: url('perfect-fit-men/tapered-bg.jpg');
+      }
+
+      > li:nth-of-type(2) .info {
+        background-image: url('perfect-fit-men/straight-bg.jpg');
+      }
+
+      > li:nth-of-type(3) .info {
+        background-image: url('perfect-fit-men/slim-bg.jpg');
+      }
+
+      > li:nth-of-type(4) .info {
+        background-image: url('perfect-fit-men/skinny-bg.jpg');
       }
     }
   }
@@ -410,10 +434,10 @@
     transform: rotateY(0);
   }
   50% {
-    -webkit-transform: rotateY(90deg);
-    -moz-transform: rotateY(90deg);
-    -o-transform: rotateY(90deg);
-    transform: rotateY(90deg);
+    -webkit-transform: rotateY(60deg);
+    -moz-transform: rotateY(60deg);
+    -o-transform: rotateY(60deg);
+    transform: rotateY(60deg);
   }
   100% {
     -webkit-transform: rotateY(0);
@@ -431,10 +455,10 @@
     transform: rotateY(0);
   }
   50% {
-    -webkit-transform: rotateY(90deg);
-    -moz-transform: rotateY(90deg);
-    -o-transform: rotateY(90deg);
-    transform: rotateY(90deg);
+    -webkit-transform: rotateY(60deg);
+    -moz-transform: rotateY(60deg);
+    -o-transform: rotateY(60deg);
+    transform: rotateY(60deg);
   }
   100% {
     -webkit-transform: rotateY(0);
