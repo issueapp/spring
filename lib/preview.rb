@@ -128,16 +128,39 @@ class IssuePreview < Sinatra::Base
   # Page and subpage
   get %r{/(?<magazine>[^\/]+)/(?<issue>[^\/]+)/(?<page>[^\/]+)(?:\/(?<subpage>[^\/]+))?} do
     issue = current_issue
-    path = [params["page"], params["subpage"]].compact.join('/')
+    path = File.join(params.values_at('page', 'subpage').compact)
+    page = LocalIssue::Page.find(path, issue: issue)
+    layout = request.xhr? ? nil : :"/layouts/_app.html"
 
-    asset_formatter = lambda do |asset, element|
-      asset.each{|key, value| 
-        asset[key] = asset_path(value) if key =~ /url$/
-      }
+    erb page_template(page), locals: {issue: issue, page: page}, layout: layout
+  end
+
+  # usage:
+  #   issue level    asset_path('custom.js')
+  #   app level      asset_path('issue.js', global: true)
+  def asset_path path, options={}
+    return path if path.nil? || path.start_with?('http:', 'https:')
+
+    global = options[:global] || options['global']
+
+    # TODO: ??? Remove double assets/assets/ in spring
+    path.gsub!(%r{^/?assets/}, '/')
+
+    if defined? Rails
+      if global_online = (!Rails.application.config.offline_assets && global)
+        return ActionController::Base.helpers.asset_path(path)
+      end
+
+      prefix = params[:subpage] ? "../" : ""
+      path = File.join("#{prefix}assets", path) unless path.include?("#{prefix}assets/")
+
+      return path
     end
-    page = LocalIssue::Page.find(path, issue: issue, format_asset: asset_formatter)
 
-    erb page_template(page), locals: { issue: issue, page: page }, layout: !request.xhr? && :"/layouts/_app.html"
+    asset_host = ENV["ASSET_HOST"] || request.base_url
+    asset_path = global ? "assets/#{path}" : issue_path(path)
+
+    File.join(asset_host, asset_path)
   end
 
   private
@@ -145,51 +168,13 @@ class IssuePreview < Sinatra::Base
   def current_issue
     @issue = LocalIssue.find("#{params[:magazine]}/#{params[:issue]}")
 
-    apply_asset_path! @issue, :thumb_url, :cover_url
+    apply_asset_path!(@issue, :thumb_url, :cover_url)
     @issue
   end
 
   def apply_asset_path!(issue, *attrs)
     attrs.each do |attribute|
       issue.send("#{attribute}=", asset_path(issue.send(attribute)))
-    end
-  end
-
-  # Load issue level issue assets
-  #
-  # asset_path 'custom.js'
-  #
-  # Load app level assets
-  # asset_path 'issue.js', global: true
-  def asset_path(path, options = {})
-    return path if path.nil? || path =~ /^https?:/
-
-    # TODO: ??? Remove double assets/assets/ in spring
-    if path && path =~ /^\/?assets\//
-      path.gsub!(/^\/?assets\//, '/')
-    end
-    
-    if ENV["ASSET_HOST"]
-      asset_host = ENV["ASSET_HOST"]
-    else
-      asset_host = request.base_url
-    end
-
-    if defined?(Rails)
-      if !Rails.application.config.offline_assets && options[:global]
-        return ActionController::Base.helpers.asset_path(path)
-      end
-
-      prefix = params[:subpage] ? "../" : ""
-      path = path.include?("#{prefix}assets/") ? path : File.join("#{prefix}assets/", path.to_s)
-      
-      return path
-    end
-    
-    if options[:global]
-      "#{asset_host}/assets/#{path}"
-    else
-      "#{asset_host}#{issue_path("/#{path}")}".squeeze('/')
     end
   end
 
@@ -205,15 +190,14 @@ class IssuePreview < Sinatra::Base
     params[:webview] == "1" # || %r{issue://} === request.original_url
   end
 
-  def issue_path(path = nil)
-  
+  def issue_path path=nil
     asset = File.expand_path("../../issues/#{params[:issue]}/assets#{path}", __FILE__)
 
-    if File.exist?(asset) && !path.nil? && !path.empty?
-      path = path + "?#{File.mtime(asset).to_i}"
+    if add_cache_buster = (File.exist?(asset) && !path.nil? && !path.empty?)
+      path << "?#{File.mtime(asset).to_i}"
     end
 
-    "#{request.script_name}/#{params[:magazine]}/#{params[:issue]}/assets#{path}"
+    "#{request.script_name}/#{params[:magazine]}/#{params[:issue]}/assets/#{path}".squeeze('/')
   end
 
   def issue_url(path = "")
