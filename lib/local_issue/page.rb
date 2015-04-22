@@ -87,12 +87,8 @@ class LocalIssue::Page < Hashie::Mash
     issue = options[:issue]
     parent_path, child_path = path.split("/")
 
-    #if "1.9".respond_to? :encoding
-    #  source = source.force_encoding('binary')
-    #end
-
     ## Build attributes from YAML
-    meta, content = source.split(/---\s?\n(.+?)---\n/nm)[1,2]
+    meta, content = source.split(/---\n(.+?)---\n/m)[1,2]
     content = content.to_s
     attributes = meta ? YAML.load(meta) : {}
 
