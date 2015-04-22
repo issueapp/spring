@@ -1,11 +1,9 @@
 <%
   require 'issue/page_view'
-  page = Issue::PageView.new(page)
-
-  description = page.description || page.summary
+  page = Issue::PageView.new(page, self)
 %>
 
-<% if page.title || description %>
+<% if page.title || page.summary %>
   <% header_area = capture do %>
   <header>
     <% if page.category %>

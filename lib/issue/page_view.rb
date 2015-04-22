@@ -13,47 +13,22 @@ end
 
 Struct.new('Author', :name, :icon)
 
-class Issue::PageView # < Struct.new(:page, :context)
+class Issue::PageView #< Struct.new(:page, :context)
 
-  attr_reader :page
+  # TODO redefine PageView model to inherit from Struct
+  #      once it quacks like Page and LocalIssue::Page
+  attr_reader :page, :context
   def initialize(page, context=nil); @page = page; @context = context; end
-
-  def method_missing name, *args
-    page.send(name, *args)
-  end
+  def method_missing(name, *args); page.send(name, *args); end
 
   def dom_id
     "s#{handle}"
   end
 
-  # page embed
-  # <%= page.layout.type || 'two-column' %>
-  # <%= 'no-image ' unless has_cover %>
-  # <%= 'has-product ' if page.product_set? %>
-  # <%= 'no-header ' unless page.title || description %>
-  # <%= 'no-content ' unless has_content %>
-  # <%= page.content_type %>
-  # <%= "transparent" if page.layout.content_transparent == "1" %>
-  # 
-  # <%= page.layout.custom_class %>
-  # page-fadein
-  # 
-  # 
-  # 
-  # <% if page.layout.type != "custom" %>
-  #   <%= page.layout.content_overflow || 'scroll' %>
-  #   <%= page.layout.content_style || 'white' %>
-  #   <%= page.layout.content_align || 'left' %>
-  #   <%= page.layout.content_valign || 'top' %>
-  # 
-  #   <%= "height-#{page.layout.content_height || 'auto'}" %>
-  #   <%= "image-#{page.layout.image_style}" if page.layout.image_style %>
-  #   <%= "cover-#{page.layout.image_align}" if page.product_set? || page.layout.image_align && page.cover_url %>
-  # <% end %>
   def layout_class options={}
     has_header  = !empty_content?(page.title) || !empty_content?(page.description)
     has_content = !empty_content?(page.content)
-    has_product = !page.products.empty?
+    has_product = page.product_set?
     has_cover   = page.cover_url && page.layout.image_style != "none"
     editing     = options[:editing]
 
@@ -194,9 +169,9 @@ class Issue::PageView # < Struct.new(:page, :context)
     container_class << " #{cover.type.to_s.split('/').first}"
 
     if cover.type.to_s.include? 'video'
-      container_background = "background-image: url(#{cover.thumb_url})"
+      container_background = "background-image: url(#{asset_path cover.thumb_url})"
     else
-      container_background = "background-image: url(#{cover.url})"
+      container_background = "background-image: url(#{asset_path cover.url})"
     end
 
     doc = Nokogiri::HTML.fragment('')
@@ -283,7 +258,7 @@ class Issue::PageView # < Struct.new(:page, :context)
       case asset
       when 'images'
         if node['data-background-image']
-          node['style'] = "background-size: cover; background-image:url(#{media['url']})"
+          node['style'] = "background-size: cover; background-image:url(#{asset_path media['url']})"
 
         elsif ! node['data-original']
           node.replace image_node(node, media)
@@ -301,8 +276,10 @@ class Issue::PageView # < Struct.new(:page, :context)
   end
 
   def affiliate_url url
-    data_path = File.expand_path("../../../issues/#{page.issue.handle}/affiliate_products.yml", __FILE__)
-    @affiliate_urls ||= File.readable?(data_path) && YAML.load_file(data_path) || {}
+    @affiliate_urls ||= begin
+      data_path = File.expand_path("../../../issues/#{page.issue.handle}/affiliate_products.yml", __FILE__)
+      File.readable?(data_path) && YAML.load_file(data_path) || {}
+    end
 
     @affiliate_urls[url] || url
   end
@@ -323,7 +300,11 @@ class Issue::PageView # < Struct.new(:page, :context)
   end
 
   def asset_path value
-    value
+    if context.respond_to? 'asset_path'
+      context.asset_path value
+    else
+      value
+    end
   end
 
   def affiliate_url value
