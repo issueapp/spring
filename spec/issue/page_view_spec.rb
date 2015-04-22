@@ -204,7 +204,7 @@ RSpec.describe Issue::PageView do
       view = Issue::PageView.new(page)
 
       expect(view.content_html).to include(
-        %{<figure class="image" style="max-height:px; max-width: px"><img data-media-id="images:10" src="assets/nibble/crackers_2.jpg"><div class_name="aspect-ratio" style="padding-bottom: 66.66666666666667%;"></div></figure>}
+        %{<figure class="image" style="max-height: 777px; max-width: 590px"><img data-media-id="images:10" src="assets/nibble/crackers_2.jpg"><div class="aspect-ratio" style="padding-bottom: 131.6949152542373%; max-height: 777px"></div></figure>}
       )
     end
   end
@@ -242,10 +242,10 @@ RSpec.describe Issue::PageView do
 
       allow(page).to receive('issue') { issue }
       allow(page).to receive('[]').with('images') { [image] }
-      allow(page).to receive('custom_html') { '<img data-media-id="images:1">' }
 
+      allow(page).to receive('custom_html') { '<img data-media-id="images:1">' }
       expect(view.custom_html).to eq(
-        '<figure class="image" style="max-height: 614px; max-width: 614px"><img data-media-id="images:1" src="assets/preview.jpg"><div class_name="aspect-ratio" style="padding-bottom: 100.0%; max-height: 614px"></div></figure>'
+        '<figure class="image" style="max-height: 614px; max-width: 614px"><img data-media-id="images:1" src="assets/preview.jpg"><div class="aspect-ratio" style="padding-bottom: 100.0%; max-height: 614px"></div></figure>'
       )
     end
   end
