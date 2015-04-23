@@ -205,6 +205,9 @@ class LocalIssue::Page < Hashie::Mash
     [/true/i, /yes/i, '1'].any?{|v| v === value}
   end
 
+  def toc?
+    handle == 'toc'
+  end
 
   def cover
     (images.to_a + videos.to_a).find {|media| media.cover == true }
@@ -280,7 +283,7 @@ class LocalIssue::Page < Hashie::Mash
   def to_hash options={}
     hash = super.except("id", "issue", "cover_url", "thumb_url", "cover")
 
-    hash["title"] ||= "Table of Content" if handle == "toc"
+    hash["title"] ||= "Table of Content" if toc?
 
     return hash unless options[:local_path]
 
