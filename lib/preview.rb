@@ -7,7 +7,6 @@ require 'bourbon'
 require 'hashie/mash'
 require 'local_issue'
 require 'local_issue/page'
-require 'local_issue/page_helpers'
 
 class IssuePreview < Sinatra::Base
 
@@ -16,7 +15,6 @@ class IssuePreview < Sinatra::Base
     register Sinatra::AssetPipeline
   end
 
-  helpers LocalIssue::PageHelpers
   helpers Sinatra::ContentFor
 
   set :root, File.expand_path("../../", __FILE__)
