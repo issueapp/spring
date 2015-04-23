@@ -37,12 +37,13 @@ class Issue::PageView #< Struct.new(:page, :context)
     # HACK: Migrate all page type video with one column, use video.cover = true instead
     page.layout.type = "one-column" if page.layout.type == "video"
 
-    classes << (page.layout.type || 'two-column') if page.handle != "toc"
-    
-    classes << ('has-product' if has_product)
-    classes << ('no-header'   if !editing && !has_header)
-    classes << ('no-content ' if !editing && !has_content)
-    classes << ('no-image'    if !editing && !has_cover)
+    classes << (page.layout.type || 'two-column') unless page.toc?
+
+    classes << 'toc'         if page.toc?
+    classes << 'has-product' if has_product
+    classes << 'no-header'   if !editing && !has_header
+    classes << 'no-content ' if !editing && !has_content
+    classes << 'no-image'    if !editing && !has_cover
     
     classes << (page.layout.content_style    || 'white')
     classes << ('transparent') if page.layout.content_transparent == "1"
@@ -73,7 +74,7 @@ class Issue::PageView #< Struct.new(:page, :context)
   end
 
   def title
-    page.title
+    page.title || (yield if block_given?)
   end
 
   def summary
@@ -100,7 +101,7 @@ class Issue::PageView #< Struct.new(:page, :context)
   def author
     name = page.author_name
     icon = page.author_icon if page.respond_to? 'author_icon'
-    icon ||= page.author.image.url if page.respond_to? 'author'
+    icon ||= page.author.image.url if page.author
 
     if name
       Struct::Author.new(name, icon)
@@ -149,7 +150,9 @@ class Issue::PageView #< Struct.new(:page, :context)
   end
 
   def content_html
-    decorate_media page.content
+    html = decorate_media(page.content)
+    html = html.html_safe if html.respond_to? :html_safe
+    html
   end
 
   def has_cover?
@@ -163,16 +166,13 @@ class Issue::PageView #< Struct.new(:page, :context)
   def cover_html
     return unless has_cover?
 
-    container_class = 'cover-area'
-    container_class << " #{layout.image_style}"
-    container_class << " #{cover.style}"
-    container_class << " #{cover.type.to_s.split('/').first}"
+    container_class = "cover-area #{layout.image_style}  #{cover.style}  #{cover.type.to_s.split('/').first}"
+    container_class << 'play' if cover.autoplay
 
-    if cover.type.to_s.include? 'video'
-      container_background = "background-image: url(#{asset_path cover.thumb_url})"
-    else
-      container_background = "background-image: url(#{asset_path cover.url})"
-    end
+    thumb_url = cover.thumb ? cover.thumb.url : cover.thumb_url
+    background_url = cover.type.to_s.include?('video') ? page.cover_url : thumb_url
+
+    container_background = "background-image: url(#{asset_path background_url})"
 
     doc = Nokogiri::HTML.fragment('')
     Nokogiri::HTML::Builder.with(doc) do |d|
@@ -185,15 +185,15 @@ class Issue::PageView #< Struct.new(:page, :context)
           if embed_video? cover.link
             d << video_iframe_html(cover.link, page.cover.to_hash.merge(lazy: true, autoplay: true))
           else
+            video_url = cover.file ? cover.file.url : cover.url
+
             attributes = {
-              :src => cover.link,
+              :src => asset_path(video_url),
               'data-media-id' => cover.id,
-              :poster => asset_path(cover.thumb_url)
+              :poster => asset_path(thumb_url)
             }
-            if cover.autoplay
-              attributes['data-autoplay'] = ''
-              attributes['loop'] = ''
-            end
+            attributes['data-autoplay'] = '' if cover.autoplay
+            attributes['loop'] = '' if cover.loop
 
             d.video(attributes)
           end
@@ -207,7 +207,9 @@ class Issue::PageView #< Struct.new(:page, :context)
       end
     end
 
-    doc.to_html
+    html = doc.to_html
+    html = html.html_safe if html.respond_to? :html_safe
+    html
   end
 
   def has_product_set?
@@ -238,12 +240,32 @@ class Issue::PageView #< Struct.new(:page, :context)
     doc.to_html
   end
 
+  def all options={}
+    excluded = options['exclude'] || options[:exclude] || []
+    parent = options['parent'] || options[:parent]
+    layout_nav = options['layout_nav'] || options[:layout_nav] || true
+
+    pages = issue.pages
+
+    pages = pages.root if parent && pages.respond_to?('root')
+
+    pages.select do |page|
+      ! excluded.include?(page.handle) && page.layout.try('nav') == layout_nav
+    end
+  end
+
   private
+
+  def issue
+    page.issue
+  end
 
   # Swap data-media-id
   # videos:1
   # images:1
   def decorate_media content
+    return unless content
+
     doc = Nokogiri::HTML.fragment('<div>' << content << '</div>')
 
     doc.search('[data-media-id]').each do |node|
@@ -469,6 +491,7 @@ class Issue::PageView #< Struct.new(:page, :context)
   end
 
   def embed_video? url
+    return false unless url
     !! (url.match(/youtube\.com\/watch\?v=(.+)/) || url.match(/vimeo\.com\/([^\/]+)/))
   end
 
@@ -477,7 +500,10 @@ class Issue::PageView #< Struct.new(:page, :context)
   end
 
   def image_get_size image
-    file = page.issue.path.join(image['url'])
+    size = image.values_at('file_width', 'file_height', 'file_aspect_ratio')
+    return size if size.all?
+
+    file = File.join(page.issue.path, image['url'])
     raise "local image not found: #{file}" unless file.exist?
 
     Timeout::timeout(0.2) do
