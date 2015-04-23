@@ -1,72 +1,45 @@
 <%
-  page_title = page.title || "Table of Content - #{issue.title}"
+  require 'issue/page_view'
+  page = Issue::PageView.new(page, self)
+
+  page_title = page.title{"Table of Content - #{page.issue.title}"}
 %>
 
-<% header_area = capture do %>
-<header>
-  <% if page.category %>
-    <span class="category"><%= page.category %></span>
-  <% end %>
-
-  <% if page.title %>
-  <h1 class="title preview_item_title"><%= page.title %></h1>
-  <% end %>
-
-  <% if false && page.description %>
-  <h3 class="subtitle description"><%= page.description %></h3>
-  <% end %>
-
-  <div class="extras">
-    <% if page.author_icon %>
-      <img src="<%= page.author_icon %>" class="avatar" >
-    <% end %>
-
-    <% if page.author_name %>
-      <em>by <%= page.author_name %></em>
-    <% end %>
-
-    <% if page.description %>
-      <p><%= page.description %></p>
-    <% end %>
-  </div>
-</header>
-<% end %>
-
-<article id="toc_page" class="toc embed page
-
- <% if page.layout.type != "custom" %>
-   <%= page.layout.content_overflow || 'scroll' %>
-   <%= page.layout.content_style || 'white' %>
-   <%= page.layout.content_align || 'left' %>
-   <%= page.layout.content_valign || 'top' %>
-
-   <%= "height-#{page.layout.content_height || 'auto'}" %>
-   <%= "image-#{page.layout.image_style}" if page.layout.image_style %>
-   <%= "cover-#{page.layout.image_align}" if page.layout.image_align && page.cover_url %>
- <% end %>"
-
+<article id="toc_page" class="<%= page.layout_class %>"
   title="<%= page_title %>"
-  data-page-id="<%= page.id %>"
-  data-page="<%= page.handle %>"
   data-theme="<%= page.theme %>"
+  data-page-id="<%= page.page_id %>"
+  data-page="<%= page.path %>"
 >
   <div class="main col third-2">
-    <% if page.cover && page.cover.type =~ /video/ %>
-      <figure class="cover-area <%= page.layout.image_style %>"
-           style="">
-        <video src="<%= page.cover.url %>"  <%= "autoplay" if page.cover.autoplay %> <%= "loop" if page.cover.autoplay %> poster="<%= asset_path page.cover.thumb_url %>"></video>
-      </figure>
-    <% else %>
-
-      <div class="cover-area <%= page.layout.image_style %>"
-           style="background-image: url(<%= asset_path page.cover_url %>)">
-      </div>
-    <% end %>
+    <%= page.cover_html %>
 
     <div class="content">
-      <%= header_area %>
-      <p class="column-break"></p>
-      <div class="body"><%= render_page page %></div>
+      <header>
+        <% if page.category %>
+          <span class="category"><%= page.category %></span>
+        <% end %>
+
+        <% if page.title %>
+          <h1 class="title"><%= page.title %></h1>
+        <% end %>
+
+        <div class="extras">
+          <% if page.show_author? %>
+            <img src="<%= page.author.icon %>" class="avatar">
+            <em>by <%= page.author.name %></em>
+          <% end %>
+
+          <% if page.summary %>
+            <p><%= page.summary %></p>
+          <% end %>
+        </div>
+      </header>
+
+      <div class="body">
+        <%= page.content_html %>
+        <%#== render_page page %>
+      </div>
     </div>
   </div>
 
@@ -76,16 +49,16 @@
       <hr />
     </div>
     <ul>
-      <% issue.pages.each do |page| %>
-        <% if page.layout.try(:nav) != false && page.handle != "toc" %>
+      <% page.all('exclude' => %w[index toc], 'parent' => true).each do |page| %>
+        <% page = Issue::PageView.new(page) %>
+
         <li>
-          <a class="toc" href="<%= page.url + page_ext %>" data-app-view="magazine">
+          <a class="toc" href="<%= page.path + page_ext %>" data-app-view="magazine">
             <span class="category"><%= page.category %></span>
             <span class="story"><%= page.title %></span>
-            <span class="author"><%= "By #{page.author_name}" if page.author_name %></span>
+            <span class="author"><%= "By #{page.author.name}" if page.author %></span>
           </a>
         </li>
-        <% end %>
       <% end %>
     </ul>
   </div>
@@ -95,14 +68,17 @@
   App = (typeof App == 'undefined') ? {} : App;
   App.pages = App.pages || {}
 
-  App.pages["<%= page.handle %>"] = {
-    handle: "<%= page.handle %>",
+  // Not sure why layout is not being set.
+  App.refresh()
+  App.pages["<%= page.path %>"] = {
+    id: "<%= page.id %>",
+    handle: "<%= page.path %>",
     title: "<%= page_title %>",
     links: <%= page.links.to_json %>
-  };
+  }
 
   if (App.support.webview) {
-    App.currentPage = new PageView({ path: "<%= page.handle + page_ext %>", model: App.page })
+    App.currentPage = new PageView({ path: "<%= page.handle + page_ext %>", model: App.pages["<%= page.path %>"] })
     App.currentPage.render()
 
     // Toggle page active
