@@ -1,3 +1,5 @@
+@import 'ui/gallery';
+
 /*
   Generic pages
     - article, stream, modal ..etc
@@ -44,7 +46,6 @@
 
 article.page {
   position: relative;
-  display: block;
   margin: 0 auto;
   text-align: center;
   font: 16px/1.25 "proxima-nova";
@@ -61,35 +62,12 @@ article.page {
     text-decoration: underline;
   }
 
-
-  %page-icon-style {
-    @extend %icon-style;
-
-    width: 50px;
-    height: 50px;
-    line-height: 50px;
-    padding: 0;
-    font-size: 32px;
-    color: #222;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    display: none;
-    z-index: 2;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-
-    .no-touch &:hover {
-      background: rgba(100,100,100, 0.4);
-    }
-  }
-
   // Cover area for image/video
   .cover-area {
     box-sizing: border-box;
     position: relative;
 
+    margin: 0;
     width: 100%;
     height: auto;
     min-height: 400px;
@@ -118,6 +96,10 @@ article.page {
     color: #222;
     width: 100%;
 
+    p a {
+      text-decoration: none;
+    }
+
     img {
       vertical-align: middle;
       display: inline-block;
@@ -128,6 +110,10 @@ article.page {
       display: inline-block;
       max-width: 180px;
       vertical-align: middle;
+    }
+
+    figure.image {
+      margin-bottom: 20px;
     }
 
     // Fixes video aspect ratio in content
@@ -259,16 +245,25 @@ article.page {
     text-align: right;
   }
 
-  figure {
+  figure.image {
     display: block;
+    margin: 0 auto;
 
     -webkit-column-break-inside: avoid;
     -moz-column-break-inside: avoid;
     column-break-inside: avoid;
 
     position: relative;
-    width: 100%;
     text-align: center;
+
+    & > img {
+      position: absolute;
+      right: 0;
+      left: 0;
+//      margin: 0 auto;
+      display: inline-block;
+
+    }
 
     figcaption {
       padding: 10px 20px;
@@ -279,7 +274,7 @@ article.page {
 
     figcaption.inset {
       position: absolute;
-      top: 0;
+//      top: 0;
       right: 0;
       color: white;
       text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
@@ -292,6 +287,7 @@ article.page {
       }
     }
   }
+
 
 //  .image.cover {
 //    position:relative;
@@ -395,6 +391,10 @@ article.page {
 
   figure.audio {
     margin-bottom: 10px;
+
+    .thumbnail {
+      position: relative;
+    }
   }
 
   figure.video {
@@ -455,12 +455,11 @@ article.page {
   }
 
   a.audio {
-    @extend %page-icon-style;
-
     left: initial;
     right: 50px;
     color: white;
     text-decoration: none;
+    @extend %touch-icon-style;
 
     &.audio-on {
       @extend .icon-ion-ios-volume-high;
@@ -473,16 +472,19 @@ article.page {
     }
   }
 
-  a.show-map {
-    @extend %page-icon-style;
+  .show-map {
+    @extend %touch-icon-style;
     @extend .icon-ios7-world-outline;
+  }
 
+  a.show-map {
     display: block;
     left: initial;
     right: 50px;
     color: white;
     z-index: 0;
     font-size: 26px;
+    text-decoration: none;
   }
 
   .description {
@@ -584,7 +586,6 @@ article.page {
   }
 
   &.image-background {
-    display: inline-block;
     position: relative;
     background-position: center;
     background-size: cover;
@@ -619,7 +620,7 @@ article.page {
 
     // Transparent content
     &.transparent .category {
-        color: #ccc;
+        color: #eee;
     }
 
     &.transparent.transparent-black .content {
@@ -681,6 +682,10 @@ article.page {
     overflow: hidden;
     padding: 10px 0;
 
+    .title, .subtitle {
+      text-align: left;
+    }
+
     .thumb-image {
       float: left;
       width: 140px;
@@ -695,7 +700,7 @@ article.page {
 
     .subtitle {
       font-size: 90%;
-      margin: 0;
+      margin: 0 0 0.5em;
     }
   }
 }
@@ -940,6 +945,7 @@ article.page.has-product {
     }
 
     blockquote {
+      margin-bottom: 1.25em;
       padding: 0.25em 10px 0.25em 50px;
     }
 
@@ -1050,9 +1056,6 @@ article.page.has-product {
       -moz-box-align: center;
 
       img {
-        -webkit-column-break-before: always;
-        -moz-column-break-before: always;
-        column-break-before: always;
         -webkit-column-break-inside: avoid;
         -moz-column-break-inside: avoid;
         column-break-inside: avoid;
@@ -1084,6 +1087,7 @@ article.page.has-product {
     .cover-area {
       position: relative;
       padding: 0;
+      margin: 0;
       width: 50%;
       height: 100%;
       justify-content: center;
