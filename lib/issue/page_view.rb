@@ -26,7 +26,7 @@ class Issue::PageView #< Struct.new(:page, :context)
   end
 
   def layout_class options={}
-    has_header  = !empty_content?(page.title) || !empty_content?(page.description)
+    has_header  = !empty_content?(title) || !empty_content?(summary)
     has_content = !empty_content?(page.content)
     has_product = page.product_set?
     has_cover   = page.cover_url && page.layout.image_style != "none"
@@ -99,9 +99,10 @@ class Issue::PageView #< Struct.new(:page, :context)
   end
 
   def author
+    return page.author if page.author
+
     name = page.author_name
     icon = page.author_icon if page.respond_to? 'author_icon'
-    icon ||= page.author.image.url if page.author
 
     if name
       Struct::Author.new(name, icon)
@@ -129,7 +130,7 @@ class Issue::PageView #< Struct.new(:page, :context)
 
     has_cover_url = ! page.cover_url.blank?
 
-    count += 1 if has_cover_url || product?
+    count += 1 if has_cover_url || has_product_set?
     count += 1 if layout.type == 'three-column' && has_cover_url
 
     count
@@ -141,8 +142,10 @@ class Issue::PageView #< Struct.new(:page, :context)
 
   def custom_html
     #page.images.select(&:new_record?).each(&:destroy)
-    content = Mustache.render(page.custom_html, page.attributes)
-    decorate_media content
+    html = Mustache.render(page.custom_html, page.attributes)
+    html = decorate_media(html)
+    html = html.html_safe if html.respond_to? :html_safe
+    html
   end
 
   def custom_html?
@@ -150,7 +153,8 @@ class Issue::PageView #< Struct.new(:page, :context)
   end
 
   def content_html
-    html = decorate_media(page.content)
+    html = Mustache.render(page.content, page.attributes)
+    html = decorate_media(html)
     html = html.html_safe if html.respond_to? :html_safe
     html
   end
@@ -169,10 +173,7 @@ class Issue::PageView #< Struct.new(:page, :context)
     container_class = "cover-area #{layout.image_style}  #{cover.style}  #{cover.type.to_s.split('/').first}"
     container_class << 'play' if cover.autoplay
 
-    thumb_url = cover.thumb ? cover.thumb.url : cover.thumb_url
-    background_url = cover.type.to_s.include?('video') ? page.cover_url : thumb_url
-
-    container_background = "background-image: url(#{asset_path background_url})"
+    container_background = "background-image: url(#{asset_url(cover, 'thumb' => cover.type.to_s.include?('video'))})"
 
     doc = Nokogiri::HTML.fragment('')
     Nokogiri::HTML::Builder.with(doc) do |d|
@@ -185,12 +186,10 @@ class Issue::PageView #< Struct.new(:page, :context)
           if embed_video? cover.link
             d << video_iframe_html(cover.link, page.cover.to_hash.merge(lazy: true, autoplay: true))
           else
-            video_url = cover.file ? cover.file.url : cover.url
-
             attributes = {
-              :src => asset_path(video_url),
+              :src => asset_url(cover),
               'data-media-id' => cover.id,
-              :poster => asset_path(thumb_url)
+              :poster => asset_url(cover, 'thumb' => true)
             }
             attributes['data-autoplay'] = '' if cover.autoplay
             attributes['loop'] = '' if cover.loop
@@ -227,7 +226,7 @@ class Issue::PageView #< Struct.new(:page, :context)
         page.products.each_with_index do |product, index|
           d.li do
             d.a(product_hotspot_attributes(product)) do
-              d.img(:src => asset_path(product[:image_url]))
+              d.img(:src => asset_url(product, 'image' => true))
               d.span(:class => 'tag') do
                 d.text(index + 1)
               end
@@ -237,7 +236,9 @@ class Issue::PageView #< Struct.new(:page, :context)
       end
     end
 
-    doc.to_html
+    html = doc.to_html
+    html = html.html_safe if html.respond_to? :html_safe
+    html
   end
 
   def all options={}
@@ -256,6 +257,44 @@ class Issue::PageView #< Struct.new(:page, :context)
 
   private
 
+  def asset_path value
+    value = context.asset_path(value) if context.respond_to? 'asset_path'
+    value
+  end
+
+  def asset_url object, options={}
+    if thumb = options['thumb'] || options[:thumb]
+      url = object['thumb_url'] || object.thumb.try('url')
+
+    # product, link
+    elsif image = options['image'] || options[:image]
+      url = object['image_url'] || object.image.try('url')
+
+    # media: image, video, audio
+    else
+      url = object['url'] || object.file.try('url')
+    end
+
+    asset_path url
+  end
+
+  def find_media id
+    return unless id
+
+    if page.respond_to? 'find_element'
+      media = page.find_element(id)
+      asset = (media.type.present? ? media.type.split('/').first.pluralize : "images") if media
+
+    else
+      asset, index = id.split(':')
+      media = page[asset].try('[]', index.to_i - 1)
+    end
+
+    if media
+      [asset, media]
+    end
+  end
+
   def issue
     page.issue
   end
@@ -269,18 +308,18 @@ class Issue::PageView #< Struct.new(:page, :context)
     doc = Nokogiri::HTML.fragment('<div>' << content << '</div>')
 
     doc.search('[data-media-id]').each do |node|
-      asset, index = node['data-media-id'].split(':')
-      index = index.to_i - 1
 
-      next unless page[asset] && page[asset][index]
+      asset, media = find_media(node['data-media-id'])
 
-      media = page[asset][index]
-      node['src'] = media['url']
+      unless media
+        log_method.call("Media not found: #{node['data-media-id']}")
+        next
+      end
 
       case asset
       when 'images'
         if node['data-background-image']
-          node['style'] = "background-size: cover; background-image:url(#{asset_path media['url']})"
+          node['style'] = "background-size: cover; background-image:url(#{asset_url media})"
 
         elsif ! node['data-original']
           node.replace image_node(node, media)
@@ -314,19 +353,11 @@ class Issue::PageView #< Struct.new(:page, :context)
       :'data-track' => 'hotspot:click',
       :'data-action' => product[:action],
       :'data-url' => product[:url] || product[:link],
-      :'data-image' => asset_path(product[:image_url]),
+      :'data-image' => asset_url(product, 'image' => true),
       :'data-price' => product[:price],
       :'data-currency' =>  product[:currency],
       :'data-description' => product[:description],
     }
-  end
-
-  def asset_path value
-    if context.respond_to? 'asset_path'
-      context.asset_path value
-    else
-      value
-    end
   end
 
   def affiliate_url value
@@ -363,6 +394,8 @@ class Issue::PageView #< Struct.new(:page, :context)
     max_dimension = "max-height: #{height}px; max-width: #{width}px"
     padding = 100/(aspect_ratio || 1.5)
 
+    node['src'] = asset_url(image)
+
     if node.parent && node.parent.name == "figure"
       figure = node.parent.clone
       figure['style'] = max_dimension
@@ -392,7 +425,7 @@ class Issue::PageView #< Struct.new(:page, :context)
   #    autoplay: true | false
   #    controls: true | false
   #    loop:     true | false
-  def video_node(node, video)
+  def video_node node, video
     video["autoplay"] ||= true
     video["controls"] ||= false
 
@@ -410,7 +443,7 @@ class Issue::PageView #< Struct.new(:page, :context)
       width:    video["width"],
       loop:     video["loop"],
       muted:    video["muted"],
-    }.delete_if { |k, v| v.nil? }
+    }.delete_if { |k,v| v.nil? }
 
     figure = create_element('figure', :class => "video")
     figure << create_element("div",
@@ -420,7 +453,7 @@ class Issue::PageView #< Struct.new(:page, :context)
 
     # Detect embed videos
     if embed_video? video_url
-      figure.inner_html += video_iframe(video_url, options.merge(lazy: true))
+      figure.inner_html += video_iframe_html(video_url, options.merge(lazy: true))
 
     # Use HTML5 native Video element
     else
@@ -443,7 +476,7 @@ class Issue::PageView #< Struct.new(:page, :context)
     # Setup audio params
     options = {
       type:     media["type"],
-      src:      media["url"],
+      src:      asset_url(media),
       'data-autoplay': media["autoplay"] ? true : nil,
       controls: media["controls"] ? true : nil,
       loop:     media["loop"],
@@ -451,7 +484,7 @@ class Issue::PageView #< Struct.new(:page, :context)
     }.delete_if { |k, v| v.nil? }
 
     figure = create_element('figure', :class => "audio")
-    figure << create_element("img", class: "thumbnail", src: media["thumb_url"])
+    figure << create_element("img", class: "thumbnail", src: asset_url(media, 'thumb' => true))
 
     audio = create_element("audio", options)
     figure << audio
@@ -500,14 +533,21 @@ class Issue::PageView #< Struct.new(:page, :context)
   end
 
   def image_get_size image
-    size = image.values_at('file_width', 'file_height', 'file_aspect_ratio')
-    return size if size.all?
+    if image.respond_to? 'attributes'
+      size = image.attributes.values_at('file_width', 'file_height', 'file_aspect_ratio')
+      return size if size.all?
+    end
 
     file = File.join(page.issue.path, image['url'])
-    raise "local image not found: #{file}" unless file.exist?
+    raise "local image not found: #{file}" unless File.exist? file
 
     Timeout::timeout(0.2) do
       width, height = FastImage.size(file)
+
+      # FastImage is unable to detect width and height
+      # https://github.com/sdsykes/fastimage/issues/49
+      return unless width && height
+
       aspect_ratio = width.to_f / height
 
       [width, height, aspect_ratio]
