@@ -3,55 +3,48 @@
   page = Issue::PageView.new(page, self)
 %>
 
-<% if page.title || page.summary %>
-  <% header_area = capture do %>
-  <header>
-    <% if page.category %>
-      <span class='category'><%= page.category %></span>
-    <% end %>
-
-    <% if page.title %>
-    <h1 class='title preview_item_title'><%= page.title %></h1>
-    <% end %>
-
-    <% if page.summary %>
-      <h3 class='subtitle'><%= page.subtitle %></h3>
-    <% end %>
-
-    <div class='extras'>
-      <% if page.show_author? %>
-        <% if page.author.icon %>
-          <img src="<%= page.author.icon %>" class="avatar">
-        <% end %>
-        <em>By <%= page.author.name %></em>
-      <% end %>
-
-      <% if page.summary %>
-        <p class="description"><%= page.summary %></p>
-      <% end %>
-    </div>
-  </header>
-  <% end %>
-<% end %>
-
 <article id="<%= page.dom_id %>" class="<%= page.layout_class %>"
   title="<%= page.title %>"
   data-theme="<%= page.theme %>"
   data-page="<%= page.path %>"
-  data-author="<%= page.author.try(:name) %>"
   data-page-id="<%= page.page_id %>"
+  data-author="<%= page.author.try :name %>"
 >
 
-<% if page.layout.type == 'custom' %>
-  <%= render_page page %>
+<% if page.custom_html? %>
+
+  <%= page.custom_html %>
 
 <% else %>
 
   <%= page.cover_html %>
 
   <div class='content'>
-    <% if !page.cover || (page.cover && page.cover.style != "overlay") %>
-      <%= header_area %>
+    <% if !page.cover || page.cover.style != "overlay" %>
+      <% if page.title || page.summary %>
+        <header>
+          <% if page.category %>
+          <span class='category'><%= page.category %></span>
+          <% end %>
+
+          <% if page.title %>
+          <h1 class='title'><%= page.title %></h1>
+          <% end %>
+
+          <% if page.summary %>
+          <h3 class='subtitle'><%= page.summary %></h3>
+          <% end %>
+
+          <div class='extras'>
+            <% if page.show_author? %>
+              <% if page.author.icon %>
+                <img src="<%= page.author.icon %>" class="avatar">
+              <% end %>
+              <em>By <%= page.author.name %></em>
+            <% end %>
+          </div>
+        </header>
+      <% end %>
     <% end %>
 
     <%= page.product_set_html if page.has_product_set? %>
@@ -62,7 +55,6 @@
     
     <div class='body'>
       <%= page.content_html %>
-      <%#= render_page page %>
     </div>
 
     <% if page.credits %>
