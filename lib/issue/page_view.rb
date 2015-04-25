@@ -277,7 +277,7 @@ class Issue::PageView #< Struct.new(:page, :context)
 
     # make cover on top level
     %w[images videos].each do |e|
-      hash['cover'] ||= hash[e]).find{|m| m['cover'] }
+      hash['cover'] ||= hash[e].find{|m| m['cover'] }
     end
 
     page.class.elements.each do |element|
@@ -285,14 +285,17 @@ class Issue::PageView #< Struct.new(:page, :context)
 
       case element
       when 'images', 'videos'#, 'audios'
-        hash[element].each do |object|
-          #data[element][index]["url"] =  asset_path(data[element][index]["file_url"]).html_safe
-          object['url'] = asset_url(object)
+        page_element = page.send(element)
+
+        hash[element].each_with_index do |object, i|
+          object['url'] = asset_url(page_element[i])
         end
 
       when 'products', 'links'
-        hash[element].each do |object|
-          object['image_url'] = asset_url(object, 'image' => true)
+        page_element = page.send(element)
+
+        hash[element].each_with_index do |object, i|
+          object['image_url'] = asset_url(page_element[i], 'image' => true)
           object['url'] = object['link']
         end
       else
