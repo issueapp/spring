@@ -141,8 +141,7 @@ class Issue::PageView #< Struct.new(:page, :context)
   end
 
   def custom_html
-    #page.images.select(&:new_record?).each(&:destroy)
-    html = Mustache.render(page.custom_html, page.attributes)
+    html = Mustache.render(page.custom_html, json)
     html = decorate_media(html)
     html = html.html_safe if html.respond_to? :html_safe
     html
@@ -153,7 +152,7 @@ class Issue::PageView #< Struct.new(:page, :context)
   end
 
   def content_html
-    html = Mustache.render(page.content, page.attributes)
+    html = Mustache.render(page.content, json)
     html = decorate_media(html)
     html = html.html_safe if html.respond_to? :html_safe
     html
@@ -257,6 +256,57 @@ class Issue::PageView #< Struct.new(:page, :context)
 
   private
 
+  def json
+    if page.respond_to? 'to_hash'
+      hash = page.to_hash
+    else
+      hash = page.as_json(methods: [:cover_url, :cover_caption, :thumb_url, :link])
+      hash['id'] = hash.delete('_id')
+    end
+
+    hash["cover_url"] = asset_path(hash["cover_url"])
+    hash["thumb_url"] = asset_path(hash["thumb_url"])
+
+    if show_author?
+      hash['byline'] = "by #{author.name}"
+      hash['author_icon'] = author.icon
+      hash['show_author'] = true
+    end
+
+    hash['layout'] = layout
+
+    # make cover on top level
+    %w[images videos].each do |e|
+      hash['cover'] ||= hash[e]).find{|m| m['cover'] }
+    end
+
+    page.class.elements.each do |element|
+      next unless hash[element]
+
+      case element
+      when 'images', 'videos'#, 'audios'
+        hash[element].each do |object|
+          #data[element][index]["url"] =  asset_path(data[element][index]["file_url"]).html_safe
+          object['url'] = asset_url(object)
+        end
+
+      when 'products', 'links'
+        hash[element].each do |object|
+          object['image_url'] = asset_url(object, 'image' => true)
+          object['url'] = object['link']
+        end
+      else
+        log_method.call("Unrecognized element: #{element}")
+      end
+    end
+
+    # Convert ObjectId, Date to string
+    hash = hash.as_json if hash.respond_to? 'as_json'
+
+    hash
+  end
+
+
   def asset_path value
     value = context.asset_path(value) if context.respond_to? 'asset_path'
     value
@@ -272,7 +322,7 @@ class Issue::PageView #< Struct.new(:page, :context)
 
     # media: image, video, audio
     else
-      url = object['url'] || object.file.try('url')
+      url = object['url'] || object['file_url'] || object.file.try('url')
     end
 
     asset_path url
@@ -448,7 +498,7 @@ class Issue::PageView #< Struct.new(:page, :context)
     figure = create_element('figure', :class => "video")
     figure << create_element("div",
       class: "thumbnail",
-      style: "background-image: url('#{video["thumb_url"]}')"
+      style: "background-image: url('#{asset_url(video, 'thumb' => true)}')"
     )
 
     # Detect embed videos
@@ -552,5 +602,14 @@ class Issue::PageView #< Struct.new(:page, :context)
 
       [width, height, aspect_ratio]
     end
+  end
+
+  def log_method
+    @log_method ||=
+      if defined? Rails
+        Rails.logger.method :debug
+      else
+        method :puts
+      end
   end
 end
