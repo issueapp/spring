@@ -7,7 +7,9 @@ require 'nokogiri'
 require 'timeout'
 require 'uri'
 
-unless defined? Issue
+begin
+  Issue
+rescue NameError
   Issue = Module.new
 end
 
