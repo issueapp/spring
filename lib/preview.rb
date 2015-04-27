@@ -7,6 +7,7 @@ require 'bourbon'
 require 'hashie/mash'
 require 'local_issue'
 require 'local_issue/page'
+require 'issue/page_view'
 
 class IssuePreview < Sinatra::Base
 
@@ -128,6 +129,8 @@ class IssuePreview < Sinatra::Base
     issue = current_issue
     path = File.join(params.values_at('page', 'subpage').compact)
     page = LocalIssue::Page.find(path, issue: issue)
+    page = Issue::PageView.new(page, self)
+
     layout = request.xhr? ? nil : :"/layouts/_app.html"
 
     erb page_template(page), locals: {issue: issue, page: page}, layout: layout
@@ -204,7 +207,7 @@ class IssuePreview < Sinatra::Base
     !request.xhr? && :"/layouts/_app.html"
   end
 
-  def page_template(page)
+  def page_template page
     if page.layout.type == "cover"
       :"issue/_cover.html"
     elsif page.layout.type == "toc"
