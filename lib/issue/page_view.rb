@@ -149,38 +149,42 @@ class Issue::PageView
 
     container_background = "background-image: url(#{asset_url(cover, 'thumb' => cover.type.to_s.include?('video'))})"
 
-    doc = Nokogiri::HTML.fragment('')
-    Nokogiri::HTML::Builder.with(doc) do |d|
-      d.figure(:class => container_class, :style => container_background) do
-        #  <% if page.cover.style == 'overlay' %>
-        #    <%= header_area %>
-        #  <% end %>
+    attributes = {:class => container_class, :style => container_background}
+    fragment = create_element('figure', attributes) do |figure|
 
-        if cover.type.include? 'video'
-          if embed_video? cover.link
-            d << video_iframe_html(cover.link, page.cover.to_hash.merge(lazy: true, autoplay: true))
-          else
-            attributes = {
-              :src => asset_url(cover),
-              'data-media-id' => cover.id,
-              :poster => asset_url(cover, 'thumb' => true)
-            }
-            attributes['data-autoplay'] = '' if cover.autoplay
-            attributes['loop'] = '' if cover.loop
+      #  TODO unsure what to do with this?
+      #  <% if page.cover.style == 'overlay' %>
+      #    <%= header_area %>
+      #  <% end %>
+      #  end TODO unsure what to do with this?
 
-            d.video(attributes)
-          end
+      if cover.type.include? 'video'
+        if embed_video? cover.link
+          figure << video_iframe_html(
+            cover.link,
+            page.cover.to_hash.merge(lazy: true, autoplay: true)
+          )
+        else
+          attributes = {
+            :src => asset_url(cover),
+            'data-media-id' => cover.id,
+            :poster => asset_url(cover, 'thumb' => true)
+          }
+          attributes['data-autoplay'] = '' if cover.autoplay
+          attributes['loop'] = '' if cover.loop
+
+          figure << create_element('video', attributes)
         end
+      end
 
-        if cover.caption.present?
-          d.figcaption(:class => 'inset') do
-            d << cover.caption
-          end
+      if cover.caption.present?
+        figure << create_element('figcaption', :class => 'inset') do |figcaption|
+          figcaption << cover.caption
         end
       end
     end
 
-    html = doc.to_html
+    html = fragment.to_html
     html = html.html_safe if html.respond_to? :html_safe
     html
   end
@@ -190,23 +194,19 @@ class Issue::PageView
     container_class << " set-#{(page.products.to_a.count/2.0).ceil*2}" 
     container_class << ' cover-area' unless page.cover
 
-    doc = Nokogiri::HTML.fragment('')
-    Nokogiri::HTML::Builder.with(doc) do |d|
-      d.ul(:class => container_class) do
-        page.products.each_with_index do |product, index|
-          d.li do
-            d.a(product_hotspot_attributes(product)) do
-              d.img(:src => asset_url(product, 'image' => true))
-              d.span(:class => 'tag') do
-                d.text(index + 1)
-              end
-            end
+    fragment = create_element('ul', :class => container_class) do |ul|
+      page.products.each_with_index do |product, index|
+        ul << create_element('li') do |li|
+          attributes = product_hotspot_attributes(product)
+          li << create_element('a', attributes) do |a|
+            a << create_element('img', :src => asset_url(product, 'image' => true))
+            a << create_element('span', index + 1, :class => 'tag')
           end
         end
       end
     end
 
-    html = doc.to_html
+    html = fragment.to_html
     html = html.html_safe if html.respond_to? :html_safe
     html
   end
@@ -514,8 +514,8 @@ class Issue::PageView
     !! (url.match(/youtube\.com\/watch\?v=(.+)/) || url.match(/vimeo\.com\/([^\/]+)/))
   end
 
-  def create_element *args
-    Nokogiri::HTML('').create_element(*args)
+  def create_element *args, &block
+    Nokogiri::HTML('').create_element(*args, &block)
   end
 
   def image_get_size image
