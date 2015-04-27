@@ -22,23 +22,6 @@ class Issue::PageView
     page.custom_html.present?
   end
 
-  # private
-  def find_media id
-    return unless id
-
-    if page.respond_to? 'find_element'
-      media = page.find_element(id)
-      asset = (media.type.present? ? media.type.split('/').first.pluralize : "images") if media
-
-    else
-      asset, index = id.split(':')
-      media = page[asset].try('[]', index.to_i - 1)
-    end
-
-    if media
-      [asset, media]
-    end
-  end
   # end FIXME unstable API
 
   attr_reader :page, :context
@@ -286,7 +269,7 @@ class Issue::PageView
 
     doc.search('[data-media-id]').each do |node|
 
-      asset, media = find_media(node['data-media-id'])
+      asset, media = page.find_element(node['data-media-id'])
 
       unless media
         log_method.call("Media not found: #{node['data-media-id']}")
@@ -307,6 +290,9 @@ class Issue::PageView
 
       when "audios"
         node.replace audio_node(node, media)
+
+      else
+        log_method.call("Unknow asset: #{asset})
       end
     end
 
