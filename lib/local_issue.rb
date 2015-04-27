@@ -1,8 +1,9 @@
+require 'active_support/core_ext/hash'
+require 'active_support/core_ext/string'
+require 'active_support/core_ext/object/try'
 require 'hashie'
 require 'pathname'
 require 'yaml'
-require 'active_support/core_ext/string'
-require 'active_support/core_ext/hash'
 
 class LocalIssue < Hashie::Mash
 
@@ -56,6 +57,21 @@ class LocalIssue < Hashie::Mash
 
   def pages_count
     pages.map(&:children).flatten.count + pages.count
+  end
+
+  def all_pages options={}
+    excluded = options['exclude'] || options[:exclude] || []
+    root = options['root'] || options[:root]
+    layout_nav = options['layout_nav'] || options[:layout_nav] || true
+
+    pages = self.pages
+    pages.select!(&:root_page?) if root
+
+    pages.select! do |page|
+      ! excluded.include?(page.handle) && page.layout.try('nav') == layout_nav
+    end
+
+    pages
   end
 
   def pages
