@@ -1,8 +1,3 @@
-<%
-  require 'issue/page_view'
-  page = Issue::PageView.new(page, self)
-%>
-
 <article id="<%= page.dom_id %>" class="<%= page.layout_class %>"
   title="<%= page.title %>"
   data-theme="<%= page.theme %>"

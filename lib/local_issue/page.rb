@@ -54,7 +54,7 @@ class LocalIssue::Page < Hashie::Mash
   #  [index, toc].compact + pages
   #end
 
-  def self.find(path, options = {})
+  def self.find path, options={}
     return index if path == "index"
 
     parent_path, child_path = path.split("/")
