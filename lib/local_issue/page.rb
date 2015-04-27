@@ -205,6 +205,17 @@ class LocalIssue::Page < Hashie::Mash
     [/true/i, /yes/i, '1'].any?{|v| v === value}
   end
 
+  def find_element id
+    return unless id
+
+    asset, index = id.split(':')
+    media = self[asset].try('[]', index.to_i - 1)
+
+    if media
+      [asset, media]
+    end
+  end
+
   def toc?
     handle == 'toc'
   end
