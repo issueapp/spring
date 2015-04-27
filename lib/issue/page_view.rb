@@ -15,10 +15,54 @@ Struct.new('Author', :name, :icon)
 
 class Issue::PageView
 
+  # FIXME unstable API
+  def custom_html?
+    page.custom_html.present?
+  end
+
+  # private
+  def all options={}
+    excluded = options['exclude'] || options[:exclude] || []
+    parent = options['parent'] || options[:parent]
+    layout_nav = options['layout_nav'] || options[:layout_nav] || true
+
+    pages = issue.pages
+
+    pages = pages.root if parent && pages.respond_to?('root')
+
+    pages.select do |page|
+      ! excluded.include?(page.handle) && page.layout.try('nav') == layout_nav
+    end
+  end
+
+  # private
+  def find_media id
+    return unless id
+
+    if page.respond_to? 'find_element'
+      media = page.find_element(id)
+      asset = (media.type.present? ? media.type.split('/').first.pluralize : "images") if media
+
+    else
+      asset, index = id.split(':')
+      media = page[asset].try('[]', index.to_i - 1)
+    end
+
+    if media
+      [asset, media]
+    end
+  end
+  # end FIXME unstable API
+
   attr_reader :page, :context
-  def initialize(page, context=nil); @page = page; @context = context; end
+
+  def initialize page, context=nil
+    @page = page
+    @context = context
+  end
+
   def method_missing(name, *args, &block); page.send(name, *args, &block); end
-  def respond_to_missing?(name, include_private=false); page.respond_to_missing?(name, include_private); end
+  def respond_to_missing?(name, include_private=false); page.send('respond_to_missing?', name, include_private); end
 
   def dom_id
     "s#{handle}"
@@ -60,41 +104,9 @@ class Issue::PageView
     classes.join(' ').squeeze(' ')
   end
 
-  def page_id
-    page.id
-  end
-
-  def path
-    page.path
-  end
-
-  def handle
-    page.handle
-  end
-
-  def title
-    page.title || (yield if block_given?)
-  end
-
-  def summary
-    if page.respond_to? 'summary'
-      page.summary
-    elsif page.respond_to? 'description'
-      page.description
-    end
-  end
-
-  def category
-    page.category
-  end
-
-  def theme
-    page.theme
-  end
-
   def show_author?
     hide_author = [/true/i, /yes/i, '1'].any?{|v| v === layout.hide_author.to_s}
-    ! hide_author && ! has_parent? && author
+    ! hide_author && root_page? && author
   end
 
   def author
@@ -108,68 +120,32 @@ class Issue::PageView
     end
   end
 
-  def credits
-    page.credits
-  end
-
-  def has_parent?
-    !! parent
-  end
-
-  def parent
-    page.parent
-  end
-
-  def layout
-    page.layout
-  end
-
   def column_break_count
     count = 0
 
     has_cover_url = ! page.cover_url.blank?
 
-    count += 1 if has_cover_url || has_product_set?
+    count += 1 if has_cover_url || product_set?
     count += 1 if layout.type == 'three-column' && has_cover_url
 
     count
   end
 
-  def custom_layout?
-    page.layout.type == 'custom'
+  def custom_html json=nil
+    json ||= send('json')
+    render_html(page.custom_html, json)
   end
 
-  def custom_html
-    html = Mustache.render(page.custom_html, json)
-    html = decorate_media(html)
-    html = html.html_safe if html.respond_to? :html_safe
-    html
-  end
-
-  def custom_html?
-    page.custom_html.present?
-  end
-
-  def content_html
-    html = Mustache.render(page.content, json)
-    html = decorate_media(html)
-    html = html.html_safe if html.respond_to? :html_safe
-    html
-  end
-
-  def has_cover?
-    !! cover
-  end
-
-  def cover
-    page.cover
+  def content_html json=nil
+    json ||= send('json')
+    render_html(page.content, json)
   end
 
   def cover_html
-    return unless has_cover?
+    return unless (cover = page.cover)
 
-    container_class = "cover-area #{layout.image_style}  #{cover.style}  #{cover.type.to_s.split('/').first}"
-    container_class << 'play' if cover.autoplay
+    container_class = "cover-area #{layout.image_style}  #{cover.style}  #{cover.type.to_s.split('/').first}".squeeze(' ')
+    container_class << ' play' if cover.autoplay
 
     container_background = "background-image: url(#{asset_url(cover, 'thumb' => cover.type.to_s.include?('video'))})"
 
@@ -209,14 +185,10 @@ class Issue::PageView
     html
   end
 
-  def has_product_set?
-    page.product_set?
-  end
-
   def product_set_html
     container_class = 'product-set'
     container_class << " set-#{(page.products.to_a.count/2.0).ceil*2}" 
-    container_class << ' cover-area' unless has_cover?
+    container_class << ' cover-area' unless page.cover
 
     doc = Nokogiri::HTML.fragment('')
     Nokogiri::HTML::Builder.with(doc) do |d|
@@ -239,21 +211,14 @@ class Issue::PageView
     html
   end
 
-  def all options={}
-    excluded = options['exclude'] || options[:exclude] || []
-    parent = options['parent'] || options[:parent]
-    layout_nav = options['layout_nav'] || options[:layout_nav] || true
-
-    pages = issue.pages
-
-    pages = pages.root if parent && pages.respond_to?('root')
-
-    pages.select do |page|
-      ! excluded.include?(page.handle) && page.layout.try('nav') == layout_nav
-    end
-  end
-
   private
+
+  def render_html content, json
+    html = Mustache.render(content, json)
+    html = decorate_media(html)
+    html = html.html_safe if html.respond_to? :html_safe
+    html
+  end
 
   def json
     if page.respond_to? 'to_hash'
@@ -274,31 +239,25 @@ class Issue::PageView
 
     hash['layout'] = layout
 
-    # make cover on top level
-    %w[images videos].each do |e|
-      hash['cover'] ||= hash[e].find{|m| m['cover'] }
-    end
-
-    page.class.elements.each do |element|
+    %w[images videos].each do |element|
       next unless hash[element]
 
-      case element
-      when 'images', 'videos'#, 'audios'
-        page_element = page.send(element)
+      # make cover on top level
+      hash['cover'] ||= hash[element].find{|m| m['cover'] }
 
-        hash[element].each_with_index do |object, i|
-          object['url'] = asset_url(page_element[i])
-        end
+      page_element = page.send(element)
+      hash[element].each_with_index do |object, i|
+        object['url'] = asset_url(page_element[i])
+      end
+    end
 
-      when 'products', 'links'
-        page_element = page.send(element)
+    %w[products links].each do |element|
+      next unless hash[element]
 
-        hash[element].each_with_index do |object, i|
-          object['image_url'] = asset_url(page_element[i], 'image' => true)
-          object['url'] = object['link']
-        end
-      else
-        log_method.call("Unrecognized element: #{element}")
+      page_element = page.send(element)
+      hash[element].each_with_index do |object, i|
+        object['image_url'] = asset_url(page_element[i], 'image' => true)
+        object['url'] = object['link']
       end
     end
 
@@ -328,27 +287,6 @@ class Issue::PageView
     end
 
     asset_path url
-  end
-
-  def find_media id
-    return unless id
-
-    if page.respond_to? 'find_element'
-      media = page.find_element(id)
-      asset = (media.type.present? ? media.type.split('/').first.pluralize : "images") if media
-
-    else
-      asset, index = id.split(':')
-      media = page[asset].try('[]', index.to_i - 1)
-    end
-
-    if media
-      [asset, media]
-    end
-  end
-
-  def issue
-    page.issue
   end
 
   # Swap data-media-id
@@ -390,7 +328,7 @@ class Issue::PageView
 
   def affiliate_url url
     @affiliate_urls ||= begin
-      data_path = File.expand_path("../../../issues/#{page.issue.handle}/affiliate_products.yml", __FILE__)
+      data_path = File.expand_path("../../../issues/#{issue.handle}/affiliate_products.yml", __FILE__)
       File.readable?(data_path) && YAML.load_file(data_path) || {}
     end
 
@@ -410,10 +348,6 @@ class Issue::PageView
       :'data-currency' =>  product[:currency],
       :'data-description' => product[:description],
     }
-  end
-
-  def affiliate_url value
-    value
   end
 
   def empty_content? content
@@ -581,7 +515,7 @@ class Issue::PageView
   end
 
   def create_element *args
-    Nokogiri::HTML("").create_element(*args)
+    Nokogiri::HTML('').create_element(*args)
   end
 
   def image_get_size image
@@ -590,13 +524,13 @@ class Issue::PageView
       return size if size.all?
     end
 
-    file = File.join(page.issue.path, image['url'])
+    file = File.join(issue.path, image['url'])
     raise "local image not found: #{file}" unless File.exist? file
 
     Timeout::timeout(0.2) do
       width, height = FastImage.size(file)
 
-      # FastImage is unable to detect width and height
+      # FastImage is unable to detect width and height for svg
       # https://github.com/sdsykes/fastimage/issues/49
       return unless width && height
 

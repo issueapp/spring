@@ -30,6 +30,8 @@
   App = (typeof App == 'undefined') ? {} : App;
   App.pages = App.pages || {}
 
+  // Not sure why layout is not being set.
+  App.refresh()
   App.pages["index"] = {
     handle: "index",
     title: "<%= issue.title %>"
