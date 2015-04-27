@@ -141,9 +141,6 @@ class IssuePreview < Sinatra::Base
 
     global = options[:global] || options['global']
 
-    # TODO: ??? Remove double assets/assets/ in spring
-    path.gsub!(%r{^/?assets/}, '/')
-
     if defined? Rails
       if global_online = (!Rails.application.config.offline_assets && global)
         return ActionController::Base.helpers.asset_path(path)
@@ -157,6 +154,7 @@ class IssuePreview < Sinatra::Base
 
     asset_host = ENV["ASSET_HOST"] || request.base_url
     asset_path = global ? "assets/#{path}" : issue_path(path)
+    asset_path = asset_path.sub('assets/assets', 'assets')
 
     File.join(asset_host, asset_path)
   end

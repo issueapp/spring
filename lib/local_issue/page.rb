@@ -75,10 +75,10 @@ class LocalIssue::Page < Hashie::Mash
 
     page
 
-  rescue Exception => e
-    puts e.inspect
-    puts e.backtrace.join("\n")
-    raise path.inspect
+  #rescue Exception => e
+  #  puts e.inspect
+  #  puts e.backtrace.join("\n")
+  #  raise path.inspect
   end
 
   # Convert page data from file into memory
@@ -210,7 +210,8 @@ class LocalIssue::Page < Hashie::Mash
   end
 
   def cover
-    (images.to_a + videos.to_a).find {|media| media.cover == true }
+    images.to_a.find {|media| media.cover == true } ||
+      videos.to_a.find {|media| media.cover == true }
   end
 
   def cover_url
@@ -221,8 +222,20 @@ class LocalIssue::Page < Hashie::Mash
     end
   end
 
+  def root_page?
+    ! parent_path
+  end
+
+  def child_page?
+    ! root_page?
+  end
+
   def parent
     @parent ||= LocalIssue::Page.find(parent_path, issue: issue) if parent_path
+  end
+
+  def summary
+    self['summary'] ||  self['description']
   end
 
   def number

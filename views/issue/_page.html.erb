@@ -7,7 +7,7 @@
   title="<%= page.title %>"
   data-theme="<%= page.theme %>"
   data-page="<%= page.path %>"
-  data-page-id="<%= page.page_id %>"
+  data-page-id="<%= page.id %>"
   data-author="<%= page.author.try :name %>"
 >
 
@@ -47,7 +47,7 @@
       <% end %>
     <% end %>
 
-    <%= page.product_set_html if page.has_product_set? %>
+    <%= page.product_set_html if page.product_set? %>
 
     <% page.column_break_count.times do %>
       <p class='column-break'></p>

@@ -13,6 +13,14 @@ RSpec.describe Issue::PageView do
   let(:spring) {local_issue 'spring'}
   let(:top3) {local_issue 'top3'}
 
+  it 'delegates missing methods to page' do
+    page = double
+    view = Issue::PageView.new(page)
+
+    expect(page).to receive(:id)
+    view.id
+  end
+
   describe 'Rendering Helpers' do
     let(:page) { LocalIssue::Page.build('story-three', issue: spring) }
     let(:view) { Issue::PageView.new(page) }
@@ -22,36 +30,17 @@ RSpec.describe Issue::PageView do
     it { should respond_to('layout_class') }
 
     it { expect( view.dom_id   ).to eq 'sstory-three' }
-    it { expect( view.page_id  ).to be_nil }
-    it { expect( view.path     ).to eq 'story-three' }
-    it { expect( view.handle   ).to eq 'story-three' }
-    it { expect( view.title    ).to eq 'Passionfruit Cheesecake with Caramelised Pineapple' }
-    it { expect( view.summary  ).to be_nil }
-    it { expect( view.category ).to eq 'Recipe' }
-
-    it { expect( view.theme    ).to eq 'white' }
-    it { expect( view.credits  ).to be_nil }
 
     it { expect( view.show_author? ).to be_truthy }
     it { expect( view.author ).to eq Struct::Author.new('Emily Tan', nil) }
 
-    it { expect( view ).not_to have_parent }
-    it { expect( view.parent ).to be_nil }
-
-    it { expect( view.layout.to_hash ).to be_a Hash }
     it { expect( view.column_break_count).to be 2 }
 
-    it { expect( view ).not_to be_custom_layout }
     it { expect( view.custom_html? ).to be_falsy }
-    it { should respond_to('custom_html') }
 
-    it { should respond_to('content_html') }
-
-    it { expect( view ).to have_cover }
-    it { should respond_to('cover') }
     it { should respond_to('cover_html') }
-
-    it { expect( view ).not_to have_product_set }
+    it { should respond_to('custom_html') }
+    it { should respond_to('content_html') }
     it { should respond_to('product_set_html') }
   end
 
@@ -110,7 +99,7 @@ RSpec.describe Issue::PageView do
       page = LocalIssue::Page.build('story-six', issue: top3)
       view = Issue::PageView.new(page)
 
-      expect(view).to have_product_set
+      expect(view.product_set?).to be_truthy
     end
 
     it 'renders product set html' do
@@ -145,7 +134,7 @@ RSpec.describe Issue::PageView do
       view = Issue::PageView.new(page)
 
       expect(view.cover_html).to eq(
-        %{<figure class="cover-area cover  image" style="background-image: url(assets/2-head-or-heart/p1-cover.jpg)"><figcaption class="inset">MINKPINK Funday Sunday Dress.</figcaption></figure>}
+        %{<figure class="cover-area cover image" style="background-image: url(assets/2-head-or-heart/p1-cover.jpg)"><figcaption class="inset">MINKPINK Funday Sunday Dress.</figcaption></figure>}
       )
     end
 
@@ -157,7 +146,7 @@ RSpec.describe Issue::PageView do
       #   figure.cover-area > iframe|video
       #   figure style=video.thumb_url
       expect(view.cover_html).to eq(
-        %{<figure class="cover-area background  video" style="background-image: url(assets/video-your-way.jpg)"><iframe data-src="http://youtube.com/embed/IZjhUzv1YKw?autoplay=1&amp;controls=0&amp;loop=0&amp;playlist=IZjhUzv1YKw&amp;autohide=1&amp;color=white&amp;enablejsapi=1&amp;hd=1&amp;iv_load_policy=3&amp;origin=http%3A%2F%2Fissueapp.com&amp;rel=0&amp;showinfo=0&amp;wmode=transparent" frameborder="0" height="100%" width="100%" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></figure>}
+        %{<figure class="cover-area background video play" style="background-image: url(assets/video-your-way.jpg)"><iframe data-src="http://youtube.com/embed/IZjhUzv1YKw?autoplay=1&amp;controls=0&amp;loop=0&amp;playlist=IZjhUzv1YKw&amp;autohide=1&amp;color=white&amp;enablejsapi=1&amp;hd=1&amp;iv_load_policy=3&amp;origin=http%3A%2F%2Fissueapp.com&amp;rel=0&amp;showinfo=0&amp;wmode=transparent" frameborder="0" height="100%" width="100%" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></figure>}
       )
     end
 
@@ -210,15 +199,7 @@ RSpec.describe Issue::PageView do
   end
 
   describe 'custom html' do
-    let(:page) do
-      page = double
-
-      allow(page).to receive('title') { 'Gyft' }
-      allow(page).to receive('attributes') { {'title' => 'Gyft'} }
-
-      page
-    end
-
+    let(:page){ double }
     let(:view) { Issue::PageView.new page }
 
     it 'detects custom html' do
@@ -228,7 +209,7 @@ RSpec.describe Issue::PageView do
 
     it 'compiles mustache' do
       allow(page).to receive('custom_html') { '{{title}}' }
-      expect(view.custom_html).to eq('Gyft')
+      expect(view.custom_html({title: 'Gyft'})).to eq('Gyft')
     end
 
     it 'decorates data-media-id attributes' do
@@ -244,7 +225,7 @@ RSpec.describe Issue::PageView do
       allow(page).to receive('[]').with('images') { [image] }
 
       allow(page).to receive('custom_html') { '<img data-media-id="images:1">' }
-      expect(view.custom_html).to eq(
+      expect(view.custom_html({})).to eq(
         '<figure class="image" style="max-height: 614px; max-width: 614px"><img data-media-id="images:1" src="assets/preview.jpg"><div class="aspect-ratio" style="padding-bottom: 100.0%; max-height: 614px"></div></figure>'
       )
     end
