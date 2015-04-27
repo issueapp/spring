@@ -13,13 +13,12 @@ end
 
 Struct.new('Author', :name, :icon)
 
-class Issue::PageView #< Struct.new(:page, :context)
+class Issue::PageView
 
-  # TODO redefine PageView model to inherit from Struct
-  #      once it quacks like Page and LocalIssue::Page
   attr_reader :page, :context
   def initialize(page, context=nil); @page = page; @context = context; end
-  def method_missing(name, *args); page.send(name, *args); end
+  def method_missing(name, *args, &block); page.send(name, *args, &block); end
+  def respond_to_missing?(name, include_private=false); page.respond_to_missing?(name, include_private); end
 
   def dom_id
     "s#{handle}"
