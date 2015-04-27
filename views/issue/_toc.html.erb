@@ -1,7 +1,4 @@
 <%
-  require 'issue/page_view'
-  page = Issue::PageView.new(page, self)
-
   page_title = page.title{"Table of Content - #{page.issue.title}"}
 %>
 
@@ -38,7 +35,6 @@
 
       <div class="body">
         <%= page.content_html %>
-        <%#== render_page page %>
       </div>
     </div>
   </div>
@@ -49,7 +45,7 @@
       <hr />
     </div>
     <ul>
-      <% page.all('exclude' => %w[index toc], 'parent' => true).each do |page| %>
+      <% issue.all_pages('exclude' => %w[index toc], 'root' => true).each do |page| %>
         <% page = Issue::PageView.new(page) %>
 
         <li>

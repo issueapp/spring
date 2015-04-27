@@ -21,21 +21,6 @@ class Issue::PageView
   end
 
   # private
-  def all options={}
-    excluded = options['exclude'] || options[:exclude] || []
-    parent = options['parent'] || options[:parent]
-    layout_nav = options['layout_nav'] || options[:layout_nav] || true
-
-    pages = issue.pages
-
-    pages = pages.root if parent && pages.respond_to?('root')
-
-    pages.select do |page|
-      ! excluded.include?(page.handle) && page.layout.try('nav') == layout_nav
-    end
-  end
-
-  # private
   def find_media id
     return unless id
 
