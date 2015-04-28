@@ -198,7 +198,7 @@ RSpec.describe Issue::PageView do
       cover_html.should have_tag('figure.play')
 
       # lazy load
-      cover_html.should have_tag('iframe[data-src="http://youtube.com/embed/cats?autoplay=1&amp;controls=0&amp;loop=0&amp;playlist=cats&amp;autohide=1&amp;color=white&amp;enablejsapi=1&amp;hd=1&amp;iv_load_policy=3&amp;origin=http%3A%2F%2Fissueapp.com&amp;rel=0&amp;showinfo=0&amp;wmode=transparent"]')
+      cover_html.should have_tag('iframe[data-src="http://youtube.com/embed/cats?autoplay=1&controls=0&loop=0&playlist=cats&autohide=1&color=white&enablejsapi=1&hd=1&iv_load_policy=3&origin=http%3A%2F%2Fissueapp.com&rel=0&showinfo=0&wmode=transparent"]')
 
       # fullscreen
       cover_html.should have_tag('iframe[webkitallowfullscreen][mozallowfullscreen][allowfullscreen]')
