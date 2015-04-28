@@ -3,6 +3,9 @@ require 'issue/page_view'
 require 'local_issue/page'
 
 RSpec.describe Issue::PageView do
+  let(:page) { {} }
+  let(:view) { page_view page }
+
   let(:accelerator) {local_issue 'accelerator'}
   let(:adventure) {local_issue 'adventure'}
   let(:escape_one) {local_issue 'escape-one'}
@@ -22,22 +25,23 @@ RSpec.describe Issue::PageView do
   end
 
   describe 'Rendering Helpers' do
-    let(:page) { LocalIssue::Page.build('story-three', issue: spring) }
-    let(:view) { Issue::PageView.new(page) }
+    before do
+      page['handle'] = 'story-three'
+      page['author_name'] = 'Emily Tan'
+    end
 
     subject { view }
 
+    it { view.dom_id.should eq 'sstory-three' }
+
+    it { view.show_author?.should be_truthy }
+    it { view.author.should eq Struct::Author.new('Emily Tan', nil) }
+
+    it { view.column_break_count.should be_zero }
+
+    it { view.custom_html?.should be_falsy }
+
     it { should respond_to('layout_class') }
-
-    it { expect( view.dom_id   ).to eq 'sstory-three' }
-
-    it { expect( view.show_author? ).to be_truthy }
-    it { expect( view.author ).to eq Struct::Author.new('Emily Tan', nil) }
-
-    it { expect( view.column_break_count).to be 2 }
-
-    it { expect( view.custom_html? ).to be_falsy }
-
     it { should respond_to('cover_html') }
     it { should respond_to('custom_html') }
     it { should respond_to('content_html') }
@@ -45,86 +49,126 @@ RSpec.describe Issue::PageView do
   end
 
   describe 'author' do
-    it 'includes author name and icon' do
-      page = LocalIssue::Page.build('video-six', issue: accelerator)
-      view = Issue::PageView.new(page)
+    before do
+      page['author_name'] = 'Zyralyn Bacani'
+      page['author_icon'] = 'http://cl.ly/StPu/Image%202013.12.11%204%3A54%3A01%20pm.png'
+    end
 
-      expect(view.author).to eq Struct::Author.new('Zyralyn Bacani', 'http://cl.ly/StPu/Image%202013.12.11%204%3A54%3A01%20pm.png')
+    it 'includes author name and icon' do
+      view.author.name.should eq 'Zyralyn Bacani'
+      view.author.icon.should eq 'http://cl.ly/StPu/Image%202013.12.11%204%3A54%3A01%20pm.png'
     end
 
     it 'shows author when there is an author' do
-      page = LocalIssue::Page.build('1-a-holiday-in-style', issue: great_escape)
-      view = Issue::PageView.new(page)
-
-      expect(view.show_author?).to be_truthy
+      view.show_author?.should be_truthy
     end
 
     it 'shows/hides author based on switch' do
-      page = LocalIssue::Page.build('an-ode-to-produce', issue: escape_one)
-      view = Issue::PageView.new(page)
+      page['layout'] = {'hide_author' => true}
+      view.show_author?.should be_falsy
 
-      expect(view.show_author?).to be_falsy
-
-      page.layout.hide_author = false
-      expect(view.show_author?).to be_truthy
+      view.page.layout.hide_author = false
+      view.show_author?.should be_truthy
     end
 
     it 'hides author on child pages' do
-      page = LocalIssue::Page.build('1-styling-it-out/1', issue: music)
-      view = Issue::PageView.new(page)
-
-      expect(view.show_author?).to be_falsy
+      page['parent_path'] = 'parent'
+      view.show_author?.should be_falsy
     end
   end
 
   describe 'multicolumn' do
     it 'has 0 column break by default'
 
-    it 'has 1 column break for cover or product set' do
-      page = LocalIssue::Page.build('video-six', issue: accelerator)
-      view = Issue::PageView.new(page)
-      expect(view.column_break_count).to eq 1
+    it 'has 1 column break for cover' do
+      page['cover_url'] = 'assets/background.jpg'
+      view.column_break_count.should eq 1
+    end
+
+    it 'has 1 column break for product set' do
+      page['products'] = [{}]
+      view.column_break_count.should eq 1
     end
 
     it 'has 2 column breaks when three column cover takes up 2 column' do
-      page = LocalIssue::Page.build('story-one', issue: top3)
-      view = Issue::PageView.new(page)
+      page['layout'] = {type: 'three-column'}
+      page['cover_url'] = 'assets/background.jpg'
 
-      expect(view.column_break_count).to eq 2
+      view.column_break_count.should eq 2
     end
   end
 
-  describe 'products' do
-    it 'detects product set' do
-      page = LocalIssue::Page.build('story-six', issue: top3)
-      view = Issue::PageView.new(page)
+  describe 'product set html' do
+    let(:product) { {} }
 
-      expect(view.product_set?).to be_truthy
+    subject(:product_set_html) { view.product_set_html }
+
+    before do
+      page['products'] = [product]
     end
+
+    it { view.product_set?.should be_truthy }
 
     it 'renders product set html' do
-      page = LocalIssue::Page.build('story-six', issue: top3)
-      view = Issue::PageView.new(page)
-
-      expect(view.product_set_html).to eq(
-        %{<ul class="product-set set-6">
-<li><a href="" class="product hotspot" title="Chillsner Beer Chiller 2pk" data-track="hotspot:click" data-action="" data-url="http://top3.com.au/categories/bar-and-wine-and-water/beer-and-accessories/chillsner-beer-chiller/4002c" data-image="assets/story-six/p1-product-1.jpg" data-price="$40" data-currency="" data-description="Chillsner by Corkcicle. Just freeze, insert into any bottled beer and never suffer through another warm brew. Respect the beer. Chillsner is perfect for parties, tailgating and pretty much any occasion where beloved beers are enjoyed."><img src="assets/story-six/p1-product-1.jpg"><span class="tag">1</span></a></li>
-<li><a href="" class="product hotspot" title="Elipson Timber" data-track="hotspot:click" data-action="" data-url="http://top3.com.au/categories/home-and-living/audio---bluetooth-speakers/elipson-bluetooth-speakers/elipsontimber" data-image="assets/story-six/p1-product-2.jpg" data-price="$499" data-currency="" data-description="The Timber is a compact wireless speaker born from cooperation between Habitat &amp; Elipson, that works according to the Bluetooth 2.1 protocol."><img src="assets/story-six/p1-product-2.jpg"><span class="tag">2</span></a></li>
-<li><a href="" class="product hotspot" title="Sphere Bottle Opener Natural" data-track="hotspot:click" data-action="" data-url="http://top3.com.au/categories/bar-and-wine-and-water/bottle-openers/areaware-sphere-bottle-opener/aw-fsbon" data-image="assets/story-six/p1-product-3.jpg" data-price="$30" data-currency="" data-description="A smooth, ergonomic bottle opener that fits perfectly in the palm of your hand. Made From Beechwood."><img src="assets/story-six/p1-product-3.jpg"><span class="tag">3</span></a></li>
-<li><a href="" class="product hotspot" title="Whisky stones" data-track="hotspot:click" data-action="" data-url="http://top3.com.au/categories/bar-and-wine-and-water/drinks---cooling-accessories/whisky-stones/whiskystone" data-image="assets/story-six/p1-product-4.jpg" data-price="$30" data-currency="" data-description="Ideal for chilling your favorite spirit without diluting its flavor with melting ice."><img src="assets/story-six/p1-product-4.jpg"><span class="tag">4</span></a></li>
-<li><a href="" class="product hotspot" title="Block Table by Norman Copenhagen" data-track="hotspot:click" data-action="" data-url="http://top3.com.au/categories/bar-and-wine-and-water/bar-trolleys/nm-block-table/602205" data-image="assets/story-six/p1-product-5.jpg" data-price="$465" data-currency="" data-description="The Block table by Normann Copenhagen is a versatile and mobile table - perfect for use as a bar trolley, or for countless other uses in the home."><img src="assets/story-six/p1-product-5.jpg"><span class="tag">5</span></a></li>
-<li><a href="" class="product hotspot" title="Beer Foamer Copper by Menu" data-track="hotspot:click" data-action="" data-url="http://top3.com.au/categories/bar-and-wine-and-water/beer-and-accessories/menu-beer-foamer/men4690239" data-image="assets/story-six/p1-product-6.jpg" data-price="AUD $99" data-currency="" data-description="The Beer Foamer gets you as close to the Pub experience as you can without leaving your home. Denser beer foam will significantly increase the taste, aroma and feeling of the beer - just like beer fresh from the tap."><img src="assets/story-six/p1-product-6.jpg"><span class="tag">6</span></a></li>
-</ul>}
-      )
+      product_set_html.should have_tag('ul.product-set')
     end
 
-    it 'detects and renders product set according to size' do
-      page = LocalIssue::Page.build('story-six', issue: top3)
-      view = Issue::PageView.new(page)
+    it 'renders product set in mulitples of twos' do
+      product_set_html.should have_tag('ul.set-2')
+    end
 
-      expect(view.product_set_html).to start_with(
-        %{<ul class="product-set set-6">}
-      )
+    it 'renders product as hotspots' do
+      product_set_html.should have_tag('li a.product.hotspot', count: 1)
+    end
+
+    it 'renders product affiliate link' do
+      issue = double
+      allow(issue).to receive('path') { Pathname.new('spec/fixtures/issue') }
+      product['link'] = 'http://shop2.com/p/1096-gucci-g876'
+
+      view.page.issue = issue
+
+      product_set_html.should have_tag('a[href="http://affiliate.com/1096-gucci-g876"]')
+    end
+
+    it 'renders product original link' do
+      product['link'] = 'http://shop2.com/p/1096-gucci-g876'
+      product_set_html.should have_tag('a[data-url="http://shop2.com/p/1096-gucci-g876"]')
+    end
+
+    it 'renders product title' do
+      product['title'] = 'some product'
+      product_set_html.should have_tag('a[title="some product"]')
+    end
+
+    it 'renders product description' do
+      product['description'] = 'greatest product ever'
+      product_set_html.should have_tag('a[data-description="greatest product ever"]')
+    end
+
+    it 'renders product currency' do
+      product['currency'] = 'AUD'
+      product_set_html.should have_tag('a[data-currency="AUD"]')
+    end
+
+    it 'renders product price' do
+      product['price'] = '6996'
+      product_set_html.should have_tag('a[data-price="6996"]')
+    end
+
+    it 'renders product image' do
+      product['image_url'] = 'assets/background.jpg'
+      product_set_html.should have_tag('img[src="assets/background.jpg"]')
+    end
+
+    it 'renders product image via view context'
+
+    it 'renders product hotspot marker' do
+      product_set_html.should have_tag('span.tag', '1')
+    end
+
+    it 'renders hotspot click track' do
+      product_set_html.should have_tag('a[data-track="hotspot:click"]')
     end
   end
 
@@ -279,7 +323,7 @@ RSpec.describe Issue::PageView do
     it 'returns layout object'
   end
   
-  def page_view(hash)
+  def page_view hash
     Issue::PageView.new(LocalIssue::Page.new(hash))
   end
 end
