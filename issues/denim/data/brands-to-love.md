@@ -2,6 +2,8 @@
 
     title: 'Brands To Love'
     summary: 'What is your inspiration?'
+    thumb_url: 'assets/brands-to-love/cover.jpg'
+    cover_url: 'assets/brands-to-love/cover.jpg'
 
     images:
       - url: 'assets/brands-to-love/Levis.png'
@@ -52,22 +54,24 @@
 
 ---
 
-<div class="cover">
+<figure class="cover-area image" style="background-image: url({{ cover.url }})">
   <header>
-    <h1>Brands To <b>Love</b></h1>
+    <h1 class="title">Brands To <b>Love</b></h1>
     <p class="summary">{{ summary }}</p>
   </header>
+</figure>
 
-  <ul id="flip-cards" class="no-gutter">
-
-    {{#images}}
-    <li class="event col half v-half" ontouchstart="this.classList.toggle('hover')" data-track="hotspot:click">
-      <div href="#" class="flipper">
-        <div class="image" style='background-image: url({{ url }})'></div>
-        <div class="info"><div class="wrapper">{{{ caption }}}</div></div>
-      </div>
-    </li>
-    {{/images}}
-
-  </ul>
+<div class="content">
+  <div class="body">
+    <ul id="flip-cards" class="no-gutter">
+      {{#images}}{{^layout}}
+      <li class="event col half v-half" ontouchstart="this.classList.toggle('hover')" data-track="hotspot:click">
+        <div href="#" class="flipper">
+          <div class="image" style='background-image: url({{ url }})'></div>
+          <div class="info"><div class="wrapper">{{{ caption }}}</div></div>
+        </div>
+      </li>
+      {{/layout}}{{/images}}
+    </ul>
+  </div>
 </div>
