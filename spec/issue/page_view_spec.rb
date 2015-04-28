@@ -138,6 +138,9 @@ RSpec.describe Issue::PageView do
       )
     end
 
+    it "supports HTML5 video tag (mp4)" do
+    end
+
     it 'detects and renders video iframe for vimeo and youtube' do
       page = LocalIssue::Page.build('video-one', issue: spread)
       view = Issue::PageView.new(page)
@@ -171,9 +174,52 @@ RSpec.describe Issue::PageView do
     end
 
     describe 'image' do
-      it 'renders image block around figure'
-      it 'renders captions in figcaption tag'
-      it 'adds inset class'
+      let(:image) { {
+        'url' => 'assets/background.jpg',
+        'capition_inset' => false,
+        'caption' => "image caption",
+        'height' => 200,
+        "width" => 200,
+        'aspect_ratio' => 1.0
+      } }
+      
+      let(:view) { page_view content: '<img data-media-id="images:1">', images: [image] }
+      
+      it 'renders figure block around image' do
+        view.content_html.should have_tag('figure.image') do
+          with_tag 'img'
+        end
+      end
+      
+      it 'renders captions in figcaption tag' do
+        view.content_html.should have_tag('figcaption', 'image caption')
+      end
+      
+      it 'adds inset class' do
+        image["caption_inset"] = true
+        
+        view.content_html.should have_tag('figcaption.inset')
+      end
+      
+      it "maintains aspect-ratio using a filler div" do
+        view.content_html.should have_tag('div.aspect-ratio[style*="padding-bottom: 100.0%"]')
+
+      end
+      
+      it "detects image dimension if missing (height, width, aspect_ratio)" do
+        image.delete("height")
+        image.delete("width")
+        image.delete("aspect_ratio")
+        
+        view.page.issue = double
+        allow(view.page.issue).to receive('path') { Pathname.new('spec/fixtures/issue') }
+        
+        view.content_html.should have_tag('figure.image[style*="max-height: 640px; max-width: 640px"]') do
+          
+          have_tag('img', with: { src: "assets/background.jpg" })
+          
+        end
+      end
     end
 
     describe 'link'
@@ -199,35 +245,30 @@ RSpec.describe Issue::PageView do
   end
 
   describe 'custom html' do
-    let(:page){ double }
-    let(:view) { Issue::PageView.new page }
-
+    let(:image) { {
+      'url' => 'assets/background.jpg',
+      'capition_inset' => false,
+      'caption' => "image caption",
+      'height' => 200,
+      "width" => 200,
+      'aspect_ratio' => 1.0
+    } }
+    
+    let(:view) { 
+      page_view title: "Gyft", custom_html: '<h1>{{title}}</h1><img data-media-id="images:1">', images: [image] 
+    }
+    
     it 'detects custom html' do
-      allow(page).to receive('custom_html') { 'custom' }
-      expect(view).to be_custom_html
+      view.should be_custom_html
     end
 
     it 'compiles mustache' do
-      allow(page).to receive('custom_html') { '{{title}}' }
-      expect(view.custom_html({title: 'Gyft'})).to eq('Gyft')
+      view.custom_html.should have_tag("h1", "Gyft")
     end
 
     it 'decorates data-media-id attributes' do
-      image = double
-      allow(image).to receive('[]').with('caption_inset') { false }
-      allow(image).to receive('[]').with('url') { 'assets/preview.jpg' }
-      allow(image).to receive('[]').with('caption') { '' }
-
-      issue = double
-      allow(issue).to receive('path') { Pathname.new('issues/top3') }
-
-      allow(page).to receive('issue') { issue }
-      allow(page).to receive('[]').with('images') { [image] }
-
-      allow(page).to receive('custom_html') { '<img data-media-id="images:1">' }
-      expect(view.custom_html({})).to eq(
-        '<figure class="image" style="max-height: 614px; max-width: 614px"><img data-media-id="images:1" src="assets/preview.jpg"><div class="aspect-ratio" style="padding-bottom: 100.0%; max-height: 614px"></div></figure>'
-      )
+      view.custom_html.should include('<figure class="image" style="max-height: 200px; max-width: 200px">')
+      view.custom_html.should include('class="aspect-ratio" style="padding-bottom: 100.0%;')
     end
   end
 
@@ -236,5 +277,9 @@ RSpec.describe Issue::PageView do
     it 'outputs custom layout class'
     it 'outputs page layout class'
     it 'returns layout object'
+  end
+  
+  def page_view(hash)
+    Issue::PageView.new(LocalIssue::Page.new(hash))
   end
 end

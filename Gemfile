@@ -39,6 +39,7 @@ group :development, :test do
   gem "guard-jasmine",        require: false
   gem "guard-pow",            require: false
   gem "awesome_print",        require: false
+  gem 'rspec-html-matchers',  require: false
   # gem "jasminerice", github: "bradphelan/jasminerice"
   # gem "jquery-rails"
 end

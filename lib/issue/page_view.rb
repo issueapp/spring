@@ -292,7 +292,7 @@ class Issue::PageView
         node.replace audio_node(node, media)
 
       else
-        log_method.call("Unknow asset: #{asset})
+        log_method.call("Unknow asset: #{asset}")
       end
     end
 
@@ -492,9 +492,11 @@ class Issue::PageView
   end
 
   def image_get_size image
-    if image.respond_to? 'attributes'
-      size = image.attributes.values_at('file_width', 'file_height', 'file_aspect_ratio')
-      return size if size.all?
+    if image.width && image.height
+      return [image.width, image.height, image.aspect_ratio]
+    # if image.respond_to? 'attributes'
+    #   size = image.attributes.values_at('file_width', 'file_height', 'file_aspect_ratio')
+    #   return size if size.all?
     end
 
     file = File.join(issue.path, image['url'])
