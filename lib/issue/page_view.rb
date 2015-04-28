@@ -300,8 +300,10 @@ class Issue::PageView
   end
 
   def affiliate_url url
+    return url unless issue
+
     @affiliate_urls ||= begin
-      data_path = File.expand_path("../../../issues/#{issue.handle}/affiliate_products.yml", __FILE__)
+      data_path = File.join(issue.path, 'affiliate_products.yml')
       File.readable?(data_path) && YAML.load_file(data_path) || {}
     end
 
@@ -310,12 +312,12 @@ class Issue::PageView
 
   def product_hotspot_attributes product
     {
-      :href => affiliate_url(product[:url]),
+      :href => affiliate_url(product['link']),
       :class => 'product hotspot',
       :title => product.title,
       :'data-track' => 'hotspot:click',
       :'data-action' => product[:action],
-      :'data-url' => product[:url] || product[:link],
+      :'data-url' => product['link'],
       :'data-image' => asset_url(product, 'image' => true),
       :'data-price' => product[:price],
       :'data-currency' =>  product[:currency],
@@ -494,9 +496,6 @@ class Issue::PageView
   def image_get_size image
     if image.width && image.height
       return [image.width, image.height, image.aspect_ratio]
-    # if image.respond_to? 'attributes'
-    #   size = image.attributes.values_at('file_width', 'file_height', 'file_aspect_ratio')
-    #   return size if size.all?
     end
 
     file = File.join(issue.path, image['url'])
