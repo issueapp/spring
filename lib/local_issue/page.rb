@@ -205,6 +205,12 @@ class LocalIssue::Page < Hashie::Mash
     [/true/i, /yes/i, '1'].any?{|v| v === value}
   end
 
+  def initialize *args
+    super
+    
+    self["layout"] ||= Hashie::Mash.new(self.class.default_layout)
+  end
+
   def find_element id
     return unless id
 
