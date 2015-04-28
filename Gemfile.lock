@@ -87,6 +87,9 @@ GEM
     rspec-expectations (3.2.0)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.2.0)
+    rspec-html-matchers (0.7.0)
+      nokogiri (~> 1)
+      rspec (~> 3)
     rspec-mocks (3.2.0)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.2.0)
@@ -146,6 +149,7 @@ DEPENDENCIES
   nokogiri
   rdiscount
   rspec
+  rspec-html-matchers
   serve
   sinatra
   sinatra-asset-pipeline
