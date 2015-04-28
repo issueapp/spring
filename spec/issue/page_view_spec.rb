@@ -6,10 +6,6 @@ RSpec.describe Issue::PageView do
   let(:page) { {} }
   let(:view) { page_view page }
 
-  let(:accelerator) {local_issue 'accelerator'}
-  let(:adventure) {local_issue 'adventure'}
-  let(:escape_one) {local_issue 'escape-one'}
-  let(:great_escape) {local_issue 'great-escape'}
   let(:music) {local_issue 'music'}
   let(:rebelskhed) {local_issue 'rebelskhed'}
   let(:spread) {local_issue 'spread'}
@@ -25,21 +21,17 @@ RSpec.describe Issue::PageView do
   end
 
   describe 'Rendering Helpers' do
-    before do
-      page['handle'] = 'story-three'
-      page['author_name'] = 'Emily Tan'
-    end
-
+    before { page['handle'] = 'story-three' }
     subject { view }
 
     it { view.dom_id.should eq 'sstory-three' }
 
-    it { view.show_author?.should be_truthy }
-    it { view.author.should eq Struct::Author.new('Emily Tan', nil) }
+    it { should respond_to 'show_author?' }
+    it { should respond_to 'author' }
 
-    it { view.column_break_count.should be_zero }
+    it { should respond_to 'column_break_count' }
 
-    it { view.custom_html?.should be_falsy }
+    it { should respond_to 'custom_html?' }
 
     it { should respond_to('layout_class') }
     it { should respond_to('cover_html') }
@@ -113,7 +105,7 @@ RSpec.describe Issue::PageView do
       product_set_html.should have_tag('ul.product-set')
     end
 
-    it 'renders product set in mulitples of twos' do
+    it 'renders product set in multiples of twos' do
       product_set_html.should have_tag('ul.set-2')
     end
 
@@ -173,31 +165,49 @@ RSpec.describe Issue::PageView do
   end
 
   describe 'cover html' do
-    it 'detects and renders image background' do
-      page = LocalIssue::Page.build('2-head-or-heart/1', issue: music)
-      view = Issue::PageView.new(page)
+    subject(:cover_html) { view.cover_html }
 
-      expect(view.cover_html).to eq(
-        %{<figure class="cover-area cover image" style="background-image: url(assets/2-head-or-heart/p1-cover.jpg)"><figcaption class="inset">MINKPINK Funday Sunday Dress.</figcaption></figure>}
-      )
+    it 'renders image background' do
+      page['images'] = [ Hashie::Mash.new(
+        'type' => 'image', 'cover' => true, 'url' => 'assets/background.jpg'
+      ) ]
+
+      cover_html.should have_tag('figure.cover-area.image[style="background-image: url(assets/background.jpg)"]')
     end
 
     it "supports HTML5 video tag (mp4)" do
+      page['videos'] = [ Hashie::Mash.new(
+        'type' => 'video', 'cover' => true, 'url' => 'assets/video.mp4', 'thumb_url' => 'assets/background.jpg'
+      ) ]
+
+      cover_html.should have_tag('figure.cover-area.video[style="background-image: url(assets/background.jpg)"]') do
+        with_tag 'video[src="assets/video.mp4"]'
+      end
     end
 
-    it 'detects and renders video iframe for vimeo and youtube' do
-      page = LocalIssue::Page.build('video-one', issue: spread)
-      view = Issue::PageView.new(page)
+    it 'renders video iframe for vimeo' do
+      page['videos'] = [ Hashie::Mash.new(
+        'type' => 'video', 'cover' => true, 'link' => 'https://www.youtube.com/watch?v=cats', 'thumb_url' => 'assets/background.jpg', 'autoplay' => true
+      ) ]
 
-      # view.cover_html to have
-      #   figure.cover-area > iframe|video
-      #   figure style=video.thumb_url
-      expect(view.cover_html).to eq(
-        %{<figure class="cover-area background video play" style="background-image: url(assets/video-your-way.jpg)"><iframe data-src="http://youtube.com/embed/IZjhUzv1YKw?autoplay=1&amp;controls=0&amp;loop=0&amp;playlist=IZjhUzv1YKw&amp;autohide=1&amp;color=white&amp;enablejsapi=1&amp;hd=1&amp;iv_load_policy=3&amp;origin=http%3A%2F%2Fissueapp.com&amp;rel=0&amp;showinfo=0&amp;wmode=transparent" frameborder="0" height="100%" width="100%" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></figure>}
-      )
+      cover_html.should have_tag('figure.cover-area.video[style="background-image: url(assets/background.jpg)"]') do
+        with_tag 'iframe', with: {frameborder: '0', height: '100%', width: '100%'}
+      end
+
+      # autoplay
+      cover_html.should have_tag('figure.play')
+
+      # lazy load
+      cover_html.should have_tag('iframe[data-src="http://youtube.com/embed/cats?autoplay=1&amp;controls=0&amp;loop=0&amp;playlist=cats&amp;autohide=1&amp;color=white&amp;enablejsapi=1&amp;hd=1&amp;iv_load_policy=3&amp;origin=http%3A%2F%2Fissueapp.com&amp;rel=0&amp;showinfo=0&amp;wmode=transparent"]')
+
+      # fullscreen
+      cover_html.should have_tag('iframe[webkitallowfullscreen][mozallowfullscreen][allowfullscreen]')
     end
 
-    it 'renders caption' do
+    it 'renders video iframe for youtube' do
+    end
+
+    it 'renders cover caption' do
       page = LocalIssue::Page.build('2-head-or-heart/1', issue: music)
       view = Issue::PageView.new(page)
 
@@ -322,7 +332,7 @@ RSpec.describe Issue::PageView do
     it 'outputs page layout class'
     it 'returns layout object'
   end
-  
+
   def page_view hash
     Issue::PageView.new(LocalIssue::Page.new(hash))
   end
