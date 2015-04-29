@@ -227,8 +227,8 @@ class LocalIssue::Page < Hashie::Mash
   end
 
   def cover
-    images.to_a.find {|media| media.cover == true } ||
-      videos.to_a.find {|media| media.cover == true }
+    images.to_a.find {|media| media['cover'] } ||
+      videos.to_a.find {|media| media['cover'] }
   end
 
   def cover_url
