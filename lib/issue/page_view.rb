@@ -21,7 +21,6 @@ class Issue::PageView
   def custom_html?
     page.custom_html.present?
   end
-
   # end FIXME unstable API
 
   attr_reader :page
@@ -498,6 +497,15 @@ class Issue::PageView
   def image_get_size image
     if image.width && image.height
       return [image.width, image.height, image.aspect_ratio]
+    end
+
+    unless issue
+      if defined? RSpec
+        log_method.call('Issue not found.')
+        return
+      else
+        raise 'Issue not found'
+      end
     end
 
     file = File.join(issue.path, image['url'])

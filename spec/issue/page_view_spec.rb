@@ -3,11 +3,11 @@ require 'issue/page_view'
 require 'local_issue/page'
 
 RSpec.describe Issue::PageView do
-  let(:page) { {} }
-  let(:view) { page_view page }
-
   let(:music) {local_issue 'music'}
-  let(:spring) {local_issue 'spring'}
+  let(:page) { {} }
+
+  subject(:view) { page_view page }
+
 
   it 'delegates missing methods to page' do
     page = double
@@ -259,8 +259,65 @@ RSpec.describe Issue::PageView do
     end
   end
 
-  describe 'page elements' do
-    describe 'video' do
+  describe 'html rendering' do
+    subject(:html) { view.content_html }
+
+    it 'compiles mustache' do
+      page['title'] = 'Gyft'
+      page['content'] = '<h1>{{title}}</h1>'
+
+      html.should have_tag("h1", "Gyft")
+    end
+
+    describe 'Image decoration' do
+      let(:image) { {} }
+
+      before do
+        page['images'] = [image]
+        page['content'] = '<img data-media-id="images:1">'
+      end
+
+      it 'renders figure around image' do
+        html.should have_tag('figure.image') do
+          with_tag 'img'
+        end
+      end
+
+      it 'renders responsive image hack' do
+        image['width'] = 200
+        image['height'] = 200
+
+        html.should have_tag('figure[style="max-height: 200px; max-width: 200px"]')
+      end
+
+      it 'renders filler div to maintain aspect-ratio' do
+        html.should have_tag('div.aspect-ratio[style*="padding-bottom: 66.66666666666667%"]')
+      end
+
+      it "detects image dimension if missing (height, width, aspect_ratio)" do
+        image['url'] = 'assets/background.jpg'
+        view.page.issue = double
+        allow(view.page.issue).to receive('path') { Pathname.new('spec/fixtures/issue') }
+
+        html.should have_tag('figure.image[style*="max-height: 640px; max-width: 640px"]') do
+          have_tag('img', with: { src: "assets/background.jpg" })
+        end
+      end
+
+      it 'renders captions in figcaption tag' do
+        image['caption'] = 'image caption'
+        html.should have_tag('figcaption', 'image caption')
+      end
+
+      it 'renders captions with inset class' do
+        image['caption'] = 'image caption'
+        image['caption_inset'] = true
+
+        html.should have_tag('figcaption.inset')
+      end
+    end
+
+    describe 'Video decoration' do
       it 'renders video block around figure'
       it 'renders youtube video within iframe'
       it 'renders vimeo video within iframe'
@@ -269,103 +326,29 @@ RSpec.describe Issue::PageView do
       it 'adds caption'
     end
 
-    describe 'image' do
-      let(:image) { {
-        'url' => 'assets/background.jpg',
-        'capition_inset' => false,
-        'caption' => "image caption",
-        'height' => 200,
-        "width" => 200,
-        'aspect_ratio' => 1.0
-      } }
-      
-      let(:view) { page_view content: '<img data-media-id="images:1">', images: [image] }
-      
-      it 'renders figure block around image' do
-        view.content_html.should have_tag('figure.image') do
-          with_tag 'img'
-        end
-      end
-      
-      it 'renders captions in figcaption tag' do
-        view.content_html.should have_tag('figcaption', 'image caption')
-      end
-      
-      it 'adds inset class' do
-        image["caption_inset"] = true
-        
-        view.content_html.should have_tag('figcaption.inset')
-      end
-      
-      it "maintains aspect-ratio using a filler div" do
-        view.content_html.should have_tag('div.aspect-ratio[style*="padding-bottom: 100.0%"]')
-
-      end
-      
-      it "detects image dimension if missing (height, width, aspect_ratio)" do
-        image.delete("height")
-        image.delete("width")
-        image.delete("aspect_ratio")
-        
-        view.page.issue = double
-        allow(view.page.issue).to receive('path') { Pathname.new('spec/fixtures/issue') }
-        
-        view.content_html.should have_tag('figure.image[style*="max-height: 640px; max-width: 640px"]') do
-          
-          have_tag('img', with: { src: "assets/background.jpg" })
-          
-        end
-      end
-    end
-
-    describe 'link'
-
-    describe 'audio' do
+    describe 'Audio decoration' do
       it 'render video block around figure'
       it 'adds playback attribute: :autoplay, :muted, :controls'
       it 'might have custom thumbnail'
     end
+
+    describe 'Link decoration'
+    describe 'Product decoration'
   end
 
   describe 'content html' do
-    it 'compiles mustache'
-
-    it 'decorates data-media-id attributes' do
-      page = LocalIssue::Page.build('story-one', issue: spring)
-      view = Issue::PageView.new(page)
-
-      expect(view.content_html).to include(
-        %{<figure class="image" style="max-height: 777px; max-width: 590px"><img data-media-id="images:10" src="assets/nibble/crackers_2.jpg"><div class="aspect-ratio" style="padding-bottom: 131.6949152542373%; max-height: 777px"></div></figure>}
-      )
-    end
+    it 'compiles mustache' # expect mustache render is called
+    it 'decorates data-media-id attributes' # expect decorate media is called
   end
 
   describe 'custom html' do
-    let(:image) { {
-      'url' => 'assets/background.jpg',
-      'capition_inset' => false,
-      'caption' => "image caption",
-      'height' => 200,
-      "width" => 200,
-      'aspect_ratio' => 1.0
-    } }
-    
-    let(:view) { 
-      page_view title: "Gyft", custom_html: '<h1>{{title}}</h1><img data-media-id="images:1">', images: [image] 
-    }
-    
     it 'detects custom html' do
+      page['custom_html'] = 'I am custom'
       view.should be_custom_html
     end
 
-    it 'compiles mustache' do
-      view.custom_html.should have_tag("h1", "Gyft")
-    end
-
-    it 'decorates data-media-id attributes' do
-      view.custom_html.should include('<figure class="image" style="max-height: 200px; max-width: 200px">')
-      view.custom_html.should include('class="aspect-ratio" style="padding-bottom: 100.0%;')
-    end
+    it 'compiles mustache' # expect mustache render is called
+    it 'decorates data-media-id attributes' # expect decorate media is called
   end
 
   describe 'layout' do
