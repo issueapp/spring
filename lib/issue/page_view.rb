@@ -261,8 +261,9 @@ class Issue::PageView
   end
 
   # Swap data-media-id
-  # videos:1
+  # audios:1
   # images:1
+  # videos:1
   def decorate_media content
     return unless content
 
