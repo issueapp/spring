@@ -168,8 +168,8 @@ RSpec.describe Issue::PageView do
   end
 
   describe 'cover html' do
-    let(:image) { Hashie::Mash.new(type: 'image', url: 'assets/background.jpg') }
-    let(:video) { Hashie::Mash.new(type: 'video', url: 'assets/video.mp4', thumb_url: 'assets/background.jpg') }
+    let(:image) { {'type' => 'image', 'url' => 'assets/background.jpg'} }
+    let(:video) { {'type' => 'video', 'url' => 'assets/video.mp4', 'thumb_url' => 'assets/background.jpg'} }
 
     subject(:cover_html) { view.cover_html }
 
@@ -179,17 +179,17 @@ RSpec.describe Issue::PageView do
     end
 
     it 'renders cover area' do
-      image.cover = true
+      image['cover'] = true
       cover_html.should have_tag('figure.cover-area')
     end
 
     it 'renders image as background' do
-      image.cover = true
+      image['cover'] = true
       cover_html.should have_tag('figure.image[style="background-image: url(assets/background.jpg)"]')
     end
 
     it 'renders HTML5 video tag (mp4)' do
-      video.cover = true
+      video['cover'] = true
 
       cover_html.should have_tag('figure.video') do
         with_tag 'video[src="assets/video.mp4"]'
@@ -197,27 +197,27 @@ RSpec.describe Issue::PageView do
     end
 
     it 'renders video thumb as background' do
-      video.cover = true
+      video['cover'] = true
       cover_html.should have_tag('figure[style="background-image: url(assets/background.jpg)"]')
     end
 
     it 'renders cover caption' do
-      image.cover = true
-      image.caption = 'this is a cover'
+      image['cover'] = true
+      image['caption'] = 'this is a cover'
       cover_html.should have_tag('figcaption', 'this is a cover')
     end
 
     it 'renders cover inset caption' do
-      image.cover = true
-      image.caption = 'this is a cover'
-      image.caption_inset = true
+      image['cover'] = true
+      image['caption'] = 'this is a cover'
+      image['caption_inset'] = true
       cover_html.should have_tag('figcaption.inset')
     end
 
     describe 'youtube iframe' do
       before do
-        video.cover = true
-        video.link = 'https://www.youtube.com/watch?v=cats'
+        video['cover'] = true
+        video['link'] = 'https://www.youtube.com/watch?v=cats'
       end
 
       it 'renders video iframe' do
@@ -227,12 +227,12 @@ RSpec.describe Issue::PageView do
       end
 
       it 'renders thumb background' do
-        video.thumb_url = 'assets/background.jpg'
+        video['thumb_url'] = 'assets/background.jpg'
         cover_html.should have_tag('figure[style="background-image: url(assets/background.jpg)"]')
       end
 
       it 'renders autoplay' do
-        video.autoplay = true
+        video['autoplay'] = true
         cover_html.should have_tag('figure.play')
       end
 
@@ -247,8 +247,8 @@ RSpec.describe Issue::PageView do
 
     describe 'vimeo iframe' do
       before do
-        video.cover = true
-        video.link = 'http://vimeo.com/98524032'
+        video['cover'] = true
+        video['link'] = 'http://vimeo.com/98524032'
       end
 
       it 'renders video iframe' do
@@ -258,12 +258,12 @@ RSpec.describe Issue::PageView do
       end
 
       it 'renders thumb background' do
-        video.thumb_url = 'http://i.vimeocdn.com/video/479274132_640.jpg'
+        video['thumb_url'] = 'http://i.vimeocdn.com/video/479274132_640.jpg'
         cover_html.should have_tag('figure[style="background-image: url(http://i.vimeocdn.com/video/479274132_640.jpg)"]')
       end
 
       it 'renders autoplay' do
-        video.autoplay = true
+        video['autoplay'] = true
         cover_html.should have_tag('figure.play')
       end
 
@@ -340,7 +340,7 @@ RSpec.describe Issue::PageView do
 
       before do
         page['videos'] = [video]
-        page['content'] = ''
+        page['content'] = '<video data-media-id="videos:1">'
       end
 
       it 'renders figure around video'
@@ -356,6 +356,7 @@ RSpec.describe Issue::PageView do
         it 'renders autoplay'
         it 'renders lazy load'
         it 'renders fullscreen mode'
+        it 'renders poster'
       end
 
       describe 'vimeo iframe' do
