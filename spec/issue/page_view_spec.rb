@@ -168,41 +168,56 @@ RSpec.describe Issue::PageView do
   end
 
   describe 'cover html' do
+    let(:image) { Hashie::Mash.new(type: 'image', url: 'assets/background.jpg') }
+    let(:video) { Hashie::Mash.new(type: 'video', url: 'assets/video.mp4', thumb_url: 'assets/background.jpg') }
+
     subject(:cover_html) { view.cover_html }
 
-    it 'renders image background' do
-      page['images'] = [ Hashie::Mash.new(
-        'type' => 'image', 'cover' => true, 'url' => 'assets/background.jpg'
-      ) ]
-
-      cover_html.should have_tag('figure.cover-area.image[style="background-image: url(assets/background.jpg)"]')
+    before do
+      page['images'] = [image]
+      page['videos'] = [video]
     end
 
-    it "supports HTML5 video tag (mp4)" do
-      page['videos'] = [ Hashie::Mash.new(
-        'type' => 'video', 'cover' => true, 'url' => 'assets/video.mp4', 'thumb_url' => 'assets/background.jpg'
-      ) ]
+    it 'renders cover area' do
+      image.cover = true
+      cover_html.should have_tag('figure.cover-area')
+    end
 
-      cover_html.should have_tag('figure.cover-area.video[style="background-image: url(assets/background.jpg)"]') do
+    it 'renders image as background' do
+      image.cover = true
+      cover_html.should have_tag('figure.image[style="background-image: url(assets/background.jpg)"]')
+    end
+
+    it 'renders HTML5 video tag (mp4)' do
+      video.cover = true
+
+      cover_html.should have_tag('figure.video') do
         with_tag 'video[src="assets/video.mp4"]'
       end
     end
 
-    # TODO replace issues fixtures
-    it 'renders cover caption' do
-      page = LocalIssue::Page.build('2-head-or-heart/1', issue: music)
-      view = Issue::PageView.new(page)
+    it 'renders video thumb as background' do
+      video.cover = true
+      cover_html.should have_tag('figure[style="background-image: url(assets/background.jpg)"]')
+    end
 
-      expect(view.cover_html).to include(
-        %{<figcaption class="inset">MINKPINK Funday Sunday Dress.</figcaption>}
-      )
+    it 'renders cover caption' do
+      image.cover = true
+      image.caption = 'this is a cover'
+      cover_html.should have_tag('figcaption', 'this is a cover')
+    end
+
+    it 'renders cover inset caption' do
+      image.cover = true
+      image.caption = 'this is a cover'
+      image.caption_inset = true
+      cover_html.should have_tag('figcaption.inset')
     end
 
     describe 'youtube iframe' do
       before do
-        page['videos'] = [ Hashie::Mash.new(
-          'type' => 'video', 'cover' => true, 'link' => 'https://www.youtube.com/watch?v=cats', 'thumb_url' => 'assets/background.jpg', 'autoplay' => true
-        ) ]
+        video.cover = true
+        video.link = 'https://www.youtube.com/watch?v=cats'
       end
 
       it 'renders video iframe' do
@@ -212,10 +227,12 @@ RSpec.describe Issue::PageView do
       end
 
       it 'renders thumb background' do
+        video.thumb_url = 'assets/background.jpg'
         cover_html.should have_tag('figure[style="background-image: url(assets/background.jpg)"]')
       end
 
       it 'renders autoplay' do
+        video.autoplay = true
         cover_html.should have_tag('figure.play')
       end
 
@@ -230,9 +247,8 @@ RSpec.describe Issue::PageView do
 
     describe 'vimeo iframe' do
       before do
-        page['videos'] = [ Hashie::Mash.new(
-          'type' => 'video', 'cover' => true, 'link' => 'http://vimeo.com/98524032', 'thumb_url' => 'http://i.vimeocdn.com/video/479274132_640.jpg', 'autoplay' => true
-        ) ]
+        video.cover = true
+        video.link = 'http://vimeo.com/98524032'
       end
 
       it 'renders video iframe' do
@@ -242,10 +258,12 @@ RSpec.describe Issue::PageView do
       end
 
       it 'renders thumb background' do
+        video.thumb_url = 'http://i.vimeocdn.com/video/479274132_640.jpg'
         cover_html.should have_tag('figure[style="background-image: url(http://i.vimeocdn.com/video/479274132_640.jpg)"]')
       end
 
       it 'renders autoplay' do
+        video.autoplay = true
         cover_html.should have_tag('figure.play')
       end
 
@@ -309,7 +327,7 @@ RSpec.describe Issue::PageView do
         html.should have_tag('figcaption', 'image caption')
       end
 
-      it 'renders captions with inset class' do
+      it 'renders inset caption' do
         image['caption'] = 'image caption'
         image['caption_inset'] = true
 
@@ -318,16 +336,39 @@ RSpec.describe Issue::PageView do
     end
 
     describe 'Video decoration' do
-      it 'renders video block around figure'
-      it 'renders youtube video within iframe'
-      it 'renders vimeo video within iframe'
-      it 'may have custom thumbnail'
-      it 'adds playback attribute: :autoplay, :muted, :controls'
-      it 'adds caption'
+      let(:video) { {} }
+
+      before do
+        page['videos'] = [video]
+        page['content'] = ''
+      end
+
+      it 'renders figure around video'
+      it 'renders thumb background'
+      it 'renders caption'
+      it 'renders inset caption'
+      it 'renders HTML5 video tag (mp4)'
+      #it 'adds playback attribute: :autoplay, :muted, :controls'
+
+      describe 'youtube iframe' do
+        it 'renders video iframe'
+        it 'renders thumb background'
+        it 'renders autoplay'
+        it 'renders lazy load'
+        it 'renders fullscreen mode'
+      end
+
+      describe 'vimeo iframe' do
+        it 'renders video iframe'
+        it 'renders thumb background'
+        it 'renders autoplay'
+        it 'renders lazy load'
+        it 'renders fullscreen mode'
+      end
     end
 
     describe 'Audio decoration' do
-      it 'render video block around figure'
+      it 'render figure around audio'
       it 'adds playback attribute: :autoplay, :muted, :controls'
       it 'might have custom thumbnail'
     end
