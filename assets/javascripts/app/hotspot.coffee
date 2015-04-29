@@ -76,7 +76,8 @@ class Hotspot extends Backbone.View
     link = e.currentTarget
 
     # google analytics custom campaign tracking params
-    ga_params = "utm_source=issue.by&utm_campain=#{App.magazine.issue}&utm_content=#{App.currentPage.model.title}"
+    issue     = $('[data-issue]').data('issue')
+    ga_params = "utm_source=issue.by&utm_campain=#{issue}&utm_content=#{App.currentPage.model.title}"
     link.href += if link.href.match(/\?/) then '&' else '?'
     link.href += ga_params
 

@@ -140,18 +140,19 @@ class PageView extends Backbone.View
   visit: (e)->
     link = e.currentTarget
     $link = $(link)
-    
+
     return if $link.attr('href') == "#"
-    
+
     e.preventDefault()
-    
+
     # Tracking
     track_click = ! $link.data("track") && ! $link.hasClass("browse")
     if track_click
       App.trigger("track", "click", link.href, linkTrackingAttributes(link))
 
     # google analytics custom campaign tracking params
-    ga_params = "utm_source=issue.by&utm_campain=#{App.magazine.issue}&utm_content=#{App.currentPage.model.title}"
+    issue     = $('[data-issue]').data('issue')
+    ga_params = "utm_source=issue.by&utm_campain=#{issue}&utm_content=#{App.currentPage.model.title}"
     link.href += if link.href.match(/\?/) then '&' else '?'
     link.href += ga_params
 
@@ -276,10 +277,10 @@ class PageView extends Backbone.View
   toggleAudio: (e)->
     button = $(e.currentTarget)
     audio = this.$('audio')[0]
-    
+
     return unless audio
     console.log("Toggle audio", audio.playing, button)
-    
+
     button.removeClass('audio-on audio-off')
 
     if audio.paused
@@ -288,9 +289,9 @@ class PageView extends Backbone.View
     else
       button.addClass("audio-off")
       audio.pause()
-      
+
     false
-  
+
   showHotspot: (e)->
     hotspot = e.currentTarget
     model = App.pages[this.$el.attr("data-page")]

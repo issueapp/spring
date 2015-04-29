@@ -1,5 +1,4 @@
 #denim-issue {
-
   .dark-theme {
     .subtitle {
       color: #eee;
@@ -390,6 +389,11 @@
       color: #333;
       text-transform: uppercase;
       letter-spacing: 2px;
+
+      -webkit-backface-visibility: hidden;
+      -moz-backface-visibility: hidden;
+      -o-backface-visibility: hidden;
+      backface-visibility: hidden;
     }
 
     .flipper {
