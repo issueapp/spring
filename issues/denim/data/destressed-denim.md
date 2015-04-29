@@ -1,8 +1,8 @@
 ---
 
     category: How To Wear
-    title: DISTRESSED DENIM
-
+    title: Distressed Denim
+    
     summary: Ripped jeans can be street cool with sneakers or dressed up in pumps, the damsel in distressed denim does not need to be saved.
     cover_url: assets/destressed-denim/cover.jpg
     thumb_url: assets/destressed-denim/cover.jpg
