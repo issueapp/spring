@@ -7,10 +7,7 @@ RSpec.describe Issue::PageView do
   let(:view) { page_view page }
 
   let(:music) {local_issue 'music'}
-  let(:rebelskhed) {local_issue 'rebelskhed'}
-  let(:spread) {local_issue 'spread'}
   let(:spring) {local_issue 'spring'}
-  let(:top3) {local_issue 'top3'}
 
   it 'delegates missing methods to page' do
     page = double
@@ -153,7 +150,13 @@ RSpec.describe Issue::PageView do
       product_set_html.should have_tag('img[src="assets/background.jpg"]')
     end
 
-    it 'renders product image via view context'
+    it 'renders product image within view context' do
+      product['image_url'] = 'assets/background.jpg'
+      view.context = double
+
+      expect(view.context).to receive('asset_path').with('assets/background.jpg')
+      product_set_html
+    end
 
     it 'renders product hotspot marker' do
       product_set_html.should have_tag('span.tag', '1')
@@ -185,28 +188,7 @@ RSpec.describe Issue::PageView do
       end
     end
 
-    it 'renders video iframe for vimeo' do
-      page['videos'] = [ Hashie::Mash.new(
-        'type' => 'video', 'cover' => true, 'link' => 'https://www.youtube.com/watch?v=cats', 'thumb_url' => 'assets/background.jpg', 'autoplay' => true
-      ) ]
-
-      cover_html.should have_tag('figure.cover-area.video[style="background-image: url(assets/background.jpg)"]') do
-        with_tag 'iframe', with: {frameborder: '0', height: '100%', width: '100%'}
-      end
-
-      # autoplay
-      cover_html.should have_tag('figure.play')
-
-      # lazy load
-      cover_html.should have_tag('iframe[data-src="http://youtube.com/embed/cats?autoplay=1&controls=0&loop=0&playlist=cats&autohide=1&color=white&enablejsapi=1&hd=1&iv_load_policy=3&origin=http%3A%2F%2Fissueapp.com&rel=0&showinfo=0&wmode=transparent"]')
-
-      # fullscreen
-      cover_html.should have_tag('iframe[webkitallowfullscreen][mozallowfullscreen][allowfullscreen]')
-    end
-
-    it 'renders video iframe for youtube' do
-    end
-
+    # TODO replace issues fixtures
     it 'renders cover caption' do
       page = LocalIssue::Page.build('2-head-or-heart/1', issue: music)
       view = Issue::PageView.new(page)
@@ -214,6 +196,66 @@ RSpec.describe Issue::PageView do
       expect(view.cover_html).to include(
         %{<figcaption class="inset">MINKPINK Funday Sunday Dress.</figcaption>}
       )
+    end
+
+    describe 'youtube iframe' do
+      before do
+        page['videos'] = [ Hashie::Mash.new(
+          'type' => 'video', 'cover' => true, 'link' => 'https://www.youtube.com/watch?v=cats', 'thumb_url' => 'assets/background.jpg', 'autoplay' => true
+        ) ]
+      end
+
+      it 'renders video iframe' do
+        cover_html.should have_tag('figure.cover-area.video') do
+          with_tag 'iframe', with: {frameborder: '0', height: '100%', width: '100%'}
+        end
+      end
+
+      it 'renders thumb background' do
+        cover_html.should have_tag('figure[style="background-image: url(assets/background.jpg)"]')
+      end
+
+      it 'renders autoplay' do
+        cover_html.should have_tag('figure.play')
+      end
+
+      it 'renders lazy load' do
+        cover_html.should have_tag('iframe[data-src="http://youtube.com/embed/cats?autoplay=1&controls=0&loop=0&playlist=cats&autohide=1&color=white&enablejsapi=1&hd=1&iv_load_policy=3&origin=http%3A%2F%2Fissueapp.com&rel=0&showinfo=0&wmode=transparent"]')
+      end
+
+      it 'renders fullscreen mode' do
+        cover_html.should have_tag('iframe[webkitallowfullscreen][mozallowfullscreen][allowfullscreen]')
+      end
+    end
+
+    describe 'vimeo iframe' do
+      before do
+        page['videos'] = [ Hashie::Mash.new(
+          'type' => 'video', 'cover' => true, 'link' => 'http://vimeo.com/98524032', 'thumb_url' => 'http://i.vimeocdn.com/video/479274132_640.jpg', 'autoplay' => true
+        ) ]
+      end
+
+      it 'renders video iframe' do
+        cover_html.should have_tag('figure.cover-area.video') do
+          with_tag 'iframe', with: {frameborder: '0', height: '100%', width: '100%'}
+        end
+      end
+
+      it 'renders thumb background' do
+        cover_html.should have_tag('figure[style="background-image: url(http://i.vimeocdn.com/video/479274132_640.jpg)"]')
+      end
+
+      it 'renders autoplay' do
+        cover_html.should have_tag('figure.play')
+      end
+
+      it 'renders lazy load' do
+        cover_html.should have_tag('iframe[data-src="http://player.vimeo.com/video/98524032?autoplay=1&controls=0&loop=0&byline=0&portrait=0"]')
+      end
+
+      it 'renders fullscreen mode' do
+        cover_html.should have_tag('iframe[webkitallowfullscreen][mozallowfullscreen][allowfullscreen]')
+      end
     end
   end
 
