@@ -24,7 +24,8 @@ class Issue::PageView
 
   # end FIXME unstable API
 
-  attr_reader :page, :context
+  attr_reader :page
+  attr_accessor :context
 
   def initialize page, context=nil
     @page = page
@@ -168,8 +169,9 @@ class Issue::PageView
       page.products.each_with_index do |product, index|
         ul << create_element('li') do |li|
           attributes = product_hotspot_attributes(product)
+
           li << create_element('a', attributes) do |a|
-            a << create_element('img', :src => asset_url(product, 'image' => true))
+            a << create_element('img', :src => attributes[:'data-image'])
             a << create_element('span', index + 1, :class => 'tag')
           end
         end
