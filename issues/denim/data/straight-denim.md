@@ -3,11 +3,8 @@
     category: How To Wear
     title: Straight Denim
     summary: 'Straight jeans are casual smart with a relaxed appeal. Dress them up in the creative workspace, and dress down for the weekends.'
-
-    images:
-      - url: 'assets/straight-denim/cover.jpg'
-        cover: true
-
+    cover_url: 'assets/straight-denim/cover.jpg'
+    thumb_url: 'assets/straight-denim/cover.jpg'
 
     layout:
       type: three-column

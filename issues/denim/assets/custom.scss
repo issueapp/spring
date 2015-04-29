@@ -9,9 +9,11 @@
     }
   }
 
-  .title {
-    font-size: 24px;
-    font-weight: bold;
+  .page {
+    .title {
+      font-size: 24px;
+      font-weight: bold;
+    }
   }
 
   [data-page="index"] {
