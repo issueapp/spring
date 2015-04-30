@@ -1,4 +1,5 @@
 ---
+
     category: Denim Guide
     title: 'Find Your Perfect Fit'
     cover_url: assets/perfect-fit/cover.jpg
@@ -11,6 +12,6 @@
       image_align: left
       content_style: black
       content_valign: middle
-      content_transparent: "1"
----
+      content_transparent: '1'
 
+---
