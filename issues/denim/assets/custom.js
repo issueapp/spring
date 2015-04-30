@@ -9,11 +9,11 @@ function respondify(){
 $(function() {
   App.on("page:active", function(path) {
     respondify()
-    
+
     if (path == "perfect-fit/1" || path == "perfect-fit-men/1" || path == "brands-to-love") {
-      
+
       setTimeout(function() {
-        $('article.page.current').addClass('page-animation');        
+        $('article.page.current').addClass('page-animation');
       }, 1000)
     }
   });

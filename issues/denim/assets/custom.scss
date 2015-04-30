@@ -35,6 +35,7 @@
       font-size: 56px;
       letter-spacing: 4px;
       letter-spacing: 20px;
+      padding-left: 10px;
     }
 
     .description {
@@ -71,6 +72,24 @@
       .brand {
         height: 16vmin;
       }
+    }
+  }
+
+  [data-page="toc"] {
+    .cover-area {
+      background-position: 100% 50%;
+    }
+
+    p {
+      margin: 0.8em 0;
+    }
+
+    p:first-child {
+      margin-top: 0;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
     }
   }
 
