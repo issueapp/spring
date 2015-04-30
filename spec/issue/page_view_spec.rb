@@ -1,13 +1,12 @@
-require 'support/local_issue'
 require 'issue/page_view'
 require 'local_issue/page'
 
 RSpec.describe Issue::PageView do
-  let(:music) {local_issue 'music'}
   let(:page) { {} }
 
-  subject(:view) { page_view page }
-
+  subject :view do
+    Issue::PageView.new LocalIssue::Page.new(page)
+  end
 
   it 'delegates missing methods to page' do
     page = double
@@ -19,6 +18,7 @@ RSpec.describe Issue::PageView do
 
   describe 'Rendering Helpers' do
     before { page['handle'] = 'story-three' }
+
     subject { view }
 
     it { view.dom_id.should eq 'sstory-three' }
@@ -185,7 +185,7 @@ RSpec.describe Issue::PageView do
 
     it 'renders image as background' do
       image['cover'] = true
-      cover_html.should have_tag('figure.image[style="background-image: url(assets/background.jpg)"]')
+      cover_html.should have_tag('figure.image[style="background-image: url(\'assets/background.jpg\')"]')
     end
 
     it 'renders HTML5 video tag (mp4)' do
@@ -198,7 +198,7 @@ RSpec.describe Issue::PageView do
 
     it 'renders video thumb as background' do
       video['cover'] = true
-      cover_html.should have_tag('figure[style="background-image: url(assets/background.jpg)"]')
+      cover_html.should have_tag('figure[style="background-image: url(\'assets/background.jpg\')"]')
     end
 
     it 'renders cover caption' do
@@ -228,7 +228,7 @@ RSpec.describe Issue::PageView do
 
       it 'renders thumb background' do
         video['thumb_url'] = 'assets/background.jpg'
-        cover_html.should have_tag('figure[style="background-image: url(assets/background.jpg)"]')
+        cover_html.should have_tag('figure[style="background-image: url(\'assets/background.jpg\')"]')
       end
 
       it 'renders autoplay' do
@@ -259,7 +259,7 @@ RSpec.describe Issue::PageView do
 
       it 'renders thumb background' do
         video['thumb_url'] = 'http://i.vimeocdn.com/video/479274132_640.jpg'
-        cover_html.should have_tag('figure[style="background-image: url(http://i.vimeocdn.com/video/479274132_640.jpg)"]')
+        cover_html.should have_tag('figure[style="background-image: url(\'http://i.vimeocdn.com/video/479274132_640.jpg\')"]')
       end
 
       it 'renders autoplay' do
@@ -343,18 +343,72 @@ RSpec.describe Issue::PageView do
         page['content'] = '<video data-media-id="videos:1">'
       end
 
-      it 'renders figure around video'
-      it 'renders thumb background'
-      it 'renders caption'
-      it 'renders inset caption'
-      it 'renders HTML5 video tag (mp4)'
-      #it 'adds playback attribute: :autoplay, :muted, :controls'
+      it 'renders figure around video' do
+        html.should have_tag('figure.video')
+      end
+
+      it 'renders thumb background' do
+        video['thumb_url'] = 'assets/background.jpg'
+        html.should have_tag('div.thumbnail[style="background-image: url(\'assets/background.jpg\')"]')
+      end
+
+      it 'renders HTML5 video tag (mp4)' do
+        video['url'] = 'assets/video.mp4'
+        html.should have_tag('video[src="assets/video.mp4"]')
+      end
+
+      it 'renders caption' do
+        video['caption'] = 'this is a video'
+        html.should have_tag('figcaption', 'this is a video')
+      end
+
+      it 'renders inset caption' do
+        video['caption_inset'] = true
+        video['caption'] = 'this is a video'
+        html.should have_tag('figcaption.inset')
+      end
+
+      it 'adds playback attribute: :autoplay, :muted, :controls'
+
+      it 'renders autoplay lazily' do
+        video['autoplay'] = true
+        html.should have_tag('video[data-autoplay=true]')
+      end
+
 
       describe 'youtube iframe' do
-        it 'renders video iframe'
-        it 'renders thumb background'
-        it 'renders autoplay'
-        it 'renders lazy load'
+        before do
+          video['link'] = 'https://www.youtube.com/watch?v=cats'
+        end
+
+        it 'renders video iframe' do
+          html.should have_tag('figure.video') do
+            with_tag 'iframe[frameborder="0"][width="100%"][height="100%"]'
+          end
+        end
+
+        it 'renders thumb background' do
+          video['thumb_url'] = 'assets/background.jpg'
+          html.should have_tag('div[style="background-image: url(\'assets/background.jpg\')"]')
+        end
+
+        it 'renders lazy load' do
+          html.should have_tag('iframe[data-src="http://youtube.com/embed/cats?autoplay=0&controls=0&loop=0&playlist=cats&autohide=1&color=white&enablejsapi=1&hd=1&iv_load_policy=3&origin=http%3A%2F%2Fissueapp.com&rel=0&showinfo=0&wmode=transparent"]')
+        end
+
+        it 'renders autoplay by default' do
+          html.should have_tag('autoplay=1')
+
+          video['autoplay'] = false
+          html.should have_tag('autoplay=0')
+        end
+
+        it 'renders controls' do
+        end
+
+        it 'renders loop' do
+        end
+
         it 'renders fullscreen mode'
         it 'renders poster'
       end
@@ -398,9 +452,5 @@ RSpec.describe Issue::PageView do
     it 'outputs custom layout class'
     it 'outputs page layout class'
     it 'returns layout object'
-  end
-
-  def page_view hash
-    Issue::PageView.new(LocalIssue::Page.new(hash))
   end
 end

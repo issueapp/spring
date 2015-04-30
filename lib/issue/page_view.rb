@@ -117,7 +117,7 @@ class Issue::PageView
     container_class = "cover-area #{layout.image_style} #{cover.style} #{cover.type.to_s.split('/').first}".squeeze(' ')
     container_class << ' play' if cover.autoplay
 
-    container_background = "background-image: url(#{asset_url(cover, 'thumb' => cover.type.to_s.include?('video'))})"
+    container_background = "background-image: url('#{asset_url(cover, 'thumb' => cover.type.to_s.include?('video'))}')"
 
     attributes = {:class => container_class, :style => container_background}
     fragment = create_element('figure', attributes) do |figure|
@@ -389,47 +389,47 @@ class Issue::PageView
   #    controls: true | false
   #    loop:     true | false
   def video_node node, video
-    video["autoplay"] ||= true
-    video["controls"] ||= false
-
     # TODO: Double check video url & link
-    video_url = video["url"] || video["link"]
+    video_url = video['url'] || video['link']
 
-    # Setup video params
     options = {
-      type:     video["type"],
-      src:      video_url,
-      # autoplay: video["autoplay"] ? true : nil,
-      'data-autoplay': video["autoplay"] ? true : nil,
-      controls: video["controls"] ? true : nil,
-      height:   video["height"],
-      width:    video["width"],
-      loop:     video["loop"],
-      muted:    video["muted"],
-    }.delete_if { |k,v| v.nil? }
+      type:          video['type'],
+      :'data-src' => video_url,
+      autoplay:      extract_value_from(video, key='autoplay', default=true),
+      controls:      extract_value_from(video, key='controls', default=false),
+      width:         video['width'],
+      height:        video['height'],
+      loop:          video['loop'],
+      mute:          video['mute'],
+      #muted:         video['muted'],
+      poster:        video['thumb_url'],
+    }
 
     figure = create_element('figure', :class => "video")
-    figure << create_element("div",
-      class: "thumbnail",
-      style: "background-image: url('#{asset_url(video, 'thumb' => true)}')"
+    figure << create_element(
+      'div',
+      class: 'thumbnail', style: "background-image: url('#{asset_url(video, 'thumb' => true)}')"
     )
 
-    # Detect embed videos
     if embed_video? video_url
-      figure.inner_html += video_iframe_html(video_url, options.merge(lazy: true))
+      options[:autoplay] = options[:autoplay] ? 1 : 0
+      options[:controls] = options[:controls] ? 1 : 0
+      options[:loop] = options[:loop] ? 1 : 0
+      options[:width] = options[:width] || '100%'
+      options[:height] = options[:height] || '100%'
 
-    # Use HTML5 native Video element
+      figure << video_iframe_html(video_url, options)
+
     else
-      options[:poster] = video["thumb_url"] if video["thumb_url"]
-      options[:mute]   = video["mute"]
+      options[:'data-autoplay'] = true if options.delete(:autoplay)
 
-      figure << create_element("video", options)
+      figure << create_element('video', options)
     end
 
-    if video["caption"]
+    if video['caption'].present?
       options = {}
-      options[:class] = "inset" if video["caption_inset"]
-      figure << create_element("figcaption", video["caption"], options)
+      options[:class] = 'inset' if video['caption_inset']
+      figure << create_element('figcaption', video['caption'], options)
     end
 
     figure
@@ -461,29 +461,47 @@ class Issue::PageView
     figure
   end
 
-  # TODO: pass html5 compatible params
-  # autoplay, controls, loop, width, height
-  def video_iframe_html url, options={}
-    params = {
-      autoplay: options[:autoplay] ? "1" : "0",
-      controls: options[:controls] ? "1" : "0",
-      loop:     options[:loop] ? "1" : "0"
-    }
+  def video_iframe_html url, params={}
+    case url
+    when /youtube\.com\/watch\?v=(.+)/
+      params = params.merge(
+        playlist: $1,
+        autohide: 1,
+        color: 'white',
+        enablejsapi: 1,
+        hd: 1,
+        iv_load_policy: 3,
+        origin: 'https://issueapp.com',
+        rel: 0,
+        showinfo: 0,
+        wmode: 'transparent',
+      )
+      embed_url = "http://youtube.com/embed/#{$1}"
 
-    embed_url = case url
-      when /youtube\.com\/watch\?v=(.+)/
-        "http://youtube.com/embed/#{$1}?#{URI.escape(params.to_param)}&amp;playlist=#{$1}&amp;autohide=1&amp;color=white&amp;enablejsapi=1&amp;hd=1&amp;iv_load_policy=3&amp;origin=http%3A%2F%2Fissueapp.com&amp;rel=0&amp;showinfo=0&amp;wmode=transparent"
-      when /vimeo\.com\/([^\/]+)/
-        "http://player.vimeo.com/video/#{$1}?#{URI.escape(params.to_param)}&amp;byline=0&amp;portrait=0"
-    end
+    when /vimeo\.com\/([^\/]+)/
+      params = params.merge(
+        byline: 0,
+        portrait: 0,
+      )
+      embed_url = "http://player.vimeo.com/video/#{$1}"
 
-    if options[:lazy]
-      source = "data-src=\"#{embed_url}\""
     else
-      source = "src=\"#{embed_url}\""
+      raise ArgumentError, "Unsupported url: #{url}"
     end
 
-    "<iframe #{source} frameborder=0 height=#{options[:height] || "100%" } width=#{options[:width] || "100%" } webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>"
+    embed_url << "?#{URI.escape(params.to_param)}"
+
+    "<iframe data-src=#{embed_url} frameborder=0 width=#{params[:width]} height=#{params[:height]} webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>"
+  end
+
+  def extract_value_from object, key, default
+    if object.respond_to? 'has_attribute?'
+      object.has_attribute?(key) ? object[key] : default
+    elsif object.respond_to? 'fetch'
+      object.fetch(key) { default }
+    else
+      default
+    end
   end
 
   def embed_video? url
