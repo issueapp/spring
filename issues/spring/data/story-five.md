@@ -10,6 +10,7 @@
     layout:
       type: three-column
       image_style: cover
+      hide_author: true
 
 ---
 

@@ -12,5 +12,6 @@
       image_style: fit
       content_align: right
       content_valign: middle
+      hide_author: true
 
 ---
