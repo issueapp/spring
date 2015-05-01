@@ -452,6 +452,10 @@ article.page {
     &.play:before {
       content: none;
     }
+
+    &.play iframe {
+      display: block;
+    }
   }
 
   a.audio {
