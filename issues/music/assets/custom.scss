@@ -36,8 +36,69 @@
          url('fonts/rodondo-webfont.ttf') format('truetype');
 }
 
-#music-issue {
+/*
+    Animations
+*/
 
+@-webkit-keyframes five-shades {
+  from { background-color: #ff9ebb }
+  20% { background-color: #c6244b }
+  40% { background-color: #ff9ebb }
+  60% { background-color: #e14d70 }
+  80% { background-color: #f080a1 }
+  to { background-color:  #f25d80 }
+}
+
+@-moz-keyframes five-shades {
+  from { background-color: #ff9ebb }
+  20% { background-color: #c6244b }
+  40% { background-color: #ff9ebb }
+  60% { background-color: #e14d70 }
+  80% { background-color: #f080a1 }
+  to { background-color:  #f25d80 }
+}
+
+@keyframes five-shades {
+  from { background-color: #ff9ebb }
+  20% { background-color: #c6244b }
+  40% { background-color: #ff9ebb }
+  60% { background-color: #e14d70 }
+  80% { background-color: #f080a1 }
+  to { background-color:  #f25d80 }
+}
+
+@-webkit-keyframes rainbow {
+  from { background-color: #ff5300 }
+  20% { background-color: #ff0000 }
+  40% { background-color: #00ffb2 }
+  60% { background-color: #ff0093 }
+  80% { background-color: #00dcff }
+  90% { background-color: #fff600 }
+  to { background-color: #00dcff }
+}
+
+@-moz-keyframes rainbow {
+  from { background-color: #ff5300 }
+  20% { background-color: #ff0000 }
+  40% { background-color: #00ffb2 }
+  60% { background-color: #ff0093 }
+  80% { background-color: #00dcff }
+  90% { background-color: #fff600 }
+  to { background-color: #00dcff }
+}
+
+@keyframes rainbow {
+  from { background-color: #ff5300 }
+  20% { background-color: #ff0000 }
+  40% { background-color: #00ffb2 }
+  60% { background-color: #ff0093 }
+  80% { background-color: #00dcff }
+  90% { background-color: #fff600 }
+  to { background-color: #00dcff }
+}
+
+
+#music-issue {
   /*
       Basic elements
   */
@@ -966,64 +1027,4 @@
     transform: scale(1.5);
   }
 
-  /*
-      Animations
-  */
-
-  @-webkit-keyframes five-shades {
-    from { background-color: #ff9ebb }
-    20% { background-color: #c6244b }
-    40% { background-color: #ff9ebb }
-    60% { background-color: #e14d70 }
-    80% { background-color: #f080a1 }
-    to { background-color:  #f25d80 }
-  }
-
-  @-moz-keyframes five-shades {
-    from { background-color: #ff9ebb }
-    20% { background-color: #c6244b }
-    40% { background-color: #ff9ebb }
-    60% { background-color: #e14d70 }
-    80% { background-color: #f080a1 }
-    to { background-color:  #f25d80 }
-  }
-
-  @keyframes five-shades {
-    from { background-color: #ff9ebb }
-    20% { background-color: #c6244b }
-    40% { background-color: #ff9ebb }
-    60% { background-color: #e14d70 }
-    80% { background-color: #f080a1 }
-    to { background-color:  #f25d80 }
-  }
-
-  @-webkit-keyframes rainbow {
-    from { background-color: #ff5300 }
-    20% { background-color: #ff0000 }
-    40% { background-color: #00ffb2 }
-    60% { background-color: #ff0093 }
-    80% { background-color: #00dcff }
-    90% { background-color: #fff600 }
-    to { background-color: #00dcff }
-  }
-
-  @-moz-keyframes rainbow {
-    from { background-color: #ff5300 }
-    20% { background-color: #ff0000 }
-    40% { background-color: #00ffb2 }
-    60% { background-color: #ff0093 }
-    80% { background-color: #00dcff }
-    90% { background-color: #fff600 }
-    to { background-color: #00dcff }
-  }
-
-  @keyframes rainbow {
-    from { background-color: #ff5300 }
-    20% { background-color: #ff0000 }
-    40% { background-color: #00ffb2 }
-    60% { background-color: #ff0093 }
-    80% { background-color: #00dcff }
-    90% { background-color: #fff600 }
-    to { background-color: #00dcff }
-  }
 }

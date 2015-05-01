@@ -120,41 +120,40 @@ class Issue::PageView
     container_background = "background-image: url('#{asset_url(cover, 'thumb' => cover.type.to_s.include?('video'))}')"
 
     attributes = {:class => container_class, :style => container_background}
-    fragment = create_element('figure', attributes) do |figure|
+    figure = create_element('figure', attributes)
 
-      #  TODO unsure what to do with this?
-      #  <% if page.cover.style == 'overlay' %>
-      #    <%= header_area %>
-      #  <% end %>
-      #  end TODO unsure what to do with this?
+    #  TODO unsure what to do with this?
+    #  <% if page.cover.style == 'overlay' %>
+    #    <%= header_area %>
+    #  <% end %>
+    #  end TODO unsure what to do with this?
 
-      if cover.type.include? 'video'
-        if embed_video? cover.link
-          figure << video_iframe_html(
-            cover.link,
-            page.cover.to_hash.merge(lazy: true, autoplay: true)
-          )
-        else
-          attributes = {
-            :src => asset_url(cover),
-            'data-media-id' => cover.id,
-            :poster => asset_url(cover, 'thumb' => true)
-          }
-          attributes['data-autoplay'] = '' if cover.autoplay
-          attributes['loop'] = '' if cover.loop
+    if cover.type.include? 'video'
+      figure << video_node(cover)
 
-          figure << create_element('video', attributes)
-        end
-      end
+      if embed_video? cover.link
+        params = cover.to_hash.merge(:'data-src' => cover.link, autoplay: true)
+        figure << video_iframe_html(cover.link, params)
+      else
+        attributes = {
+          :src => asset_url(cover),
+          'data-media-id' => cover.id,
+          :poster => asset_url(cover, 'thumb' => true)
+        }
+        attributes['data-autoplay'] = '' if cover.autoplay
+        attributes['loop'] = '' if cover.loop
 
-      if cover.caption.present?
-        figure << create_element('figcaption', :class => 'inset') do |figcaption|
-          figcaption << cover.caption
-        end
+        figure << create_element('video', attributes)
       end
     end
 
-    html = fragment.to_html
+    if cover.caption.present?
+      figure << create_element('figcaption', :class => 'inset') do |figcaption|
+        figcaption << cover.caption
+      end
+    end
+
+    html = figure.to_html
     html = html.html_safe if html.respond_to? :html_safe
     html
   end
@@ -280,21 +279,16 @@ class Issue::PageView
 
       case asset
       when 'images'
-        if node['data-background-image']
-          node['style'] = "background-size: cover; background-image:url(#{asset_url media})"
-
-        elsif ! node['data-original']
-          node.replace image_node(node, media)
-        end
+        decorate_image(node, media)
 
       when "videos"
-        node.replace video_node(node, media)
+        decorate_video(node, media)
 
       when "audios"
-        node.replace audio_node(node, media)
+        decorate_audio(node, media)
 
       else
-        log_method.call("Unknow asset: #{asset}")
+        log_method.call("Fail to decorate unknown asset: #{asset}")
       end
     end
 
@@ -349,15 +343,22 @@ class Issue::PageView
   #   </figcaption>
   #   <figcaption>Although a tomboy at heart, Christina admits the last 3 years have seen her become ‘obsessed’ with fashion.</figcaption>
   # </figure>
-  def image_node node, image
+  def decorate_image node, image
+
+    node['src'] = asset_url(image)
+
+    if node['data-background-image']
+      node['style'] = "background-size: cover; background-image:url(#{asset_url media})"
+    end
+
+    return node if node['data-original']
+
     caption_options = {}
     caption_options[:class] = 'inset' if image['caption_inset']
 
     width, height, aspect_ratio = image_get_size(image)
     max_dimension = "max-height: #{height}px; max-width: #{width}px"
     padding = 100/(aspect_ratio || 1.5)
-
-    node['src'] = asset_url(image)
 
     if node.parent && node.parent.name == "figure"
       figure = node.parent.clone
@@ -374,7 +375,7 @@ class Issue::PageView
 
     figure << create_element('figcaption', image["caption"], caption_options) if image["caption"].present?
 
-    figure
+    node.replace figure
   end
 
   # <video data-media-id="videos:1" type="video/youtube" src="http://youtube.com/watch?v=8v_4O44sfjM"  poster="../assets/1-styling-it-out/Jar-of-Hearts-christina-perri-16882990-1280-720.jpg"/>
@@ -388,7 +389,7 @@ class Issue::PageView
   #    autoplay: true | false
   #    controls: true | false
   #    loop:     true | false
-  def video_node node, video
+  def decorate_video node, video
     # TODO: Double check video url & link
     video_url = video['url'] || video['link']
 
@@ -403,6 +404,7 @@ class Issue::PageView
       mute:          video['mute'],
       #muted:         video['muted'],
       poster:        video['thumb_url'],
+      #poster:        asset_url(video, 'thumb' => true),
     }
 
     figure = create_element('figure', :class => "video")
@@ -432,33 +434,33 @@ class Issue::PageView
       figure << create_element('figcaption', video['caption'], options)
     end
 
-    figure
+    node.replace figure
   end
 
-  def audio_node(node, media)
+  def decorate_audio node, audio
     # Setup audio params
     options = {
-      type:     media["type"],
-      src:      asset_url(media),
-      'data-autoplay': media["autoplay"] ? true : nil,
-      controls: media["controls"] ? true : nil,
-      loop:     media["loop"],
-      muted:    media["muted"]
+      type:     audio['type'],
+      src:      asset_url(audio),
+      'data-autoplay': audio['autoplay'] ? true : nil,
+      controls: audio['controls'] ? true : nil,
+      loop:     audio['loop'],
+      muted:    audio['muted']
     }.delete_if { |k, v| v.nil? }
 
-    figure = create_element('figure', :class => "audio")
-    figure << create_element("img", class: "thumbnail", src: asset_url(media, 'thumb' => true))
+    figure = create_element('figure', :class => 'audio')
+    figure << create_element('img', class: 'thumbnail', src: asset_url(audio, 'thumb' => true))
 
-    audio = create_element("audio", options)
+    audio = create_element('audio', options)
     figure << audio
 
-    if media["caption"]
+    if audio['caption']
       options = {}
-      options[:class] = "inset" if media["caption_inset"]
-      figure << create_element("figcaption", media["caption"], options)
+      options[:class] = 'inset' if audio['caption_inset']
+      figure << create_element('figcaption', audio['caption'], options)
     end
 
-    figure
+    node.replace figure
   end
 
   def video_iframe_html url, params={}

@@ -226,6 +226,10 @@ RSpec.describe Issue::PageView do
         end
       end
 
+      it 'renders iframe width, height at 100% when not given' do
+        cover_html.should have_tag('iframe[width="100%"][height="100%"]')
+      end
+
       it 'renders thumb background' do
         video['thumb_url'] = 'assets/background.jpg'
         cover_html.should have_tag('figure[style="background-image: url(\'assets/background.jpg\')"]')
