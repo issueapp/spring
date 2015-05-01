@@ -13,6 +13,7 @@
       content_style: black
       content_align: right
       content_valign: bottom
+      hide_author: true
 
 ---
 

@@ -11,6 +11,7 @@
     layout:
       type: three-column
       content_valign: middle
+      hide_author: true
 
 ---
 
