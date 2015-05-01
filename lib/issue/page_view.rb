@@ -189,15 +189,6 @@ class Issue::PageView
     html
   end
 
-  private
-
-  def render_html content, json
-    html = Mustache.render(content, json)
-    html = decorate_media(html)
-    html = html.html_safe if html.respond_to? :html_safe
-    html
-  end
-
   def json
     if page.respond_to? 'to_hash'
       hash = page.to_hash
@@ -225,6 +216,8 @@ class Issue::PageView
 
       page_element = page.send(element)
       hash[element].each_with_index do |object, i|
+        
+        object["thumb_url"] = asset_url(page_element[i], thumb: true)
         object['url'] = asset_url(page_element[i])
       end
     end
@@ -245,6 +238,14 @@ class Issue::PageView
     hash
   end
 
+  private
+
+  def render_html content, json
+    html = Mustache.render(content, json)
+    html = decorate_media(html)
+    html = html.html_safe if html.respond_to? :html_safe
+    html
+  end
 
   def asset_path value
     value = context.asset_path(value) if context.respond_to? 'asset_path'

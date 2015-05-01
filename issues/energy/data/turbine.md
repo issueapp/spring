@@ -12,7 +12,9 @@
         autoplay: true
         loop: true
         caption: "Coastal wind farm near Albany, Western Australia"
-
+    
+    custom_html: true
+    
     layout:
       type: custom
       image_style: background
