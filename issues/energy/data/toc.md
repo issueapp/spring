@@ -1,5 +1,6 @@
 ---
-
+    title: Table of content
+    
     cover_url: assets/toc_cover.jpg
     thumb_url: assets/toc_cover.jpg
 

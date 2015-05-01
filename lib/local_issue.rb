@@ -87,10 +87,10 @@ class LocalIssue < Hashie::Mash
 
   def paths
     self.pages.reduce([]) do |result, page|
-      result << page.handle
+      result << page.path
 
       unless page.children.empty?
-        result += page.children.map(&:handle)
+        result += page.children.map(&:path)
       end
 
       result

@@ -144,6 +144,8 @@ class IssuePreview < Sinatra::Base
 
     global = options[:global] || options['global']
 
+    path = path.sub('assets/', '') # Sub page has incorrect asset path "../assets/assets/logo.png"
+
     if defined? Rails
       if global_online = (!Rails.application.config.offline_assets && global)
         return ActionController::Base.helpers.asset_path(path)
