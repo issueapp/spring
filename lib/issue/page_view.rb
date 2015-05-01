@@ -40,7 +40,7 @@ class Issue::PageView
 
   def layout_class options={}
     has_header  = !empty_content?(title) || !empty_content?(summary)
-    has_content = !empty_content?(page.content)
+    has_content = !empty_content?(page.content) || !empty_content?(page.custom_html)
     has_product = page.product_set?
     has_cover   = page.cover_url && page.layout.image_style != "none"
     editing     = options[:editing]
@@ -129,10 +129,18 @@ class Issue::PageView
     #  end TODO unsure what to do with this?
 
     if cover.type.include? 'video'
-      figure << video_node(cover)
-
       if embed_video? cover.link
-        params = cover.to_hash.merge(:'data-src' => cover.link, autoplay: true)
+        params = cover.to_hash
+        params.delete('link')
+        params.delete('thumb_url')
+        params.delete('type')
+        params.delete('cover')
+        params['autoplay'] = params['autoplay'] ? 1 : 0
+        params['controls'] = params['controls'] ? 1 : 0
+        params['loop'] = params['loop'] ? 1 : 0
+        params['width'] = params['width'] || '100%'
+        params['height'] = params['height'] || '100%'
+
         figure << video_iframe_html(cover.link, params)
       else
         attributes = {
@@ -344,14 +352,15 @@ class Issue::PageView
   #   <figcaption>Although a tomboy at heart, Christina admits the last 3 years have seen her become ‘obsessed’ with fashion.</figcaption>
   # </figure>
   def decorate_image node, image
-
-    node['src'] = asset_url(image)
-
-    if node['data-background-image']
-      node['style'] = "background-size: cover; background-image:url(#{asset_url media})"
+    if node.name == 'img'
+      node['src'] = asset_url(image)
     end
 
-    return node if node['data-original']
+    if node['data-background-image']
+      node['style'] = "background-size: cover; background-image:url(#{asset_url image})"
+    end
+
+    return node if node['data-original'] || node.matches?('.cover-area')
 
     caption_options = {}
     caption_options[:class] = 'inset' if image['caption_inset']
@@ -360,13 +369,15 @@ class Issue::PageView
     max_dimension = "max-height: #{height}px; max-width: #{width}px"
     padding = 100/(aspect_ratio || 1.5)
 
-    if node.parent && node.parent.name == "figure"
+    if node.parent && node.parent.name == 'figure'
       figure = node.parent.clone
       figure['style'] = max_dimension
-    else
+      figure.inner_html = node.to_s
+
+    elsif node.name != 'figure'
       figure = create_element('figure', class: 'image', style: max_dimension)
+      figure.inner_html = node.to_s
     end
-    figure.inner_html = node.to_s
 
     figure << create_element('div',
       class: 'aspect-ratio', 
@@ -478,6 +489,9 @@ class Issue::PageView
         showinfo: 0,
         wmode: 'transparent',
       )
+      width = params.delete(:width) || params.delete('width')
+      height = params.delete(:height) || params.delete('height')
+
       embed_url = "http://youtube.com/embed/#{$1}"
 
     when /vimeo\.com\/([^\/]+)/
@@ -485,6 +499,9 @@ class Issue::PageView
         byline: 0,
         portrait: 0,
       )
+      width = params.delete(:width) || params.delete('width')
+      height = params.delete(:height) || params.delete('height')
+
       embed_url = "http://player.vimeo.com/video/#{$1}"
 
     else
@@ -493,7 +510,13 @@ class Issue::PageView
 
     embed_url << "?#{URI.escape(params.to_param)}"
 
-    "<iframe data-src=#{embed_url} frameborder=0 width=#{params[:width]} height=#{params[:height]} webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>"
+    if params[:autoplay] || params['autoplay']
+      source = %{src="#{embed_url}"}
+    else
+      source = %{data-src="#{embed_url}"}
+    end
+
+    %{<iframe #{source} frameborder="0" width="#{width}" height="#{height}" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>}
   end
 
   def extract_value_from object, key, default
@@ -512,7 +535,9 @@ class Issue::PageView
   end
 
   def create_element *args, &block
-    Nokogiri::HTML('').create_element(*args, &block)
+    doc = Nokogiri::HTML('')
+    doc.encoding = 'utf-8'
+    doc.create_element(*args, &block)
   end
 
   def image_get_size image

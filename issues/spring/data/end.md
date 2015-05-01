@@ -18,6 +18,8 @@
       - url: assets/end/story-five-cover.jpg
       - url: assets/end/story-six-cover.jpg
 
+    custom_html: true
+
     layout:
       type: custom
       image_style: background
