@@ -12,7 +12,7 @@
     layout:
       type: three-column
       content_valign: top
-      hide_author: "0"
+      hide_author: true
 
 ---
 

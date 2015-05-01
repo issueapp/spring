@@ -14,6 +14,7 @@
       image_style: background
       content_align: right
       content_valign: middle
+      hide_author: true
 
 ---
 
