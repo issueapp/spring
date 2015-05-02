@@ -476,8 +476,7 @@
 
         figure.image {
           margin: 0;
-          max-height: 600px;
-          max-height: 80vh;
+          max-height: 90vh !important;
 
           -webkit-column-break-after: always;
           -moz-column-break-after: always;
