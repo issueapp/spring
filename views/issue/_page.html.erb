@@ -18,25 +18,27 @@
     <% if !page.cover || page.cover.style != "overlay" %>
       <% if page.title || page.summary %>
         <header>
-          <% if page.category %>
-          <span class='category'><%= page.category %></span>
-          <% end %>
-
-          <% if page.title %>
-          <h1 class='title'><%= page.title %></h1>
-          <% end %>
-
-          <% if page.summary %>
-          <h3 class='subtitle'><%= page.summary %></h3>
-          <% end %>
-
-          <div class='extras'>
-            <% if page.show_author? %>
-              <% if page.author.icon %>
-                <img src="<%= page.author.icon %>" class="avatar">
-              <% end %>
-              <em>By <%= page.author.name %></em>
+          <div class="wrapper">
+            <% if page.category %>
+            <span class='category'><%= page.category %></span>
             <% end %>
+
+            <% if page.title %>
+            <h1 class='title'><%= page.title %></h1>
+            <% end %>
+
+            <% if page.summary %>
+            <h3 class='subtitle'><%= page.summary %></h3>
+            <% end %>
+
+            <div class='extras'>
+              <% if page.show_author? %>
+                <% if page.author.icon %>
+                  <img src="<%= page.author.icon %>" class="avatar">
+                <% end %>
+                <em>By <%= page.author.name %></em>
+              <% end %>
+            </div>
           </div>
         </header>
       <% end %>
@@ -47,7 +49,7 @@
     <% page.column_break_count.times do %>
       <p class='column-break'></p>
     <% end %>
-    
+
     <div class='body'>
       <%= page.content_html %>
     </div>
