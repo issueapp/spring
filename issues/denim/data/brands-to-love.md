@@ -49,6 +49,8 @@
           <a href="http://www.theiconic.com.au/g-starraw/" class="button outline" target="_blank">SHOP NOW</a>
         '
 
+    custom_html: true
+
     layout:
       type: custom
 
