@@ -3,7 +3,8 @@
     title: Summer Destinations in Australia
     thumb_url: assets/toc/calendar.jpg
     cover_url: assets/toc/calendar.jpg
-
+    custom_html: true
+    
     layout:
       type: custom
       image_style: background
