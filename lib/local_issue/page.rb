@@ -311,8 +311,8 @@ class LocalIssue::Page < Hashie::Mash
   # Map attributes for import
   #
   def to_hash options={}
-    hash = super.except("id", "issue", "cover_url", "thumb_url", "cover")
-
+    #hash = super.except("id", "issue", "cover_url", "thumb_url", "cover")
+    hash = super
     hash["title"] ||= "Table of Content" if toc?
 
     return hash unless options[:local_path]
