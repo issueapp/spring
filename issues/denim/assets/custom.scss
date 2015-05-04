@@ -1,0 +1,575 @@
+#denim-issue {
+  .dark-theme {
+    .subtitle {
+      color: #eee;
+    }
+
+    .category {
+      color: #eee;
+    }
+  }
+
+  .page {
+    .title {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    figure.cover-area {
+      background-position-y: top;
+    }
+  }
+
+  [data-page="index"] {
+    .brand {
+      position: relative;
+      display: block;
+      background: url(brand.png) no-repeat;
+      background-size: contain;
+      background-position: center;
+      width: 45vmin;
+      height: 20vmin;
+      margin: 0 auto 10px;
+      color: transparent;
+      text-shadow: none;
+    }
+
+    .title {
+      font-family: "proxima-nova";
+      font-size: 56px;
+      letter-spacing: 4px;
+      letter-spacing: 20px;
+      padding-left: 10px;
+    }
+
+    .description {
+      text-transform: uppercase;
+      padding: 5px 0;
+      margin: 0 auto 2vmin;
+      left: 0;
+      right: 0;
+    }
+
+    .container {
+      padding-top: 0;
+    }
+
+    @media only screen and (min-width: 768px) {
+      .brand {
+        margin: 0 auto;
+        height: 11vmin;
+      }
+
+      .title {
+        font-size: 120px;
+        letter-spacing: 20px;
+        font-family: "proxima-nova";
+        font-weight: normal;
+      }
+
+      .description {
+        width: 26em;
+      }
+    }
+
+    @media only screen and (min-width: 768px) and (orientation: portrait) {
+      .brand {
+        height: 16vmin;
+      }
+    }
+  }
+
+  [data-page="toc"] {
+    .cover-area {
+      background-position: 100% 50%;
+    }
+
+    p {
+      margin: 0.8em 0;
+    }
+
+    p:first-child {
+      margin-top: 0;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  [data-page="perfect-fit"] {
+    @media only screen and (min-width: 768px) {
+      header .title {
+        font-size: 20px;
+      }
+    }
+  }
+
+  [data-page="perfect-fit/1"],
+  [data-page="perfect-fit-men/1"] {
+    .cover {
+      height: 100%;
+    }
+
+    h1 {
+      padding: 20px 0;
+      font-size: 2rem;
+    }
+
+    #flip-cards {
+      .flipper {
+        padding-bottom: 40px;
+      }
+
+      .info {
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+
+        color: white;
+      }
+
+      .info h2 {
+        font-size: 20px;
+        font-weight: bold;
+        letter-spacing: 3px;
+      }
+
+      .info p {
+        font-size: 16px;
+        font-weight: bold;
+        text-align: left;
+      }
+
+      .info .button {
+        color: white;
+        padding: 0 30px;
+        border: 1px solid rgba(255, 255, 255, 0.6);
+      }
+    }
+
+    @media only screen and (min-width: 768px) {
+      h1 {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        background: white;
+        height: 32px;
+        margin-top: -16px;
+        z-index: 1;
+        font-size: 24px;
+        letter-spacing: 3px;
+        width: 350px;
+        padding: 0;
+      }
+
+      #flip-cards {
+        h3 {
+          margin-top: -40px;
+          height: 30px;
+          line-height: 30px;
+        }
+      }
+    }
+
+    @media only screen and (min-width: 768px) and (orientation: portrait) {
+      #flip-cards {
+        h3 {
+          margin-top: -80px;
+        }
+      }
+    }
+  }
+
+  [data-page="perfect-fit/1"] {
+    #flip-cards {
+      .info {
+        background-position: center top;
+      }
+
+      > li:nth-of-type(1) .info {
+        background-image: url('perfect-fit/skinny-bg.jpg');
+      }
+
+      > li:nth-of-type(2) .info {
+        background-image: url('perfect-fit/gf-bg.jpg');
+      }
+
+      > li:nth-of-type(3) .info {
+        background-image: url('perfect-fit/bf-bg.jpg');
+      }
+
+      > li:nth-of-type(4) .info {
+        background-image: url('perfect-fit/flare-bg.jpg');
+      }
+    }
+  }
+
+  [data-page="perfect-fit-men/1"] {
+    #flip-cards {
+      > li:nth-of-type(1) .info {
+        background-image: url('perfect-fit-men/tapered-bg.jpg');
+      }
+
+      > li:nth-of-type(2) .info {
+        background-image: url('perfect-fit-men/straight-bg.jpg');
+      }
+
+      > li:nth-of-type(3) .info {
+        background-image: url('perfect-fit-men/slim-bg.jpg');
+      }
+
+      > li:nth-of-type(4) .info {
+        background-image: url('perfect-fit-men/skinny-bg.jpg');
+      }
+    }
+  }
+
+  [data-page="perfect-fit/1"],
+  [data-page="perfect-fit-men/1"] {
+    @media only screen and (min-width: 768px) {
+      &.page-animation #flip-cards > li:first-child > .flipper {
+        -webkit-animation: flip 1.5s ease-in-out 1;
+        animation: flip 1.5s ease-in-out 1;
+      }
+    }
+  }
+
+  [data-page="brands-to-love"] {
+    > .cover-area {
+      background-position: 30% 50%;
+
+      > header {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        text-align: center;
+        color: white;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+      }
+
+      > header > .title {
+        font-size: 28px;
+        font-weight: lighter;
+        letter-spacing: 3px;
+        margin: 0;
+      }
+
+      > header > .summary {
+        text-transform: uppercase;
+        font-size: 14px;
+        font-weight: bold;
+        letter-spacing: 3px;
+        margin: 0;
+        text-align: center;
+      }
+    }
+
+    > .content {
+      height: 280px;
+      padding: 0;
+    }
+
+    > .content > .body {
+      height: 100%;
+    }
+
+    #flip-cards {
+      font-size: 0;
+
+      > li:nth-of-type(1) .info {
+        background-image: url('brands-to-love/levis-bg.jpg');
+      }
+
+      > li:nth-of-type(2) .info {
+        background-image: url('brands-to-love/nobody-bg.jpg');
+      }
+
+      > li:nth-of-type(3) .info {
+        background-image: url('brands-to-love/ziggy-bg.jpg');
+      }
+
+      > li:nth-of-type(4) .info {
+        background-image: url('brands-to-love/mavi-bg.jpg');
+      }
+
+      > li:nth-of-type(5) .info {
+        background-image: url('brands-to-love/jack-bg.jpg');
+      }
+
+      > li:nth-of-type(6) .info {
+        background-image: url('brands-to-love/gstart-bg.jpg');
+      }
+
+      > li {
+        height: 100%;
+        display: inline-block;
+        white-space: normal;
+        text-align: center;
+        float: none;
+        vertical-align: top;
+      }
+
+      .info {
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+
+        color: white;
+      }
+
+      .info h2 {
+        font-size: 20px;
+        font-weight: bold;
+        letter-spacing: 3px;
+      }
+
+      .info p {
+        font-size: 16px;
+        font-weight: bold;
+        text-align: left;
+      }
+
+      .info .button {
+        color: white;
+        padding: 0 30px;
+        border: 1px solid rgba(255, 255, 255, 0.6);
+      }
+    }
+
+    @media only screen and (min-width: 768px) {
+      > .cover-area {
+        background-position: center top;
+        min-height: initial;
+        height: 50%;
+
+        > header {
+          right: 10%;
+          text-align: left;
+          width: 320px;
+        }
+
+        > header > .summary {
+          text-align: left;
+        }
+      }
+
+      > .content {
+        height: 50%;
+      }
+
+      #flip-cards {
+        white-space: nowrap;
+        overflow-x: scroll;
+        overflow-y: hidden;
+
+        > li {
+          width: 33.33%;
+        }
+      }
+
+      &.page-animation #flip-cards li {
+        -webkit-animation: animatedScroll 10s ease-in-out 0s 1;
+        animation: animatedScroll 10s ease-in-out 0s 1;
+
+        &:first-child {
+          -webkit-animation: animatedScroll 10s ease-in-out 0s 1, flip 1.5s ease-in-out 10.6s 1;
+          animation: animatedScroll 10s ease-in-out 0s 1, flip 1.5s ease-in-out 10.6s 1;
+        }
+      }
+    }
+
+    @media only screen and (min-width: 768px) and (orientation: portrait) {
+      .cover-area > header {
+        right: 2%;
+      }
+    }
+  }
+
+  [data-page="spotify"] {
+    .body {
+      text-align: center;
+    }
+  }
+
+  #flip-cards {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    list-style: none;
+
+    -webkit-perspective: 1000;
+    -moz-perspective: 1000;
+    -o-perspective: 1000;
+    perspective: 1000;
+
+    li {
+      float: left;
+      width: 100%;
+      height: 50%;
+    }
+
+    h3 {
+      font-size: 1.4rem;
+      line-height: 40px;
+      height: 40px;
+      margin: 0;
+      color: #333;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+
+      -webkit-backface-visibility: hidden;
+      -moz-backface-visibility: hidden;
+      -o-backface-visibility: hidden;
+      backface-visibility: hidden;
+    }
+
+    .flipper {
+      position: relative;
+      box-sizing: border-box;
+      width: 100%;
+      height: 100%;
+
+      -webkit-transition: 0.6s;
+      -moz-transition: 0.6s;
+      -o-transition: 0.6s;
+      transition: 0.6s;
+
+      -webkit-transform-style: preserve-3d;
+      -moz-transform-style: preserve-3d;
+      -o-transform-style: preserve-3d;
+      transform-style: preserve-3d;
+    }
+
+    /* front pane, placed above back */
+    li .image {
+      height: 100%;
+      background-position: center;
+      background-size: initial;
+      background-repeat: no-repeat;
+
+      -webkit-backface-visibility: hidden;
+      -moz-backface-visibility: hidden;
+      -o-backface-visibility: hidden;
+      backface-visibility: hidden;
+    }
+
+    /* back, initially hidden pane */
+    li .info {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 2;
+      overflow: auto;
+      background: #fff;
+      color: #333;
+      font-size: 14px;
+
+      -webkit-transform: rotateY(180deg);
+      -moz-transform: rotateY(180deg);
+      -o-transform: rotateY(180deg);
+      transform: rotateY(180deg);
+
+      -webkit-backface-visibility: hidden;
+      -moz-backface-visibility: hidden;
+      -o-backface-visibility: hidden;
+      backface-visibility: hidden;
+    }
+
+    li .info .wrapper {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      width: 80%;
+      height: 70%;
+    }
+
+    @media only screen and (min-width: 768px) {
+      li {
+        width: 50%;
+      }
+
+      h3 {
+        font-size: 1.8rem;
+      }
+
+      .summary {
+        display: block;
+      }
+
+      li .info .wrapper {
+        height: 50%;
+      }
+    }
+  }
+
+  .no-touch & #flip-cards li:hover .flipper,
+  #flip-cards li.hover .flipper {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+  }
+}
+
+@keyframes flip {
+  0% {
+    -webkit-transform: rotateY(0);
+    -moz-transform: rotateY(0);
+    -o-transform: rotateY(0);
+    transform: rotateY(0);
+  }
+  50% {
+    -webkit-transform: rotateY(60deg);
+    -moz-transform: rotateY(60deg);
+    -o-transform: rotateY(60deg);
+    transform: rotateY(60deg);
+  }
+  100% {
+    -webkit-transform: rotateY(0);
+    -moz-transform: rotateY(0);
+    -o-transform: rotateY(0);
+    transform: rotateY(0);
+  }
+}
+
+@-webkit-keyframes flip {
+  0% {
+    -webkit-transform: rotateY(0);
+    -moz-transform: rotateY(0);
+    -o-transform: rotateY(0);
+    transform: rotateY(0);
+  }
+  50% {
+    -webkit-transform: rotateY(60deg);
+    -moz-transform: rotateY(60deg);
+    -o-transform: rotateY(60deg);
+    transform: rotateY(60deg);
+  }
+  100% {
+    -webkit-transform: rotateY(0);
+    -moz-transform: rotateY(0);
+    -o-transform: rotateY(0);
+    transform: rotateY(0);
+  }
+}
+
+@keyframes animatedScroll {
+  0% { transform: translateX(0%); }
+  50% { transform: translateX(-300%); }
+  100% { transform: translateX(0%); }
+}
+
+@-webkit-keyframes animatedScroll {
+  0% { -webkit-transform: translateX(0%); }
+  50% { -webkit-transform: translateX(-300%); }
+  100% { -webkit-transform: translateX(0%); }
+}
