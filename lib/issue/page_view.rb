@@ -130,17 +130,7 @@ class Issue::PageView
 
     if cover.type.include? 'video'
       if embed_video? cover.link
-        params = cover.to_hash
-        params.delete('link')
-        params.delete('thumb_url')
-        params.delete('type')
-        params.delete('cover')
-        params['autoplay'] = params['autoplay'] ? 1 : 0
-        params['controls'] = params['controls'] ? 1 : 0
-        params['loop'] = params['loop'] ? 1 : 0
-        params['width'] = params['width'] || '100%'
-        params['height'] = params['height'] || '100%'
-
+        params = cover.respond_to?('to_hash') ? cover.to_hash : cover.attributes
         figure << video_iframe_html(cover.link, params)
       else
         attributes = {
@@ -227,8 +217,10 @@ class Issue::PageView
 
       page_element = page.send(element)
       hash[element].each_with_index do |object, i|
+        object['index'] = i + 1
         object['image_url'] = asset_url(page_element[i], 'image' => true)
         object['url'] = object['link']
+        object['description'] = object['summary']
       end
     end
 
@@ -426,12 +418,6 @@ class Issue::PageView
     )
 
     if embed_video? video_url
-      options[:autoplay] = options[:autoplay] ? 1 : 0
-      options[:controls] = options[:controls] ? 1 : 0
-      options[:loop] = options[:loop] ? 1 : 0
-      options[:width] = options[:width] || '100%'
-      options[:height] = options[:height] || '100%'
-
       figure << video_iframe_html(video_url, options)
 
     else
@@ -476,6 +462,15 @@ class Issue::PageView
   end
 
   def video_iframe_html url, params={}
+    width = params.delete(:width) || params.delete('width') || '100%'
+    height = params.delete(:height) || params.delete('height') || '100%'
+
+    whitelist = ['autoplay', 'controls', 'loop', 'muted']
+    params = params.slice(*whitelist)
+    whitelist.each do |name|
+      params[name] = params[name] ? 1 : 0
+    end
+
     case url
     when /youtube\.com\/watch\?v=(.+)/
       params = params.merge(
@@ -490,9 +485,6 @@ class Issue::PageView
         showinfo: 0,
         wmode: 'transparent',
       )
-      width = params.delete(:width) || params.delete('width')
-      height = params.delete(:height) || params.delete('height')
-
       embed_url = "http://youtube.com/embed/#{$1}"
 
     when /vimeo\.com\/([^\/]+)/
@@ -500,9 +492,6 @@ class Issue::PageView
         byline: 0,
         portrait: 0,
       )
-      width = params.delete(:width) || params.delete('width')
-      height = params.delete(:height) || params.delete('height')
-
       embed_url = "http://player.vimeo.com/video/#{$1}"
 
     else
@@ -511,7 +500,7 @@ class Issue::PageView
 
     embed_url << "?#{URI.escape(params.to_param)}"
 
-    if params[:autoplay] || params['autoplay']
+    if params['autoplay']
       source = %{src="#{embed_url}"}
     else
       source = %{data-src="#{embed_url}"}
