@@ -38,7 +38,7 @@
   }
 
   if (App.support.webview) {
-    App.currentPage = new PageView({ path: "<%= "index" + page_ext %>",  model: App.pages["index"] })
+    App.currentPage = new PageView({ el: "#issue_cover", path: "<%= "index" + page_ext %>",  model: App.pages["index"] })
 
     // Force browser to render first
     App.currentPage.render()

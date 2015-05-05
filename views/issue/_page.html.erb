@@ -68,22 +68,24 @@
 
   // Not sure why layout is not being set.
   App.refresh()
-  App.pages["<%= page.handle %>"] = {
-    handle: "<%= page.handle %>",
+
+  App.pages["<%= page.path %>"] = {
+    handle: "<%= page.path %>",
     title: "<%= page.title %>",
     parentTitle: "<%= page.parent.title if page.parent %>",
     links: <%= page.links.to_json %>,
     products: <%= page.products.to_json %>
   };
 
-  var page = new PageView({ path: "<%= page.handle + page_ext %>",  model: App.pages["<%= page.handle %>"] })
-  // Force browser to render first
-  // page.render()    // Toggle page active
+  if (App.support.webview) {
+    App.currentPage = new PageView({ el: "#s<%= page.dom_id %>", path: "<%= page.path + page_ext %>",  model: App.pages["<%= page.path %>"] })
 
-  $(document).on('page:change', function () {
-    console.log("FIRED: page:change")
-    if (App.support.webview) page.setActive()
-  })
+    App.currentPage.render()
 
-  App.currentPage = page
+    // Toggle page active
+    $(document).on('page:change', function () {
+        console.log("FIRED: page:change")
+      if (App.support.webview) App.currentPage.setActive()
+    });
+  }
 </script>

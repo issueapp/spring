@@ -66,6 +66,7 @@
 
   // Not sure why layout is not being set.
   App.refresh()
+
   App.pages["<%= page.path %>"] = {
     id: "<%= page.id %>",
     handle: "<%= page.path %>",
@@ -74,7 +75,7 @@
   }
 
   if (App.support.webview) {
-    App.currentPage = new PageView({ path: "<%= page.handle + page_ext %>", model: App.pages["<%= page.path %>"] })
+    App.currentPage = new PageView({ el: '#toc_page', path: "<%= page.path + page_ext %>", model: App.pages["<%= page.path %>"] })
     App.currentPage.render()
 
     // Toggle page active
