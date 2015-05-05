@@ -28,4 +28,4 @@ Terri Winter
 
 *Founder of Top3 by Design*
 
-<img data-media-id="images:1" width=150>
+<img data-media-id="images:1" width=150 data-original>
