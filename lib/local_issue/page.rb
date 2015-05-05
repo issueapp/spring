@@ -94,8 +94,8 @@ class LocalIssue::Page < Hashie::Mash
 
     # Add index and summary to products
     Array(attributes['products']).each_with_index do|p, i|
-      p['index'] = i + 1
-      p['summary'] = p['description']
+    #  p['index'] = i + 1
+      p['summary'] = p.delete('description')
     end
 
     # Convert media and entity url array into hash
