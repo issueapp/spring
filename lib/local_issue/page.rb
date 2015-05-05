@@ -313,7 +313,8 @@ class LocalIssue::Page < Hashie::Mash
   def to_hash options={}
     #hash = super.except("id", "issue", "cover_url", "thumb_url", "cover")
     hash = super
-    hash["title"] ||= "Table of Content" if toc?
+    hash['title'] ||= 'Table of Content' if toc?
+    hash['summary'] ||= hash.delete('description') if hash['description']
 
     return hash unless options[:local_path]
 
