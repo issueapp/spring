@@ -78,7 +78,7 @@
   };
 
   if (App.support.webview) {
-    App.currentPage = new PageView({ el: "#s<%= page.dom_id %>", path: "<%= page.path + page_ext %>",  model: App.pages["<%= page.path %>"] })
+    App.currentPage = new PageView({ el: "#<%= page.dom_id %>", path: "<%= page.path + page_ext %>",  model: App.pages["<%= page.path %>"] })
 
     App.currentPage.render()
 
