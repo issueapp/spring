@@ -167,7 +167,7 @@
       background-size: contain;
       background-position: center;
       width: 45vmin;
-      height: 12vmin;
+      height: 14vmin;
       margin: 0 auto 0.5em;
       color: transparent;
       text-shadow: none;
@@ -175,7 +175,7 @@
 
     .title {
       font-family: "HelveticaNeue-CondensedBold", "sans-serif-condensed";
-      font-size: 36px;
+      font-size: 48px;
       font-weight: bolder;
       letter-spacing: 4px;
       text-shadow: 1px 1px 30px rgba(0, 0, 0, 0.1);
@@ -192,6 +192,10 @@
     }
 
     @media only screen and (min-width: 768px) {
+      .brand {
+        height: 12vmin;
+      }
+
       .title {
         font-size: 90px;
         letter-spacing: 5px;
@@ -495,10 +499,20 @@
     figcaption {
       position: absolute;
       width: 100%;
-      line-height: 50px;
-      background: none;
-      left: 10px;
-      padding: 0;
+      padding: 10px;
+      color: white;
+      box-sizing: border-box;
+      bottom: 20px;
+    }
+
+    @media only screen and (min-width: 768px) {
+      figcaption {
+        line-height: 50px;
+        background: none;
+        left: 0;
+        bottom: 0;
+        padding: 0 10px;
+      }
     }
   }
   // End Return To Investment Custom Styles

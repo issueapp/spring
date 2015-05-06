@@ -35,7 +35,7 @@ class Issue::PageView
   def respond_to_missing?(name, include_private=false); page.send('respond_to_missing?', name, include_private); end
 
   def dom_id
-    "s#{handle}"
+    "s#{path.parameterize}"
   end
 
   def layout_class options={}
@@ -57,7 +57,7 @@ class Issue::PageView
     classes << 'no-header'   if !editing && !has_header
     classes << 'no-content ' if !editing && !has_content
     classes << 'no-image'    if !editing && !has_cover
-    
+
     classes << (page.layout.content_style    || 'white')
     classes << ('transparent') if page.layout.content_transparent == "1"
 
@@ -158,7 +158,7 @@ class Issue::PageView
 
   def product_set_html
     container_class = 'product-set'
-    container_class << " set-#{(page.products.to_a.count/2.0).ceil*2}" 
+    container_class << " set-#{(page.products.to_a.count/2.0).ceil*2}"
     container_class << ' cover-area' unless page.cover
 
     fragment = create_element('ul', :class => container_class) do |ul|
@@ -206,7 +206,7 @@ class Issue::PageView
 
       page_element = page.send(element)
       hash[element].each_with_index do |object, i|
-        
+
         object["thumb_url"] = asset_url(page_element[i], thumb: true)
         object['url'] = asset_url(page_element[i])
       end
@@ -373,7 +373,7 @@ class Issue::PageView
     end
 
     figure << create_element('div',
-      class: 'aspect-ratio', 
+      class: 'aspect-ratio',
       style: "padding-bottom: #{padding}%; max-height: #{height}px"
     )
 
