@@ -15,6 +15,8 @@
       - url: assets/instagram-512.png
         layout: true
 
+    custom_html: true
+
     layout:
       type: custom
       image_style: background
