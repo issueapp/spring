@@ -26,6 +26,8 @@
         
       - url: "assets/made.png"
 
+    custom_html: true
+
     layout:
       type: custom
       image_style: background
