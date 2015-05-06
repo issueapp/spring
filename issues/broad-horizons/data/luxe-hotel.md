@@ -13,6 +13,8 @@
         autoplay: true
         controls: false
 
+    custom_html: true
+
     layout:
       type: custom
       image_style: background
