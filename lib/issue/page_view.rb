@@ -187,6 +187,8 @@ class Issue::PageView
       hash['id'] = hash.delete('_id')
     end
 
+    hash['parentTitle'] = page.parent.title if page.parent
+
     hash["cover_url"] = asset_path(hash["cover_url"])
     hash["thumb_url"] = asset_path(hash["thumb_url"])
 

@@ -69,15 +69,9 @@
   // Not sure why layout is not being set.
   App.refresh()
 
-  App.pages["<%= page.path %>"] = {
-    handle: "<%= page.path %>",
-    title: "<%= page.title %>",
-    parentTitle: "<%= page.parent.title if page.parent %>",
-    links: <%= page.links.to_json %>,
-    products: <%= page.products.to_json %>
-  };
+  App.pages["<%= page.path %>"] = <%= page.json.to_json %>;
 
-  if (App.support.webview) {
+  if (App.support.webview || ! App.currentPage) {
     App.currentPage = new PageView({ el: "#<%= page.dom_id %>", path: "<%= page.path + page_ext %>",  model: App.pages["<%= page.path %>"] })
 
     App.currentPage.render()
