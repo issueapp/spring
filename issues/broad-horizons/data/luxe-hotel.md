@@ -22,7 +22,7 @@
       custom_class: one-column page-snap
 
 ---
-<figure class='cover-area image' style="background-image:url( {{ cover_url }} )" data-background-cover="true" >
+<figure class='cover-area image' style="background-image: url({{ cover_url }})" data-background-cover="true" >
   <div class='container col third'>
     <header>
       <span class='category'>{{category}}</span>
