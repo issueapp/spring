@@ -27,7 +27,7 @@
     <h1 class='title'>{{title}}</h1>
     <h3 class='subtitle'>{{summary}}</h3>
   </header>
-  <video src="{{ cover.url }}" type="video/mp4" style="background: {{ cover.thumb_url }} no-repeat; background-size: cover" data-autoplay=true loop></video>
+  <video src="{{ cover.url }}" type="video/mp4" style="background: url({{ cover.thumb_url }}) no-repeat; background-size: cover" data-autoplay=true loop></video>
   <figcaption>{{ cover.caption }}</figcaption>
   <a href='geo:-35.042977,117.90521?label=Albany Wind farm' class='show-map'></a>
   <!-- <a href='#page-content' class='page-scroll'><i class='icon-ios7-arrow-down'></i></a> -->
