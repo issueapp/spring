@@ -162,7 +162,7 @@ class PageView extends Backbone.View
 
     # google analytics custom campaign tracking params
     issue     = $('[data-issue]').data('issue')
-    ga_params = "utm_source=issue.by&utm_campain=#{issue}&utm_content=#{App.currentPage.model.title}"
+    ga_params = "utm_source=issue.by&utm_campain=#{issue}&utm_content=#{encodeURI(App.currentPage.model.title)}"
     link.href += if link.href.match(/\?/) then '&' else '?'
     link.href += ga_params
 
