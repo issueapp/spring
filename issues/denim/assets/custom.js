@@ -8,10 +8,9 @@ function respondify(){
 
 $(function() {
   App.on("page:active", function(path) {
-    respondify()
+    respondify();
 
-    if (path == "perfect-fit/1" || path == "perfect-fit-men/1" || path == "brands-to-love") {
-
+    if (path.match("perfect-fit/1") || path.match("perfect-fit-men/1") || path.match("brands-to-love")) {
       setTimeout(function() {
         $('article.page.current').addClass('page-animation');
       }, 1000)
