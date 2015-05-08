@@ -31,7 +31,9 @@ class Issue::PageView
     @context = context
   end
 
+  def class; page.class; end
   def method_missing(name, *args, &block); page.send(name, *args, &block); end
+  def respond_to?(name, include_private=false); page.send('respond_to?', name, include_private); end
   def respond_to_missing?(name, include_private=false); page.send('respond_to_missing?', name, include_private); end
 
   def dom_id
@@ -101,14 +103,14 @@ class Issue::PageView
     count
   end
 
-  def custom_html json=nil
+  def custom_html json=nil, html_safe=true
     json ||= send('json')
-    render_html(page.custom_html, json)
+    render_html(page.custom_html, json, html_safe)
   end
 
-  def content_html json=nil
+  def content_html json=nil, html_safe=true
     json ||= send('json')
-    render_html(page.content, json)
+    render_html(page.content, json, html_safe)
   end
 
   def cover_html
@@ -234,10 +236,10 @@ class Issue::PageView
 
   private
 
-  def render_html content, json
+  def render_html content, json, html_safe
     html = Mustache.render(content, json)
     html = decorate_media(html)
-    html = html.html_safe if html.respond_to? :html_safe
+    html = html.html_safe if html_safe && html.respond_to?(:html_safe)
     html
   end
 
