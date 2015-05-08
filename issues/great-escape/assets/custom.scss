@@ -381,21 +381,19 @@
       height: 180px;
     }
 
-    #img-1 {
-      position: absolute;
-      top: 0;
-      right: 0;
-    }
-
     #summary {
-      padding-top: 350px;
       font-size: 18px;
     }
 
     @media only screen and (min-width: 768px) {
-
       .content, .image {
         width: 49.9%;
+      }
+
+      #img-1 {
+        position: absolute;
+        top: 0;
+        right: 0;
       }
 
       #summary {
