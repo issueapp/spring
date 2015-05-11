@@ -43,7 +43,7 @@
   </header>
   <video src="{{ cover.url }}" type="video/mp4" style="background: url({{ cover.thumb_url }}) no-repeat; background-size: cover" data-autoplay=true loop></video>
   <figcaption>Flinders Ranges National Park, South Australia</figcaption>
-  <a href='geo:-31.648238,139.013542?label=Flinders Range' class='show-map'></a>
+  <a href='geo:-31.648238,139.013542?label=Flinders Range' class='show-map pull-left'></a>
   <a href='#page-content' class='page-scroll'><i class='icon-ios7-arrow-down'></i></a>
 </figure>
 
