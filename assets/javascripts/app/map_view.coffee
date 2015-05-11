@@ -19,6 +19,7 @@ class MapView extends Backbone.View
     @location = data.location
     @zoom = 7
     @closeBtn = $('<a class="close-map" href="#"><i class="icon-cancel"></i></a>')
+    @closeBtn.addClass('pull-left') if @target.find('.show-map').hasClass('pull-left')
 
   render: ->
     console.log("Render map view for", @location, this.$el.html())
