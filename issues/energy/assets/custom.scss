@@ -111,8 +111,8 @@
 
     .legend {
       position: absolute;
-      left: 0;
-      bottom: 22%;
+      left: 4px;
+      bottom: 4px;
       z-index: 2;
     }
 
@@ -184,7 +184,7 @@
     .description {
       text-transform: uppercase;
       padding: 5px 0;
-      margin: 0 auto 2vmin;
+      margin: 0 auto;
     }
 
     .issue-logo {
@@ -224,6 +224,7 @@
       background-size: cover;
       background-repeat: no-repeat;
       overflow: hidden;
+      margin: 0;
 
       &:before {
         content: none;
@@ -549,10 +550,9 @@
       opacity: 0.9;
     }
 
-    .legend {
+    &.infographic .legend {
       position: absolute;
-      bottom: 20px;
-      left: 20px;
+      bottom: 22%;
       z-index: 2;
     }
 
@@ -561,6 +561,11 @@
     }
 
     @media only screen and (min-width: 768px) {
+      &.infographic .legend {
+        left: 4px;
+        bottom: 24px;
+      }
+
       .tabs .button {
         padding: 0 30px;
       }
