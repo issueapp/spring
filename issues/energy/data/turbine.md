@@ -12,14 +12,14 @@
         autoplay: true
         loop: true
         caption: "Coastal wind farm near Albany, Western Australia"
-    
+
     custom_html: true
-    
+
     layout:
-      type: custom
+      type: one-column
       image_style: background
       content_style: black
-      custom_class: one-column page-snap
+      custom_class: page-snap
 ---
 
 <figure class='cover-area video' style="background-image: url({{ cover.thumb_url }})">
