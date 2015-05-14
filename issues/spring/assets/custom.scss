@@ -95,6 +95,15 @@ div.popover a[href="http://www2.woolworthsonline.com.au/Shop/ProductDetails?Stoc
     }
   }
 
+  [data-page="story-two/2"] {
+    @media only screen and (min-width: 768px) {
+      .cover-area > .inset {
+        right: initial;
+        left: 0;
+      }
+    }
+  }
+
   [data-page="story-four/2"] {
     .content {
       display: block;
@@ -154,6 +163,7 @@ div.popover a[href="http://www2.woolworthsonline.com.au/Shop/ProductDetails?Stoc
       overflow: hidden;
       max-width: initial;
       max-height: initial;
+      background: none;
 
       .body {
         position: relative;
