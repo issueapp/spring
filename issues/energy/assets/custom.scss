@@ -57,6 +57,7 @@
       bottom: 0;
       margin: 0;
       max-height: initial;
+      background: none;
     }
 
     & > .content header {
@@ -98,7 +99,6 @@
       left: 0;
       width: 100%;
       height: 100%;
-      z-index: 1;
 
       -webkit-transition: all 0.3s ease-out;
       -moz-transition: all 0.3s ease-out;
@@ -111,9 +111,9 @@
 
     .legend {
       position: absolute;
-      left: 0;
-      bottom: 22%;
-      z-index: 2;
+      left: 4px;
+      bottom: 4px;
+      z-index: 1;
     }
 
     .hotspot {
@@ -154,6 +154,7 @@
       .legend {
         left: 20px;
         bottom: 50px;
+        z-index: 2;
       }
     }
   }
@@ -184,7 +185,7 @@
     .description {
       text-transform: uppercase;
       padding: 5px 0;
-      margin: 0 auto 2vmin;
+      margin: 0 auto;
     }
 
     .issue-logo {
@@ -224,6 +225,7 @@
       background-size: cover;
       background-repeat: no-repeat;
       overflow: hidden;
+      margin: 0;
 
       &:before {
         content: none;
@@ -253,11 +255,12 @@
           font-weight: bold;
           padding: 0;
           margin-bottom: 30px;
+          font-size: 6vw;
         }
 
         .subtitle {
           font-family: proxima-nova;
-          font-size: 1.9rem;
+          font-size: 5.4vw;
         }
       }
 
@@ -326,6 +329,14 @@
         header {
           max-width: 45em;
           margin: 0 0 0 5%;
+
+          .title {
+            font-size: 3.5vmin;
+          }
+
+          .subtitle {
+            font-size: 2.2vmin;
+          }
         }
       }
 
@@ -481,7 +492,7 @@
 
         figure.image {
           margin: 0;
-          max-height: 90vh !important;
+          max-height: 80vh !important;
 
           -webkit-column-break-after: always;
           -moz-column-break-after: always;
@@ -527,6 +538,10 @@
       .subtitle {
         color: white
       }
+
+      .subtitle {
+        margin: 0;
+      }
     }
   }
 
@@ -549,11 +564,9 @@
       opacity: 0.9;
     }
 
-    .legend {
+    &.infographic .legend {
       position: absolute;
-      bottom: 20px;
-      left: 20px;
-      z-index: 2;
+      bottom: 22%;
     }
 
     .tabs.button-group .button {
@@ -561,6 +574,11 @@
     }
 
     @media only screen and (min-width: 768px) {
+      &.infographic .legend {
+        left: 4px;
+        bottom: 24px;
+      }
+
       .tabs .button {
         padding: 0 30px;
       }

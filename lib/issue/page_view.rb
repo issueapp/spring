@@ -116,7 +116,7 @@ class Issue::PageView
   def cover_html
     return unless (cover = page.cover)
 
-    container_class = "cover-area #{cover.style} #{cover.type.to_s.split('/').first}".squeeze(' ')
+    container_class = "cover-area #{cover.type.to_s.split('/').first}".squeeze(' ')
     container_class << ' play' if cover.autoplay
 
     container_background = "background-image: url('#{asset_url(cover, 'thumb' => cover.type.to_s.include?('video'))}')"

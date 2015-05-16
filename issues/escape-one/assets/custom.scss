@@ -277,20 +277,28 @@ $text-color: #8b9ca5;
       &.image-cover .cover-area {
         background-position: 260px 100px;
       }
-      .content .category { display: none }
 
-      .content header {
+      > .content {
+        position: relative;
+        overflow: visible;
+      }
+
+      > .content header {
         width: 460px;
 
-        h1.title {
+        .title {
           font-size: 80px;
           line-height: 80px;
           text-align: left;
         }
+
+        .category {
+          display: none
+        }
       }
 
-      .circle {
-        left: 44%;
+      > .content .circle {
+        left: 80%;
         bottom: 20px;
 
         h2 {
@@ -386,21 +394,26 @@ $text-color: #8b9ca5;
         background-size: 100%;
       }
 
-      .content header {
+      > .content {
+        position: relative;
+        overflow: visible;
+      }
+
+      > .content header {
         position: absolute;
         top: 40px;
         left: 40px;
         width: 460px;
 
-        h1.title {
+        .title {
           font-size: 80px;
           line-height: 80px;
           text-align: left;
         }
       }
 
-      .circle {
-        left: 50%;
+      > .content .circle {
+        left: 100%;
         bottom: 20px;
       }
     }
