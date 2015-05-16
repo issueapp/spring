@@ -32,10 +32,10 @@
     stream -> page
     issue  -> page
 
-  issue.js core layout hotspot notification page
-  application.js core layout hotspot notification page ui viewer
-  admin.js application, admin
-  embed.js core layout hotspot notification page ui viewer
+  issue.js        core layout hotspot notification page
+  application.js  core layout hotspot notification page ui viewer
+  admin.js        application, admin
+  embed.js        core layout hotspot notification page ui viewer
 
   Clients:
 

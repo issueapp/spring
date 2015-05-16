@@ -29,7 +29,7 @@ $btn-text-colour: #555555;
 	display: inline-block;
 	vertical-align: middle;
 
-  font-family: $proxima_nova;
+  font-family: 'proxima-nova';
   font-weight: bold;
   font-style: normal;
 	text-align: center;
@@ -326,7 +326,7 @@ button.mobile-block {
   color: white;
   border: 1px solid $color;
 
-  font-family: $proxima_nova;
+  font-family: 'proxima-nova';
   text-shadow: 0px 1px darken($color, 10%);
 
   i {

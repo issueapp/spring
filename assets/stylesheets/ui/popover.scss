@@ -7,7 +7,7 @@ article.page .content.stop-scrolling {
   display: inline-block;
 
   .tag {
-    font-family: $proxima_nova;
+    font-family: 'proxima-nova';
     position: absolute;
     bottom: 0;
     left: 50%;
@@ -50,7 +50,7 @@ div.popover {
   margin: 0;
   padding: 10px 20px;
 
-  font-family: $proxima_nova;
+  font-family: 'proxima-nova';
   font-size: 16px;
   color: $text-color;
   line-height: 24px;

@@ -15,8 +15,6 @@
   }
 
   article.page .cover-image {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
     box-sizing: border-box;
     height: 50%;
     border-bottom: 10px solid #666666;
