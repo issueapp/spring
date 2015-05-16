@@ -109,7 +109,10 @@
   }
 
   a.filter {
-    @extend .icon-menu;
+
+    &:before {
+      content: "\e61e";
+    }
     float: right;
     width: 64px;
   }

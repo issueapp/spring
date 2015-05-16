@@ -625,8 +625,9 @@ div.popover.dark-theme {
 */
 
 #filter_toggle {
-  @extend .icon-menu;
+  
   &:before {
+    content: "\e61e";
     font-size: 18px;
   }
 
