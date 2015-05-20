@@ -536,7 +536,7 @@ class Issue::PageView
 
   def image_get_size image
     if image.width && image.height
-      return [image.width, image.height, image.aspect_ratio]
+      return [image.width, image.height, image.aspect_ratio.to_f]
     end
 
     unless issue
