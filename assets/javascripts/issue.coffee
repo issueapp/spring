@@ -63,19 +63,19 @@
 
 if App.support.embed
   request = document.createElement('a')
-  
+
   if matches = document.location.search.match(/from=([^&]+)/)
     request.href = decodeURIComponent(matches[1])
 
   App.embed_url = request.href
 
 App.notifyViewer = (method, params...)=>
-  
+
   # Dispatched Iframe communication (MessageEvent)
   # Request { method: 'string', params: 'array', id: 'unique_id }
   # Request { result: 'object', id: 'unique_id }
   message = JSON.stringify({ method: method, params: params})
-  
+
   console.log("Notify viewer", message)
   XD.postMessage(message, request.href, parent);
 
@@ -90,9 +90,9 @@ window.addEventListener 'message', (event)->
       App.pageView.next()
     else
       App.notifyViewer("next")
-    
+
   else if event.method == "prev-page"
-  
+
     if  App.pageView && App.pageView.canScroll("left")
       App.pageView.prev()
     else
@@ -104,20 +104,9 @@ window.addEventListener 'message', (event)->
 
   console.log("Embed Issue", args)
 
-###
-  Video thumbnail
-###
-
-$(document).on "click", '.video .thumbnail', -> 
-  iframe = $(this).next('iframe')
-  iframe.attr('src', iframe.data('src')).show()
-  
-  $(this).hide()
-
-
 window.addEventListener 'load', ->
 
   FastClick.attach(document.body)
 
-  
+
 , false

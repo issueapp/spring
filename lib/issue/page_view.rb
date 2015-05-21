@@ -24,11 +24,12 @@ class Issue::PageView
   # end FIXME unstable API
 
   attr_reader :page
-  attr_accessor :context
+  attr_accessor :context, :edit_mode
 
-  def initialize page, context=nil
+  def initialize page, context=nil, edit_mode=false
     @page = page
     @context = context
+    @edit_mode = edit_mode
   end
 
   def class; page.class; end
@@ -133,6 +134,7 @@ class Issue::PageView
     if cover.type.include? 'video'
       if embed_video? cover.link
         params = cover.respond_to?('to_hash') ? cover.to_hash : cover.attributes
+        params.key?('autoplay') || (params['autoplay'] = true)
         figure << video_iframe_html(cover.link, params)
       else
         attributes = {
@@ -353,6 +355,8 @@ class Issue::PageView
       node['src'] = asset_url(image)
     end
 
+    return node if edit_mode
+
     if node['data-background-image']
       node['style'] = "background-size: cover; background-image:url(#{asset_url image})"
     end
@@ -401,39 +405,44 @@ class Issue::PageView
     # TODO: Double check video url & link
     video_url = video['url'] || video['link']
 
-    options = {
-      type:          video['type'],
-      :'data-src' => video_url,
-      autoplay:      extract_value_from(video, key='autoplay', default=true),
-      controls:      extract_value_from(video, key='controls', default=false),
-      width:         video['width'],
-      height:        video['height'],
-      loop:          video['loop'],
-      mute:          video['mute'],
-      #muted:         video['muted'],
-      poster:        video['thumb_url'],
-      #poster:        asset_url(video, 'thumb' => true),
-    }
-
-    figure = create_element('figure', :class => "video")
-    figure << create_element(
-      'div',
-      class: 'thumbnail', style: "background-image: url('#{asset_url(video, 'thumb' => true)}')"
-    )
-
-    if embed_video? video_url
-      figure << video_iframe_html(video_url, options)
+    if edit_mode
+      figure = create_element('figure', class: "video",
+        style: "background-image: url('#{asset_url(video, 'thumb' => true)}')",
+        "data-media-id" => node['data-media-id']
+      )
 
     else
-      options[:'data-autoplay'] = true if options.delete(:autoplay)
+      options = {
+        type:          video['type'],
+        :'data-src' => video_url,
+        'autoplay'  => extract_value_from(video, key='autoplay', default=true),
+        controls:      extract_value_from(video, key='controls', default=false),
+        width:         video['width'],
+        height:        video['height'],
+        loop:          video['loop'],
+        mute:          video['mute'],
+        #muted:         video['muted'],
+      }
 
-      figure << create_element('video', options)
-    end
+      figure = create_element('figure', class: "video",
+        style: "background-image: url('#{asset_url(video, 'thumb' => true)}')"
+      )
 
-    if video['caption'].present?
-      options = {}
-      options[:class] = 'inset' if video['caption_inset']
-      figure << create_element('figcaption', video['caption'], options)
+      if embed_video? video_url
+        figure << video_iframe_html(video_url, options)
+
+      else
+        options[:'data-autoplay'] = true if options.delete(:autoplay)
+
+        figure << create_element('video', options)
+      end
+
+      if video['caption'].present?
+        options = {}
+        options[:class] = 'inset' if video['caption_inset']
+        figure << create_element('figcaption', video['caption'], options)
+      end
+
     end
 
     node.replace figure
@@ -504,11 +513,7 @@ class Issue::PageView
 
     embed_url << "?#{URI.escape(params.to_param)}"
 
-    if params['autoplay']
-      source = %{src="#{embed_url}"}
-    else
-      source = %{data-src="#{embed_url}"}
-    end
+    source = %{data-src="#{embed_url}"}
 
     %{<iframe #{source} frameborder="0" width="#{width}" height="#{height}" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>}
   end
