@@ -402,16 +402,16 @@ class Issue::PageView
   #    controls: true | false
   #    loop:     true | false
   def decorate_video node, video
-    # TODO: Double check video url & link
-    video_url = video['url'] || video['link']
-
     if edit_mode
-      figure = create_element('figure', class: "video",
-        style: "background-image: url('#{asset_url(video, 'thumb' => true)}')",
-        "data-media-id" => node['data-media-id']
+      decorated = create_element('video', poster: asset_path('ui/video-play.svg'),
+        'data-media-id' => node['data-media-id'],
+        style: "background-image: url('#{asset_url(video, 'thumb' => true)}')"
       )
 
     else
+      # TODO: Double check video url & link
+      video_url = video['url'] || video['link']
+
       options = {
         type:          video['type'],
         :'data-src' => video_url,
@@ -424,28 +424,27 @@ class Issue::PageView
         #muted:         video['muted'],
       }
 
-      figure = create_element('figure', class: "video",
+      decorated = create_element('figure', class: "video",
         style: "background-image: url('#{asset_url(video, 'thumb' => true)}')"
       )
 
       if embed_video? video_url
-        figure << video_iframe_html(video_url, options)
+        decorated << video_iframe_html(video_url, options)
 
       else
         options[:'data-autoplay'] = true if options.delete(:autoplay)
 
-        figure << create_element('video', options)
+        decorated << create_element('video', options)
       end
 
       if video['caption'].present?
         options = {}
         options[:class] = 'inset' if video['caption_inset']
-        figure << create_element('figcaption', video['caption'], options)
+        decorated << create_element('figcaption', video['caption'], options)
       end
-
     end
 
-    node.replace figure
+    node.replace decorated
   end
 
   def decorate_audio node, audio
