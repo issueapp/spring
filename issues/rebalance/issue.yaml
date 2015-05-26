@@ -1,0 +1,21 @@
+title: Rebalance
+description: Feel Better Everyday
+magazine_title: Activia
+magazine_handle: activia
+
+thumb_url: assets/background.jpg
+cover_url: assets/background_large.jpg
+
+assets:
+  - 'custom.css'
+  - 'custom.js'
+
+paths:
+  - index
+  - toc
+  - story-one
+  - story-two
+  - story-three
+  - story-four
+  - story-five
+  - end
