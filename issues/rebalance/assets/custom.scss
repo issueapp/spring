@@ -1,0 +1,57 @@
+#rebalance-issue {
+
+  p {
+    font-family: georgia;
+    font-size: 18px;
+    line-height: 1.4;
+  }
+
+  p:empty {
+    display: none;
+  }
+
+  // Start Cover
+  [data-page=index] {
+    // .brand {
+    // }
+
+    .title {
+      font-family: "HelveticaNeue-CondensedBold", "sans-serif-condensed";
+      font-size: 48px;
+      font-weight: bolder;
+      letter-spacing: 4px;
+      text-shadow: 1px 1px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .description {
+      text-transform: uppercase;
+      padding: 5px 0;
+      margin: 0 auto;
+    }
+
+    .issue-logo {
+      display: none;
+    }
+
+    // @media only screen and (min-width: 768px) {
+    // }
+  }
+  // End Cover
+
+  // Start TOC
+  [data-page='toc'] {
+    .menu a.toc .story {
+      text-decoration: none;
+    }
+  }
+  // End TOC
+
+  // [data-page='abc'] {
+  //   @media only screen and (min-width: 768px) {
+  //   }
+
+  //   @media only screen and (min-width: 768px) and (orientation: portrait) {
+  //   }
+  // }
+  // End
+}
