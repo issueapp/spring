@@ -57,13 +57,17 @@
 </div>
 
 <div class="content col x4">
-  <ul>
-    <li><h3>Lorem ipsum</h3></li>
-    <li><h3>Lorem ipsum</h3></li>
-    <li><h3>Lorem ipsum</h3></li>
-    <li><h3>Lorem ipsum</h3></li>
-    <li><h3>Lorem ipsum</h3></li>
-    <li><h3>Lorem ipsum</h3></li>
-    <li><h3>Lorem ipsum</h3></li>
-  </ul>
+  <header>
+    <h1>What is Activia?</h1>
+  </header>
+  <div class="body">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi fugit quae, reiciendis ut amet voluptatem, vero temporibus sequi fuga quia provident. Atque error rerum, maxime doloribus laboriosam! Quo, quaerat. Deserunt!</p>
+    <ul>
+      <li><h3>Lorem ipsum</h3></li>
+      <li><h3>Lorem ipsum</h3></li>
+      <li><h3>Lorem ipsum</h3></li>
+      <li><h3>Lorem ipsum</h3></li>
+      <li><h3>Lorem ipsum</h3></li>
+    </ul>
+  </div>
 </div>
