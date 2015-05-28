@@ -80,16 +80,11 @@
     font-size: 18px;
     font-family: "Marker Felt", sans-serif;
 
-    -webkit-transition: all .15s linear;
-    -moz-transition: all .15s linear;
     transition: all .15s linear;
-
-    -webkit-transform: rotate(-2deg);
-    -moz-transform: rotate(-2deg);
     transform: rotate(-2deg);
 
-    -webkit-backface-visibility: hidden;
-    -webkit-perspective: 1000;
+    backface-visibility: hidden;
+    perspective: 1000;
   }
 
   figure.polaroid figcaption {
@@ -106,8 +101,6 @@
   }
 
   .polaroid-wrap:nth-child(even) figure {
-    -webkit-transform: rotate(3deg);
-    -moz-transform: rotate(3deg);
     transform: rotate(3deg);
   }
 
@@ -148,9 +141,6 @@
     .polaroid-wrap:nth-child(5) figure {
       position: relative;
       left: 2vh;
-
-      -webkit-transform: none;
-      -moz-transform: none;
       transform: none;
     }
   }
@@ -164,46 +154,18 @@
   .polaroid-wrap:hover figure {
     position: relative;
     z-index: 5;
-
-    -webkit-transform: scale(1.5);
-    -moz-transform: scale(1.5);
     transform: scale(1.5);
   }
 }
 
 // Overwrites default slide in animation
-
 @keyframes slidein-layer {
   0% {
     opacity: 0;
-
-    -webkit-transform: translateY(100%);
-    -moz-transform: translateY(100%);
     transform: translateY(100%);
   }
   100% {
     opacity: 1;
-
-    -webkit-transform: translateY(0);
-    -moz-transform: translateY(0);
-    transform: translateY(0);
-  }
-}
-
-@-webkit-keyframes slidein-layer {
-  0% {
-    opacity: 0;
-
-    -webkit-transform: translateY(100%);
-    -moz-transform: translateY(100%);
-    transform: translateY(100%);
-  }
-
-  100% {
-    opacity: 1;
-
-    -webkit-transform: translateY(0);
-    -moz-transform: translateY(0);
     transform: translateY(0);
   }
 }

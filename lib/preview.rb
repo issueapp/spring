@@ -118,10 +118,14 @@ class IssuePreview < Sinatra::Base
 
     if mime_type == "application/mp4"
       return send_file current_issue.path.join('assets').join(file), type: "video/mp4"
+    elsif mime_type.include?('css')
+      source = AutoprefixerRails.process(asset.to_s, from: 'custom.css', browsers: ['> 1%', 'ie 10']).css
+    else
+      source = asset.to_s
     end
-    content_type mime_type
 
-    asset.to_s
+    content_type mime_type
+    source
   end
 
   # Page and subpage
