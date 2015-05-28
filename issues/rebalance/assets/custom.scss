@@ -43,6 +43,22 @@
   }
   // End TOC
 
+  [data-page='story-three'] {
+    height: auto;
+    overflow: hidden;
+
+    div.cover {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    @media only screen and (min-width: 768px) {
+      height: 100%;
+    }
+  }
+
   // [data-page='abc'] {
   //   @media only screen and (min-width: 768px) {
   //   }
@@ -62,9 +78,9 @@
   }
 
   .polaroid-wrap {
-    list-style: none;
     display: inline-block;
-    max-width: 48%;
+    list-style: none;
+    max-width: 46%;
   }
 
   figure.polaroid {
@@ -105,17 +121,6 @@
   }
 
   @media only screen and (min-width: 768px) {
-    article.page ul.polaroids {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      width: 100%;
-      height: 84%;
-      margin: auto;
-    }
-
     figure.polaroid {
       margin: 0 0% -4% 5%;
       max-height: 25vw;
@@ -126,7 +131,6 @@
     }
 
     .polaroid-wrap {
-      display: inline-block;
       width: 30%;
     }
 
@@ -134,20 +138,10 @@
       clear: both;
     }
 
-    .polaroid-wrap:nth-child(4) figure {
-      clear: left;
-    }
-
     .polaroid-wrap:nth-child(5) figure {
       position: relative;
       left: 2vh;
       transform: none;
-    }
-  }
-
-  @media only screen and (min-width: 768px) and (orientation: portrait) {
-    article.page ul.polaroids {
-      height: 60%;
     }
   }
 
