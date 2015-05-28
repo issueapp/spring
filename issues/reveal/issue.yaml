@@ -1,0 +1,21 @@
+title: Reveal
+magazine_title: David Jones
+magazine_handle: davidjones
+
+thumb_url: assets/background.jpg
+cover_url: assets/background_large.jpg
+
+assets:
+  - 'custom.css'
+  - 'custom.js'
+
+paths:
+  - index
+  - toc
+  - story-one
+  - story-two
+  - story-three
+  - story-four
+  - story-five
+  - optional
+  - end
