@@ -1,0 +1,164 @@
+#rebalance-issue {
+  p {
+    font-family: georgia;
+    font-size: 18px;
+    line-height: 1.4;
+  }
+
+  p:empty {
+    display: none;
+  }
+
+  // Start Cover
+  [data-page=index] {
+    .title {
+      font-family: "HelveticaNeue-CondensedBold", "sans-serif-condensed";
+      font-size: 48px;
+      font-weight: bolder;
+      letter-spacing: 4px;
+      text-shadow: 1px 1px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .description {
+      text-transform: uppercase;
+      padding: 5px 0;
+      margin: 0 auto;
+    }
+
+    .issue-logo {
+      display: none;
+    }
+
+    // @media only screen and (min-width: 768px) {
+    // }
+  }
+  // End Cover
+
+  // Start TOC
+  [data-page='toc'] {
+    .menu a.toc .story {
+      text-decoration: none;
+    }
+  }
+  // End TOC
+
+  [data-page='story-three'] {
+    height: auto;
+    overflow: hidden;
+
+    div.cover {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    @media only screen and (min-width: 768px) {
+      height: 100%;
+    }
+  }
+
+  // [data-page='abc'] {
+  //   @media only screen and (min-width: 768px) {
+  //   }
+
+  //   @media only screen and (min-width: 768px) and (orientation: portrait) {
+  //   }
+  // }
+  // End
+
+  /*
+      Polaroid
+  */
+
+  article.page ul.polaroids {
+    padding: 0;
+    margin: 0;
+  }
+
+  .polaroid-wrap {
+    display: inline-block;
+    list-style: none;
+    max-width: 46%;
+  }
+
+  figure.polaroid {
+    display: inline-block;
+    margin: 0;
+    max-width: 80%;
+    max-height: 300px;
+    width: auto;
+    color: #333;
+    text-align: center;
+    text-decoration: none;
+
+    font-size: 18px;
+    font-family: "Marker Felt", sans-serif;
+
+    transition: all .15s linear;
+    transform: rotate(-2deg);
+
+    backface-visibility: hidden;
+    perspective: 1000;
+  }
+
+  figure.polaroid figcaption {
+    text-align: center;
+    text-decoration: none;
+  }
+
+  figure.polaroid img {
+    padding: 6px;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 3px 6px rgba(0,0,0,.25);
+    vertical-align: middle;
+  }
+
+  .polaroid-wrap:nth-child(even) figure {
+    transform: rotate(3deg);
+  }
+
+  @media only screen and (min-width: 768px) {
+    figure.polaroid {
+      margin: 0 0% -4% 5%;
+      max-height: 25vw;
+    }
+
+    figure.polaroid img {
+      padding: 15px 15px 20px;
+    }
+
+    .polaroid-wrap {
+      width: 30%;
+    }
+
+    .polaroid-wrap:nth-child(3n+1) {
+      clear: both;
+    }
+
+    .polaroid-wrap:nth-child(5) figure {
+      position: relative;
+      left: 2vh;
+      transform: none;
+    }
+  }
+
+  .polaroid-wrap:hover figure {
+    position: relative;
+    z-index: 5;
+    transform: scale(1.5);
+  }
+}
+
+// Overwrites default slide in animation
+@keyframes slidein-layer {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
