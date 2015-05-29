@@ -17,24 +17,24 @@ RSpec.describe Issue::PageView do
   end
 
   describe 'Rendering Helpers' do
-    before { page['handle'] = 'story-three' }
+    before { page['path'] = 'story-three' }
 
     subject { view }
 
     it { view.dom_id.should eq 'sstory-three' }
 
-    it { should respond_to 'show_author?' }
-    it { should respond_to 'author' }
+    it { should respond_to? 'show_author?' }
+    it { should respond_to? 'author' }
 
-    it { should respond_to 'column_break_count' }
+    it { should respond_to? 'column_break_count' }
 
-    it { should respond_to 'custom_html?' }
+    it { should respond_to? 'custom_html?' }
 
-    it { should respond_to('layout_class') }
-    it { should respond_to('cover_html') }
-    it { should respond_to('custom_html') }
-    it { should respond_to('content_html') }
-    it { should respond_to('product_set_html') }
+    it { should respond_to? 'layout_class' }
+    it { should respond_to? 'cover_html' }
+    it { should respond_to? 'custom_html' }
+    it { should respond_to? 'content_html' }
+    it { should respond_to? 'product_set_html' }
   end
 
   describe 'author' do
@@ -241,7 +241,7 @@ RSpec.describe Issue::PageView do
       end
 
       it 'renders lazy load' do
-        cover_html.should have_tag('iframe[data-src="http://youtube.com/embed/cats?autoplay=1&controls=0&loop=0&playlist=cats&autohide=1&color=white&enablejsapi=1&hd=1&iv_load_policy=3&origin=http%3A%2F%2Fissueapp.com&rel=0&showinfo=0&wmode=transparent"]')
+        cover_html.should have_tag('iframe[data-src="http://youtube.com/embed/cats?autohide=1&autoplay=1&color=white&controls=0&enablejsapi=1&hd=1&iv_load_policy=3&loop=0&origin=https%3A%2F%2Fissueapp.com&playlist=cats&rel=0&showinfo=0&wmode=transparent"]')
       end
 
       it 'renders fullscreen mode' do
@@ -272,7 +272,7 @@ RSpec.describe Issue::PageView do
       end
 
       it 'renders lazy load' do
-        cover_html.should have_tag('iframe[data-src="http://player.vimeo.com/video/98524032?autoplay=1&controls=0&loop=0&byline=0&portrait=0"]')
+        cover_html.should have_tag('iframe[data-src="http://player.vimeo.com/video/98524032?autoplay=1&byline=0&controls=0&loop=0&muted=0&portrait=0"]')
       end
 
       it 'renders fullscreen mode' do
@@ -289,6 +289,22 @@ RSpec.describe Issue::PageView do
       page['content'] = '<h1>{{title}}</h1>'
 
       html.should have_tag("h1", "Gyft")
+    end
+
+    describe 'Location decoration' do
+      let(:image) { {location: {name: 'Home', coordinate: [-31.648238,139.013542]}} }
+
+      before do
+        page['images'] = [image]
+        page['content'] = '<img data-media-id="images:1">'
+      end
+
+      it 'renders location tag' do
+        html.should have_tag('a.geo')
+      end
+
+      it 'renders location name'
+      it 'renders location coordinate'
     end
 
     describe 'Image decoration' do
@@ -353,12 +369,12 @@ RSpec.describe Issue::PageView do
 
       it 'renders thumb background' do
         video['thumb_url'] = 'assets/background.jpg'
-        html.should have_tag('div.thumbnail[style="background-image: url(\'assets/background.jpg\')"]')
+        html.should have_tag('figure[style="background-image: url(\'assets/background.jpg\')"]')
       end
 
       it 'renders HTML5 video tag (mp4)' do
         video['url'] = 'assets/video.mp4'
-        html.should have_tag('video[src="assets/video.mp4"]')
+        html.should have_tag('video[data-src="assets/video.mp4"]')
       end
 
       it 'renders caption' do
@@ -374,9 +390,9 @@ RSpec.describe Issue::PageView do
 
       it 'adds playback attribute: :autoplay, :muted, :controls'
 
-      it 'renders autoplay lazily' do
+      it 'renders autoplay' do
         video['autoplay'] = true
-        html.should have_tag('video[data-autoplay=true]')
+        html.should have_tag('video[autoplay=true]')
       end
 
 
@@ -393,18 +409,18 @@ RSpec.describe Issue::PageView do
 
         it 'renders thumb background' do
           video['thumb_url'] = 'assets/background.jpg'
-          html.should have_tag('div[style="background-image: url(\'assets/background.jpg\')"]')
+          html.should have_tag('figure[style="background-image: url(\'assets/background.jpg\')"]')
         end
 
         it 'renders lazy load' do
-          html.should have_tag('iframe[data-src="http://youtube.com/embed/cats?autoplay=0&controls=0&loop=0&playlist=cats&autohide=1&color=white&enablejsapi=1&hd=1&iv_load_policy=3&origin=http%3A%2F%2Fissueapp.com&rel=0&showinfo=0&wmode=transparent"]')
+          html.should have_tag('iframe[data-src="http://youtube.com/embed/cats?autohide=1&autoplay=1&color=white&controls=0&enablejsapi=1&hd=1&iv_load_policy=3&loop=0&origin=https%3A%2F%2Fissueapp.com&playlist=cats&rel=0&showinfo=0&wmode=transparent"]')
         end
 
         it 'renders autoplay by default' do
-          html.should have_tag('autoplay=1')
+          html.should have_tag('[data-src*="autoplay=1"]')
 
-          video['autoplay'] = false
-          html.should have_tag('autoplay=0')
+          view.page.videos.first.autoplay = false
+          view.content_html.should have_tag('[data-src*="autoplay=0"]')
         end
 
         it 'renders controls' do

@@ -135,6 +135,8 @@ class Issue::PageView
       if embed_video? cover.link
         params = cover.respond_to?('to_hash') ? cover.to_hash : cover.attributes
         params.key?('autoplay') || (params['autoplay'] = true)
+        params.key?('muted') || (params['muted'] = false)
+
         figure << video_iframe_html(cover.link, params)
       else
         attributes = {
@@ -155,7 +157,7 @@ class Issue::PageView
       end
     end
 
-    html = figure.to_html
+    html = figure.to_html.gsub(%r{https?://[^"]+}) {|url| CGI.unescape_html(url) }
     html = html.html_safe if html.respond_to? :html_safe
     html
   end
@@ -240,7 +242,10 @@ class Issue::PageView
 
   def render_html content, json, html_safe
     html = Mustache.render(content, json)
-    html = decorate_media(html)
+    html = decorate_media(html).gsub(%r{https?://[^"]+}) do |url|
+      CGI.unescape_html url
+    end
+
     html = html.html_safe if html_safe && html.respond_to?(:html_safe)
     html
   end
@@ -403,11 +408,11 @@ class Issue::PageView
   #    loop:     true | false
   def decorate_video node, video
     if edit_mode
-      decorated = create_element('video', poster: asset_path('ui/video-play.svg'),
+      decorated = create_element('video',
+        poster: asset_path('ui/video-play.svg'),
         'data-media-id' => node['data-media-id'],
         style: "background-image: url('#{asset_url(video, 'thumb' => true)}')"
       )
-
     else
       # TODO: Double check video url & link
       video_url = video['url'] || video['link']
@@ -420,8 +425,7 @@ class Issue::PageView
         width:         video['width'],
         height:        video['height'],
         loop:          video['loop'],
-        mute:          video['mute'],
-        #muted:         video['muted'],
+        muted:         video['muted'],
       }
 
       decorated = create_element('figure', class: "video",
@@ -485,6 +489,9 @@ class Issue::PageView
 
     case url
     when /youtube\.com\/watch\?v=(.+)/
+      # player parameters
+      # https://developers.google.com/youtube/player_parameters?csw=1
+      params.delete 'muted'
       params = params.merge(
         playlist: $1,
         autohide: 1,
@@ -510,7 +517,7 @@ class Issue::PageView
       raise ArgumentError, "Unsupported url: #{url}"
     end
 
-    embed_url << "?#{URI.escape(params.to_param)}"
+    embed_url << "?#{params.to_param}"
 
     source = %{data-src="#{embed_url}"}
 
@@ -518,10 +525,10 @@ class Issue::PageView
   end
 
   def extract_value_from object, key, default
-    if object.respond_to? 'has_attribute?'
-      object.has_attribute?(key) ? object[key] : default
-    elsif object.respond_to? 'fetch'
+    if object.respond_to? 'fetch'
       object.fetch(key) { default }
+    elsif object.respond_to? 'has_attribute?'
+      object.has_attribute?(key) ? object[key] : default
     else
       default
     end
