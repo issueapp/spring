@@ -18,26 +18,72 @@
 
   // Start Cover
   [data-page=index] {
+    .brand {
+      position: relative;
+      display: block;
+      background: url(brand.png) no-repeat;
+      background-size: contain;
+      background-position: center;
+      width: 45vmin;
+      height: 14vmin;
+      margin: 0 auto;
+      color: transparent;
+      text-shadow: none;
+    }
+
     .title {
-      font-family: "HelveticaNeue-CondensedBold", "sans-serif-condensed";
-      font-size: 48px;
+      color: white;
+      font-family: 'proxima-nova';
       font-weight: bolder;
-      letter-spacing: 4px;
+      letter-spacing: 10px;
       text-shadow: 1px 1px 30px rgba(0, 0, 0, 0.1);
+
+      font-size: 3.9em;
+      line-height: 1em;
+      margin: 50px 0 0;
     }
 
     .description {
+      position: static;
       text-transform: uppercase;
-      padding: 5px 0;
-      margin: 0 auto;
+      padding: 0;
+      margin: -3.8em 0 0;
+      font-size: 1.6em;
+      font-weight: bold;
+      letter-spacing: 8px;
+      font-family: "HelveticaNeue-CondensedBold";
+      white-space: nowrap;
     }
 
     .issue-logo {
       display: none;
     }
 
-    // @media only screen and (min-width: 768px) {
-    // }
+    .extra-1 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 400px;
+      height: 400px;
+      background-image: url(sparkles.png);
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      margin-left: -200px;
+      margin-top: -70px;
+
+      animation: sparkles 4s linear 0s infinite alternate;
+    }
+
+    @media only screen and (min-width: 768px) {
+      .title {
+        font-size: 5em;
+      }
+
+      .description {
+        font-size: 2.2em;
+      }
+    }
   }
   // End Cover
 
@@ -257,6 +303,28 @@
     position: relative;
     z-index: 5;
     transform: scale(1.5);
+  }
+}
+
+@keyframes sparkles {
+  0% {
+    transform: scale(0.98) translateY(1%);
+    opacity: 0.4;
+  }
+
+  33% {
+    transform: scale(1) translateY(0);
+    opacity: 0.6;
+  }
+
+  66% {
+    transform: scale(1.02) translateY(-1%);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 0.6;
   }
 }
 
