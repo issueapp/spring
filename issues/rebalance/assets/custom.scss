@@ -1,4 +1,10 @@
 #rebalance-issue {
+  $brand-green: #31825F;
+
+  h1 {
+    color: $brand-green;
+    font-weight: bold;
+  }
 
   p {
     font-family: georgia;
@@ -37,33 +43,18 @@
 
   // Start TOC
   [data-page='toc'] {
-    .menu a.toc .story {
-      text-decoration: none;
+    @media only screen and (min-width: 768px) {
+      .content {
+        margin: 0;
+      }
     }
   }
   // End TOC
 
-  [data-page='story-one'] {
-    @media only screen and (min-width: 768px) {
-      .cover-area header {
-        position: absolute;
-        top: 10%;
-        left: 10%;
-        margin: 0;
-        padding: 0;
-        width: 33%;
-        height: initial;
-
-        .title {
-          color: white;
-        }
-
-        .subtitle {
-          color: white;
-        }
-      }
-    }
-  }
+  // [data-page='story-one'] {
+  //   @media only screen and (min-width: 768px) {
+  //   }
+  // }
 
   [data-page='story-three'] {
     height: auto;
@@ -78,6 +69,101 @@
 
     @media only screen and (min-width: 768px) {
       height: 100%;
+    }
+  }
+
+  [data-page='story-four'],
+  [data-page='story-five'] {
+    h1 {
+      color: white;
+      text-shadow: -1px 0 green, 0 1px green, 1px 0 green, 0 -1px green;
+    }
+
+    @media only screen and (min-width: 768px) {
+      h1 {
+        font-size: 100px;
+        text-shadow: -2px 0 green, 0 2px green, 2px 0 green, 0 -2px green;
+      }
+    }
+  }
+
+  [data-page='story-four/1'] {
+    @media only screen and (min-width: 768px) {
+      header {
+        margin-top: 100px;
+        z-index: 1;
+      }
+
+      img:first-of-type {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 300px;
+      }
+
+      img:last-of-type {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 200px;
+      }
+    }
+  }
+
+  [data-page='story-four/2'] {
+    @media only screen and (min-width: 768px) {
+      header {
+        margin-top: 160px;
+        z-index: 1;
+      }
+
+      img:first-of-type {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 380px;
+      }
+
+      img:last-of-type {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 200px;
+      }
+    }
+  }
+
+  [data-page='story-four/4'] {
+    @media only screen and (min-width: 768px) {
+      img:last-of-type {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 200px;
+      }
+    }
+  }
+
+  [data-page='story-four/5'] {
+    @media only screen and (min-width: 768px) {
+      header {
+        margin-top: 160px;
+        z-index: 1;
+      }
+
+      img:first-of-type {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 240px;
+      }
+
+      img:last-of-type {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 140px;
+      }
     }
   }
 
@@ -183,5 +269,18 @@
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+#slideOne {
+  left: 10%;
+  margin: 0;
+  width: 33%;
+  height: 60%;
+  top: 30%;
+  bottom: initial;
+
+  .content {
+    position: static;
   }
 }

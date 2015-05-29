@@ -1,6 +1,6 @@
 ---
 
-    title: Story Three
+    title: Restore Your Balance
     summary: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi fugit quae, reiciendis ut amet voluptatem, vero temporibus sequi fuga quia provident. Atque error rerum, maxime doloribus laboriosam! Quo, quaerat. Deserunt!
 
     thumb_url: 'assets/placeholder.jpg'
@@ -58,16 +58,11 @@
 
 <div class="content col x4">
   <header>
-    <h1>What is Activia?</h1>
+    <h1>{{ title }}</h1>
   </header>
   <div class="body">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi fugit quae, reiciendis ut amet voluptatem, vero temporibus sequi fuga quia provident. Atque error rerum, maxime doloribus laboriosam! Quo, quaerat. Deserunt!</p>
-    <ul>
-      <li><h3>Lorem ipsum</h3></li>
-      <li><h3>Lorem ipsum</h3></li>
-      <li><h3>Lorem ipsum</h3></li>
-      <li><h3>Lorem ipsum</h3></li>
-      <li><h3>Lorem ipsum</h3></li>
-    </ul>
+    <p>Activia is a probiotic yoghurt which contains probiotic Bifidus ActiRegularis, scientifically proven for its ability to survive in the digestive system and help improve digestive comfort.</p>
+    <p>Bifidus ActiRegularis is a probiotic bacteria that has undergone clinical studies and is backed by published scientific studies for its ability to help reduce systems of digestive discomfort such as feeling bloated.</p>
+    <p>Made from fresh cow’s milk, Activia is sourced from local Australian farmers and free from gelatin, artificial thickeners or colours.</p>
   </div>
 </div>
