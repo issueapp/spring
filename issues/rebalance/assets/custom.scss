@@ -1,6 +1,6 @@
-#rebalance-issue {
-  $brand-green: #31825F;
+$brand-green: #31825F;
 
+#rebalance-issue {
   h1 {
     color: $brand-green;
     font-weight: bold;
@@ -89,6 +89,11 @@
 
   // Start TOC
   [data-page='toc'] {
+    .head h2,
+    .story {
+      color: $brand-green;
+    }
+
     @media only screen and (min-width: 768px) {
       .content {
         margin: 0;
@@ -97,10 +102,31 @@
   }
   // End TOC
 
-  // [data-page='story-one'] {
-  //   @media only screen and (min-width: 768px) {
-  //   }
-  // }
+  [data-page='story-one'] {
+    @media only screen and (min-width: 768px) {
+      background-color: #afd4ea;
+
+      .title {
+        color: white;
+        font-weight: bold;
+        font-size: 7.5vmin;
+        text-align: left;
+        line-height: 7vmin;
+      }
+
+      .content {
+        overflow: visible;
+      }
+
+      .gut {
+        position: absolute;
+        top: 20%;
+        right: 0;
+        width: 60%;
+        height: 60%;
+      }
+    }
+  }
 
   [data-page='story-three'] {
     height: auto;
@@ -341,12 +367,16 @@
 }
 
 #slideOne {
-  left: 10%;
+  left: 6%;
   margin: 0;
   width: 33%;
   height: 60%;
   top: 30%;
   bottom: initial;
+
+  h2 {
+    color: $brand-green;
+  }
 
   .content {
     position: static;
