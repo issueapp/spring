@@ -17,7 +17,7 @@ $brand-green: #31825F;
   }
 
   // Start Cover
-  [data-page=index] {
+  [data-page='index'] {
     .brand {
       position: relative;
       display: block;
@@ -87,7 +87,6 @@ $brand-green: #31825F;
   }
   // End Cover
 
-  // Start TOC
   [data-page='toc'] {
     .head h2,
     .story {
@@ -100,7 +99,24 @@ $brand-green: #31825F;
       }
     }
   }
-  // End TOC
+
+  [data-page='welcome'] {
+    figcaption,
+    h2 {
+      color: $brand-green;
+    }
+
+    figcaption {
+      position: absolute;
+      top: 10%;
+      right: 2%;
+      font-size: 6em;
+      background: none;
+      font-style: initial;
+      font-family: georgia;
+      letter-spacing: 2px;
+    }
+  }
 
   [data-page='story-one'] {
     @media only screen and (min-width: 768px) {
