@@ -1,42 +1,40 @@
 ---
 
     title: Gut Instinct
-    summary:
-      'Animated graphic + Custom page'
 
-    cover_url: 'assets/story-one/gut.png'
     thumb_url: 'assets/story-one/gut.png'
+
+    images:
+      - url: 'assets/story-one/gut.png'
 
     custom_html: true
 
     layout:
       type: three-column
-      image_style: fit
+      image_style: background
       image_align: right
-      content_valign: middle
+      content_valign: top
+      content_transparent: "1"
 
 ---
-
-<figure class="cover-area image" style="background-image: url({{ cover.url }})"></figure>
 
 <div class="content">
   <header>
     <div class="wrapper">
       <h1 class="title">{{ title }}</h1>
-      <h3 class="subtitle">{{ summary }}</h3>
     </div>
   </header>
 
-  <a class="button outline small" href="#slideOne" data-app-view="layer">View Item 3</a>
+  <div class="body">
+    <a class="button outline small" href="#slideOne" data-overlay='false' data-app-view="layer">View Item 3</a>
+  </div>
 
   <article id="slideOne" class="page stack">
     <div class="content">
-      <h2>Lorem ipsum dolor</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi fugit quae, reiciendis ut amet voluptatem, vero temporibus sequi fuga quia provident. Atque error rerum, maxime doloribus laboriosam! Quo, quaerat. Deserunt!</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi fugit quae, reiciendis ut amet voluptatem, vero temporibus sequi fuga quia provident. Atque error rerum, maxime doloribus laboriosam! Quo, quaerat. Deserunt!</p>
-      <footer>
-        <a href="#slideOne" class="button outline small close action">Continue</a>
-      </footer>
+      <h2>1. YOUR DIGESTIVE MICROFLORA IS AS INDIVIDUAL AS YOUR FINGERPRINT.</h2>
+      <p>Molupient veribus et magnam, as et magnimod et veruntem volore volo blandae nulland eseque verum et quis assecae volo que nam quis nis esentio venda veribus excepel mint la estore minverspitas doluptaquis doluptatet hil ius de aut ilignis repe volor aut ut et velecto magnim latecatur sum exerferibus sit</p>
     </div>
   </article>
 </div>
+
+<img class="gut" src="assets/story-one/gut.png" data-original data-media-id="images:1">
