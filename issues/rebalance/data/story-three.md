@@ -64,5 +64,6 @@
     <p>Activia is a probiotic yoghurt which contains probiotic Bifidus ActiRegularis, scientifically proven for its ability to survive in the digestive system and help improve digestive comfort.</p>
     <p>Bifidus ActiRegularis is a probiotic bacteria that has undergone clinical studies and is backed by published scientific studies for its ability to help reduce systems of digestive discomfort such as feeling bloated.</p>
     <p>Made from fresh cow’s milk, Activia is sourced from local Australian farmers and free from gelatin, artificial thickeners or colours.</p>
+    <p>Para about Activia in your lifestyle, foods etc leading to recipe/food suggestions.</p>
   </div>
 </div>

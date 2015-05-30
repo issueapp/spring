@@ -1,15 +1,18 @@
 ---
 
-    title: Welcome
-
-    cover_url: 'assets/placeholder.jpg'
     thumb_url: 'assets/placeholder.jpg'
+
+    images:
+      - url: 'assets/placeholder.jpg'
+        caption: 'welcome'
+        cover: true
 
     layout:
       type: three-column
       image_style: background
       content_align: right
       content_valign: middle
+      content_transparent: '1'
 
 ---
 
