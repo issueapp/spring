@@ -7,7 +7,7 @@
       - url: assets/background_large.jpg
         location:
           name:
-          coordinates: []
+          coordinate: []
         cover: true
 
     layout:

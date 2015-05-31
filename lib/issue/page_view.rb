@@ -343,18 +343,7 @@ class Issue::PageView
           fragment.css('[data-media-id]').length == 0
   end
 
-  # <img>
-  # <figure>
-  #   <img src="../assets/1-styling-it-out/_MG_5433_1024@2x.jpg" width=80%>
-  #   <figcaption>Her ‘favourite permanent accessory’, CP is the proud owner of over 65 tattoos - although she admits to having lost count of the exact number</figcaption>
-  # </figure>
-  #  <figure>
-  #   <img data-media-id="images:1" src="../assets/1-styling-it-out/20130906-20130906MinkPink_ChristinaPerri_0006-15.jpg">
-  #   <figcaption class="inset">
-  #     MINKPINK Rock Me Again Playsuit.
-  #   </figcaption>
-  #   <figcaption>Although a tomboy at heart, Christina admits the last 3 years have seen her become ‘obsessed’ with fashion.</figcaption>
-  # </figure>
+  # https://gist.github.com/markgk629/702537b2b48bd9a6254f
   def decorate_image node, image
     if node.name == 'img'
       node['src'] = asset_url(image)
@@ -391,6 +380,8 @@ class Issue::PageView
     )
 
     figure << create_element('figcaption', image["caption"], caption_options) if image["caption"].present?
+
+    figure << create_geo_tag(image['location']) if image['location'].present?
 
     node.replace figure
   end
@@ -446,35 +437,11 @@ class Issue::PageView
         options[:class] = 'inset' if video['caption_inset']
         decorated << create_element('figcaption', video['caption'], options)
       end
+
+      decorated << create_geo_tag(video['location']) if video['location'].present?
     end
 
     node.replace decorated
-  end
-
-  def decorate_audio node, audio
-    # Setup audio params
-    options = {
-      type:     audio['type'],
-      src:      asset_url(audio),
-      'data-autoplay': audio['autoplay'] ? true : nil,
-      controls: audio['controls'] ? true : nil,
-      loop:     audio['loop'],
-      muted:    audio['muted']
-    }.delete_if { |k, v| v.nil? }
-
-    figure = create_element('figure', :class => 'audio')
-    figure << create_element('img', class: 'thumbnail', src: asset_url(audio, 'thumb' => true))
-
-    audio = create_element('audio', options)
-    figure << audio
-
-    if audio['caption']
-      options = {}
-      options[:class] = 'inset' if audio['caption_inset']
-      figure << create_element('figcaption', audio['caption'], options)
-    end
-
-    node.replace figure
   end
 
   def video_iframe_html url, params={}
@@ -522,6 +489,37 @@ class Issue::PageView
     source = %{data-src="#{embed_url}"}
 
     %{<iframe #{source} frameborder="0" width="#{width}" height="#{height}" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>}
+  end
+
+  def decorate_audio node, audio
+    # Setup audio params
+    options = {
+      type:     audio['type'],
+      src:      asset_url(audio),
+      'data-autoplay': audio['autoplay'] ? true : nil,
+      controls: audio['controls'] ? true : nil,
+      loop:     audio['loop'],
+      muted:    audio['muted']
+    }.delete_if { |k, v| v.nil? }
+
+    figure = create_element('figure', :class => 'audio')
+    figure << create_element('img', class: 'thumbnail', src: asset_url(audio, 'thumb' => true))
+
+    audio = create_element('audio', options)
+    figure << audio
+
+    if audio['caption']
+      options = {}
+      options[:class] = 'inset' if audio['caption_inset']
+      figure << create_element('figcaption', audio['caption'], options)
+    end
+
+    node.replace figure
+  end
+
+  def create_geo_tag location
+    geo_uri =  "geo:#{location['coordinate'].join(',')}?label=#{location['name']}"
+    create_element('a', nil, href: geo_uri, class: 'geo')
   end
 
   def extract_value_from object, key, default

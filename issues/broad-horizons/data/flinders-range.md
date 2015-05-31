@@ -8,7 +8,7 @@
         url: "assets/flinders-range/video.mp4"
         location:
           name:
-          coordinates: []
+          coordinate: []
         cover: true
 
     images:

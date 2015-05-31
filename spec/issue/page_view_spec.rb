@@ -303,8 +303,13 @@ RSpec.describe Issue::PageView do
         html.should have_tag('a.geo')
       end
 
-      it 'renders location name'
-      it 'renders location coordinate'
+      it 'renders location name' do
+        html.should have_tag('a[href*="label=Home"]')
+      end
+
+      it 'renders location coordinate' do
+        html.should have_tag('a[href*="-31.648238,139.013542"]')
+      end
     end
 
     describe 'Image decoration' do
@@ -472,5 +477,10 @@ RSpec.describe Issue::PageView do
     it 'outputs custom layout class'
     it 'outputs page layout class'
     it 'returns layout object'
+  end
+
+  describe 'Edit mode' do
+    it 'decorates image with <img> tag'
+    it 'decorates video with <video> tag'
   end
 end
