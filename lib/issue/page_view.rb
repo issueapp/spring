@@ -518,7 +518,7 @@ class Issue::PageView
   end
 
   def create_geo_tag location
-    geo_uri =  "geo:#{location['coordinate'].join(',')}?label=#{location['name']}"
+    geo_uri =  "geo:#{location['coordinates'].join(',')}?label=#{location['name']}"
     create_element('a', nil, href: geo_uri, class: 'geo')
   end
 

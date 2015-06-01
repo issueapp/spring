@@ -292,7 +292,7 @@ RSpec.describe Issue::PageView do
     end
 
     describe 'Location decoration' do
-      let(:image) { {location: {name: 'Home', coordinate: [-31.648238,139.013542]}} }
+      let(:image) { {location: {name: 'Home', coordinates: [-31.648238,139.013542]}} }
 
       before do
         page['images'] = [image]
