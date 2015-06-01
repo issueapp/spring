@@ -106,6 +106,10 @@ $brand-green: #31825F;
       color: $brand-green;
     }
 
+    .title {
+      display: none;
+    }
+
     figcaption {
       position: absolute;
       top: 10%;
