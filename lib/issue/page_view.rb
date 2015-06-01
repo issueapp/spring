@@ -193,8 +193,8 @@ class Issue::PageView
 
     hash['parentTitle'] = page.parent.title if page.parent
 
-    hash["cover_url"] = asset_path(hash["cover_url"])
-    hash["thumb_url"] = asset_path(hash["thumb_url"])
+    #hash["cover_url"] = asset_path(hash["cover_url"])
+    #hash["thumb_url"] = asset_path(hash["thumb_url"])
 
     if show_author?
       hash['byline'] = "by #{author.name}"
@@ -246,13 +246,16 @@ class Issue::PageView
   end
 
   def asset_path value
-    value = context.asset_path(value) if context.respond_to? 'asset_path'
-    value
+    if context.respond_to? 'asset_path'
+      context.asset_path value
+    else
+      value
+    end
   end
 
   def asset_url object, options={}
     if thumb = options['thumb'] || options[:thumb]
-      url = object['thumb_url'] || object.thumb.try('url')
+      url = object['thumb_url'] || object.try('thumb').try('url')
 
     # product, link
     elsif image = options['image'] || options[:image]

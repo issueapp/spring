@@ -3,11 +3,9 @@ require 'local_issue'
 # get rid of deprecation warning
 I18n.enforce_available_locales = false
 
-RSpec.describe LocalIssue do
-  it 'ISSUE_PATH points to issues dir' do
-    expect(ISSUE_PATH.to_s).to match(%r{/lib/spring/issues$})
-  end
+ISSUE_PATH = Pathname.new(File.expand_path('../../issues', __FILE__))
 
+RSpec.describe LocalIssue do
   describe '#to_hash(local_path: true)' do
     it 'strips off _url suffix in *_url attributes' do
       hash = LocalIssue.find('great-escape').to_hash(local_path: true)

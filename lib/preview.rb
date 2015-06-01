@@ -151,30 +151,36 @@ class IssuePreview < Sinatra::Base
     path = path.sub('assets/', '') # Sub page has incorrect asset path "../assets/assets/logo.png"
 
     if defined? Rails
-      if global_online = (!Rails.application.config.offline_assets && global)
+      if global_online = (!Rails.configuration.offline_assets && global)
         return ActionController::Base.helpers.asset_path(path)
       end
 
-      prefix = params[:subpage] ? "../" : ""
-      path = File.join("#{prefix}assets", path) unless path.include?("#{prefix}assets/")
 
-      return path
+      asset_path = %W[assets #{path}]
+      if params[:subpage]
+        asset_path.unshift '..'
+        asset_path.unshift '..' if request.env['ORIGINAL_FULLPATH'].end_with? '/'
+      end
+
+      File.join *asset_path
+
+    else
+      asset_host = ENV["ASSET_HOST"] || request.base_url
+      asset_path = global ? "assets/#{path}" : issue_path(path)
+      asset_path = asset_path.sub('assets/assets', 'assets')
+
+      File.join(asset_host, asset_path)
     end
-
-    asset_host = ENV["ASSET_HOST"] || request.base_url
-    asset_path = global ? "assets/#{path}" : issue_path(path)
-    asset_path = asset_path.sub('assets/assets', 'assets')
-
-    File.join(asset_host, asset_path)
   end
 
   private
 
   def current_issue
-    @issue = LocalIssue.find("#{params[:magazine]}/#{params[:issue]}")
-
-    apply_asset_path!(@issue, :thumb_url, :cover_url)
-    @issue
+    @issue ||= begin
+      issue = LocalIssue.find("#{params[:magazine]}/#{params[:issue]}")
+      apply_asset_path!(issue, :thumb_url, :cover_url)
+      issue
+    end
   end
 
   def apply_asset_path!(issue, *attrs)
