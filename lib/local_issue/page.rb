@@ -308,40 +308,47 @@ class LocalIssue::Page < Hashie::Mash
     self.handle
   end
 
-  # Map attributes for import
-  #
   def to_hash options={}
-    #hash = super.except("id", "issue", "cover_url", "thumb_url", "cover")
-    hash = super
-    hash['title'] ||= 'Table of Content' if toc?
-    hash['summary'] ||= hash.delete('description') if hash['description']
+    hash = {}
 
-    return hash unless options[:local_path]
+    hash['title'] = fetch('title'){ 'Table of Content' if toc? }
+    hash['summary'] = fetch('summary') { regular_reader 'description' }
 
-    self.class.elements.each do |element|
-      Array(hash[element]).each_with_index do |asset, index|
-        convert_local_path!(asset)
-        hash[element][index] = asset
+    %w[content custom_html path layout].each do |a|
+      hash[a] = regular_reader(a) if key? a
+    end
+    hash['layout'] = hash['layout'].to_hash if hash.key? 'layout'
+
+    self.class.elements.each do |e|
+      if key? e
+        hash[e] = []
+        elements = regular_reader(e)
+
+        elements.each_with_index do |element, index|
+          element = element.to_hash
+          convert_local_path!(element) if options[:local_path]
+          hash[e][index] = element
+        end
       end
     end
 
-    hash['children'] = children.map do |page|
-      page.to_hash(options)
+    hash['children'] = children.map do |subpage|
+      subpage.to_hash options
     end
 
     hash
   end
 
-  def convert_local_path! asset
-    asset.keys.each do |key|
-      next unless is_local = (key.end_with?('_url') || key == 'url') && asset[key] && ! asset[key].start_with?('http://', 'https://')
+  def convert_local_path! element
+    element.keys.each do |key|
+      value = element[key]
 
-      field = key.end_with?('_url') ? key.sub(/_url$/, '') : 'file'
-      url = asset.delete(key)
-
-      asset[field] = issue.path.join(url)
+      if is_local = (key.end_with?('_url') || key == 'url') && value && ! value.start_with?('http://', 'https://')
+        field = key.end_with?('_url') ? key.sub(/_url$/, '') : 'file'
+        element[field] = issue.path.join(value)
+      end
     end
 
-    asset
+    element
   end
 end
