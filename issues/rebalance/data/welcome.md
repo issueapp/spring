@@ -1,5 +1,6 @@
 ---
 
+    title: Welcome
     thumb_url: 'assets/placeholder.jpg'
 
     images:
