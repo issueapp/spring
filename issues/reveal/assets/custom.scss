@@ -1,3 +1,25 @@
+
+@font-face {
+  font-weight: normal;
+  font-style: normal;
+  font-family: 'librebaskerville';
+  src: url('fonts/LibreBaskerville-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-weight: bold;
+  font-style: normal;
+  font-family: 'librebaskerville';
+  src: url('fonts/LibreBaskerville-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-weight: normal;
+  font-style: italic;
+  font-family: 'librebaskerville';
+  src: url('fonts/LibreBaskerville-Italic.ttf') format('truetype');
+}
+
 #reveal-issue {
   p {
     font-family: georgia;
@@ -45,6 +67,29 @@
   [data-page='story-three'] {
     height: auto;
     overflow: hidden;
+
+    .title {
+      font-family: 'librebaskerville';
+      font-style: italic;
+      font-size: 7.5vmin;
+      text-transform: none;
+      line-height: 5vmin;
+    }
+
+    .subtitle {
+      font-family: 'librebaskerville';
+      font-size: 4vmin;
+      font-style: normal;
+      text-transform: uppercase;
+      color: #000;
+      letter-spacing: 9px;
+      margin: 0 0 0 3vmin;
+    }
+
+    .by-line {
+      margin: 0;
+      text-align: center;
+    }
 
     div.cover {
       display: flex;

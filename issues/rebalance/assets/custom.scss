@@ -259,6 +259,55 @@ $brand-green: #31825F;
     }
   }
 
+  [data-page='end'] {
+    > .content {
+      height: initial;
+      padding-top: 140px;
+    }
+
+    .subtitle {
+      color: $brand-green;
+      font-size: 25px;
+      font-style: normal;
+      font-weight: bold;
+      font-family: "Helvetica Neue";
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin: 0;
+    }
+
+    .title {
+      color: $brand-green;
+      font-size: 50px;
+      font-weight: lighter;
+      letter-spacing: 6px;
+    }
+
+    #new {
+      position: absolute;
+      top: 0;
+      right: 0;
+      max-width: 200px;
+    }
+
+    p {
+      color: $brand-green;
+      text-align: center;
+      font-family: "proxima-nova";
+      font-size: 22px;
+    }
+
+    @media only screen and (min-width: 768px) {
+      > .content {
+        padding-top: 20px;
+      }
+
+      #new {
+        max-width: 280px;
+      }
+    }
+  }
+
   // [data-page='abc'] {
   //   @media only screen and (min-width: 768px) {
   //   }
