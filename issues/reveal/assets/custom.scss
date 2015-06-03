@@ -127,6 +127,44 @@
   }
   // End TOC
 
+  [data-page='twin-tower'] {
+    .cover-area {
+      background-position: 100% 50%;
+    }
+
+    .content {
+      overflow: visible;
+    }
+
+    header {
+      text-align: left;
+
+      .subtitle {
+        font-family: 'librebaskerville';
+      }
+    }
+
+    p {
+      font-family: "EB Garamond";
+      font-size: 16px;
+    }
+
+    @media only screen and (min-width: 768px) {
+      .cover-area {
+        background-position: 100% 50%;
+      }
+
+      .title {
+        font-size: 4vmin;
+      }
+
+      .subtitle {
+        font-size: 2vmin;
+        white-space: nowrap;
+      }
+    }
+  }
+
   [data-page='castlereagh'] {
     height: auto;
     overflow: hidden;
