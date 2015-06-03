@@ -5,6 +5,10 @@ require 'hashie'
 require 'pathname'
 require 'yaml'
 
+# Setup auto load for page view mode
+Issue = Issue || Module.new
+Issue.autoload :Preview, 'issue/page_view.rb'
+
 class LocalIssue < Hashie::Mash
 
   def self.all
