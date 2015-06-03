@@ -1,11 +1,11 @@
 ---
 
     title: Welcome
-    thumb_url: 'assets/placeholder.jpg'
+    thumb_url: 'assets/welcome/cover.jpg'
 
     images:
-      - url: 'assets/placeholder.jpg'
-        caption: 'welcome'
+      - url: 'assets/welcome/cover.jpg'
+        caption: 'welcome!'
         cover: true
 
     layout:
@@ -17,6 +17,10 @@
 
 ---
 
-<h2>MEET WINTER HEAD ON WITH GOOD HEALTH</h2>
+<h2>LOOK AFTER<br>YOUR GUT<br>THIS WINTER<br>AND BE<br>A HAPPIER,<br>HEALTHIER<br>YOU</h2>
 
-Copy something about reality is we are busy and stressed and in winter we would much raher be somewhere else. BUT we can try to help healthy and postive by looking after ourselves and eating activia yoghurt. This magazine gives you some tip in coping and how to make the best of it. olupient veribus et magnam, as et magnimod et veruntem volore volo blandae nulland eseque verum et quis assecae volo que nam quis nis esentio venda veribus excepel mint la estore minverspitas doluptaquis doluptatet hil ius. Enjoy!
+Unfortunately tummy troubles are a common feature of modern life. In fact, 90%* of Australian women surveyed and 80% of Australian men report suffering from digestive discomfort. So if you’ve been suffering from bloating, irregular intestinal transit, or just generally feeling uncomfortable or sluggish of late, you’re not alone.
+
+The good news is the symptoms can be managed or even reversed in some cases with a few simple diet and lifestyle tweaks. Through the pages of this magazine you’ll find some useful info on digestive health along with some great tips on how to whip it into better shape, to help keep you healthy and feeling fab through winter and beyond.
+
+<p class="note">*Based on online Omnibus Research done by an external Institute (Ipsos) with 1061 interviews to Australian individuals aged 16-64 in March 2010.</p>

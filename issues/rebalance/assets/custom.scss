@@ -1,4 +1,27 @@
-$brand-green: #31825F;
+
+@font-face {
+  font-weight: normal;
+  font-style: normal;
+  font-family: 'Gotham Black';
+  src: url('fonts/gotham-black.ttf') format('truetype');
+}
+
+@font-face {
+  font-weight: normal;
+  font-style: normal;
+  font-family: 'Gotham Thin';
+  src: url('fonts/gotham-thin.ttf') format('truetype');
+}
+
+@font-face {
+  font-weight: normal;
+  font-style: normal;
+  font-family: 'Gotham';
+  src: url('fonts/gotham-book.ttf') format('truetype');
+}
+
+// $brand-green: #31825F;
+$brand-green: #0C7C33;
 
 #rebalance-issue {
   h1 {
@@ -101,24 +124,65 @@ $brand-green: #31825F;
   }
 
   [data-page='welcome'] {
-    figcaption,
-    h2 {
-      color: $brand-green;
-    }
-
     .title {
       display: none;
     }
 
+    .cover-area {
+      background-position: 0 0;
+    }
+
     figcaption {
-      position: absolute;
-      top: 10%;
-      right: 2%;
-      font-size: 6em;
-      background: none;
-      font-style: initial;
+      color: #000;
+      top: 18%;
+      left: 6%;
+      bottom: initial;
+      right: initial;
+      font-size: 20px;
       font-family: georgia;
-      letter-spacing: 2px;
+      font-style: normal;
+      text-shadow: initial;
+    }
+
+    h2 {
+      color: $brand-green;
+      font-family: 'Gotham Thin';
+      font-size: 30px;
+      font-weight: bold;
+    }
+
+    p {
+      font-family: 'Gotham';
+    }
+
+    .note {
+      font-size: 10px;
+    }
+
+    @media only screen and (min-width: 768px) {
+      .cover-area {
+        background-position: 100% 0;
+      }
+
+      figcaption {
+        top: 24%;
+        left: 16%;
+      }
+
+      p {
+        font-size: 12px;
+      }
+    }
+
+    @media only screen and (min-width: 768px) and (orientation: portrait) {
+      .cover-area {
+        background-position: 60% 0;
+      }
+
+      figcaption {
+        top: 20%;
+        left: 0;
+      }
     }
   }
 
