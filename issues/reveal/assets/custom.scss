@@ -217,8 +217,7 @@
     }
   }
 
-  [data-page='story-four'],
-  [data-page='story-four/1'] {
+  [data-page='luxe-story'] {
     .cover-area {
       display: block;
       height: 100%;
@@ -268,10 +267,17 @@
     }
   }
 
-  [data-page='story-four/1'] {
-    // &.current .cover-area {
-    .cover-area {
-      animation: animatedBackground 15s linear infinite;
+  [data-page='luxe-story/1'] {
+    .gallery {
+      height: 100%;
+      margin: 0;
+    }
+
+    @media only screen and (min-width: 768px) and (orientation:portrait) {
+      figure.cover-area .gallery {
+        height: 50%;
+        margin-top: 50%;
+      }
     }
   }
 

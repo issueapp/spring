@@ -5,11 +5,11 @@
     summary: Dating back to the 1850s, Arkaba Homestead's 5 ensuite bedrooms have been tastefully restored in tune with the property's pioneering history.
 
     images:
-      - url: "assets/story-four/arkaba-homestead.jpg"
+      - url: "assets/luxe-story/arkaba-homestead.jpg"
         cover: true
 
     audios:
-      - url: "assets/story-four/jazz-ambient.mp3"
+      - url: "assets/luxe-story/jazz-ambient.mp3"
         autoplay: true
         controls: false
 
@@ -22,7 +22,8 @@
       custom_class: one-column page-snap
 
 ---
-<figure class='cover-area image' style="background-image: url({{ cover_url }})" data-background-cover="true" >
+
+<figure class='cover-area image' style="background-image: url({{ cover.url }})" data-background-cover="true" >
   <div class='container col third'>
     <header>
       <span class='category'>{{category}}</span>
