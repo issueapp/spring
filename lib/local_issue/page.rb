@@ -162,7 +162,7 @@ class LocalIssue::Page < Hashie::Mash
       "issue"    => issue,
       "handle"   => path.split('/').last,
       "path"     => path,
-      "layout"   => layout,
+      "layout"   => Hashie::Mash.new(layout),
     )
 
     new attributes
@@ -316,7 +316,12 @@ class LocalIssue::Page < Hashie::Mash
     hash['title'] = fetch('title'){ 'Table of Content' if toc? }
     hash['summary'] = fetch('summary') { regular_reader 'description' }
 
-    %w[content custom_html path layout].each do |a|
+    whitelist = %w[
+      content custom_html
+      handle
+      layout
+    ]
+    whitelist.each do |a|
       hash[a] = regular_reader(a) if key? a
     end
     hash['layout'] = hash['layout'].to_hash if hash.key? 'layout'
@@ -334,8 +339,10 @@ class LocalIssue::Page < Hashie::Mash
       end
     end
 
-    hash['children'] = children.map do |subpage|
-      subpage.to_hash options
+    if options[:include_children]
+      hash['children'] = children.map do |subpage|
+        subpage.to_hash options
+      end
     end
 
     hash
@@ -348,6 +355,7 @@ class LocalIssue::Page < Hashie::Mash
       if is_local = (key.end_with?('_url') || key == 'url') && value && ! value.start_with?('http://', 'https://')
         field = key.end_with?('_url') ? key.sub(/_url$/, '') : 'file'
         element[field] = issue.path.join(value)
+        element.delete key
       end
     end
 
