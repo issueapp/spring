@@ -7,12 +7,6 @@ require 'nokogiri'
 require 'timeout'
 require 'uri'
 
-begin
-  Issue
-rescue NameError
-  Issue = Module.new
-end
-
 Struct.new('Author', :name, :icon)
 
 class Issue::PageView

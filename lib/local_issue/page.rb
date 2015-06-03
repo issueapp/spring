@@ -90,7 +90,9 @@ class LocalIssue::Page < Hashie::Mash
     ## Build attributes from YAML
     meta, content = source.split(/---\n(.+?)---\n/m)[1,2]
     content = content.to_s
-    attributes = meta ? YAML.load(meta) : {}
+    
+    attributes = YAML.load(meta) if meta
+    attributes ||= {}
 
     # Add index and summary to products
     Array(attributes['products']).each_with_index do|p, i|

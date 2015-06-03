@@ -40,11 +40,74 @@
       letter-spacing: 4px;
       text-shadow: 1px 1px 30px rgba(0, 0, 0, 0.1);
     }
+    
+    .brand {
+      position: relative;
+      display: block;
+      background: url(brand.svg) no-repeat;
+      background-size: contain;
+      background-position: center;
+      width: 23vmin;
+      height: 10vmin;
+      margin: 0 auto 0em;
+      color: transparent;
+      text-shadow: none;
+    }
+    
+    .title {
+      position: relative;
+      background: url(issue_title.svg) no-repeat;
+      background-size: contain;
+      background-position: center;
+      width: 60vmin;
+      height: 20vmin;
+      margin: 0 auto 0.5em;
+      color: transparent;
+      text-shadow: none;
+    }
 
     .description {
-      text-transform: uppercase;
-      padding: 5px 0;
-      margin: 0 auto;
+      position: absolute;
+      right: 0;
+      left: auto;
+      top: 35%;
+      background: url(powder-perfect.svg) no-repeat;
+      background-size: contain;
+      background-position: center;
+      width: 25vmin;
+      height: 13vmin;
+//      margin: 0 auto 0.5em;
+      color: transparent;
+    }
+    
+    // Kym Ellery
+    .extra-1 {
+      position: absolute;
+      right: 0;
+      left: auto;
+      top: 70%;
+      display: block;
+      background: url(kym-ellery.svg) no-repeat;
+      background-size: contain;
+      background-position: center;
+      width: 25vmin;
+      height: 13vmin;
+//      margin: 0 auto 0.5em;
+      color: transparent;
+    }
+    
+    .extra-2 {
+      position: absolute;
+      left: 0;
+      top: 78%;
+      display: block;
+      background: url(karl.svg) no-repeat;
+      background-size: contain;
+      background-position: center;
+      width: 35vmin;
+      height: 20vmin;
+//      margin: 0 auto 0.5em;
+      color: transparent;
     }
 
     .issue-logo {
