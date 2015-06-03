@@ -23,6 +23,13 @@
 // $brand-green: #31825F;
 $brand-green: #0C7C33;
 
+@mixin brand-title {
+  color: $brand-green;
+  font-family: 'Gotham Thin';
+  font-size: 30px;
+  font-weight: bold;
+}
+
 #rebalance-issue {
   h1 {
     color: $brand-green;
@@ -144,11 +151,8 @@ $brand-green: #0C7C33;
       text-shadow: initial;
     }
 
-    h2 {
-      color: $brand-green;
-      font-family: 'Gotham Thin';
-      font-size: 30px;
-      font-weight: bold;
+    .brand-title {
+      @include brand-title;
     }
 
     p {

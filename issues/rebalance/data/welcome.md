@@ -17,7 +17,7 @@
 
 ---
 
-<h2>LOOK AFTER<br>YOUR GUT<br>THIS WINTER<br>AND BE<br>A HAPPIER,<br>HEALTHIER<br>YOU</h2>
+<h2 class="brand-title">LOOK AFTER<br>YOUR GUT<br>THIS WINTER<br>AND BE<br>A HAPPIER,<br>HEALTHIER<br>YOU</h2>
 
 Unfortunately tummy troubles are a common feature of modern life. In fact, 90%* of Australian women surveyed and 80% of Australian men report suffering from digestive discomfort. So if you’ve been suffering from bloating, irregular intestinal transit, or just generally feeling uncomfortable or sluggish of late, you’re not alone.
 
