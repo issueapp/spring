@@ -129,6 +129,8 @@ class Issue::PageView
       if embed_video? cover.link
         params = cover.respond_to?('to_hash') ? cover.to_hash : cover.attributes
         params.key?('autoplay') || (params['autoplay'] = true)
+        params.key?('muted') || (params['muted'] = false)
+
         figure << video_iframe_html(cover.link, params)
       else
         attributes = {
@@ -149,7 +151,7 @@ class Issue::PageView
       end
     end
 
-    html = figure.to_html
+    html = figure.to_html.gsub(%r{https?://[^"]+}) {|url| CGI.unescape_html(url) }
     html = html.html_safe if html.respond_to? :html_safe
     html
   end
@@ -234,7 +236,10 @@ class Issue::PageView
 
   def render_html content, json, html_safe
     html = Mustache.render(content, json)
-    html = decorate_media(html)
+    html = decorate_media(html).gsub(%r{https?://[^"]+}) do |url|
+      CGI.unescape_html url
+    end
+
     html = html.html_safe if html_safe && html.respond_to?(:html_safe)
     html
   end
@@ -335,18 +340,7 @@ class Issue::PageView
           fragment.css('[data-media-id]').length == 0
   end
 
-  # <img>
-  # <figure>
-  #   <img src="../assets/1-styling-it-out/_MG_5433_1024@2x.jpg" width=80%>
-  #   <figcaption>Her ‘favourite permanent accessory’, CP is the proud owner of over 65 tattoos - although she admits to having lost count of the exact number</figcaption>
-  # </figure>
-  #  <figure>
-  #   <img data-media-id="images:1" src="../assets/1-styling-it-out/20130906-20130906MinkPink_ChristinaPerri_0006-15.jpg">
-  #   <figcaption class="inset">
-  #     MINKPINK Rock Me Again Playsuit.
-  #   </figcaption>
-  #   <figcaption>Although a tomboy at heart, Christina admits the last 3 years have seen her become ‘obsessed’ with fashion.</figcaption>
-  # </figure>
+  # https://gist.github.com/markgk629/702537b2b48bd9a6254f
   def decorate_image node, image
     if node.name == 'img'
       node['src'] = asset_url(image)
@@ -384,6 +378,8 @@ class Issue::PageView
 
     figure << create_element('figcaption', image["caption"], caption_options) if image["caption"].present?
 
+    figure << create_geo_tag(image['location']) if image['location'].present?
+
     node.replace figure
   end
 
@@ -400,11 +396,11 @@ class Issue::PageView
   #    loop:     true | false
   def decorate_video node, video
     if edit_mode
-      decorated = create_element('video', poster: asset_path('ui/video-play.svg'),
+      decorated = create_element('video',
+        poster: asset_path('ui/video-play.svg'),
         'data-media-id' => node['data-media-id'],
         style: "background-image: url('#{asset_url(video, 'thumb' => true)}')"
       )
-
     else
       # TODO: Double check video url & link
       video_url = video['url'] || video['link']
@@ -417,8 +413,7 @@ class Issue::PageView
         width:         video['width'],
         height:        video['height'],
         loop:          video['loop'],
-        mute:          video['mute'],
-        #muted:         video['muted'],
+        muted:         video['muted'],
       }
 
       decorated = create_element('figure', class: "video",
@@ -439,9 +434,58 @@ class Issue::PageView
         options[:class] = 'inset' if video['caption_inset']
         decorated << create_element('figcaption', video['caption'], options)
       end
+
+      decorated << create_geo_tag(video['location']) if video['location'].present?
     end
 
     node.replace decorated
+  end
+
+  def video_iframe_html url, params={}
+    width = params.delete(:width) || params.delete('width') || '100%'
+    height = params.delete(:height) || params.delete('height') || '100%'
+
+    whitelist = ['autoplay', 'controls', 'loop', 'muted']
+    params = params.slice(*whitelist)
+    whitelist.each do |name|
+      params[name] = params[name] ? 1 : 0
+    end
+
+    case url
+    when /youtube\.com\/watch\?v=(.+)/
+      # player parameters
+      # https://developers.google.com/youtube/player_parameters?csw=1
+      params.delete 'muted'
+      params = params.merge(
+        playlist: $1,
+        autohide: 1,
+        color: 'white',
+        enablejsapi: 1,
+        hd: 1,
+        iv_load_policy: 3,
+        origin: 'https://issueapp.com',
+        rel: 0,
+        showinfo: 0,
+        wmode: 'transparent',
+      )
+      embed_url = "http://youtube.com/embed/#{$1}"
+
+    when /vimeo\.com\/([^\/]+)/
+      params = params.merge(
+        byline: 0,
+        portrait: 0,
+      )
+      embed_url = "http://player.vimeo.com/video/#{$1}"
+
+    else
+      raise ArgumentError, "Unsupported url: #{url}"
+    end
+
+    embed_url << "?#{params.to_param}"
+
+    source = %{data-src="#{embed_url}"}
+
+    %{<iframe #{source} frameborder="0" width="#{width}" height="#{height}" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>}
   end
 
   def decorate_audio node, audio
@@ -470,55 +514,16 @@ class Issue::PageView
     node.replace figure
   end
 
-  def video_iframe_html url, params={}
-    width = params.delete(:width) || params.delete('width') || '100%'
-    height = params.delete(:height) || params.delete('height') || '100%'
-
-    whitelist = ['autoplay', 'controls', 'loop', 'muted']
-    params = params.slice(*whitelist)
-    whitelist.each do |name|
-      params[name] = params[name] ? 1 : 0
-    end
-
-    case url
-    when /youtube\.com\/watch\?v=(.+)/
-      params = params.merge(
-        playlist: $1,
-        autohide: 1,
-        color: 'white',
-        enablejsapi: 1,
-        hd: 1,
-        iv_load_policy: 3,
-        origin: 'https://issueapp.com',
-        rel: 0,
-        showinfo: 0,
-        wmode: 'transparent',
-      )
-      embed_url = "http://youtube.com/embed/#{$1}"
-
-    when /vimeo\.com\/([^\/]+)/
-      params = params.merge(
-        byline: 0,
-        portrait: 0,
-      )
-      embed_url = "http://player.vimeo.com/video/#{$1}"
-
-    else
-      raise ArgumentError, "Unsupported url: #{url}"
-    end
-
-    embed_url << "?#{URI.escape(params.to_param)}"
-
-    source = %{data-src="#{embed_url}"}
-
-    %{<iframe #{source} frameborder="0" width="#{width}" height="#{height}" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>}
+  def create_geo_tag location
+    geo_uri =  "geo:#{location['coordinates'].join(',')}?label=#{location['name']}"
+    create_element('a', nil, href: geo_uri, class: 'geo')
   end
 
   def extract_value_from object, key, default
-    if object.respond_to? 'has_attribute?'
-      object.has_attribute?(key) ? object[key] : default
-    elsif object.respond_to? 'fetch'
+    if object.respond_to? 'fetch'
       object.fetch(key) { default }
+    elsif object.respond_to? 'has_attribute?'
+      object.has_attribute?(key) ? object[key] : default
     else
       default
     end
