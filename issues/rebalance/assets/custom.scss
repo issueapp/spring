@@ -317,6 +317,43 @@ $brand-green: #0C7C33;
     }
   }
 
+  [data-page='eat-well/1'] {
+    header .title {
+      text-align: left;
+      font-weight: lighter;
+      line-height: normal;
+    }
+
+    h2 {
+      color: $brand-green;
+    }
+
+    figcaption {
+      color: #000;
+      top: initial;
+      left: 0;
+      bottom: 0;
+      font-size: 16px;
+      font-family: georgia;
+      font-style: normal;
+      text-shadow: initial;
+    }
+
+    @media only screen and (min-width: 768px) {
+      figcaption {
+        left: initial;
+        bottom: 10%;
+        right: 24%;
+      }
+    }
+
+    @media only screen and (min-width: 768px) and (orientation: portrait) {
+      figcaption {
+        right: 10%;
+      }
+    }
+  }
+
   [data-page='eat-well/2'] {
     @media only screen and (min-width: 768px) {
       header {
