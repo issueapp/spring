@@ -1,4 +1,23 @@
 
+%icon-style {
+  font-family: 'issue-icons';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-align: center;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  &:before {
+    font-size: 26px;
+  }
+}
+
 @font-face {
   font-weight: normal;
   font-style: normal;
@@ -59,8 +78,21 @@
     }
   }
 
-  p:empty {
-    display: none;
+  .hotspot {
+    @extend %icon-style;
+
+    color: rgba(255, 255, 255, 0.7);
+    width: 30px;
+    z-index: 2;
+    text-decoration: initial;
+
+    &:before{
+      content: "\e65d";
+    }
+
+    &:active {
+      color: #fff;
+    }
   }
 
   // Start Cover
@@ -279,7 +311,6 @@
     }
   }
 
-
   [data-page='castlereagh'] {
     height: auto;
     overflow: hidden;
@@ -495,6 +526,42 @@
         h1 {
           font-size: 44px;
         }
+      }
+    }
+  }
+
+  [data-page='city-slickers'] {
+    .content figure {
+      width: 100%;
+      height: 90vh;
+      background-position: center;
+      position: relative;
+      background-repeat: no-repeat;
+      background-size: 100% !important;
+    }
+
+    .inset {
+      font-family: 'librebaskerville';
+      font-size: 5vmin;
+      font-weight: lighter;
+      right: initial;
+      left: 5%;
+      bottom: 10%;
+      color: #000;
+      text-shadow: initial;
+    }
+
+    .inset em {
+      font-family: 'bodoni';
+      display: block;
+      text-transform: uppercase;
+      font-size: 7vmin;
+      margin-left: 0.5em;
+    }
+
+    @media only screen and (min-width: 768px) {
+      .title {
+        display: none;
       }
     }
   }
