@@ -40,6 +40,11 @@ $brand-green: #0C7C33;
     display: none;
   }
 
+  .subtitle {
+    font-family: 'proxima-nova';
+    font-style: normal;
+  }
+
   // Start Cover
   [data-page='index'] {
     .brand {
@@ -276,7 +281,7 @@ $brand-green: #0C7C33;
     }
   }
 
-  [data-page='story-four'],
+  [data-page='eat-well'],
   [data-page='story-five'] {
     h1 {
       color: white;
@@ -291,7 +296,28 @@ $brand-green: #0C7C33;
     }
   }
 
-  [data-page='story-four/1'] {
+  [data-page='eat-well'] {
+    header .wrapper {
+      text-align: left;
+    }
+
+    header .title {
+      font-size: 15vmin;
+    }
+
+    @media only screen and (min-width: 768px) {
+      .content {
+        padding-left: 100px;
+      }
+
+      header .subtitle {
+        font-size: 3vmin;
+        margin: 0;
+      }
+    }
+  }
+
+  [data-page='eat-well/1'] {
     @media only screen and (min-width: 768px) {
       header {
         margin-top: 100px;
@@ -314,7 +340,7 @@ $brand-green: #0C7C33;
     }
   }
 
-  [data-page='story-four/2'] {
+  [data-page='eat-well/2'] {
     @media only screen and (min-width: 768px) {
       header {
         margin-top: 160px;
@@ -337,7 +363,7 @@ $brand-green: #0C7C33;
     }
   }
 
-  [data-page='story-four/4'] {
+  [data-page='eat-well/4'] {
     @media only screen and (min-width: 768px) {
       img:last-of-type {
         position: absolute;
@@ -348,7 +374,7 @@ $brand-green: #0C7C33;
     }
   }
 
-  [data-page='story-four/5'] {
+  [data-page='eat-well/5'] {
     @media only screen and (min-width: 768px) {
       header {
         margin-top: 160px;
