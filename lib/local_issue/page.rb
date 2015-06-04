@@ -318,8 +318,8 @@ class LocalIssue::Page < Hashie::Mash
 
     whitelist = %w[
       content custom_html
-      handle
-      layout
+      handle category layout
+      author_name
     ]
     whitelist.each do |a|
       hash[a] = regular_reader(a) if key? a
