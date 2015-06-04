@@ -131,7 +131,7 @@ $brand-green: #0C7C33;
   }
 
   [data-page='welcome'],
-  [data-page='gut-instinct'] {
+  [data-page='tummy-troubles'] {
     .title {
       display: none;
     }
@@ -191,7 +191,7 @@ $brand-green: #0C7C33;
     }
   }
 
-  [data-page='gut-instinct'] {
+  [data-page='tummy-troubles'] {
     .brand-title {
       font-size: 28px;
     }
@@ -225,7 +225,7 @@ $brand-green: #0C7C33;
     }
   }
 
-  [data-page='gut-instinct/1'] {
+  [data-page='gut-instinct'] {
     @media only screen and (min-width: 768px) {
       background-color: #afd4ea;
 

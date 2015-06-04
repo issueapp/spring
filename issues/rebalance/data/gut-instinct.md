@@ -1,26 +1,42 @@
 ---
 
     title: Gut Instinct
-    thumb_url: 'assets/gut-instinct/cover.jpg'
+
+    thumb_url: 'assets/gut-instinct/gut.png'
 
     images:
+      - url: 'assets/gut-instinct/gut.png'
       - url: 'assets/gut-instinct/cover.jpg'
-        caption: "Tummy<br>troubles<br>aren't<br>any fun."
         cover: true
+
+    custom_html: true
 
     layout:
       type: three-column
       image_style: background
-      content_align: right
-      content_valign: bottom
-      content_transparent: '1'
+      image_align: right
+      content_valign: top
+      content_transparent: "1"
 
 ---
 
-<h2 class="brand-title">Sluggish?<br>Uncomfortable?<br>Lacking in Energy?</h2>
+<div class="content">
+  <header>
+    <div class="wrapper">
+      <h1 class="title">{{ title }}</h1>
+    </div>
+  </header>
 
-Your gut could be to blame. Symptoms of poor digestive health include bloating, sluggishness, gas, discomfort and tiredness, as well as a whole host of emotional issues triggered by the physical symptoms.
+  <div class="body">
+    <a class="button outline small" href="#slideOne" data-overlay='false' data-app-view="layer">View Item 3</a>
+  </div>
 
-So why is your digestive system acting up and what can you do to bring it back in line?
+  <article id="slideOne" class="page stack">
+    <div class="content">
+      <h2>1. YOUR DIGESTIVE MICROFLORA IS AS INDIVIDUAL AS YOUR FINGERPRINT.</h2>
+      <p>Molupient veribus et magnam, as et magnimod et veruntem volore volo blandae nulland eseque verum et quis assecae volo que nam quis nis esentio venda veribus excepel mint la estore minverspitas doluptaquis doluptatet hil ius de aut ilignis repe volor aut ut et velecto magnim latecatur sum exerferibus sit</p>
+    </div>
+  </article>
+</div>
 
-<p class="note">Let's take a look what's going on inside...</p>
+<img class="gut" src="assets/gut-instinct/gut.png" data-original data-media-id="images:1">
