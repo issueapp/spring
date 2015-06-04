@@ -36,12 +36,6 @@ $brand-green: #0C7C33;
     font-weight: bold;
   }
 
-  p {
-    font-family: georgia;
-    font-size: 18px;
-    line-height: 1.4;
-  }
-
   p:empty {
     display: none;
   }
@@ -251,7 +245,7 @@ $brand-green: #0C7C33;
     }
   }
 
-  [data-page='story-three'] {
+  [data-page='restore-your-balance'] {
     height: auto;
     overflow: hidden;
 
@@ -262,8 +256,23 @@ $brand-green: #0C7C33;
       align-items: center;
     }
 
+    header img {
+      width: 60%;
+    }
+
+    header h1 {
+      text-align: left;
+      font-weight: lighter;
+      margin-top: 20px;
+    }
+
     @media only screen and (min-width: 768px) {
       height: 100%;
+
+      header h1 {
+        font-size: 4vmin;
+        line-height: 1em;
+      }
     }
   }
 
