@@ -1,9 +1,11 @@
 ---
 
-    category: Utlimate Outback
+    category: Utlimate Stay
     title: Arkaba Homestead
     summary: Dating back to the 1850s, Arkaba Homestead's 5 ensuite bedrooms have been tastefully restored in tune with the property's pioneering history.
 
+    thumb_url: "assets/luxe-story/arkaba-homestead.jpg"
+    
     images:
       - url: "assets/luxe-story/arkaba-homestead.jpg"
         cover: true

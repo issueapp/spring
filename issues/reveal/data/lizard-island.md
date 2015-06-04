@@ -1,7 +1,9 @@
 ---
-
+    category: Destination
     title: Lizard Island
     summary: 'Great Barrier Reef'
+
+    thumb_url: 'assets/lizard-island/island.jpg'
 
     images:
       - url: 'assets/lizard-island/brand.png'
@@ -9,8 +11,9 @@
         cover: true
 
     audios:
-      - url: "assets/luxe-story/jazz-ambient.mp3"
+      - url: "assets/lizard-island/waves.mp3"
         autoplay: true
+        loop: true
         controls: false
 
     custom_html: true
@@ -43,4 +46,4 @@
 
 <audio data-media-id="audios:1"></audio>
 <a href="#" class="audio audio-on"></audio>
-<a href='geo:-31.648238,139.013542?label=Flinders Range' class='show-map pull-left'></a>
+<a href='geo:-14.667389,145.446296?zoom=15&label=Lizard+Island+Private+Beach' class='show-map pull-left'></a>

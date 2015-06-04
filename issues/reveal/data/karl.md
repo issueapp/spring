@@ -1,5 +1,6 @@
 ---
-
+    
+    category: Brand story
     title: Vanity of Senses
     summary: 'More than anyone else, Karl has turned his fashion into a look, an attitude, an institution. His two new fragrances echo his edgy style while conveying sophisticated elegance and classicism with a bold, modern twist.'
 
