@@ -197,15 +197,15 @@
     }
   }
 
-  [data-page*='winter/3'],
-  [data-page*='winter/1'], {
+  [data-page='winter/3'],
+  [data-page='winter/1'], {
     .cover-area figcaption.inset {
       color: #000;
       text-shadow: 1px 1px 10px rgba(255,255,255,0.5);
     }
   }
 
-  [data-page*='kim-ellery'] {
+  [data-page='kim-ellery'] {
     .cover-area {
       background-position: right center;
     }
@@ -217,7 +217,6 @@
 
     .subtitle {
       font-family: 'bodoni';
-      font-size: 3.5vmin;
       margin: 0;
       color: #000;
     }
@@ -231,10 +230,20 @@
         background-position: center center;
       }
 
+      .subtitle {
+        font-size: 3.5vmin;
+      }
+
       p {
         width: 75%;
         margin: 0 auto;
       }
+    }
+  }
+
+  [data-page='kim-ellery/1'] {
+    p {
+      font-family: "EB Garamond";
     }
   }
 
