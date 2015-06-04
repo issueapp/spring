@@ -2,6 +2,13 @@
 @font-face {
   font-weight: normal;
   font-style: normal;
+  font-family: 'bodoni';
+  src: url("fonts/bodoni.otf") format("opentype");
+}
+
+@font-face {
+  font-weight: normal;
+  font-style: normal;
   font-family: 'librebaskerville';
   src: url('fonts/LibreBaskerville-Regular.ttf') format('truetype');
 }
@@ -26,7 +33,7 @@
     font-size: 18px;
     line-height: 1.4;
   }
-  
+
   // Brand lookbook page with brand name
   .brand-page {
    .cover-area figcaption.inset {
@@ -192,10 +199,42 @@
 
   [data-page*='winter/3'],
   [data-page*='winter/1'], {
-    
     .cover-area figcaption.inset {
       color: #000;
       text-shadow: 1px 1px 10px rgba(255,255,255,0.5);
+    }
+  }
+
+  [data-page*='kim-ellery'] {
+    .cover-area {
+      background-position: right center;
+    }
+
+    .title {
+      font-family: 'bodoni';
+      font-size: 7vmin;
+    }
+
+    .subtitle {
+      font-family: 'bodoni';
+      font-size: 3.5vmin;
+      margin: 0;
+      color: #000;
+    }
+
+    p {
+      font-family: "EB Garamond";
+    }
+
+    @media only screen and (min-width: 768px) {
+      .cover-area {
+        background-position: center center;
+      }
+
+      p {
+        width: 75%;
+        margin: 0 auto;
+      }
     }
   }
 
