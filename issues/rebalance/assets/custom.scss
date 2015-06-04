@@ -130,7 +130,8 @@ $brand-green: #0C7C33;
     }
   }
 
-  [data-page='welcome'] {
+  [data-page='welcome'],
+  [data-page='gut-instinct'] {
     .title {
       display: none;
     }
@@ -190,7 +191,41 @@ $brand-green: #0C7C33;
     }
   }
 
-  [data-page='story-one'] {
+  [data-page='gut-instinct'] {
+    .brand-title {
+      font-size: 28px;
+    }
+
+    .note {
+      color: $brand-green;
+      font-size: 12px;
+      text-transform: uppercase;
+      font-family: 'Gotham Black';
+    }
+
+    figcaption {
+      top: 60%;
+    }
+
+    @media only screen and (min-width: 768px) {
+      figcaption {
+        top: 58%;
+        left: 8%;
+      }
+    }
+
+    @media only screen and (min-width: 768px) and (orientation: portrait) {
+      .cover-area {
+        background-position: 20% 0;
+      }
+
+      .brand-title {
+        font-size: 18px;
+      }
+    }
+  }
+
+  [data-page='gut-instinct/1'] {
     @media only screen and (min-width: 768px) {
       background-color: #afd4ea;
 
