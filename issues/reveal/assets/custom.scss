@@ -22,34 +22,43 @@
   font-weight: normal;
   font-style: normal;
   font-family: 'bodoni';
-  src: url("fonts/bodoni.otf") format("opentype");
-}
-
-@font-face {
-  font-weight: normal;
-  font-style: normal;
-  font-family: 'librebaskerville';
-  src: url('fonts/LibreBaskerville-Regular.ttf') format('truetype');
-}
-
-@font-face {
-  font-weight: bold;
-  font-style: normal;
-  font-family: 'librebaskerville';
-  src: url('fonts/LibreBaskerville-Bold.ttf') format('truetype');
+  src: local('BodoniSvtyTwoITCTT-Book'), url('fonts/BodoniSvtyTwoITCTT-Book.woff') format('woff'),
+      url("fonts/BodoniSvtyTwoITCTT-Book.ttf") format("truetype");
 }
 
 @font-face {
   font-weight: normal;
   font-style: italic;
-  font-family: 'librebaskerville';
-  src: url('fonts/LibreBaskerville-Italic.ttf') format('truetype');
+  font-family: 'bodoni';  
+  src: local('BodoniSvtyTwoITCTT-BookIta'), url('fonts/BodoniSvtyTwoITCTT-BookIta.woff') format('woff'),
+      url("fonts/BodoniSvtyTwoITCTT-BookIta.ttf") format("truetype");
 }
+
+//@font-face {
+//  font-weight: normal;
+//  font-style: normal;
+//  font-family: 'librebaskerville';
+//  src: url('fonts/LibreBaskerville-Regular.ttf') format('truetype');
+//}
+//
+//@font-face {
+//  font-weight: bold;
+//  font-style: normal;
+//  font-family: 'librebaskerville';
+//  src: url('fonts/LibreBaskerville-Bold.ttf') format('truetype');
+//}
+//
+//@font-face {
+//  font-weight: normal;
+//  font-style: italic;
+//  font-family: 'librebaskerville';
+//  src: url('fonts/LibreBaskerville-Italic.ttf') format('truetype');
+//}
 
 #reveal-issue {
   p {
     font-family: georgia;
-    font-size: 18px;
+//    font-size: 18px;
     line-height: 1.4;
   }
 
@@ -160,7 +169,7 @@
       background-size: contain;
       background-position: center;
       width: 25vmin;
-      height: 13vmin;
+      height: 13;
 //      margin: 0 auto 0.5em;
       color: transparent;
     }
@@ -209,7 +218,7 @@
       text-align: left;
 
       .subtitle {
-        font-family: 'librebaskerville';
+        font-family: 'bodoni';
       }
     }
 
@@ -244,19 +253,20 @@
     }
   }
   [data-page='winter/4'] {
-    .color-area {
+    .cover-area {
       background-position: top;
     }
   }
   
-  [data-page='kim-ellery'] {
+  [data-page='kym-ellery'] {
     .cover-area {
       background-position: right center;
     }
 
     .title {
       font-family: 'bodoni';
-      font-size: 7vmin;
+      font-size: 10vmin;
+      letter-spacing: 3px;
     }
 
     .subtitle {
@@ -270,6 +280,11 @@
     }
 
     @media only screen and (min-width: 768px) {
+      
+      .title {
+        width: 4em;
+        margin: 0 auto;
+      }
       .cover-area {
         background-position: center center;
       }
@@ -285,7 +300,7 @@
     }
   }
 
-  [data-page='kim-ellery/1'] {
+  [data-page='kym-ellery/1'] {
     p {
       font-family: "EB Garamond";
     }
@@ -302,7 +317,7 @@
     }
 
     .title {
-      font-family: 'librebaskerville';
+      font-family: 'bodoni';
       font-style: italic;
       text-transform: none;
       letter-spacing: 4px;
@@ -333,7 +348,7 @@
     overflow: hidden;
 
     .title {
-      font-family: 'librebaskerville';
+      font-family: 'bodoni';
       font-style: italic;
       font-size: 7.5vmin;
       text-transform: none;
@@ -341,7 +356,7 @@
     }
 
     .subtitle {
-      font-family: 'librebaskerville';
+      font-family: 'bodoni';
       font-size: 4vmin;
       font-style: normal;
       text-transform: uppercase;
@@ -369,13 +384,34 @@
 
   [data-page='castlereagh/1'] {
     blockquote {
-      font-family: 'librebaskerville';
-      font-size: 20px;
+      font-family: 'bodoni';
+      font-size: 3vmin;
       padding: 0;
 
       &:before,
       &:after {
         content: none;
+      }
+    }
+  }
+  
+  [data-page='home'] {
+    .category {
+      display: none;
+    }
+    
+    .title {
+      float: right;
+      font-size: 6vmin;
+      font-family: 'bodoni';
+      font-style: italic;
+      text-transform: none;
+    }
+    
+    @media only screen and (min-width: 768px) {
+      .title {
+        width: 6em;
+        text-align: right;
       }
     }
   }

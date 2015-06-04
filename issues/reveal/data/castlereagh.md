@@ -8,7 +8,7 @@
     custom_html: true
 
     layout:
-      type: two-column
+      type: three-column
       image_style: background
       content_align: left
       content_valign: bottom
