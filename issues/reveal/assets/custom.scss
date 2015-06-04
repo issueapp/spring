@@ -78,6 +78,10 @@
     }
   }
   
+  article.page.color-palettes {
+    .content { display: relative !important }
+  }
+  
 //  Disable hotspot
 //  .hotspot:not(.product) {
 //    @extend %icon-style;
@@ -229,7 +233,9 @@
       }
     }
   }
-
+  [data-page='winter/1'] {
+    .palette { margin-top: -440px }
+  }
   [data-page='winter/3'],
   [data-page='winter/1'], {
     .cover-area figcaption.inset {
@@ -237,7 +243,12 @@
       text-shadow: 1px 1px 10px rgba(255,255,255,0.5);
     }
   }
-
+  [data-page='winter/4'] {
+    .color-area {
+      background-position: top;
+    }
+  }
+  
   [data-page='kim-ellery'] {
     .cover-area {
       background-position: right center;
@@ -596,6 +607,36 @@
     list-style: none;
     max-width: 46%;
   }
+
+  // Color palette
+  .palette {
+    display: none;
+  }
+
+  @media only screen and (min-width: 768px) {
+    .palette {
+      display: block;
+      position: absolute;
+      /* width: 220px; */
+      /* margin-left: -110px; */
+      /* left: 50%; */
+      text-align: center;
+      width: 50%;
+      margin-left: -20px;
+      margin-top: -580px
+    }
+  
+    .palette .color {
+      width: 30px;
+      height: 30px;
+      margin-right: 20px;
+      display: inline-block;
+      color: transparent;
+    }
+  }
+
+  // Polaroid CSS
+  
 
   figure.polaroid {
     display: inline-block;
