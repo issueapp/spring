@@ -247,6 +247,38 @@
     }
   }
 
+  [data-page='karl'] {
+    .cover-area {
+      background-position: left center;
+    }
+
+    .title {
+      font-family: 'librebaskerville';
+      font-style: italic;
+      text-transform: none;
+      letter-spacing: 4px;
+      text-align: left;
+    }
+
+    .subtitle {
+      font-style: normal;
+      font-size: 16px;
+      text-align: left;
+      margin: 0 auto;
+      line-height: 1.4em;
+    }
+
+    @media only screen and (min-width: 768px) {
+      .cover-area {
+        background-position: center center;
+      }
+
+      .content {
+        padding: 25px 50px;
+      }
+    }
+  }
+
 
   [data-page='castlereagh'] {
     height: auto;
