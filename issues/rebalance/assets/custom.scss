@@ -376,14 +376,20 @@ $brand-green: #0C7C33;
     }
   }
 
-  [data-page='eat-well/2'] {
+  [data-page='eat-well/2'],
+  [data-page='eat-well/3'] {
     header {
       margin-bottom: 10px;
+    }
+
+    header .title {
+      @include header-style;
     }
 
     p {
       margin: 0.5em 0;
       line-height: 1.2;
+      text-align: left;
     }
 
     figcaption {
@@ -399,8 +405,9 @@ $brand-green: #0C7C33;
   }
 
   [data-page='eat-well/2'] {
-    header .title {
-      @include header-style;
+    figcaption {
+      left: 5%;
+      bottom: 5%;
     }
 
     @media only screen and (min-width: 768px) {
@@ -412,24 +419,15 @@ $brand-green: #0C7C33;
   }
 
   [data-page='eat-well/3'] {
+    figcaption {
+      top: 40%;
+      right: 0;
+    }
+
     @media only screen and (min-width: 768px) {
-      header {
-        margin-top: 160px;
-        z-index: 1;
-      }
-
-      img:first-of-type {
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 380px;
-      }
-
-      img:last-of-type {
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        width: 200px;
+      figcaption {
+        top: 30%;
+        right: 15%;
       }
     }
   }
