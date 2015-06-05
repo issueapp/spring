@@ -308,7 +308,8 @@ $brand-green: #0C7C33;
   }
 
   [data-page='eat-well'],
-  [data-page='be-well'] {
+  [data-page='be-well'],
+  [data-page='be-well/5'] {
     h1 {
       color: white;
       text-shadow: -1px 0 green, 0 1px green, 1px 0 green, 0 -1px green;
@@ -546,6 +547,34 @@ $brand-green: #0C7C33;
     }
   }
 
+  [data-page='be-well/5'] {
+    figcaption {
+      color: #000;
+      top: 55%;
+      right: 0;
+      text-shadow: initial;
+      font-style: normal;
+      font-size: 18px;
+      background: none;
+    }
+
+    .content {
+      overflow: visible;
+    }
+
+    @media only screen and (min-width: 768px) {
+      figcaption {
+        top: 30%;
+        right: 10%;
+      }
+
+      h1 {
+        white-space: nowrap;
+        font-size: 5vmin;
+      }
+    }
+  }
+
   [data-page='end'] {
     > .content {
       height: initial;
@@ -602,15 +631,6 @@ $brand-green: #0C7C33;
       }
     }
   }
-
-  // [data-page='abc'] {
-  //   @media only screen and (min-width: 768px) {
-  //   }
-
-  //   @media only screen and (min-width: 768px) and (orientation: portrait) {
-  //   }
-  // }
-  // End
 
   /*
       Polaroid
