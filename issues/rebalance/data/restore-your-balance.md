@@ -64,7 +64,7 @@
 <div class="content col x4">
   <header>
     <img src="assets/yoghurt.png" data-media-id="images:10" data-original>
-    <h1>{{ title }}</h1>
+    <h1 class="title">{{ title }}</h1>
   </header>
   <div class="body">
     <p>Pure by Activia is a probiotic yoghurt which contains probiotic Bifidus ActiRegularis, scientifically proven for its ability to survive in the digestive system and help improve digestive comfort.</p>

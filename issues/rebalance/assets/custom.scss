@@ -8,18 +8,14 @@ $brand-green: #0C7C33;
 }
 
 @mixin header-style {
+  color: $brand-green;
   text-align: left;
   font-weight: lighter;
   line-height: normal;
 }
 
 #rebalance-issue {
-  h1 {
-    color: $brand-green;
-    font-weight: bold;
-  }
-
-  h2 {
+  h1, h2 {
     color: $brand-green;
   }
 
@@ -38,6 +34,10 @@ $brand-green: #0C7C33;
     font-style: normal;
     text-shadow: initial;
     background: none;
+  }
+
+  header .title {
+    @include header-style;
   }
 
   .subtitle {
@@ -183,7 +183,7 @@ $brand-green: #0C7C33;
       }
 
       p {
-        font-size: 12px;
+        font-size: 14px;
       }
     }
 
@@ -275,8 +275,6 @@ $brand-green: #0C7C33;
     }
 
     header h1 {
-      text-align: left;
-      font-weight: lighter;
       margin-top: 20px;
     }
 
@@ -328,12 +326,6 @@ $brand-green: #0C7C33;
   }
 
   [data-page='eat-well/1'] {
-    header .title {
-      text-align: left;
-      font-weight: lighter;
-      line-height: normal;
-    }
-
     figcaption {
       left: 10px;
       bottom: 0;
@@ -361,10 +353,6 @@ $brand-green: #0C7C33;
   [data-page='eat-well/6'] {
     header {
       margin-bottom: 10px;
-    }
-
-    header .title {
-      @include header-style;
     }
 
     p {
@@ -464,10 +452,6 @@ $brand-green: #0C7C33;
       background-position: center top;
     }
 
-    header .title {
-      @include header-style;
-    }
-
     @media only screen and (min-width: 768px) {
       header .title {
         font-size: 4vmin;
@@ -481,10 +465,6 @@ $brand-green: #0C7C33;
       bottom: 10%;
     }
 
-    header .title {
-      @include header-style;
-    }
-
     @media only screen and (min-width: 768px) {
       figcaption {
         top: 10%;
@@ -496,10 +476,6 @@ $brand-green: #0C7C33;
   }
 
   [data-page='be-well/3'] {
-    header .title {
-      @include header-style;
-    }
-
     figcaption {
       top: 25%;
       left: 19%;
@@ -526,7 +502,7 @@ $brand-green: #0C7C33;
     @media only screen and (min-width: 768px) {
       figcaption {
         top: 30%;
-        right: 10%;
+        right: 5%;
       }
 
       h1 {
@@ -558,11 +534,9 @@ $brand-green: #0C7C33;
     }
 
     .title {
-      color: $brand-green;
-      font-weight: lighter;
       letter-spacing: 6px;
-      line-height: normal;
       margin: 0;
+      text-align: center;
     }
 
     #new {
