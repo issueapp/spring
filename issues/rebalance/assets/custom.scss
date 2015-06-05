@@ -500,6 +500,30 @@ $brand-green: #0C7C33;
     }
   }
 
+  [data-page='be-well/2'] {
+    figcaption {
+      color: #000;
+      left: 0;
+      bottom: 10%;
+      text-shadow: initial;
+      font-style: normal;
+      font-size: 18px;
+    }
+
+    header .title {
+      @include header-style;
+    }
+
+    @media only screen and (min-width: 768px) {
+      figcaption {
+        top: 10%;
+        right: 15%;
+        left: initial;
+        bottom: initial;
+      }
+    }
+  }
+
   [data-page='end'] {
     > .content {
       height: initial;
