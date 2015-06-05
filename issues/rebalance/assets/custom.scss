@@ -30,10 +30,20 @@ $brand-green: #0C7C33;
   font-weight: bold;
 }
 
+@mixin header-style {
+  text-align: left;
+  font-weight: lighter;
+  line-height: normal;
+}
+
 #rebalance-issue {
   h1 {
     color: $brand-green;
     font-weight: bold;
+  }
+
+  h2 {
+    color: $brand-green;
   }
 
   p:empty {
@@ -43,6 +53,22 @@ $brand-green: #0C7C33;
   .subtitle {
     font-family: 'proxima-nova';
     font-style: normal;
+  }
+
+  .highlight {
+    border: 2px solid $brand-green;
+    padding: 10px;
+
+    .row {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    p {
+      color: $brand-green;
+    }
   }
 
   // Start Cover
@@ -324,10 +350,6 @@ $brand-green: #0C7C33;
       line-height: normal;
     }
 
-    h2 {
-      color: $brand-green;
-    }
-
     figcaption {
       color: #000;
       top: initial;
@@ -355,24 +377,36 @@ $brand-green: #0C7C33;
   }
 
   [data-page='eat-well/2'] {
+    header {
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin: 0.5em 0;
+      line-height: 1.2;
+    }
+
+    figcaption {
+      color: #000;
+      top: initial;
+      left: initial;
+      right: initial;
+      bottom: initial;
+      text-shadow: initial;
+      font-style: normal;
+      font-size: 18px;
+    }
+  }
+
+  [data-page='eat-well/2'] {
+    header .title {
+      @include header-style;
+    }
+
     @media only screen and (min-width: 768px) {
-      header {
-        margin-top: 100px;
-        z-index: 1;
-      }
-
-      img:first-of-type {
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 300px;
-      }
-
-      img:last-of-type {
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        width: 200px;
+      figcaption {
+        left: 15%;
+        bottom: 15%;
       }
     }
   }
