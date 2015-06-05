@@ -377,7 +377,10 @@ $brand-green: #0C7C33;
   }
 
   [data-page='eat-well/2'],
-  [data-page='eat-well/3'] {
+  [data-page='eat-well/3'],
+  [data-page='eat-well/4'],
+  [data-page='eat-well/5'],
+  [data-page='eat-well/6'] {
     header {
       margin-bottom: 10px;
     }
@@ -433,35 +436,29 @@ $brand-green: #0C7C33;
   }
 
   [data-page='eat-well/5'] {
+    figcaption {
+      top: 8%;
+      right: 2%;
+    }
+
     @media only screen and (min-width: 768px) {
-      img:last-of-type {
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        width: 200px;
+      .content {
+        padding-top: 25px;
+      }
+
+      figcaption {
+        top: initial;
+        right: initial;
+        left: 12%;
+        bottom: 10%;
       }
     }
   }
 
   [data-page='eat-well/6'] {
     @media only screen and (min-width: 768px) {
-      header {
-        margin-top: 160px;
-        z-index: 1;
-      }
-
-      img:first-of-type {
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 240px;
-      }
-
-      img:last-of-type {
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        width: 140px;
+      .content {
+        padding-top: 25px;
       }
     }
   }
