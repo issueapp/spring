@@ -308,7 +308,7 @@ $brand-green: #0C7C33;
   }
 
   [data-page='eat-well'],
-  [data-page='story-five'] {
+  [data-page='be-well'] {
     h1 {
       color: white;
       text-shadow: -1px 0 green, 0 1px green, 1px 0 green, 0 -1px green;
@@ -459,6 +459,27 @@ $brand-green: #0C7C33;
     @media only screen and (min-width: 768px) {
       .content {
         padding-top: 25px;
+      }
+    }
+  }
+
+  [data-page='be-well'] {
+    header .wrapper {
+      text-align: left;
+    }
+
+    header .title {
+      font-size: 15vmin;
+    }
+
+    @media only screen and (min-width: 768px) {
+      .content {
+        padding-left: 100px;
+      }
+
+      header .subtitle {
+        font-size: 3vmin;
+        margin: 0;
       }
     }
   }
