@@ -54,7 +54,6 @@
     <li class="polaroid-wrap">
       <figure class="polaroid">
         <img src="{{ url }}" alt="{{ title }}" title="{{ title }}">
-        <figcaption>{{ caption }}</figcaption>
       </figure>
     </li>
     {{/layout}}

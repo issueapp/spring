@@ -1,33 +1,10 @@
 
-@font-face {
-  font-weight: normal;
-  font-style: normal;
-  font-family: 'Gotham Black';
-  src: url('fonts/gotham-black.ttf') format('truetype');
-}
-
-@font-face {
-  font-weight: normal;
-  font-style: normal;
-  font-family: 'Gotham Thin';
-  src: url('fonts/gotham-thin.ttf') format('truetype');
-}
-
-@font-face {
-  font-weight: normal;
-  font-style: normal;
-  font-family: 'Gotham';
-  src: url('fonts/gotham-book.ttf') format('truetype');
-}
-
-// $brand-green: #31825F;
 $brand-green: #0C7C33;
 
 @mixin brand-title {
   color: $brand-green;
-  font-family: 'Gotham Thin';
   font-size: 30px;
-  font-weight: bold;
+  font-weight: lighter;
 }
 
 @mixin header-style {
@@ -50,6 +27,19 @@ $brand-green: #0C7C33;
     display: none;
   }
 
+  figcaption {
+    color: #000;
+    top: initial;
+    left: initial;
+    bottom: initial;
+    right: initial;
+    font-size: 16px;
+    font-family: georgia;
+    font-style: normal;
+    text-shadow: initial;
+    background: none;
+  }
+
   .subtitle {
     font-family: 'proxima-nova';
     font-style: normal;
@@ -68,6 +58,12 @@ $brand-green: #0C7C33;
 
     p {
       color: $brand-green;
+    }
+  }
+
+  @media only screen and (min-width: 768px) {
+    figcaption {
+      font-size: 18px;
     }
   }
 
@@ -126,8 +122,6 @@ $brand-green: #0C7C33;
       background-repeat: no-repeat;
       margin-left: -200px;
       margin-top: -70px;
-
-      animation: sparkles 4s linear 0s infinite alternate;
     }
 
     @media only screen and (min-width: 768px) {
@@ -166,23 +160,12 @@ $brand-green: #0C7C33;
     }
 
     figcaption {
-      color: #000;
       top: 18%;
       left: 6%;
-      bottom: initial;
-      right: initial;
-      font-size: 20px;
-      font-family: georgia;
-      font-style: normal;
-      text-shadow: initial;
     }
 
     .brand-title {
       @include brand-title;
-    }
-
-    p {
-      font-family: 'Gotham';
     }
 
     .note {
@@ -225,7 +208,7 @@ $brand-green: #0C7C33;
       color: $brand-green;
       font-size: 12px;
       text-transform: uppercase;
-      font-family: 'Gotham Black';
+      font-weight: bold;
     }
 
     figcaption {
@@ -352,14 +335,8 @@ $brand-green: #0C7C33;
     }
 
     figcaption {
-      color: #000;
-      top: initial;
-      left: 0;
+      left: 10px;
       bottom: 0;
-      font-size: 16px;
-      font-family: georgia;
-      font-style: normal;
-      text-shadow: initial;
     }
 
     @media only screen and (min-width: 768px) {
@@ -395,17 +372,6 @@ $brand-green: #0C7C33;
       line-height: 1.2;
       text-align: left;
     }
-
-    figcaption {
-      color: #000;
-      top: initial;
-      left: initial;
-      right: initial;
-      bottom: initial;
-      text-shadow: initial;
-      font-style: normal;
-      font-size: 18px;
-    }
   }
 
   [data-page='eat-well/2'] {
@@ -428,10 +394,18 @@ $brand-green: #0C7C33;
       right: 0;
     }
 
+    img {
+      max-width: 250px;
+    }
+
     @media only screen and (min-width: 768px) {
       figcaption {
         top: 30%;
         right: 15%;
+      }
+
+      img {
+        max-width: 100%;
       }
     }
   }
@@ -503,12 +477,8 @@ $brand-green: #0C7C33;
 
   [data-page='be-well/2'] {
     figcaption {
-      color: #000;
       left: 0;
       bottom: 10%;
-      text-shadow: initial;
-      font-style: normal;
-      font-size: 18px;
     }
 
     header .title {
@@ -531,12 +501,8 @@ $brand-green: #0C7C33;
     }
 
     figcaption {
-      color: #000;
       top: 25%;
       left: 19%;
-      text-shadow: initial;
-      font-style: normal;
-      font-size: 18px;
     }
 
     @media only screen and (min-width: 768px) {
@@ -549,13 +515,8 @@ $brand-green: #0C7C33;
 
   [data-page='be-well/5'] {
     figcaption {
-      color: #000;
       top: 55%;
       right: 0;
-      text-shadow: initial;
-      font-style: normal;
-      font-size: 18px;
-      background: none;
     }
 
     .content {
@@ -757,28 +718,6 @@ $brand-green: #0C7C33;
     position: relative;
     z-index: 5;
     transform: scale(1.5);
-  }
-}
-
-@keyframes sparkles {
-  0% {
-    transform: scale(0.98) translateY(1%);
-    opacity: 0.4;
-  }
-
-  33% {
-    transform: scale(1) translateY(0);
-    opacity: 0.6;
-  }
-
-  66% {
-    transform: scale(1.02) translateY(-1%);
-    opacity: 1;
-  }
-
-  100% {
-    transform: scale(1) translateY(0);
-    opacity: 0.6;
   }
 }
 
