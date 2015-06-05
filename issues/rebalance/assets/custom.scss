@@ -61,9 +61,28 @@ $brand-green: #0C7C33;
     }
   }
 
+  .page.stack {
+    h2 {
+      color: $brand-green;
+    }
+
+    .content {
+      position: static;
+    }
+  }
+
   @media only screen and (min-width: 768px) {
     figcaption {
       font-size: 18px;
+    }
+
+    .page.stack {
+      left: 6%;
+      margin: 0;
+      width: 33%;
+      height: 60%;
+      top: 30%;
+      bottom: initial;
     }
   }
 
@@ -234,27 +253,103 @@ $brand-green: #0C7C33;
   }
 
   [data-page='gut-instinct'] {
+    .gut {
+      position: absolute;
+      top: 18%;
+      right: 8%;
+      width: 80%;
+      margin-top: -25%;
+      text-align: center;
+      z-index: 1;
+    }
+
+    .gut a {
+      position: absolute;
+      width: 17%;
+      height: 18%;
+    }
+
+    a[href='#item1'] {
+      top: 1.4%;
+      left: 38.8%;
+    }
+
+    a[href='#item2'] {
+      top: 15%;
+      left: 66.8%;
+    }
+
+    a[href='#item3'] {
+      top: 40.5%;
+      left: 80%;
+    }
+
+    a[href='#item4'] {
+      top: 65.4%;
+      left: 67.8%;
+    }
+
+    a[href='#item5'] {
+      top: 78.4%;
+      left: 39.2%;
+    }
+
+    a[href='#item6'] {
+      top: 65%;
+      left: 11.4%;
+    }
+
+    a[href='#item7'] {
+      top: 40.4%;
+      left: 1.2%;
+    }
+
+    a[href='#item8'] {
+      top: 15.4%;
+      left: 11.6%;
+    }
+
+    .gut img {
+      width: 100%;
+    }
+
+    .inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    br {
+      display: none;
+    }
+
+    // &.current a[href='#item1'] {
+    a[href='#item1'] {
+      animation: scaling 2s ease-in 1;
+    }
+
+    a {
+      transition: all 0.35s ease-in;
+    }
+
+    a:hover {
+      transform: scale(0.92);
+    }
+
     @media only screen and (min-width: 768px) {
-      background-color: #afd4ea;
-
       .title {
-        color: white;
-        font-weight: bold;
-        font-size: 7.5vmin;
-        text-align: left;
-        line-height: 7vmin;
-      }
-
-      .content {
-        overflow: visible;
+        font-size: 6vmin;
+        margin-left: 44px;
       }
 
       .gut {
-        position: absolute;
-        top: 20%;
+        top: 50%;
         right: 0;
-        width: 60%;
-        height: 60%;
+        width: 50%;
+      }
+
+      br {
+        display: inline;
       }
     }
   }
@@ -707,19 +802,16 @@ $brand-green: #0C7C33;
   }
 }
 
-#slideOne {
-  left: 6%;
-  margin: 0;
-  width: 33%;
-  height: 60%;
-  top: 30%;
-  bottom: initial;
-
-  h2 {
-    color: $brand-green;
+@keyframes scaling {
+  0% {
+    transform: scale(1);
   }
 
-  .content {
-    position: static;
+  50% {
+    transform: scale(0.92);
+  }
+
+  100% {
+    transform: scale(1);
   }
 }
