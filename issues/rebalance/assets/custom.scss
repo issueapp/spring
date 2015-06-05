@@ -484,6 +484,22 @@ $brand-green: #0C7C33;
     }
   }
 
+  [data-page='be-well/1'] {
+    .cover-area {
+      background-position: center top;
+    }
+
+    header .title {
+      @include header-style;
+    }
+
+    @media only screen and (min-width: 768px) {
+      header .title {
+        font-size: 4vmin;
+      }
+    }
+  }
+
   [data-page='end'] {
     > .content {
       height: initial;
