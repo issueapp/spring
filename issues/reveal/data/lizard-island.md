@@ -46,4 +46,4 @@
 
 <audio data-media-id="audios:1"></audio>
 <a href="#" class="audio audio-on"></audio>
-<a href='geo:-14.667389,145.446296?zoom=15&label=Lizard+Island+Private+Beach' class='show-map pull-left'></a>
+<a href='geo:-14.667389,145.446296?zoom=15&label=Your Private Beach' class='show-map pull-left'></a>

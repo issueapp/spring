@@ -125,7 +125,7 @@
       background: url(brand.svg) no-repeat;
       background-size: contain;
       background-position: center;
-      width: 23vmin;
+      width: 24vmin;
       height: 10vmin;
       margin: 0 auto 0em;
       color: transparent;
@@ -137,8 +137,8 @@
       background: url(issue_title.svg) no-repeat;
       background-size: contain;
       background-position: center;
-      width: 60vmin;
-      height: 20vmin;
+      width: 65vmin;
+      height: 25vmin;
       margin: 0 auto 0.5em;
       color: transparent;
       text-shadow: none;
@@ -169,7 +169,7 @@
       background-size: contain;
       background-position: center;
       width: 25vmin;
-      height: 13;
+      height: 13vmin;
 //      margin: 0 auto 0.5em;
       color: transparent;
     }
@@ -192,6 +192,19 @@
       display: none;
     }
 
+    a.browse {
+      right: -15px;
+      font-size: 14px;
+      color: #eee;
+      background-color: rgba(0, 0, 0, 0.4);
+      height: 60px;
+      padding: 0px 20px 0 10px;
+      margin-top: -30px;
+      line-height: 60px;
+      font-family: "HelveticaNeue-CondensedBold", "sans-serif-condensed";
+      border-radius: 0px;
+    }
+    
     // @media only screen and (min-width: 768px) {
     // }
   }
@@ -404,6 +417,7 @@
       float: right;
       font-size: 6vmin;
       font-family: 'bodoni';
+      line-height: 0.8;
       font-style: italic;
       text-transform: none;
     }
@@ -574,8 +588,14 @@
       }
 
       figure.island {
-        max-width: 600px;
-        max-height: 600px;
+        
+        max-width: 500px;
+        max-width: 50vmax;
+        
+        max-height: 500px;
+        max-height: 50vmax;
+        
+        
 
         h1 {
           font-size: 44px;

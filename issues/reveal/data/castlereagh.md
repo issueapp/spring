@@ -1,5 +1,6 @@
 ---
 
+    category: Photo Diary
     title: Castlereagh
 
     thumb_url: 'assets/castlereagh/cover.jpg'
