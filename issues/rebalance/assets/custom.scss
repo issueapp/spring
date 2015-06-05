@@ -581,6 +581,10 @@ $brand-green: #0C7C33;
       padding-top: 140px;
     }
 
+    .body {
+      text-align: center;
+    }
+
     .subtitle {
       color: $brand-green;
       font-size: 25px;
@@ -594,9 +598,10 @@ $brand-green: #0C7C33;
 
     .title {
       color: $brand-green;
-      font-size: 50px;
       font-weight: lighter;
       letter-spacing: 6px;
+      line-height: normal;
+      margin: 0;
     }
 
     #new {
@@ -606,15 +611,40 @@ $brand-green: #0C7C33;
       max-width: 200px;
     }
 
-    p {
-      color: $brand-green;
-      text-align: center;
-      font-family: "proxima-nova";
+    > .content p {
       font-size: 22px;
+      text-align: center;
+      margin-bottom: 0;
     }
 
-    br {
-      display: none;
+    a {
+      color: $brand-green;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 26px;
+    }
+
+    .circle {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 50%;
+      background: $brand-green;
+      width: 150px;
+      height: 150px;
+      margin: 0 auto 25px;
+
+      p {
+        font-family: georgia;
+        font-weight: bold;
+        font-size: 18px;
+        color: #fff;
+        line-height: normal;
+        text-align: center;
+      }
     }
 
     @media only screen and (min-width: 768px) {
@@ -622,8 +652,22 @@ $brand-green: #0C7C33;
         padding-top: 20px;
       }
 
-      br {
-        display: inline;
+      .title {
+        font-size: 9vmin;
+      }
+
+      .subtitle {
+        font-size: 4vmin;
+      }
+
+      .yoghurt {
+        width: 80%;
+      }
+
+      .circle {
+        position: absolute;
+        top: 50%;
+        right: 10%;
       }
 
       #new {
