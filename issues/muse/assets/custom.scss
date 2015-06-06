@@ -36,7 +36,12 @@
 
 
 #muse-issue {
+  img {
+    user-select: none;
+  }
+  
   p {
+    user-select: none;
     font-family: georgia;
 //    font-size: 18px;
     line-height: 1.4;
