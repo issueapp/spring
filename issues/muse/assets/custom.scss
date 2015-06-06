@@ -186,8 +186,16 @@
       border-radius: 0px;
     }
     
-    // @media only screen and (min-width: 768px) {
-    // }
+     @media only screen and (min-width: 768px) and (orientation:landscape) {
+       
+       .title, .description, .extra-1 {
+         right: 3%;
+       }
+       
+       .extra-2 {
+         left: 3%;
+       }
+     }
   }
   // End Cover
 
@@ -296,7 +304,7 @@
   }
 
   [data-page='kym-ellery/1'] {
-    overflow: scroll;
+    background: white;
     
     .cover-area {
       height: 60vh;

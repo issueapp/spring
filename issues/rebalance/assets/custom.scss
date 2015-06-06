@@ -1,6 +1,7 @@
 
 $brand-green: #98bc90;
 
+
 @mixin brand-title {
   color: $brand-green;
   font-size: 30px;
@@ -154,8 +155,9 @@ $brand-green: #98bc90;
     @media only screen and (min-width: 768px) {
       .title {
         font-size: 9vmin;
+        margin-right: 5%;
       }
-
+      
       .description {
         font-size: 4.1vmin;
       }
