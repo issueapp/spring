@@ -8,10 +8,11 @@
     layout:
       type: toc
       image_style: background
-      content_style: black
-      custom_class: transparent
+      content_transparent: '1'
 
 ---
 
-<h1>“A healthy outside starts from the inside”</h1>
-<p>Robert Urich</p>
+<blockquote>
+  A healthy outside starts from the inside
+  <p class="author">- ROBERT URICH</p>
+</blockquote>

@@ -1,38 +1,38 @@
 ---
 
-    title: Restore Your Balance
+    title: What is Activia
     summary: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi fugit quae, reiciendis ut amet voluptatem, vero temporibus sequi fuga quia provident. Atque error rerum, maxime doloribus laboriosam! Quo, quaerat. Deserunt!
 
-    thumb_url: 'assets/restore-your-balance/1.jpg'
-    cover_url: 'assets/restore-your-balance/1.jpg'
+    thumb_url: 'assets/what-is-activia/1.jpg'
+    cover_url: 'assets/what-is-activia/1.jpg'
 
     images:
       - title: Image
-        url: assets/restore-your-balance/1.jpg
+        url: assets/what-is-activia/1.jpg
 
       - title: Image
-        url: assets/restore-your-balance/2.jpg
+        url: assets/what-is-activia/2.jpg
 
       - title: Image
-        url: assets/restore-your-balance/3.jpg
+        url: assets/what-is-activia/3.jpg
 
       - title: Image
-        url: assets/restore-your-balance/4.jpg
+        url: assets/what-is-activia/4.jpg
 
       - title: Image
-        url: assets/restore-your-balance/5.jpg
+        url: assets/what-is-activia/5.jpg
 
       - title: Image
-        url: assets/restore-your-balance/6.jpg
+        url: assets/what-is-activia/6.jpg
 
       - title: Image
-        url: assets/restore-your-balance/7.jpg
+        url: assets/what-is-activia/7.jpg
 
       - title: Image
-        url: assets/restore-your-balance/8.jpg
+        url: assets/what-is-activia/8.jpg
 
       - title: Image
-        url: assets/restore-your-balance/9.jpg
+        url: assets/what-is-activia/9.jpg
 
       - title: Yoghurt
         url: assets/yoghurt.png
@@ -65,7 +65,7 @@
 <div class="content col x4">
   <header>
     <img src="assets/yoghurt.png" data-media-id="images:10" data-original>
-    <h1 class="title">{{ title }}</h1>
+    <h1 class="title">Restore Your Balance</h1>
   </header>
   <div class="body">
     <p>Pure by Activia is a probiotic yoghurt which contains probiotic Bifidus ActiRegularis, scientifically proven for its ability to survive in the digestive system and help improve digestive comfort.</p>

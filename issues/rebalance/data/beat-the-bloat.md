@@ -1,10 +1,10 @@
 ---
 
-    title: Tummy Troubles
-    thumb_url: 'assets/tummy-troubles/cover.jpg'
+    title: Beat The Bloat
+    thumb_url: 'assets/beat-the-bloat/cover.jpg'
 
     images:
-      - url: 'assets/tummy-troubles/cover.jpg'
+      - url: 'assets/beat-the-bloat/cover.jpg'
         caption: "Tummy<br>troubles<br>aren't<br>any fun."
         cover: true
 

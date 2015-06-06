@@ -13,10 +13,11 @@ assets:
 
 paths:
   - index
+  - toc
   - welcome
-  - tummy-troubles
+  - beat-the-bloat
   - gut-instinct
-  - restore-your-balance
+  - what-is-activia
   - eat-well
-  - be-well
+  - live-well
   - end

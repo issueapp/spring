@@ -165,15 +165,51 @@ $brand-green: #0C7C33;
       color: $brand-green;
     }
 
+    .content {
+      overflow: visible;
+    }
+
     @media only screen and (min-width: 768px) {
+      .main {
+        width: 100%;
+      }
+
+      .menu {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: rgba(255,255,255,0.9);
+      }
+
       .content {
+        box-sizing: border-box;
+        width: 66.67%;
         margin: 0;
+      }
+
+      blockquote {
+        color: #fff;
+        font-size: 24px;
+      }
+
+      blockquote p {
+        color: #fff;
+        font-size: 20px;
+      }
+
+      blockquote:before,
+      blockquote:after {
+        color: #fefefe;
+      }
+
+      h2 {
+        font-size: 3vmin;
       }
     }
   }
 
   [data-page='welcome'],
-  [data-page='tummy-troubles'] {
+  [data-page='beat-the-bloat'] {
     .title {
       display: none;
     }
@@ -222,7 +258,7 @@ $brand-green: #0C7C33;
     }
   }
 
-  [data-page='tummy-troubles'] {
+  [data-page='beat-the-bloat'] {
     .brand-title {
       font-size: 28px;
     }
@@ -358,7 +394,7 @@ $brand-green: #0C7C33;
     }
   }
 
-  [data-page='restore-your-balance'] {
+  [data-page='what-is-activia'] {
     height: auto;
     overflow: hidden;
 
@@ -388,8 +424,8 @@ $brand-green: #0C7C33;
   }
 
   [data-page='eat-well'],
-  [data-page='be-well'],
-  [data-page='be-well/5'] {
+  [data-page='live-well'],
+  [data-page='live-well/5'] {
     h1 {
       color: white;
       text-shadow: -1px 0 green, 0 1px green, 1px 0 green, 0 -1px green;
@@ -525,7 +561,7 @@ $brand-green: #0C7C33;
     }
   }
 
-  [data-page='be-well'] {
+  [data-page='live-well'] {
     header .wrapper {
       text-align: left;
     }
@@ -551,7 +587,7 @@ $brand-green: #0C7C33;
     }
   }
 
-  [data-page='be-well/1'] {
+  [data-page='live-well/1'] {
     .cover-area {
       background-position: center top;
     }
@@ -563,7 +599,7 @@ $brand-green: #0C7C33;
     }
   }
 
-  [data-page='be-well/2'] {
+  [data-page='live-well/2'] {
     figcaption {
       left: 0;
       bottom: 10%;
@@ -583,7 +619,7 @@ $brand-green: #0C7C33;
     }
   }
 
-  [data-page='be-well/3'] {
+  [data-page='live-well/3'] {
     figcaption {
       top: 25%;
       left: 19%;
@@ -601,7 +637,7 @@ $brand-green: #0C7C33;
     }
   }
 
-  [data-page='be-well/4'] {
+  [data-page='live-well/4'] {
     br {
       display: none;
     }
@@ -613,7 +649,7 @@ $brand-green: #0C7C33;
     }
   }
 
-  [data-page='be-well/5'] {
+  [data-page='live-well/5'] {
     figcaption {
       top: 55%;
       right: 0;

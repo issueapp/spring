@@ -1,6 +1,6 @@
 ---
 
-    title: Gut Instinct
+    title: Gut Health Explained
 
     thumb_url: 'assets/gut-instinct/gut.png'
 

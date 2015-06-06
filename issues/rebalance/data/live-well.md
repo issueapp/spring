@@ -1,13 +1,13 @@
 ---
 
-    title: Be Well
+    title: Live Well
     summary: 'Prioritise yourself! Find some me time. Be healthy inside and out. cuptate ndigent quatet iuntinctum a vel ipid essimus vernat qui dolorero es eraturiam'
 
-    cover_url: 'assets/be-well/cover.jpg'
-    thumb_url: 'assets/be-well/cover.jpg'
+    cover_url: 'assets/live-well/cover.jpg'
+    thumb_url: 'assets/live-well/cover.jpg'
 
     audios:
-      - url: "assets/be-well/jazz-ambient.mp3"
+      - url: "assets/live-well/jazz-ambient.mp3"
         autoplay: true
         controls: false
 
