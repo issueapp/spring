@@ -1,9 +1,9 @@
 ---
     category: Profile
-    title: Kim Ellery
+    title: Kym Ellery
 
-    thumb_url: 'assets/kim-ellery/cover.jpg'
-    cover_url: 'assets/kim-ellery/cover.jpg'
+    thumb_url: 'assets/kym-ellery/cover.jpg'
+    cover_url: 'assets/kym-ellery/cover.jpg'
 
     custom_html: true
 

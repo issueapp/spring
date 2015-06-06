@@ -1,5 +1,5 @@
 
-$brand-green: #0C7C33;
+$brand-green: #98bc90;
 
 @mixin brand-title {
   color: $brand-green;
@@ -15,9 +15,9 @@ $brand-green: #0C7C33;
 }
 
 #rebalance-issue {
-  h1, h2 {
-    color: $brand-green;
-  }
+//  h1, h2 {
+//    color: $brand-green;
+//  }
 
   p:empty {
     display: none;
@@ -98,8 +98,8 @@ $brand-green: #0C7C33;
       background: url(brand.png) no-repeat;
       background-size: contain;
       background-position: center;
-      width: 45vmin;
-      height: 14vmin;
+      width: 25vmin;
+      height: 10vmin;
       margin: 0 auto;
       color: transparent;
       text-shadow: none;
@@ -110,11 +110,12 @@ $brand-green: #0C7C33;
       font-family: 'proxima-nova';
       font-weight: bolder;
       letter-spacing: 10px;
-      text-shadow: 1px 1px 30px rgba(0, 0, 0, 0.1);
+
+      text-shadow: 1px 1px 0px $brand-green;
 
       font-size: 3.9em;
       line-height: 1em;
-      margin: 50px 0 0;
+      margin: 1em 0 0;
     }
 
     .description {
@@ -122,6 +123,9 @@ $brand-green: #0C7C33;
       text-transform: uppercase;
       padding: 0;
       margin: -3.8em 0 0;
+
+      text-shadow: 1px 1px 0px $brand-green;
+
       font-size: 1.6em;
       font-weight: bold;
       letter-spacing: 8px;
@@ -149,11 +153,11 @@ $brand-green: #0C7C33;
 
     @media only screen and (min-width: 768px) {
       .title {
-        font-size: 5em;
+        font-size: 9vmin;
       }
 
       .description {
-        font-size: 2.2em;
+        font-size: 4.1vmin;
       }
     }
   }
