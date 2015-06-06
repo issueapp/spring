@@ -72,6 +72,10 @@ $brand-green: #0C7C33;
   }
 
   @media only screen and (min-width: 768px) {
+    h2 {
+      font-size: 2.2vmin;
+    }
+
     figcaption {
       font-size: 18px;
     }
@@ -530,6 +534,11 @@ $brand-green: #0C7C33;
       font-size: 15vmin;
     }
 
+    header .subtitle {
+      font-weight: lighter;
+      color: #333;
+    }
+
     @media only screen and (min-width: 768px) {
       .content {
         padding-left: 100px;
@@ -567,6 +576,10 @@ $brand-green: #0C7C33;
         left: initial;
         bottom: initial;
       }
+
+      .title {
+        font-size: 4vmin;
+      }
     }
   }
 
@@ -580,6 +593,22 @@ $brand-green: #0C7C33;
       figcaption {
         top: 28%;
         left: 28%;
+      }
+
+      .title {
+        font-size: 4vmin;
+      }
+    }
+  }
+
+  [data-page='be-well/4'] {
+    br {
+      display: none;
+    }
+
+    @media only screen and (min-width: 768px) {
+      br {
+        display: inline;
       }
     }
   }
