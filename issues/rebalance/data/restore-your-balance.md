@@ -4,6 +4,7 @@
     summary: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi fugit quae, reiciendis ut amet voluptatem, vero temporibus sequi fuga quia provident. Atque error rerum, maxime doloribus laboriosam! Quo, quaerat. Deserunt!
 
     thumb_url: 'assets/restore-your-balance/1.jpg'
+    cover_url: 'assets/restore-your-balance/1.jpg'
 
     images:
       - title: Image

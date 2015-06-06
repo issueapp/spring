@@ -1,7 +1,8 @@
 ---
 
     title: Less Is More
-    thumb_url: 'assets/end/yoghurt.png'
+    thumb_url: 'assets/restore-your-balance/8.jpg'
+    cover_url: 'assets/restore-your-balance/8.jpg'
 
     images:
       - url: 'assets/end/yoghurt.png'
