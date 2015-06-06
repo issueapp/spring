@@ -169,6 +169,17 @@ $brand-green: #0C7C33;
       overflow: visible;
     }
 
+    .brand {
+      width: 250px;
+      margin: 0 auto;
+      color: $brand-green;
+
+      figure {
+        width: 150px;
+        margin: 0 auto;
+      }
+    }
+
     @media only screen and (min-width: 768px) {
       .main {
         width: 100%;
@@ -182,6 +193,7 @@ $brand-green: #0C7C33;
       }
 
       .content {
+        position: static;
         box-sizing: border-box;
         width: 66.67%;
         margin: 0;
@@ -204,6 +216,28 @@ $brand-green: #0C7C33;
 
       h2 {
         font-size: 3vmin;
+      }
+
+      .brand {
+        position: absolute;
+        right: 42px;
+        bottom: 10px;
+        z-index: 1;
+
+        p {
+          text-align: left;
+          margin: 0;
+        }
+      }
+    }
+
+    @media only screen and (min-width: 768px) and (orientation: portrait) {
+      blockquote {
+        font-size: 22px;
+      }
+
+      .brand {
+        right: 0;
       }
     }
   }
