@@ -27,6 +27,7 @@
   }
 
   article.one-column {
+    
     h2 {
       font-weight: bold;
       letter-spacing: 3px;
@@ -38,7 +39,9 @@
       line-height: 30px;
       font-size: 18px;
     }
-
+    
+    // Image style: fit, wrap, overlay
+    
     figure.wrapping {
       text-align: center;
 
@@ -95,7 +98,6 @@
       hr {
         margin: 17px 0;
         clear: none;
-        background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.05));
         background-image: linear-gradient(to right, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.05));
       }
 

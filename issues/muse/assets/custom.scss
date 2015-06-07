@@ -95,6 +95,117 @@
 //    }
 //  }
 
+  .one-column {
+  
+    h2 {
+      font-weight: bold;
+      letter-spacing: 3px;
+      margin-bottom: 40px;
+    }
+
+    .body p {
+      font-family: georgia;
+      line-height: 30px;
+      font-size: 18px;
+    }
+  
+    // Image style: fit, wrap, overlay
+  
+    figure.wrapping {
+      text-align: center;
+
+      figcaption {
+        text-align: left;
+        padding: 10px 0 0;
+      }
+    }
+
+    figure.full {
+      margin: 50px 0;
+      height: 600px;
+      overflow: hidden;
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0; left:0; right: 0; bottom: 0;
+        background: rgba(0,0,0,0.3);
+      }
+
+      .container {
+        position: absolute;
+        top: 50%;
+        color: white;
+        left: 50%;
+        width: 280px;
+        margin-left: -140px;
+        height: 100px;
+        margin-top: -50px;
+        text-align: center;
+      }
+
+      .subtitle {
+        color: white;
+        text-align: center;
+      }
+    }
+
+    footer {
+      max-width: 1280px;
+      margin: 0px 0 10px;
+      padding-top: 100px;
+      min-height: initial;
+
+      div {
+        line-height: 34px;
+      }
+
+      img {
+        width: 80px;
+      }
+
+      hr {
+        margin: 17px 0;
+        clear: none;
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.05));
+      }
+
+      span {
+        color: #555;
+        text-transform: uppercase;
+        font-weight: bold;
+      }
+    }
+
+    @media only screen and (min-width: 768px) {
+      .content {
+        max-width: initial;
+        padding: 50px 0 25px;
+      }
+      
+      .body > {
+        h1, h2, h3, p, figure, section {
+          max-width: 720px;
+          margin-left: auto;
+          margin-right: auto;
+          box-sizing: border-box;
+
+          &.full {
+            max-width: initial;
+          }
+        }
+
+        section {
+          margin-bottom: 20px;
+        }
+      }
+
+      &.image-background .content {
+        max-width: 45em;
+      }
+    }
+  }
+  
   // Start Cover
   [data-page=index] {
     
@@ -496,13 +607,12 @@
     }
   }
 
-  [data-page='lizard-island'] {
+  article[data-page='lizard-island'] {
     background-color: #69c1b9;
     height: 100%;
 
     .content {
       background-color: transparent;
-      
     }
 
     figure.island {
