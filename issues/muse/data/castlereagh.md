@@ -11,6 +11,7 @@
     layout:
       type: three-column
       image_style: background
+      content_style: black
       content_align: left
       content_valign: bottom
       content_transparent: '1'

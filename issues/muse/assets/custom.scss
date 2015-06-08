@@ -508,6 +508,7 @@
 
     .content {
       overflow: visible;
+      color: black;
     }
 
     div.cover {
@@ -714,14 +715,11 @@
       }
 
       figure.island {
-
         max-width: 500px;
-        max-width: 50vmax;
+        max-width: 48vmax;
 
         max-height: 500px;
-        max-height: 50vmax;
-
-
+        max-height: 48vmax;
 
         h1 {
           font-size: 44px;
