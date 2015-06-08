@@ -10,6 +10,8 @@
       - url: "assets/live-well/jazz-ambient.mp3"
         autoplay: true
         controls: false
+        global: true
+        scope: 'live-well'
 
     custom_html: true
 

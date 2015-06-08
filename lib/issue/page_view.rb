@@ -452,7 +452,9 @@ class Issue::PageView
       'data-autoplay': audio['autoplay'] ? true : nil,
       controls: audio['controls'] ? true : nil,
       loop:     audio['loop'],
-      muted:    audio['muted']
+      muted:    audio['muted'],
+      'data-global': audio['global'],
+      'data-scope': audio['scope']
     }.delete_if { |k, v| v.nil? }
 
     figure = create_element('figure', :class => 'audio')
