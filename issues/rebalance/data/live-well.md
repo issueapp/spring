@@ -7,7 +7,7 @@
     thumb_url: 'assets/live-well/cover.jpg'
 
     audios:
-      - url: "assets/live-well/jazz-ambient.mp3"
+      - url: "assets/live-well/open-book.mp3"
         autoplay: true
         controls: false
         global: true
