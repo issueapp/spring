@@ -29,7 +29,7 @@
 @font-face {
   font-weight: normal;
   font-style: italic;
-  font-family: 'bodoni';  
+  font-family: 'bodoni';
   src: local('BodoniSvtyTwoITCTT-BookIta'), url('fonts/BodoniSvtyTwoITCTT-BookIta.woff') format('woff'),
       url("fonts/BodoniSvtyTwoITCTT-BookIta.ttf") format("truetype");
 }
@@ -39,7 +39,7 @@
   img {
     user-select: none;
   }
-  
+
   p {
     user-select: none;
     font-family: georgia;
@@ -71,12 +71,12 @@
       font-size: 16px;
     }
   }
-  
+
   article.page.color-palettes {
     header { margin-bottom: 30px }
     .content { display: relative !important }
   }
-  
+
 //  Disable hotspot
 //  .hotspot:not(.product) {
 //    @extend %icon-style;
@@ -96,7 +96,7 @@
 //  }
 
   .one-column {
-  
+
     h2 {
       font-weight: bold;
       letter-spacing: 3px;
@@ -108,9 +108,9 @@
       line-height: 30px;
       font-size: 18px;
     }
-  
+
     // Image style: fit, wrap, overlay
-  
+
     figure.wrapping {
       text-align: center;
 
@@ -182,7 +182,7 @@
         max-width: initial;
         padding: 50px 0 25px;
       }
-      
+
       .body > {
         h1, h2, h3, p, figure, section {
           max-width: 720px;
@@ -205,36 +205,36 @@
       }
     }
   }
-  
+
   // Start Cover
   [data-page=index] {
-    
+
     .brand {
       position: relative;
       display: block;
       background: url(brand.svg) no-repeat;
       background-size: contain;
       background-position: center;
-      
+
       filter: drop-shadow(2px 2px 20px rgba(0,0,0,0.2));
-      
+
       width: 60vmin;
       height: 23vmin;
       margin: 10px auto 0em;
       color: transparent;
       text-shadow: none;
     }
-    
+
     .title {
       position: absolute;
       top: 20%;
       right: 0;
       left: auto;
-      
+
       background: url(issue_title-2.svg) no-repeat;
       background-size: contain;
       background-position: center;
-      
+
       width: 43vmin;
       height: 23vmin;
       color: transparent;
@@ -295,19 +295,24 @@
       color: #eee;
       background-color: rgba(0, 0, 0, 0.4);
       height: 60px;
-      padding: 0px 20px 0 10px;
+      padding: 0px 13px 0 10px;
       margin-top: -30px;
       line-height: 60px;
       font-family: "HelveticaNeue-CondensedBold", "sans-serif-condensed";
       border-radius: 0px;
+
+      &:before {
+        top: -4px;
+        left: -6px;
+        font-size: 50px;
+      }
     }
-    
+
      @media only screen and (min-width: 768px) and (orientation:landscape) {
-       
        .title, .description, .extra-1 {
          right: 3%;
        }
-       
+
        .extra-2 {
          left: 3%;
        }
@@ -363,7 +368,7 @@
   [data-page='winter/1'] {
     .palette { margin-top: -450px }
   }
-  
+
   [data-page='winter/3'],
   [data-page='winter/1'], {
     .cover-area figcaption.inset {
@@ -376,7 +381,7 @@
       background-position: top;
     }
   }
-  
+
   [data-page='kym-ellery'] {
     .cover-area {
       background-position: right center;
@@ -393,13 +398,13 @@
       margin: 0;
       color: #000;
     }
-    
+
     p {
       font-family: "EB Garamond";
     }
 
     @media only screen and (min-width: 768px) {
-      
+
       .title {
         width: 4em;
         margin: 0 auto;
@@ -421,7 +426,7 @@
 
   [data-page='kym-ellery/1'] {
     background: white;
-    
+
     .cover-area {
       height: 60vh;
       max-height: 600px;
@@ -433,7 +438,7 @@
   }
 
   [data-page='karl'] {
-    
+
     .cover-area {
       background-position: left center;
     }
@@ -520,12 +525,12 @@
       }
     }
   }
-  
+
   [data-page='home'] {
     .category {
       display: none;
     }
-    
+
     .title {
       float: right;
       font-size: 6vmin;
@@ -534,7 +539,7 @@
       font-style: italic;
       text-transform: none;
     }
-    
+
     @media only screen and (min-width: 768px) {
       .title {
         width: 6em;
@@ -700,14 +705,14 @@
       }
 
       figure.island {
-        
+
         max-width: 500px;
         max-width: 50vmax;
-        
+
         max-height: 500px;
         max-height: 50vmax;
-        
-        
+
+
 
         h1 {
           font-size: 44px;
@@ -793,7 +798,7 @@
       margin-left: -20px;
       margin-top: -580px
     }
-  
+
     .palette .color {
       width: 30px;
       height: 30px;
@@ -804,7 +809,7 @@
   }
 
   // Polaroid CSS
-  
+
 
   figure.polaroid {
     display: inline-block;
