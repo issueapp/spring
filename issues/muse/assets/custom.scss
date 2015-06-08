@@ -428,12 +428,17 @@
     background: white;
 
     .cover-area {
-      height: 60vh;
       max-height: 600px;
     }
 
     p {
       font-family: "EB Garamond";
+    }
+
+    @media only screen and (min-width: 768px) {
+      .cover-area {
+        height: 60vh;
+      }
     }
   }
 
