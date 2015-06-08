@@ -5,7 +5,7 @@ magazine_title: Activia
 magazine_handle: activia
 
 thumb_url: assets/background.jpg
-cover_url: assets/cover-1.jpg
+cover_url: assets/background_large.jpg
 
 assets:
   - 'custom.css'

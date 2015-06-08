@@ -1,4 +1,5 @@
 
+$green-text: #1a663c;
 $brand-green: #98bc90;
 
 
@@ -155,11 +156,11 @@ $brand-green: #98bc90;
     @media only screen and (min-width: 768px) {
       .title {
         font-size: 9vmin;
-        margin-right: 5%;
+//        margin-right: 5%;
       }
       
       .description {
-        font-size: 4.1vmin;
+        font-size: 4.3vmin;
       }
     }
   }
@@ -168,7 +169,7 @@ $brand-green: #98bc90;
   [data-page='toc'] {
     .head h2,
     .story {
-      color: $brand-green;
+      color: $green-text;
     }
 
     .content {
