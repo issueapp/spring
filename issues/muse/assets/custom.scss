@@ -506,6 +506,10 @@
       text-align: center;
     }
 
+    .content {
+      overflow: visible;
+    }
+
     div.cover {
       display: flex;
       flex-direction: row;
