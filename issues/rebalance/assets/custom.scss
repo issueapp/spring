@@ -65,7 +65,7 @@ $brand-green: #98bc90;
 
   .page.stack {
     h2 {
-      color: $brand-green;
+      color: $green-text;
     }
 
     .content {
@@ -315,7 +315,6 @@ $brand-green: #98bc90;
 
     .note {
       color: $green-text;
-      font-size: 2vmin;
       text-transform: uppercase;
       font-weight: bold;
     }
@@ -328,6 +327,18 @@ $brand-green: #98bc90;
       figcaption {
         top: 58%;
         left: 8%;
+      }
+
+      p {
+        font-size: 1.8vmin;
+      }
+
+      .content {
+        margin: 0;
+      }
+
+      .note {
+        font-size: 2vmin;
       }
     }
 
@@ -413,11 +424,6 @@ $brand-green: #98bc90;
       display: none;
     }
 
-    // &.current a[href='#item1'] {
-    a[href='#item1'] {
-      animation: scaling 2s ease-in 1;
-    }
-
     a {
       transition: all 0.35s ease-in;
     }
@@ -434,7 +440,7 @@ $brand-green: #98bc90;
 
       .gut {
         top: 50%;
-        right: 0;
+        right: 20px;
         width: 50%;
       }
 
@@ -926,19 +932,5 @@ $brand-green: #98bc90;
   100% {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@keyframes scaling {
-  0% {
-    transform: scale(1);
-  }
-
-  50% {
-    transform: scale(0.92);
-  }
-
-  100% {
-    transform: scale(1);
   }
 }
