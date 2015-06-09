@@ -189,6 +189,10 @@ $brand-green: #98bc90;
         width: 150px;
         margin: 0 auto;
       }
+
+      p {
+        text-align: center;
+      }
     }
 
     @media only screen and (min-width: 768px) {
@@ -234,17 +238,17 @@ $brand-green: #98bc90;
 
       .brand {
         position: absolute;
-        right: 0px;
+        right: 4px;
         bottom: 10px;
         z-index: 1;
         box-sizing: border-box;
-        padding: 0 20px;
+        padding: 0;
         width: 25%;
 
         p {
           font-weight: bold;
-          text-align: center;
           margin: 0;
+          font-size: 12px;
         }
       }
     }
@@ -256,7 +260,7 @@ $brand-green: #98bc90;
 
       .brand {
         right: 0;
-        }
+      }
     }
   }
 
