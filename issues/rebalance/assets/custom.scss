@@ -21,12 +21,6 @@ $brand-green: #98bc90;
 //    color: $brand-green;
 //  }
 
-  article {
-    p {
-      font-size: 2vmin;
-    }
-  }
-
   p:empty {
     display: none;
   }
@@ -82,6 +76,10 @@ $brand-green: #98bc90;
   @media only screen and (min-width: 768px) {
     h2 {
       font-size: 2.2vmin;
+    }
+
+    p {
+      font-size: 2vmin;
     }
 
     figcaption {
