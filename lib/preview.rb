@@ -129,15 +129,28 @@ class IssuePreview < Sinatra::Base
   end
 
   # Page and subpage
-  get %r{/(?<magazine>[^\/]+)/(?<issue>[^\/]+)/(?<page>[^\/]+)(?:\/(?<subpage>[^\/]+))?} do
+  get %r{/(?<magazine>[^\/]+)/(?<issue>[^\/]+)/(?<page>[^\/\.]+)(?:\/(?<subpage>[^\/\.]+))?\.?(?<format>json)?} do
     issue = current_issue
     path = File.join(params.values_at('page', 'subpage').compact)
     page = LocalIssue::Page.find(path, issue: issue)
     page = Issue::PageView.new(page, self)
 
-    layout = request.xhr? ? nil : :"/layouts/_app.html"
+    is_json = params['format'] == 'json'
 
-    erb page_template(page), locals: {issue: issue, page: page}, layout: layout
+    layout = request.xhr? || is_json ? nil : :"/layouts/_app.html"
+    html = erb(
+      page_template(page),
+      locals: {issue: issue, page: page}, layout: layout
+    )
+
+    if is_json
+      hash = page.json
+      hash['html'] = html
+      hash.to_json
+
+    else
+      html
+    end
   end
 
   # usage:
