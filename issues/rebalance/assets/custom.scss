@@ -22,11 +22,9 @@ $brand-green: #98bc90;
 //  }
 
   article {
-    
     p {
       font-size: 2vmin;
     }
-  
   }
 
   p:empty {
@@ -67,7 +65,7 @@ $brand-green: #98bc90;
     }
 
     p {
-      color: $brand-green;
+      color: $green-text;
     }
   }
 
@@ -166,7 +164,7 @@ $brand-green: #98bc90;
         font-size: 9vmin;
 //        margin-right: 5%;
       }
-      
+
       .description {
         font-size: 4.3vmin;
       }
@@ -266,8 +264,8 @@ $brand-green: #98bc90;
 
   [data-page='welcome'],
   [data-page='beat-the-bloat'] {
-    
-    
+
+
     .title, .category {
       display: none;
     }
@@ -737,7 +735,7 @@ $brand-green: #98bc90;
     }
 
     .subtitle {
-      color: $brand-green;
+      color: $green-text;
       font-size: 25px;
       font-style: normal;
       font-weight: bold;
@@ -767,7 +765,7 @@ $brand-green: #98bc90;
     }
 
     a {
-      color: $brand-green;
+      color: $green-text;
       text-decoration: none;
       font-weight: bold;
       font-size: 26px;
@@ -781,7 +779,7 @@ $brand-green: #98bc90;
       justify-content: center;
 
       border-radius: 50%;
-      background: $brand-green;
+      background: $green-text;
       width: 150px;
       height: 150px;
       margin: 0 auto 25px;
