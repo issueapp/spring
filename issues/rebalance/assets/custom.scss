@@ -700,12 +700,20 @@ $brand-green: #98bc90;
   }
 
   [data-page='live-well/5'] {
+    h1 {
+      text-shadow: -1px 0 green, 0 1px green, 1px 0 green, 0 -1px green;
+    }
+
     figcaption {
       top: 55%;
       right: 0;
     }
 
     .content {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      background: none;
       overflow: visible;
     }
 
@@ -718,6 +726,10 @@ $brand-green: #98bc90;
       h1 {
         white-space: nowrap;
         font-size: 5vmin;
+      }
+
+      .content {
+        position: relative;
       }
     }
   }
