@@ -295,7 +295,7 @@
       color: #eee;
       background-color: rgba(0, 0, 0, 0.4);
       height: 60px;
-      padding: 0px 13px 0 10px;
+      padding: 0px 15px 0 10px;
       margin-top: -30px;
       line-height: 60px;
       font-family: "HelveticaNeue-CondensedBold", "sans-serif-condensed";
@@ -443,7 +443,6 @@
   }
 
   [data-page='karl'] {
-
     .cover-area {
       background-position: left center;
     }
@@ -479,8 +478,19 @@
     }
   }
 
+  [data-page='karl/1'] {
+    .content {
+      display: none;
+    }
+
+    .cover-area {
+      height: 100%;
+      margin-bottom: 0;
+    }
+  }
+
   [data-page='castlereagh'] {
-    height: auto;
+    // height: auto;
     overflow: hidden;
 
     .title {
@@ -496,7 +506,6 @@
       font-size: 4vmin;
       font-style: normal;
       text-transform: uppercase;
-      color: #000;
       letter-spacing: 9px;
       margin: 0 0 0 3vmin;
     }
@@ -508,7 +517,6 @@
 
     .content {
       overflow: visible;
-      color: black;
     }
 
     div.cover {
@@ -520,6 +528,14 @@
 
     @media only screen and (min-width: 768px) {
       height: 100%;
+
+      .subtitle {
+        color: #000;
+      }
+
+      .content {
+        color: black;
+      }
     }
   }
 
@@ -542,7 +558,7 @@
     }
 
     .title {
-      float: right;
+      text-align: right;
       font-size: 6vmin;
       font-family: 'bodoni';
       line-height: 0.8;
@@ -553,7 +569,7 @@
     @media only screen and (min-width: 768px) {
       .title {
         width: 6em;
-        text-align: right;
+        float: right;
       }
     }
   }
