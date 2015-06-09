@@ -170,6 +170,7 @@ $brand-green: #98bc90;
     .head h2,
     .story {
       color: $green-text;
+      text-decoration: none;
     }
 
     .content {
@@ -177,7 +178,6 @@ $brand-green: #98bc90;
     }
 
     .brand {
-      width: 250px;
       margin: 0 auto;
       color: $green-text;
 
@@ -196,7 +196,8 @@ $brand-green: #98bc90;
         position: absolute;
         top: 0;
         right: 0;
-        background: rgba(255,255,255,0.9);
+        background: rgba(255,255,255,0.8);
+        width: 25%;
       }
 
       .content {
@@ -207,6 +208,8 @@ $brand-green: #98bc90;
       }
 
       blockquote {
+        width: 70%;
+        margin-top: 10%;
         color: #fff;
         font-size: 24px;
       }
@@ -227,12 +230,16 @@ $brand-green: #98bc90;
 
       .brand {
         position: absolute;
-        right: 42px;
+        right: 0px;
         bottom: 10px;
         z-index: 1;
+        box-sizing: border-box;
+        padding: 0 20px;
+        width: 25%;
 
         p {
-          text-align: left;
+          font-weight: bold;
+          text-align: center;
           margin: 0;
         }
       }
@@ -245,7 +252,7 @@ $brand-green: #98bc90;
 
       .brand {
         right: 0;
-      }
+        }
     }
   }
 
