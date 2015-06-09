@@ -23,4 +23,4 @@ Your gut could be to blame. Symptoms of poor digestive health include bloating, 
 
 So why is your digestive system acting up and what can you do to bring it back in line?
 
-<p class="note">Let's take a look what's going on inside...</p>
+<h3 class="note">Let's take a look what's going on inside...</h3>

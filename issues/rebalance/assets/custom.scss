@@ -1,12 +1,12 @@
 
-$green-text: #1a663c;
+$green-text: #1f7646;
 $brand-green: #98bc90;
 
 
 @mixin brand-title {
-  color: $brand-green;
+  color: $green-text;
   font-size: 30px;
-  font-weight: lighter;
+  font-weight: 300;
 }
 
 @mixin header-style {
@@ -20,6 +20,14 @@ $brand-green: #98bc90;
 //  h1, h2 {
 //    color: $brand-green;
 //  }
+
+  article {
+    
+    p {
+      font-size: 2vmin;
+    }
+  
+  }
 
   p:empty {
     display: none;
@@ -258,7 +266,9 @@ $brand-green: #98bc90;
 
   [data-page='welcome'],
   [data-page='beat-the-bloat'] {
-    .title {
+    
+    
+    .title, .category {
       display: none;
     }
 
@@ -288,10 +298,6 @@ $brand-green: #98bc90;
         top: 24%;
         left: 16%;
       }
-
-      p {
-        font-size: 14px;
-      }
     }
 
     @media only screen and (min-width: 768px) and (orientation: portrait) {
@@ -312,8 +318,8 @@ $brand-green: #98bc90;
     }
 
     .note {
-      color: $brand-green;
-      font-size: 12px;
+      color: $green-text;
+      font-size: 2vmin;
       text-transform: uppercase;
       font-weight: bold;
     }
