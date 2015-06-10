@@ -1,5 +1,5 @@
 ---
-    cateory: Health
+    category: Health
     title: Beat The Bloat
     thumb_url: 'assets/beat-the-bloat/cover.jpg'
 

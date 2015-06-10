@@ -1,6 +1,6 @@
 
 $green-text: #1f7646;
-$green: #457747;
+$green: rgba(84, 144, 86, 0.6);
 
 
 @mixin brand-title {
@@ -76,7 +76,7 @@ $green: #457747;
     }
 
     h2 {
-      color: $green;
+      color: $green-text;
     }
 
     .content {
@@ -109,6 +109,14 @@ $green: #457747;
 
   // Start Cover
   [data-page='index'] {
+    
+    background-position: bottom right;
+    &:before {
+      display: none;
+    }
+    
+    animation: zoom-cover 2s ease-out;
+    
     .brand {
       position: relative;
       display: block;
@@ -128,9 +136,13 @@ $green: #457747;
       font-weight: bolder;
       letter-spacing: 10px;
 
-      text-shadow: 1px 1px 0px $green;
+      text-shadow:
+         -1px -1px 0 $green,
+          1px -1px 0 $green,
+          -1px 1px 0 $green,
+           1px 1px 0 $green;
 
-      font-size: 3.9em;
+      font-size: 3.8em;
       line-height: 1em;
       margin: 1em 0 0;
     }
@@ -141,9 +153,13 @@ $green: #457747;
       padding: 0;
       margin: -3.8em 0 0;
 
-      text-shadow: 1px 1px 0px $green;
-
-      font-size: 1.6em;
+      text-shadow:
+         -1px -1px 0 $green,
+          1px -1px 0 $green,
+          -1px 1px 0 $green,
+           1px 1px 0 $green;
+           
+      font-size: 1.55em;
       font-weight: bold;
       letter-spacing: 8px;
       font-family: "HelveticaNeue-CondensedBold";
@@ -170,12 +186,12 @@ $green: #457747;
 
     @media only screen and (min-width: 768px) {
       .title {
-        font-size: 9vmin;
+        font-size: 10vmin;
 //        margin-right: 5%;
       }
 
       .description {
-        font-size: 4.3vmin;
+        font-size: 4.5vmin;
       }
     }
   }
@@ -202,6 +218,7 @@ $green: #457747;
 
     .head h2,
     .story {
+      font-family: "proxima-nova";
       color: $green-text;
       text-decoration: none;
     }
@@ -770,6 +787,10 @@ $green: #457747;
       bottom: 5vh;
     }
     
+    .cover-area {
+      background-size: cover;
+    }
+    
     figcaption {
       top: 55%;
       right: 0;
@@ -1012,4 +1033,26 @@ $green: #457747;
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+
+@keyframes zoom-cover {
+	0% {
+    background-position: 50% 90%;
+//    background-size: cover;
+//    transform: scale(1);
+//    opacity: 0.6;
+	}
+  
+	50% {
+    background-size: cover;
+//    transform: scale(1);
+//    opacity: 1;
+	}
+
+	100% {
+    background-position: bottom;    
+//    background-size: cover;
+//    opacity: 1;
+	}
 }
