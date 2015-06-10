@@ -46,7 +46,7 @@ $green: rgba(84, 144, 86, 0.6);
   }
 
   .highlight {
-    border: 2px solid $green;
+    border: 2px solid $green-text;
     padding: 10px;
 
     .row {
@@ -229,7 +229,7 @@ $green: rgba(84, 144, 86, 0.6);
 
     .brand {
       margin: 0 auto;
-      color: $green-text;
+      color: $green;
 
       figure {
         width: 150px;
@@ -579,6 +579,9 @@ $green: rgba(84, 144, 86, 0.6);
   }
 
   [data-page='eat-well/1'] {
+    .content {
+      background: rgba(255,255,255,0.8);
+    }
     figcaption {
       left: 10px;
       bottom: 0;
@@ -882,7 +885,7 @@ $green: rgba(84, 144, 86, 0.6);
       justify-content: center;
 
       border-radius: 50%;
-      background: $green;
+      background: $green-text;
       width: 150px;
       height: 150px;
       margin: 0 auto 25px;
