@@ -1,5 +1,5 @@
 ---
-
+    category: Lifestyle
     title: Live Well
     summary: 'Prioritise yourself! Find some me time. Be healthy inside and out. cuptate ndigent quatet iuntinctum a vel ipid essimus vernat qui dolorero es eraturiam'
 
