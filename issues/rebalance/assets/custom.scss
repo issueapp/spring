@@ -837,6 +837,17 @@ $green: #98bc90;
       font-size: 26px;
     }
 
+    .row {
+      margin-bottom: 100px;
+    }
+
+    .col.x4 {
+      position: absolute;
+      margin-left: -100px;
+      transform: rotate(-10deg);
+      margin-top: -75px;
+    }
+
     .circle {
       display: flex;
       flex-direction: row;
@@ -863,6 +874,20 @@ $green: #98bc90;
     @media only screen and (min-width: 768px) {
       > .content {
         padding-top: 20px;
+        overflow: initial;
+      }
+
+      .col.x8 {
+        width: 80%;
+        margin: 0 auto;
+        float: none;
+      }
+
+      .col.x4 {
+        position: absolute;
+        right: 0;
+        transform: rotate(10deg);
+        margin-top: -100px;
       }
 
       .title {
@@ -875,12 +900,6 @@ $green: #98bc90;
 
       .yoghurt {
         width: 80%;
-      }
-
-      .circle {
-        position: absolute;
-        top: 50%;
-        right: 10%;
       }
 
       #new {

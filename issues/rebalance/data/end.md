@@ -28,13 +28,19 @@
   </header>
 
   <div class="body">
-    <img data-media-id="images:1" src="assets/end/yoghurt.png" data-original class="yoghurt">
+    <div class="row">
+      <div class="col x8">
+        <img data-media-id="images:1" src="assets/end/yoghurt.png" data-original class="yoghurt">
+      </div>
+      <div class="col x4">
+        <div class="circle">
+          <p>Available<br>from Coles<br>and<br>IGA stores</p>
+        </div>
+      </div>
+    </div>
     <p>The most natural way of bringing joy to your digestive well being.</p>
     <a href="http://activia.com.au" target="_blank">activia.com.au</a>
   </div>
 </div>
 
 <img data-media-id="images:2" data-original src="assets/end/new.png" id="new" >
-<div class="circle">
-  <p>Available<br>from Coles<br>and<br>IGA stores</p>
-</div>
