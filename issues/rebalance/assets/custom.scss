@@ -5,7 +5,6 @@ $green: #98bc90;
 
 @mixin brand-title {
   color: $green-text;
-  font-size: 30px;
   font-weight: 300;
 }
 
@@ -20,6 +19,10 @@ $green: #98bc90;
 //  h1, h2 {
 //    color: $green;
 //  }
+  
+  h3 {
+    font-weight: lighter;
+  }
 
   p:empty {
     display: none;
@@ -75,7 +78,7 @@ $green: #98bc90;
 
   @media only screen and (min-width: 768px) {
     h2 {
-      font-size: 2.2vmin;
+      font-size: 3.5vmin;
     }
 
     p {
@@ -171,6 +174,25 @@ $green: #98bc90;
   // End Cover
 
   [data-page='toc'] {
+    
+    blockquote {
+      position: absolute;
+      top: 10%;
+      color: white;
+      
+      p {
+        color: white;
+      }
+    }
+    
+    hr {
+      margin: 1.5em 0;
+    }
+    
+    .menu li {
+      padding: 15px;
+    }
+    
     .head h2,
     .story {
       color: $green-text;
@@ -179,6 +201,7 @@ $green: #98bc90;
 
     .content {
       overflow: visible;
+      position: static;
     }
 
     .brand {
@@ -204,8 +227,10 @@ $green: #98bc90;
         position: absolute;
         top: 0;
         right: 0;
-        background: rgba(255,255,255,0.8);
-        width: 25%;
+        background: rgba(255,255,255,0.85);
+        width: 30%;
+        padding: 40px 0;
+        box-sizing: border-box;
       }
 
       .content {
@@ -217,8 +242,6 @@ $green: #98bc90;
 
       blockquote {
         width: 70%;
-        margin-top: 10%;
-        color: #fff;
         font-size: 24px;
       }
 
@@ -243,7 +266,7 @@ $green: #98bc90;
         z-index: 1;
         box-sizing: border-box;
         padding: 0;
-        width: 25%;
+        width: 30%;
 
         p {
           font-weight: bold;
@@ -270,10 +293,6 @@ $green: #98bc90;
 
     .title, .category {
       display: none;
-    }
-
-    .cover-area {
-      background-position: 0 0;
     }
 
     figcaption {
@@ -312,7 +331,12 @@ $green: #98bc90;
     }
   }
 
-  [data-page='beat-the-bloat'] {
+  article[data-page='beat-the-bloat'] {
+    
+    .cover-area {
+      background-position: 0 right;
+    }
+    
     .brand-title {
       font-size: 28px;
     }
@@ -528,16 +552,21 @@ $green: #98bc90;
   }
 
   [data-page='eat-well/1'] {
+
     figcaption {
       left: 10px;
       bottom: 0;
     }
 
     @media only screen and (min-width: 768px) {
+      .content {
+        background: rgba(255,255,255, 0.82);
+      }
+      
       figcaption {
         left: initial;
         bottom: 10%;
-        right: 24%;
+        right: 14%;
       }
     }
 
