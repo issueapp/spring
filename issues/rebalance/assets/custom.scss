@@ -1,6 +1,6 @@
 
 $green-text: #1f7646;
-$brand-green: #98bc90;
+$green: #98bc90;
 
 
 @mixin brand-title {
@@ -18,7 +18,7 @@ $brand-green: #98bc90;
 
 #rebalance-issue {
 //  h1, h2 {
-//    color: $brand-green;
+//    color: $green;
 //  }
 
   article {
@@ -56,7 +56,7 @@ $brand-green: #98bc90;
   }
 
   .highlight {
-    border: 2px solid $brand-green;
+    border: 2px solid $green;
     padding: 10px;
 
     .row {
@@ -67,13 +67,13 @@ $brand-green: #98bc90;
     }
 
     p {
-      color: $brand-green;
+      color: $green;
     }
   }
 
   .page.stack {
     h2 {
-      color: $brand-green;
+      color: $green;
     }
 
     .content {
@@ -121,7 +121,7 @@ $brand-green: #98bc90;
       font-weight: bolder;
       letter-spacing: 10px;
 
-      text-shadow: 1px 1px 0px $brand-green;
+      text-shadow: 1px 1px 0px $green;
 
       font-size: 3.9em;
       line-height: 1em;
@@ -134,7 +134,7 @@ $brand-green: #98bc90;
       padding: 0;
       margin: -3.8em 0 0;
 
-      text-shadow: 1px 1px 0px $brand-green;
+      text-shadow: 1px 1px 0px $green;
 
       font-size: 1.6em;
       font-weight: bold;
@@ -481,16 +481,23 @@ $brand-green: #98bc90;
   [data-page='live-well'],
   [data-page='live-well/5'] {
     h1 {
+      font-weight: bold;
+      letter-spacing: 5px;
       color: white;
-      text-shadow: -1px 0 green, 0 1px green, 1px 0 green, 0 -1px green;
+      
+      text-shadow:
+         -1px -1px 0 $green,  
+          1px -1px 0 $green,
+          -1px 1px 0 $green,
+           1px 1px 0 $green;
     }
 
-    @media only screen and (min-width: 768px) {
-      h1 {
-        font-size: 100px;
-        text-shadow: -2px 0 green, 0 2px green, 2px 0 green, 0 -2px green;
-      }
-    }
+//    @media only screen and (min-width: 768px) {
+//      h1 {
+//        font-size: 100px;
+//        text-shadow: -1px 0 $green, 0 1px $green, 1px 0 $green, 0 -1px $green;
+//      }
+//    }
   }
 
   [data-page='eat-well'] {
@@ -499,7 +506,7 @@ $brand-green: #98bc90;
     }
 
     header .title {
-      font-size: 15vmin;
+      font-size: 13vmin;
     }
 
     @media only screen and (min-width: 768px) {
@@ -737,7 +744,7 @@ $brand-green: #98bc90;
     }
 
     .subtitle {
-      color: $brand-green;
+      color: $green;
       font-size: 25px;
       font-style: normal;
       font-weight: bold;
@@ -767,7 +774,7 @@ $brand-green: #98bc90;
     }
 
     a {
-      color: $brand-green;
+      color: $green;
       text-decoration: none;
       font-weight: bold;
       font-size: 26px;
@@ -781,7 +788,7 @@ $brand-green: #98bc90;
       justify-content: center;
 
       border-radius: 50%;
-      background: $brand-green;
+      background: $green;
       width: 150px;
       height: 150px;
       margin: 0 auto 25px;
