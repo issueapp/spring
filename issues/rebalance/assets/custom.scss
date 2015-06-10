@@ -1,6 +1,6 @@
 
 $green-text: #1f7646;
-$green: #98bc90;
+$green: #457747;
 
 
 @mixin brand-title {
@@ -518,8 +518,7 @@ $green: #98bc90;
   }
 
   [data-page='eat-well'],
-  [data-page='live-well'],
-  [data-page='live-well/5'] {
+  [data-page='live-well']{
     h1 {
       font-weight: bold;
       letter-spacing: 5px;
@@ -756,10 +755,12 @@ $green: #98bc90;
   }
 
   [data-page='live-well/5'] {
-    h1 {
-      text-shadow: -1px 0 green, 0 1px green, 1px 0 green, 0 -1px green;
+    
+    img.heading {
+      position: absolute;
+      bottom: 5vh;
     }
-
+    
     figcaption {
       top: 55%;
       right: 0;
