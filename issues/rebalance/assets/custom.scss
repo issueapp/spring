@@ -19,7 +19,7 @@ $green: #98bc90;
 //  h1, h2 {
 //    color: $green;
 //  }
-  
+
   h3 {
     font-weight: lighter;
   }
@@ -182,25 +182,24 @@ $green: #98bc90;
   // End Cover
 
   [data-page='toc'] {
-    
     blockquote {
       position: absolute;
       top: 10%;
       color: white;
-      
+
       p {
         color: white;
       }
     }
-    
+
     hr {
       margin: 1.5em 0;
     }
-    
+
     .menu li {
       padding: 15px;
     }
-    
+
     .head h2,
     .story {
       color: $green-text;
@@ -338,11 +337,10 @@ $green: #98bc90;
   }
 
   article[data-page='beat-the-bloat'] {
-    
     .cover-area {
       background-position: 0 right;
     }
-    
+
     .brand-title {
       font-size: 28px;
     }
@@ -572,7 +570,7 @@ $green: #98bc90;
       .content {
         background: rgba(255,255,255, 0.82);
       }
-      
+
       figcaption {
         left: initial;
         bottom: 10%;
@@ -677,12 +675,23 @@ $green: #98bc90;
     }
 
     header .subtitle {
-      font-weight: lighter;
-      color: #333;
+      font-weight: normal;
+    }
+
+    .cover-area {
+      height: 100%;
+      background-position: 80%;
+    }
+
+    .content {
+      position: absolute;
+      top: 10%;
+      background: none;
     }
 
     @media only screen and (min-width: 768px) {
       .content {
+        position: static;
         padding-left: 100px;
       }
 
