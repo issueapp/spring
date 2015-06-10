@@ -2,7 +2,6 @@
 $green-text: #1f7646;
 $green: rgba(84, 144, 86, 0.6);
 
-
 @mixin brand-title {
   color: $green-text;
   font-weight: 300;
@@ -16,10 +15,6 @@ $green: rgba(84, 144, 86, 0.6);
 }
 
 #rebalance-issue {
-//  h1, h2 {
-//    color: $green;
-//  }
-
   h3 {
     font-weight: lighter;
   }
@@ -362,10 +357,6 @@ $green: rgba(84, 144, 86, 0.6);
       background-position: 0 right;
     }
 
-    .brand-title {
-      font-size: 28px;
-    }
-
     .note {
       color: $green-text;
       text-transform: uppercase;
@@ -377,6 +368,10 @@ $green: rgba(84, 144, 86, 0.6);
     }
 
     @media only screen and (min-width: 768px) {
+      .brand-title {
+        font-size: 3.5vmin;
+      }
+
       figcaption {
         top: 58%;
         left: 8%;
@@ -473,10 +468,6 @@ $green: rgba(84, 144, 86, 0.6);
       height: 100%;
     }
 
-    br {
-      display: none;
-    }
-
     a {
       transition: all 0.35s ease-in;
     }
@@ -499,10 +490,6 @@ $green: rgba(84, 144, 86, 0.6);
         top: 50%;
         right: 20px;
         width: 50%;
-      }
-
-      br {
-        display: inline;
       }
     }
   }
@@ -567,8 +554,20 @@ $green: rgba(84, 144, 86, 0.6);
       font-size: 13vmin;
     }
 
+    .cover-area {
+      height: 100%;
+      background-position: 80%;
+    }
+
+    .content {
+      position: absolute;
+      bottom: 5%;
+      background: none;
+    }
+
     @media only screen and (min-width: 768px) {
       .content {
+        position: static;
         padding-left: 100px;
       }
 
@@ -580,17 +579,12 @@ $green: rgba(84, 144, 86, 0.6);
   }
 
   [data-page='eat-well/1'] {
-
     figcaption {
       left: 10px;
       bottom: 0;
     }
 
     @media only screen and (min-width: 768px) {
-      .content {
-        background: rgba(255,255,255, 0.82);
-      }
-
       figcaption {
         left: initial;
         bottom: 10%;
@@ -773,14 +767,8 @@ $green: rgba(84, 144, 86, 0.6);
   }
 
   [data-page='live-well/4'] {
-    br {
-      display: none;
-    }
-
-    @media only screen and (min-width: 768px) {
-      br {
-        display: inline;
-      }
+    .title {
+      width: 5.4em;
     }
   }
 

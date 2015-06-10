@@ -1,4 +1,5 @@
 ---
+
     category: Recipe
     title: Eat well
     summary: 'When it comes to digestive health, eating a balanced diet complete with probiotic-rich foods is important. Check out these delicious ways to boost your intake.'

@@ -17,7 +17,7 @@
 
 ---
 
-<h2 class="brand-title">Sluggish?<br>Uncomfortable?<br>Lacking in Energy?</h2>
+<h2 class="brand-title">Sluggish? Uncomfortable? Lacking in Energy?</h2>
 
 Your gut could be to blame. Symptoms of poor digestive health include bloating, sluggishness, gas, discomfort and tiredness, as well as a whole host of emotional issues triggered by the physical symptoms.
 

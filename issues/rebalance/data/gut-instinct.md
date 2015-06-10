@@ -47,7 +47,7 @@
 <div class="content">
   <header>
     <div class="wrapper">
-      <h1 class="title">Gut <br>Instinct</h1>
+      <h1 class="title">Gut Instinct</h1>
     </div>
   </header>
 
