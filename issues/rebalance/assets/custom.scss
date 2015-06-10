@@ -64,6 +64,14 @@ $green: #98bc90;
   }
 
   .page.stack {
+    top: 400px;
+    z-index: 0;
+    padding: 0;
+
+    &.show {
+      z-index: 1;
+    }
+
     h2 {
       color: $green;
     }
@@ -266,8 +274,6 @@ $green: #98bc90;
 
   [data-page='welcome'],
   [data-page='beat-the-bloat'] {
-
-
     .title, .category {
       display: none;
     }
@@ -434,6 +440,10 @@ $green: #98bc90;
 
     a:hover {
       transform: scale(0.92);
+    }
+
+    a:active {
+      opacity: 0.75;
     }
 
     @media only screen and (min-width: 768px) {
