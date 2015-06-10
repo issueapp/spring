@@ -182,6 +182,10 @@ $green: rgba(84, 144, 86, 0.6);
       background-repeat: no-repeat;
       margin-left: -200px;
       margin-top: -70px;
+
+      // animation
+      // animation: sparkles 4s linear 0s infinite alternate;
+
     }
 
     @media only screen and (min-width: 768px) {
@@ -1055,4 +1059,26 @@ $green: rgba(84, 144, 86, 0.6);
 //    background-size: cover;
 //    opacity: 1;
 	}
+}
+
+@keyframes sparkles {
+  0% {
+    transform: scale(0.98) translateY(1%);
+    opacity: 0.4;
+  }
+ 
+  33% {
+    transform: scale(1) translateY(0);
+    opacity: 0.6;
+  }
+ 
+  66% {
+    transform: scale(1.02) translateY(-1%);
+    opacity: 1;
+  }
+ 
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 0.6;
+  }
 }
