@@ -112,25 +112,25 @@
       .content {
         max-width: initial;
         padding: 50px 0 25px;
+      }
+      
+      .body > {
+        h1, h2, h3, p, figure, section {
+          max-width: 720px;
+          margin-left: auto;
+          margin-right: auto;
+          box-sizing: border-box;
 
-        .body > {
-          h1, h2, h3, p, figure, section {
-            max-width: 720px;
-            margin-left: auto;
-            margin-right: auto;
-            box-sizing: border-box;
-
-            &.full {
-              max-width: initial;
-            }
-          }
-
-          section {
-            margin-bottom: 20px;
+          &.full {
+            max-width: initial;
           }
         }
-      }
 
+        section {
+          margin-bottom: 20px;
+        }
+      }
+      
       &.image-background .content {
         max-width: 45em;
       }
@@ -214,7 +214,6 @@
         z-index: 1;
 
         transform: translateY(-20%);
-        -webkit-transform: translateY(-20%);
 
         // Video background image
         .title, .subtitle {
@@ -249,10 +248,7 @@
         background-repeat: no-repeat;
 
         animation:  fade 0.8s ease both;
-        -webkit-animation:  fade 0.8s ease both;
-
         animation-delay: 0.8s;
-        -webkit-animation-delay: 0.8s;
       }
 
       figcaption {
@@ -317,7 +313,7 @@
 
     	-webkit-backface-visibility: hidden;
     	-webkit-perspective: 1000;
-      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
 
     	background-position: 0px 0px;
     	background-repeat: repeat-x;
@@ -334,7 +330,6 @@
         padding: 0 10px;
 
         transform: translateY(-50%);
-        -webkit-transform: translateY(-50%);
 
         .title, .subtitle, .category {
           color: white;
@@ -358,7 +353,6 @@
 
     &.current .cover-area {
     	animation: animatedBackground 50s linear infinite;
-    	-webkit-animation: animatedBackground 50s linear infinite;
     }
   }
 
@@ -465,7 +459,7 @@
     }
 
     &.current figure.island {
-      animation: animatedBackground 20s ease-out infinite;
+      animation: animatedBackground 30s ease-out infinite;
     }
 
     .booking {
@@ -542,18 +536,7 @@
 	100% { background-position: 0 0; }
 }
 
-@-webkit-keyframes animatedBackground {
-	0% { background-position: 0 0; }
-  50% { background-position: 100% 0; }
-	100% { background-position: 0 0; }
-}
-
 @keyframes videoFadeIn {
-	from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@-webkit-keyframes videoFadeIn {
 	from { opacity: 0; }
   to { opacity: 1; }
 }
