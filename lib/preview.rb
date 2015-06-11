@@ -100,6 +100,7 @@ class IssuePreview < Sinatra::Base
     # Append issue asset path and remember current search paths
     preview_paths = sprockets.paths
     sprockets.append_path(current_issue.path.join('assets'))
+    sprockets.append_path Rails.root.join('app/assets/stylesheets/')
 
     # Serve asset via sprockets
     file = params[:splat].first
@@ -110,6 +111,7 @@ class IssuePreview < Sinatra::Base
     preview_paths.each do |path|
       sprockets.append_path path
     end
+
 
     # asset_path = request.path_info.gsub(/^\/#{params[:magazine]}/, "issues")
     # file = File.expand_path("../../#{CGI.unescape(asset_path)}", __FILE__)

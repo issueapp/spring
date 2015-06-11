@@ -38,12 +38,12 @@
     <a href="#item5" data-overlay='false' data-app-view="layer" data-media-id="images:6" data-background-image="true" data-original></a>
     <a href="#item6" data-overlay='false' data-app-view="layer" data-media-id="images:7" data-background-image="true" data-original></a>
     <a href="#item7" data-overlay='false' data-app-view="layer" data-media-id="images:8" data-background-image="true" data-original></a>
-    <a href="#item8" data-overlay='false' data-app-view="layer" data-media-id="images:9" data-background-image="true" data-original></a>
+    <a href="#item8" data-hint="Click to learn more" data-overlay='false' data-app-view="layer" data-media-id="images:9" data-background-image="true" data-original class="hint--top hint--always"></a>
     <div class="aspect-ratio" style="padding-bottom: 100%;"></div>
   </figure>
 </div>
 
-<figure class="cover-area image" style="background-image: url({{ cover.url }})"></figure>
+<figure class="cover-area image" style="background-image: url({{cover.url}})"></figure>
 <div class="content">
   <header>
     <div class="wrapper">

@@ -1,4 +1,6 @@
 
+@import 'ui/hint';
+
 $green-text: #1f7646;
 $green: rgba(84, 144, 86, 0.6);
 
@@ -12,11 +14,14 @@ $green: rgba(84, 144, 86, 0.6);
   text-align: left;
   font-weight: lighter;
   line-height: normal;
+  margin-bottom: 0;
 }
 
 #rebalance-issue {
-  h3 {
+  h3:not(.subtitle) {
+    text-transform: uppercase;
     font-weight: lighter;
+    margin-bottom: 0.75em;
   }
 
   p:empty {
@@ -46,8 +51,12 @@ $green: rgba(84, 144, 86, 0.6);
   }
 
   .highlight {
-    border: 2px solid $green-text;
+    border: 1px solid $green;
     padding: 10px;
+
+    .image {
+      margin: 0;
+    }
 
     .row {
       display: flex;
@@ -229,7 +238,7 @@ $green: rgba(84, 144, 86, 0.6);
 
     .brand {
       margin: 0 auto;
-      color: $green;
+      color: $green-text;
 
       figure {
         width: 150px;
@@ -468,6 +477,12 @@ $green: rgba(84, 144, 86, 0.6);
       height: 100%;
     }
 
+    [data-hint]:after {
+      font-size: 14px;
+      padding: 15px 20px;
+      font-weight: bold;
+    }
+
     a {
       transition: all 0.35s ease-in;
     }
@@ -480,7 +495,14 @@ $green: rgba(84, 144, 86, 0.6);
       opacity: 0.75;
     }
 
+    .cover-area.image {
+      background-position: 80%;
+    }
+
     @media only screen and (min-width: 768px) {
+      .cover-area.image {
+        background-position: 25% 50%;
+      }
       .title {
         font-size: 6vmin;
         margin-left: 44px;
