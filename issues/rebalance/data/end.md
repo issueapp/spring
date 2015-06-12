@@ -21,9 +21,8 @@
 <div class="content">
   <header>
     <div class="wrapper">
-      <h3 class="subtitle">- Activia Pure -</h3>
-      <h1 class="title">Less Is More</h1>
-      <div class="extras"></div>
+      <h1 class="title">- Activia Pure -</h1>
+      <h3 class="subtitle">A combination of just two natural ingredients: 100% pure natural Australian milk (free from GMO) and exclusive probiotics Bifidus ActiReguaris.</h3>
     </div>
   </header>
 
@@ -38,7 +37,7 @@
         </div>
       </div>
     </div>
-    <p>The most natural way of bringing joy to your digestive well being.</p>
+    <p>Feel nourished from the inside out</p>
     <a href="http://activia.com.au" target="_blank">activia.com.au</a>
   </div>
 </div>

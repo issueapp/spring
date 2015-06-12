@@ -884,6 +884,7 @@ $green: rgba(84, 144, 86, 0.6);
     > .content {
       height: initial;
       padding-top: 70px;
+      padding-bottom: 0;
     }
 
     .body {
@@ -892,19 +893,19 @@ $green: rgba(84, 144, 86, 0.6);
 
     .subtitle {
       color: $green-text;
-      font-size: 25px;
-      font-style: normal;
-      font-weight: bold;
-      font-family: "Helvetica Neue";
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      margin: 0;
+      font-size: 19px;
+      letter-spacing: initial;
+      width: 90%;
+      margin: 0 auto;
+      text-transform: none;
     }
 
     .title {
+      font-size: 26px;
       letter-spacing: 6px;
-      margin: 0;
+      margin: 0 0 20px;
       text-align: center;
+      font-weight: bold;
     }
 
     #new {
@@ -928,14 +929,15 @@ $green: rgba(84, 144, 86, 0.6);
     }
 
     .row {
-      margin-bottom: 100px;
+      margin-bottom: 90px;
     }
 
     .col.x4 {
       position: absolute;
-      margin-left: -100px;
+      margin-left: -125px;
       transform: rotate(-10deg);
       margin-top: -75px;
+      height: auto;
     }
 
     .col.x8 {
@@ -950,7 +952,7 @@ $green: rgba(84, 144, 86, 0.6);
       justify-content: center;
 
       border-radius: 50%;
-      background: $green-text;
+      background: #0F7C33;
       width: 150px;
       height: 150px;
       margin: 0 auto 25px;
@@ -967,8 +969,20 @@ $green: rgba(84, 144, 86, 0.6);
 
     @media only screen and (min-width: 768px) {
       > .content {
-        padding-top: 20px;
+        padding-top: 50px;
         overflow: initial;
+      }
+
+      header {
+        width: 100%;
+      }
+
+      p {
+        margin: 0;
+      }
+
+      .row {
+        margin-bottom: 0;
       }
 
       .col.x8 {
@@ -979,17 +993,18 @@ $green: rgba(84, 144, 86, 0.6);
 
       .col.x4 {
         position: absolute;
-        right: 0;
-        transform: rotate(10deg);
-        margin-top: -100px;
+        bottom: 0;
+        margin: 0;
+        right: -100px;
+        transform: initial;
       }
 
       .title {
-        font-size: 9vmin;
+        font-size: 5vmin;
       }
 
       .subtitle {
-        font-size: 4vmin;
+        font-size: 3.6vmin;
       }
 
       .yoghurt {
@@ -998,6 +1013,12 @@ $green: rgba(84, 144, 86, 0.6);
 
       #new {
         max-width: 280px;
+      }
+    }
+
+    @media only screen and (min-width: 768px) and (orientation: portrait) {
+      .col.x4 {
+        right: -50px;
       }
     }
   }
