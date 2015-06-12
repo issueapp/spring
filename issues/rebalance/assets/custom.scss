@@ -206,6 +206,8 @@ $green: rgba(84, 144, 86, 0.6);
   // End Cover
 
   [data-page='toc'] {
+    height: initial !important;
+
     blockquote {
       position: absolute;
       top: 10%;
@@ -234,11 +236,25 @@ $green: rgba(84, 144, 86, 0.6);
     .content {
       overflow: visible;
       position: static;
+      padding: 0 15px;
+    }
+
+    .main {
+      position: static;
+    }
+
+    .menu {
+      padding-bottom: 280px;
     }
 
     .brand {
-      margin: 0 auto;
       color: $green-text;
+      position: absolute;
+      bottom: 20px;
+      left: 0;
+      right: 0;
+      z-index: 1;
+      margin: auto;
 
       figure {
         width: 150px;
@@ -251,6 +267,8 @@ $green: rgba(84, 144, 86, 0.6);
     }
 
     @media only screen and (min-width: 768px) {
+      height: 100% !important;
+
       .main {
         width: 100%;
       }
@@ -293,6 +311,7 @@ $green: rgba(84, 144, 86, 0.6);
 
       .brand {
         position: absolute;
+        left: initial;
         right: 4px;
         bottom: 10px;
         z-index: 1;
@@ -311,6 +330,7 @@ $green: rgba(84, 144, 86, 0.6);
     @media only screen and (min-width: 768px) and (orientation: portrait) {
       blockquote {
         font-size: 22px;
+        width: 55%;
       }
 
       .brand {
