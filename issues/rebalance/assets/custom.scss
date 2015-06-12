@@ -28,6 +28,10 @@ $green: rgba(84, 144, 86, 0.6);
     display: none;
   }
 
+  p {
+    text-align: left;
+  }
+
   figcaption {
     color: #000;
     top: initial;
@@ -53,6 +57,7 @@ $green: rgba(84, 144, 86, 0.6);
   .highlight {
     border: 1px solid $green;
     padding: 10px;
+    margin-top: 30px;
 
     .image {
       margin: 0;
@@ -67,6 +72,7 @@ $green: rgba(84, 144, 86, 0.6);
 
     p {
       color: $green-text;
+      margin: 0;
     }
   }
 
@@ -93,6 +99,11 @@ $green: rgba(84, 144, 86, 0.6);
   }
 
   @media only screen and (min-width: 768px) {
+    header .title {
+      font-size: 4vmin;
+      line-height: 1em;
+    }
+
     h2 {
       font-size: 3.5vmin;
     }
@@ -578,11 +589,6 @@ $green: rgba(84, 144, 86, 0.6);
 
     @media only screen and (min-width: 768px) {
       height: 100%;
-
-      header h1 {
-        font-size: 4vmin;
-        line-height: 1em;
-      }
     }
   }
 
@@ -599,13 +605,6 @@ $green: rgba(84, 144, 86, 0.6);
           -1px 1px 0 $green,
            1px 1px 0 $green;
     }
-
-//    @media only screen and (min-width: 768px) {
-//      h1 {
-//        font-size: 100px;
-//        text-shadow: -1px 0 $green, 0 1px $green, 1px 0 $green, 0 -1px $green;
-//      }
-//    }
   }
 
   [data-page='eat-well'] {
@@ -619,7 +618,7 @@ $green: rgba(84, 144, 86, 0.6);
 
     .cover-area {
       height: 100%;
-      background-position: 80%;
+      background-position: 20%;
     }
 
     .content {
@@ -645,13 +644,15 @@ $green: rgba(84, 144, 86, 0.6);
     .content {
       background: rgba(255,255,255,0.8);
     }
+
     figcaption {
-      left: 10px;
-      bottom: 0;
+      left: 0px;
+      top: 10px;
     }
 
     @media only screen and (min-width: 768px) {
       figcaption {
+        top: initial;
         left: initial;
         bottom: 10%;
         right: 23%;
@@ -660,7 +661,12 @@ $green: rgba(84, 144, 86, 0.6);
 
     @media only screen and (min-width: 768px) and (orientation: portrait) {
       figcaption {
-        right: 10%;
+        top: 10%;
+        left: 38%;
+      }
+
+      .cover-area {
+        background-position: 10%;
       }
     }
   }
@@ -678,6 +684,10 @@ $green: rgba(84, 144, 86, 0.6);
       margin: 0.5em 0;
       line-height: 1.2;
       text-align: left;
+    }
+
+    .highlight p {
+      margin: 0;
     }
 
     .col.x6 {
@@ -719,9 +729,17 @@ $green: rgba(84, 144, 86, 0.6);
       right: 2%;
     }
 
+    header figure.image {
+      display: none;
+    }
+
     @media only screen and (min-width: 768px) {
       .content {
         padding-top: 25px;
+      }
+
+      header figure.image {
+        display: block;
       }
 
       figcaption {
@@ -734,9 +752,17 @@ $green: rgba(84, 144, 86, 0.6);
   }
 
   [data-page='eat-well/6'] {
+    header figure.image {
+      display: none;
+    }
+
     @media only screen and (min-width: 768px) {
       .content {
         padding-top: 25px;
+      }
+
+      header figure.image {
+        display: block;
       }
     }
   }
@@ -829,13 +855,6 @@ $green: rgba(84, 144, 86, 0.6);
 
     .content {
       background: rgba(255,255,255, 0.9);
-    }
-
-    @media only screen and (min-width: 768px) {
-      .content {
-        margin: 0 20px;
-        max-height: 96%;
-      }
     }
   }
 
