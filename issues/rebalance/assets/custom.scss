@@ -783,6 +783,10 @@ $green: rgba(84, 144, 86, 0.6);
       background-position: center top;
     }
 
+    p {
+      text-align: left;
+    }
+
     @media only screen and (min-width: 768px) {
       header .title {
         font-size: 4vmin;
@@ -811,17 +815,7 @@ $green: rgba(84, 144, 86, 0.6);
   }
 
   [data-page='live-well/3'] {
-    figcaption {
-      top: 25%;
-      left: 19%;
-    }
-
     @media only screen and (min-width: 768px) {
-      figcaption {
-        top: 28%;
-        left: 28%;
-      }
-
       .title {
         font-size: 4vmin;
       }
@@ -832,8 +826,16 @@ $green: rgba(84, 144, 86, 0.6);
     .title {
       width: 5.4em;
     }
+
     .content {
       background: rgba(255,255,255, 0.9);
+    }
+
+    @media only screen and (min-width: 768px) {
+      .content {
+        margin: 0 20px;
+        max-height: 96%;
+      }
     }
   }
 
