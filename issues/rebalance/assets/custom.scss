@@ -83,6 +83,10 @@ $green: rgba(84, 144, 86, 0.6);
       color: $green-text;
     }
 
+    p {
+      text-align: left;
+    }
+
     .content {
       position: static;
     }
@@ -445,6 +449,7 @@ $green: rgba(84, 144, 86, 0.6);
       position: absolute;
       width: 17%;
       height: 18%;
+      opacity: 0.65;
     }
 
     a[href='#item1'] {
@@ -507,12 +512,17 @@ $green: rgba(84, 144, 86, 0.6);
       transition: all 0.35s ease-in;
     }
 
+    a.active {
+      opacity: 1;
+    }
+
     a:hover {
       transform: scale(0.92);
+      opacity: 1;
     }
 
     a:active {
-      opacity: 0.75;
+      opacity: 0.6;
     }
 
     .cover-area.image {
@@ -523,15 +533,26 @@ $green: rgba(84, 144, 86, 0.6);
       .cover-area.image {
         background-position: 25% 50%;
       }
+
       .title {
         font-size: 6vmin;
-        margin-left: 44px;
+        margin-left: 20px;
       }
 
       .gut {
         top: 50%;
         right: 20px;
         width: 50%;
+      }
+    }
+
+    @media only screen and (min-width: 768px) and (orientation: portrait) {
+      .content {
+        margin-top: 20%;
+      }
+
+      .cover-area.image {
+        background-position: 55% 50%;
       }
     }
   }
