@@ -129,7 +129,6 @@ $green: rgba(84, 144, 86, 0.6);
   // Start Cover
   [data-page='index'] {
 
-    background-position: bottom right;
     &:before {
       display: none;
     }
@@ -143,7 +142,7 @@ $green: rgba(84, 144, 86, 0.6);
       background-size: contain;
       background-position: center;
       width: 25vmin;
-      height: 10vmin;
+      height: 11vmin;
       margin: 0 auto;
       color: transparent;
       text-shadow: none;
@@ -163,7 +162,7 @@ $green: rgba(84, 144, 86, 0.6);
 
       font-size: 3.8em;
       line-height: 1em;
-      margin: 1em 0 0;
+      margin: 0.75em 0 0;
     }
 
     .description {
@@ -190,22 +189,29 @@ $green: rgba(84, 144, 86, 0.6);
     }
 
     .extra-1 {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 400px;
-      height: 400px;
-      background-image: url(sparkles.png);
-      background-position: center;
-      background-size: cover;
-      background-repeat: no-repeat;
-      margin-left: -200px;
-      margin-top: -70px;
+//      position: absolute;
+//      top: 50%;
+//      left: 50%;
+//      width: 400px;
+//      height: 400px;
+//      background-image: url(sparkles.png);
+//      background-position: center;
+//      background-size: cover;
+//      background-repeat: no-repeat;
+//      margin-left: -200px;
+//      margin-top: -70px;
 
       // animation
       // animation: sparkles 4s linear 0s infinite alternate;
 
     }
+
+//    @media only screen and (min-width: 768px) and (orientation: landscape) {
+//      .magazine.cover {
+//        background-position: 50% 20%;;
+//      }
+//    }
+
 
     @media only screen and (min-width: 768px) {
       .title {
@@ -1141,10 +1147,10 @@ $green: rgba(84, 144, 86, 0.6);
 
 @keyframes zoom-cover {
 	0% {
-    background-position: 50% 90%;
+    background-position: 50% 20%;
 //    background-size: cover;
 //    transform: scale(1);
-//    opacity: 0.6;
+//    opacity: 0.8;
 	}
 
 	50% {
@@ -1154,7 +1160,7 @@ $green: rgba(84, 144, 86, 0.6);
 	}
 
 	100% {
-    background-position: bottom;
+    background-position: 50% 50%;
 //    background-size: cover;
 //    opacity: 1;
 	}
