@@ -496,7 +496,7 @@ class Issue::PageView
         showinfo: 0,
         wmode: 'transparent',
       )
-      embed_url = "https://youtube.com/embed/#{$1}"
+      embed_url = "https://youtube-nocookie.com/embed/#{$1}"
 
     when /vimeo\.com\/([^\/]+)/
       params = params.merge(
