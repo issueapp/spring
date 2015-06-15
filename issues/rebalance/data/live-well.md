@@ -6,13 +6,6 @@
     cover_url: 'assets/live-well/cover.jpg'
     thumb_url: 'assets/live-well/cover.jpg'
 
-    audios:
-      - url: "assets/live-well/open-book.mp3"
-        autoplay: true
-        controls: false
-        global: true
-        scope: 'live-well'
-
     custom_html: true
 
     layout:
