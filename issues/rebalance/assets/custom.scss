@@ -47,6 +47,7 @@ $green: rgba(84, 144, 86, 0.6);
 
   header .title {
     @include header-style;
+    line-height: 0.7em;
   }
 
   .subtitle {
@@ -161,28 +162,39 @@ $green: rgba(84, 144, 86, 0.6);
            1px 1px 0 $green;
 
       font-size: 3.8em;
-      line-height: 1em;
-      margin: 0.75em 0 0;
+      line-height: 0.1em;
+      margin: 1em 0 0;
+      
+      &:before {
+        content: "Find Your Natural";
+        font-size: 0.45em;
+        position: absolute;
+        text-transform: uppercase;
+        padding: 0;
+        margin: -1.8em 0 0;
+        text-shadow: -1px -1px 0 $green, 1px -1px 0 $green, -1px 1px 0 $green, 1px 1px 0 $green;
+        font-weight: bold;
+        letter-spacing: 0.25em;
+        font-family: "HelveticaNeue-CondensedBold";
+        white-space: nowrap;
+      }
     }
 
     .description {
-      position: static;
+      font-family: 'proxima-nova';
       text-transform: uppercase;
-      padding: 0;
-      margin: -3.8em 0 0;
-
-      text-shadow:
-         -1px -1px 0 $green,
-          1px -1px 0 $green,
-          -1px 1px 0 $green,
-           1px 1px 0 $green;
-
-      font-size: 1.55em;
-      font-weight: bold;
-      letter-spacing: 8px;
-      font-family: "HelveticaNeue-CondensedBold";
-      white-space: nowrap;
+      font-size: 14px;
+      letter-spacing: 2px;
+      border: 0.5px solid rgba(255,255,255,0.5);
+      padding: 0.5em 0;
+      border-width: 1px 0;
+      margin: 0 auto 2vmin;
+      text-shadow: 0px 0px 10px rgba(0,0,0,0.3);
+      line-height: 1;
+      left: 30px;
+      right: 30px;
     }
+
 
     .issue-logo {
       display: none;
@@ -217,10 +229,18 @@ $green: rgba(84, 144, 86, 0.6);
       .title {
         font-size: 10vmin;
 //        margin-right: 5%;
+//        font-size: 0.47em;
+
+        &:before {
+          font-size: 0.44em;
+          
+        }
       }
 
       .description {
-        font-size: 4.5vmin;
+        font-size: 3vmin;
+        width: 25em;
+        margin: 0 auto 1em;
       }
     }
   }
@@ -523,6 +543,7 @@ $green: rgba(84, 144, 86, 0.6);
       font-size: 14px;
       padding: 15px 20px;
       font-weight: bold;
+      opacity: 1;
     }
 
     a {
@@ -1147,7 +1168,7 @@ $green: rgba(84, 144, 86, 0.6);
 
 @keyframes zoom-cover {
 	0% {
-    background-position: 50% 20%;
+    background-position: 50% 40%;
 //    background-size: cover;
 //    transform: scale(1);
 //    opacity: 0.8;
