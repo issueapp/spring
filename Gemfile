@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem "serve" #, github: "danielstutzman/serve",  require: false
+gem "serve", github: "danielstutzman/serve",  require: false
 
 # Use the edge instead:
 # gem "serve", :git => "git://github.com/jlong/serve.git"
