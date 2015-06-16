@@ -491,12 +491,13 @@ class Issue::PageView
         enablejsapi: 1,
         hd: 1,
         iv_load_policy: 3,
+        modestbranding: 1,
         origin: 'https://issueapp.com',
         rel: 0,
         showinfo: 0,
         wmode: 'transparent',
       )
-      embed_url = "https://youtube-nocookie.com/embed/#{$1}"
+      embed_url = "https://www.youtube-nocookie.com/embed/#{$1}"
 
     when /vimeo\.com\/([^\/]+)/
       params = params.merge(
