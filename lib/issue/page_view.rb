@@ -185,6 +185,7 @@ class Issue::PageView
       hash['id'] = hash.delete('_id')
     end
 
+    hash['updated_at'] = page.updated_at.to_i.to_s
     hash['parentTitle'] = page.parent.title if page.parent
 
     #hash["cover_url"] = asset_path(hash["cover_url"])
