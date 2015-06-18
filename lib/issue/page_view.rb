@@ -155,8 +155,9 @@ class Issue::PageView
   end
 
   def product_set_html
+    count = page.products.count == 9 ? 9 : [(page.products.count/2.0).ceil*2, 6].min
     container_class = 'product-set'
-    container_class << " set-#{(page.products.to_a.count/2.0).ceil*2}"
+    container_class << " set-#{count}"
     container_class << ' cover-area' unless page.cover
 
     fragment = create_element('ul', :class => container_class) do |ul|
