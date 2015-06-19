@@ -6,7 +6,6 @@
 #= require mustache
 
 # Patches/Polyfills
-#= require post_message
 #= require fastclick
 
 #= require spring.ui

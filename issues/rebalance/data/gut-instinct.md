@@ -54,7 +54,7 @@
   <article id="item1" class="page stack">
     <div class="content">
       <h2>1. YOUR DIGESTIVE MICROFLORA IS AS INDIVIDUAL AS YOUR FINGERPRINT.</h2>
-      <p>Microflora are the microbial bacteria and fungi than inhabit your gastrointestinal system. They assist with digestion and play an important role in the immune system. The microflora within each of us is extremely diverse, and this comes down to differences in our genetics, environment, diet and neonatal exposure.</p>
+      <p>Microflora are the microbial bacteria than inhabit your gastrointestinal system. They assist with digestion and play an important role in the immune system. The microflora within each of us is extremely diverse, and this comes down to differences in our genetics, environment, diet and neonatal exposure.</p>
     </div>
   </article>
   <article id="item2" class="page stack">
@@ -84,7 +84,7 @@
   <article id="item6" class="page stack">
     <div class="content">
       <h2>6. THE INTESTINAL MICROFLORA CAN BE IMPROVED BY THE INGESTION OF PROBIOTICS LIKE ACTIVIA.</h2>
-      <p>Probiotics are the ‘friendly’ microorganisms (either bacteria or yeast) that help keep a balance of healthy microflora in your gut. Probiotics can be found in foods such as milk and yoghurt. Pure by Activia yoghurt has been specially formulated to contain an exclusive probiotic culture called Bifidus ActiRegularis®, which is proven to help improve digestive wellbeing.</p>
+      <p>Probiotics are the ‘friendly’ microorganisms (either bacteria) that help keep a balance of healthy microflora in your gut. Probiotics can be found in foods such as yoghurt. Pure by Activia yoghurt has been specially formulated to contain an exclusive probiotic culture called Bifidus ActiRegularis®, which is proven to help improve digestive wellbeing.</p>
     </div>
   </article>
   <article id="item7" class="page stack">
