@@ -111,6 +111,10 @@ $green: rgba(84, 144, 86, 0.6);
       font-size: 3.5vmin;
     }
 
+    h3 {
+      font-size: 2.2vmin;
+    }
+
     p {
       font-size: 2vmin;
     }
@@ -166,7 +170,7 @@ $green: rgba(84, 144, 86, 0.6);
       font-size: 3.8em;
       line-height: 0.1em;
       margin: 1em 0 0;
-      
+
       &:before {
         content: "Find Your Natural";
         font-size: 0.45em;
@@ -235,7 +239,7 @@ $green: rgba(84, 144, 86, 0.6);
 
         &:before {
           font-size: 0.44em;
-          
+
         }
       }
 
