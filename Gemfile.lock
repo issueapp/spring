@@ -1,4 +1,16 @@
 GIT
+  remote: git://github.com/danielstutzman/serve.git
+  revision: c5c15dc574d1dccac73b84eaffe1e70624b37020
+  specs:
+    serve (1.5.2)
+      activesupport (> 3.2.12)
+      i18n
+      rack (~> 1.5.2)
+      rack-test (~> 0.6.2)
+      tilt (~> 1.3.3)
+      tzinfo
+
+GIT
   remote: git://github.com/ocapi/sinatra-contrib.git
   revision: 840eb8a3e7c9826f29be070307ca818a74d84f08
   specs:
@@ -95,13 +107,6 @@ GEM
       rspec-support (~> 3.2.0)
     rspec-support (3.2.1)
     sass (3.2.14)
-    serve (1.5.2)
-      activesupport (~> 3.2.12)
-      i18n
-      rack (~> 1.5.2)
-      rack-test (~> 0.6.2)
-      tilt (~> 1.3.3)
-      tzinfo
     sinatra (1.4.4)
       rack (~> 1.4)
       rack-protection (~> 1.4)
@@ -150,7 +155,10 @@ DEPENDENCIES
   rdiscount
   rspec
   rspec-html-matchers
-  serve
+  serve!
   sinatra
   sinatra-asset-pipeline
   sinatra-contrib!
+
+BUNDLED WITH
+   1.10.4
