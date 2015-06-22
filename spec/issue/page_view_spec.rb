@@ -457,4 +457,28 @@ RSpec.describe Issue::PageView do
     it 'outputs page layout class'
     it 'returns layout object'
   end
+
+  describe 'Edit mode' do
+    let(:image) { {} }
+    let(:video) { {} }
+
+    subject(:html) { view.content_html }
+
+    before do
+      page['images'] = [image]
+      page['videos'] = [video]
+
+      view.edit_mode = true
+    end
+
+    it 'decorates image with <img> tag' do
+      page['content'] = '<img data-media-id="images:1">'
+      html.should have_tag('img')
+    end
+
+    it 'decorates video with <video> tag' do
+      page['content'] = '<video data-media-id="videos:1"></video>'
+      html.should have_tag('video')
+    end
+  end
 end
