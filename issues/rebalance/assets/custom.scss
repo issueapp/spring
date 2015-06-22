@@ -172,6 +172,8 @@ $green: rgba(84, 144, 86, 0.6);
       margin: 1em 0 0;
 
       &:before {
+        top: 0;
+        left: 0.5em;
         content: "Find Your Natural";
         font-size: 0.45em;
         position: absolute;
@@ -239,7 +241,7 @@ $green: rgba(84, 144, 86, 0.6);
 
         &:before {
           font-size: 0.44em;
-
+          left: 0;
         }
       }
 
