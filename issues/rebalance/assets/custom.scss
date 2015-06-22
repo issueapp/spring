@@ -685,12 +685,20 @@ $green: rgba(84, 144, 86, 0.6);
       top: 10px;
     }
 
+    header .title {
+      line-height: normal;
+    }
+
     @media only screen and (min-width: 768px) {
       figcaption {
         top: initial;
         left: initial;
         bottom: 10%;
         right: 23%;
+      }
+
+      header .title {
+        line-height: 1em;
       }
     }
 
@@ -885,11 +893,18 @@ $green: rgba(84, 144, 86, 0.6);
 
   [data-page='live-well/4'] {
     .title {
-      width: 5.4em;
+      width: 5.3em;
+      line-height: normal;
     }
 
     .content {
       background: rgba(255,255,255, 0.9);
+    }
+
+    @media only screen and (min-width: 768px) {
+      .title {
+        line-height: 1em;
+      }
     }
   }
 

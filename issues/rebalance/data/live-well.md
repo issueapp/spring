@@ -23,8 +23,6 @@
     <div class="wrapper">
       <h3 class="subtitle">Your health should be a priority, so make some time for yourself and live your healthiest, fullest life.</h3>
       <h1 class="title">Be Well</h1>
-      <audio data-media-id="audios:1"></audio>
     </div>
   </header>
 </div>
-<a href="#" class="audio audio-on"></audio>
