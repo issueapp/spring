@@ -49,6 +49,45 @@
   font-style: normal;
   font-family: 'National-Book';
   src: url("fonts/National-Book.otf") format("opentype");
+
+#new-zealand-map {
+  background: #ccded8;
+  padding-top: 10%;
+  figure.image {
+    
+  }
+  
+  .hotspot {
+    @extend %icon-style;
+    position: absolute;
+    text-decoration: none;
+    color: rgba(0,0,0, 0.7);
+    width: 30px;
+    z-index: 2;
+
+    &:before{
+      content: "\e65d";
+    }
+
+    &:active {
+      color: #fff;
+    }
+    
+    span {
+      font-style: italic;
+      position: absolute;
+      white-space: nowrap;
+      top: 0;
+      line-height: 22px;
+      left: 35px;
+    }
+    
+    span.left {
+      left: initial;
+      right: 35px;
+    }
+  }
+
 }
 
 #coach-touring-issue {
@@ -121,6 +160,20 @@
   // Start Cover
   [data-page=index] {
   }
+  
+  [data-page=on-board] {
+    svg path.state {
+      -webkit-transition: all 0.3s ease-out;
+      -moz-transition: all 0.3s ease-out;
+      transition: all 0.3s ease-out;
+    }
+
+    svg path:hover {
+      fill: rgba(255,255,255,0.5);
+    }
+
+  }
+  
   // End Cover
 
   [data-page='north-island-megastars'] {
