@@ -5,18 +5,22 @@ require 'hashie'
 require 'pathname'
 require 'yaml'
 
+
+# Spring.issues_path is a local directory
+# that contains data and assets of issues
+Spring = Struct.new(:issues_path).new(Pathname(ENV['HOME'])/'Dropbox'/'issues')
+raise 'Issues path not found' unless Spring.issues_path.exist?
+
+
 # Setup auto load for page view mode
-Issue = Issue || Module.new
+Issue || (Issue = Module.new)
 Issue.autoload :Preview, 'issue/page_view.rb'
 
 class LocalIssue < Hashie::Mash
 
   def self.all
-    issues_path = Pathname(File.expand_path("../../issues", __FILE__))
-
-    Dir.glob("#{issues_path}/*/issue.yaml").map do |file|
+    Dir.glob("#{Spring.issues_path}/*/issue.yaml").map do |file|
       issue_path = file.split("/").first
-
       find issue_path
     end
   end
@@ -26,29 +30,26 @@ class LocalIssue < Hashie::Mash
   def self.find path
     issue_handle = path.split("/").last
 
-    # cd issues/music
-    issue_path = Pathname(File.expand_path("../../issues/#{issue_handle}", __FILE__))
+    issue_path = Spring.issues_path/issue_handle
+    raise "Issue not found: #{issue_path}" unless issue_path.exist?
 
-    if issue_path.exist?
-      # Dir.chdir issue_path
-      yaml = issue_path.join("issue.yaml")
+    yaml = issue_path/'issue.yaml'
+    raise "Issue yaml not found: #{yaml}" unless yaml.exist?
 
-      if yaml.exist?
-        attributes = YAML.load_file(yaml)
+    attributes = YAML.load_file(yaml)
 
-        # Build default labels
-        attributes["handle"] ||= issue_handle
-        attributes["magazine_handle"] ||= attributes["magazine_title"].parameterize
+    magazine_handle = attributes['magazine_title'].parameterize
+    collaborators = attributes.delete('collaborators')
 
-        attributes["id"]     ||= Digest::MD5.hexdigest("#{attributes["handle"]}/#{attributes["magazine_handle"]}")
-        attributes["assets"] ||= []
+    # Build default labels
+    attributes["handle"] ||= issue_handle
+    attributes["magazine_handle"] ||= magazine_handle
+    attributes["id"] ||= Digest::MD5.hexdigest("#{issue_handle}/#{magazine_handle}")
+    attributes["assets"] ||= []
 
-        local = new
-        local.update attributes.except('collaborators')
-        local.regular_writer('collaborators', attributes['collaborators'])
-        local
-      end
-    end
+    local = new(attributes)
+    local.regular_writer('collaborators', collaborators)
+    local
   end
 
   def theme
@@ -56,7 +57,7 @@ class LocalIssue < Hashie::Mash
   end
 
   def path
-    Pathname(File.expand_path("../../issues/#{handle}/", __FILE__))
+    Spring.issues_path/handle
   end
 
   def pages_count
@@ -94,12 +95,13 @@ class LocalIssue < Hashie::Mash
       result << (page.path || page.handle)
 
       unless page.children.empty?
-        result += page.children.map(&:path)
+        result.concat page.children.map(&:path)
       end
 
       result
     end
   end
+  alias_method :page_paths, :paths
 
   def to_hash options={}
     hash = super.except("id", "featured")
@@ -120,7 +122,7 @@ class LocalIssue < Hashie::Mash
       next unless is_local = key.end_with?('_url') && ! String(hash[key]).start_with?('http://', 'https://')
 
       url = hash.delete(key)
-      hash[key.sub(/_url$/, '')] = path.join(url)
+      hash[key.sub(/_url$/, '')] = path/url
     end
   end
 end
