@@ -6,23 +6,28 @@ require 'pathname'
 require 'yaml'
 
 # Setup auto load for page view mode
-Module.const_defined?('Issue') || (Issue = Module.new)
+Issue rescue Issue = Module.new
 Issue.autoload :Preview, 'issue/page_view.rb'
 
 class LocalIssue < Hashie::Mash
 
   # root of issues data and assets
   def self.root
-    @root || begin
+    Thread.current[:local_issue_root] || begin
       home = Pathname(ENV['HOME'])
       set_root(home/'Dropbox'/'issues')
     end
-
-    @root
   end
 
   def self.set_root path
-    @root = path
+    case path
+    when String
+      Thread.current[:local_issue_root] = Pathname(path)
+    when Pathname
+      Thread.current[:local_issue_root] = path
+    else
+      raise "Fail to set root: #{path}"
+    end
   end
 
   def self.all
