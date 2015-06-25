@@ -1,0 +1,21 @@
+title: Coach Touring
+magazine_title: New Zealand
+magazine_handle: newzealand
+
+icon_url: assets/icon.png
+thumb_url: assets/background.jpg
+cover_url: assets/background_large.jpg
+
+assets:
+  - 'custom.css'
+  - 'custom.js'
+
+paths:
+  - index
+  - on-board
+  - north-island-megastars
+  - a-seamless-holiday
+  - south-island-standout
+  - the-maori-experience
+  - eat-drink-explore
+  - end
