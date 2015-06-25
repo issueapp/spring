@@ -5,22 +5,28 @@ require 'hashie'
 require 'pathname'
 require 'yaml'
 
-require_relative 'dropbox'
-
-# SpringRepository.issues_path is a local directory
-# that contains data and assets of issues
-SpringRepository = Struct.new(:issues_path).new(Pathname(ENV['HOME'])/'Dropbox'/'issues')
-raise 'Issues path not found' unless SpringRepository.issues_path.exist?
-
-
 # Setup auto load for page view mode
-#Module.const_defined?('Issue') || (Issue = Module.new)
+Module.const_defined?('Issue') || (Issue = Module.new)
 Issue.autoload :Preview, 'issue/page_view.rb'
 
 class LocalIssue < Hashie::Mash
 
+  # root of issues data and assets
+  def self.root
+    @root || begin
+      home = Pathname(ENV['HOME'])
+      set_root(home/'Dropbox'/'issues')
+    end
+
+    @root
+  end
+
+  def self.set_root path
+    @root = path
+  end
+
   def self.all
-    Dir.glob("#{SpringRepository.issues_path}/*/issue.yaml").map do |file|
+    Dir.glob("#{root}/*/issue.yaml").map do |file|
       issue_path = file.split("/").first
       find issue_path
     end
@@ -31,7 +37,7 @@ class LocalIssue < Hashie::Mash
   def self.find path
     issue_handle = path.split("/").last
 
-    issue_path = SpringRepository.issues_path/issue_handle
+    issue_path = root/issue_handle
     raise "Issue not found: #{issue_path}" unless issue_path.exist?
 
     yaml = issue_path/'issue.yaml'
@@ -59,7 +65,7 @@ class LocalIssue < Hashie::Mash
 
   def path
     raise 'Handle not found' unless handle
-    SpringRepository.issues_path/handle
+    self.class.root/handle
   end
 
   def pages_count
@@ -119,20 +125,11 @@ class LocalIssue < Hashie::Mash
       hash[a] = regular_reader(a) if key? a
     end
 
-    repository = options[:repository] || options['repository']
-    case repository
-    when 'local'
+    if options[:local_path]
       convert_local_path! hash
 
       Array(hash['collaborators']).each do |h|
         convert_local_path! h
-      end
-
-    when 'dropbox'
-      convert_dropbox_content! hash
-
-      Array(hash['collaborators']).each do |h|
-        convert_dropbox_content! h
       end
     end
 
@@ -145,15 +142,6 @@ class LocalIssue < Hashie::Mash
 
       url = hash.delete(key)
       hash[key.sub(/_url$/, '')] = path/url
-    end
-  end
-
-  def convert_dropbox_content! hash
-    hash.keys.each do |key|
-      next unless is_local = key.end_with?('_url') && ! String(hash[key]).start_with?('http://', 'https://')
-
-      url = hash.delete(key)
-      hash[key.sub(/_url$/, '')] = Dropbox.download("issues/#{handle}/#{url}")
     end
   end
 end
