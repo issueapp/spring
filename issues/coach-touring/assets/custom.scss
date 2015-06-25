@@ -18,12 +18,146 @@
   }
 }
 
+@font-face {
+  font-weight: normal;
+  font-style: normal;
+  font-family: 'National-Regular';
+  src: url("fonts/National-Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-weight: bold;
+  font-style: normal;
+  font-family: 'National-Bold';
+  src: url("fonts/National-Bold.otf") format("opentype");
+}
+
+@font-face {
+  font-style: normal;
+  font-family: 'National-Extrabold';
+  src: url("fonts/National-Extrabold.otf") format("opentype");
+}
+
+@font-face {
+  font-style: normal;
+  font-family: 'National-Light';
+  src: url("fonts/National-Light.otf") format("opentype");
+}
+
+@font-face {
+  font-weight: normal;
+  font-style: normal;
+  font-family: 'National-Book';
+  src: url("fonts/National-Book.otf") format("opentype");
+}
+
 #coach-touring-issue {
+  $green-text: #808532;
+
+  p {
+    font-family: 'National-Book';
+  }
+
+  h3 {
+    font-family: 'National-Light';
+    letter-spacing: 2px;
+    font-size: 1.8rem;
+  }
+
+  section {
+    margin-bottom: 20px;
+  }
+
+  figure.wrapping {
+    text-align: center;
+  }
+
+  figure.full {
+    margin: 25px 0;
+    height: 600px;
+    overflow: hidden;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0; left:0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.3);
+    }
+
+    .container {
+      position: absolute;
+      color: white;
+      width: 75%;
+      height: 10%;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 28px;
+      font-weight: bold;
+    }
+  }
+
+  .highlight-letter {
+    float: left;
+    color: $green-text;
+    font-size: 16vmin;
+    line-height: 0.8em;
+    padding-right: 10px;
+    padding-left: 2px;
+  }
+
+  .highlight-header {
+    font-family: 'National-Bold';
+    color: $green-text;
+  }
+
 
   // Start Cover
   [data-page=index] {
   }
   // End Cover
+
+  [data-page='north-island-megastars'] {
+    .page-scroll {
+      display: none;
+    }
+
+    blockquote {
+      margin-bottom: 2em;
+    }
+
+    @media only screen and (min-width: 768px) {
+      figure.image {
+        margin-bottom: 40px;
+      }
+
+      figcaption {
+        text-align: right;
+      }
+
+      .page-scroll {
+        position: absolute;
+        display: block;
+        bottom: 4px;
+        left: 50%;
+        margin-left: -20px;
+        text-decoration: none;
+
+        animation: pageScroll 1.5s linear 3;
+
+        i {
+          font-size: 40px;
+          color: white;
+        }
+      }
+    }
+  }
 
   // [data-page='abc'] {
   //   @media only screen and (min-width: 768px) {
@@ -33,6 +167,36 @@
   //   }
   // }
   // End
+
+  @media only screen and (min-width: 768px) {
+    .highlight-letter {
+      font-size: 10vmin;
+    }
+
+    .body > {
+      h1, h2, h3, p, figure, section {
+        max-width: 720px;
+        margin-left: auto;
+        margin-right: auto;
+        box-sizing: border-box;
+
+        &.full {
+          max-width: initial;
+        }
+      }
+    }
+
+    figure.full {
+      margin: 50px 0;
+    }
+
+    figure.image.wrapping {
+      float: left;
+      width: 50%;
+      max-width: 500px;
+      margin: 0 30px 10px 0;
+    }
+  }
 }
 
 // Overwrites default slide in animation
@@ -47,11 +211,11 @@
 //   }
 // }
 
-// @keyframes animatedBackground {
-//   0% { background-position: 10% 5%; }
-//   50% { background-position: 35% 5%; }
-//   100% { background-position: 10% 5%; }
-// }
+@keyframes pageScroll {
+  0% { transform: translateY(0%); }
+  50% { transform: translateY(-15%); }
+  100% { transform: translateY(0%); }
+}
 
 // @keyframes videoFadeIn {
 //   from { opacity: 0; }
