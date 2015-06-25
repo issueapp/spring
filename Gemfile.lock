@@ -63,6 +63,7 @@ GEM
       guard (~> 2.0)
     hashie (2.0.5)
     hike (1.2.3)
+    httpclient (2.6.0.1)
     i18n (0.7.0)
     listen (2.4.0)
       celluloid (>= 0.15.2)
@@ -90,6 +91,12 @@ GEM
     rb-inotify (0.9.3)
       ffi (>= 0.5.0)
     rdiscount (2.1.7)
+    rest-core (3.3.0)
+      httpclient
+      mime-types
+      timers (< 4)
+    rest-more (3.3.3)
+      rest-core (>= 3.3.0)
     rspec (3.2.0)
       rspec-core (~> 3.2.0)
       rspec-expectations (~> 3.2.0)
@@ -153,6 +160,7 @@ DEPENDENCIES
   mustache
   nokogiri
   rdiscount
+  rest-more
   rspec
   rspec-html-matchers
   serve!
