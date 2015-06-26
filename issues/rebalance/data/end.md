@@ -22,7 +22,7 @@
   <header>
     <div class="wrapper">
       <h1 class="title">- Activia Pure -</h1>
-      <h3 class="subtitle">A combination of just two natural ingredients: 100% pure natural Australian milk (free from GMO) and exclusive probiotics Bifidus ActiReguaris.</h3>
+      <h3 class="subtitle">A combination of just two natural ingredients: 100% pure natural Australian milk and exclusive probiotics Bifidus ActiReguaris.</h3>
     </div>
   </header>
 
@@ -38,7 +38,7 @@
       </div>
     </div>
     <p>Feel nourished from the inside out</p>
-    <a href="http://activia.com.au" target="_blank">activia.com.au</a>
+    <a href="http://activia.com.au/pure" target="_blank">activia.com.au/pure</a>
   </div>
 </div>
 
