@@ -204,11 +204,19 @@ class Issue::PageView
 
     if show_author?
       hash['byline'] = "by #{author.name}"
-      hash['author_icon'] = author.icon
-      hash['show_author'] = true
-    end
 
-    hash['layout'] = layout
+      hash['author'] = {
+        'id' => author.id,
+        'name' => author.name,
+        'icon' => author.icon,
+      }
+    end
+    hash.delete('author_name')
+    hash.delete('author_id')
+
+    hash['category'] = category
+
+    hash['layout'] = page.layout.to_h
 
     %w[images videos].each do |element|
       next unless hash[element]
@@ -615,6 +623,8 @@ class Issue::PageView
     file = File.join(issue.path, image['url'])
     raise "local image not found: #{file}" unless File.exist? file
 
+    # watchout for potential problem
+    # http://www.mikeperham.com/2015/05/08/timeout-rubys-most-dangerous-api/
     Timeout::timeout(0.2) do
       width, height = FastImage.size(file)
 
