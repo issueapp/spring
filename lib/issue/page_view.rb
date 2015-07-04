@@ -625,6 +625,7 @@ class Issue::PageView
 
     # watchout for potential problem
     # http://www.mikeperham.com/2015/05/08/timeout-rubys-most-dangerous-api/
+    # replace with https://github.com/david-mccullars/safe_timeout
     Timeout::timeout(0.2) do
       width, height = FastImage.size(file)
 
