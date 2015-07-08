@@ -75,9 +75,10 @@ class Issue::PageView
     hide_author = [/true/i, /yes/i, '1'].any?{|v| v === layout.hide_author.to_s}
     ! hide_author && root_page? && author
   end
-  
-  def full_background?
-    page.layout.image_style == "background"
+
+  def show_footer?
+    page.layout.image_style != "background" ||
+    page.layout.custom_class.to_s.match('inset')
   end
 
   def author
@@ -244,11 +245,11 @@ class Issue::PageView
   #     json: Custom json for testing
   #     html_safe: escape html flag
   #     footer: custom footer markup
-  
+
   def render_html content, options = {}
     options[:html_safe] ||= true
     json = options[:json] || send(:json)
-    
+
     html = Mustache.render(content, json)
     html = decorate_content(html, options)
     html = html.html_safe if options[:html_safe] && html.respond_to?(:html_safe)
@@ -283,10 +284,10 @@ class Issue::PageView
   # audios:1
   # images:1
   # videos:1
-  # 
+  #
   # Options
   #     footer: custom footer markup
-  
+
   def decorate_content content, options = {}
     return unless content
 
@@ -321,7 +322,7 @@ class Issue::PageView
     if options[:footer]
       doc.css('> .content').children.last.after(options[:footer])
     end
-      
+
     doc.child.inner_html
   end
 
