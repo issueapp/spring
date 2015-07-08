@@ -75,6 +75,10 @@ class Issue::PageView
     hide_author = [/true/i, /yes/i, '1'].any?{|v| v === layout.hide_author.to_s}
     ! hide_author && root_page? && author
   end
+  
+  def full_background?
+    page.layout.image_style == "background"
+  end
 
   def author
     return page.author if page.author
@@ -98,14 +102,16 @@ class Issue::PageView
     count
   end
 
-  def custom_html json=nil, html_safe=true
-    json ||= send('json')
-    render_html(page.custom_html, json, html_safe)
+  # Options
+  #     json: Custom json for testing
+  #     html_safe: escape html flag
+  #     footer: custom footer markup
+  def custom_html options = {}
+    render_html(page.custom_html, options)
   end
 
-  def content_html json=nil, html_safe=true
-    json ||= send('json')
-    render_html(page.content, json, html_safe)
+  def content_html options = {}
+    render_html(page.content, options)
   end
 
   def cover_html
@@ -234,10 +240,18 @@ class Issue::PageView
 
   private
 
-  def render_html content, json, html_safe
+  # Options
+  #     json: Custom json for testing
+  #     html_safe: escape html flag
+  #     footer: custom footer markup
+  
+  def render_html content, options = {}
+    options[:html_safe] ||= true
+    json = options[:json] || send(:json)
+    
     html = Mustache.render(content, json)
-    html = decorate_media(html)
-    html = html.html_safe if html_safe && html.respond_to?(:html_safe)
+    html = decorate_content(html, options)
+    html = html.html_safe if options[:html_safe] && html.respond_to?(:html_safe)
     html
   end
 
@@ -269,11 +283,16 @@ class Issue::PageView
   # audios:1
   # images:1
   # videos:1
-  def decorate_media content
+  # 
+  # Options
+  #     footer: custom footer markup
+  
+  def decorate_content content, options = {}
     return unless content
 
     doc = Nokogiri::HTML.fragment('<div>' << content << '</div>')
 
+    # Decorate media objects
     doc.search('[data-media-id]').each do |node|
 
       asset, media = page.find_element(node['data-media-id'])
@@ -298,6 +317,11 @@ class Issue::PageView
       end
     end
 
+    # decorate footer
+    if options[:footer]
+      doc.css('> .content').children.last.after(options[:footer])
+    end
+      
     doc.child.inner_html
   end
 

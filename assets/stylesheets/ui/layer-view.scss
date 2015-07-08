@@ -25,7 +25,7 @@
     max-height: 400px;
     padding: 30px 20px;
 
-    overflow-y: scroll; /* has to be scroll, not auto */
+    overflow-y: auto; /* has to be scroll, not auto */
 //    -webkit-overflow-scrolling: touch;
   }
 
