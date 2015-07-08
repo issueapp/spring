@@ -218,7 +218,7 @@ class Issue::PageView
 
     hash['layout'] = page.layout.to_h
 
-    %w[images videos].each do |element|
+    %w[audios images videos].each do |element|
       next unless hash[element]
 
       # make cover on top level
@@ -227,7 +227,9 @@ class Issue::PageView
       page_element = page.send(element)
       hash[element].each_with_index do |object, i|
 
-        object["thumb_url"] = asset_url(page_element[i], thumb: true)
+        object['id'] = object.delete('_id') if object.key? '_id'
+
+        object["thumb"] = {"url" => asset_url(page_element[i], thumb: true)}
         object['url'] = asset_url(page_element[i])
       end
     end
@@ -237,10 +239,13 @@ class Issue::PageView
 
       page_element = page.send(element)
       hash[element].each_with_index do |object, i|
+        object['id'] = object.delete('_id') if object.key? '_id'
+
         object['index'] = i + 1
-        object['image_url'] = asset_url(page_element[i], 'image' => true)
         object['url'] = object['link']
         object['description'] = object['summary']
+
+        object['image'] = {'url' => asset_url(page_element[i], 'image' => true)}
       end
     end
 
