@@ -199,9 +199,6 @@ class Issue::PageView
     hash['updated_at'] = page.updated_at.to_i.to_s
     hash['parentTitle'] = page.parent.title if page.parent
 
-    #hash["cover_url"] = asset_path(hash["cover_url"])
-    #hash["thumb_url"] = asset_path(hash["thumb_url"])
-
     if show_author?
       hash['byline'] = "by #{author.name}"
 
@@ -229,7 +226,8 @@ class Issue::PageView
 
         object['id'] = object.delete('_id') if object.key? '_id'
 
-        object["thumb"] = {"url" => asset_url(page_element[i], thumb: true)}
+        thumb_url = asset_url(page_element[i], thumb: true)
+        object["thumb"] = {"url" => thumb_url} unless thumb_url.empty?
         object['url'] = asset_url(page_element[i])
       end
     end
@@ -282,11 +280,11 @@ class Issue::PageView
 
   def asset_url object, options={}
     if thumb = options['thumb'] || options[:thumb]
-      url = object['thumb_url'] || object.try('thumb').try('url')
+      url = object['thumb_url'] || context.dragonfly_url(object.try('thumb'))
 
     # product, link
     elsif image = options['image'] || options[:image]
-      url = object['image_url'] || object.image.try('url')
+      url = object['image_url'] || context.dragonfly_url(object.image)
 
     # media: image, video, audio
     else
