@@ -192,8 +192,18 @@ class Issue::PageView
     if page.respond_to? 'to_hash'
       hash = page.to_hash
     else
-      hash = page.as_json(methods: [:cover_url, :cover_caption, :thumb_url, :link])
-      hash['id'] = hash.delete('_id')
+      hash = page.as_json(
+        only: %w[type title summary content custom_html handle category],
+        methods: %w[id],
+        include: {
+          audios: {only: %w[title caption link cover credits layout style autoplay controls loop muted location], methods: %w[id]},
+          images: {only: %w[title caption link cover credits layout style location], methods: %w[id]},
+          videos: {only: %w[title caption link cover credits layout style autoplay controls loop muted location], methods: %w[id]},
+
+          products: {only: %w[title subtitle summary link brand price currency affiliate], methods: %w[id]},
+          links: {only: %w[title link], methods: %w[id]},
+        },
+      )
     end
 
     hash['updated_at'] = page.updated_at.to_i.to_s
@@ -208,8 +218,6 @@ class Issue::PageView
         'icon' => author.icon,
       }
     end
-    hash.delete('author_name')
-    hash.delete('author_id')
 
     hash['category'] = category
 
@@ -218,13 +226,11 @@ class Issue::PageView
     %w[audios images videos].each do |element|
       next unless hash[element]
 
-      # make cover on top level
-      hash['cover'] ||= hash[element].find{|m| m['cover'] }
-
       page_element = page.send(element)
       hash[element].each_with_index do |object, i|
 
-        object['id'] = object.delete('_id') if object.key? '_id'
+        # make cover on top level
+        hash['cover'] ||= object if object['cover']
 
         thumb_url = asset_url(page_element[i], thumb: true)
         object["thumb"] = {"url" => thumb_url} unless thumb_url.empty?
@@ -237,9 +243,7 @@ class Issue::PageView
 
       page_element = page.send(element)
       hash[element].each_with_index do |object, i|
-        object['id'] = object.delete('_id') if object.key? '_id'
-
-        object['index'] = i + 1
+        #object['index'] = i + 1
         object['url'] = object['link']
         object['description'] = object['summary']
 
