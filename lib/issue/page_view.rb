@@ -193,7 +193,7 @@ class Issue::PageView
       hash = page.to_hash
     else
       hash = page.as_json(
-        only: %w[type title summary content custom_html handle category],
+        only: %w[type title summary content custom_html handle category credits],
         methods: %w[id],
         include: {
           audios: {only: %w[title caption link cover credits layout style autoplay controls loop muted location], methods: %w[id]},
