@@ -233,7 +233,8 @@ class Issue::PageView
 
         thumb_url = asset_url(page_element[i], thumb: true)
         object["thumb"] = {"url" => thumb_url} unless thumb_url.empty?
-        object['url'] = asset_url(page_element[i])
+        url = asset_url(page_element[i])
+        object['url'] = url if url.present?
       end
     end
 
