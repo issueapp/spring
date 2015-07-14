@@ -212,11 +212,10 @@ class Issue::PageView
     if show_author?
       hash['byline'] = "by #{author.name}"
 
-      hash['author'] = {
-        'id' => author.id,
-        'name' => author.name,
-        'icon' => author.icon,
-      }
+      hash['author'] = %w[id name icon].reduce({}) do |memo, field|
+        memo[field] = author.send(field) if author.respond_to? field
+        memo
+      end
     end
 
     hash['category'] = category
