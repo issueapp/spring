@@ -23,7 +23,7 @@ class LocalIssue < Hashie::Mash
     case path
     when String
       Thread.current[:local_issue_root] = Pathname(path)
-    when Pathname
+    when Pathname, nil
       Thread.current[:local_issue_root] = path
     else
       raise "Fail to set root: #{path}"

@@ -232,7 +232,7 @@ class Issue::PageView
         hash['cover'] ||= object if object['cover']
 
         thumb_url = asset_url(page_element[i], thumb: true)
-        object["thumb"] = {"url" => thumb_url} unless thumb_url.empty?
+        object["thumb"] = {"url" => thumb_url} unless thumb_url.blank?
         url = asset_url(page_element[i])
         object['url'] = url if url.present?
       end
@@ -284,11 +284,11 @@ class Issue::PageView
 
   def asset_url object, options={}
     if thumb = options['thumb'] || options[:thumb]
-      url = object['thumb_url'] || context.dragonfly_url(object.try('thumb'))
+      url = object['thumb_url'] || context.try(:dragonfly_url, object.try('thumb'))
 
     # product, link
     elsif image = options['image'] || options[:image]
-      url = object['image_url'] || context.dragonfly_url(object.image)
+      url = object['image_url'] || context.try(:dragonfly_url, object.image)
 
     # media: image, video, audio
     else
@@ -296,7 +296,7 @@ class Issue::PageView
         if is_s3_url = (remote_url = object.file.try('remote_url').to_s) && remote_url.start_with?('http://', 'https://')
           remote_url
         else
-          object.file.try('url')
+          context.try(:dragonfly_url, object.file)
         end
       end
     end
