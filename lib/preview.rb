@@ -104,6 +104,7 @@ class IssuePreview < Sinatra::Base
 
     # Serve asset via sprockets
     file = params[:splat].first
+
     asset = sprockets[file]
 
     # Restore previous asset path
@@ -116,7 +117,7 @@ class IssuePreview < Sinatra::Base
     # asset_path = request.path_info.gsub(/^\/#{params[:magazine]}/, "issues")
     # file = File.expand_path("../../#{CGI.unescape(asset_path)}", __FILE__)
 
-    mime_type = MIME::Types.type_for(file).first.content_type
+    mime_type = asset ? asset.content_type : MIME::Types.type_for(file).first.content_type
 
     if mime_type == "application/mp4"
       return send_file current_issue.path.join('assets').join(file), type: "video/mp4"
