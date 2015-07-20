@@ -18,12 +18,14 @@ class Issue::PageView
   # end FIXME unstable API
 
   attr_reader :page
+
   attr_accessor :context, :edit_mode
 
-  def initialize page, context=nil, edit_mode=false
+  def initialize page, options={}
     @page = page
-    @context = context
-    @edit_mode = edit_mode
+
+    @context = options[:context] || options['context']
+    @edit_mode = options[:edit_mode] || options['edit_mode']
   end
 
   def class; page.class; end
@@ -73,7 +75,7 @@ class Issue::PageView
   end
 
   def show_author?
-    hide_author = [/true/i, /yes/i, '1'].any?{|v| v === layout.hide_author.to_s}
+    hide_author = truthy?(layout.hide_author)
     ! hide_author && root_page? && author
   end
 
@@ -209,7 +211,7 @@ class Issue::PageView
     hash['updated_at'] = page.updated_at.to_i.to_s
     hash['parentTitle'] = page.parent.title if page.parent
 
-    if show_author?
+    if author
       hash['byline'] = "by #{author.name}"
 
       hash['author'] = %w[id name icon].reduce({}) do |memo, field|
@@ -674,5 +676,14 @@ class Issue::PageView
       else
         method :puts
       end
+  end
+
+  def truthy? value
+    case value.to_s
+    when /true/i, /yes/i, '1'
+      true
+    else
+      false
+    end
   end
 end

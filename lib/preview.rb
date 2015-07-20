@@ -136,7 +136,7 @@ class IssuePreview < Sinatra::Base
     issue = current_issue
     path = File.join(params.values_at('page', 'subpage').compact)
     page = LocalIssue::Page.find(path, issue: issue)
-    page = Issue::PageView.new(page, self)
+    page = Issue::PageView.new(page, context: self)
 
     is_json = params['format'] == 'json'
 

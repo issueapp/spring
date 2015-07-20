@@ -33,10 +33,11 @@
 
     <% if defined?(current_issue) %>
       <% Array(current_issue.assets).each do |asset| %>
-        <% if asset.match(/\.js$/) %>
-          <script src="<%= asset_path asset %>"></script>
-        <% elsif asset.match(/\.css$/) %>
-          <link rel="stylesheet" href="<%= asset_path asset %>" type="text/css">
+        <% asset_url = asset.is_a?(String) ? asset : asset.url %>
+        <% if asset_url.match(/\.js$/) %>
+          <script src="<%= asset_path asset_url %>"></script>
+        <% elsif asset_url.match(/\.css$/) %>
+          <link rel="stylesheet" href="<%= asset_path asset_url %>" type="text/css">
         <% end %>
       <% end %>
     <% end %>
