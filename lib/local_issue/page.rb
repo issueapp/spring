@@ -217,7 +217,18 @@ class LocalIssue::Page < Hashie::Mash
     return unless id
 
     asset, index = id.split(':')
-    media = self[asset].try('[]', index.to_i - 1)
+
+    if index.is_a? Fixnum
+      media = self[asset].try('[]', index - 1)
+    else
+      %w[audios images videos].each do |e|
+        if found = self[e] && self[e].find{|m| m['id'] == id}
+          asset = e
+          media = found
+          break
+        end
+      end
+    end
 
     if media
       [asset, media]
