@@ -174,6 +174,7 @@ class Issue::PageView
 
           li << create_element('a', attributes) do |a|
             a << create_element('img', :src => attributes[:'data-image'])
+            a << create_element('span', product.title, :class => 'label') if product.style && product.style['show_label']
             a << create_element('span', index + 1, :class => 'tag')
           end
         end
