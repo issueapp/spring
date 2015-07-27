@@ -198,11 +198,23 @@ class Issue::PageView
         only: %w[type title summary content custom_html handle category credits],
         methods: %w[id],
         include: {
-          audios: {only: %w[title caption link cover credits layout style autoplay controls loop muted location], methods: %w[id]},
-          images: {only: %w[title caption link cover credits layout style location], methods: %w[id]},
-          videos: {only: %w[title caption link cover credits layout style autoplay controls loop muted location], methods: %w[id]},
+          audios: {
+            only: %w[title caption link cover credits layout style autoplay controls loop muted location updated_at],
+            methods: %w[id]
+          },
+          images: {
+            only: %w[title caption link cover credits layout style location updated_at],
+            methods: %w[id]
+          },
+          videos: {
+            only: %w[title caption link cover credits layout style autoplay controls loop muted location updated_at],
+            methods: %w[id]
+          },
 
-          products: {only: %w[title subtitle summary link brand price currency affiliate], methods: %w[id]},
+          products: {
+            only: %w[title subtitle summary link brand price currency affiliate updated_at],
+            methods: %w[id]
+          },
           links: {only: %w[title link], methods: %w[id]},
         },
       )
