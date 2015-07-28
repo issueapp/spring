@@ -237,7 +237,7 @@ class Issue::PageView
     hash['layout'] = page.layout.to_h
 
     %w[audios images videos].each do |element|
-      next unless hash[element]
+      next unless has_media = hash[element]
 
       page_elements = page.send(element)
       hash[element].each_with_index do |object, i|
@@ -247,6 +247,11 @@ class Issue::PageView
 
         thumb_url = asset_url(page_elements[i], thumb: true)
         object["thumb"] = {"url" => thumb_url} unless thumb_url.blank?
+
+        if has_dimension = page_elements[i].respond_to?('file_width') && page_elements[i].file_width
+          object['width'] ||= page_elements[i].file_width
+          object['height'] ||= page_elements[i].file_height
+        end
 
         url = asset_url(page_elements[i])
         object['url'] = url if url.present?
@@ -264,6 +269,10 @@ class Issue::PageView
         object['description'] = object['summary']
 
         object['image'] = {'url' => asset_url(page_elements[i], 'image' => true), 'path' => page_elements[i].path}
+        if has_dimension = page_elements[i].respond_to?('image_width') && page_elements[i].image_width
+          object['image']['width'] ||= page_elements[i].image_width
+          object['image']['height'] ||= page_elements[i].image_height
+        end
       end
     end
 
@@ -631,7 +640,8 @@ class Issue::PageView
 
   def image_get_size image
     if image.width && image.height
-      return [image.width, image.height, image.aspect_ratio.to_f]
+      aspect_ratio = image.aspect_ratio || image.width.to_f/image.height
+      return [image.width, image.height, aspect_ratio.to_f]
     end
 
     unless issue
