@@ -81,7 +81,7 @@ class Issue::PageView
 
   def show_footer?
     page.layout.image_style != "background" ||
-    page.layout.custom_class.to_s.match('inset')
+      page.layout.custom_class.to_s.match('inset')
   end
 
   def author
@@ -195,7 +195,7 @@ class Issue::PageView
       hash = page.to_hash
     else
       hash = page.as_json(
-        only: %w[type title summary content custom_html handle category credits],
+        only: %w[type title summary content custom_html handle category credits index],
         methods: %w[id],
         include: {
           audios: {
@@ -239,15 +239,16 @@ class Issue::PageView
     %w[audios images videos].each do |element|
       next unless hash[element]
 
-      page_element = page.send(element)
+      page_elements = page.send(element)
       hash[element].each_with_index do |object, i|
 
         # make cover on top level
         hash['cover'] ||= object if object['cover']
 
-        thumb_url = asset_url(page_element[i], thumb: true)
+        thumb_url = asset_url(page_elements[i], thumb: true)
         object["thumb"] = {"url" => thumb_url} unless thumb_url.blank?
-        url = asset_url(page_element[i])
+
+        url = asset_url(page_elements[i])
         object['url'] = url if url.present?
       end
     end
@@ -255,13 +256,14 @@ class Issue::PageView
     %w[products links].each do |element|
       next unless hash[element]
 
-      page_element = page.send(element)
+      page_elements = page.send(element)
+
       hash[element].each_with_index do |object, i|
         #object['index'] = i + 1
         object['url'] = object['link']
         object['description'] = object['summary']
 
-        object['image'] = {'url' => asset_url(page_element[i], 'image' => true), 'path' => page_element[i].path}
+        object['image'] = {'url' => asset_url(page_elements[i], 'image' => true), 'path' => page_elements[i].path}
       end
     end
 
