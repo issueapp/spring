@@ -199,15 +199,15 @@ class Issue::PageView
         methods: %w[id],
         include: {
           audios: {
-            only: %w[title caption link cover credits layout style autoplay controls loop muted location updated_at],
+            only: %w[title caption link cover credits layout style autoplay controls loop muted location updated_at path],
             methods: %w[id]
           },
           images: {
-            only: %w[title caption link cover credits layout style location updated_at],
+            only: %w[title caption link cover credits layout style location updated_at path],
             methods: %w[id]
           },
           videos: {
-            only: %w[title caption link cover credits layout style autoplay controls loop muted location updated_at],
+            only: %w[title caption link cover credits layout style autoplay controls loop muted location updated_at path],
             methods: %w[id]
           },
 
@@ -261,7 +261,7 @@ class Issue::PageView
         object['url'] = object['link']
         object['description'] = object['summary']
 
-        object['image'] = {'url' => asset_url(page_element[i], 'image' => true)}
+        object['image'] = {'url' => asset_url(page_element[i], 'image' => true), 'path' => page_element[i].path}
       end
     end
 

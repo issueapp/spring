@@ -366,6 +366,9 @@ class LocalIssue::Page < Hashie::Mash
       if is_local = (key.end_with?('_url') || key == 'url') && value && ! value.start_with?('http://', 'https://')
         field = key.end_with?('_url') ? key.sub(/_url$/, '') : 'file'
         element[field] = issue.path.join(value)
+
+        element['path'] = value.sub(%r{^/?assets/}, '')
+
         element.delete key
       end
     end
