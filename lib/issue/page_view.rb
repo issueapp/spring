@@ -212,10 +212,10 @@ class Issue::PageView
           },
 
           products: {
-            only: %w[title subtitle summary link brand price currency affiliate updated_at],
+            only: %w[title subtitle summary hotspot link brand price currency affiliate updated_at],
             methods: %w[id]
           },
-          links: {only: %w[title link], methods: %w[id]},
+          links: {only: %w[title summary hotspot link], methods: %w[id]},
         },
       )
     end
@@ -266,7 +266,7 @@ class Issue::PageView
       hash[element].each_with_index do |object, i|
         #object['index'] = i + 1
         object['url'] = object['link']
-        object['description'] = object['summary']
+        object['description'] = object['summary'] if element == 'products'
 
         object['image'] = {'url' => asset_url(page_elements[i], 'image' => true), 'path' => page_elements[i].path}
         if has_dimension = page_elements[i].respond_to?('image_width') && page_elements[i].image_width
