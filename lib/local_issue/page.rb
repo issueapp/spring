@@ -21,14 +21,13 @@ class LocalIssue::Page < Hashie::Mash
   def self.default_layout
     {
       'content_style'          => 'white',
-      'type'                   => 'two-column',
+      'type'                   => 'one-column',
       'image_style'            => 'cover',
       'image_align'            => 'left',
       'content_align'          => 'left',
       'content_valign'         => 'top',
       'content_height'         => 'auto',
       'content_overflow'       => 'scroll',
-      'content_transparent_bg' => 'scroll',
       'nav'                    => true
     }
   end
