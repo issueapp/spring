@@ -14,8 +14,8 @@ class LocalIssue < Hashie::Mash
   # root of issues data and assets
   def self.root
     Thread.current[:local_issue_root] ||
-      if defined?(Rails) && Rails.configuration.try(:local_issue_root)
-        set_root Rails.configuration.local_issue_root
+      if ENV['LOCAL_ISSUE_ROOT']
+        set_root ENV['LOCAL_ISSUE_ROOT']
       else
         home = Pathname(ENV['HOME'])
         set_root(home/'Dropbox'/'issues')
@@ -25,6 +25,12 @@ class LocalIssue < Hashie::Mash
   def self.set_root path
     case path
     when String
+      if relative_to_rails_root = defined?(Rails) && ! path.start_with?('/')
+        path = Rails.root/path
+      else
+        raise "Fail to set local issue root with relative path: #{path}"
+      end
+
       Thread.current[:local_issue_root] = Pathname(path)
     when Pathname, nil
       Thread.current[:local_issue_root] = path
