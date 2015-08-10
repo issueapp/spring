@@ -207,7 +207,7 @@ class Issue::PageView
             methods: %w[id]
           },
           videos: {
-            only: %w[title caption link cover credits layout style autoplay controls loop muted location updated_at path],
+            only: %w[title caption link cover credits layout style autoplay controls loop muted location updated_at path type],
             methods: %w[id]
           },
 

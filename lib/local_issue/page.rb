@@ -343,7 +343,15 @@ class LocalIssue::Page < Hashie::Mash
 
         elements.each_with_index do |element, index|
           element = element.to_hash
-          convert_local_path!(element) if options[:local_path]
+
+          if options[:local_path]
+            convert_local_path!(element)
+
+            unless is_remote = element['link'] || element.keys.find{|v| v.end_with?('_url')}
+              element['path'] = (element['file'] || element['image']).to_s.sub(%r{.*assets/}, '')
+            end
+          end
+
           hash[e][index] = element
         end
       end
@@ -365,9 +373,6 @@ class LocalIssue::Page < Hashie::Mash
       if is_local = (key.end_with?('_url') || key == 'url') && value && ! value.start_with?('http://', 'https://')
         field = key.end_with?('_url') ? key.sub(/_url$/, '') : 'file'
         element[field] = issue.path.join(value)
-
-        element['path'] = value.sub(%r{^/?assets/}, '')
-
         element.delete key
       end
     end
