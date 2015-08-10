@@ -347,7 +347,15 @@ class LocalIssue::Page < Hashie::Mash
           if options[:local_path]
             convert_local_path!(element)
 
-            unless is_remote = element['link'] || element.keys.find{|v| v.end_with?('_url')}
+            is_remote =
+              case element
+              when 'audios', 'videos'
+                element['link']
+              else
+                element.keys.find{|v| v.end_with?('_url')}
+              end
+
+            unless is_remote
               element['path'] = (element['file'] || element['image']).to_s.sub(%r{.*assets/}, '')
             end
           end
