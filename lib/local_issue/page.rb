@@ -218,11 +218,10 @@ class LocalIssue::Page < Hashie::Mash
     asset, index = id.split(':')
 
     if find_by_id = index.nil? || index.empty?
-      %w[audios images videos].each do |e|
+      media = %w[audios images videos].reduce do |_, e|
         if found = self[e] && self[e].find{|m| m['id'] == id}
           asset = e
-          media = found
-          break
+          break found
         end
       end
     else
