@@ -251,6 +251,13 @@ class LocalIssue::Page < Hashie::Mash
     end
   end
 
+  def thumb_url
+    self["thumb_url"] ||
+      if cover = self.cover
+        cover.thumb_url
+      end
+  end
+
   def root_page?
     ! parent_path
   end
