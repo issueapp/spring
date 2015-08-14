@@ -60,9 +60,11 @@ class LocalIssue < Hashie::Mash
     collaborators = attributes.delete('collaborators')
 
     # Build default labels
+    # FIXME khoa says why do we need this?
+    #attributes["id"] ||= Digest::MD5.hexdigest("#{issue_handle}/#{magazine_handle}")
+    # /FIXME khoa says why do we need this?
     attributes["handle"] ||= issue_handle
     attributes["magazine_handle"] ||= magazine_handle
-    attributes["id"] ||= Digest::MD5.hexdigest("#{issue_handle}/#{magazine_handle}")
     attributes["assets"] ||= []
 
     local = new(attributes)
