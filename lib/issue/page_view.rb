@@ -111,7 +111,7 @@ class Issue::PageView
   #     html_safe: escape html flag
   #     footer: custom footer markup
   def custom_html options = {}
-    render_html(page.custom_html, options.merge(export: false))
+    render_html(page.custom_html, options)
   end
 
   def content_html options = {}
@@ -191,7 +191,7 @@ class Issue::PageView
   end
 
   def json options={}
-    export_mode = options.fetch(:export){true}
+    export_mode = options.fetch(:export){false}
 
     if page.respond_to? 'to_hash'
       hash = page.to_hash
