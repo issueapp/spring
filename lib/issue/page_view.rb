@@ -111,7 +111,7 @@ class Issue::PageView
   #     html_safe: escape html flag
   #     footer: custom footer markup
   def custom_html options = {}
-    render_html(page.custom_html, options)
+    render_html(page.custom_html, options.merge(export: false))
   end
 
   def content_html options = {}
@@ -190,7 +190,9 @@ class Issue::PageView
     html
   end
 
-  def json
+  def json options={}
+    export_mode = options.fetch(:export){true}
+
     if page.respond_to? 'to_hash'
       hash = page.to_hash
     else
@@ -246,7 +248,13 @@ class Issue::PageView
         hash['cover'] ||= object if object['cover']
 
         thumb_url = asset_url(page_elements[i], thumb: true)
-        object["thumb"] = {"url" => thumb_url} unless thumb_url.blank?
+        if thumb_url.present?
+          if export_mode
+            object['thumb'] = {'url' => thumb_url}
+          else
+            object['thumb_url'] = thumb_url
+          end
+        end
 
         if has_dimension = page_elements[i].respond_to?('file_width') && page_elements[i].file_width
           object['width'] ||= page_elements[i].file_width
@@ -295,7 +303,7 @@ class Issue::PageView
 
   def render_html content, options = {}
     options[:html_safe] ||= true
-    json = options[:json] || send(:json)
+    json = options[:json] || send(:json, options)
 
     html = Mustache.render(content, json)
     html = decorate_content(html, options)
