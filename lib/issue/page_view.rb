@@ -276,14 +276,15 @@ class Issue::PageView
         object['url'] = object['link']
         object['description'] = object['summary'] if element == 'products'
 
-        # FIXME include image_url so those mustache references can be fulfilled
-        object['image_url'] = asset_url(page_elements[i], 'image' => true)
-        # END FIXME
+        if export_mode
+          object['image'] = {'url' => asset_url(page_elements[i], 'image' => true), 'path' => page_elements[i].path}
 
-        object['image'] = {'url' => asset_url(page_elements[i], 'image' => true), 'path' => page_elements[i].path}
-        if has_dimension = page_elements[i].respond_to?('image_width') && page_elements[i].image_width
-          object['image']['width'] ||= page_elements[i].image_width
-          object['image']['height'] ||= page_elements[i].image_height
+          if has_dimension = page_elements[i].respond_to?('image_width') && page_elements[i].image_width
+            object['image']['width'] ||= page_elements[i].image_width
+            object['image']['height'] ||= page_elements[i].image_height
+          end
+        else
+          object['image_url'] = asset_url(page_elements[i], 'image' => true)
         end
       end
     end
