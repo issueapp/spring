@@ -272,7 +272,9 @@ class Issue::PageView
       page_elements = page.send(element)
 
       hash[element].each_with_index do |object, i|
-        #object['index'] = i + 1
+        # number product hotspots
+        object['index'] = i + 1
+
         object['url'] = object['link']
         object['description'] = object['summary'] if element == 'products'
 
@@ -301,7 +303,6 @@ class Issue::PageView
   #     json: Custom json for testing
   #     html_safe: escape html flag
   #     footer: custom footer markup
-
   def render_html content, options = {}
     options[:html_safe] ||= true
     json = options[:json] || send(:json, options)
