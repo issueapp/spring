@@ -119,18 +119,18 @@ class LocalIssue::Page < Hashie::Mash
     end
 
     # Add cover url into images
-    if attributes["cover_url"]
+    if attributes['cover_url'] || attributes['thumb_url']
       cover = Hashie::Mash.new(
-        "caption"   => attributes.delete("cover_caption"),
-        "url"       => attributes["cover_url"],
-        "thumb_url" => attributes["thumb_url"],
-        "cover"     => true
+        'caption'   => attributes.delete('cover_caption'),
+        'url'       => attributes['cover_url'],
+        'thumb_url' => attributes['thumb_url'],
+        'cover'     => true
       )
       attributes["images"].push(cover)
     end
     
     attributes["images"].map! do |image|
-      image.layout ||= !!image.cover
+      image.key?('layout') || image.layout = !!image.cover
       image.type ||= "image"
       image
     end
