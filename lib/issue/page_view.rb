@@ -214,10 +214,10 @@ class Issue::PageView
           },
 
           products: {
-            only: %w[title subtitle summary hotspot link brand price currency affiliate updated_at],
+            only: %w[title subtitle summary hotspot link brand price currency affiliate updated_at target_id style],
             methods: %w[id]
           },
-          links: {only: %w[title summary hotspot link], methods: %w[id]},
+          links: {only: %w[title summary hotspot link target_id style], methods: %w[id]},
         },
       )
     end
