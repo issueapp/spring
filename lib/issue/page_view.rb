@@ -481,6 +481,7 @@ class Issue::PageView
   def decorate_audio node, audio
     # Setup audio params
     options = {
+      id:       node['id'],
       type:     audio['type'],
       src:      asset_url(audio),
       'data-autoplay': audio['autoplay'] ? true : nil,
