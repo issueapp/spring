@@ -394,6 +394,12 @@ class Issue::PageView
     width, height, aspect_ratio = image_get_size(image)
     max_dimension = "max-height: #{height}px; max-width: #{width}px"
     padding = 100/(aspect_ratio || 1.5)
+    
+    if node['data-inline'] && image['url'] =~ /svg/
+      Rails.logger.info(">>>>> Data inline #{image['url']}")
+      
+      return node.replace inline_img(image['url'])
+    end
 
     if node.parent && node.parent.name == 'figure'
       figure = node.parent.clone
@@ -594,6 +600,18 @@ class Issue::PageView
 
       [width, height, aspect_ratio]
     end
+  end
+  
+  # Turn a SVG string into a Nokogiri node
+  def inline_img(path)
+    file = File.join(issue.path, path)
+    raise "SVG file can't be find" unless File.exist?(file) && file =~ /\.svg$/
+    fixed_svg = Nokogiri::HTML.fragment(File.read(file)).to_html
+    
+    Rails.logger.info(fixed_svg)
+    
+    # proceed with XML parsing
+    Nokogiri::XML(fixed_svg).at('svg')
   end
 
   def log_method
