@@ -394,13 +394,13 @@ class Issue::PageView
     width, height, aspect_ratio = image_get_size(image)
     max_dimension = "max-height: #{height}px; max-width: #{width}px"
     padding = 100/(aspect_ratio || 1.5)
-    
-    
+
+
     # logs
     if node['data-inline']
       img_path = image['url'] || image['path']
       Rails.logger.info(">>>>> Data inline #{img_path}")
-      
+
       return node.replace inline_img(image) if img_path =~ /svg/
     end
 
@@ -447,6 +447,7 @@ class Issue::PageView
       video_url = video['url'] || video['link']
 
       options = {
+        id:            node['id'],
         type:          video['type'],
         :'data-src' => video_url,
         'autoplay'  => extract_value_from(video, key='autoplay', default=true),
@@ -455,7 +456,7 @@ class Issue::PageView
         height:        video['height'],
         loop:          video['loop'],
         mute:          video['mute'],
-        #muted:         video['muted'],
+        preload:       video['preload']
       }
 
       decorated = create_element('figure', class: "video",
@@ -490,6 +491,7 @@ class Issue::PageView
       'data-autoplay': audio['autoplay'] ? true : nil,
       controls: audio['controls'] ? true : nil,
       loop:     audio['loop'],
+      preload:  audio['preload'],
       muted:    audio['muted'],
       'data-global': audio['global'],
       'data-scope': audio['scope']
@@ -605,10 +607,10 @@ class Issue::PageView
       [width, height, aspect_ratio]
     end
   end
-  
+
   # Turn a SVG string into a Nokogiri node
   def inline_img(media)
-    
+
     if media.file
       source = media.file.data
     else
@@ -616,10 +618,10 @@ class Issue::PageView
       raise "SVG file can't be find" unless File.exist?(file) && file =~ /\.svg$/
       source = File.read(file)
     end
-    
+
     # try to clean up bad SVG, so it's HTML friendly
     fixed_svg = Nokogiri::HTML.fragment(source).to_html
-    
+
     # proceed with XML parsing
     if !fixed_svg.blank?
       Nokogiri::XML(fixed_svg).at('svg')
