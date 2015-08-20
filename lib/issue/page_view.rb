@@ -395,10 +395,13 @@ class Issue::PageView
     max_dimension = "max-height: #{height}px; max-width: #{width}px"
     padding = 100/(aspect_ratio || 1.5)
     
-    if node['data-inline'] && image['url'] =~ /svg/
-      Rails.logger.info(">>>>> Data inline #{image['url']}")
+    
+    # logs
+    if node['data-inline']
+      img_path = image['url'] || image['path']
+      Rails.logger.info(">>>>> Data inline #{img_path}")
       
-      return node.replace inline_img(image['url'])
+      return node.replace inline_img(image) if img_path =~ /svg/
     end
 
     if node.parent && node.parent.name == 'figure'
@@ -604,15 +607,25 @@ class Issue::PageView
   end
   
   # Turn a SVG string into a Nokogiri node
-  def inline_img(path)
-    file = File.join(issue.path, path)
-    raise "SVG file can't be find" unless File.exist?(file) && file =~ /\.svg$/
-    fixed_svg = Nokogiri::HTML.fragment(File.read(file)).to_html
+  def inline_img(media)
     
-    Rails.logger.info(fixed_svg)
+    if media.file
+      source = media.file.data
+    else
+      file = File.join(issue.path, path)
+      raise "SVG file can't be find" unless File.exist?(file) && file =~ /\.svg$/
+      source = File.read(file)
+    end
+    
+    # try to clean up bad SVG, so it's HTML friendly
+    fixed_svg = Nokogiri::HTML.fragment(source).to_html
     
     # proceed with XML parsing
-    Nokogiri::XML(fixed_svg).at('svg')
+    if !fixed_svg.blank?
+      Nokogiri::XML(fixed_svg).at('svg')
+    else
+      source
+    end
   end
 
   def log_method
