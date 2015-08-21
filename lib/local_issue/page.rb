@@ -89,7 +89,7 @@ class LocalIssue::Page < Hashie::Mash
     ## Build attributes from YAML
     meta, content = source.split(/---\n(.+?)---\n/m)[1,2]
     content = content.to_s
-    
+
     attributes = YAML.load(meta) if meta
     attributes ||= {}
 
@@ -122,19 +122,21 @@ class LocalIssue::Page < Hashie::Mash
     if attributes['cover_url'] || attributes['thumb_url']
       cover = Hashie::Mash.new(
         'caption'   => attributes.delete('cover_caption'),
-        'url'       => attributes['cover_url'],
-        'thumb_url' => attributes['thumb_url'],
         'cover'     => true
       )
+
+      cover.url = attributes['cover_url'] if attributes['cover_url']
+      cover.thumb_url = attributes['thumb_url'] if attributes['thumb_url']
+
       attributes["images"].push(cover)
     end
-    
+
     attributes["images"].map! do |image|
       image.key?('layout') || image.layout = !!image.cover
       image.type ||= "image"
       image
     end
-    
+
     attributes["videos"].map! do |video|
       video.type ||= "video"
       video
@@ -146,7 +148,7 @@ class LocalIssue::Page < Hashie::Mash
       attributes["cover_url"] = cover.try(:url)
     end
     attributes["cover"] = cover
-    
+
     # construct HTML-mustache for content or custom_html
     if attributes.key? 'custom_html'
       attributes['custom_html'] = content
@@ -208,7 +210,7 @@ class LocalIssue::Page < Hashie::Mash
 
   def initialize *args
     super
-    
+
     self["layout"] ||= Hashie::Mash.new(self.class.default_layout)
   end
 
