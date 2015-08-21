@@ -399,9 +399,7 @@ class Issue::PageView
     # logs
     if node['data-inline']
       img_path = image['url'] || image['path']
-      Rails.logger.info(">>>>> Data inline #{img_path}")
-
-      return node.replace inline_img(image) if img_path =~ /svg/
+      return node.replace inline_img(image) if img_path =~ /\.svg$/
     end
 
     if node.parent && node.parent.name == 'figure'
@@ -610,11 +608,10 @@ class Issue::PageView
 
   # Turn a SVG string into a Nokogiri node
   def inline_img(media)
-
     if media.file
       source = media.file.data
     else
-      file = File.join(issue.path, path)
+      file = File.join(issue.path, media.url)
       raise "SVG file can't be find" unless File.exist?(file) && file =~ /\.svg$/
       source = File.read(file)
     end
