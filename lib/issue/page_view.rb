@@ -275,7 +275,13 @@ class Issue::PageView
 
     # media: image, video, audio
     else
-      url = object['url'] || object['file_url'] || object.file.try('url')
+      url = object['url'] || object['file_url'] || begin
+        if is_s3_url = (remote_url = object.file.try('remote_url').to_s) && remote_url.start_with?('http://', 'https://')
+          remote_url
+        else
+          object.file.try('url')
+        end
+      end
     end
 
     asset_path url
