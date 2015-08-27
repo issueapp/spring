@@ -503,11 +503,13 @@ class Issue::PageView
       )
 
     else
-      # TODO: Double check video url & link
       video_url = video['url'] || video['link']
 
-      options = {
-        id:            node['id'],
+      options = node.attribute_nodes.reduce({}) do |memo, n|
+        memo[n.node_name] = n.value
+        memo
+      end
+      options.merge!({
         type:          video['type'],
         :'data-src' => video_url,
         'autoplay'  => extract_value_from(video, key=:autoplay, default=true),
@@ -517,14 +519,14 @@ class Issue::PageView
         loop:          video['loop'],
         mute:          video['mute'],
         preload:       video['preload']
-      }.compact
+      }.delete_if { |k, v| v.nil? })
 
-      unless node['data-original']
+      if node['data-original']
+        decorated = create_element('')
+      else
         decorated = create_element('figure', class: "video",
           style: "background-image: url('#{asset_url(video, 'thumb' => true)}')"
         )
-      else
-        decorated = Nokogiri::HTML('').create_element('')
       end
 
       if embed_video? video_url
@@ -549,18 +551,21 @@ class Issue::PageView
 
   def decorate_audio node, audio
     # Setup audio params
-    options = {
-      id:       node['id'],
+    options = node.attribute_nodes.reduce({}) do |memo, n|
+      memo[n.node_name] = n.value
+      memo
+    end
+    options.merge!( {
       type:     audio['type'],
       src:      asset_url(audio),
       'data-autoplay': audio['autoplay'] ? true : nil,
       controls: audio['controls'] ? true : nil,
       loop:     audio['loop'],
-      preload:  audio['preload'],
       muted:    audio['muted'],
+      preload:  audio['preload'],
       'data-global': audio['global'],
       'data-scope': audio['scope']
-    }.delete_if { |k, v| v.nil? }
+    }.delete_if { |k, v| v.nil? })
 
     figure = create_element('figure', :class => 'audio')
     figure << create_element('img', class: 'thumbnail', src: asset_url(audio, 'thumb' => true))
