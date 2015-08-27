@@ -455,20 +455,20 @@ class Issue::PageView
         type:          video['type'],
         :'data-src' => video_url,
         'autoplay'  => extract_value_from(video, key='autoplay', default=true),
-        controls:      extract_value_from(video, key='controls', default=false),
+        controls:      extract_value_from(video, key='controls', default=nil),
         width:         video['width'],
         height:        video['height'],
         loop:          video['loop'],
         mute:          video['mute'],
         preload:       video['preload']
-      }
-
-      decorated = ''
+      }.compact
 
       unless node['data-original']
         decorated = create_element('figure', class: "video",
           style: "background-image: url('#{asset_url(video, 'thumb' => true)}')"
         )
+      else
+        decorated = Nokogiri::HTML('').create_element('')
       end
 
       if embed_video? video_url
@@ -476,7 +476,6 @@ class Issue::PageView
 
       else
         options[:'data-autoplay'] = true if options.delete(:autoplay)
-
         decorated << create_element('video', options)
       end
 
