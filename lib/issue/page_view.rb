@@ -463,9 +463,13 @@ class Issue::PageView
         preload:       video['preload']
       }
 
-      decorated = create_element('figure', class: "video",
-        style: "background-image: url('#{asset_url(video, 'thumb' => true)}')"
-      )
+      decorated = ''
+
+      unless node['data-original']
+        decorated = create_element('figure', class: "video",
+          style: "background-image: url('#{asset_url(video, 'thumb' => true)}')"
+        )
+      end
 
       if embed_video? video_url
         decorated << video_iframe_html(video_url, options)
@@ -517,11 +521,13 @@ class Issue::PageView
   end
 
   def video_iframe_html url, params={}
-    width = params.delete(:width) || params.delete('width') || '100%'
+    width  = params.delete(:width) || params.delete('width') || '100%'
     height = params.delete(:height) || params.delete('height') || '100%'
 
-    whitelist = ['autoplay', 'controls', 'loop', 'muted']
-    params = params.slice(*whitelist)
+    data_autoplay = params['autoplay'] ? 'data-autoplay="true"' : nil
+
+    whitelist = ['controls', 'loop', 'muted']
+    params    = params.slice(*whitelist)
     whitelist.each do |name|
       params[name] = params[name] ? 1 : 0
     end
@@ -530,6 +536,7 @@ class Issue::PageView
     when /youtube\.com\/watch\?v=(.+)/
       params = params.merge(
         playlist: $1,
+        autoplay: 1,
         autohide: 1,
         color: 'white',
         enablejsapi: 1,
@@ -547,6 +554,7 @@ class Issue::PageView
       params = params.merge(
         byline: 0,
         portrait: 0,
+        autoplay: 1
       )
       embed_url = "http://player.vimeo.com/video/#{$1}"
 
@@ -558,7 +566,7 @@ class Issue::PageView
 
     source = %{data-src="#{embed_url}"}
 
-    %{<iframe #{source} frameborder="0" width="#{width}" height="#{height}" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>}
+    %{<div class="iframe-wrapper"><iframe #{source} #{data_autoplay} frameborder="0" width="#{width}" height="#{height}" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>}
   end
 
   def extract_value_from object, key, default
