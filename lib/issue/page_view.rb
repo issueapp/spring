@@ -565,7 +565,7 @@ class Issue::PageView
 
     source = %{data-src="#{embed_url}"}
 
-    %{<div class="iframe-wrapper"><iframe #{source} #{data_autoplay} frameborder="0" width="#{width}" height="#{height}" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>}
+    %{<div class="iframe-wrapper-top"></div><iframe #{source} #{data_autoplay} frameborder="0" width="#{width}" height="#{height}" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe><div class="iframe-wrapper-bottom"></div>}
   end
 
   def extract_value_from object, key, default
