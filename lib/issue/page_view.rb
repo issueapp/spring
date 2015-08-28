@@ -279,11 +279,13 @@ class Issue::PageView
         object['description'] = object['summary'] if element == 'products'
 
         if export_mode
-          object['image'] = {'url' => asset_url(page_elements[i], 'image' => true), 'path' => page_elements[i].path}
+          if (image_url = asset_url(page_elements[i], 'image' => true)).present?
+            object['image'] = {'url' => image_url, 'path' => page_elements[i].path}
 
-          if has_dimension = page_elements[i].respond_to?('image_width') && page_elements[i].image_width
-            object['image']['width'] ||= page_elements[i].image_width
-            object['image']['height'] ||= page_elements[i].image_height
+            if has_dimension = page_elements[i].respond_to?('image_width') && page_elements[i].image_width
+              object['image']['width'] = page_elements[i].image_width
+              object['image']['height'] = page_elements[i].image_height
+            end
           end
         else
           object['image_url'] = asset_url(page_elements[i], 'image' => true)
@@ -340,7 +342,7 @@ class Issue::PageView
       end
     end
 
-    asset_path url
+    asset_path url if url.present?
   end
 
   # Swap data-media-id
