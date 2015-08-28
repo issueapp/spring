@@ -220,7 +220,7 @@ class LocalIssue::Page < Hashie::Mash
     asset, index = id.split(':')
 
     if find_by_id = index.nil? || index.empty?
-      media = %w[audios images videos].reduce do |_, e|
+      media = %w[audios images videos].reduce(nil) do |_, e|
         if found = self[e] && self[e].find{|m| m['id'] == id}
           asset = e
           break found

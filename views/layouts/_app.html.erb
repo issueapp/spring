@@ -34,9 +34,9 @@
     <% if defined?(current_issue) %>
       <% Array(current_issue.assets).each do |asset| %>
         <% asset_url = asset.is_a?(String) ? asset : asset.url %>
-        <% if asset_url.match(/\.js$/) %>
+        <% if asset_url.end_with?('.js') %>
           <script src="<%= asset_path asset_url %>"></script>
-        <% elsif asset_url.match(/\.css$/) %>
+        <% elsif asset_url.end_with?('.scss', '.css') %>
           <link rel="stylesheet" href="<%= asset_path asset_url %>" type="text/css">
         <% end %>
       <% end %>

@@ -133,6 +133,7 @@ class IssuePreview < Sinatra::Base
 
   # Page and subpage
   get %r{/(?<magazine>[^\/]+)/(?<issue>[^\/]+)/(?<page>[^\/\.]+)(?:\/(?<subpage>[^\/\.]+))?\.?(?<format>json)?} do
+
     issue = current_issue
     path = File.join(params.values_at('page', 'subpage').compact)
     page = LocalIssue::Page.find(path, issue: issue)
@@ -163,22 +164,23 @@ class IssuePreview < Sinatra::Base
     return path if path.nil? || path.start_with?('http:', 'https:')
 
     global = options[:global] || options['global']
+    embed = request.env['SCRIPT_NAME'] == '/embed'
+    json = params['format'] == 'json'
 
-    path = path.sub('assets/', '') # Sub page has incorrect asset path "../assets/assets/logo.png"
+    path = "assets/#{path}" unless path.start_with? 'assets/'
 
     if defined? Rails
       if global_online = (!Rails.configuration.offline_assets && global)
-        return ActionController::Base.helpers.asset_path(path)
+        ActionController::Base.helpers.asset_path(path)
+      elsif embed && json
+        path
+      elsif params[:subpage]
+        File.join('..', path)
+      #elsif params[:page]
+      #  File.join('..', path)
+      else
+        path
       end
-
-
-      asset_path = %W[assets #{path}]
-      if params[:subpage]
-        asset_path.unshift '..'
-        asset_path.unshift '..' if request.env['ORIGINAL_FULLPATH'].end_with? '/'
-      end
-
-      File.join *asset_path
 
     else
       asset_host = ENV["ASSET_HOST"] || request.base_url
