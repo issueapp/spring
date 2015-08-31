@@ -536,8 +536,10 @@ class Issue::PageView
         decorated << video_iframe_html(video_url, options)
 
       else
-        options[:src] = options.delete(:'data-src')
         options[:'data-autoplay'] = true if options.delete('autoplay')
+        if src = options.delete(:'data-src')
+          options[:src] = src
+        end
         decorated << create_element('video', options)
       end
 
