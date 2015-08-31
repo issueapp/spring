@@ -328,6 +328,7 @@ class LocalIssue::Page < Hashie::Mash
     self.handle
   end
 
+  # DEPRECATED build your own hash for your own purpose :)
   def to_hash options={}
     hash = {}
 
@@ -382,6 +383,7 @@ class LocalIssue::Page < Hashie::Mash
     hash
   end
 
+  # DEPRECATED
   def convert_local_path! element
     element.keys.each do |key|
       value = element[key]
