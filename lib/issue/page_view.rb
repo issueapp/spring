@@ -236,7 +236,7 @@ class Issue::PageView
 
     hash['category'] = category
 
-    hash['layout'] = page.layout.to_h
+    hash['layout'] = page.layout.to_h.reject{|_,v| v.blank?}
 
     %w[audios images videos].each do |element|
       next unless has_media = hash[element]
