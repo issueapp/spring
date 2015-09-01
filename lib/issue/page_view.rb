@@ -136,6 +136,8 @@ class Issue::PageView
       if embed_video? cover.link
         params = cover.respond_to?('to_hash') ? cover.to_hash : cover.attributes
         params.key?('autoplay') || (params['autoplay'] = true)
+
+        figure['class'] += ' embed'
         figure << video_iframe_html(cover.link, params)
       else
         attributes = {
@@ -472,6 +474,7 @@ class Issue::PageView
       end
 
       if embed_video? video_url
+        decorated['class'] += ' embed'
         decorated << video_iframe_html(video_url, options)
 
       else
