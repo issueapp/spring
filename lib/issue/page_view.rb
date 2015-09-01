@@ -537,7 +537,6 @@ class Issue::PageView
     case url
     when /youtube\.com\/watch\?v=(.+)/
       params = params.merge(
-        playlist: $1,
         autoplay: 1,
         autohide: 1,
         color: 'white',
@@ -548,8 +547,12 @@ class Issue::PageView
         origin: 'https://issueapp.com',
         rel: 0,
         showinfo: 0,
-        wmode: 'transparent',
+        wmode: 'transparent'
       )
+
+      # NOTE: loop only works with the playlist param
+      params.merge!(playlist: $1) if params['loop'] == 1
+
       embed_url = "https://www.youtube-nocookie.com/embed/#{$1}"
 
     when /vimeo\.com\/([^\/]+)/
