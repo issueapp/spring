@@ -101,7 +101,7 @@ class LocalIssue::Page < Hashie::Mash
 
     # Convert media and entity url array into hash
     self.elements.each do |element|
-      attributes[element] = attributes[element].to_a.map do |object|
+      attributes[element] = attributes[element].to_a.each_with_index.map do |object, index|
         if object.is_a? String
           if element == 'links'
             key = 'link'
@@ -113,6 +113,8 @@ class LocalIssue::Page < Hashie::Mash
 
           object = {key => object}
         end
+
+        object['index'] = index+1
 
         Hashie::Mash.new(object)
       end
@@ -159,12 +161,10 @@ class LocalIssue::Page < Hashie::Mash
     layout = self.default_layout.merge(attributes['layout'] || {})
     layout.merge!(options['layout'] || options[:layout] || {})
 
-    attributes.merge!(
-      "issue"    => issue,
-      "handle"   => path.split('/').last,
-      "path"     => path,
-      "layout"   => Hashie::Mash.new(layout),
-    )
+    attributes['issue'] ||= issue
+    attributes['handle'] ||= path.split('/').last
+    attributes['path'] = path
+    attributes['layout'] = Hashie::Mash.new(layout)
 
     new attributes
 
