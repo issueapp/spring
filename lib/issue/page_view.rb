@@ -223,7 +223,14 @@ class Issue::PageView
     end
 
     hash['updated_at'] = page.updated_at.to_i.to_s
-    hash['parentTitle'] = page.parent.title if page.parent
+    if page.parent
+      hash['parentTitle'] = page.parent.title
+
+      if export_mode
+        children_count = page.parent.children.count
+        hash['index'] = hash['index'].to_s.rjust(children_count.to_s.length, '0')
+      end
+    end
 
     if author
       hash['byline'] = "by #{author.name}"
