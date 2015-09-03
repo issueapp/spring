@@ -55,7 +55,7 @@ class Issue::PageView
     classes << 'no-content ' if !editing && !has_content
     classes << 'no-image'    if !editing && !has_cover
 
-    classes << (page.layout.content_style    || 'white')
+    classes << (page.layout.content_style || 'white')
     classes << ('transparent') if page.layout.content_transparent == "1"
 
     if page.layout.type != "custom"
@@ -65,6 +65,7 @@ class Issue::PageView
 
       classes << ("height-#{page.layout.content_height || 'auto'}")
       classes << "image-#{page.layout.image_style}" if page.layout.image_style
+      classes << "cover-#{page.cover.type.to_s.split('/').first}" if page.cover
       classes << ("cover-#{page.layout.image_align || "left" }")
     end
 
@@ -142,8 +143,7 @@ class Issue::PageView
       else
         attributes = {
           :src => asset_url(cover),
-          'data-media-id' => cover.id,
-          :poster => asset_url(cover, 'thumb' => true)
+          'data-media-id' => cover.id
         }
         attributes['data-autoplay'] = '' if cover.autoplay
         attributes['loop'] = '' if cover.loop
@@ -457,7 +457,7 @@ class Issue::PageView
         type:          video['type'],
         :'data-src' => video_url,
         'autoplay'  => extract_value_from(video, key='autoplay', default=true),
-        controls:      extract_value_from(video, key='controls', default=nil),
+        'controls'  => extract_value_from(video, key='controls', default=nil),
         width:         video['width'],
         height:        video['height'],
         loop:          video['loop'],
