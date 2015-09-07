@@ -134,7 +134,6 @@ class LocalIssue::Page < Hashie::Mash
     end
 
     attributes["images"].map! do |image|
-      image.key?('layout') || image.layout = !!image.cover
       image.type ||= "image"
       image
     end
