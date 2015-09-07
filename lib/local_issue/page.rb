@@ -160,6 +160,14 @@ class LocalIssue::Page < Hashie::Mash
 
     layout = self.default_layout.merge(attributes['layout'] || {})
     layout.merge!(options['layout'] || options[:layout] || {})
+    %w[content_transparent hide_author].each do |field|
+      if layout.key? field
+        case layout[field]
+        when '1', 'yes' then layout[field] = true
+        when '0', 'no'  then layout[field] = false
+        end
+      end
+    end
 
     attributes['issue'] ||= issue
     attributes['handle'] ||= path.split('/').last
