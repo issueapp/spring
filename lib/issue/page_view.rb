@@ -561,16 +561,15 @@ class Issue::PageView
   end
 
   def decorate_audio node, audio
-    # Setup audio params
     options = node.attribute_nodes.reduce({}) do |memo, n|
       memo[n.node_name] = n.value
       memo
     end
-    options.merge!( {
+    options.merge!({
       type:     audio['type'],
       src:      asset_url(audio),
-      'data-autoplay': audio['autoplay'] ? true : nil,
-      controls: audio['controls'] ? true : nil,
+      'data-autoplay': audio['autoplay'],
+      controls: audio['controls'],
       loop:     audio['loop'],
       muted:    audio['muted'],
       preload:  audio['preload'],
@@ -579,7 +578,9 @@ class Issue::PageView
     }.delete_if { |k, v| v.nil? })
 
     figure = create_element('figure', :class => 'audio')
-    figure << create_element('img', class: 'thumbnail', src: asset_url(audio, 'thumb' => true))
+    if thumb_url = asset_url(audio, 'thumb' => true)
+      figure << create_element('img', class: 'thumbnail', src: thumb_url)
+    end
 
     audio = create_element('audio', options)
     figure << audio
