@@ -58,7 +58,7 @@ class Issue::PageView
     classes << 'no-image'    if !editing && !has_cover
 
     classes << (page.layout.content_style || 'white')
-    classes << ('transparent') if page.layout.content_transparent == "1"
+    classes << ('transparent') if page.layout.content_transparent
 
     if page.layout.type != "custom"
       classes << (page.layout.content_overflow || 'scroll')
