@@ -11,6 +11,9 @@ Struct.new('Author', :name, :icon)
 
 class Issue::PageView
 
+  YOUTUBE_RE = %r{youtube\.com/watch\?v=(.+)}
+  VIMEO_RE = %r{vimeo\.com/([^/]+)}
+
   # FIXME unstable API
   def custom_html?
     page.custom_html.present?
@@ -129,13 +132,13 @@ class Issue::PageView
     attributes = {:class => container_class, :style => container_background}
     figure = create_element('figure', attributes)
 
-    #  TODO unsure what to do with this?
+    #  FIXME unsure what to do with this?
     #  <% if page.cover.style == 'overlay' %>
     #    <%= header_area %>
     #  <% end %>
-    #  end TODO unsure what to do with this?
+    #  end FIXME unsure what to do with this?
 
-    if cover.type.include? 'video'
+    if cover.type.try(:include?, 'video')
       if embed_video? cover.link
         params = cover.respond_to?('to_hash') ? cover.to_hash : cover.attributes
         params.key?('autoplay') || (params['autoplay'] = true)
@@ -518,23 +521,30 @@ class Issue::PageView
         memo[n.node_name] = n.value
         memo
       end
-      options.merge!({
-        type:          video['type'],
-        :'data-src' => video_url,
-        'autoplay'  => extract_value_from(video, key=:autoplay, default=true),
-        'controls'  => extract_value_from(video, key=:controls, default=nil),
-        width:         video['width'],
-        height:        video['height'],
-        loop:          video['loop'],
-        mute:          video['mute'],
-        preload:       video['preload']
-      }.delete_if { |k, v| v.nil? })
+      options[:type] = video['type'] if video['type'].present?
+      options[:src] = video_url
+      value = html5_attribute_value(video['autoplay'], 'autoplay')
+      options[:autoplay] = value if value
+      %w[controls loop muted].each do |a|
+        value = html5_attribute_value(video[a], a)
+        options[a.to_sym] = value if value
+      end
+      value = html5_attribute_value(video['preload'], %w[auto metadata none])
+      options[:preload] = value if value
+      options[:global] = true if truthy? video['global']
+      options[:scope] = true if truthy? video['scope']
+      %w[width height].each do |a|
+        value = video[a]
+        options[a.to_sym] = value if value
+      end
 
       if node['data-original']
         decorated = create_element('')
       else
-        decorated = create_element('figure', class: "video",
-          style: "background-image: url('#{asset_url(video, 'thumb' => true)}')"
+        thumb_url = asset_url(video, 'thumb' => true)
+        decorated = create_element(
+          'figure',
+          class: 'video', style: "background-image: url('#{thumb_url}')"
         )
       end
 
@@ -543,16 +553,14 @@ class Issue::PageView
         decorated << video_iframe_html(video_url, options)
 
       else
-        options[:'data-autoplay'] = true if options.delete('autoplay')
-        if src = options.delete(:'data-src')
-          options[:src] = src
-        end
+        value = options.delete(:autoplay)
+        options[:'data-autoplay'] = value if value
         decorated << create_element('video', options)
       end
 
       if video['caption'].present?
         options = {}
-        options[:class] = 'inset' if video['caption_inset']
+        options[:class] = 'inset' if truthy? video['caption_inset']
         decorated << create_element('figcaption', video['caption'], options)
       end
     end
@@ -565,17 +573,18 @@ class Issue::PageView
       memo[n.node_name] = n.value
       memo
     end
-    options.merge!({
-      type:     audio['type'],
-      src:      asset_url(audio),
-      'data-autoplay': audio['autoplay'],
-      controls: audio['controls'],
-      loop:     audio['loop'],
-      muted:    audio['muted'],
-      preload:  audio['preload'],
-      'data-global': audio['global'],
-      'data-scope': audio['scope']
-    }.delete_if { |k, v| v.nil? })
+    options[:type] = audio['type'] if audio['type'].present?
+    options[:src] = asset_url(audio)
+    value = html5_attribute_value(audio['autoplay'], 'autoplay')
+    options[:'data-autoplay'] = value if value
+    %w[controls loop muted].each do |a|
+      value = html5_attribute_value(audio[a], a)
+      options[a.to_sym] = value if value
+    end
+    value = html5_attribute_value(audio['preload'], %w[auto metadata none])
+    options[:preload] = value if value
+    options[:'data-global'] = true if truthy? audio['global']
+    options[:'data-scope'] = true if truthy? audio['scope']
 
     figure = create_element('figure', :class => 'audio')
     if thumb_url = asset_url(audio, 'thumb' => true)
@@ -594,21 +603,30 @@ class Issue::PageView
     node.replace figure
   end
 
+  def html5_attribute_value value, value_set
+    value_set = Array(value_set)
+
+    if truthy? value
+      value_set.first
+    elsif value_set.include? value
+      value
+    end
+  end
+
   def video_iframe_html url, params={}
-    width  = params.delete(:width) || params.delete('width') || '100%'
-    height = params.delete(:height) || params.delete('height') || '100%'
+    width  = params[:width] || '100%'
+    height = params[:height] ||'100%'
 
-    data_autoplay = params['autoplay'] ? 'data-autoplay="true"' : nil
+    autoplay = params[:autoplay] ? 'data-autoplay="true"' : nil
 
-    whitelist = ['controls', 'loop', 'muted']
-    params    = params.slice(*whitelist)
-    whitelist.each do |name|
-      params[name] = params[name] ? 1 : 0
+    embed_url_params = {}
+    %i[controls loop muted].each do |a|
+      embed_url_params[a] = params[a] ? 1 : 0
     end
 
     case url
-    when /youtube\.com\/watch\?v=(.+)/
-      params = params.merge(
+    when YOUTUBE_RE
+      embed_url_params.merge!(
         autoplay: 1,
         autohide: 1,
         color: 'white',
@@ -623,12 +641,12 @@ class Issue::PageView
       )
 
       # NOTE: loop only works with the playlist param
-      params.merge!(playlist: $1) if params['loop'] == 1
+      embed_url_params[:playlist] = $1 if params[:loop]
 
       embed_url = "https://www.youtube-nocookie.com/embed/#{$1}"
 
-    when /vimeo\.com\/([^\/]+)/
-      params = params.merge(
+    when VIMEO_RE
+      embed_url_params.merge!(
         byline: 0,
         portrait: 0,
         autoplay: 1
@@ -639,28 +657,22 @@ class Issue::PageView
       raise ArgumentError, "Unsupported url: #{url}"
     end
 
-    embed_url << "?#{URI.escape(params.to_param)}"
+    embed_url << "?#{URI.escape(embed_url_params.to_param)}"
 
     source = %{data-src="#{embed_url}"}
 
-    %{<div class="iframe-wrapper-top"></div><iframe #{source} #{data_autoplay} frameborder="0" width="#{width}" height="#{height}" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe><div class="iframe-wrapper-bottom"></div>}
-  end
-
-  def extract_value_from object, key, default
-    if object.respond_to? 'has_key?'
-      object.has_key?(key) ? object[key] : default
-    elsif object.respond_to? 'has_attribute?'
-      object.has_attribute?(key) ? object[key] : default
-    elsif object.respond_to? 'fetch'
-      object.fetch(key) { default }
-    else
-      default
-    end
+    %{<div class="iframe-wrapper-top"></div>
+      <iframe #{source} #{autoplay} frameborder="0" width="#{width}" height="#{height}" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+      <div class="iframe-wrapper-bottom"></div>}
   end
 
   def embed_video? url
-    return false unless url
-    !! (url.match(/youtube\.com\/watch\?v=(.+)/) || url.match(/vimeo\.com\/([^\/]+)/))
+    case url.to_s
+    when YOUTUBE_RE, VIMEO_RE
+      true
+    else
+      false
+    end
   end
 
   def create_element *args, &block
@@ -734,8 +746,8 @@ class Issue::PageView
   end
 
   def truthy? value
-    case value.to_s
-    when /true/i, /yes/i, '1'
+    case value.to_s.downcase
+    when 'true', 'yes', '1'
       true
     else
       false
