@@ -257,6 +257,11 @@ class Issue::PageView
         # make cover on top level
         hash['cover'] ||= object if object['cover']
 
+        # DEPRECATED when rendering in mustache and Media#layout is not found,
+        #            scope leaks to Page#layout
+        #            so use something more meaningful to reflect grouping of images for gallery, polaroid
+        object.key?('layout') || (object['layout'] = false)
+
         thumb_url = asset_url(page_elements[i], thumb: true)
         if thumb_url.present?
           if export_mode
