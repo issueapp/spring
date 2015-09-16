@@ -13,8 +13,7 @@ class LocalIssue < Hashie::Mash
 
   # root of issues data and assets
   def self.root
-    Thread.current[:local_issue_root] ||
-      set_root(ENV['LOCAL_ISSUE_ROOT'] || '~/Dropbox/issues')
+    @local_issue_root || set_root(ENV['LOCAL_ISSUE_ROOT'] || '~/Dropbox/issues')
   end
 
   def self.set_root path
@@ -28,9 +27,9 @@ class LocalIssue < Hashie::Mash
         end
       end
 
-      Thread.current[:local_issue_root] = Pathname(path.sub(/^~/, ENV['HOME']))
+      @local_issue_root = Pathname(path.sub(/^~/, ENV['HOME']))
     when Pathname, nil
-      Thread.current[:local_issue_root] = path
+      @local_issue_root = path
     else
       raise "Fail to set root: #{path}"
     end
