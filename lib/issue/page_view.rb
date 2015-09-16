@@ -619,14 +619,14 @@ class Issue::PageView
   end
 
   def video_iframe_html url, params={}
-    width  = params[:width] || '100%'
-    height = params[:height] ||'100%'
+    width  = params[:width] || params['width'] || '100%'
+    height = params[:height] || params['height'] || '100%'
 
-    autoplay = params[:autoplay] ? 'data-autoplay="true"' : nil
+    autoplay = params[:autoplay] || params['autoplay'] ? 'data-autoplay="true"' : nil
 
     embed_url_params = {}
     %i[controls loop muted].each do |a|
-      embed_url_params[a] = params[a] ? 1 : 0
+      embed_url_params[a] = params[a] || params[a.to_s] ? 1 : 0
     end
 
     case url
@@ -646,7 +646,7 @@ class Issue::PageView
       )
 
       # NOTE: loop only works with the playlist param
-      embed_url_params[:playlist] = $1 if params[:loop]
+      embed_url_params[:playlist] = $1 if params[:loop] || params['loop']
 
       embed_url = "https://www.youtube-nocookie.com/embed/#{$1}"
 
