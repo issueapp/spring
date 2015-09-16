@@ -57,7 +57,14 @@ class IssuePreview < Sinatra::Base
   end
 
   get "/:magazine/:issue/index/?" do
-    erb :"issue/_cover.html", layout: issue_layout, locals: { issue: current_issue }
+    is_json = params['format'] == 'json'
+    html = erb :"issue/_cover.html", layout: issue_layout, locals: { issue: current_issue }
+
+    if is_json
+      {'html' => html}.to_json
+    else
+      html
+    end
   end
 
   get "/:magazine/:issue/?" do
