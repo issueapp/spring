@@ -456,8 +456,8 @@ class Issue::PageView
         id:            node['id'],
         type:          video['type'],
         :'data-src' => video_url,
-        'autoplay'  => extract_value_from(video, key='autoplay', default=true),
-        'controls'  => extract_value_from(video, key='controls', default=nil),
+        'autoplay'  => extract_value_from(video, key=:autoplay, default=true),
+        'controls'  => extract_value_from(video, key=:controls, default=nil),
         width:         video['width'],
         height:        video['height'],
         loop:          video['loop'],
@@ -478,7 +478,8 @@ class Issue::PageView
         decorated << video_iframe_html(video_url, options)
 
       else
-        options[:'data-autoplay'] = true if options.delete(:autoplay)
+        options[:src] = options.delete(:'data-src')
+        options[:'data-autoplay'] = true if options.delete('autoplay')
         decorated << create_element('video', options)
       end
 
@@ -575,7 +576,9 @@ class Issue::PageView
   end
 
   def extract_value_from object, key, default
-    if object.respond_to? 'has_attribute?'
+    if object.respond_to? 'has_key?'
+      object.has_key?(key) ? object[key] : default
+    elsif object.respond_to? 'has_attribute?'
       object.has_attribute?(key) ? object[key] : default
     elsif object.respond_to? 'fetch'
       object.fetch(key) { default }
