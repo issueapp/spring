@@ -520,7 +520,7 @@ class Issue::PageView
       )
 
     else
-      video_url = video['url'] || video['link']
+      video_url = video['url'] || video['link'] || asset_url(video)
 
       options = node.attribute_nodes.reduce({}) do |memo, n|
         memo[n.node_name] = n.value
@@ -544,23 +544,29 @@ class Issue::PageView
       end
 
       if node['data-original']
-        decorated = create_element('')
+        value = options.delete(:autoplay)
+        options[:'data-autoplay'] = value if value
+        options.each do |name, value|
+          node[name] = value
+        end
+
+        return node
       else
         thumb_url = asset_url(video, 'thumb' => true)
         decorated = create_element(
           'figure',
           class: 'video', style: "background-image: url('#{thumb_url}')"
         )
-      end
 
-      if embed_video? video_url
-        decorated['class'] += ' embed'
-        decorated << video_iframe_html(video_url, options)
+        if embed_video? video_url
+          decorated['class'] += ' embed'
+          decorated << video_iframe_html(video_url, options)
 
-      else
-        value = options.delete(:autoplay)
-        options[:'data-autoplay'] = value if value
-        decorated << create_element('video', options)
+        else
+          value = options.delete(:autoplay)
+          options[:'data-autoplay'] = value if value
+          decorated << create_element('video', options)
+        end
       end
 
       if video['caption'].present?
