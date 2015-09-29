@@ -11,7 +11,7 @@
 
 #<%= issue.handle %>-issue {
   <% if custom_css.issue? %>
-<%= custom_css.issue %>
+<%= custom_css.issue.gsub(/^/, '  ') %>
   <% end %>
 
   <% for (selector, path) in custom_css.page_selectors_and_paths %>

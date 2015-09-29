@@ -100,14 +100,10 @@ class LocalIssue::CustomCss
         when '@keyframes'
           @keyframes << node.to_scss
         else
-          scss = node.to_scss
-          scss.gsub!(/^/, '  ')
-          @issue_scss << scss
+          @issue_scss << node.to_scss
         end
       else
-        scss = node.to_scss
-        scss.gsub!(/^/, '  ')
-        @issue_scss << scss
+        @issue_scss << node.to_scss
       end
     end
   end
