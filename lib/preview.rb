@@ -7,6 +7,7 @@ require 'bourbon'
 require 'hashie/mash'
 require 'local_issue'
 require 'local_issue/page'
+require 'local_issue/custom_css'
 require 'issue/page_view'
 
 class IssuePreview < Sinatra::Base
@@ -83,6 +84,15 @@ class IssuePreview < Sinatra::Base
     end
   end
 
+  get "/:magazine/:issue/assets/custom.css" do
+    custom_css = LocalIssue::CustomCss.new(current_issue)
+
+    css = erb(
+      :"issue/custom.css",
+      locals: {custom_css: custom_css, issue: current_issue}, layout: false
+    )
+  end
+
   # /official/great-escape/assets/custom.css
   # assets/custom.scss
   #
@@ -129,7 +139,7 @@ class IssuePreview < Sinatra::Base
     if mime_type == "application/mp4"
       return send_file current_issue.path.join('assets').join(file), type: "video/mp4"
     elsif mime_type.include?('css')
-      source = AutoprefixerRails.process(asset.to_s, from: 'custom.css', browsers: ['> 1%', 'ie 10']).css
+      source = AutoprefixerRails.process(asset.to_s, from: file, browsers: ['> 1%', 'ie 10']).css
     else
       source = asset.to_s
     end

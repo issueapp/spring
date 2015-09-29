@@ -1,0 +1,22 @@
+// DO NOT EDIT
+// This custom.scss is generated when you visit /<%= issue.magazine_handle %>/<%= issue.handle %>/assets/custom.css
+
+<% for font in custom_css.fonts %>
+<%= font %>
+<% end %>
+
+<% for keyframe in custom_css.keyframes %>
+<%= keyframe %>
+<% end %>
+
+#<%= issue.handle %>-issue {
+  <% if custom_css.issue? %>
+<%= custom_css.issue %>
+  <% end %>
+
+  <% for (selector, path) in custom_css.page_selectors_and_paths %>
+  [data-page="<%= selector %>"] {
+    @import "<%= path %>";
+  }
+  <% end %>
+}
