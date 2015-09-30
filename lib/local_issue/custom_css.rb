@@ -73,6 +73,39 @@ class LocalIssue::CustomCss
     (local_issue.path/"styles/#{page_style_path}.scss").exist?
   end
 
+  def fresh?
+    # TODO
+  end
+
+  def write scss
+    File.open(local_issue.path/'assets/custom.scss', 'wb') do |io|
+      io << scss
+    end
+  end
+
+  def to_css sprockets=nil
+    if sprockets
+      original_search_paths = sprockets.paths
+    else
+      sprockets = Sprockets::Environment.new
+    end
+
+    sprockets.append_path(local_issue.path/'assets')
+    sprockets.append_path(local_issue.path/'styles')
+    sprockets.append_path(Rails.root/'app/assets/stylesheets/')
+
+    asset = sprockets['custom.css']
+
+    if original_search_paths
+      sprockets.clear_paths
+      original_search_paths.each do |path|
+        sprockets.append_path path
+      end
+    end
+
+    AutoprefixerRails.process(asset.to_s, from: 'custom.scss', browsers: ['> 1%', 'ie 10']).css
+  end
+
   private
 
   def issue_scss_path

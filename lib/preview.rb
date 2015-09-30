@@ -87,10 +87,17 @@ class IssuePreview < Sinatra::Base
   get "/:magazine/:issue/assets/custom.css" do
     custom_css = LocalIssue::CustomCss.new(current_issue)
 
-    css = erb(
-      :"issue/custom.css",
-      locals: {custom_css: custom_css, issue: current_issue}, layout: false
-    )
+    #unless custom_css.fresh?
+      scss = erb(
+        :"issue/custom.scss",
+        locals: {custom_css: custom_css, issue: current_issue}, layout: false
+      )
+
+      custom_css.write scss
+    #end
+
+    content_type 'text/css'
+    custom_css.to_css
   end
 
   # /official/great-escape/assets/custom.css
