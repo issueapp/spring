@@ -10,9 +10,7 @@
 <% end %>
 
 #<%= issue.handle %>-issue {
-  <% if custom_css.issue? %>
-<%= custom_css.issue.gsub(/^/, '  ') %>
-  <% end %>
+<%= custom_css.issue_scss.gsub(/^/, '  ') %>
 
   <% for (selector, path) in custom_css.page_selectors_and_paths %>
   [data-page="<%= selector %>"] {

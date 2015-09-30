@@ -1,27 +1,24 @@
 require_relative '../local_issue'
 
 class LocalIssue::CustomCss
-  attr_reader :local_issue
+  attr_reader :issue
 
   def initialize issue
     case issue
     when LocalIssue
-      @local_issue = issue
+      @issue = issue
     when String
-      @local_issue = LocalIssue.find(issue)
+      @issue = LocalIssue.find(issue)
     else
       raise "Local issue not found: #{LocalIssue.root/issue}"
     end
   end
 
   def page_selectors_and_paths
-    local_issue.paths.reduce({}) do |memo, path|
-      if path == 'index' && cover?
-        memo[path] = 'cover'
-      elsif page_style? path
-        memo[path] = path
-      end
-
+    issue.paths.reduce({}) do |memo, path|
+      selector = path
+      path = 'cover' if path == 'index'
+      memo[selector] = path if style_path(path).exist?
       memo
     end
   end
@@ -45,7 +42,7 @@ class LocalIssue::CustomCss
   end
 
   # extracted scss from :issue/styles/_issue.scss
-  def issue
+  def issue_scss
     unless defined? @issue_scss
       parse_issue_scss
     end
@@ -53,32 +50,21 @@ class LocalIssue::CustomCss
     @issue_scss
   end
 
-  def issue?
-    issue_scss_path.exist?
-  end
+  def fresh?
+    return false if ! custom_scss_path.exist?
+    return false if issue_scss_path.exist? && mtime < issue_scss_path.mtime
 
-  def cover?
-    (local_issue.path/'styles/_cover.scss').exist?
-  end
-
-  def page_style? path
-    parent, child = path.split('/')
-
-    if child
-      page_style_path = "#{parent}/_#{child}"
-    else
-      page_style_path = "_#{parent}"
+    issue.paths.each do |path|
+      path = 'cover' if path == 'index'
+      page_style_path = style_path(path)
+      return false if page_style_path.exist? && mtime < page_style_path.mtime
     end
 
-    (local_issue.path/"styles/#{page_style_path}.scss").exist?
-  end
-
-  def fresh?
-    # TODO
+    true
   end
 
   def write scss
-    File.open(local_issue.path/'assets/custom.scss', 'wb') do |io|
+    File.open(custom_scss_path, 'wb') do |io|
       io << scss
     end
   end
@@ -90,8 +76,8 @@ class LocalIssue::CustomCss
       sprockets = Sprockets::Environment.new
     end
 
-    sprockets.append_path(local_issue.path/'assets')
-    sprockets.append_path(local_issue.path/'styles')
+    sprockets.append_path(issue.path/'assets')
+    sprockets.append_path(issue.path/'styles')
     sprockets.append_path(Rails.root/'app/assets/stylesheets/')
 
     asset = sprockets['custom.css']
@@ -108,21 +94,43 @@ class LocalIssue::CustomCss
 
   private
 
+  def style_path path
+    parent, child = path.split('/')
+
+    if child
+      style_path = "#{parent}/_#{child}"
+    else
+      style_path = "_#{parent}"
+    end
+
+    issue.path/"styles/#{style_path}.scss"
+  end
+
+  def mtime
+    @mtime ||= custom_scss_path.mtime
+  end
+
+  def custom_scss_path
+    @custom_scss_path ||= issue.path/'assets/custom.scss'
+  end
+
   def issue_scss_path
-    local_issue.path/'styles/_issue.scss'
+    @issue_scss_path ||= style_path('issue')
   end
 
   def parse_issue_scss
+    @fonts = []
+    @keyframes = []
+    @issue_scss = ''
+
+    return unless issue_scss_path.exist?
+
     scss = IO.read(issue_scss_path)
     filename = File.basename(issue_scss_path)
     importer = Sass::Importers::Filesystem.new('.')
     parser = Sass::SCSS::Parser.new(scss, filename, importer)
 
     tree = parser.parse
-
-    @fonts = []
-    @keyframes = []
-    @issue_scss = ''
 
     tree.children.each do |node|
       case node
