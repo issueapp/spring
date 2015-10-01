@@ -18,7 +18,7 @@ class LocalIssue::Page < Hashie::Mash
   # virtual
   # cover -> images.where(cover:true)
 
-  def self.default_layout
+  def self.default_style
     {
       'content_style'          => 'white',
       'type'                   => 'one-column',
@@ -157,13 +157,13 @@ class LocalIssue::Page < Hashie::Mash
       attributes['content'] = RDiscount.new(content).to_html
     end
 
-    layout = self.default_layout.merge(attributes['layout'] || {})
-    layout.merge!(options['layout'] || options[:layout] || {})
+    style = self.default_style.merge(attributes['style'] || {})
+    style.merge!(options['style'] || options[:style] || {})
     %w[content_transparent hide_author].each do |field|
-      if layout.key? field
-        case layout[field]
-        when '1', 'yes' then layout[field] = true
-        when '0', 'no'  then layout[field] = false
+      if style.key? field
+        case style[field]
+        when '1', 'yes' then style[field] = true
+        when '0', 'no'  then style[field] = false
         end
       end
     end
@@ -171,7 +171,7 @@ class LocalIssue::Page < Hashie::Mash
     attributes['issue'] ||= issue
     attributes['handle'] ||= path.split('/').last
     attributes['path'] = path
-    attributes['layout'] = Hashie::Mash.new(layout)
+    attributes['style'] = Hashie::Mash.new(style)
 
     new attributes
 
@@ -218,7 +218,7 @@ class LocalIssue::Page < Hashie::Mash
   def initialize *args
     super
 
-    self["layout"] ||= Hashie::Mash.new(self.class.default_layout)
+    self['style'] ||= Hashie::Mash.new(self.class.default_style)
   end
 
   def find_element id
@@ -324,7 +324,7 @@ class LocalIssue::Page < Hashie::Mash
   def theme
     dark_themes = ["black", "transparent", "dark"]
 
-    if dark_themes.include? layout.try(:content_style)
+    if dark_themes.include? style.try(:content_style)
       "black"
     else
       "white"
@@ -333,75 +333,5 @@ class LocalIssue::Page < Hashie::Mash
 
   def url
     self.handle
-  end
-
-  # DEPRECATED build your own hash for your own purpose :)
-  def to_hash options={}
-    hash = {}
-
-    hash['title'] = fetch('title'){ 'Table of Content' if toc? }
-    hash['summary'] = fetch('summary') { regular_reader 'description' }
-
-    whitelist = %w[
-      content custom_html
-      handle category layout
-      author_name
-    ]
-    whitelist.each do |a|
-      hash[a] = regular_reader(a) if key? a
-    end
-    hash['layout'] = hash['layout'].to_hash if hash.key? 'layout'
-
-    self.class.elements.each do |e|
-      if key? e
-        hash[e] = []
-        elements = regular_reader(e)
-
-        elements.each_with_index do |element, index|
-          element = element.to_hash
-
-          if options[:local_path]
-            convert_local_path!(element)
-
-            is_remote =
-              case element
-              when 'audios', 'videos'
-                element['link']
-              else
-                element.keys.find{|v| v.end_with?('_url')}
-              end
-
-            unless is_remote
-              element['path'] = (element['file'] || element['image']).to_s.sub(%r{.*assets/}, '')
-            end
-          end
-
-          hash[e][index] = element
-        end
-      end
-    end
-
-    if options[:include_children]
-      hash['children'] = children.map do |subpage|
-        subpage.to_hash options
-      end
-    end
-
-    hash
-  end
-
-  # DEPRECATED
-  def convert_local_path! element
-    element.keys.each do |key|
-      value = element[key]
-
-      if is_local = (key.end_with?('_url') || key == 'url') && value && ! value.start_with?('http://', 'https://')
-        field = key.end_with?('_url') ? key.sub(/_url$/, '') : 'file'
-        element[field] = issue.path.join(value)
-        element.delete key
-      end
-    end
-
-    element
   end
 end

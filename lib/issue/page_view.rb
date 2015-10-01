@@ -44,15 +44,15 @@ class Issue::PageView
     has_header  = !empty_content?(title) || !empty_content?(summary)
     has_content = !empty_content?(page.content) || !empty_content?(page.custom_html)
     has_product = page.product_set?
-    has_cover   = page.cover_url && page.layout.image_style != "none"
+    has_cover   = page.cover_url && page.style.image_style != "none"
     editing     = options[:editing]
 
-    classes = ["page", "page-fadein", page.type, page.layout.custom_class]
+    classes = ["page", "page-fadein", page.type, page.style.custom_class]
 
     # HACK: Migrate all page type video with one column, use video.cover = true instead
-    page.layout.type = "one-column" if page.layout.type == "video"
+    page.style.type = "one-column" if page.style.type == "video"
 
-    classes << (page.layout.type || 'two-column') unless page.toc?
+    classes << (page.style.type || 'two-column') unless page.toc?
 
     classes << 'toc'         if page.toc?
     classes << 'has-product' if has_product
@@ -60,31 +60,31 @@ class Issue::PageView
     classes << 'no-content ' if !editing && !has_content
     classes << 'no-image'    if !editing && !has_cover
 
-    classes << (page.layout.content_style || 'white')
-    classes << ('transparent') if page.layout.content_transparent
+    classes << (page.style.content_style || 'white')
+    classes << ('transparent') if page.style.content_transparent
 
-    if page.layout.type != "custom"
-      classes << (page.layout.content_overflow || 'scroll')
-      classes << (page.layout.content_align    || 'left')
-      classes << (page.layout.content_valign   || 'middle')
+    if page.style.type != "custom"
+      classes << (page.style.content_overflow || 'scroll')
+      classes << (page.style.content_align    || 'left')
+      classes << (page.style.content_valign   || 'middle')
 
-      classes << ("height-#{page.layout.content_height || 'auto'}")
-      classes << "image-#{page.layout.image_style}" if page.layout.image_style
+      classes << ("height-#{page.style.content_height || 'auto'}")
+      classes << "image-#{page.style.image_style}" if page.style.image_style
       classes << "cover-#{page.cover.type.to_s.split('/').first}" if page.cover
-      classes << ("cover-#{page.layout.image_align || "left" }")
+      classes << ("cover-#{page.style.image_align || "left" }")
     end
 
     classes.join(' ').squeeze(' ')
   end
 
   def show_author?
-    hide_author = truthy?(layout.hide_author)
+    hide_author = truthy?(page.style.hide_author)
     ! hide_author && root_page? && author
   end
 
   def show_footer?
-    page.layout.image_style != "background" ||
-      page.layout.custom_class.to_s.match('inset')
+    page.style.image_style != "background" ||
+      page.style.custom_class.to_s.match('inset')
   end
 
   def author
@@ -104,7 +104,7 @@ class Issue::PageView
     has_cover_url = ! page.cover_url.blank?
 
     count += 1 if has_cover_url || product_set?
-    count += 1 if layout.type == 'three-column' && has_cover_url
+    count += 1 if page.style.type == 'three-column' && has_cover_url
 
     count
   end
@@ -246,7 +246,7 @@ class Issue::PageView
 
     hash['category'] = category
 
-    hash['layout'] = page.layout.to_h
+    hash['style'] = page.style.to_h
 
     %w[audios images videos].each do |element|
       next unless has_media = hash[element]

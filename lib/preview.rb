@@ -262,9 +262,9 @@ class IssuePreview < Sinatra::Base
   end
 
   def page_template page
-    if page.layout.type == "cover"
+    if page.style.type == "cover"
       :"issue/_cover.html"
-    elsif page.layout.type == "toc"
+    elsif page.style.type == "toc"
       :"issue/_toc.html"
     else
       :"issue/_page.html"

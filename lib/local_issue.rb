@@ -93,7 +93,7 @@ class LocalIssue < Hashie::Mash
     pages.select!(&:root_page?) if root
 
     pages.select! do |page|
-      ! excluded.include?(page.handle) && page.layout.try('nav') == layout_nav
+      ! excluded.include?(page.handle) && page.style.try('nav') == layout_nav
     end
 
     pages
