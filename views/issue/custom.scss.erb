@@ -12,9 +12,7 @@
 #<%= issue.handle %>-issue {
 <%= custom_css.issue_scss.gsub(/^/, '  ') %>
 
-  <% for (selector, path) in custom_css.page_selectors_and_paths %>
-  article[data-page="<%= selector %>"] {
-    @import "<%= path %>";
-  }
+  <% for style_path in custom_css.style_paths %>
+  @import "<%= style_path %>";
   <% end %>
 }

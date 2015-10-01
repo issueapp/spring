@@ -1,4 +1,5 @@
 require_relative '../local_issue'
+require_relative 'style_file_importer'
 
 class LocalIssue::CustomCss
   attr_reader :issue
@@ -14,11 +15,10 @@ class LocalIssue::CustomCss
     end
   end
 
-  def page_selectors_and_paths
-    issue.paths.reduce({}) do |memo, path|
-      selector = path
+  def style_paths
+    issue.paths.reduce([]) do |memo, path|
       path = 'cover' if path == 'index'
-      memo[selector] = path if style_path(path).exist?
+      memo << path if style_path(path).exist?
       memo
     end
   end
@@ -64,32 +64,22 @@ class LocalIssue::CustomCss
   end
 
   def write scss
-    File.open(custom_scss_path, 'wb') do |io|
-      io << scss
-    end
+    IO.write(custom_scss_path, scss)
   end
 
-  def to_css sprockets=nil
-    if sprockets
-      original_search_paths = sprockets.paths
+  def to_css
+    css_path = Rails.root/"tmp/local_#{issue.magazine_handle}_#{issue.handle}_custom.css"
+
+    if stale_css = !css_path.exist? || css_path.mtime < mtime
+      Sass.load_paths.concat([issue.path/'styles', Rails.root/'app/assets/stylesheets/'])
+      css = Sass.compile_file(custom_scss_path.to_s, issue: issue, filesystem_importer: StyleFileImporter)
+      css = AutoprefixerRails.process(css, from: 'custom.scss', browsers: ['> 1%', 'ie 10']).css
+      IO.write(css_path, css)
     else
-      sprockets = Sprockets::Environment.new
+      css = css_path.read
     end
 
-    sprockets.append_path(issue.path/'assets')
-    sprockets.append_path(issue.path/'styles')
-    sprockets.append_path(Rails.root/'app/assets/stylesheets/')
-
-    asset = sprockets['custom.css']
-
-    if original_search_paths
-      sprockets.clear_paths
-      original_search_paths.each do |path|
-        sprockets.append_path path
-      end
-    end
-
-    AutoprefixerRails.process(asset.to_s, from: 'custom.scss', browsers: ['> 1%', 'ie 10']).css
+    css
   end
 
   private
