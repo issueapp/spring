@@ -13,7 +13,7 @@
 <%= custom_css.issue_scss.gsub(/^/, '  ') %>
 
   <% for (selector, path) in custom_css.page_selectors_and_paths %>
-  [data-page="<%= selector %>"] {
+  article[data-page="<%= selector %>"] {
     @import "<%= path %>";
   }
   <% end %>
