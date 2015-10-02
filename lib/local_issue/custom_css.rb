@@ -71,8 +71,13 @@ class LocalIssue::CustomCss
     css_path = Rails.root/"tmp/local_#{issue.magazine_handle}_#{issue.handle}_custom.css"
 
     if stale_css = !css_path.exist? || css_path.mtime < mtime
-      Sass.load_paths.concat([issue.path/'styles', Rails.root/'app/assets/stylesheets/'])
-      css = Sass.compile_file(custom_scss_path.to_s, issue: issue, filesystem_importer: StyleFileImporter)
+      options = {
+        issue: issue,
+        filesystem_importer: StyleFileImporter,
+        load_paths: [issue.path/'styles', Rails.root/'app/assets/stylesheets/'],
+        cache_location: Rails.root/'tmp/.sass-cache'
+      }
+      css = Sass.compile_file(custom_scss_path.to_s, options)
       css = AutoprefixerRails.process(css, from: 'custom.scss', browsers: ['> 1%', 'ie 10']).css
       IO.write(css_path, css)
     else
