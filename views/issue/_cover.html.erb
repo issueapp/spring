@@ -9,11 +9,13 @@
   video_cover = issue.cover_url =~ /\.mp4/
   background_image = video_cover ? issue.thumb_url : issue.cover_url
  %>
-<article id="issue_cover" class="magazine cover page fullscreen dark-theme animate" data-page="index" style="background-image: url(<%= asset_path background_image %>)" data-theme="black">
+<article id="issue_cover" class="magazine cover page fullscreen dark-theme animate" data-page="index" data-theme="black">
   <% if video_cover %>
     <figure class="cover-area video">
       <video src="<%= issue.cover_url %>" type="video/mp4" data-autoplay="true" loop=""></video>
     </figure>
+  <% else %>
+    <figure class="cover-area image" style="background-image: url(<%= asset_path background_image %>)"></figure>
   <% end %>
   <div class="container">
     <img class="issue-logo" src="<%= asset_path "global/logo-round-white.svg", global: true %>"></img>
