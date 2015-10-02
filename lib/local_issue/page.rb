@@ -157,7 +157,10 @@ class LocalIssue::Page < Hashie::Mash
       attributes['content'] = RDiscount.new(content).to_html
     end
 
-    style = self.default_style.merge(attributes['style'] || {})
+    # FIXME rename page.layout to page.style
+    style = attributes['layout'] || attributes['style'] || {}
+
+    style = self.default_style.merge(style)
     style.merge!(options['style'] || options[:style] || {})
     %w[content_transparent hide_author].each do |field|
       if style.key? field
