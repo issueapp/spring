@@ -53,6 +53,7 @@ class LocalIssue::CustomCss
   def fresh?
     return false if ! custom_scss_path.exist?
     return false if issue_scss_path.exist? && mtime < issue_scss_path.mtime
+    return false if LocalIssue.root/"#{issue.handle}/issue.yaml"
 
     issue.paths.each do |path|
       path = 'cover' if path == 'index'

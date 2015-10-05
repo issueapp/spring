@@ -87,7 +87,9 @@ class IssuePreview < Sinatra::Base
   get "/:magazine/:issue/assets/custom.css" do
     custom_css = LocalIssue::CustomCss.new(current_issue)
 
-    unless custom_css.fresh?
+    if custom_css.fresh?
+      Rails.logger.debug '----> custom.css still fresh'
+    else
       scss = erb(
         :"issue/custom.scss",
         locals: {custom_css: custom_css, issue: current_issue}, layout: false
