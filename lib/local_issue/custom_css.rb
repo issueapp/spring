@@ -53,7 +53,7 @@ class LocalIssue::CustomCss
   def fresh?
     return false if ! custom_scss_path.exist?
     return false if issue_scss_path.exist? && mtime < issue_scss_path.mtime
-    return false if LocalIssue.root/"#{issue.handle}/issue.yaml"
+    return false if mtime < issue_yaml_path.mtime
 
     issue.paths.each do |path|
       path = 'cover' if path == 'index'
@@ -65,13 +65,14 @@ class LocalIssue::CustomCss
   end
 
   def write scss
+    @scss = scss
     IO.write(custom_scss_path, scss)
   end
 
   def to_css
     css_path = Rails.root/"tmp/local_#{issue.magazine_handle}_#{issue.handle}_custom.css"
 
-    if stale_css = !css_path.exist? || css_path.mtime < mtime
+    if stale_css = @scss || !css_path.exist? || css_path.mtime < mtime
       options = {
         issue: issue,
         filesystem_importer: StyleFileImporter,
@@ -108,6 +109,10 @@ class LocalIssue::CustomCss
 
   def custom_scss_path
     @custom_scss_path ||= issue.path/'assets/custom.scss'
+  end
+
+  def issue_yaml_path
+    @issue_yaml_path ||= issue.path/'issue.yaml'
   end
 
   def issue_scss_path

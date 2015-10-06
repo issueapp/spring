@@ -103,10 +103,9 @@ class IssuePreview < Sinatra::Base
   end
 
   # /official/great-escape/assets/custom.css
-  # assets/custom.scss
   #
   # params:
-  #   splat: [custom.scss]
+  #   splat: [custom.css]
   #
   # search paths:
   #
