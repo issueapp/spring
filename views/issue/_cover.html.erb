@@ -9,7 +9,7 @@
   video_cover = issue.cover_url =~ /\.mp4/
   background_image = video_cover ? issue.thumb_url : issue.cover_url
  %>
-<article id="issue_cover" class="magazine cover page fullscreen dark-theme animate" data-page="index" data-theme="black">
+<article id="issue_cover" class="magazine cover page fullscreen dark-theme animate <%=  issue.try(:style).try(:custom_class) %>" data-page="index" data-theme="black">
   <% if video_cover %>
     <figure class="cover-area video">
       <video src="<%= issue.cover_url %>" type="video/mp4" data-autoplay="true" loop=""></video>

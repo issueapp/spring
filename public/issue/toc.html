@@ -55,7 +55,7 @@
     
     <script>
       if (App.support && App.support.webview) {
-        App.notifyNative('notify', 'head_ready');
+        App.notifyNative('event', 'head_ready');
       }
     </script>
   </head>
@@ -136,7 +136,7 @@
     
     <script>
       if ($('[role=main] article').hasClass('dark-container')) {
-        App.notifyNative('notify', 'set:theme', 'black', { url: window.location.toString() });
+        App.notifyNative('event', 'set:theme', 'black', { url: window.location.toString() });
       }
     </script>
 
