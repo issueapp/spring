@@ -81,9 +81,9 @@ class Hotspot extends Backbone.View
     link.href += if link.href.match(/\?/) then '&' else '?'
     link.href += ga_params
 
-    if App.support.webview
-      App.trigger "open", link.href, linkTrackingAttributes(link)
+    App.trigger "open", link.href, linkTrackingAttributes(link)
 
+    if App.support.webview
       false
 
   # Lookup data and dimension of hotspot target

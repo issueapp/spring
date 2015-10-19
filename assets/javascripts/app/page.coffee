@@ -166,11 +166,11 @@ class PageView extends Backbone.View
     link.href += if link.href.match(/\?/) then '&' else '?'
     link.href += ga_params
 
-    if App.support.webview && !$link.data('app-view')
+    if !$link.data('app-view')
       App.trigger "open", link.href, linkTrackingAttributes(link)
 
     # external page
-    else if link.href.match(/https?:\/\//)
+    if link.href.match(/https?:\/\//)
       win = window.open(link.href, '_blank')
       win.focus()
 
@@ -313,9 +313,8 @@ class PageView extends Backbone.View
 
   showHotspot: (e)->
     hotspot = e.currentTarget
-    model = App.pages[this.$el.attr("data-page")]
 
-    @hotspot = new Hotspot(el: hotspot, model: model)
+    @hotspot = new Hotspot(el: hotspot, model: @model)
     @hotspot.render()
 
     false
