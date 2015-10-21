@@ -262,7 +262,7 @@ class Issue::PageView
         #            so use something more meaningful to reflect grouping of images for gallery, polaroid
         object.key?('layout') || (object['layout'] = false)
 
-        page_elements[i].extensions.each do |name|
+        Array(page_elements[i].extensions).each do |name|
           object[name] = page_elements[i][name]
         end
 
@@ -297,7 +297,7 @@ class Issue::PageView
         object['url'] = object['link']
         object['description'] = object['summary'] if element == 'products'
 
-        page_elements[i].extensions.each do |name|
+        Array(page_elements[i].extensions).each do |name|
           object[name] = page_elements[i][name]
         end
 
