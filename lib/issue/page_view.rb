@@ -220,7 +220,7 @@ class Issue::PageView
             only: %w[title subtitle summary hotspot link brand price currency affiliate updated_at target_id style],
             methods: %w[id]
           },
-          links: {only: %w[title summary hotspot link updated_at target_id style phone], methods: %w[id]},
+          links: {only: %w[title summary hotspot link updated_at target_id style], methods: %w[id]},
         },
       )
     end
@@ -262,6 +262,10 @@ class Issue::PageView
         #            so use something more meaningful to reflect grouping of images for gallery, polaroid
         object.key?('layout') || (object['layout'] = false)
 
+        page_elements[i].extensions.each do |name|
+          object[name] = page_elements[i][name]
+        end
+
         thumb_url = asset_url(page_elements[i], thumb: true)
         if thumb_url.present?
           if export_mode
@@ -292,6 +296,10 @@ class Issue::PageView
 
         object['url'] = object['link']
         object['description'] = object['summary'] if element == 'products'
+
+        page_elements[i].extensions.each do |name|
+          object[name] = page_elements[i][name]
+        end
 
         if export_mode
           if (image_url = asset_url(page_elements[i], 'image' => true)).present?
