@@ -220,7 +220,7 @@ class Issue::PageView
             only: %w[title subtitle summary hotspot link brand price currency affiliate updated_at target_id style],
             methods: %w[id]
           },
-          links: {only: %w[title summary hotspot link updated_at target_id style], methods: %w[id]},
+          links: {only: %w[title subtitle summary hotspot link updated_at target_id style], methods: %w[id]},
         },
       )
     end
