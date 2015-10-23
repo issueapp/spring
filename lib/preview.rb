@@ -90,11 +90,7 @@ class IssuePreview < Sinatra::Base
     if custom_css.fresh?
       Rails.logger.debug '----> custom.css still fresh'
     else
-      scss = erb(
-        :"issue/custom.scss",
-        locals: {custom_css: custom_css, issue: current_issue}, layout: false
-      )
-
+      scss = custom_css.to_scss
       custom_css.write scss
     end
 
@@ -102,7 +98,7 @@ class IssuePreview < Sinatra::Base
     custom_css.to_css
   end
 
-  # /official/great-escape/assets/custom.css
+  # /official/great-escape/assets/custom.js
   #
   # params:
   #   splat: [custom.css]

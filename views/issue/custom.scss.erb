@@ -1,18 +1,19 @@
 // DO NOT EDIT
-// This custom.scss is generated when <%= request.url %> is requested
+// This custom.scss is generated from LocalIssue::CustomCss#to_scss
 
-<% for font in custom_css.fonts %>
+<% for font in fonts %>
 <%= font %>
 <% end %>
 
-<% for keyframe in custom_css.keyframes %>
+<% for keyframe in keyframes %>
 <%= keyframe %>
 <% end %>
 
 #<%= issue.handle %>-issue {
-<%= custom_css.issue_scss.gsub(/^/, '  ') %>
+<%= issue_scss.gsub(/^/, '  ') %>
 
-  <% for style_path in custom_css.style_paths %>
+<% for style_path in style_paths %>
   @import "<%= style_path %>";
-  <% end %>
+<% end %>
+
 }

@@ -69,6 +69,12 @@ class LocalIssue::CustomCss
     IO.write(custom_scss_path, scss)
   end
 
+  def to_scss
+    root_path = Pathname(__FILE__)/'../../..'
+    template = IO.read(root_path/'views/issue/custom.scss.erb')
+    ERB.new(template, safe_level=0, trim_mode='>').result(binding)
+  end
+
   def to_css
     css_path = Rails.root/"tmp/local_#{issue.magazine_handle}_#{issue.handle}_custom.css"
 
