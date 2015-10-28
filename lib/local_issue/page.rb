@@ -93,11 +93,24 @@ class LocalIssue::Page < Hashie::Mash
     attributes = YAML.load(meta) if meta
     attributes ||= {}
 
-    # Add index and summary to products
-    Array(attributes['products']).each_with_index do|p, i|
-    #  p['index'] = i + 1
-      p['summary'] = p.delete('description')
+    # Add cover url into images
+    if attributes['cover_url'] || attributes['thumb_url']
+      cover = Hashie::Mash.new(
+        'caption'   => attributes.delete('cover_caption'),
+        'cover'     => true
+      )
+
+      cover.url = attributes['cover_url'] if attributes['cover_url']
+      cover.thumb_url = attributes['thumb_url'] if attributes['thumb_url']
+
+      (attributes["images"] ||= []).push(cover)
     end
+
+    Array(attributes["images"]).each { |image| image['type'] ||= "image" }
+    Array(attributes["videos"]).each { |video| video['type'] ||= "video" }
+
+    # Add summary to products
+    Array(attributes['products']).each_with_index { |p, i| p['summary'] = p.delete('description') }
 
     # Convert media and entity url array into hash
     self.elements.each do |element|
@@ -118,29 +131,6 @@ class LocalIssue::Page < Hashie::Mash
 
         Hashie::Mash.new(object)
       end
-    end
-
-    # Add cover url into images
-    if attributes['cover_url'] || attributes['thumb_url']
-      cover = Hashie::Mash.new(
-        'caption'   => attributes.delete('cover_caption'),
-        'cover'     => true
-      )
-
-      cover.url = attributes['cover_url'] if attributes['cover_url']
-      cover.thumb_url = attributes['thumb_url'] if attributes['thumb_url']
-
-      attributes["images"].push(cover)
-    end
-
-    attributes["images"].map! do |image|
-      image.type ||= "image"
-      image
-    end
-
-    attributes["videos"].map! do |video|
-      video.type ||= "video"
-      video
     end
 
     # Find cover from video/image

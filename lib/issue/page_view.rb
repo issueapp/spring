@@ -123,6 +123,7 @@ class Issue::PageView
 
   def cover_html
     return unless (cover = page.cover)
+    return if page.style.hide_cover
 
     container_class = "cover-area #{cover.type.to_s.split('/').first}".squeeze(' ')
     container_class << ' play' if cover.autoplay
