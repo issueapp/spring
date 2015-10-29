@@ -30,6 +30,7 @@
           <h3 class='subtitle'><%= page.summary %></h3>
           <% end %>
 
+          <% if page.author %>
           <div class='extras'>
             <% if page.show_author? %>
               <% if page.author.icon %>
@@ -38,6 +39,7 @@
               <em>By <%= page.author.name %></em>
             <% end %>
           </div>
+          <% end %>
         </header>
       <% end %>
     <% end %>
