@@ -22,7 +22,7 @@ class Issue::PageView
 
   attr_reader :page
 
-  attr_accessor :context, :edit_mode
+  attr_accessor :context, :edit_mode, :json
 
   def initialize page, options={}
     @page = page
@@ -199,134 +199,135 @@ class Issue::PageView
     html
   end
 
-  def json options={}
-    export_mode = options.fetch(:export){false}
+  # DEPRECATED json needs to be passed in externally
+  #def json options={}
+  #  export_mode = options.fetch(:export){false}
 
-    if page.respond_to? 'to_hash'
-      hash = page.to_hash
-    else
-      hash = page.as_json(
-        only: %w[type title summary content custom_html handle category credits index],
-        methods: %w[id],
-        include: {
-          audios: {
-            only: %w[title caption link cover credits layout style autoplay controls loop muted location updated_at path],
-            methods: %w[id]
-          },
-          images: {
-            only: %w[title caption link cover credits layout style location updated_at path],
-            methods: %w[id]
-          },
-          videos: {
-            only: %w[title caption link cover credits layout style autoplay controls loop muted location updated_at path type],
-            methods: %w[id]
-          },
+  #  if page.respond_to? 'to_hash'
+  #    hash = page.to_hash
+  #  else
+  #    hash = page.as_json(
+  #      only: %w[type title summary content custom_html handle category credits index],
+  #      methods: %w[id],
+  #      include: {
+  #        audios: {
+  #          only: %w[title caption link cover credits layout style autoplay controls loop muted location updated_at path],
+  #          methods: %w[id]
+  #        },
+  #        images: {
+  #          only: %w[title caption link cover credits layout style location updated_at path],
+  #          methods: %w[id]
+  #        },
+  #        videos: {
+  #          only: %w[title caption link cover credits layout style autoplay controls loop muted location updated_at path type],
+  #          methods: %w[id]
+  #        },
 
-          products: {
-            only: %w[title subtitle summary hotspot link brand price currency affiliate updated_at target_id style],
-            methods: %w[id]
-          },
-          links: {only: %w[title subtitle summary hotspot link updated_at target_id style], methods: %w[id]},
-        },
-      )
-    end
+  #        products: {
+  #          only: %w[title subtitle summary hotspot link brand price currency affiliate updated_at target_id style],
+  #          methods: %w[id]
+  #        },
+  #        links: {only: %w[title subtitle summary hotspot link updated_at target_id style], methods: %w[id]},
+  #      },
+  #    )
+  #  end
 
-    hash['updated_at'] = page.updated_at.to_i.to_s
-    if page.parent
-      hash['parentTitle'] = page.parent.title
+  #  hash['updated_at'] = page.updated_at.to_i.to_s
+  #  if page.parent
+  #    hash['parentTitle'] = page.parent.title
 
-      if export_mode
-        children_count = page.parent.children.count
-        hash['index'] = hash['index'].to_s.rjust(children_count.to_s.length, '0')
-      end
-    end
+  #    if export_mode
+  #      children_count = page.parent.children.count
+  #      hash['index'] = hash['index'].to_s.rjust(children_count.to_s.length, '0')
+  #    end
+  #  end
 
-    if author
-      hash['byline'] = "by #{author.name}"
+  #  if author
+  #    hash['byline'] = "by #{author.name}"
 
-      hash['author'] = %w[id name icon].reduce({}) do |memo, field|
-        memo[field] = author.send(field) if author.respond_to? field
-        memo
-      end
-    end
+  #    hash['author'] = %w[id name icon].reduce({}) do |memo, field|
+  #      memo[field] = author.send(field) if author.respond_to? field
+  #      memo
+  #    end
+  #  end
 
-    hash['category'] = category
+  #  hash['category'] = category
 
-    hash['style'] = page.style.to_h
+  #  hash['style'] = page.style.to_h
 
-    %w[audios images videos].each do |element|
-      next unless has_media = hash[element]
+  #  %w[audios images videos].each do |element|
+  #    next unless has_media = hash[element]
 
-      page_elements = page.send(element)
-      hash[element].each_with_index do |object, i|
+  #    page_elements = page.send(element)
+  #    hash[element].each_with_index do |object, i|
 
-        # make cover on top level
-        hash['cover'] ||= object if object['cover']
+  #      # make cover on top level
+  #      hash['cover'] ||= object if object['cover']
 
-        # DEPRECATED when rendering in mustache and Media#layout is not found,
-        #            scope leaks to Page#layout
-        #            so use something more meaningful to reflect grouping of images for gallery, polaroid
-        object.key?('layout') || (object['layout'] = false)
+  #      # DEPRECATED when rendering in mustache and Media#layout is not found,
+  #      #            scope leaks to Page#layout
+  #      #            so use something more meaningful to reflect grouping of images for gallery, polaroid
+  #      object.key?('layout') || (object['layout'] = false)
 
-        Array(page_elements[i].extensions).each do |name|
-          object[name] = page_elements[i][name]
-        end
+  #      Array(page_elements[i].extensions).each do |name|
+  #        object[name] = page_elements[i][name]
+  #      end
 
-        thumb_url = asset_url(page_elements[i], thumb: true)
-        if thumb_url.present?
-          if export_mode
-            object['thumb'] = {'url' => thumb_url}
-          else
-            object['thumb_url'] = thumb_url
-          end
-        end
+  #      thumb_url = asset_url(page_elements[i], thumb: true)
+  #      if thumb_url.present?
+  #        if export_mode
+  #          object['thumb'] = {'url' => thumb_url}
+  #        else
+  #          object['thumb_url'] = thumb_url
+  #        end
+  #      end
 
-        if has_dimension = page_elements[i].respond_to?('file_width') && page_elements[i].file_width
-          object['width'] ||= page_elements[i].file_width
-          object['height'] ||= page_elements[i].file_height
-        end
+  #      if has_dimension = page_elements[i].respond_to?('file_width') && page_elements[i].file_width
+  #        object['width'] ||= page_elements[i].file_width
+  #        object['height'] ||= page_elements[i].file_height
+  #      end
 
-        url = asset_url(page_elements[i])
-        object['url'] = url if url.present?
-      end
-    end
+  #      url = asset_url(page_elements[i])
+  #      object['url'] = url if url.present?
+  #    end
+  #  end
 
-    %w[products links].each do |element|
-      next unless hash[element]
+  #  %w[products links].each do |element|
+  #    next unless hash[element]
 
-      page_elements = page.send(element)
+  #    page_elements = page.send(element)
 
-      hash[element].each_with_index do |object, i|
-        # number product hotspots
-        object['index'] = i + 1
+  #    hash[element].each_with_index do |object, i|
+  #      # number product hotspots
+  #      object['index'] = i + 1
 
-        object['url'] = object['link']
-        object['description'] = object['summary'] if element == 'products'
+  #      object['url'] = object['link']
+  #      object['description'] = object['summary'] if element == 'products'
 
-        Array(page_elements[i].extensions).each do |name|
-          object[name] = page_elements[i][name]
-        end
+  #      Array(page_elements[i].extensions).each do |name|
+  #        object[name] = page_elements[i][name]
+  #      end
 
-        if export_mode
-          if (image_url = asset_url(page_elements[i], 'image' => true)).present?
-            object['image'] = {'url' => image_url, 'path' => page_elements[i].path}
+  #      if export_mode
+  #        if (image_url = asset_url(page_elements[i], 'image' => true)).present?
+  #          object['image'] = {'url' => image_url, 'path' => page_elements[i].path}
 
-            if has_dimension = page_elements[i].respond_to?('image_width') && page_elements[i].image_width
-              object['image']['width'] = page_elements[i].image_width
-              object['image']['height'] = page_elements[i].image_height
-            end
-          end
-        else
-          object['image_url'] = asset_url(page_elements[i], 'image' => true)
-        end
-      end
-    end
+  #          if has_dimension = page_elements[i].respond_to?('image_width') && page_elements[i].image_width
+  #            object['image']['width'] = page_elements[i].image_width
+  #            object['image']['height'] = page_elements[i].image_height
+  #          end
+  #        end
+  #      else
+  #        object['image_url'] = asset_url(page_elements[i], 'image' => true)
+  #      end
+  #    end
+  #  end
 
-    # Convert ObjectId, Date to string
-    hash = hash.as_json if hash.respond_to? 'as_json'
+  #  # Convert ObjectId, Date to string
+  #  hash = hash.as_json if hash.respond_to? 'as_json'
 
-    hash
-  end
+  #  hash
+  #end
 
   private
 
@@ -336,7 +337,7 @@ class Issue::PageView
   #     footer: custom footer markup
   def render_html content, options = {}
     options[:html_safe] ||= true
-    json = options[:json] || send(:json, options)
+    json = options[:json] || @json
 
     html = Mustache.render(content, json)
     html = decorate_content(html, options)
