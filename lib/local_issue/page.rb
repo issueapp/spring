@@ -82,6 +82,7 @@ class LocalIssue::Page < Hashie::Mash
 
   # Convert page data from file into memory
   def self.build path, options={}, source=nil
+
     source ||= data_path(path, options).read
     issue = options[:issue]
     parent_path, child_path = path.split("/")
@@ -106,7 +107,11 @@ class LocalIssue::Page < Hashie::Mash
       (attributes["images"] ||= []).push(cover)
     end
 
-    Array(attributes["images"]).each { |image| image['type'] ||= "image" }
+    Array(attributes["images"]).map! { |image|
+      image = Hashie::Mash.new(url: image) if image.is_a? String
+      image['type'] ||= "image"
+      image
+    }
     Array(attributes["videos"]).each { |video| video['type'] ||= "video" }
 
     # Add summary to products
