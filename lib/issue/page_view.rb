@@ -22,13 +22,16 @@ class Issue::PageView
 
   attr_reader :page
 
-  attr_accessor :context, :edit_mode, :json
+  attr_accessor :context, :edit_mode, :offline, :json
 
   def initialize page, options={}
+    raise ArgumentError, 'Page not present' unless page
+
     @page = page
 
     @context = options[:context] || options['context']
     @edit_mode = options[:edit_mode] || options['edit_mode']
+    @offline = options[:offline]
   end
 
   def class; page.class; end
@@ -372,7 +375,21 @@ class Issue::PageView
       end
     end
 
-    asset_path url if url.present?
+    if url.present?
+      if offline
+        "assets/#{page.path}/#{filename url}"
+      else
+        asset_path url
+      end
+    end
+  end
+
+  def filename url
+    if dragonfly_url = url[/([^\/]+)\?sha=.+$/, 1]
+      dragonfly_url
+    else
+      File.basename url
+    end
   end
 
   # Swap data-media-id
