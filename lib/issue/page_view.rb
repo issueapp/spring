@@ -377,7 +377,7 @@ class Issue::PageView
 
     if url.present?
       if offline
-        "assets/#{page.path}/#{filename url}"
+        "#{'../' if page.parent}assets/#{page.path}/#{filename url}"
       else
         asset_path url
       end
