@@ -12,7 +12,7 @@
 
 <% else %>
 
-  <%= page.cover_html %>
+  <%= page.cover_html unless page.style.hide_cover %>
 
   <div class='content'>
     <% if !page.cover || page.cover.style != "overlay" %>

@@ -36,6 +36,12 @@ class Issue::PageView
   def respond_to?(name, include_private=false); page.send('respond_to?', name, include_private); end
   def respond_to_missing?(name, include_private=false); page.send('respond_to_missing?', name, include_private); end
 
+  def page_title
+    page.title || if page.parent
+      "#{page.parent.title} - #{page.handle}"
+    end
+  end
+
   def dom_id
     "s#{path.parameterize}"
   end
