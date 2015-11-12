@@ -32,30 +32,3 @@
     <a class="browse movein" href="issue://notify/go:next"> Start</a>
   </div>
 </article>
-
-<script>
-  App = (typeof App == 'undefined') ? {} : App;
-  App.pages = App.pages || {}
-
-  // Not sure why layout is not being set.
-  // App.refresh()
-
-  App.pages["index"] = {
-    handle: "index",
-    title: "<%= issue.title %>"
-  }
-
-  if (App.support.webview) {
-    App.currentPage = new PageView({ el: "#issue_cover", path: "<%= "index" + page_ext %>",  model: App.pages["index"] })
-
-    // Force browser to render first
-    App.currentPage.render()
-
-    // Toggle page active
-    $(document).on('page:change', function () {
-      if (App.support.webview) App.currentPage.setActive()
-    })
-  }
-
-  App.trigger('page:loaded', "index<%= page_ext %>", { path: "index<%= page_ext %>", theme: 'black' })
-</script>

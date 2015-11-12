@@ -172,7 +172,6 @@ class IssuePreview < Sinatra::Base
       hash = page.json
       hash['html'] = html
       hash.to_json
-
     else
       html
     end
@@ -191,7 +190,7 @@ class IssuePreview < Sinatra::Base
     path = "assets/#{path}" unless path.start_with? 'assets/'
 
     if defined? Rails
-      if global_online = (!Rails.configuration.offline_assets && global)
+      if global
         ActionController::Base.helpers.asset_path(path)
       elsif embed && json
         path
@@ -233,7 +232,7 @@ class IssuePreview < Sinatra::Base
   end
 
   def offline?
-    (defined?(Rails) && Rails.application.config.offline_assets) || params[:offline]
+    params[:offline]
   end
 
   def webview?

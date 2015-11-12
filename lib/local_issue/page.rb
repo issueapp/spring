@@ -114,8 +114,11 @@ class LocalIssue::Page < Hashie::Mash
     }
     Array(attributes["videos"]).each { |video| video['type'] ||= "video" }
 
-    # Add summary to products
-    Array(attributes['products']).each_with_index { |p, i| p['summary'] = p.delete('description') }
+    # FIXME
+    # deprecate product summary in favor of description
+    Array(attributes['products']).each do |p|
+      p['description'] = p.delete('summary') if p.key?('summary')
+    end
 
     # Convert media and entity url array into hash
     self.elements.each do |element|
