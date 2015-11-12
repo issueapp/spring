@@ -562,8 +562,7 @@ class Issue::PageView
       else
         thumb_url = asset_url(video, 'thumb' => true)
         decorated = create_element(
-          'figure',
-          class: 'video', style: "background-image: url('#{thumb_url}')"
+          'figure', id: node['id'], class: 'video', style: "background-image: url('#{thumb_url}')"
         )
 
         if embed_video? video_url
@@ -580,7 +579,11 @@ class Issue::PageView
       if video['caption'].present?
         options = {}
         options[:class] = 'inset' if truthy? video['caption_inset']
-        decorated << create_element('figcaption', video['caption'], options)
+        
+        caption = create_element('figcaption', video['caption'], options)
+        caption.prepend_child create_element('h3', video["title"]) if video["title"]
+        
+        decorated << caption
       end
     end
 
@@ -605,7 +608,7 @@ class Issue::PageView
     options[:'data-global'] = true if truthy? audio['global']
     options[:'data-scope'] = true if truthy? audio['scope']
 
-    figure = create_element('figure', :class => 'audio')
+    figure = create_element('figure', :class => 'audio', id: node['id']+"-container")
     if thumb_url = asset_url(audio, 'thumb' => true)
       figure << create_element('img', class: 'thumbnail', src: thumb_url)
     end
