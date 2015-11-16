@@ -597,6 +597,8 @@ class Issue::PageView
   end
 
   def decorate_audio node, audio
+    element_id = node["id"] ? "#{node["id"]}-container" : ""
+    
     options = node.attribute_nodes.reduce({}) do |memo, n|
       memo[n.node_name] = n.value
       memo
@@ -614,7 +616,7 @@ class Issue::PageView
     options[:'data-global'] = true if truthy? audio['global']
     options[:'data-scope'] = true if truthy? audio['scope']
 
-    figure = create_element('figure', :class => 'audio', id: node['id']+"-container")
+    figure = create_element('figure', :class => 'audio', id: element_id)
     if thumb_url = asset_url(audio, 'thumb' => true)
       figure << create_element('img', class: 'thumbnail', src: thumb_url)
     end
