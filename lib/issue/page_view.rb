@@ -41,9 +41,9 @@ class Issue::PageView
   def respond_to_missing?(name, include_private=false); page.send('respond_to_missing?', name, include_private); end
 
   def page_title
-    page.title || if page.parent
-      "#{page.parent.title} - #{page.handle}"
-    end
+    page.title ||
+      ("Table of Content - #{page.issue.title}" if page.toc?) ||
+        ("#{page.parent.title} - #{page.handle}" if page.parent)
   end
 
   def dom_id
