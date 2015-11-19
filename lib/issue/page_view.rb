@@ -57,7 +57,7 @@ class Issue::PageView
     has_cover   = page.cover_url && page.style.image_style != "none"
     editing     = options[:editing]
 
-    classes = ["page", "page-fadein", page.type, page.style.custom_class]
+    classes = ["page", "page-fadein", page.style.custom_class]
 
     # HACK: Migrate all page type video with one column, use video.cover = true instead
     page.style.type = "one-column" if page.style.type == "video"
