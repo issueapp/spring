@@ -204,7 +204,31 @@ class Issue::PageView
   end
 
   def json
-    @json ||= page.to_hash
+    @json ||= begin
+      hash = page.to_hash
+
+      # adjust media, link, cover path for subpage
+      if page.parent
+        %w[audios images videos].each do |element|
+          if elements = hash[element]
+            elements.each do |media|
+              media['url'] = "../#{media['url']}" if media['url']
+              media['thumb_url'] = "../#{media['thumb_url']}" if media['thumb_url']
+            end
+          end
+        end
+
+        %w[links products].each do |element|
+          if elements = hash[element]
+            elements.each do |link|
+              link['image_url'] = "../#{link['image_url']}" if link['image_url']
+            end
+          end
+        end
+      end
+
+      hash
+    end
   end
 
   private
@@ -479,10 +503,10 @@ class Issue::PageView
       if video['caption'].present?
         options = {}
         options[:class] = 'inset' if truthy? video['caption_inset']
-        
+
         caption = create_element('figcaption', video['caption'], options)
         caption.prepend_child create_element('h3', video["title"]) if video["title"]
-        
+
         decorated << caption
       end
     end
@@ -492,7 +516,7 @@ class Issue::PageView
 
   def decorate_audio node, audio
     element_id = node["id"] ? "#{node["id"]}-container" : ""
-    
+
     options = node.attribute_nodes.reduce({}) do |memo, n|
       memo[n.node_name] = n.value
       memo
