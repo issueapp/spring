@@ -1,3 +1,4 @@
+require 'autoprefixer-rails'
 require_relative '../local_issue'
 require_relative 'style_file_importer'
 
