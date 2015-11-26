@@ -47,7 +47,7 @@
       <hr />
     </div>
     <ul>
-      <% issue.all_pages('exclude' => %w[index toc], 'root' => true).each do |page| %>
+      <% issue.all_pages(exclude: %w[index toc], root: true).each do |page| %>
         <% page = Issue::PageView.new(page) %>
 
         <li>

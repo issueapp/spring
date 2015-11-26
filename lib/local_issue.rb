@@ -85,9 +85,9 @@ class LocalIssue < Hashie::Mash
   end
 
   def all_pages options={}
-    excluded = options['exclude'] || options[:exclude] || []
-    root = options['root'] || options[:root]
-    layout_nav = options['layout_nav'] || options[:layout_nav] || true
+    excluded = options[:exclude] || []
+    root = options[:root]
+    layout_nav = options.fetch(:layout_nav){true}
 
     pages = self.pages
     pages.select!(&:root_page?) if root
@@ -110,18 +110,18 @@ class LocalIssue < Hashie::Mash
     end
   end
 
-  def paths
-    self.pages.reduce([]) do |result, page|
-      result << (page.path || page.handle)
+  #def paths
+  #  self.pages.reduce([]) do |result, page|
+  #    result << (page.path || page.handle)
 
-      unless page.children.empty?
-        result.concat page.children.map(&:path)
-      end
+  #    unless page.children.empty?
+  #      result.concat page.children.map(&:path)
+  #    end
 
-      result
-    end
-  end
-  alias_method :page_paths, :paths
+  #    result
+  #  end
+  #end
+  #alias_method :page_paths, :paths
 
   def to_hash options={}
     hash = {}
