@@ -69,6 +69,10 @@ class LocalIssue::CustomCss
     IO.write(custom_scss_path, scss)
   end
 
+  def page_styles?
+    Dir.exist? issue.path/'styles'
+  end
+
   def to_scss
     root_path = Pathname(__FILE__)/'../../..'
     template = IO.read(root_path/'views/issue/custom.scss.erb')
