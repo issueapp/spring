@@ -62,24 +62,11 @@
 <% end %>
 </article>
 
+<% unless request.xhr? %>
 <script>
-  App = (typeof App == 'undefined') ? {} : App;
-  App.pages = App.pages || {}
-
-  // Not sure why layout is not being set.
-  // App.refresh()
-
-  App.pages["<%= page.path %>"] = <%= page.json.to_json %>;
-
-  if (App.support.webview || ! App.currentPage) {
-    App.currentPage = new PageView({ el: "#<%= page.dom_id %>", path: "<%= page.path + page_ext %>",  model: App.pages["<%= page.path %>"] })
-
-    App.currentPage.render()
-
-    // Toggle page active
-    $(document).on('page:change', function () {
-        console.log("FIRED: page:change")
-      if (App.support.webview) App.currentPage.setActive()
-    });
-  }
+    var page = new PageView({ path: "<%= page.path %>" })
+    page.triggerLoaded()
+    page.render()
+    App.currentPage = page
 </script>
+<% end %>
