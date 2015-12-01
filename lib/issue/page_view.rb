@@ -209,6 +209,11 @@ class Issue::PageView
 
       # adjust media, link, cover path for subpage
       if page.parent
+        if cover = hash['cover']
+          cover['url'] = "../#{cover['url']}" if cover['url']
+          cover['thumb_url'] = "../#{cover['thumb_url']}" if cover['thumb_url']
+        end
+
         %w[audios images videos].each do |element|
           if elements = hash[element]
             elements.each do |media|
