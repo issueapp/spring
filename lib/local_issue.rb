@@ -86,17 +86,16 @@ class LocalIssue < Hashie::Mash
 
   def all_pages options={}
     excluded = options[:exclude] || []
-    root = options[:root]
+    root_only = options.fetch(:root){false}
     layout_nav = options.fetch(:layout_nav){true}
 
-    pages = self.pages
-    pages.select!(&:root_page?) if root
+    self.pages.reduce([]) do |result, page|
+      next result if excluded.include?(page.handle) || page.style.try('nav') != layout_nav
 
-    pages.select! do |page|
-      ! excluded.include?(page.handle) && page.style.try('nav') == layout_nav
+      result << page
+      result.concat page.children unless root_only
+      result
     end
-
-    pages
   end
 
   def pages

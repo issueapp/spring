@@ -17,7 +17,7 @@ class LocalIssue::CustomCss
   end
 
   def style_paths
-    issue.paths.reduce([]) do |memo, path|
+    page_paths.reduce([]) do |memo, path|
       path = 'cover' if path == 'index'
       memo << path if style_path(path).exist?
       memo
@@ -56,7 +56,7 @@ class LocalIssue::CustomCss
     return false if issue_scss_path.exist? && mtime < issue_scss_path.mtime
     return false if mtime < issue_yaml_path.mtime
 
-    issue.paths.each do |path|
+    page_paths.each do |path|
       path = 'cover' if path == 'index'
       page_style_path = style_path(path)
       return false if page_style_path.exist? && mtime < page_style_path.mtime
@@ -112,6 +112,10 @@ class LocalIssue::CustomCss
     end
 
     issue.path/"styles/#{style_path}.scss"
+  end
+
+  def page_paths
+    issue.all_pages.map{|p| p.path || p.handle}
   end
 
   def mtime
