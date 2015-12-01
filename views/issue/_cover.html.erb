@@ -32,3 +32,12 @@
     <a class="browse movein" href="issue://notify/go:next"> Start</a>
   </div>
 </article>
+
+<% unless request.xhr? %>
+<script>
+    var page = new PageView({ path: "index" })
+    page.triggerLoaded()
+    page.render()
+    App.currentPage = page
+</script>
+<% end %>
