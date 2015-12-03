@@ -11,6 +11,7 @@ rescue Bundler::BundlerError => e
 end
 
 # 
+require 'serve'
 require './lib/preview'
 
 # Root path

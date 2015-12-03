@@ -27,4 +27,5 @@ group :development, :test do
   gem "guard-pow",            require: false
   gem "awesome_print",        require: false
   gem 'rspec-html-matchers',  require: false
+  gem "autoprefixer-rails"
 end
