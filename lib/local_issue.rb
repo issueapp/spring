@@ -84,13 +84,19 @@ class LocalIssue < Hashie::Mash
     pages.map(&:children).flatten.count + pages.count
   end
 
+  # options
+  #   layout_nav
+  #     true (default)    all pages with layout.nav true or nil
+  #     false             all pages with layout.nav false
+  #     nil               all pages regardless of layout.nav value
   def all_pages options={}
     excluded = options[:exclude] || []
     root_only = options.fetch(:root){false}
     layout_nav = options.fetch(:layout_nav){true}
 
     self.pages.reduce([]) do |result, page|
-      next result if excluded.include?(page.handle) || page.style.try('nav') != layout_nav
+      next result if excluded.include?(page.handle) ||
+        (!layout_nav.nil? && page.style.try('nav') != layout_nav)
 
       result << page
       result.concat page.children unless root_only

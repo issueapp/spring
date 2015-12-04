@@ -115,7 +115,7 @@ class LocalIssue::CustomCss
   end
 
   def page_paths
-    issue.all_pages.map{|p| p.path || p.handle}
+    issue.all_pages(layout_nav: nil).map{|p| p.path || p.handle}
   end
 
   def mtime
