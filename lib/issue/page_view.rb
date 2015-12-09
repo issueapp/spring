@@ -131,6 +131,14 @@ class Issue::PageView
     render_html(page.content, options)
   end
 
+  def cover?
+    !! page.cover_url
+  end
+
+  def thumb?
+    !! page.thumb_url
+  end
+
   def cover_html
     return unless (cover = page.cover)
 
