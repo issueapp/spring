@@ -45,30 +45,47 @@ class LocalIssue < Hashie::Mash
   # music
   # insight/guide
   def self.find path
-    issue_handle = path.split("/").last
+    magazine_handle, issue_handle = path.split('/')
+    magazine_handle, issue_handle = nil, magazine_handle if issue_handle.nil?
 
-    issue_path = root/issue_handle
-    raise "Issue not found: #{issue_path}" unless issue_path.exist?
+    if magazine_handle.nil?
+      glob_pattern = (root/'*'/issue_handle).to_s
+    else
+      glob_pattern = (root/magazine_handle/issue_handle).to_s
+    end
 
-    yaml = issue_path/'issue.yaml'
-    raise "Issue yaml not found: #{yaml}" unless yaml.exist?
+    issue_paths = Dir[glob_pattern]
+    case issue_paths.count
+    when 0
+      raise ArgumentError, "Issue not found: #{path}"
+    when 1
+      issue_path = Pathname(issue_paths.first)
+    else
+      raise ArgumentError, "Ambiguous match: #{issue_paths}"
+    end
 
-    attributes = YAML.load_file(yaml)
+    yml = locate_issue_yml(issue_path)
 
-    magazine_handle = attributes['magazine_title'].parameterize
+    attributes = YAML.load_file(yml)
+
     collaborators = attributes.delete('collaborators')
 
-    # Build default labels
-    # FIXME khoa says why do we need this?
-    #attributes["id"] ||= Digest::MD5.hexdigest("#{issue_handle}/#{magazine_handle}")
-    # /FIXME khoa says why do we need this?
-    attributes["handle"] ||= issue_handle
-    attributes["magazine_handle"] ||= magazine_handle
-    attributes["assets"] ||= []
+    attributes['handle'] ||= issue_handle
+    attributes['magazine_handle'] ||= File.basename(File.dirname(issue_path))
+    attributes['assets'] ||= []
 
     local = new(attributes)
     local.regular_writer('collaborators', collaborators)
     local
+  end
+
+  def self.locate_issue_yml issue_path
+    %w[issue.yml issue.yaml].each do |issue_yml|
+      yml = issue_path/issue_yml
+      return yml if yml.exist?
+    end
+
+    raise "Issue yaml not found at #{issue_path}"
   end
 
   def theme

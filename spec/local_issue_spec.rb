@@ -1,5 +1,7 @@
 require 'local_issue'
 
+LocalIssue.set_root Pathname('spec/fixtures/issues')
+
 # get rid of deprecation warning
 I18n.enforce_available_locales = false
 
@@ -7,6 +9,36 @@ RSpec.describe LocalIssue do
 
   let(:local_issue_hash) { {handle: 'issue'} }
   let(:local_issue) { LocalIssue.new local_issue_hash }
+
+  describe '#find' do
+    it 'finds local issue by path :magazine/:issue' do
+      LocalIssue.find('spread/spring').should be_a(LocalIssue)
+    end
+
+    it 'finds local issue by issue path if unique' do
+      LocalIssue.find('spring').should be_a(LocalIssue)
+    end
+
+    it 'raises error when issue path matches more than one issue' do
+      expect{ LocalIssue.find('hard') }.to raise_error ArgumentError
+    end
+
+    it 'uses magazine handle from path' do
+      LocalIssue.find('never').magazine_handle.should == 'die'
+    end
+
+    it 'prefers magazine handle from issue yaml over path' do
+      LocalIssue.find('die/hard').magazine_handle.should == 'dead'
+    end
+
+    it 'supports issue.yaml and issue.yml' do
+      # issue.yml
+      expect { LocalIssue.find('die/never') }.to_not raise_error
+
+      # issue.yaml
+      expect { LocalIssue.find('spring') }.to_not raise_error
+    end
+  end
 
   describe '#to_hash' do
     pending 'converts to dragonfly friendly key, value pair'
