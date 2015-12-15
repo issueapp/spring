@@ -64,10 +64,12 @@
 
 <% unless request.xhr? %>
 <script>
-
-    var page = new PageView({ path: "<%= page.path %>", model: <%= page.json.to_json %>})
-    page.triggerLoaded()
-    page.render()
-    App.currentPage = page
+    var page = new PageView({
+      path: "<%= page.path %>",
+      model: <%= page.json.to_json %>
+    });
+    page.triggerLoaded();
+    page.render();
+    App.currentPage = page;
 </script>
 <% end %>

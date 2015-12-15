@@ -93,8 +93,8 @@ class LocalIssue < Hashie::Mash
   end
 
   def path
-    raise 'Handle not found' unless handle
-    self.class.root/handle
+    raise 'Handle not found' unless magazine_handle && handle
+    self.class.root/magazine_handle/handle
   end
 
   def pages_count

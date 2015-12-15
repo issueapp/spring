@@ -10,6 +10,18 @@ RSpec.describe LocalIssue do
   let(:local_issue_hash) { {handle: 'issue'} }
   let(:local_issue) { LocalIssue.new local_issue_hash }
 
+  it 'supports issue.yaml and issue.yml' do
+    # issue.yml
+    expect { LocalIssue.find('die/never') }.to_not raise_error
+
+    # issue.yaml
+    expect { LocalIssue.find('spring') }.to_not raise_error
+  end
+
+  it 'locates issue path at $ROOT/:magazine/:issue' do
+    LocalIssue.find('spring').path.to_s.should == 'spec/fixtures/issues/spread/spring'
+  end
+
   describe '#find' do
     it 'finds local issue by path :magazine/:issue' do
       LocalIssue.find('spread/spring').should be_a(LocalIssue)
@@ -29,14 +41,6 @@ RSpec.describe LocalIssue do
 
     it 'prefers magazine handle from issue yaml over path' do
       LocalIssue.find('die/hard').magazine_handle.should == 'dead'
-    end
-
-    it 'supports issue.yaml and issue.yml' do
-      # issue.yml
-      expect { LocalIssue.find('die/never') }.to_not raise_error
-
-      # issue.yaml
-      expect { LocalIssue.find('spring') }.to_not raise_error
     end
   end
 

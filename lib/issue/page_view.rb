@@ -367,13 +367,13 @@ class Issue::PageView
       :href => affiliate_url(product['link']),
       :class => 'product hotspot',
       :title => product.title,
+      :'data-image' => asset_url(product, 'image' => true),
       #:'data-track' => 'hotspot:click',
       #:'data-action' => product[:action],
-      :'data-url' => product['link'],
-      :'data-image' => asset_url(product, 'image' => true),
-      :'data-price' => product[:price],
-      :'data-currency' =>  product[:currency],
-      :'data-description' => product[:description],
+      #:'data-url' => product['link'],
+      #:'data-price' => product[:price],
+      #:'data-currency' =>  product[:currency],
+      #:'data-description' => product[:description],
     }
   end
 
