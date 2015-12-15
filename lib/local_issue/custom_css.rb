@@ -12,7 +12,7 @@ class LocalIssue::CustomCss
     when String
       @issue = LocalIssue.find(issue)
     else
-      raise "Local issue not found: #{LocalIssue.root/issue}"
+      raise "Local issue not found at #{LocalIssue.root}: #{issue}"
     end
   end
 
