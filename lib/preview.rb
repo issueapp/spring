@@ -69,6 +69,10 @@ class IssuePreview < Sinatra::Base
   end
 
   get "/:magazine/:issue/?" do
+    # ensure path ends with trailing slash
+    # so that relative paths inside css reference to assets
+    redirect("#{env['ORIGINAL_FULLPATH']}/") unless env['ORIGINAL_FULLPATH'].end_with?('/')
+
     erb :"issue/_cover.html", layout: issue_layout, locals: { issue: current_issue }
   end
 
