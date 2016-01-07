@@ -26,8 +26,6 @@ RSpec.describe Issue::PageView do
     it { should respond_to 'show_author?' }
     it { should respond_to 'author' }
 
-    it { should respond_to 'column_break_count' }
-
     it { should respond_to 'custom_html?' }
 
     it { should respond_to('layout_class') }
@@ -63,27 +61,6 @@ RSpec.describe Issue::PageView do
     it 'hides author on child pages' do
       page['parent_path'] = 'parent'
       view.show_author?.should be_falsy
-    end
-  end
-
-  describe 'multicolumn' do
-    it 'has 0 column break by default'
-
-    it 'has 1 column break for cover' do
-      page['cover_url'] = 'assets/background.jpg'
-      view.column_break_count.should eq 1
-    end
-
-    it 'has 1 column break for product set' do
-      page['products'] = [{}]
-      view.column_break_count.should eq 1
-    end
-
-    it 'has 2 column breaks when three column cover takes up 2 column' do
-      page['layout'] = {type: 'three-column'}
-      page['cover_url'] = 'assets/background.jpg'
-
-      view.column_break_count.should eq 2
     end
   end
 

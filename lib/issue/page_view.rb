@@ -108,17 +108,6 @@ class Issue::PageView
     end
   end
 
-  def column_break_count
-    count = 0
-
-    has_cover_url = ! page.cover_url.blank?
-
-    count += 1 if has_cover_url || product_set?
-    count += 1 if page.style.type == 'three-column' && has_cover_url
-
-    count
-  end
-
   # Options
   #     json: Custom json for testing
   #     html_safe: escape html flag
