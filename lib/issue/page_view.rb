@@ -138,11 +138,15 @@ class Issue::PageView
   def thumb?
     !! page.thumb_url
   end
+  
+  def cover_class_name
+    "cover-area #{page.cover.type.to_s.split('/').first}".squeeze(' ') if page.cover
+  end
 
   def cover_html
     return unless (cover = page.cover)
 
-    container_class = "cover-area #{cover.type.to_s.split('/').first}".squeeze(' ')
+    container_class = self.cover_class_name
     container_class << ' play' if cover.autoplay
 
     container_background = "background-image: url('#{asset_url(cover, 'thumb' => cover.type.to_s.include?('video'))}')"
@@ -186,10 +190,15 @@ class Issue::PageView
     html
   end
 
-  def product_set_html
+  def products_class_name
+    class_name = 'product-set'
     count = page.products.count == 9 ? 9 : [(page.products.count/2.0).ceil*2, 6].min
-    container_class = 'product-set'
-    container_class << " set-#{count}"
+    
+    class_name << " set-#{count}"
+  end
+
+  def product_set_html
+    container_class = self.products_class_name
     container_class << ' cover-area' unless page.cover
 
     fragment = create_element('ul', :class => container_class) do |ul|
@@ -244,6 +253,7 @@ class Issue::PageView
     end
   end
 
+  
   private
 
   # Options
@@ -403,8 +413,9 @@ class Issue::PageView
     if node.name == 'img'
       node['src'] = asset_url(image)
     end
-
-    return node if edit_mode
+    
+    # Edit mode to maintain single image element in editor
+    return node if edit_mode && !custom_html?
 
     if node['data-background-image']
       node['style'] = "background-size: cover; background-image:url(#{asset_url image})"
