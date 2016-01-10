@@ -220,7 +220,7 @@ class IssuePreview < Sinatra::Base
   def current_issue
     @issue ||= begin
       issue = LocalIssue.find("#{params[:magazine]}/#{params[:issue]}")
-      apply_asset_path!(issue, :thumb_url, :cover_url)
+      apply_asset_path!(issue, :thumb_url, :cover_url, :brand_logo_url, :title_image_url)
       issue
     end
   end

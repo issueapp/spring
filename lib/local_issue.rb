@@ -65,7 +65,6 @@ class LocalIssue < Hashie::Mash
     end
 
     yml = locate_issue_yml(issue_path)
-
     attributes = YAML.load_file(yml)
 
     collaborators = attributes.delete('collaborators')
