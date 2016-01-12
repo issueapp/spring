@@ -74,6 +74,14 @@ class Issue::PageView
     classes << ('transparent') if page.style.content_transparent
 
     if page.style.type != "custom"
+      
+      # Header related style
+      classes << 'inset' if page.style.header_inset || page.style.content_inset
+      classes << "header-#{page.style.header_align}" if page.style.header_align
+      classes << "header-#{page.style.header_valign}" if page.style.header_valign
+      classes << "header-#{page.style.header_style}" if page.style.header_style
+      
+      # Content layout
       classes << (page.style.content_overflow || 'scroll')
       classes << (page.style.content_align    || 'left')
       classes << (page.style.content_valign   || 'middle')
@@ -129,7 +137,10 @@ class Issue::PageView
   end
   
   def cover_class_name
-    "cover-area #{page.cover.type.to_s.split('/').first}".squeeze(' ') if page.cover
+    classes = "cover-area"
+    classes << " #{page.cover.type.to_s.split('/').first}".squeeze(' ') if page.cover
+    
+    classes
   end
 
   def cover_html
