@@ -33,10 +33,12 @@
           <% if page.author %>
           <div class='extras'>
             <% if page.show_author? %>
-              <% if page.author.icon %>
-                <img src="<%= page.author.icon %>" class="avatar">
-              <% end %>
-              <em>By <%= page.author.name %></em>
+              <a class="user small">
+                <% if page.author.icon %>
+                  <img src="<%= page.author.icon %>" class="image">
+                <% end %>
+                <em class="name">By <%= page.author.name %></em>
+              </a>
             <% end %>
           </div>
           <% end %>
