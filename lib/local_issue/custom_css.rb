@@ -127,7 +127,12 @@ class LocalIssue::CustomCss
   end
 
   def issue_yaml_path
-    @issue_yaml_path ||= issue.path/'issue.yaml'
+    @issue_yaml_path ||= issue_yaml_ext?('.yaml') || issue_yaml_ext?('.yml', default:true)
+  end
+
+  def issue_yaml_ext? ext, default:false
+    path = issue.path/"issue#{ext}"
+    path if path.exist? || default
   end
 
   def issue_scss_path
