@@ -57,7 +57,7 @@ class Issue::PageView
     has_cover   = page.cover_url && page.style.image_style != "none"
     editing     = options[:editing]
 
-    classes = ["page", "page-fadein", page.style.custom_class]
+    classes = ["page", page.style.custom_class]
 
     # HACK: Migrate all page type video with one column, use video.cover = true instead
     page.style.type = "one-column" if page.style.type == "video"
@@ -74,13 +74,13 @@ class Issue::PageView
     classes << ('transparent') if page.style.content_transparent
 
     if page.style.type != "custom"
-      
+
       # Header related style
       classes << 'inset' if page.style.header_inset || page.style.content_inset
       classes << "header-#{page.style.header_align}" if page.style.header_align
       classes << "header-#{page.style.header_valign}" if page.style.header_valign
       classes << "header-#{page.style.header_style}" if page.style.header_style
-      
+
       # Content layout
       classes << (page.style.content_overflow || 'scroll')
       classes << (page.style.content_align    || 'left')
@@ -135,11 +135,11 @@ class Issue::PageView
   def thumb?
     !! page.thumb_url
   end
-  
+
   def cover_class_name
     classes = "cover-area"
     classes << " #{page.cover.type.to_s.split('/').first}".squeeze(' ') if page.cover
-    
+
     classes
   end
 
@@ -193,7 +193,7 @@ class Issue::PageView
   def products_class_name
     class_name = 'product-set'
     count = page.products.count == 9 ? 9 : [(page.products.count/2.0).ceil*2, 6].min
-    
+
     class_name << " set-#{count}"
   end
 
@@ -253,7 +253,7 @@ class Issue::PageView
     end
   end
 
-  
+
   private
 
   # Options
@@ -413,7 +413,7 @@ class Issue::PageView
     if node.name == 'img'
       node['src'] = asset_url(image)
     end
-    
+
     # Edit mode to maintain single image element in editor
     return node if edit_mode && !custom_html?
 
