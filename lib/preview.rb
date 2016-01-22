@@ -69,9 +69,7 @@ class IssuePreview < Sinatra::Base
   end
 
   get "/:magazine/:issue/?" do
-    # ensure path ends with trailing slash
-    # so that relative paths inside css reference to assets
-    redirect("#{env['ORIGINAL_FULLPATH']}/") unless env['ORIGINAL_FULLPATH'].end_with?('/')
+    ensure_trailing_slash
 
     erb :"issue/_cover.html", layout: issue_layout, locals: { issue: current_issue }
   end
@@ -273,5 +271,20 @@ class IssuePreview < Sinatra::Base
 
   def sprockets
     @sprockets ||= Sprockets::Environment.new
+  end
+
+  def ensure_trailing_slash
+    # ensure path ends with trailing slash
+    # so that relative paths inside css reference to assets
+
+    original_fullpath = env['ORIGINAL_FULLPATH']
+
+    parts = original_fullpath.partition('?')
+    fullpath = parts[0]
+
+    unless fullpath.end_with?('/')
+      fullpath << '/'
+      redirect parts.join
+    end
   end
 end
