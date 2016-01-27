@@ -326,7 +326,9 @@ class Issue::PageView
     return unless content
 
     doc = Nokogiri::HTML.fragment('<div>' << content << '</div>')
-
+    
+    # Clear up empty paragraphy
+    
     # Decorate media objects
     doc.search('[data-media-id]').each do |node|
 
@@ -354,10 +356,15 @@ class Issue::PageView
 
     content_div = doc.css('> .content')
     # decorate footer
-    if options[:footer] && content_div.length >0
+    if options[:footer] && content_div.length >05
       content_div.children.last.after(options[:footer])
     end
-
+    
+    # Unwrap additional block level eleements inside p
+    doc.search('p > article, p > figure, p > section').each do |node| 
+      node.parent.replace(node)
+    end
+    
     doc.child.inner_html
   end
 
