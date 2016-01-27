@@ -356,7 +356,7 @@ class Issue::PageView
 
     content_div = doc.css('> .content')
     # decorate footer
-    if options[:footer] && content_div.length >05
+    if options[:footer] && content_div.length >0
       content_div.children.last.after(options[:footer])
     end
     
