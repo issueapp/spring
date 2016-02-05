@@ -481,12 +481,11 @@ class Issue::PageView
         'data-media-id' => node['data-media-id'],
         style: "background-image: url('#{asset_url(video, 'thumb' => true)}')"
       )
-
     else
-      video_url = video['url'] || video['link'] || asset_url(video)
+      video_url = video['link'] || asset_url(video)
 
       options = node.attribute_nodes.reduce({}) do |memo, n|
-        memo[n.node_name] = n.value
+        memo[n.node_name] = n.value if n.value.present?
         memo
       end
       options[:type] = video['type'] if video['type'].present?
