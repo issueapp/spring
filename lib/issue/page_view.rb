@@ -482,7 +482,7 @@ class Issue::PageView
         style: "background-image: url('#{asset_url(video, 'thumb' => true)}')"
       )
     else
-      video_url = video['link'] || asset_url(video)
+      video_url = video['link'].presence || asset_url(video)
 
       options = node.attribute_nodes.reduce({}) do |memo, n|
         memo[n.node_name] = n.value if n.value.present?
