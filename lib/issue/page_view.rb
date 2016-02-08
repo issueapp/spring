@@ -289,10 +289,19 @@ class Issue::PageView
     # media: image, video, audio
     else
       url = object['url'] || object['file_url'] || begin
-        if is_s3_url = (remote_url = object.file.try('remote_url').to_s) && remote_url.start_with?('http://', 'https://')
+        is_s3_url = begin
+          remote_url = object.file.try('remote_url').to_s
+          remote_url.start_with?('http://', 'https://')
+        rescue NotImplementedError
+          false
+        end
+
+        if is_s3_url
           remote_url
+        elsif context
+          context.dragonfly_url(object.file)
         else
-          context.try(:dragonfly_url, object.file)
+          object.file.url
         end
       end
     end
