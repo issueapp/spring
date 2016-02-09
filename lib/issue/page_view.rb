@@ -443,9 +443,6 @@ class Issue::PageView
 
     return node if is_original || is_cover_area
 
-    caption_options = {}
-    caption_options[:class] = 'inset' if image['caption_inset']
-
     if node.has_attribute?('data-inline')
       img_path = (dragonfly_file_name=image['file_name']) || (local_issue_path=image['path'])
       return node.replace inline_img(image) if img_path =~ /\.svg$/
@@ -484,7 +481,12 @@ class Issue::PageView
       figure << overlay_title
     end
 
-    figure << create_element('figcaption', image["caption"], caption_options) if image["caption"].present?
+    caption = image['caption']
+    if caption.present?
+      caption_options = {}
+      caption_options[:class] = 'inset' if image.style&.[]('caption') == 'inset'
+      figure << create_element('figcaption', caption, caption_options)
+    end
 
     node.replace figure
   end
