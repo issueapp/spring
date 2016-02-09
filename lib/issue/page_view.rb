@@ -433,40 +433,56 @@ class Issue::PageView
     # Edit mode to maintain single image element in editor
     return node if edit_mode && !custom_html?
 
-    if node['data-background-image']
+    is_original = node.has_attribute?('data-original')
+    is_cover_area = node.matches?('.cover-area')
+    is_background_image = node.has_attribute?('data-background-image')
+
+    if is_background_image || is_cover_area
       node['style'] = "background-size: cover; background-image:url(#{asset_url image})"
     end
 
-    return node if node['data-original'] || node.matches?('.cover-area')
+    return node if is_original || is_cover_area
 
     caption_options = {}
     caption_options[:class] = 'inset' if image['caption_inset']
 
-    width, height, aspect_ratio = image_get_size(image)
-    max_dimension = "max-height: #{height}px; max-width: #{width}px"
-    padding = 100/(aspect_ratio || 1.5)
-
-
-    # logs
-    if node['data-inline']
-      img_path = image['url'] || image['path']
+    if node.has_attribute?('data-inline')
+      img_path = (dragonfly_file_name=image['file_name']) || (local_issue_path=image['path'])
       return node.replace inline_img(image) if img_path =~ /\.svg$/
+    end
+
+    width = image.style&.[]('width')
+    case width
+    when 'offset'
+      figure_class = 'image wrap offset'
+    when 'full', 'wrap'
+      figure_class = "image #{width}"
+    else
+      figure_class = 'image'
     end
 
     if node.parent && node.parent.name == 'figure'
       figure = node.parent.clone
-      figure['style'] = max_dimension
       figure.inner_html = node.to_s
 
     elsif node.name != 'figure'
-      figure = create_element('figure', class: 'image', style: max_dimension)
+      figure = create_element('figure', class: figure_class)
       figure.inner_html = node.to_s
     end
 
-    figure << create_element('div',
-      class: 'aspect-ratio',
-      style: "padding-bottom: #{padding}%; max-height: #{height}px"
-    )
+    width, height, aspect_ratio = image_get_size(image)
+    padding = 100/(aspect_ratio || 1.5)
+    is_full_width = figure_class.end_with?('full')
+
+    padding_attributes = {class: 'aspect-ratio'}
+    padding_attributes[:style] = "padding-bottom: #{padding}%; max-height: #{height}px" unless is_full_width
+    figure << create_element('div', padding_attributes)
+
+    if is_full_width && image.title.present?
+      overlay_title = create_element('div', class: 'container')
+      overlay_title << create_element('h3', image.title)
+      figure << overlay_title
+    end
 
     figure << create_element('figcaption', image["caption"], caption_options) if image["caption"].present?
 
