@@ -121,7 +121,14 @@ class LocalIssue::Page < Hashie::Mash
       image['type'] ||= "image"
       image
     }
-    Array(attributes["videos"]).each { |video| video['type'] ||= "video" }
+    Array(attributes["videos"]).map! { |video|
+      video['type'] ||= "video"
+      case video['style']
+      when 'offset', 'wrap', 'full'
+        video['style'] = Hashie::Mash.new(width: video['style'])
+      end
+      video
+    }
 
     # FIXME
     # deprecate product summary in favor of description

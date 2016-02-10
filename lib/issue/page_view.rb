@@ -413,18 +413,6 @@ class Issue::PageView
           fragment.css('[data-media-id]').length == 0
   end
 
-  # <img>
-  # <figure>
-  #   <img src="../assets/1-styling-it-out/_MG_5433_1024@2x.jpg" width=80%>
-  #   <figcaption>Her ‘favourite permanent accessory’, CP is the proud owner of over 65 tattoos - although she admits to having lost count of the exact number</figcaption>
-  # </figure>
-  #  <figure>
-  #   <img data-media-id="images:1" src="../assets/1-styling-it-out/20130906-20130906MinkPink_ChristinaPerri_0006-15.jpg">
-  #   <figcaption class="inset">
-  #     MINKPINK Rock Me Again Playsuit.
-  #   </figcaption>
-  #   <figcaption>Although a tomboy at heart, Christina admits the last 3 years have seen her become ‘obsessed’ with fashion.</figcaption>
-  # </figure>
   def decorate_image node, image
     if node.name == 'img'
       node['src'] = asset_url(image)
@@ -491,17 +479,6 @@ class Issue::PageView
     node.replace figure
   end
 
-  # <video data-media-id="videos:1" type="video/youtube" src="http://youtube.com/watch?v=8v_4O44sfjM"  poster="../assets/1-styling-it-out/Jar-of-Hearts-christina-perri-16882990-1280-720.jpg"/>
-  # <figure class="video">
-  #   <img class="thumbnail" src="../assets/1-styling-it-out/A-Thousand-Years-christina-perri-26451562-1920-1080.jpg">
-  #   <iframe data-src="http://www.youtube.com/embed/rtOvBOTyX00?autohide=1&amp;autoplay=1&amp;color=white&amp;controls=0&amp;enablejsapi=1&amp;hd=1&amp;iv_load_policy=3&amp;origin=http%3A%2F%2Fissueapp.com&amp;rel=0&amp;showinfo=0&amp;wmode=transparent&amp;autoplay=1" frameborder="0" height="100%" width="100%" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" style="position: absolute; top: 0; left:0 "></iframe>
-  #   <figcaption>Christina’s newest album ‘Head or Heart' is set for release in February 2014</figcaption>
-  # </figure>
-
-  # Params:
-  #    autoplay: true | false
-  #    controls: true | false
-  #    loop:     true | false
   def decorate_video node, video
     if edit_mode
       decorated = create_element('video', poster: asset_path('ui/video-play.svg'),
@@ -541,10 +518,21 @@ class Issue::PageView
 
         return node
       else
+        width = video.style&.[]('width')
+        case width
+        when 'offset'
+          figure_class = 'video wrap offset'
+        when 'full', 'wrap'
+          figure_class = "video #{width}"
+        else
+          figure_class = 'video'
+        end
+
         thumb_url = asset_url(video, 'thumb' => true)
-        decorated = create_element(
-          'figure', id: node['id'], class: 'video', style: "background-image: url('#{thumb_url}')"
-        )
+
+        figure_attributes = {class: figure_class, style: "background-image: url('#{thumb_url}')"}
+        figure_attributes[:id] = node['id'] if node['id']
+        decorated = create_element('figure', figure_attributes)
 
         if embed_video? video_url
           decorated['class'] += ' embed'
@@ -557,12 +545,13 @@ class Issue::PageView
         end
       end
 
-      if video['caption'].present?
+      caption = video['caption']
+      if caption.present?
         options = {}
-        options[:class] = 'inset' if truthy? video['caption_inset']
+        options[:class] = 'inset' if video.style&.[]('caption') == 'inset'
 
-        caption = create_element('figcaption', video['caption'], options)
-        caption.prepend_child create_element('h3', video["title"]) if video["title"]
+        caption = create_element('figcaption', caption, options)
+        #caption.prepend_child create_element('h3', video["title"]) if video["title"]
 
         decorated << caption
       end
