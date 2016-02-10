@@ -459,8 +459,7 @@ class Issue::PageView
     padding = 100/(aspect_ratio || 1.5)
     is_full_width = figure_class.end_with?('full')
 
-    padding_attributes = {class: 'aspect-ratio'}
-    padding_attributes[:style] = "padding-bottom: #{padding}%; max-height: #{height}px" unless is_full_width
+    padding_attributes = {class: 'aspect-ratio', style: "padding-bottom: #{padding}%; max-height: #{height}px"}
     figure << create_element('div', padding_attributes)
 
     if is_full_width && image.title.present?
