@@ -475,6 +475,12 @@ class Issue::PageView
       figure << create_element('figcaption', caption, caption_options)
     end
 
+    location = image['location']
+    if location.present?
+      geo_uri = "geo:#{location['coordinates'].join ','}?zoom=#{location['zoom']}&label=#{location['name']}"
+      figure << create_element('a', class: 'show-map', href: geo_uri)
+    end
+
     node.replace figure
   end
 
