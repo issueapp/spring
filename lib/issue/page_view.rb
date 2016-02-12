@@ -95,6 +95,10 @@ class Issue::PageView
     classes.join(' ').squeeze(' ')
   end
 
+  def show_title_image?
+    page.style.title_style == "image" && (page.title_image || page['title_image_url'])
+  end
+
   def show_author?
     hide_author = truthy?(page.style.hide_author)
     ! hide_author && root_page? && author
@@ -121,11 +125,11 @@ class Issue::PageView
   #     html_safe: escape html flag
   #     footer: custom footer markup
   def custom_html options = {}
-    render_html(page.custom_html, options)
+    render_content(page.custom_html, options)
   end
 
   def content_html options = {}
-    render_html(page.content, options)
+    render_content(page.content, options)
   end
 
   def cover?
@@ -146,48 +150,20 @@ class Issue::PageView
   def cover_html
     return unless (cover = page.cover)
 
-    container_class = self.cover_class_name
-    container_class << ' play' if cover.autoplay
+    content = %{<figure class="cover-area"></figure>}
 
-    container_background = "background-image: url('#{asset_url(cover, 'thumb' => cover.type.to_s.include?('video'))}')"
+    decorate_content(content) do |doc|
+      doc.search('.cover-area').each do |node|
 
-    attributes = {:class => container_class, :style => container_background}
-    figure = create_element('figure', attributes)
+        if is_video = cover.type&.include?('video')
+          decorate_video(node, cover)
 
-    #  FIXME unsure what to do with this?
-    #  <% if page.cover.style == 'overlay' %>
-    #    <%= header_area %>
-    #  <% end %>
-    #  end FIXME unsure what to do with this?
+        elsif is_image = cover.type&.include?('image')
+          decorate_image(node, cover)
+        end
 
-    if cover.type.try(:include?, 'video')
-      if embed_video? cover.link
-        params = cover.respond_to?('to_hash') ? cover.to_hash : cover.attributes
-        params.key?('autoplay') || (params['autoplay'] = true)
-
-        figure['class'] += ' embed'
-        figure << video_iframe_html(cover.link, params)
-      else
-        attributes = {
-          :src => asset_url(cover),
-          'data-media-id' => cover.id
-        }
-        attributes['data-autoplay'] = '' if cover.autoplay
-        attributes['loop'] = '' if cover.loop
-
-        figure << create_element('video', attributes)
       end
     end
-
-    if cover.caption.present?
-      figure << create_element('figcaption', :class => 'inset') do |figcaption|
-        figcaption << cover.caption
-      end
-    end
-
-    html = figure.to_html
-    html = html.html_safe if html.respond_to? :html_safe
-    html
   end
 
   def products_class_name
@@ -260,12 +236,37 @@ class Issue::PageView
   #     json: Custom json for testing
   #     html_safe: escape html flag
   #     footer: custom footer markup
-  def render_html content, options = {}
+  def render_content content, options = {}
     options[:html_safe] ||= true
     json = options[:json] || self.json
 
     html = Mustache.render(content, json)
-    html = decorate_content(html, options)
+
+    html = decorate_content(html, options) do |doc|
+      doc.search('[data-media-id]').each do |node|
+        asset, media = page.find_element(node['data-media-id'])
+
+        unless media
+          raise "Media not found: #{node['data-media-id']}"
+          next
+        end
+
+        case asset
+        when 'images'
+          decorate_image(node, media)
+
+        when "videos"
+          decorate_video(node, media)
+
+        when "audios"
+          decorate_audio(node, media)
+
+        else
+          log_method.call("Fail to decorate unknown element: #{asset}")
+        end
+      end
+    end
+
     html = html.html_safe if options[:html_safe] && html.respond_to?(:html_safe)
     html
   end
@@ -323,50 +324,21 @@ class Issue::PageView
     end
   end
 
-  # Swap data-media-id
-  # audios:1
-  # images:1
-  # videos:1
-  #
   # Options
   #     footer: custom footer markup
-
   def decorate_content content, options = {}
     return unless content
 
     doc = Nokogiri::HTML.fragment('<div>' << content << '</div>')
 
-    # Clear up empty paragraphy
+    yield doc
 
-    # Decorate media objects
-    doc.search('[data-media-id]').each do |node|
+    if footer = options[:footer]
+      content_div = doc.css('> .content')
 
-      asset, media = page.find_element(node['data-media-id'])
-
-      unless media
-        log_method.call("Media not found: #{node['data-media-id']}")
-        next
+      if content_div.length > 0
+        content_div.children.last.after footer
       end
-
-      case asset
-      when 'images'
-        decorate_image(node, media)
-
-      when "videos"
-        decorate_video(node, media)
-
-      when "audios"
-        decorate_audio(node, media)
-
-      else
-        log_method.call("Fail to decorate unknown asset: #{asset}")
-      end
-    end
-
-    content_div = doc.css('> .content')
-    # decorate footer
-    if options[:footer] && content_div.length > 0
-      content_div.children.last.after(options[:footer])
     end
 
     # Unwrap additional block level elements inside p
@@ -429,30 +401,35 @@ class Issue::PageView
       node['style'] = "background-size: cover; background-image:url(#{asset_url image})"
     end
 
-    return node if is_original || is_cover_area
+    return node if is_original
 
     if node.has_attribute?('data-inline')
       img_path = (dragonfly_file_name=image['file_name']) || (local_issue_path=image['path'])
       return node.replace inline_img(image) if img_path =~ /\.svg$/
     end
 
-    width = image.style&.[]('width')
-    case width
-    when 'offset'
-      figure_class = 'image wrap offset'
-    when 'full', 'wrap'
-      figure_class = "image #{width}"
-    else
-      figure_class = 'image'
-    end
-
     if node.parent && node.parent.name == 'figure'
       figure = node.parent.clone
       figure.inner_html = node.to_s
 
-    elsif node.name != 'figure'
-      figure = create_element('figure', class: figure_class)
-      figure.inner_html = node.to_s
+    else
+      width = image.style&.[]('width')
+      case width
+      when 'offset'
+        figure_class = 'image wrap offset'
+      when 'full', 'wrap'
+        figure_class = "image #{width}"
+      else
+        figure_class = 'image'
+      end
+
+      if node.name == 'figure'
+        figure = node.clone
+        figure['class'] = "#{figure['class']} #{figure_class}"
+      else
+        figure = create_element('figure', class: figure_class)
+        figure.inner_html = node.to_s
+      end
     end
 
     width, height, aspect_ratio = image_get_size(image)
