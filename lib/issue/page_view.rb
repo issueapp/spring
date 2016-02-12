@@ -152,7 +152,7 @@ class Issue::PageView
 
     content = %{<figure class="cover-area"></figure>}
 
-    decorate_content(content) do |doc|
+    html = decorate_content(content) do |doc|
       doc.search('.cover-area').each do |node|
 
         if is_video = cover.type&.include?('video')
@@ -164,6 +164,10 @@ class Issue::PageView
 
       end
     end
+
+
+    html = html.html_safe if html.respond_to? :html_safe
+    html
   end
 
   def products_class_name
