@@ -41,9 +41,11 @@ class Issue::PageView
   def respond_to_missing?(name, include_private=false); page.send('respond_to_missing?', name, include_private); end
 
   def page_title
-    page.title ||
-      ("Table of Content - #{page.issue.title}" if page.toc?) ||
-        ("#{page.parent.title} - #{page.handle}" if page.parent)
+    case
+    when page.title   then page.title
+    when page.toc?    then "Table of Content - #{page.issue.title}" 
+    when page.parent  then "#{page.parent.title} - #{page.handle}" 
+    end
   end
 
   def dom_id
@@ -96,7 +98,8 @@ class Issue::PageView
   end
 
   def show_title_image?
-    page.style.title_style == "image" && (page.title_image || page['title_image_url'])
+    (page.style.title_style == "image" && page.title_image) ||
+      page['title_image_url']
   end
 
   def show_author?
