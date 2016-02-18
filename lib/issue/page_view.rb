@@ -501,11 +501,15 @@ class Issue::PageView
         options[a.to_sym] = value if value
       end
 
-      if node['data-original']
+      if node.has_attribute? 'data-original'
         value = options.delete(:autoplay)
         options[:'data-autoplay'] = value if value
         options.each do |name, value|
           node[name] = value
+        end
+
+        if node.parent.node_name == 'figure' && options[:'data-autoplay']
+          node.parent['class'] = "#{node.parent['class']} play"
         end
 
         return node
