@@ -61,6 +61,9 @@ class Issue::PageView
 
     classes = ["page", page.style.custom_class]
 
+    # call js page.setActive() to set current class
+    #classes << 'current' if options[:current]
+
     # HACK: Migrate all page type video with one column, use video.cover = true instead
     page.style.type = "one-column" if page.style.type == "video"
 
@@ -516,12 +519,18 @@ class Issue::PageView
         else
           figure_class = 'video'
         end
+        figure_class += ' play' if options[:autoplay]
 
         thumb_url = asset_url(video, 'thumb' => true)
 
-        figure_attributes = {class: figure_class, style: "background-image: url('#{thumb_url}')"}
-        figure_attributes[:id] = node['id'] if node['id']
-        decorated = create_element('figure', figure_attributes)
+        if node.name == 'figure'
+          decorated = node.dup
+          decorated['class'] = "#{decorated['class']} #{figure_class}"
+          decorated['style'] = "background-image: url('#{thumb_url}')"
+        else
+          figure_attributes = {class: figure_class, style: "background-image: url('#{thumb_url}')"}
+          decorated = create_element('figure', figure_attributes)
+        end
 
         if embed_video? video_url
           decorated['class'] += ' embed'
@@ -530,6 +539,7 @@ class Issue::PageView
         else
           value = options.delete(:autoplay)
           options[:'data-autoplay'] = value if value
+          options.delete('class')
           decorated << create_element('video', options)
         end
       end
