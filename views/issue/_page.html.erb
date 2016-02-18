@@ -73,6 +73,8 @@
     page.triggerLoaded();
     page.render();
     App.currentPage = page;
-    page.setActive();
+    if (<%= params.key? 'active' %>) {
+      page.setActive();
+    }
 </script>
 <% end %>
