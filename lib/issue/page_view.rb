@@ -52,9 +52,20 @@ class Issue::PageView
     "s#{path.parameterize}"
   end
 
+  def content?
+    ! empty_content?(page.content) || ! empty_content?(page.custom_html)
+  end
+
+  def scrollable?
+    content? && page.style.type == 'one-column' && cover?
+  end
+
+  def content_dom_id
+    page.path.parameterize
+  end
+
   def layout_class options={}
     has_header  = !empty_content?(title) || !empty_content?(summary)
-    has_content = !empty_content?(page.content) || !empty_content?(page.custom_html)
     has_product = page.product_set?
     has_cover   = page.cover_url && page.style.image_style != "none"
     editing     = options[:editing]
@@ -72,7 +83,7 @@ class Issue::PageView
     classes << 'toc'         if page.toc?
     classes << 'has-product' if has_product
     classes << 'no-header'   if !editing && !has_header
-    classes << 'no-content ' if !editing && !has_content
+    classes << 'no-content ' if !editing && !content?
     classes << 'no-image'    if !editing && !has_cover
 
     classes << (page.style.content_style || 'white')
@@ -446,8 +457,10 @@ class Issue::PageView
     padding = 100/(aspect_ratio || 1.5)
     is_full_width = figure_class.end_with?('full')
 
-    padding_attributes = {class: 'aspect-ratio', style: "padding-bottom: #{padding}%; max-height: #{height}px"}
-    figure << create_element('div', padding_attributes)
+    unless is_cover_area
+      padding_attributes = {class: 'aspect-ratio', style: "padding-bottom: #{padding}%; max-height: #{height}px"}
+      figure << create_element('div', padding_attributes)
+    end
 
     if is_full_width && image.title.present?
       overlay_title = create_element('div', class: 'container')
