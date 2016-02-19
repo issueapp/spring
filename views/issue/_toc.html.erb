@@ -8,7 +8,7 @@
   data-page-id="<%= page.id %>"
   data-page="<%= page.path %>"
 >
-  <%= page.cover_html %>
+  <%= page.cover_html if page.cover? %>
 
   <div class="content">
     <header>
