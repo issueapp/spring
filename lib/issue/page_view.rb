@@ -43,8 +43,8 @@ class Issue::PageView
   def page_title
     case
     when page.title   then page.title
-    when page.toc?    then "Table of Content - #{page.issue.title}" 
-    when page.parent  then "#{page.parent.title} - #{page.handle}" 
+    when page.toc?    then "Table of Content - #{page.issue.title}"
+    when page.parent  then "#{page.parent.title} - #{page.handle}"
     end
   end
 
@@ -54,14 +54,6 @@ class Issue::PageView
 
   def content?
     ! empty_content?(page.content) || ! empty_content?(page.custom_html)
-  end
-
-  def scrollable?
-    content? && page.style.type == 'one-column' && cover?
-  end
-
-  def content_dom_id
-    page.path.parameterize
   end
 
   def layout_class options={}

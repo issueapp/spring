@@ -45,22 +45,12 @@
           <% end %>
         </div>
         <% end %>
-
-        <% if page.scrollable? %>
-        <a href="#<%= page.content_dom_id %>" class="page-scroll">
-          <i class="icon-ios7-arrow-down"></i>
-        </a>
-        <% end %>
       </header>
     <% end %>
 
     <%= page.product_set_html if page.product_set? %>
 
-    <div class="body"
-      <% if page.scrollable? %>
-        id="<%= page.content_dom_id %>"
-      <% end %>>
-
+    <div class="body">
       <%= page.content_html %>
     </div>
 
