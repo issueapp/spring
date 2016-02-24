@@ -114,8 +114,9 @@ class Issue::PageView
   end
 
   def show_footer?
-    page.style.image_style != "background" ||
-      page.style.custom_class.to_s.match('inset')
+    page.style.type != 'custom' &&
+    (page.style.image_style != "background" ||
+          page.style.custom_class.to_s.match('inset'))
   end
 
   def author
