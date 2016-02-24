@@ -564,6 +564,12 @@ class Issue::PageView
 
         decorated << caption
       end
+
+      location = video['location']
+      if location.present?
+        geo_uri = "geo:#{location['coordinates'].join ','}?zoom=#{location['zoom']}&label=#{location['name']}"
+        decorated << create_element('a', class: 'show-map', href: geo_uri)
+      end
     end
 
     node.replace decorated

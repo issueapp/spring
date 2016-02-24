@@ -2,7 +2,7 @@
   page_title = page.title{"Table of Content - #{page.issue.title}"}
 %>
 
-<article id="toc_page" class="<%= page.layout_class %>"
+<article id="stoc" class="<%= page.layout_class %>"
   data-title="<%= page_title %>"
   data-theme="<%= page.theme %>"
   data-page-id="<%= page.id %>"
@@ -62,10 +62,13 @@
 
 <% unless request.xhr? %>
 <script>
-    var page = new PageView({ path: "<%= page.path %>" })
-    page.triggerLoaded()
-    page.render()
-    App.currentPage = page
+    var page = new PageView({ path: "<%= page.path %>" });
+    page.triggerLoaded();
+    page.render();
+    App.currentPage = page;
+    if (<%= params.key? 'active' %>) {
+      page.setActive();
+    }
 </script>
 <% end %>
 
