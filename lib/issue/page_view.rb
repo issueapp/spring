@@ -687,7 +687,30 @@ class Issue::PageView
   def create_element *args, &block
     doc = Nokogiri::HTML('')
     doc.encoding = 'utf-8'
-    doc.create_element(*args, &block)
+
+    name, *args = args
+
+    elm = Nokogiri::XML::Element.new(name, doc, &block)
+    args.each do |arg|
+      case arg
+      when Hash
+        arg.each { |k,v|
+          key = k.to_s
+          if key =~ Nokogiri::XML::Document::NCNAME_RE
+            ns_name = key.split(":", 2)[1]
+            elm.add_namespace_definition ns_name, v
+          else
+            elm[k.to_s] = v.to_s
+          end
+        }
+      else
+        elm.inner_html = arg.to_s
+      end
+    end
+    if ns = elm.namespace_definitions.find { |n| n.prefix.nil? or n.prefix == '' }
+      elm.namespace = ns
+    end
+    elm
   end
 
   def image_get_size image
