@@ -41,23 +41,28 @@ class Issue::PageView
   def respond_to_missing?(name, include_private=false); page.send('respond_to_missing?', name, include_private); end
 
   def page_title
-    page.title ||
-      ("Table of Content - #{page.issue.title}" if page.toc?) ||
-        ("#{page.parent.title} - #{page.handle}" if page.parent)
+    case
+    when page.title   then page.title
+    when page.toc?    then "Table of Content - #{page.issue.title}"
+    when page.parent  then "#{page.parent.title} - #{page.handle}"
+    end
   end
 
   def dom_id
     "s#{path.parameterize}"
   end
 
+  def content?
+    ! empty_content?(page.content) || ! empty_content?(page.custom_html)
+  end
+
   def layout_class options={}
     has_header  = !empty_content?(title) || !empty_content?(summary)
-    has_content = !empty_content?(page.content) || !empty_content?(page.custom_html)
     has_product = page.product_set?
     has_cover   = page.cover_url && page.style.image_style != "none"
     editing     = options[:editing]
 
-    classes = ["page", "page-fadein", page.style.custom_class]
+    classes = ["page", page.style.custom_class]
 
     # HACK: Migrate all page type video with one column, use video.cover = true instead
     page.style.type = "one-column" if page.style.type == "video"
@@ -67,13 +72,21 @@ class Issue::PageView
     classes << 'toc'         if page.toc?
     classes << 'has-product' if has_product
     classes << 'no-header'   if !editing && !has_header
-    classes << 'no-content ' if !editing && !has_content
+    classes << 'no-content ' if !editing && !content?
     classes << 'no-image'    if !editing && !has_cover
 
     classes << (page.style.content_style || 'white')
     classes << ('transparent') if page.style.content_transparent
 
     if page.style.type != "custom"
+
+      # Header related style
+      classes << 'inset' if page.style.header_inset || page.style.content_inset
+      classes << "header-#{page.style.header_align}" if page.style.header_align
+      classes << "header-#{page.style.header_valign}" if page.style.header_valign
+      classes << "header-#{page.style.header_style}" if page.style.header_style
+
+      # Content layout
       classes << (page.style.content_overflow || 'scroll')
       classes << (page.style.content_align    || 'left')
       classes << (page.style.content_valign   || 'middle')
@@ -87,14 +100,20 @@ class Issue::PageView
     classes.join(' ').squeeze(' ')
   end
 
+  def show_title_image?
+    (page.style.title_style == "image" && page.title_image) ||
+      page['title_image_url']
+  end
+
   def show_author?
     hide_author = truthy?(page.style.hide_author)
     ! hide_author && root_page? && author
   end
 
   def show_footer?
-    page.style.image_style != "background" ||
-      page.style.custom_class.to_s.match('inset')
+    page.style.type != 'custom' &&
+    (page.style.image_style != "background" ||
+          page.style.custom_class.to_s.match('inset'))
   end
 
   def author
@@ -108,27 +127,16 @@ class Issue::PageView
     end
   end
 
-  def column_break_count
-    count = 0
-
-    has_cover_url = ! page.cover_url.blank?
-
-    count += 1 if has_cover_url || product_set?
-    count += 1 if page.style.type == 'three-column' && has_cover_url
-
-    count
-  end
-
   # Options
   #     json: Custom json for testing
   #     html_safe: escape html flag
   #     footer: custom footer markup
   def custom_html options = {}
-    render_html(page.custom_html, options)
+    render_content(page.custom_html, options)
   end
 
   def content_html options = {}
-    render_html(page.content, options)
+    render_content(page.content, options)
   end
 
   def cover?
@@ -138,54 +146,33 @@ class Issue::PageView
   def thumb?
     !! page.thumb_url
   end
-  
+
   def cover_class_name
-    "cover-area #{page.cover.type.to_s.split('/').first}".squeeze(' ') if page.cover
+    classes = "cover-area"
+    classes << " #{page.cover.type.to_s.split('/').first}".squeeze(' ') if page.cover
+
+    classes
   end
 
   def cover_html
     return unless (cover = page.cover)
 
-    container_class = self.cover_class_name
-    container_class << ' play' if cover.autoplay
+    content = %{<figure class="cover-area"></figure>}
 
-    container_background = "background-image: url('#{asset_url(cover, 'thumb' => cover.type.to_s.include?('video'))}')"
+    html = decorate_content(content) do |doc|
+      doc.search('.cover-area').each do |node|
 
-    attributes = {:class => container_class, :style => container_background}
-    figure = create_element('figure', attributes)
+        if is_video = cover.type&.include?('video')
+          decorate_video(node, cover)
 
-    #  FIXME unsure what to do with this?
-    #  <% if page.cover.style == 'overlay' %>
-    #    <%= header_area %>
-    #  <% end %>
-    #  end FIXME unsure what to do with this?
+        elsif is_image = cover.type&.include?('image')
+          decorate_image(node, cover)
+        end
 
-    if cover.type.try(:include?, 'video')
-      if embed_video? cover.link
-        params = cover.respond_to?('to_hash') ? cover.to_hash : cover.attributes
-        params.key?('autoplay') || (params['autoplay'] = true)
-
-        figure['class'] += ' embed'
-        figure << video_iframe_html(cover.link, params)
-      else
-        attributes = {
-          :src => asset_url(cover),
-          'data-media-id' => cover.id
-        }
-        attributes['data-autoplay'] = '' if cover.autoplay
-        attributes['loop'] = '' if cover.loop
-
-        figure << create_element('video', attributes)
       end
     end
 
-    if cover.caption.present?
-      figure << create_element('figcaption', :class => 'inset') do |figcaption|
-        figcaption << cover.caption
-      end
-    end
 
-    html = figure.to_html
     html = html.html_safe if html.respond_to? :html_safe
     html
   end
@@ -193,7 +180,7 @@ class Issue::PageView
   def products_class_name
     class_name = 'product-set'
     count = page.products.count == 9 ? 9 : [(page.products.count/2.0).ceil*2, 6].min
-    
+
     class_name << " set-#{count}"
   end
 
@@ -253,19 +240,44 @@ class Issue::PageView
     end
   end
 
-  
+
   private
 
   # Options
   #     json: Custom json for testing
   #     html_safe: escape html flag
   #     footer: custom footer markup
-  def render_html content, options = {}
+  def render_content content, options = {}
     options[:html_safe] ||= true
     json = options[:json] || self.json
 
     html = Mustache.render(content, json)
-    html = decorate_content(html, options)
+
+    html = decorate_content(html, options) do |doc|
+      doc.search('[data-media-id]').each do |node|
+        asset, media = page.find_element(node['data-media-id'])
+
+        unless media
+          raise "Media not found: #{node['data-media-id']}"
+          next
+        end
+
+        case asset
+        when 'images'
+          decorate_image(node, media)
+
+        when "videos"
+          decorate_video(node, media)
+
+        when "audios"
+          decorate_audio(node, media)
+
+        else
+          log_method.call("Fail to decorate unknown element: #{asset}")
+        end
+      end
+    end
+
     html = html.html_safe if options[:html_safe] && html.respond_to?(:html_safe)
     html
   end
@@ -289,10 +301,19 @@ class Issue::PageView
     # media: image, video, audio
     else
       url = object['url'] || object['file_url'] || begin
-        if is_s3_url = (remote_url = object.file.try('remote_url').to_s) && remote_url.start_with?('http://', 'https://')
+        is_s3_url = begin
+          remote_url = object.file.try('remote_url').to_s
+          remote_url.start_with?('http://', 'https://')
+        rescue NotImplementedError
+          false
+        end
+
+        if is_s3_url
           remote_url
+        elsif context
+          context.dragonfly_url(object.file)
         else
-          context.try(:dragonfly_url, object.file)
+          object.file.url
         end
       end
     end
@@ -314,48 +335,26 @@ class Issue::PageView
     end
   end
 
-  # Swap data-media-id
-  # audios:1
-  # images:1
-  # videos:1
-  #
   # Options
   #     footer: custom footer markup
-
   def decorate_content content, options = {}
     return unless content
 
     doc = Nokogiri::HTML.fragment('<div>' << content << '</div>')
 
-    # Decorate media objects
-    doc.search('[data-media-id]').each do |node|
+    yield doc
 
-      asset, media = page.find_element(node['data-media-id'])
+    if footer = options[:footer]
+      content_div = doc.css('> .content')
 
-      unless media
-        log_method.call("Media not found: #{node['data-media-id']}")
-        next
-      end
-
-      case asset
-      when 'images'
-        decorate_image(node, media)
-
-      when "videos"
-        decorate_video(node, media)
-
-      when "audios"
-        decorate_audio(node, media)
-
-      else
-        log_method.call("Fail to decorate unknown asset: #{asset}")
+      if content_div.length > 0
+        content_div.children.last.after footer
       end
     end
 
-    content_div = doc.css('> .content')
-    # decorate footer
-    if options[:footer] && content_div.length >0
-      content_div.children.last.after(options[:footer])
+    # Unwrap additional block level elements inside p
+    doc.search('p > article, p > figure, p > section').each do |node|
+      node.parent.replace(node)
     end
 
     doc.child.inner_html
@@ -397,88 +396,95 @@ class Issue::PageView
           fragment.css('[data-media-id]').length == 0
   end
 
-  # <img>
-  # <figure>
-  #   <img src="../assets/1-styling-it-out/_MG_5433_1024@2x.jpg" width=80%>
-  #   <figcaption>Her ‘favourite permanent accessory’, CP is the proud owner of over 65 tattoos - although she admits to having lost count of the exact number</figcaption>
-  # </figure>
-  #  <figure>
-  #   <img data-media-id="images:1" src="../assets/1-styling-it-out/20130906-20130906MinkPink_ChristinaPerri_0006-15.jpg">
-  #   <figcaption class="inset">
-  #     MINKPINK Rock Me Again Playsuit.
-  #   </figcaption>
-  #   <figcaption>Although a tomboy at heart, Christina admits the last 3 years have seen her become ‘obsessed’ with fashion.</figcaption>
-  # </figure>
   def decorate_image node, image
     if node.name == 'img'
       node['src'] = asset_url(image)
     end
-    
+
     # Edit mode to maintain single image element in editor
     return node if edit_mode && !custom_html?
 
-    if node['data-background-image']
+    is_original = node.has_attribute?('data-original')
+    is_cover_area = node.matches?('.cover-area')
+    is_background_image = node.has_attribute?('data-background-image')
+
+    if is_background_image || is_cover_area
       node['style'] = "background-size: cover; background-image:url(#{asset_url image})"
     end
 
-    return node if node['data-original'] || node.matches?('.cover-area')
+    return node if is_original
 
-    caption_options = {}
-    caption_options[:class] = 'inset' if image['caption_inset']
-
-    width, height, aspect_ratio = image_get_size(image)
-    max_dimension = "max-height: #{height}px; max-width: #{width}px"
-    padding = 100/(aspect_ratio || 1.5)
-
-
-    # logs
-    if node['data-inline']
-      img_path = image['url'] || image['path']
+    if node.has_attribute?('data-inline')
+      img_path = (dragonfly_file_name=image['file_name']) || (local_issue_path=image['path'])
       return node.replace inline_img(image) if img_path =~ /\.svg$/
     end
 
     if node.parent && node.parent.name == 'figure'
       figure = node.parent.clone
-      figure['style'] = max_dimension
       figure.inner_html = node.to_s
 
-    elsif node.name != 'figure'
-      figure = create_element('figure', class: 'image', style: max_dimension)
-      figure.inner_html = node.to_s
+    else
+      width = image.style&.[]('width')
+      case width
+      when 'offset'
+        figure_class = 'image wrap offset'
+      when 'full', 'wrap'
+        figure_class = "image #{width}"
+      else
+        figure_class = 'image'
+      end
+
+      if node.name == 'figure'
+        figure = node.clone
+        figure['class'] = "#{figure['class']} #{figure_class}"
+      else
+        figure = create_element('figure', class: figure_class)
+        figure.inner_html = node.to_s
+      end
     end
 
-    figure << create_element('div',
-      class: 'aspect-ratio',
-      style: "padding-bottom: #{padding}%; max-height: #{height}px"
-    )
+    width, height, aspect_ratio = image_get_size(image)
+    padding = 100/(aspect_ratio || 1.5)
+    is_full_width = figure_class.end_with?('full')
 
-    figure << create_element('figcaption', image["caption"], caption_options) if image["caption"].present?
+    unless is_cover_area
+      padding_attributes = {class: 'aspect-ratio', style: "padding-bottom: #{padding}%; max-height: #{height}px"}
+      figure << create_element('div', padding_attributes)
+    end
+
+    if is_full_width && image.title.present?
+      overlay_title = create_element('div', class: 'container')
+      overlay_title << create_element('h3', image.title)
+      figure << overlay_title
+    end
+
+    caption = image['caption']
+    if caption.present?
+      caption_options = {}
+      caption_options[:class] = 'inset' if image.style&.[]('caption') == 'inset'
+      figure << create_element('figcaption', caption, caption_options)
+    end
+
+    location = image['location']
+    if location.present?
+      geo_uri = "geo:#{location['coordinates'].join ','}?zoom=#{location['zoom']}&label=#{location['name']}"
+      figure << create_element('a', class: 'show-map', href: geo_uri)
+    end
 
     node.replace figure
   end
 
-  # <video data-media-id="videos:1" type="video/youtube" src="http://youtube.com/watch?v=8v_4O44sfjM"  poster="../assets/1-styling-it-out/Jar-of-Hearts-christina-perri-16882990-1280-720.jpg"/>
-  # <figure class="video">
-  #   <img class="thumbnail" src="../assets/1-styling-it-out/A-Thousand-Years-christina-perri-26451562-1920-1080.jpg">
-  #   <iframe data-src="http://www.youtube.com/embed/rtOvBOTyX00?autohide=1&amp;autoplay=1&amp;color=white&amp;controls=0&amp;enablejsapi=1&amp;hd=1&amp;iv_load_policy=3&amp;origin=http%3A%2F%2Fissueapp.com&amp;rel=0&amp;showinfo=0&amp;wmode=transparent&amp;autoplay=1" frameborder="0" height="100%" width="100%" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" style="position: absolute; top: 0; left:0 "></iframe>
-  #   <figcaption>Christina’s newest album ‘Head or Heart' is set for release in February 2014</figcaption>
-  # </figure>
-
-  # Params:
-  #    autoplay: true | false
-  #    controls: true | false
-  #    loop:     true | false
   def decorate_video node, video
     if edit_mode
       decorated = create_element('video', poster: asset_path('ui/video-play.svg'),
         'data-media-id' => node['data-media-id'],
         style: "background-image: url('#{asset_url(video, 'thumb' => true)}')"
       )
-
     else
       video_url = video['url'].presence || video['link'].presence || asset_url(video)
+
       options = node.attribute_nodes.reduce({}) do |memo, n|
-        memo[n.node_name] = n.value
+        memo[n.node_name] = n.value if n.value.present?
         memo
       end
       options[:type] = video['type'] if video['type'].present?
@@ -498,19 +504,40 @@ class Issue::PageView
         options[a.to_sym] = value if value
       end
 
-      if node['data-original']
+      if node.has_attribute? 'data-original'
         value = options.delete(:autoplay)
         options[:'data-autoplay'] = value if value
         options.each do |name, value|
           node[name] = value
         end
 
+        if node.parent.node_name == 'figure' && options[:'data-autoplay']
+          node.parent['class'] = "#{node.parent['class']} play"
+        end
+
         return node
       else
+        width = video.style&.[]('width')
+        case width
+        when 'offset'
+          figure_class = 'video wrap offset'
+        when 'full', 'wrap'
+          figure_class = "video #{width}"
+        else
+          figure_class = 'video'
+        end
+        figure_class += ' play' if options[:autoplay]
+
         thumb_url = asset_url(video, 'thumb' => true)
-        decorated = create_element(
-          'figure', id: node['id'], class: 'video', style: "background-image: url('#{thumb_url}')"
-        )
+
+        if node.name == 'figure'
+          decorated = node.dup
+          decorated['class'] = "#{decorated['class']} #{figure_class}"
+          decorated['style'] = "background-image: url('#{thumb_url}')"
+        else
+          figure_attributes = {class: figure_class, style: "background-image: url('#{thumb_url}')"}
+          decorated = create_element('figure', figure_attributes)
+        end
 
         if embed_video? video_url
           decorated['class'] += ' embed'
@@ -519,18 +546,26 @@ class Issue::PageView
         else
           value = options.delete(:autoplay)
           options[:'data-autoplay'] = value if value
+          options.delete('class')
           decorated << create_element('video', options)
         end
       end
 
-      if video['caption'].present?
+      caption = video['caption']
+      if caption.present?
         options = {}
-        options[:class] = 'inset' if truthy? video['caption_inset']
+        options[:class] = 'inset' if video.style&.[]('caption') == 'inset'
 
-        caption = create_element('figcaption', video['caption'], options)
-        caption.prepend_child create_element('h3', video["title"]) if video["title"]
+        caption = create_element('figcaption', caption, options)
+        #caption.prepend_child create_element('h3', video["title"]) if video["title"]
 
         decorated << caption
+      end
+
+      location = video['location']
+      if location.present?
+        geo_uri = "geo:#{location['coordinates'].join ','}?zoom=#{location['zoom']}&label=#{location['name']}"
+        decorated << create_element('a', class: 'show-map', href: geo_uri)
       end
     end
 
@@ -649,7 +684,30 @@ class Issue::PageView
   def create_element *args, &block
     doc = Nokogiri::HTML('')
     doc.encoding = 'utf-8'
-    doc.create_element(*args, &block)
+
+    name, *args = args
+
+    elm = Nokogiri::XML::Element.new(name, doc, &block)
+    args.each do |arg|
+      case arg
+      when Hash
+        arg.each { |k,v|
+          key = k.to_s
+          if key =~ Nokogiri::XML::Document::NCNAME_RE
+            ns_name = key.split(":", 2)[1]
+            elm.add_namespace_definition ns_name, v
+          else
+            elm[k.to_s] = v.to_s
+          end
+        }
+      else
+        elm.inner_html = arg.to_s
+      end
+    end
+    if ns = elm.namespace_definitions.find { |n| n.prefix.nil? or n.prefix == '' }
+      elm.namespace = ns
+    end
+    elm
   end
 
   def image_get_size image

@@ -2,46 +2,44 @@
   page_title = page.title{"Table of Content - #{page.issue.title}"}
 %>
 
-<article id="toc_page" class="<%= page.layout_class %>"
-  title="<%= page_title %>"
+<article id="stoc" class="<%= page.layout_class %>"
+  data-title="<%= page_title %>"
   data-theme="<%= page.theme %>"
   data-page-id="<%= page.id %>"
   data-page="<%= page.path %>"
 >
-  <div class="main col third-2">
-    <%= page.cover_html %>
+  <%= page.cover_html if page.cover? %>
 
-    <div class="content">
-      <header>
-        <% if page.category %>
-          <span class="category"><%= page.category %></span>
+  <div class="content">
+    <header>
+      <% if page.category %>
+        <span class="category"><%= page.category %></span>
+      <% end %>
+
+      <% if page.title %>
+        <h1 class="title"><%= page.title %></h1>
+      <% end %>
+
+      <% if page.author || page.summary %>
+      <div class="extras">
+        <% if page.show_author? %>
+          <img src="<%= page.author.icon %>" class="avatar">
+          <em>by <%= page.author.name %></em>
         <% end %>
 
-        <% if page.title %>
-          <h1 class="title"><%= page.title %></h1>
+        <% if page.summary %>
+          <p><%= page.summary %></p>
         <% end %>
-
-        <% if page.author || page.summary %>
-        <div class="extras">
-          <% if page.show_author? %>
-            <img src="<%= page.author.icon %>" class="avatar">
-            <em>by <%= page.author.name %></em>
-          <% end %>
-
-          <% if page.summary %>
-            <p><%= page.summary %></p>
-          <% end %>
-        </div>
-        <% end %>
-      </header>
-
-      <div class="body">
-        <%= page.content_html %>
       </div>
+      <% end %>
+    </header>
+
+    <div class="body">
+      <%= page.content_html %>
     </div>
   </div>
 
-  <div class="menu col third">
+  <div class="menu">
     <div class="head">
       <h2>CONTENTS</h2>
       <hr />
@@ -64,10 +62,13 @@
 
 <% unless request.xhr? %>
 <script>
-    var page = new PageView({ path: "<%= page.path %>" })
-    page.triggerLoaded()
-    page.render()
-    App.currentPage = page
+    var page = new PageView({ path: "<%= page.path %>" });
+    page.triggerLoaded();
+    page.render();
+    App.currentPage = page;
+    if (<%= params.key? 'active' %>) {
+      page.setActive();
+    }
 </script>
 <% end %>
 

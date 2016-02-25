@@ -1,14 +1,22 @@
-<% @body_class = "dark-theme" %>
-<header class="toolbar dark-theme transparent">
-  <!-- <a class="back left" href="javascript:history.back()"><span>back</span></a> -->
-
-  <h1 class="title"></h1>
-</header>
 <%
-
+  @body_class = "dark-theme"
   video_cover = issue.cover_url =~ /\.mp4/
   background_image = video_cover ? issue.thumb_url : issue.cover_url
+
+  Rails.logger.debug '------> views/issue/_cover.html.erb'
+
+  if issue.brand_logo_url
+    brand_logo_style = %{style="background-image: url(#{issue.brand_logo_url})"}
+  end
+
+  if issue.title_image_url
+    title_image_style = %{style="background-image: url(#{issue.title_image_url})"}
+  end
  %>
+<header class="toolbar dark-theme transparent">
+  <!-- <a class="back left" href="javascript:history.back()"><span>back</span></a> -->
+  <h1 class="title"></h1>
+</header>
 <article id="issue_cover" class="magazine cover page fullscreen dark-theme animate <%=  issue.try(:style).try(:custom_class) %>" data-page="index" data-theme="black">
   <% if video_cover %>
     <figure class="cover-area video">
@@ -24,8 +32,8 @@
     <div class="extra-2"></div>
 
     <hgroup>
-      <h2 class="brand"><%= issue.magazine_title %></h2>
-      <h1 class="title"><%= issue.title %></h1>
+      <h2 class="brand" <%= brand_logo_style %>><%= issue.magazine_title %></h2>
+      <h1 class="title" <%= title_image_style %>><%= issue.title %></h1>
       <h2 class="description"><%= issue.description %></h2>
     </hgroup>
 

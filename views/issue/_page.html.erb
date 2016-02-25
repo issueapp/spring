@@ -1,5 +1,5 @@
 <article id="<%= page.dom_id %>" class="<%= page.layout_class %>"
-  title="<%= page.title %>"
+  data-title="<%= page.title %>"
   data-theme="<%= page.theme %>"
   data-page="<%= page.path %>"
   data-page-id="<%= page.id %>"
@@ -15,42 +15,42 @@
   <%= page.cover_html if page.cover? %>
 
   <div class='content'>
-    <% if !page.cover || page.cover.style != "overlay" %>
-      <% if page.title || page.summary %>
-        <header>
-          <% if page.category %>
-          <span class='category'><%= page.category %></span>
-          <% end %>
+    <% if page.title || page.summary %>
+      <header>
+        <% if page.category %>
+        <span class='category'><%= page.category %></span>
+        <% end %>
 
-          <% if page.title %>
-          <h1 class='title'><%= page.title %></h1>
+        <% if page.title %>
+        <h1 class="title <%= page.style.title_style %>"
+          <% if page.show_title_image? %>
+            style="background-image: url(<%= page.title_image_url %>)"
           <% end %>
+          ><%= page.title %></h1>
+        <% end %>
 
-          <% if page.summary %>
-          <h3 class='subtitle'><%= page.summary %></h3>
-          <% end %>
+        <% if page.summary %>
+        <h3 class='subtitle'><%= page.summary %></h3>
+        <% end %>
 
-          <% if page.author %>
-          <div class='extras'>
-            <% if page.show_author? %>
+        <% if page.author %>
+        <div class='extras'>
+          <% if page.show_author? %>
+            <a class="user small">
               <% if page.author.icon %>
-                <img src="<%= page.author.icon %>" class="avatar">
+                <img src="<%= page.author.icon %>" class="image">
               <% end %>
-              <em>By <%= page.author.name %></em>
-            <% end %>
-          </div>
+              <em class="name">By <%= page.author.name %></em>
+            </a>
           <% end %>
-        </header>
-      <% end %>
+        </div>
+        <% end %>
+      </header>
     <% end %>
 
     <%= page.product_set_html if page.product_set? %>
 
-    <% page.column_break_count.times do %>
-      <p class='column-break'></p>
-    <% end %>
-
-    <div class='body'>
+    <div class="body">
       <%= page.content_html %>
     </div>
 
@@ -71,5 +71,8 @@
     page.triggerLoaded();
     page.render();
     App.currentPage = page;
+    if (<%= params.key? 'active' %>) {
+      page.setActive();
+    }
 </script>
 <% end %>

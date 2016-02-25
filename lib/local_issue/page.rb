@@ -108,11 +108,27 @@ class LocalIssue::Page < Hashie::Mash
     end
 
     Array(attributes["images"]).map! { |image|
-      image = Hashie::Mash.new(url: image) if image.is_a? String
+      case image
+      when String
+        image = Hashie::Mash.new(url: image)
+      else
+        case image['style']
+        when 'offset', 'wrap', 'full'
+          image['style'] = Hashie::Mash.new(width: image['style'])
+        end
+      end
+
       image['type'] ||= "image"
       image
     }
-    Array(attributes["videos"]).each { |video| video['type'] ||= "video" }
+    Array(attributes["videos"]).map! { |video|
+      video['type'] ||= "video"
+      case video['style']
+      when 'offset', 'wrap', 'full'
+        video['style'] = Hashie::Mash.new(width: video['style'])
+      end
+      video
+    }
 
     # FIXME
     # deprecate product summary in favor of description
