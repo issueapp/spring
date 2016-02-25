@@ -169,12 +169,14 @@ class Issue::PageView
           decorate_video(node, cover)
 
         elsif is_image = cover.type&.include?('image')
+          cover.style ||= {}
+          cover.style["caption"] = "inset"
+
           decorate_image(node, cover)
         end
 
       end
     end
-
 
     html = html.html_safe if html.respond_to? :html_safe
     html
