@@ -17,7 +17,11 @@
       <% end %>
 
       <% if page.title %>
-        <h1 class="title"><%= page.title %></h1>
+        <h1 class="title <%= page.style.title_style %>"
+          <% if page.show_title_image? %>
+            style="background-image: url(<%= page.title_image_url %>)"
+          <% end %>
+          ><%= page.title %></h1>
       <% end %>
 
       <% if page.author || page.summary %>
