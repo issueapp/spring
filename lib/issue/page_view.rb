@@ -421,21 +421,21 @@ class Issue::PageView
       return node.replace inline_img(image) if img_path =~ /\.svg$/
     end
 
+    width = image.style&.[]('width')
+    case width
+    when 'offset'
+      figure_class = 'image wrap offset'
+    when 'full', 'wrap'
+      figure_class = "image #{width}"
+    else
+      figure_class = 'image'
+    end
+
     if node.parent && node.parent.name == 'figure'
       figure = node.parent.clone
       figure.inner_html = node.to_s
 
     else
-      width = image.style&.[]('width')
-      case width
-      when 'offset'
-        figure_class = 'image wrap offset'
-      when 'full', 'wrap'
-        figure_class = "image #{width}"
-      else
-        figure_class = 'image'
-      end
-
       if node.name == 'figure'
         figure = node.clone
         figure['class'] = "#{figure['class']} #{figure_class}"
