@@ -112,8 +112,9 @@ class Issue::PageView
 
   def show_footer?
     page.style.type != 'custom' &&
-    (page.style.image_style != "background" ||
-          page.style.custom_class.to_s.match('inset'))
+    (page.style.image_style != 'background' ||
+      page.style.custom_class.to_s.match('inset') &&
+      page.style.type == 'one-column')
   end
 
   def author
