@@ -91,6 +91,10 @@ class LocalIssue < Hashie::Mash
     self[:theme] || "default"
   end
 
+  def yaml_path
+    self.class.locate_issue_yml path
+  end
+
   def path
     raise 'Handle not found' unless magazine_handle && handle
     self.class.root/magazine_handle/handle
