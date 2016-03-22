@@ -412,7 +412,7 @@ class Issue::PageView
     is_background_image = node.has_attribute?('data-background-image')
 
     if is_background_image || is_cover_area
-      node['style'] = "background-size: cover; background-image:url(#{asset_url image})"
+      node['style'] = "background-image:url(#{asset_url image})"
     end
 
     return node if is_original
