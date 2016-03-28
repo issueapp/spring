@@ -22,7 +22,7 @@ class Issue::PageView
 
   attr_reader :page
 
-  attr_accessor :context, :edit_mode, :offline
+  attr_accessor :context, :edit_mode, :offline, :static
   attr_writer :json
 
   def initialize page, options={}
@@ -30,15 +30,16 @@ class Issue::PageView
 
     @page = page
 
-    @context = options[:context] || options['context']
-    @edit_mode = options[:edit_mode] || options['edit_mode']
-    @offline = options[:offline]
+    options.each do |k, v|
+      setter = "#{k}="
+      send(setter, v) if respond_to? setter
+    end
   end
 
   def class; page.class; end
   def method_missing(name, *args, &block); page.send(name, *args, &block); end
-  def respond_to?(name, include_private=false); page.send('respond_to?', name, include_private); end
-  def respond_to_missing?(name, include_private=false); page.send('respond_to_missing?', name, include_private); end
+  def respond_to?(name, include_private=false); super || page.send(:respond_to?, name, include_private); end
+  def respond_to_missing?(name, include_private=false); super || page.send(:respond_to_missing?, name, include_private); end
 
   def page_title
     case
@@ -158,17 +159,23 @@ class Issue::PageView
   def cover_html
     return unless (cover = page.cover)
 
+    if static
+      cover = @json['cover']
+    end
+
     content = %{<figure class="cover-area"></figure>}
 
     html = decorate_content(content) do |doc|
       doc.search('.cover-area').each do |node|
 
-        if is_video = cover.type&.include?('video')
+        type = cover['type']
+
+        if is_video = type&.include?('video')
           decorate_video(node, cover)
 
-        elsif is_image = cover.type&.include?('image')
-          cover.style ||= {}
-          cover.style["caption"] = "inset"
+        elsif is_image = type&.include?('image')
+          cover['style'] ||= {}
+          cover['style']["caption"] = "inset"
 
           decorate_image(node, cover)
         end
@@ -246,6 +253,17 @@ class Issue::PageView
 
   private
 
+  def find_element id
+    if static
+      ::Page::Elements.each do |type|
+        element = json[type].find{|elem| elem['id'] == id}
+        return [type, element] if element
+      end
+    else
+      page.find_element(id)
+    end
+  end
+
   # Options
   #     json: Custom json for testing
   #     html_safe: escape html flag
@@ -258,14 +276,14 @@ class Issue::PageView
 
     html = decorate_content(html, options) do |doc|
       doc.search('[data-media-id]').each do |node|
-        asset, media = page.find_element(node['data-media-id'])
+        type, media = find_element(node['data-media-id'])
 
         unless media
           raise "Media not found: #{node['data-media-id']}"
           next
         end
 
-        case asset
+        case type
         when 'images'
           decorate_image(node, media)
 
@@ -276,7 +294,7 @@ class Issue::PageView
           decorate_audio(node, media)
 
         else
-          log_method.call("Fail to decorate unknown element: #{asset}")
+          log_method.call("Fail to decorate unknown element: #{type}")
         end
       end
     end
@@ -400,8 +418,10 @@ class Issue::PageView
   end
 
   def decorate_image node, image
+    url = static ? image['url'] : asset_url(image)
+
     if node.name == 'img'
-      node['src'] = asset_url(image)
+      node['src'] = url
     end
 
     # Edit mode to maintain single image element in editor
@@ -412,17 +432,17 @@ class Issue::PageView
     is_background_image = node.has_attribute?('data-background-image')
 
     if is_background_image || is_cover_area
-      node['style'] = "background-image:url(#{asset_url image})"
+      node['style'] = "background-image:url(#{url})"
     end
 
     return node if is_original
 
     if node.has_attribute?('data-inline')
-      img_path = (dragonfly_file_name=image['file_name']) || (local_issue_path=image['path'])
-      return node.replace inline_img(image) if img_path =~ /\.svg$/
+      is_svg = ((dragonfly_file_name=image['file_name']) || (local_issue_path=image['path'])) =~ /\.svg$/
+      return node.replace inline_img(image) if is_svg
     end
 
-    width = image.style&.[]('width')
+    width = image['style']&.[]('width')
     case width
     when 'offset'
       figure_class = 'image wrap offset'
@@ -455,16 +475,16 @@ class Issue::PageView
       figure << create_element('div', padding_attributes)
     end
 
-    if is_full_width && image.title.present?
+    if is_full_width && image['title'].present?
       overlay_title = create_element('div', class: 'container')
-      overlay_title << create_element('h3', image.title)
+      overlay_title << create_element('h3', image['title'])
       figure << overlay_title
     end
 
     caption = image['caption']
     if caption.present?
       caption_options = {}
-      caption_options[:class] = 'inset' if image.style&.[]('caption') == 'inset'
+      caption_options[:class] = 'inset' if image['style']&.[]('caption') == 'inset'
       figure << create_element('figcaption', caption, caption_options)
     end
 
@@ -531,7 +551,7 @@ class Issue::PageView
         end
         figure_class += ' play' if options[:autoplay]
 
-        thumb_url = asset_url(video, 'thumb' => true)
+        thumb_url = static ? video['thumb_url'] : asset_url(video, 'thumb' => true)
 
         if node.name == 'figure'
           decorated = node.dup
