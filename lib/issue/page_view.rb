@@ -714,9 +714,12 @@ class Issue::PageView
   end
 
   def image_get_size image
-    if image.width && image.height
-      aspect_ratio = image.aspect_ratio || image.width.to_f/image.height
-      return [image.width, image.height, aspect_ratio.to_f]
+    width = image['width'] || image['file_width']
+    height = image['height'] || image['file_height']
+
+    if width && height
+      aspect_ratio = image['aspect_ratio'] || image['file_aspect_ratio'] || width.to_f/height
+      return [width, height, aspect_ratio.to_f]
     end
 
     unless issue
