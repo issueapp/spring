@@ -158,10 +158,7 @@ class Issue::PageView
 
   def cover_html
     return unless (cover = page.cover)
-
-    if static
-      cover = @json['cover']
-    end
+    cover = @json['cover']
 
     content = %{<figure class="cover-area"></figure>}
 
@@ -254,14 +251,14 @@ class Issue::PageView
   private
 
   def find_element id
-    if static
-      ::Page::Elements.each do |type|
-        element = json[type].find{|elem| elem['id'] == id}
-        return [type, element] if element
-      end
-    else
-      page.find_element(id)
+    # if static
+    ::Page::Elements.each do |type|
+      element = json[type].find{|elem| elem['id'] == id}
+      return [type, element] if element
     end
+    # else
+    #   page.find_element(id)
+    # end
   end
 
   # Options
@@ -418,7 +415,7 @@ class Issue::PageView
   end
 
   def decorate_image node, image
-    url = static ? image['url'] : asset_url(image)
+    url = relative_protocol(image['url'])
 
     if node.name == 'img'
       node['src'] = url
@@ -432,7 +429,7 @@ class Issue::PageView
     is_background_image = node.has_attribute?('data-background-image')
 
     if is_background_image || is_cover_area
-      node['style'] = "background-image:url(#{url})"
+      node['style'] = "background-image: url(\"#{url}\")"
     end
 
     return node if is_original
@@ -504,8 +501,9 @@ class Issue::PageView
         style: "background-image: url('#{asset_url(video, 'thumb' => true)}')"
       )
     else
-      video_url = video['url'].presence || video['link'].presence || asset_url(video)
+      video_url = relative_protocol(video['url'].presence || video['link'].presence)
 
+      
       options = node.attribute_nodes.reduce({}) do |memo, n|
         memo[n.node_name] = n.value if n.value.present?
         memo
@@ -540,7 +538,7 @@ class Issue::PageView
 
         return node
       else
-        width = video.style&.[]('width')
+        width = video['style']&.[]('width')
         case width
         when 'offset'
           figure_class = 'video wrap offset'
@@ -551,14 +549,14 @@ class Issue::PageView
         end
         figure_class += ' play' if options[:autoplay]
 
-        thumb_url = static ? video['thumb_url'] : asset_url(video, 'thumb' => true)
+        thumb_url = relative_protocol(video['thumb_url'])
 
         if node.name == 'figure'
           decorated = node.dup
           decorated['class'] = "#{decorated['class']} #{figure_class}"
-          decorated['style'] = "background-image: url('#{thumb_url}')"
+          decorated['style'] = %{background-image: url("#{thumb_url}")}
         else
-          figure_attributes = {class: figure_class, style: "background-image: url('#{thumb_url}')"}
+          figure_attributes = {class: figure_class, style: %{background-image: url("#{thumb_url}")}}
           decorated = create_element('figure', figure_attributes)
         end
 
@@ -603,7 +601,8 @@ class Issue::PageView
       memo
     end
     options[:type] = audio['type'] if audio['type'].present?
-    options[:src] = asset_url(audio)
+    options[:src] = relative_protocol(audio["url"])
+    
     value = html5_attribute_value(audio['autoplay'], 'autoplay')
     options[:'data-autoplay'] = value if value
     %w[controls loop muted].each do |a|
@@ -616,7 +615,7 @@ class Issue::PageView
     options[:'data-scope'] = true if truthy? audio['scope']
 
     figure = create_element('figure', :class => 'audio', id: element_id)
-    if thumb_url = asset_url(audio, 'thumb' => true)
+    if thumb_url = relative_protocol(audio["thumb_url"])
       figure << create_element('img', class: 'thumbnail', src: thumb_url)
     end
 
@@ -798,6 +797,12 @@ class Issue::PageView
       else
         method :puts
       end
+  end
+  
+  def relative_protocol(url)
+    if url
+      url.sub(/^https?:/, '')
+    end
   end
 
   def truthy? value
