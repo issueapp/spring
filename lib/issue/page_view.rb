@@ -295,6 +295,9 @@ class Issue::PageView
         end
       end
     end
+    
+    # Force HTML to use relative protocol
+    html.gsub!(/https?:/, '')
 
     html = html.html_safe if options[:html_safe] && html.respond_to?(:html_safe)
     html
