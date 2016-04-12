@@ -157,8 +157,7 @@ class Issue::PageView
   end
 
   def cover_html
-    return unless (cover = page.cover)
-    cover = @json['cover']
+    return unless (cover = json['cover'])
 
     content = %{<figure class="cover-area"></figure>}
 
@@ -215,50 +214,55 @@ class Issue::PageView
   end
 
   def json
-    @json ||= begin
-      hash = page.to_hash
+    @json ||= local_page_json
+  end
 
-      # adjust media, link, cover path for subpage
-      if page.parent
-        if cover = hash['cover']
-          cover['url'] = "../#{cover['url']}" if cover['url']
-          cover['thumb_url'] = "../#{cover['thumb_url']}" if cover['thumb_url']
-        end
+  private
 
-        %w[audios images videos].each do |element|
-          if elements = hash[element]
-            elements.each do |media|
-              media['url'] = "../#{media['url']}" if media['url']
-              media['thumb_url'] = "../#{media['thumb_url']}" if media['thumb_url']
-            end
-          end
-        end
+  def local_page_json
+    hash = page.to_hash
 
-        %w[links products].each do |element|
-          if elements = hash[element]
-            elements.each do |link|
-              link['image_url'] = "../#{link['image_url']}" if link['image_url']
-            end
+    # adjust media, link, cover path for subpage
+    if page.parent
+      if cover = hash['cover']
+        cover['url'] = "../#{cover['url']}" if cover['url']
+        cover['thumb_url'] = "../#{cover['thumb_url']}" if cover['thumb_url']
+      end
+
+      %w[audios images videos].each do |element|
+        if elements = hash[element]
+          elements.each do |media|
+            media['url'] = "../#{media['url']}" if media['url']
+            media['thumb_url'] = "../#{media['thumb_url']}" if media['thumb_url']
           end
         end
       end
 
-      hash
+      %w[links products].each do |element|
+        if elements = hash[element]
+          elements.each do |link|
+            link['image_url'] = "../#{link['image_url']}" if link['image_url']
+          end
+        end
+      end
     end
+
+    hash
   end
 
-
-  private
-
   def find_element id
-    # if static
-    ::Page::Elements.each do |type|
-      element = json[type].find{|elem| elem['id'] == id}
-      return [type, element] if element
+    type, index = id.split(':')
+
+    if find_by_id = index.nil? || index.empty?
+      type, element = ::Page::Elements.each_with_object([]) do |type, _|
+        elem = json[type].find{|e| e['id'] == id}
+        break [type, element] if elem
+      end
+    else
+      element = json[type]&.[](index.to_i - 1)
     end
-    # else
-    #   page.find_element(id)
-    # end
+
+    [type, element]
   end
 
   # Options
@@ -753,7 +757,7 @@ class Issue::PageView
       end
     end
 
-    file = File.join(issue.path, image['url'])
+    file = File.join(issue.path, image['url'][/assets.+$/])
     raise "local image not found: #{file}" unless File.exist? file
 
     # watchout for potential problem
