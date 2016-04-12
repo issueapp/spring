@@ -269,9 +269,13 @@ class Issue::PageView
   #     json: Custom json for testing
   #     html_safe: escape html flag
   #     footer: custom footer markup
-  def render_content content, options = {}
-    options[:html_safe] ||= true
-    json = options[:json] || self.json
+  def render_content content, options={}
+    html_safe = options.fetch(:html_safe){true}
+
+    # Force HTML to use relative protocol
+    json = Marshal.dump(options[:json] || self.json)
+    json.gsub!(%r{https?://issue\.}, 'issue.')
+    json = Marshal.load(json)
 
     html = Mustache.render(content, json)
 
@@ -299,11 +303,8 @@ class Issue::PageView
         end
       end
     end
-    
-    # Force HTML to use relative protocol
-    html.gsub!(/https?:/, '')
 
-    html = html.html_safe if options[:html_safe] && html.respond_to?(:html_safe)
+    html = html.html_safe if html_safe && html.respond_to?(:html_safe)
     html
   end
 
