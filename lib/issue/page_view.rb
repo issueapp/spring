@@ -255,8 +255,8 @@ class Issue::PageView
 
     if find_by_id = index.nil? || index.empty?
       type, element = ::Page::Elements.each_with_object([]) do |type, _|
-        elem = json[type].find{|e| e['id'] == id}
-        break [type, element] if elem
+        found = json[type].find{|e| e['id'] == id}
+        break [type, found] if found
       end
     else
       element = json[type]&.[](index.to_i - 1)
