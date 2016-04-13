@@ -159,7 +159,7 @@ class Issue::PageView
   def cover_html
     return unless (cover = json['cover'])
 
-    content = %{<figure class="cover-area"></figure>}
+    content = %{<figure class="cover-area #{cover['style']&.[]('custom_class')}"></figure>}
 
     html = decorate_content(content) do |doc|
       doc.search('.cover-area').each do |node|
@@ -222,6 +222,11 @@ class Issue::PageView
   def local_page_json
     hash = page.to_hash
 
+    set_dimension! hash['cover']
+    Array(hash['images']).each do |image|
+      set_dimension! image
+    end
+
     # adjust media, link, cover path for subpage
     if page.parent
       if cover = hash['cover']
@@ -248,6 +253,17 @@ class Issue::PageView
     end
 
     hash
+  end
+
+  def set_dimension! image
+    return unless image
+
+    if image['url']
+      width, height, aspect_ratio = image_get_size(image)
+      image['width'] ||= width
+      image['height'] ||= height
+      image['aspect_ratio'] ||= aspect_ratio
+    end
   end
 
   def find_element id
@@ -303,7 +319,6 @@ class Issue::PageView
         end
       end
     end
-
     html = html.html_safe if html_safe && html.respond_to?(:html_safe)
     html
   end
@@ -440,6 +455,14 @@ class Issue::PageView
       node['style'] = "background-image: url(\"#{url}\")"
     end
 
+    if !is_cover_area && image['width'] && image['height']
+        (image['width'] >= 350 || image['height'] >= 350) &&
+        image['type'] !~ /\/(gif|svg)/ &&
+        !image['layout'] &&
+        node['data-app-view'].nil?
+      node['data-image'] = image['url']
+    end
+
     return node if is_original
 
     if node.has_attribute?('data-inline')
@@ -447,15 +470,17 @@ class Issue::PageView
       return node.replace inline_img(image) if is_svg
     end
 
-    width = image['style']&.[]('width')
-    case width
+    figure_width = image['style']&.[]('width')
+    case figure_width
     when 'offset'
       figure_class = 'image wrap offset'
     when 'full', 'wrap'
-      figure_class = "image #{width}"
+      figure_class = "image #{figure_width}"
     else
       figure_class = 'image'
     end
+
+    figure_class << " #{image['style']&.[]('custom_class')}"
 
     if node.parent && node.parent.name == 'figure'
       figure = node.parent.clone
@@ -471,12 +496,11 @@ class Issue::PageView
       end
     end
 
-    width, height, aspect_ratio = image_get_size(image)
-    padding = 100/(aspect_ratio || 1.5)
+    padding = 100/(image['aspect_ratio'] || 1.5)
     is_full_width = figure_class.end_with?('full')
 
     unless is_cover_area
-      padding_attributes = {class: 'aspect-ratio', style: "padding-bottom: #{padding}%; max-height: #{height}px"}
+      padding_attributes = {class: 'aspect-ratio', style: "padding-bottom: #{padding}%; max-height: #{image['height']}px"}
       figure << create_element('div', padding_attributes)
     end
 
