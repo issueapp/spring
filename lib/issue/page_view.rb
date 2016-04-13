@@ -511,7 +511,7 @@ class Issue::PageView
     else
       video_url = relative_protocol(video['url'].presence || video['link'].presence)
 
-      
+
       options = node.attribute_nodes.reduce({}) do |memo, n|
         memo[n.node_name] = n.value if n.value.present?
         memo
@@ -583,7 +583,7 @@ class Issue::PageView
       caption = video['caption']
       if caption.present?
         options = {}
-        options[:class] = 'inset' if video.style&.[]('caption') == 'inset'
+        options[:class] = 'inset' if video['style']&.[]('caption') == 'inset'
 
         caption = create_element('figcaption', caption, options)
         #caption.prepend_child create_element('h3', video["title"]) if video["title"]
@@ -610,7 +610,7 @@ class Issue::PageView
     end
     options[:type] = audio['type'] if audio['type'].present?
     options[:src] = relative_protocol(audio["url"])
-    
+
     value = html5_attribute_value(audio['autoplay'], 'autoplay')
     options[:'data-autoplay'] = value if value
     %w[controls loop muted].each do |a|
@@ -806,7 +806,7 @@ class Issue::PageView
         method :puts
       end
   end
-  
+
   def relative_protocol(url)
     if url
       url.sub(/^https?:/, '')
