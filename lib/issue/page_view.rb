@@ -455,7 +455,7 @@ class Issue::PageView
       node['style'] = "background-image: url(\"#{url}\")"
     end
 
-    if !is_cover_area && image['width'] && image['height']
+    if !is_cover_area && image['width'] && image['height'] &&
         (image['width'] >= 350 || image['height'] >= 350) &&
         image['type'] !~ /\/(gif|svg)/ &&
         !image['layout'] &&
