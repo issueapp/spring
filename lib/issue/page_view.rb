@@ -273,9 +273,9 @@ class Issue::PageView
     html_safe = options.fetch(:html_safe){true}
 
     # Force HTML to use relative protocol
-    json = Marshal.dump(options[:json] || self.json)
-    json.gsub!(%r{https?://issue\.}, 'issue.')
-    json = Marshal.load(json)
+    json = ::MultiJson.dump(options[:json] || self.json)
+    json.gsub!(%r{https?://issue\.}, '//issue.')
+    json = ::MultiJson.load(json)
 
     html = Mustache.render(content, json)
 
