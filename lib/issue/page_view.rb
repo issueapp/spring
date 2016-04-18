@@ -496,11 +496,18 @@ class Issue::PageView
       end
     end
 
-    padding = 100/(image['aspect_ratio'] || 1.5)
     is_full_width = figure_class.end_with?('full')
 
     unless is_cover_area
-      padding_attributes = {class: 'aspect-ratio', style: "padding-bottom: #{padding}%; max-height: #{image['height']}px"}
+      padding_style = "max-height: #{image['height']}px;"
+
+      if image['aspect_ratio']
+        padding_style << " padding-bottom: #{100/image['aspect_ratio']}%;"
+      elsif image['width'] && image['height']
+        padding_style << " padding-bottom: #{100/(image['width'].to_f/image['height'])}%;"
+      end
+
+      padding_attributes = { class: 'aspect-ratio', style: padding_style }
       figure << create_element('div', padding_attributes)
     end
 
