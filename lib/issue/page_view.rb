@@ -466,7 +466,9 @@ class Issue::PageView
     return node if is_original
 
     if node.has_attribute?('data-inline')
-      is_svg = ((dragonfly_file_name=image['file_name']) || (local_issue_path=image['path'])) =~ /\.svg$/
+      is_svg = image['type'] == 'image/svg+xml'
+      is_svg ||= image['url'] =~ /\.svg$/
+
       return node.replace inline_img(image) if is_svg
     end
 
@@ -809,9 +811,10 @@ class Issue::PageView
   end
 
   # Turn a SVG string into a Nokogiri node
-  def inline_img(media)
-    if media.file
-      source = media.file.data
+  def inline_img media
+    if media['url'].start_with? 'http'
+      require 'open-uri'
+      source = open(media['url']).read
     else
       file = File.join(issue.path, media.url)
       raise "SVG file can't be find" unless File.exist?(file) && file =~ /\.svg$/
