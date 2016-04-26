@@ -112,11 +112,23 @@ class Issue::PageView
   end
 
   def show_footer?
-    page.style.type != 'custom' &&
-    ! page.style.custom_class.to_s.match('no-footer') &&
-    fullscreen_layout = (page.style.image_style != 'background' ||
-      page.style.custom_class.to_s.match('inset') &&
-      page.style.type == 'one-column')
+    is_not_custom_page = ->{
+      page.style.type != 'custom'
+    }
+
+    should_show_footer = ->{
+      ! page.style.custom_class.to_s.match('no-footer')
+    }
+
+    is_fullscreen = ->{
+      page.style.image_style != 'background' ||
+        page.style.custom_class.to_s.match('inset') &&
+          page.style.type == 'one-column'
+    }
+
+    is_not_custom_page.call &&
+      should_show_footer.call &&
+        is_fullscreen.call
   end
 
   def author
