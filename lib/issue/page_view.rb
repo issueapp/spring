@@ -557,7 +557,6 @@ class Issue::PageView
     else
       video_url = relative_protocol(video['url'].presence || video['link'].presence)
 
-
       options = node.attribute_nodes.reduce({}) do |memo, n|
         memo[n.node_name] = n.value if n.value.present?
         memo
@@ -587,7 +586,7 @@ class Issue::PageView
         end
 
         if node.parent.node_name == 'figure' && options[:'data-autoplay']
-          node.parent['class'] = "#{node.parent['class']} play"
+          node.parent['class'] = "#{node.parent['class']}"
         end
 
         return node
@@ -601,7 +600,6 @@ class Issue::PageView
         else
           figure_class = 'video'
         end
-        figure_class += ' play' if options[:autoplay]
 
         thumb_url = relative_protocol(video['thumb_url'])
 
