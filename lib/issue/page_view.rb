@@ -612,6 +612,15 @@ class Issue::PageView
           decorated = create_element('figure', figure_attributes)
         end
 
+        if options[:width] && options[:height]
+          padding_style = "max-height: #{options[:height]}px;"
+          padding_style << " padding-bottom: #{100/(options[:width].to_f/options[:height])}%;"
+          padding_attributes = { class: 'aspect-ratio', style: padding_style }
+          decorated << create_element('div', padding_attributes)
+        else
+          decorated << create_element('div', { class: 'aspect-ratio' })
+        end
+
         if embed_video? video_url
           decorated['class'] += ' embed'
           decorated << video_iframe_html(video_url, options)
