@@ -209,8 +209,6 @@ class Issue::PageView
 
     fragment = create_element('ul', :class => container_class) do |ul|
       json['products'].each do |product|
-        puts product
-
         ul << create_element('li') do |li|
           attributes = product_hotspot_attributes(product)
 
