@@ -208,14 +208,16 @@ class Issue::PageView
     container_class << ' cover-area' unless page.cover
 
     fragment = create_element('ul', :class => container_class) do |ul|
-      page.products.each_with_index do |product, index|
+      json['products'].each do |product|
+        puts product
+
         ul << create_element('li') do |li|
           attributes = product_hotspot_attributes(product)
 
           li << create_element('a', attributes) do |a|
             a << create_element('img', :src => attributes[:'data-image'])
-            a << create_element('span', product.title, :class => 'label') if product.style && product.style['show_label']
-            a << create_element('span', index + 1, :class => 'tag')
+            a << create_element('span', product['title'], :class => 'label') if product['style']['show_label']
+            a << create_element('span', product['index'], :class => 'tag')
           end
         end
       end
@@ -429,8 +431,8 @@ class Issue::PageView
     {
       :href => affiliate_url(product['link']),
       :class => 'product hotspot',
-      :title => product.title,
-      :'data-image' => asset_url(product, 'image' => true),
+      :title => product['title'],
+      :'data-image' => product['image_url'],
       #:'data-track' => 'hotspot:click',
       #:'data-action' => product[:action],
       #:'data-url' => product['link'],
