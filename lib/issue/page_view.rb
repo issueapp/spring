@@ -832,12 +832,12 @@ class Issue::PageView
 
   # Turn a SVG string into a Nokogiri node
   def inline_img media
-    if media['url'].start_with?('http') && media['id']
+    if media['id']
       file = page.images.find(media['id']).file
       source = file.data
     else
-      file = File.join(issue.path, media.url)
-      raise "SVG file can't be find" unless File.exist?(file) && file =~ /\.svg$/
+      file = File.join(issue.path, media['url'])
+      raise "SVG not found: #{file}" unless File.exist?(file) && file =~ /\.svg$/
       source = File.read(file)
     end
 
