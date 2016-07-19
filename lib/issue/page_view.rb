@@ -461,6 +461,7 @@ class Issue::PageView
     return node if edit_mode && !custom_html?
 
     is_original = node.has_attribute?('data-original')
+    is_thumb = node.has_attribute?('data-thumb')
     is_cover_area = node.matches?('.cover-area')
     is_background_image = node.has_attribute?('data-background-image')
 
@@ -473,6 +474,11 @@ class Issue::PageView
         image['type'] !~ /\/(gif|svg)/ &&
         !image['layout'] &&
         node['data-app-view'].nil?
+      node['data-image'] = image['url']
+    end
+    
+    if is_thumb
+      node['src'] = image['thumb_url'] if image['thumb_url']
       node['data-image'] = image['url']
     end
 
