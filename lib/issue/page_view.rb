@@ -477,9 +477,12 @@ class Issue::PageView
       node['data-image'] = image['url']
     end
     
-    if is_thumb
-      node['src'] = image['thumb_url'] if image['thumb_url']
-      node['data-image'] = image['url']
+    if is_thumb && image['thumb_url']
+      if is_background_image
+        node['style'] = "background-image: url(\"#{image['thumb_url']}\")"
+      else
+        node['src'] = image['thumb_url']
+      end
     end
 
     return node if is_original
