@@ -43,10 +43,19 @@ class Issue::PageView
 
   def page_title
     case
-    when page.title   then page.title
-    when page.toc?    then "Table of Content - #{page.issue.title}"
-    when page.parent  then "#{page.parent.title} - #{page.handle}"
+    when page.title
+      title = page.title
+    when page.toc?
+      title = "Table of Content - #{page.issue.title}"
+    when page.parent
+      title = "#{page.parent.title} - #{page.handle}"
     end
+
+    if page.parent && title.downcase == page.parent.title.downcase
+      title = "#{page.parent.title} - #{page.handle}"
+    end
+
+    title
   end
 
   def dom_id
