@@ -223,7 +223,7 @@ class Issue::PageView
 
           li << create_element('a', attributes) do |a|
             a << create_element('img', :src => attributes[:'data-image'])
-            a << create_element('span', product['title'], :class => 'label') if product['style']['show_label']
+            a << create_element('span', product['title'], :class => 'label') if product['style']&.[]('show_label')
             a << create_element('span', product['index'], :class => 'tag')
           end
         end
@@ -829,8 +829,10 @@ class Issue::PageView
       end
     end
 
-    file = File.join(issue.path, image['url'][/assets.+$/])
-    raise "local image not found: #{file}" unless File.exist? file
+    if local_image_path = image['url'][/assets.+$/]
+      file = File.join(issue.path, local_image_path)
+      raise "local image not found: #{file}" unless File.exist? file
+    end
 
     # watchout for potential problem
     # http://www.mikeperham.com/2015/05/08/timeout-rubys-most-dangerous-api/
