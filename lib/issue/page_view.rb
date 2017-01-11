@@ -242,7 +242,13 @@ class Issue::PageView
   private
 
   def local_page_asset_path path
-    page.parent ? "../../#{path}" : "../#{path}"
+    if context.env['ORIGINAL_FULLPATH'].end_with? '/'
+      prefix = page.parent ? '../..' : '..'
+    elsif page.parent 
+      prefix = '..'
+    end
+
+    prefix ? "#{prefix}/#{path}" : path
   end
 
   def local_page_json
@@ -857,7 +863,7 @@ class Issue::PageView
       file = page.images.find(media['id']).file
       source = file.data
     else
-      file = File.join(issue.path, media['url'])
+      file = File.join(issue.path, media['url'].gsub('../', ''))
       raise "SVG not found: #{file}" unless File.exist?(file) && file =~ /\.svg$/
       source = File.read(file)
     end

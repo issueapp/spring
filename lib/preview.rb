@@ -274,9 +274,6 @@ class IssuePreview < Sinatra::Base
   end
 
   def ensure_trailing_slash
-    # ensure path ends with trailing slash
-    # so that relative paths inside css reference to assets
-
     original_fullpath = env['ORIGINAL_FULLPATH']
 
     parts = original_fullpath.partition('?')
