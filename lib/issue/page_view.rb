@@ -241,6 +241,10 @@ class Issue::PageView
 
   private
 
+  def local_page_asset_path path
+    page.parent ? "../../#{path}" : "../#{path}"
+  end
+
   def local_page_json
     hash = page.to_hash
 
@@ -249,27 +253,24 @@ class Issue::PageView
       set_dimension! image
     end
 
-    # adjust media, link, cover path for subpage
-    if page.parent
-      if cover = hash['cover']
-        cover['url'] = "../#{cover['url']}" if cover['url']
-        cover['thumb_url'] = "../#{cover['thumb_url']}" if cover['thumb_url']
-      end
+    if cover = hash['cover']
+      cover['url'] = local_page_asset_path(cover['url']) if cover['url']
+      cover['thumb_url'] = local_page_asset_path(cover['thumb_url']) if cover['thumb_url']
+    end
 
-      %w[audios images videos].each do |element|
-        if elements = hash[element]
-          elements.each do |media|
-            media['url'] = "../#{media['url']}" if media['url']
-            media['thumb_url'] = "../#{media['thumb_url']}" if media['thumb_url']
-          end
+    %w[audios images videos].each do |element|
+      if elements = hash[element]
+        elements.each do |media|
+          media['url'] = local_page_asset_path(media['url']) if media['url']
+          media['thumb_url'] = local_page_asset_path(media['thumb_url']) if media['thumb_url']
         end
       end
+    end
 
-      %w[links products].each do |element|
-        if elements = hash[element]
-          elements.each do |link|
-            link['image_url'] = "../#{link['image_url']}" if link['image_url']
-          end
+    %w[links products].each do |element|
+      if elements = hash[element]
+        elements.each do |link|
+          link['image_url'] = local_page_asset_path(link['image_url']) if link['image_url']
         end
       end
     end

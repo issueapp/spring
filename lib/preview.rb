@@ -197,9 +197,9 @@ class IssuePreview < Sinatra::Base
       elsif embed && json
         path
       elsif params[:subpage]
+        File.join('..', '..', path)
+      elsif params[:page]
         File.join('..', path)
-      #elsif params[:page]
-      #  File.join('..', path)
       else
         path
       end
