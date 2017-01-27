@@ -179,6 +179,8 @@ class IssuePreview < Sinatra::Base
     end
   end
 
+  # generate asset path inside a HTML page
+  #
   # usage:
   #   issue level    asset_path('custom.js')
   #   app level      asset_path('issue.js', global: true)
@@ -197,9 +199,9 @@ class IssuePreview < Sinatra::Base
       elsif embed && json
         path
       elsif params[:subpage]
-        File.join('..', '..', path)
+        File.join(*(trailing_slash? ? ['..', '..', path] : ['..', path]))
       elsif params[:page]
-        File.join('..', path)
+        File.join(*(trailing_slash? ? ['..', path] : [path]))
       else
         path
       end
@@ -271,6 +273,12 @@ class IssuePreview < Sinatra::Base
 
   def sprockets
     @sprockets ||= Sprockets::Environment.new
+  end
+
+  def trailing_slash?
+    original_fullpath = env['ORIGINAL_FULLPATH']
+    fullpath = original_fullpath.split('?')[0]
+    fullpath.end_with?('/')
   end
 
   def ensure_trailing_slash
