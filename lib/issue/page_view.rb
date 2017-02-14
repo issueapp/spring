@@ -244,7 +244,7 @@ class Issue::PageView
   def local_page_asset_path path
     if context.env['ORIGINAL_FULLPATH'].end_with? '/'
       prefix = page.parent ? '../..' : '..'
-    elsif page.parent 
+    elsif page.parent
       prefix = '..'
     end
 
@@ -492,7 +492,7 @@ class Issue::PageView
         node['data-app-view'].nil?
       node['data-image'] = image['url']
     end
-    
+
     if is_thumb && image['thumb_url']
       if is_background_image
         node['style'] = "background-image: url(\"#{image['thumb_url']}\")"
@@ -627,6 +627,8 @@ class Issue::PageView
         end
 
         thumb_url = relative_protocol(video['thumb_url'])
+
+        figure_class << " #{video['style']&.[]('custom_class')}"
 
         if node.name == 'figure'
           decorated = node.dup
