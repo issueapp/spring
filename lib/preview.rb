@@ -118,24 +118,10 @@ class IssuePreview < Sinatra::Base
     require 'mime/types'
 
     # response.headers['Cache-Control'] = 'public, max-age=3600'
-    #
 
-    # Append issue asset path and remember current search paths
-    preview_paths = sprockets.paths
-    sprockets.append_path(current_issue.path.join('assets'))
-    sprockets.append_path Rails.root.join('app/assets/stylesheets/')
-
-    # Serve asset via sprockets
+   # Serve asset via sprockets
     file = params[:splat].first
-
     asset = sprockets[file]
-
-    # Restore previous asset path
-    sprockets.clear_paths
-    preview_paths.each do |path|
-      sprockets.append_path path
-    end
-
 
     # asset_path = request.path_info.gsub(/^\/#{params[:magazine]}/, "issues")
     # file = File.expand_path("../../#{CGI.unescape(asset_path)}", __FILE__)
@@ -272,7 +258,18 @@ class IssuePreview < Sinatra::Base
   end
 
   def sprockets
-    @sprockets ||= Sprockets::Environment.new
+    @sprockets ||= begin
+      sprockets = Sprockets::Environment.new
+
+      if defined? Rails
+        sprockets.append_path Rails.root/'app/assets/stylesheets'
+        sprockets.append_path Rails.root/'app/assets/javascripts'
+      end
+
+      sprockets.append_path(current_issue.path.join('assets'))
+
+      sprockets
+    end
   end
 
   def trailing_slash?
