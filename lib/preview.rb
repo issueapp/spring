@@ -264,6 +264,7 @@ class IssuePreview < Sinatra::Base
       if defined? Rails
         sprockets.append_path Rails.root/'app/assets/stylesheets'
         sprockets.append_path Rails.root/'app/assets/javascripts'
+        sprockets.append_path Rails.root/'vendor/assets/javascripts'
       end
 
       sprockets.append_path(current_issue.path.join('assets'))
