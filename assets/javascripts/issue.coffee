@@ -11,7 +11,6 @@
 #= require spring.ui
 #= require app/core
 #= require app/layout
-#= require app/hotspot
 #= require app/notification
 #= require app/page
 #= require app/log
@@ -19,6 +18,7 @@
 #= require app/models
 #= require app/magazine
 
+#= require ui/hotspot
 
 ###
 

@@ -118,24 +118,10 @@ class IssuePreview < Sinatra::Base
     require 'mime/types'
 
     # response.headers['Cache-Control'] = 'public, max-age=3600'
-    #
 
-    # Append issue asset path and remember current search paths
-    preview_paths = sprockets.paths
-    sprockets.append_path(current_issue.path.join('assets'))
-    sprockets.append_path Rails.root.join('app/assets/stylesheets/')
-
-    # Serve asset via sprockets
+   # Serve asset via sprockets
     file = params[:splat].first
-
     asset = sprockets[file]
-
-    # Restore previous asset path
-    sprockets.clear_paths
-    preview_paths.each do |path|
-      sprockets.append_path path
-    end
-
 
     # asset_path = request.path_info.gsub(/^\/#{params[:magazine]}/, "issues")
     # file = File.expand_path("../../#{CGI.unescape(asset_path)}", __FILE__)
@@ -179,6 +165,8 @@ class IssuePreview < Sinatra::Base
     end
   end
 
+  # generate asset path inside a HTML page
+  #
   # usage:
   #   issue level    asset_path('custom.js')
   #   app level      asset_path('issue.js', global: true)
@@ -197,9 +185,9 @@ class IssuePreview < Sinatra::Base
       elsif embed && json
         path
       elsif params[:subpage]
-        File.join('..', path)
-      #elsif params[:page]
-      #  File.join('..', path)
+        File.join(*(trailing_slash? ? ['..', '..', path] : ['..', path]))
+      elsif params[:page]
+        File.join(*(trailing_slash? ? ['..', path] : [path]))
       else
         path
       end
@@ -270,13 +258,28 @@ class IssuePreview < Sinatra::Base
   end
 
   def sprockets
-    @sprockets ||= Sprockets::Environment.new
+    @sprockets ||= begin
+      sprockets = Sprockets::Environment.new
+
+      if defined? Rails
+        sprockets.append_path Rails.root/'app/assets/stylesheets'
+        sprockets.append_path Rails.root/'app/assets/javascripts'
+        sprockets.append_path Rails.root/'vendor/assets/javascripts'
+      end
+
+      sprockets.append_path(current_issue.path.join('assets'))
+
+      sprockets
+    end
+  end
+
+  def trailing_slash?
+    original_fullpath = env['ORIGINAL_FULLPATH']
+    fullpath = original_fullpath.split('?')[0]
+    fullpath.end_with?('/')
   end
 
   def ensure_trailing_slash
-    # ensure path ends with trailing slash
-    # so that relative paths inside css reference to assets
-
     original_fullpath = env['ORIGINAL_FULLPATH']
 
     parts = original_fullpath.partition('?')

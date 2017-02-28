@@ -22,7 +22,7 @@ class Issue::PageView
 
   attr_reader :page
 
-  attr_accessor :context, :edit_mode, :offline
+  attr_accessor :context, :edit_mode, :offline, :static
   attr_writer :json
 
   def initialize page, options={}
@@ -30,22 +30,32 @@ class Issue::PageView
 
     @page = page
 
-    @context = options[:context] || options['context']
-    @edit_mode = options[:edit_mode] || options['edit_mode']
-    @offline = options[:offline]
+    options.each do |k, v|
+      setter = "#{k}="
+      send(setter, v) if respond_to? setter
+    end
   end
 
   def class; page.class; end
   def method_missing(name, *args, &block); page.send(name, *args, &block); end
-  def respond_to?(name, include_private=false); page.send('respond_to?', name, include_private); end
-  def respond_to_missing?(name, include_private=false); page.send('respond_to_missing?', name, include_private); end
+  def respond_to?(name, include_private=false); super || page.send(:respond_to?, name, include_private); end
+  def respond_to_missing?(name, include_private=false); super || page.send(:respond_to_missing?, name, include_private); end
 
   def page_title
     case
-    when page.title   then page.title
-    when page.toc?    then "Table of Content - #{page.issue.title}"
-    when page.parent  then "#{page.parent.title} - #{page.handle}"
+    when page.title
+      title = page.title
+    when page.toc?
+      title = "Table of Content - #{page.issue.title}"
+    when page.parent
+      title = "#{page.parent.title} - #{page.handle}"
     end
+
+    if page.parent && title.downcase == page.parent.title.downcase
+      title = "#{page.parent.title} - #{page.handle}"
+    end
+
+    title
   end
 
   def dom_id
@@ -111,10 +121,23 @@ class Issue::PageView
   end
 
   def show_footer?
-    page.style.type != 'custom' &&
-    (page.style.image_style != 'background' ||
-      page.style.custom_class.to_s.match('inset') &&
-      page.style.type == 'one-column')
+    is_not_custom_page = ->{
+      page.style.type != 'custom'
+    }
+
+    should_show_footer = ->{
+      ! page.style.custom_class.to_s.match('no-footer')
+    }
+
+    is_fullscreen = ->{
+      page.style.image_style != 'background' ||
+        page.style.custom_class.to_s.match('inset') &&
+          page.style.type == 'one-column'
+    }
+
+    is_not_custom_page.call &&
+      should_show_footer.call &&
+        is_fullscreen.call
   end
 
   def author
@@ -156,19 +179,21 @@ class Issue::PageView
   end
 
   def cover_html
-    return unless (cover = page.cover)
+    return unless (cover = json['cover'])
 
-    content = %{<figure class="cover-area"></figure>}
+    content = %{<figure class="cover-area #{cover['style']&.[]('custom_class')}"></figure>}
 
     html = decorate_content(content) do |doc|
       doc.search('.cover-area').each do |node|
 
-        if is_video = cover.type&.include?('video')
+        type = cover['type']
+
+        if is_video = type&.include?('video')
           decorate_video(node, cover)
 
-        elsif is_image = cover.type&.include?('image')
-          cover.style ||= {}
-          cover.style["caption"] = "inset"
+        elsif is_image = type&.include?('image')
+          cover['style'] ||= {}
+          cover['style']["caption"] = "inset"
 
           decorate_image(node, cover)
         end
@@ -192,14 +217,14 @@ class Issue::PageView
     container_class << ' cover-area' unless page.cover
 
     fragment = create_element('ul', :class => container_class) do |ul|
-      page.products.each_with_index do |product, index|
+      json['products'].each do |product|
         ul << create_element('li') do |li|
           attributes = product_hotspot_attributes(product)
 
           li << create_element('a', attributes) do |a|
             a << create_element('img', :src => attributes[:'data-image'])
-            a << create_element('span', product.title, :class => 'label') if product.style && product.style['show_label']
-            a << create_element('span', index + 1, :class => 'tag')
+            a << create_element('span', product['title'], :class => 'label') if product['style']&.[]('show_label')
+            a << create_element('span', product['index'], :class => 'tag')
           end
         end
       end
@@ -211,61 +236,104 @@ class Issue::PageView
   end
 
   def json
-    @json ||= begin
-      hash = page.to_hash
+    @json ||= local_page_json
+  end
 
-      # adjust media, link, cover path for subpage
-      if page.parent
-        if cover = hash['cover']
-          cover['url'] = "../#{cover['url']}" if cover['url']
-          cover['thumb_url'] = "../#{cover['thumb_url']}" if cover['thumb_url']
-        end
+  private
 
-        %w[audios images videos].each do |element|
-          if elements = hash[element]
-            elements.each do |media|
-              media['url'] = "../#{media['url']}" if media['url']
-              media['thumb_url'] = "../#{media['thumb_url']}" if media['thumb_url']
-            end
-          end
-        end
+  def local_page_asset_path path
+    if context.env['ORIGINAL_FULLPATH'].end_with? '/'
+      prefix = page.parent ? '../..' : '..'
+    elsif page.parent
+      prefix = '..'
+    end
 
-        %w[links products].each do |element|
-          if elements = hash[element]
-            elements.each do |link|
-              link['image_url'] = "../#{link['image_url']}" if link['image_url']
-            end
-          end
+    prefix ? "#{prefix}/#{path}" : path
+  end
+
+  def local_page_json
+    hash = page.to_hash
+
+    set_dimension! hash['cover']
+    Array(hash['images']).each do |image|
+      set_dimension! image
+    end
+
+    if cover = hash['cover']
+      cover['url'] = local_page_asset_path(cover['url']) if cover['url']
+      cover['thumb_url'] = local_page_asset_path(cover['thumb_url']) if cover['thumb_url']
+    end
+
+    %w[audios images videos].each do |element|
+      if elements = hash[element]
+        elements.each do |media|
+          media['url'] = local_page_asset_path(media['url']) if media['url']
+          media['thumb_url'] = local_page_asset_path(media['thumb_url']) if media['thumb_url']
         end
       end
+    end
 
-      hash
+    %w[links products].each do |element|
+      if elements = hash[element]
+        elements.each do |link|
+          link['image_url'] = local_page_asset_path(link['image_url']) if link['image_url']
+        end
+      end
+    end
+
+    hash
+  end
+
+  def set_dimension! image
+    return unless image
+
+    if image['url']
+      width, height, aspect_ratio = image_get_size(image)
+      image['width'] ||= width
+      image['height'] ||= height
+      image['aspect_ratio'] ||= aspect_ratio
     end
   end
 
+  def find_element id
+    type, index = id.split(':')
 
-  private
+    if find_by_id = index.nil? || index.empty?
+      type, element = ::Page::Elements.each_with_object([]) do |type, _|
+        found = json[type].find{|e| e['id'] == id}
+        break [type, found] if found
+      end
+    else
+      element = json[type]&.[](index.to_i - 1)
+    end
+
+    [type, element]
+  end
 
   # Options
   #     json: Custom json for testing
   #     html_safe: escape html flag
   #     footer: custom footer markup
-  def render_content content, options = {}
-    options[:html_safe] ||= true
-    json = options[:json] || self.json
+  def render_content content, options={}
+    html_safe = options.fetch(:html_safe){true}
+
+    # Force HTML to use relative protocol
+    json = ::MultiJson.dump(options[:json] || self.json)
+    json.gsub!(%r{https?://issue\.}, '//issue.')
+    json = ::MultiJson.load(json)
 
     html = Mustache.render(content, json)
 
     html = decorate_content(html, options) do |doc|
       doc.search('[data-media-id]').each do |node|
-        asset, media = page.find_element(node['data-media-id'])
+        type, media = find_element(node['data-media-id'])
 
         unless media
           raise "Media not found: #{node['data-media-id']}"
           next
         end
 
-        case asset
+        case type
         when 'images'
           decorate_image(node, media)
 
@@ -276,12 +344,11 @@ class Issue::PageView
           decorate_audio(node, media)
 
         else
-          log_method.call("Fail to decorate unknown element: #{asset}")
+          log_method.call("Fail to decorate unknown element: #{type}")
         end
       end
     end
-
-    html = html.html_safe if options[:html_safe] && html.respond_to?(:html_safe)
+    html = html.html_safe if html_safe && html.respond_to?(:html_safe)
     html
   end
 
@@ -378,8 +445,8 @@ class Issue::PageView
     {
       :href => affiliate_url(product['link']),
       :class => 'product hotspot',
-      :title => product.title,
-      :'data-image' => asset_url(product, 'image' => true),
+      :title => product['title'],
+      :'data-image' => product['image_url'],
       #:'data-track' => 'hotspot:click',
       #:'data-action' => product[:action],
       #:'data-url' => product['link'],
@@ -400,37 +467,60 @@ class Issue::PageView
   end
 
   def decorate_image node, image
+    url = relative_protocol(image['url'])
+
     if node.name == 'img'
-      node['src'] = asset_url(image)
+      node['src'] = url
     end
 
     # Edit mode to maintain single image element in editor
     return node if edit_mode && !custom_html?
 
     is_original = node.has_attribute?('data-original')
+    is_thumb = node.has_attribute?('data-thumb')
     is_cover_area = node.matches?('.cover-area')
     is_background_image = node.has_attribute?('data-background-image')
 
     if is_background_image || is_cover_area
-      node['style'] = "background-image:url(#{asset_url image})"
+      node['style'] = "background-image: url(\"#{url}\")"
+    end
+
+    if !is_cover_area && image['width'] && image['height'] &&
+        (image['width'] >= 350 || image['height'] >= 350) &&
+        image['type'] !~ /\/(gif|svg)/ &&
+        !image['layout'] &&
+        node['data-app-view'].nil?
+      node['data-image'] = image['url']
+    end
+
+    if is_thumb && image['thumb_url']
+      if is_background_image
+        node['style'] = "background-image: url(\"#{image['thumb_url']}\")"
+      else
+        node['src'] = image['thumb_url']
+      end
     end
 
     return node if is_original
 
     if node.has_attribute?('data-inline')
-      img_path = (dragonfly_file_name=image['file_name']) || (local_issue_path=image['path'])
-      return node.replace inline_img(image) if img_path =~ /\.svg$/
+      is_svg = image['type'] == 'image/svg+xml'
+      is_svg ||= image['url'] =~ /\.svg$/
+
+      return node.replace inline_img(image) if is_svg
     end
 
-    width = image.style&.[]('width')
-    case width
+    figure_width = image['style']&.[]('width')
+    case figure_width
     when 'offset'
       figure_class = 'image wrap offset'
     when 'full', 'wrap'
-      figure_class = "image #{width}"
+      figure_class = "image #{figure_width}"
     else
       figure_class = 'image'
     end
+
+    figure_class << " #{image['style']&.[]('custom_class')}"
 
     if node.parent && node.parent.name == 'figure'
       figure = node.parent.clone
@@ -446,25 +536,31 @@ class Issue::PageView
       end
     end
 
-    width, height, aspect_ratio = image_get_size(image)
-    padding = 100/(aspect_ratio || 1.5)
     is_full_width = figure_class.end_with?('full')
 
     unless is_cover_area
-      padding_attributes = {class: 'aspect-ratio', style: "padding-bottom: #{padding}%; max-height: #{height}px"}
+      padding_style = "max-height: #{image['height']}px;"
+
+      if image['aspect_ratio']
+        padding_style << " padding-bottom: #{100/image['aspect_ratio']}%;"
+      elsif image['width'] && image['height']
+        padding_style << " padding-bottom: #{100/(image['width'].to_f/image['height'])}%;"
+      end
+
+      padding_attributes = { class: 'aspect-ratio', style: padding_style }
       figure << create_element('div', padding_attributes)
     end
 
-    if is_full_width && image.title.present?
+    if is_full_width && image['title'].present?
       overlay_title = create_element('div', class: 'container')
-      overlay_title << create_element('h3', image.title)
+      overlay_title << create_element('h3', image['title'])
       figure << overlay_title
     end
 
     caption = image['caption']
     if caption.present?
       caption_options = {}
-      caption_options[:class] = 'inset' if image.style&.[]('caption') == 'inset'
+      caption_options[:class] = 'inset' if image['style']&.[]('caption') == 'inset'
       figure << create_element('figcaption', caption, caption_options)
     end
 
@@ -484,14 +580,14 @@ class Issue::PageView
         style: "background-image: url('#{asset_url(video, 'thumb' => true)}')"
       )
     else
-      video_url = video['url'].presence || video['link'].presence || asset_url(video)
+      video_url = relative_protocol(video['url'].presence || video['link'].presence)
 
       options = node.attribute_nodes.reduce({}) do |memo, n|
         memo[n.node_name] = n.value if n.value.present?
         memo
       end
-      options[:type] = video['type'] if video['type'].present?
-      options[:src] = video_url
+      #options[:type] = video['type'] if video['type'].present?
+      #options[:src] = video_url
       value = html5_attribute_value(video['autoplay'], 'autoplay')
       options[:autoplay] = value if value
       %w[controls loop muted].each do |a|
@@ -515,12 +611,12 @@ class Issue::PageView
         end
 
         if node.parent.node_name == 'figure' && options[:'data-autoplay']
-          node.parent['class'] = "#{node.parent['class']} play"
+          node.parent['class'] = "#{node.parent['class']}"
         end
 
         return node
       else
-        width = video.style&.[]('width')
+        width = video['style']&.[]('width')
         case width
         when 'offset'
           figure_class = 'video wrap offset'
@@ -529,17 +625,27 @@ class Issue::PageView
         else
           figure_class = 'video'
         end
-        figure_class += ' play' if options[:autoplay]
 
-        thumb_url = asset_url(video, 'thumb' => true)
+        thumb_url = relative_protocol(video['thumb_url'])
+
+        figure_class << " #{video['style']&.[]('custom_class')}"
 
         if node.name == 'figure'
           decorated = node.dup
           decorated['class'] = "#{decorated['class']} #{figure_class}"
-          decorated['style'] = "background-image: url('#{thumb_url}')"
+          decorated['style'] = %{background-image: url("#{thumb_url}")}
         else
-          figure_attributes = {class: figure_class, style: "background-image: url('#{thumb_url}')"}
+          figure_attributes = {class: figure_class, style: %{background-image: url("#{thumb_url}")}}
           decorated = create_element('figure', figure_attributes)
+        end
+
+        if options[:width] && options[:height]
+          padding_style = "max-height: #{options[:height]}px;"
+          padding_style << " padding-bottom: #{100/(options[:width].to_f/options[:height])}%;"
+          padding_attributes = { class: 'aspect-ratio', style: padding_style }
+          decorated << create_element('div', padding_attributes)
+        else
+          decorated << create_element('div', { class: 'aspect-ratio' })
         end
 
         if embed_video? video_url
@@ -550,14 +656,20 @@ class Issue::PageView
           value = options.delete(:autoplay)
           options[:'data-autoplay'] = value if value
           options.delete('class')
-          decorated << create_element('video', options)
+
+          video_node = create_element('video', options)
+          source_options = {src: video_url}
+          source_options[:type] = video['type'] if video['type'].present?
+          video_node << create_element('source', source_options)
+
+          decorated << video_node
         end
       end
 
       caption = video['caption']
       if caption.present?
         options = {}
-        options[:class] = 'inset' if video.style&.[]('caption') == 'inset'
+        options[:class] = 'inset' if video['style']&.[]('caption') == 'inset'
 
         caption = create_element('figcaption', caption, options)
         #caption.prepend_child create_element('h3', video["title"]) if video["title"]
@@ -583,7 +695,8 @@ class Issue::PageView
       memo
     end
     options[:type] = audio['type'] if audio['type'].present?
-    options[:src] = asset_url(audio)
+    options[:src] = relative_protocol(audio["url"])
+
     value = html5_attribute_value(audio['autoplay'], 'autoplay')
     options[:'data-autoplay'] = value if value
     %w[controls loop muted].each do |a|
@@ -596,7 +709,7 @@ class Issue::PageView
     options[:'data-scope'] = true if truthy? audio['scope']
 
     figure = create_element('figure', :class => 'audio', id: element_id)
-    if thumb_url = asset_url(audio, 'thumb' => true)
+    if thumb_url = relative_protocol(audio["thumb_url"])
       figure << create_element('img', class: 'thumbnail', src: thumb_url)
     end
 
@@ -731,8 +844,10 @@ class Issue::PageView
       end
     end
 
-    file = File.join(issue.path, image['url'])
-    raise "local image not found: #{file}" unless File.exist? file
+    if local_image_path = image['url'][/assets.+$/]
+      file = File.join(issue.path, local_image_path)
+      raise "local image not found: #{file}" unless File.exist? file
+    end
 
     # watchout for potential problem
     # http://www.mikeperham.com/2015/05/08/timeout-rubys-most-dangerous-api/
@@ -751,12 +866,13 @@ class Issue::PageView
   end
 
   # Turn a SVG string into a Nokogiri node
-  def inline_img(media)
-    if media.file
-      source = media.file.data
+  def inline_img media
+    if media['id']
+      file = page.images.find(media['id']).file
+      source = file.data
     else
-      file = File.join(issue.path, media.url)
-      raise "SVG file can't be find" unless File.exist?(file) && file =~ /\.svg$/
+      file = File.join(issue.path, media['url'].gsub('../', ''))
+      raise "SVG not found: #{file}" unless File.exist?(file) && file =~ /\.svg$/
       source = File.read(file)
     end
 
@@ -778,6 +894,12 @@ class Issue::PageView
       else
         method :puts
       end
+  end
+
+  def relative_protocol(url)
+    if url
+      url.sub(/^https?:/, '')
+    end
   end
 
   def truthy? value

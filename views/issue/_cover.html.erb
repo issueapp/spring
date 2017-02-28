@@ -26,16 +26,13 @@
     <figure class="cover-area image" style="background-image: url(<%= asset_path background_image %>)"></figure>
   <% end %>
   <div class="container">
-    <img class="issue-logo" src="<%= asset_path "global/logo-round-white.svg", global: true %>"></img>
-
-    <div class="extra-1"></div>
-    <div class="extra-2"></div>
-
     <hgroup>
       <h2 class="brand" <%= brand_logo_style %>><%= issue.magazine_title %></h2>
       <h1 class="title" <%= title_image_style %>><%= issue.title %></h1>
       <h2 class="description"><%= issue.description %></h2>
     </hgroup>
+    <div class="extra-1"></div>
+    <div class="extra-2"></div>
 
     <a class="browse movein" href="issue://notify/go:next"><span> Start</span></a>
   </div>

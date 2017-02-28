@@ -56,10 +56,10 @@ class LocalIssue < Hashie::Mash
 
     issue_paths = Dir[glob_pattern]
     case issue_paths.count
-    when 0
-      raise ArgumentError, "Issue not found: #{path}"
     when 1
       issue_path = Pathname(issue_paths.first)
+    when 0
+      raise ArgumentError, "Issue not found: #{path}"
     else
       raise ArgumentError, "Ambiguous match: #{issue_paths}"
     end
