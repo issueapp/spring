@@ -348,8 +348,73 @@ class Issue::PageView
         end
       end
     end
+    html = decorate_hotspots(html)
     html = html.html_safe if html_safe && html.respond_to?(:html_safe)
     html
+  end
+
+  def decorate_hotspots html
+    doc = Nokogiri::HTML.fragment('<div>' << html << '</div>')
+
+    json['links'].each do |hotspot|
+      if hotspot['hotspot'] && hotspot['target']
+        doc.search(hotspot['target']).each do |target|
+          decorate_hotspot(target, hotspot)
+        end
+      end
+    end
+
+    json['products'].each do |hotspot|
+      if hotspot['target']
+        doc.search(hotspot['target']).each do |target|
+          decorate_hotspot(target, hotspot, :product)
+        end
+      end
+    end
+
+    doc.child.inner_html
+  end
+
+  def decorate_hotspot node, hotspot, type=:link
+    anchor_class = %W[
+      hotspot
+      #{hotspot['theme']}
+      #{hotspot['position']}
+      #{hotspot['custom_class']}
+      #{'show_label' if hotspot['show_label']}
+      #{'product' if type == :product}
+    ].join(' ')
+    anchor_attributes = {
+      class: anchor_class,
+      href: hotspot['link']
+    }
+
+    if hotspot['hotspot']
+      anchor_attributes['data-hotspot'] = hotspot['hotspot']
+    end
+
+    anchor = create_element('a', anchor_attributes)
+
+    if hotspot['image_url']
+      url = relative_protocol(hotspot['image_url'])
+      anchor << create_element('img', src: url)
+    end
+
+    index = type == :product ? hotspot['index'] : ''
+    anchor << create_element('i', index)
+
+    anchor << create_element(
+      'span',
+      {class: "#{hotspot['label_position']}"},
+      hotspot['title']
+    )
+
+    case node.name
+    when 'a'
+      node.replace anchor
+    else
+      node << anchor
+    end
   end
 
   def asset_path value
