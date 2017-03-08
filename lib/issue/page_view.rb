@@ -395,14 +395,12 @@ class Issue::PageView
 
     anchor = create_element('a', anchor_attributes)
 
-    if hotspot['image_url']
+    if type == :product && hotspot['image_url'] && node['class'].include?('product-set')
       url = relative_protocol(hotspot['image_url'])
       anchor << create_element('img', src: url)
     end
 
-    index = type == :product ? hotspot['index'] : ''
-    anchor << create_element('i', index)
-
+    anchor << create_element('i', hotspot['index'])
     anchor << create_element(
       'span',
       {class: "#{hotspot['label_position']}"},
