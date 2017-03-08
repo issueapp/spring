@@ -357,7 +357,7 @@ class Issue::PageView
     doc = Nokogiri::HTML.fragment('<div>' << html << '</div>')
 
     json['links'].each do |hotspot|
-      if hotspot['hotspot'] && hotspot['target']
+      if hotspot['target']
         doc.search(hotspot['target']).each do |target|
           decorate_hotspot(target, hotspot)
         end
@@ -383,7 +383,7 @@ class Issue::PageView
       #{hotspot['custom_class']}
       #{'show_label' if hotspot['show_label']}
       #{'product' if type == :product}
-    ].join(' ')
+    ].reject(&:blank?).join(' ')
     anchor_attributes = {
       class: anchor_class,
       href: hotspot['link']
@@ -411,7 +411,25 @@ class Issue::PageView
 
     case node.name
     when 'a'
+      node.attributes.each do |name, value|
+        case name
+        when 'href'
+          anchor[name] = value if anchor[name].blank?
+        when 'class'
+          anchor['class'] += " #{value}"
+        else
+          anchor[name] = value
+        end
+      end
       node.replace anchor
+    when 'ul'
+      if node['class'].include? 'product-set'
+        li = create_element('li')
+        li << anchor
+        node << li
+      else
+        raise 'Node must be ul.product-set'
+      end
     else
       node << anchor
     end
