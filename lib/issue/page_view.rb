@@ -381,7 +381,7 @@ class Issue::PageView
       #{hotspot['theme']}
       #{hotspot['position']}
       #{hotspot['custom_class']}
-      #{'show_label' if hotspot['show_label']}
+      #{'show-label' if hotspot['show_label']}
       #{'product' if type == :product}
     ].reject(&:blank?).join(' ')
     anchor_attributes = {
