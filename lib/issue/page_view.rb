@@ -206,32 +206,19 @@ class Issue::PageView
   end
 
   def products_class_name
-    class_name = 'product-set'
     count = page.products.count == 9 ? 9 : [(page.products.count/2.0).ceil*2, 6].min
-
-    class_name << " set-#{count}"
+    "set-#{count}"
   end
 
   def product_set_html
-    container_class = self.products_class_name
+    container_class = 'product-set'
+    container_class << " #{self.products_class_name}"
     container_class << ' cover-area' unless page.cover
 
-    fragment = create_element('ul', :class => container_class) do |ul|
-      json['products'].each do |product|
-        ul << create_element('li') do |li|
-          attributes = product_hotspot_attributes(product)
-
-          li << create_element('a', attributes) do |a|
-            a << create_element('img', :src => attributes[:'data-image'])
-            a << create_element('span', product['title'], :class => 'label') if product['style']&.[]('show_label')
-            a << create_element('span', product['index'], :class => 'tag')
-          end
-        end
-      end
-    end
-
-    html = fragment.to_html
+    html = %{<ul class="#{container_class}"></ul>}
+    html = decorate_hotspots html, { links: false, products: 'ul.product-set' }
     html = html.html_safe if html.respond_to? :html_safe
+
     html
   end
 
@@ -353,21 +340,30 @@ class Issue::PageView
     html
   end
 
-  def decorate_hotspots html
+  def decorate_hotspots html, options = {}
     doc = Nokogiri::HTML.fragment('<div>' << html << '</div>')
 
-    json['links'].each do |hotspot|
-      if hotspot['target']
-        doc.search(hotspot['target']).each do |target|
-          decorate_hotspot(target, hotspot)
+    links = options.key?(:links) ? options[:links] : true
+
+    if links
+      json['links'].each do |hotspot|
+        if hotspot['target']
+          doc.search(hotspot['target']).each do |target|
+            decorate_hotspot(target, hotspot)
+          end
         end
       end
     end
 
-    json['products'].each do |hotspot|
-      if hotspot['target']
-        doc.search(hotspot['target']).each do |target|
-          decorate_hotspot(target, hotspot, :product)
+    products = options.key?(:products) ? options[:products] : true
+
+    if products
+      json['products'].each do |hotspot|
+        target = hotspot['target'] || products
+        if target.is_a? String
+          doc.search(target).each do |target|
+            decorate_hotspot(target, hotspot, :product)
+          end
         end
       end
     end
@@ -520,21 +516,6 @@ class Issue::PageView
     end
 
     @affiliate_urls[url] || url
-  end
-
-  def product_hotspot_attributes product
-    {
-      :href => affiliate_url(product['link']),
-      :class => 'product hotspot',
-      :title => product['title'],
-      :'data-image' => product['image_url'],
-      #:'data-track' => 'hotspot:click',
-      #:'data-action' => product[:action],
-      #:'data-url' => product['link'],
-      #:'data-price' => product[:price],
-      #:'data-currency' =>  product[:currency],
-      #:'data-description' => product[:description],
-    }
   end
 
   def empty_content? content
