@@ -128,8 +128,11 @@ class IssuePreview < Sinatra::Base
 
     mime_type = asset ? asset.content_type : MIME::Types.type_for(file).first.content_type
 
-    if mime_type == "application/mp4"
-      return send_file current_issue.path.join('assets').join(file), type: "video/mp4"
+    if mime_type == "video/mp4"
+      file = Rack::File.new(:rotten)
+      file.path = asset.to_path
+      return file.serving(env)
+
     elsif mime_type.include?('css')
       source = AutoprefixerRails.process(asset.to_s, from: file, browsers: ['> 1%', 'ie 10']).css
     else
