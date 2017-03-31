@@ -8,38 +8,40 @@
   data-page-id="<%= page.id %>"
   data-page="<%= page.path %>"
 >
-  <%= page.cover_html if page.cover? %>
+  <div class="container">
+    <%= page.cover_html if page.cover? %>
 
-  <div class="content">
-    <header>
-      <% if page.category %>
-        <span class="category"><%= page.category %></span>
-      <% end %>
+    <div class="content">
+      <header>
+        <% if page.category %>
+          <span class="category"><%= page.category %></span>
+        <% end %>
 
-      <% if page.title %>
-        <h1 class="title <%= page.style.title_style %>"
-          <% if page.show_title_image? %>
-            style="background-image: url(<%= page.title_image_url %>)"
+        <% if page.title %>
+          <h1 class="title <%= page.style.title_style %>"
+            <% if page.show_title_image? %>
+              style="background-image: url(<%= page.title_image_url %>)"
+            <% end %>
+            ><%= page.title %></h1>
+        <% end %>
+
+        <% if page.author || page.summary %>
+        <div class="extras">
+          <% if page.show_author? %>
+            <img src="<%= page.author.icon %>" class="avatar">
+            <em>by <%= page.author.name %></em>
           <% end %>
-          ><%= page.title %></h1>
-      <% end %>
 
-      <% if page.author || page.summary %>
-      <div class="extras">
-        <% if page.show_author? %>
-          <img src="<%= page.author.icon %>" class="avatar">
-          <em>by <%= page.author.name %></em>
+          <% if page.summary %>
+            <p><%= page.summary %></p>
+          <% end %>
+        </div>
         <% end %>
+      </header>
 
-        <% if page.summary %>
-          <p><%= page.summary %></p>
-        <% end %>
+      <div class="body">
+        <%= page.content_html %>
       </div>
-      <% end %>
-    </header>
-
-    <div class="body">
-      <%= page.content_html %>
     </div>
   </div>
 
