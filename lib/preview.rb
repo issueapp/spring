@@ -8,7 +8,6 @@ require 'hashie/mash'
 require 'local_issue'
 require 'local_issue/page'
 require 'local_issue/custom_css'
-require 'issue/page_view'
 
 class IssuePreview < Sinatra::Base
 
@@ -145,6 +144,8 @@ class IssuePreview < Sinatra::Base
 
   # Page and subpage
   get %r{/(?<magazine>[^\/]+)/(?<issue>[^\/]+)/(?<page>[^\/\.]+)(?:\/(?<subpage>[^\/\.]+))?\.?(?<format>json)?} do
+
+    require 'issue/page_view'
 
     issue = current_issue
     path = File.join(params.values_at('page', 'subpage').compact)

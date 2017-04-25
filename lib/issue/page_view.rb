@@ -9,6 +9,7 @@ require 'uri'
 
 Struct.new('Author', :name, :icon)
 
+Issue rescue Issue = Module.new
 class Issue::PageView
 
   YOUTUBE_RE = %r{youtube\.com/watch\?v=(.+)}
