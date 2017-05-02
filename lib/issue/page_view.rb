@@ -317,7 +317,7 @@ class Issue::PageView
         type, media = find_element(node['data-media-id'])
 
         unless media
-          raise "Media not found: #{node['data-media-id']}"
+          raise "Media #{node['data-media-id']} not found in page #{page.path}"
           next
         end
 
