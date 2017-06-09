@@ -649,8 +649,8 @@ class Issue::PageView
         memo[n.node_name] = n.value if n.value.present?
         memo
       end
-      #options[:type] = video['type'] if video['type'].present?
-      #options[:src] = video_url
+      options[:type] = video['type'] if video['type'].present?
+      options[:src] = video_url
       value = html5_attribute_value(video['autoplay'], 'autoplay')
       options[:autoplay] = value if value
       %w[controls loop muted].each do |a|
