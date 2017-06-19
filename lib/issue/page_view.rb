@@ -7,7 +7,7 @@ require 'nokogiri'
 require 'timeout'
 require 'uri'
 
-Struct.new('Author', :name, :icon)
+Struct.new('Author', :name, :icon, :image)
 
 Issue rescue Issue = Module.new
 class Issue::PageView
@@ -144,11 +144,8 @@ class Issue::PageView
   def author
     return page.author if page.author
 
-    name = page.author_name
-    icon = page.author_icon if page.respond_to? 'author_icon'
-
-    if name
-      Struct::Author.new(name, icon)
+    if name = page.author_name
+      Struct::Author.new(name, nil, nil)
     end
   end
 
