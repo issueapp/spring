@@ -11,11 +11,6 @@ require 'local_issue/custom_css'
 
 class IssuePreview < Sinatra::Base
 
-  unless defined?(Rails)
-    require 'sinatra/asset_pipeline'
-    register Sinatra::AssetPipeline
-  end
-
   helpers Sinatra::ContentFor
 
   set :root, File.expand_path("../../", __FILE__)
