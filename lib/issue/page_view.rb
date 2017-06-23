@@ -142,9 +142,9 @@ class Issue::PageView
   end
 
   def author
-    return page.author if page.author
-
-    if name = page.author_name
+    if page.author
+      page.author
+    elsif name = page.author_name
       Struct::Author.new(name, nil, nil)
     end
   end
@@ -247,6 +247,12 @@ class Issue::PageView
     if cover = hash['cover']
       cover['url'] = local_page_asset_path(cover['url']) if cover['url']
       cover['thumb_url'] = local_page_asset_path(cover['thumb_url']) if cover['thumb_url']
+    end
+
+    if author = hash['author']
+      if icon = author['icon']
+        author['icon'] = local_page_asset_path(icon)
+      end
     end
 
     %w[audios images videos].each do |element|

@@ -54,7 +54,7 @@
       <% issue.all_pages(exclude: %w[index toc], root: true).each do |page| %>
         <% page = Issue::PageView.new(page) %>
 
-        <li style="background-image: url(<%= page&.cover&.url %>);">
+        <li style="background-image: url(<%= asset_path page&.cover&.url %>);">
           <a class="toc" href="<%= page.path + page_ext %>" data-app-view="magazine">
             <span class="category"><%= page.category %></span>
             <span class="story"><%= page.title %></span>

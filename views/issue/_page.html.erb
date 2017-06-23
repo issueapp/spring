@@ -38,7 +38,7 @@
           <% if page.show_author? %>
             <a class="user small">
               <% if page.author.icon %>
-                <img src="<%= page.author.icon %>" class="image">
+                <img src="<%= asset_path page.author.icon %>" class="image">
               <% end %>
               <em class="name"><span class="author-by">By </span><%= page.author.name %></em>
             </a>
