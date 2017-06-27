@@ -313,7 +313,7 @@ class Issue::PageView
     json.gsub!(%r{https?://issue\.}, '//issue.')
     json = ::MultiJson.load(json)
 
-    html = Mustache.render(content, json)
+    html = Mustache.render(content.to_s, json)
 
     html = decorate_content(html, options) do |doc|
       doc.search('[data-media-id]').each do |node|
