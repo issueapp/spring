@@ -55,7 +55,7 @@
         <% page = Issue::PageView.new(page) %>
 
         <li style="background-image: url(<%= asset_path page&.cover&.url %>);">
-          <a class="toc" href="<%= page.path + page_ext %>" data-app-view="magazine">
+          <a class="toc" href="<%= page.path + page_ext %>" title="<%= page.title %>" data-app-view="magazine" data-page-path="<%= page.path %>">
             <span class="category"><%= page.category %></span>
             <span class="story"><%= page.title %></span>
             <span class="author"><%= "By #{page.author.name}" if page.author %></span>
