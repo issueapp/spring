@@ -9,7 +9,7 @@
 <%= keyframe %>
 <% end %>
 
-#<%= issue.handle %>-issue {
+#issue-<%= issue.handle %> {
 <%= issue_scss.gsub(/^/, '  ') %>
 
 <% for style_path in style_paths %>
