@@ -707,6 +707,8 @@ class Issue::PageView
           decorated = create_element('figure', figure_attributes)
         end
 
+        decorated << create_element('a', { class: 'video-play', href: '#' })
+
         if options[:width] && options[:height]
           padding_style = "max-height: #{options[:height]}px;"
           padding_style << " padding-bottom: #{100/(options[:width].to_f/options[:height])}%;"

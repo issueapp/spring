@@ -20,6 +20,7 @@
 <article id="issue_cover" class="magazine cover page fullscreen dark-theme animate <%=  issue.try(:style).try(:custom_class) %>" data-page="index" data-theme="black">
   <% if video_cover %>
     <figure class="cover-area video">
+      <a class="video-play" href="#"></a>
       <video src="<%= issue.cover_url %>" type="video/mp4" data-autoplay="true" loop=""></video>
     </figure>
   <% else %>
