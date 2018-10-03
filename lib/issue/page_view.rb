@@ -854,7 +854,7 @@ class Issue::PageView
     source = %{data-src="#{embed_url}"}
 
     %{<div class="iframe-wrapper-top"></div>
-      <iframe #{source} #{autoplay} frameborder="0" width="#{width}" height="#{height}" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+      <iframe #{source} #{autoplay} frameborder="0" width="#{width}" height="#{height}" webkitallowfullscreen mozallowfullscreen allowfullscreen allow="autoplay"></iframe>
       <div class="iframe-wrapper-bottom"></div>}
   end
 
