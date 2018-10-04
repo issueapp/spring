@@ -187,6 +187,7 @@ class Issue::PageView
         type = cover['type']
 
         if is_video = type&.include?('video')
+          cover['playsinline'] = true
           decorate_video(node, cover)
 
         elsif is_image = type&.include?('image')
@@ -724,7 +725,15 @@ class Issue::PageView
 
         else
           value = options.delete(:autoplay)
-          options[:'data-autoplay'] = value if value
+          if value
+            options[:'autoplay'] = true
+            options[:'data-autoplay'] = value
+          end
+
+          if video['playsinline']
+            options[:'playsinline'] = true
+          end
+
           options.delete('class')
 
           video_node = create_element('video', options)
